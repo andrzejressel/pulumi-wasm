@@ -61,61 +61,28 @@ pub mod get_managed_database {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "longTermRetentionPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRestores".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortTermRetentionDays".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetManagedDatabaseResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             long_term_retention_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longTermRetentionPolicies").unwrap(),
+                o.extract_field("longTermRetentionPolicies"),
             ),
             managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceId").unwrap(),
+                o.extract_field("managedInstanceId"),
             ),
             managed_instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceName").unwrap(),
+                o.extract_field("managedInstanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             point_in_time_restores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRestores").unwrap(),
+                o.extract_field("pointInTimeRestores"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             short_term_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortTermRetentionDays").unwrap(),
+                o.extract_field("shortTermRetentionDays"),
             ),
         }
     }

@@ -1121,273 +1121,131 @@ pub mod group {
                     value: &warm_pool_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneDistribution".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityRebalance".into(),
-                },
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCooldown".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultInstanceWarmup".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredCapacityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDeleteWarmPool".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckGracePeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreFailedScalingActivities".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialLifecycleHooks".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMaintenancePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceRefresh".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancers".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxInstanceLifetime".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsGranularity".into(),
-                },
-                register_interface::ResultField {
-                    name: "minElbCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "minSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "mixedInstancesPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "predictedCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectFromScaleIn".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLinkedRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "suspendedProcesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetGroupArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminationPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcZoneIdentifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForCapacityTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForElbCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "warmPool".into(),
-                },
-                register_interface::ResultField {
-                    name: "warmPoolSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone_distribution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneDistribution").unwrap(),
+                o.extract_field("availabilityZoneDistribution"),
             ),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             capacity_rebalance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityRebalance").unwrap(),
+                o.extract_field("capacityRebalance"),
             ),
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
             default_cooldown: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCooldown").unwrap(),
+                o.extract_field("defaultCooldown"),
             ),
             default_instance_warmup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultInstanceWarmup").unwrap(),
+                o.extract_field("defaultInstanceWarmup"),
             ),
             desired_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredCapacity").unwrap(),
+                o.extract_field("desiredCapacity"),
             ),
             desired_capacity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredCapacityType").unwrap(),
+                o.extract_field("desiredCapacityType"),
             ),
             enabled_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledMetrics").unwrap(),
+                o.extract_field("enabledMetrics"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             force_delete_warm_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDeleteWarmPool").unwrap(),
+                o.extract_field("forceDeleteWarmPool"),
             ),
             health_check_grace_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckGracePeriod").unwrap(),
+                o.extract_field("healthCheckGracePeriod"),
             ),
             health_check_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckType").unwrap(),
+                o.extract_field("healthCheckType"),
             ),
             ignore_failed_scaling_activities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreFailedScalingActivities").unwrap(),
+                o.extract_field("ignoreFailedScalingActivities"),
             ),
             initial_lifecycle_hooks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialLifecycleHooks").unwrap(),
+                o.extract_field("initialLifecycleHooks"),
             ),
             instance_maintenance_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMaintenancePolicy").unwrap(),
+                o.extract_field("instanceMaintenancePolicy"),
             ),
             instance_refresh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceRefresh").unwrap(),
+                o.extract_field("instanceRefresh"),
             ),
             launch_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchConfiguration").unwrap(),
+                o.extract_field("launchConfiguration"),
             ),
             launch_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplate").unwrap(),
+                o.extract_field("launchTemplate"),
             ),
             load_balancers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancers").unwrap(),
+                o.extract_field("loadBalancers"),
             ),
             max_instance_lifetime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxInstanceLifetime").unwrap(),
+                o.extract_field("maxInstanceLifetime"),
             ),
             max_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSize").unwrap(),
+                o.extract_field("maxSize"),
             ),
             metrics_granularity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsGranularity").unwrap(),
+                o.extract_field("metricsGranularity"),
             ),
             min_elb_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minElbCapacity").unwrap(),
+                o.extract_field("minElbCapacity"),
             ),
             min_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minSize").unwrap(),
+                o.extract_field("minSize"),
             ),
             mixed_instances_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mixedInstancesPolicy").unwrap(),
+                o.extract_field("mixedInstancesPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             placement_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroup").unwrap(),
+                o.extract_field("placementGroup"),
             ),
             predicted_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predictedCapacity").unwrap(),
+                o.extract_field("predictedCapacity"),
             ),
             protect_from_scale_in: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectFromScaleIn").unwrap(),
+                o.extract_field("protectFromScaleIn"),
             ),
             service_linked_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLinkedRoleArn").unwrap(),
+                o.extract_field("serviceLinkedRoleArn"),
             ),
             suspended_processes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suspendedProcesses").unwrap(),
+                o.extract_field("suspendedProcesses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_group_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetGroupArns").unwrap(),
+                o.extract_field("targetGroupArns"),
             ),
             termination_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminationPolicies").unwrap(),
+                o.extract_field("terminationPolicies"),
             ),
             traffic_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficSources").unwrap(),
+                o.extract_field("trafficSources"),
             ),
             vpc_zone_identifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcZoneIdentifiers").unwrap(),
+                o.extract_field("vpcZoneIdentifiers"),
             ),
             wait_for_capacity_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForCapacityTimeout").unwrap(),
+                o.extract_field("waitForCapacityTimeout"),
             ),
             wait_for_elb_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForElbCapacity").unwrap(),
+                o.extract_field("waitForElbCapacity"),
             ),
             warm_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warmPool").unwrap(),
+                o.extract_field("warmPool"),
             ),
             warm_pool_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warmPoolSize").unwrap(),
+                o.extract_field("warmPoolSize"),
             ),
         }
     }

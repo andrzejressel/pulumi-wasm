@@ -68,91 +68,43 @@ pub mod get_policy_assignment {
                     value: &scope_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enforce".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonComplianceMessages".into(),
-                },
-                register_interface::ResultField {
-                    name: "notScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPolicyAssignmentResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enforce: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enforce").unwrap(),
+                o.extract_field("enforce"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             non_compliance_messages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonComplianceMessages").unwrap(),
+                o.extract_field("nonComplianceMessages"),
             ),
             not_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notScopes").unwrap(),
+                o.extract_field("notScopes"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             policy_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionId").unwrap(),
+                o.extract_field("policyDefinitionId"),
             ),
             scope_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeId").unwrap(),
+                o.extract_field("scopeId"),
             ),
         }
     }

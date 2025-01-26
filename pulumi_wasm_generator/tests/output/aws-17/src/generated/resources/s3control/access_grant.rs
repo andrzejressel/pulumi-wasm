@@ -176,81 +176,39 @@ pub mod access_grant {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessGrantArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessGrantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessGrantsLocationConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessGrantsLocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantee".into(),
-                },
-                register_interface::ResultField {
-                    name: "permission".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3PrefixType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessGrantResult {
             access_grant_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantArn").unwrap(),
+                o.extract_field("accessGrantArn"),
             ),
             access_grant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantId").unwrap(),
+                o.extract_field("accessGrantId"),
             ),
             access_grants_location_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsLocationConfiguration").unwrap(),
+                o.extract_field("accessGrantsLocationConfiguration"),
             ),
             access_grants_location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsLocationId").unwrap(),
+                o.extract_field("accessGrantsLocationId"),
             ),
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             grant_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantScope").unwrap(),
+                o.extract_field("grantScope"),
             ),
             grantee: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantee").unwrap(),
+                o.extract_field("grantee"),
             ),
             permission: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permission").unwrap(),
+                o.extract_field("permission"),
             ),
             s3_prefix_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3PrefixType").unwrap(),
+                o.extract_field("s3PrefixType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

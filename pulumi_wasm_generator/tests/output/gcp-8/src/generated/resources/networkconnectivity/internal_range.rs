@@ -377,106 +377,46 @@ pub mod internal_range {
                     value: &usage_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipCidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "migration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "overlaps".into(),
-                },
-                register_interface::ResultField {
-                    name: "peering".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCidrRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "usage".into(),
-                },
-                register_interface::ResultField {
-                    name: "users".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InternalRangeResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipCidrRange").unwrap(),
+                o.extract_field("ipCidrRange"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             migration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("migration").unwrap(),
+                o.extract_field("migration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             overlaps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overlaps").unwrap(),
+                o.extract_field("overlaps"),
             ),
             peering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peering").unwrap(),
+                o.extract_field("peering"),
             ),
             prefix_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixLength").unwrap(),
+                o.extract_field("prefixLength"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             target_cidr_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCidrRanges").unwrap(),
+                o.extract_field("targetCidrRanges"),
             ),
-            usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usage").unwrap(),
-            ),
-            users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("users").unwrap(),
-            ),
+            usage: pulumi_wasm_rust::__private::into_domain(o.extract_field("usage")),
+            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

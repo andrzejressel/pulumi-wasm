@@ -60,21 +60,11 @@ pub mod certificate {
                     value: &certificate_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
             certificate_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateIdentifier").unwrap(),
+                o.extract_field("certificateIdentifier"),
             ),
         }
     }

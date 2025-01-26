@@ -125,40 +125,17 @@ pub mod powershell_72_module {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "moduleLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         Powershell72ModuleResult {
             automation_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountId").unwrap(),
+                o.extract_field("automationAccountId"),
             ),
             module_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("moduleLink").unwrap(),
+                o.extract_field("moduleLink"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

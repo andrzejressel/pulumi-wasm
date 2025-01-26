@@ -173,69 +173,31 @@ pub mod hci_extension {
                     value: &type_handler_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arcSettingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoUpgradeMinorVersionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticUpgradeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisher".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeHandlerVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HciExtensionResult {
             arc_setting_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arcSettingId").unwrap(),
+                o.extract_field("arcSettingId"),
             ),
             auto_upgrade_minor_version_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoUpgradeMinorVersionEnabled").unwrap(),
+                o.extract_field("autoUpgradeMinorVersionEnabled"),
             ),
             automatic_upgrade_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticUpgradeEnabled").unwrap(),
+                o.extract_field("automaticUpgradeEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protected_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedSettings").unwrap(),
+                o.extract_field("protectedSettings"),
             ),
             publisher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisher").unwrap(),
+                o.extract_field("publisher"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             type_handler_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeHandlerVersion").unwrap(),
+                o.extract_field("typeHandlerVersion"),
             ),
         }
     }

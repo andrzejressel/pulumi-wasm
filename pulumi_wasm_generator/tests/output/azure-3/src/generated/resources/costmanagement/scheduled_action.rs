@@ -210,99 +210,46 @@ pub mod scheduled_action {
                     value: &weeks_of_months_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dayOfMonth".into(),
-                },
-                register_interface::ResultField {
-                    name: "daysOfWeeks".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddressSender".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailSubject".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "hourOfDay".into(),
-                },
-                register_interface::ResultField {
-                    name: "message".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "viewId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeksOfMonths".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduledActionResult {
             day_of_month: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dayOfMonth").unwrap(),
+                o.extract_field("dayOfMonth"),
             ),
             days_of_weeks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("daysOfWeeks").unwrap(),
+                o.extract_field("daysOfWeeks"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             email_address_sender: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddressSender").unwrap(),
+                o.extract_field("emailAddressSender"),
             ),
             email_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddresses").unwrap(),
+                o.extract_field("emailAddresses"),
             ),
             email_subject: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailSubject").unwrap(),
+                o.extract_field("emailSubject"),
             ),
             end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDate").unwrap(),
+                o.extract_field("endDate"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
             hour_of_day: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hourOfDay").unwrap(),
+                o.extract_field("hourOfDay"),
             ),
             message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("message").unwrap(),
+                o.extract_field("message"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDate").unwrap(),
+                o.extract_field("startDate"),
             ),
-            view_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("viewId").unwrap(),
-            ),
+            view_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("viewId")),
             weeks_of_months: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeksOfMonths").unwrap(),
+                o.extract_field("weeksOfMonths"),
             ),
         }
     }

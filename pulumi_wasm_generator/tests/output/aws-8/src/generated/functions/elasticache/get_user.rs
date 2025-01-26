@@ -100,61 +100,26 @@ pub mod get_user {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessString".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationModes".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "noPasswordRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwords".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUserResult {
             access_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessString").unwrap(),
+                o.extract_field("accessString"),
             ),
             authentication_modes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationModes").unwrap(),
+                o.extract_field("authenticationModes"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             no_password_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noPasswordRequired").unwrap(),
+                o.extract_field("noPasswordRequired"),
             ),
             passwords: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwords").unwrap(),
+                o.extract_field("passwords"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

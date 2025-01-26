@@ -72,27 +72,14 @@ pub mod availability_zone_group {
                     value: &opt_in_status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "optInStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AvailabilityZoneGroupResult {
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
             opt_in_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optInStatus").unwrap(),
+                o.extract_field("optInStatus"),
             ),
         }
     }

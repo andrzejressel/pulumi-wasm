@@ -52,37 +52,18 @@ pub mod get_subscriptions {
                     value: &display_name_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayNameContains".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayNamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSubscriptionsResult {
             display_name_contains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayNameContains").unwrap(),
+                o.extract_field("displayNameContains"),
             ),
             display_name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayNamePrefix").unwrap(),
+                o.extract_field("displayNamePrefix"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             subscriptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptions").unwrap(),
+                o.extract_field("subscriptions"),
             ),
         }
     }

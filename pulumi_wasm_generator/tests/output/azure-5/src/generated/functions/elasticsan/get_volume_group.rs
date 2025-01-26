@@ -58,61 +58,28 @@ pub mod get_volume_group {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "elasticSanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVolumeGroupResult {
             elastic_san_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticSanId").unwrap(),
+                o.extract_field("elasticSanId"),
             ),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
             encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptions").unwrap(),
+                o.extract_field("encryptions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRules").unwrap(),
+                o.extract_field("networkRules"),
             ),
             protocol_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolType").unwrap(),
+                o.extract_field("protocolType"),
             ),
         }
     }

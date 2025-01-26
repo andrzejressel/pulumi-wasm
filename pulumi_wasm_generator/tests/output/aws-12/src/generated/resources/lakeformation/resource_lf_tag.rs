@@ -147,51 +147,22 @@ pub mod resource_lf_tag {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "lfTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "table".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableWithColumns".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceLfTagResult {
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
-            lf_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lfTag").unwrap(),
-            ),
-            table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("table").unwrap(),
-            ),
+            lf_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("lfTag")),
+            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
             table_with_columns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableWithColumns").unwrap(),
+                o.extract_field("tableWithColumns"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

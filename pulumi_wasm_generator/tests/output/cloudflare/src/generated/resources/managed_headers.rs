@@ -99,34 +99,16 @@ pub mod managed_headers {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "managedRequestHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResponseHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedHeadersResult {
             managed_request_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedRequestHeaders").unwrap(),
+                o.extract_field("managedRequestHeaders"),
             ),
             managed_response_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResponseHeaders").unwrap(),
+                o.extract_field("managedResponseHeaders"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

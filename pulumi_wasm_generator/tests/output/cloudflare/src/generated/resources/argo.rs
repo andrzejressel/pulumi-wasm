@@ -81,34 +81,16 @@ pub mod argo {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "smartRouting".into(),
-                },
-                register_interface::ResultField {
-                    name: "tieredCaching".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ArgoResult {
             smart_routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smartRouting").unwrap(),
+                o.extract_field("smartRouting"),
             ),
             tiered_caching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tieredCaching").unwrap(),
+                o.extract_field("tieredCaching"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

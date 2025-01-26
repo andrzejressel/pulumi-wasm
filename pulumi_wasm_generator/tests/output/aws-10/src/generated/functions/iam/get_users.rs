@@ -46,43 +46,17 @@ pub mod get_users {
                     value: &path_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arns".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUsersResult {
-            arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arns").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             name_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameRegex").unwrap(),
+                o.extract_field("nameRegex"),
             ),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
             path_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathPrefix").unwrap(),
+                o.extract_field("pathPrefix"),
             ),
         }
     }

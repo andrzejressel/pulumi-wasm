@@ -126,27 +126,14 @@ pub mod network_interface_application_security_group_association {
                     value: &network_interface_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkInterfaceApplicationSecurityGroupAssociationResult {
             application_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSecurityGroupId").unwrap(),
+                o.extract_field("applicationSecurityGroupId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
         }
     }

@@ -136,45 +136,21 @@ pub mod spring_cloud_app_redis_association {
                     value: &ssl_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisCacheId".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudAppRedisAssociationResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redis_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisAccessKey").unwrap(),
+                o.extract_field("redisAccessKey"),
             ),
             redis_cache_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisCacheId").unwrap(),
+                o.extract_field("redisCacheId"),
             ),
             spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAppId").unwrap(),
+                o.extract_field("springCloudAppId"),
             ),
             ssl_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslEnabled").unwrap(),
+                o.extract_field("sslEnabled"),
             ),
         }
     }

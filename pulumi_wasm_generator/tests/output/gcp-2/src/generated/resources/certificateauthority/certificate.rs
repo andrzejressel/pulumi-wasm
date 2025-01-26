@@ -688,129 +688,55 @@ pub mod certificate {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateAuthority".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateDescriptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuerCertificateAuthority".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifetime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemCertificateChains".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemCsr".into(),
-                },
-                register_interface::ResultField {
-                    name: "pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
             certificate_authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthority").unwrap(),
+                o.extract_field("certificateAuthority"),
             ),
             certificate_descriptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateDescriptions").unwrap(),
+                o.extract_field("certificateDescriptions"),
             ),
             certificate_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateTemplate").unwrap(),
+                o.extract_field("certificateTemplate"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             issuer_certificate_authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuerCertificateAuthority").unwrap(),
+                o.extract_field("issuerCertificateAuthority"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             lifetime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifetime").unwrap(),
+                o.extract_field("lifetime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pem_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemCertificate").unwrap(),
+                o.extract_field("pemCertificate"),
             ),
             pem_certificate_chains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemCertificateChains").unwrap(),
+                o.extract_field("pemCertificateChains"),
             ),
-            pem_csr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemCsr").unwrap(),
-            ),
-            pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pool").unwrap(),
-            ),
+            pem_csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("pemCsr")),
+            pool: pulumi_wasm_rust::__private::into_domain(o.extract_field("pool")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             revocation_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationDetails").unwrap(),
+                o.extract_field("revocationDetails"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

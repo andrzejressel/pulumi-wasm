@@ -200,75 +200,36 @@ pub mod alert_rule_ms_security_incident {
                     value: &severity_filters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alertRuleTemplateGuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayNameExcludeFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayNameFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "productFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "severityFilters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AlertRuleMsSecurityIncidentResult {
             alert_rule_template_guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertRuleTemplateGuid").unwrap(),
+                o.extract_field("alertRuleTemplateGuid"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             display_name_exclude_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayNameExcludeFilters").unwrap(),
+                o.extract_field("displayNameExcludeFilters"),
             ),
             display_name_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayNameFilters").unwrap(),
+                o.extract_field("displayNameFilters"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             product_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productFilter").unwrap(),
+                o.extract_field("productFilter"),
             ),
             severity_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severityFilters").unwrap(),
+                o.extract_field("severityFilters"),
             ),
         }
     }

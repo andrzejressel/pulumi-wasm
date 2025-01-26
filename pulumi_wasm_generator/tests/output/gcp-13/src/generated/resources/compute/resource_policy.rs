@@ -389,69 +389,31 @@ pub mod resource_policy {
                     value: &snapshot_schedule_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskConsistencyGroupPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupPlacementPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceSchedulePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotSchedulePolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourcePolicyResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disk_consistency_group_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskConsistencyGroupPolicy").unwrap(),
+                o.extract_field("diskConsistencyGroupPolicy"),
             ),
             group_placement_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupPlacementPolicy").unwrap(),
+                o.extract_field("groupPlacementPolicy"),
             ),
             instance_schedule_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceSchedulePolicy").unwrap(),
+                o.extract_field("instanceSchedulePolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             snapshot_schedule_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotSchedulePolicy").unwrap(),
+                o.extract_field("snapshotSchedulePolicy"),
             ),
         }
     }

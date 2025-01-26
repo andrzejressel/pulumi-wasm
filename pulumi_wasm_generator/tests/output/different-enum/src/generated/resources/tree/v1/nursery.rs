@@ -46,7 +46,6 @@ pub mod nursery {
                     value: &varieties_binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::register(context.get_inner(), &request);
     }

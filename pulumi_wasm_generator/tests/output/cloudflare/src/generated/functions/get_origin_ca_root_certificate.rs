@@ -37,32 +37,16 @@ pub mod get_origin_ca_root_certificate {
                     value: &algorithm_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "algorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "certPem".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOriginCaRootCertificateResult {
             algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("algorithm").unwrap(),
+                o.extract_field("algorithm"),
             ),
             cert_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certPem").unwrap(),
+                o.extract_field("certPem"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

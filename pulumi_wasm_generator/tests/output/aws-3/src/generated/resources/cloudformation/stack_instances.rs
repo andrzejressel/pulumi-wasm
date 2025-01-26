@@ -243,75 +243,36 @@ pub mod stack_instances {
                     value: &stack_set_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "callAs".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationPreferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "regions".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainStacks".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackInstanceSummaries".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackInstancesResult {
             accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accounts").unwrap(),
+                o.extract_field("accounts"),
             ),
-            call_as: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callAs").unwrap(),
-            ),
+            call_as: pulumi_wasm_rust::__private::into_domain(o.extract_field("callAs")),
             deployment_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentTargets").unwrap(),
+                o.extract_field("deploymentTargets"),
             ),
             operation_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationPreferences").unwrap(),
+                o.extract_field("operationPreferences"),
             ),
             parameter_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterOverrides").unwrap(),
+                o.extract_field("parameterOverrides"),
             ),
             regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regions").unwrap(),
+                o.extract_field("regions"),
             ),
             retain_stacks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainStacks").unwrap(),
+                o.extract_field("retainStacks"),
             ),
             stack_instance_summaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackInstanceSummaries").unwrap(),
+                o.extract_field("stackInstanceSummaries"),
             ),
             stack_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetId").unwrap(),
+                o.extract_field("stackSetId"),
             ),
             stack_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetName").unwrap(),
+                o.extract_field("stackSetName"),
             ),
         }
     }

@@ -229,118 +229,58 @@ pub mod account_subscription {
                     value: &realm_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountSubscriptionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "activeDirectoryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstName".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamIdentityCenterInstanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastName".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "readerGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "realm".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountSubscriptionResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             account_subscription_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountSubscriptionStatus").unwrap(),
+                o.extract_field("accountSubscriptionStatus"),
             ),
             active_directory_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectoryName").unwrap(),
+                o.extract_field("activeDirectoryName"),
             ),
             admin_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminGroups").unwrap(),
+                o.extract_field("adminGroups"),
             ),
             authentication_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationMethod").unwrap(),
+                o.extract_field("authenticationMethod"),
             ),
             author_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorGroups").unwrap(),
+                o.extract_field("authorGroups"),
             ),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             contact_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactNumber").unwrap(),
+                o.extract_field("contactNumber"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
             first_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstName").unwrap(),
+                o.extract_field("firstName"),
             ),
             iam_identity_center_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamIdentityCenterInstanceArn").unwrap(),
+                o.extract_field("iamIdentityCenterInstanceArn"),
             ),
             last_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastName").unwrap(),
+                o.extract_field("lastName"),
             ),
             notification_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationEmail").unwrap(),
+                o.extract_field("notificationEmail"),
             ),
             reader_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readerGroups").unwrap(),
+                o.extract_field("readerGroups"),
             ),
-            realm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("realm").unwrap(),
-            ),
+            realm: pulumi_wasm_rust::__private::into_domain(o.extract_field("realm")),
         }
     }
 }

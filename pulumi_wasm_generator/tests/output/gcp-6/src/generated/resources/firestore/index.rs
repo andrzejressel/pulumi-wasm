@@ -245,57 +245,25 @@ pub mod index {
                     value: &query_scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "collection".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "fields".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryScope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IndexResult {
             api_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiScope").unwrap(),
+                o.extract_field("apiScope"),
             ),
             collection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collection").unwrap(),
+                o.extract_field("collection"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fields").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             query_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryScope").unwrap(),
+                o.extract_field("queryScope"),
             ),
         }
     }

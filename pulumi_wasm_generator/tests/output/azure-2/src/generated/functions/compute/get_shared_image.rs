@@ -94,145 +94,64 @@ pub mod get_shared_image {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratedNetworkSupportEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "architecture".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialVmEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialVmSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eula".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hibernationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperVGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "privacyStatementUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "purchasePlans".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseNoteUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "specialized".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchSupported".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSharedImageResult {
             accelerated_network_support_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratedNetworkSupportEnabled").unwrap(),
+                o.extract_field("acceleratedNetworkSupportEnabled"),
             ),
             architecture: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("architecture").unwrap(),
+                o.extract_field("architecture"),
             ),
             confidential_vm_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialVmEnabled").unwrap(),
+                o.extract_field("confidentialVmEnabled"),
             ),
             confidential_vm_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialVmSupported").unwrap(),
+                o.extract_field("confidentialVmSupported"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            eula: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eula").unwrap(),
-            ),
+            eula: pulumi_wasm_rust::__private::into_domain(o.extract_field("eula")),
             gallery_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryName").unwrap(),
+                o.extract_field("galleryName"),
             ),
             hibernation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hibernationEnabled").unwrap(),
+                o.extract_field("hibernationEnabled"),
             ),
             hyper_v_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperVGeneration").unwrap(),
+                o.extract_field("hyperVGeneration"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifiers").unwrap(),
+                o.extract_field("identifiers"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             privacy_statement_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privacyStatementUri").unwrap(),
+                o.extract_field("privacyStatementUri"),
             ),
             purchase_plans: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purchasePlans").unwrap(),
+                o.extract_field("purchasePlans"),
             ),
             release_note_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseNoteUri").unwrap(),
+                o.extract_field("releaseNoteUri"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             specialized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("specialized").unwrap(),
+                o.extract_field("specialized"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchEnabled").unwrap(),
+                o.extract_field("trustedLaunchEnabled"),
             ),
             trusted_launch_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchSupported").unwrap(),
+                o.extract_field("trustedLaunchSupported"),
             ),
         }
     }

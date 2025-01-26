@@ -173,69 +173,33 @@ pub mod vpc_ipam_pool_cidr_allocation {
                     value: &netmask_length_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disallowedCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolAllocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "netmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamPoolCidrAllocationResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disallowed_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disallowedCidrs").unwrap(),
+                o.extract_field("disallowedCidrs"),
             ),
             ipam_pool_allocation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolAllocationId").unwrap(),
+                o.extract_field("ipamPoolAllocationId"),
             ),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netmaskLength").unwrap(),
+                o.extract_field("netmaskLength"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             resource_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwner").unwrap(),
+                o.extract_field("resourceOwner"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
         }
     }

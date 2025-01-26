@@ -100,103 +100,45 @@ pub mod get_multicast_domain {
                     value: &transit_gateway_multicast_domain_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associations".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAcceptSharedAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "igmpv2Support".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticSourcesSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayMulticastDomainId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMulticastDomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associations").unwrap(),
+                o.extract_field("associations"),
             ),
             auto_accept_shared_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAcceptSharedAssociations").unwrap(),
+                o.extract_field("autoAcceptSharedAssociations"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             igmpv2_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("igmpv2Support").unwrap(),
+                o.extract_field("igmpv2Support"),
             ),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
+                o.extract_field("sources"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             static_sources_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticSourcesSupport").unwrap(),
+                o.extract_field("staticSourcesSupport"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
             transit_gateway_multicast_domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayMulticastDomainId").unwrap(),
+                o.extract_field("transitGatewayMulticastDomainId"),
             ),
         }
     }

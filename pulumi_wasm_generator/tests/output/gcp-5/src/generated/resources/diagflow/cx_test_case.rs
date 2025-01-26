@@ -253,69 +253,27 @@ pub mod cx_test_case {
                     value: &test_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastTestResults".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notes".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "testCaseConversationTurns".into(),
-                },
-                register_interface::ResultField {
-                    name: "testConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxTestCaseResult {
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             last_test_results: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastTestResults").unwrap(),
+                o.extract_field("lastTestResults"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            notes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notes").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             test_case_conversation_turns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testCaseConversationTurns").unwrap(),
+                o.extract_field("testCaseConversationTurns"),
             ),
             test_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testConfig").unwrap(),
+                o.extract_field("testConfig"),
             ),
         }
     }

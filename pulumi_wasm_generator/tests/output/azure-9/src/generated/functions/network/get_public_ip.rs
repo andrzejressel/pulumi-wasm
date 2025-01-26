@@ -73,116 +73,46 @@ pub mod get_public_ip {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "ddosProtectionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "ddosProtectionPlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNameLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPublicIpResult {
             allocation_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationMethod").unwrap(),
+                o.extract_field("allocationMethod"),
             ),
             ddos_protection_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ddosProtectionMode").unwrap(),
+                o.extract_field("ddosProtectionMode"),
             ),
             ddos_protection_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ddosProtectionPlanId").unwrap(),
+                o.extract_field("ddosProtectionPlanId"),
             ),
             domain_name_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNameLabel").unwrap(),
+                o.extract_field("domainNameLabel"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeoutInMinutes").unwrap(),
+                o.extract_field("idleTimeoutInMinutes"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
-            ip_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipTags").unwrap(),
-            ),
+            ip_tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipTags")),
             ip_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipVersion").unwrap(),
+                o.extract_field("ipVersion"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             reverse_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseFqdn").unwrap(),
+                o.extract_field("reverseFqdn"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

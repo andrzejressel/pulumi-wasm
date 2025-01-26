@@ -713,237 +713,107 @@ pub mod instance {
                     value: &vm_image_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customGpuDriverPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataDiskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataDiskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredState".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "installGpuDriver".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceOwners".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "nicType".into(),
-                },
-                register_interface::ResultField {
-                    name: "noProxyAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "noPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "noRemoveDataDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "postStartupScript".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "shieldedInstanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnet".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmImage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             accelerator_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorConfig").unwrap(),
+                o.extract_field("acceleratorConfig"),
             ),
             boot_disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiskSizeGb").unwrap(),
+                o.extract_field("bootDiskSizeGb"),
             ),
             boot_disk_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiskType").unwrap(),
+                o.extract_field("bootDiskType"),
             ),
             container_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerImage").unwrap(),
+                o.extract_field("containerImage"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             custom_gpu_driver_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customGpuDriverPath").unwrap(),
+                o.extract_field("customGpuDriverPath"),
             ),
             data_disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDiskSizeGb").unwrap(),
+                o.extract_field("dataDiskSizeGb"),
             ),
             data_disk_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDiskType").unwrap(),
+                o.extract_field("dataDiskType"),
             ),
             desired_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredState").unwrap(),
+                o.extract_field("desiredState"),
             ),
             disk_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryption").unwrap(),
+                o.extract_field("diskEncryption"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             install_gpu_driver: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("installGpuDriver").unwrap(),
+                o.extract_field("installGpuDriver"),
             ),
             instance_owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceOwners").unwrap(),
+                o.extract_field("instanceOwners"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             machine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineType").unwrap(),
+                o.extract_field("machineType"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             nic_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nicType").unwrap(),
+                o.extract_field("nicType"),
             ),
             no_proxy_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noProxyAccess").unwrap(),
+                o.extract_field("noProxyAccess"),
             ),
             no_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noPublicIp").unwrap(),
+                o.extract_field("noPublicIp"),
             ),
             no_remove_data_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noRemoveDataDisk").unwrap(),
+                o.extract_field("noRemoveDataDisk"),
             ),
             post_startup_script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postStartupScript").unwrap(),
+                o.extract_field("postStartupScript"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             proxy_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyUri").unwrap(),
+                o.extract_field("proxyUri"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reservation_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationAffinity").unwrap(),
+                o.extract_field("reservationAffinity"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             service_account_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountScopes").unwrap(),
+                o.extract_field("serviceAccountScopes"),
             ),
             shielded_instance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shieldedInstanceConfig").unwrap(),
+                o.extract_field("shieldedInstanceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            subnet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnet").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            subnet: pulumi_wasm_rust::__private::into_domain(o.extract_field("subnet")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             vm_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmImage").unwrap(),
+                o.extract_field("vmImage"),
             ),
         }
     }

@@ -168,45 +168,21 @@ pub mod endpoint_custom_domain {
                     value: &user_managed_https_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnManagedHttps".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "userManagedHttps".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointCustomDomainResult {
             cdn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnEndpointId").unwrap(),
+                o.extract_field("cdnEndpointId"),
             ),
             cdn_managed_https: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnManagedHttps").unwrap(),
+                o.extract_field("cdnManagedHttps"),
             ),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             user_managed_https: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userManagedHttps").unwrap(),
+                o.extract_field("userManagedHttps"),
             ),
         }
     }

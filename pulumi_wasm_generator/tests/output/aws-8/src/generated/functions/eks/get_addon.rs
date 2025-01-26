@@ -70,80 +70,36 @@ pub mod get_addon {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonName".into(),
-                },
-                register_interface::ResultField {
-                    name: "addonVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "podIdentityAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAddonResult {
             addon_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonName").unwrap(),
+                o.extract_field("addonName"),
             ),
             addon_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonVersion").unwrap(),
+                o.extract_field("addonVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             configuration_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationValues").unwrap(),
+                o.extract_field("configurationValues"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             modified_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedAt").unwrap(),
+                o.extract_field("modifiedAt"),
             ),
             pod_identity_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("podIdentityAssociations").unwrap(),
+                o.extract_field("podIdentityAssociations"),
             ),
             service_account_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountRoleArn").unwrap(),
+                o.extract_field("serviceAccountRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

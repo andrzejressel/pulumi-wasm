@@ -199,63 +199,32 @@ pub mod access_policy {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "storagePermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessPolicyResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             certificate_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePermissions").unwrap(),
+                o.extract_field("certificatePermissions"),
             ),
             key_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPermissions").unwrap(),
+                o.extract_field("keyPermissions"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             secret_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretPermissions").unwrap(),
+                o.extract_field("secretPermissions"),
             ),
             storage_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storagePermissions").unwrap(),
+                o.extract_field("storagePermissions"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

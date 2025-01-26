@@ -79,52 +79,23 @@ pub mod image_version {
                     value: &image_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImageVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseImage").unwrap(),
+                o.extract_field("baseImage"),
             ),
             container_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerImage").unwrap(),
+                o.extract_field("containerImage"),
             ),
             image_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageArn").unwrap(),
+                o.extract_field("imageArn"),
             ),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

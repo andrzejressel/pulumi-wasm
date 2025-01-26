@@ -200,34 +200,16 @@ pub mod settings {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SettingsResult {
             access_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessSettings").unwrap(),
+                o.extract_field("accessSettings"),
             ),
             application_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSettings").unwrap(),
+                o.extract_field("applicationSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

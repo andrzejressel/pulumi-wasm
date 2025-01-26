@@ -133,93 +133,43 @@ pub mod vpc_attachment_accepter {
                     value: &transit_gateway_default_route_table_propagation_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applianceModeSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Support".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupReferencingSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayDefaultRouteTableAssociation".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayDefaultRouteTablePropagation".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOwnerId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcAttachmentAccepterResult {
             appliance_mode_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applianceModeSupport").unwrap(),
+                o.extract_field("applianceModeSupport"),
             ),
             dns_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSupport").unwrap(),
+                o.extract_field("dnsSupport"),
             ),
             ipv6_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Support").unwrap(),
+                o.extract_field("ipv6Support"),
             ),
             security_group_referencing_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupReferencingSupport").unwrap(),
+                o.extract_field("securityGroupReferencingSupport"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_default_route_table_association: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayDefaultRouteTableAssociation").unwrap(),
+                o.extract_field("transitGatewayDefaultRouteTableAssociation"),
             ),
             transit_gateway_default_route_table_propagation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayDefaultRouteTablePropagation").unwrap(),
+                o.extract_field("transitGatewayDefaultRouteTablePropagation"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpc_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOwnerId").unwrap(),
+                o.extract_field("vpcOwnerId"),
             ),
         }
     }

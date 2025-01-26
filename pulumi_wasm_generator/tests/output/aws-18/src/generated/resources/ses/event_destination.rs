@@ -210,63 +210,28 @@ pub mod event_destination {
                     value: &sns_destination_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchDestinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "kinesisDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "matchingTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsDestination".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventDestinationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloudwatch_destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchDestinations").unwrap(),
+                o.extract_field("cloudwatchDestinations"),
             ),
             configuration_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationSetName").unwrap(),
+                o.extract_field("configurationSetName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             kinesis_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kinesisDestination").unwrap(),
+                o.extract_field("kinesisDestination"),
             ),
             matching_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("matchingTypes").unwrap(),
+                o.extract_field("matchingTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sns_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsDestination").unwrap(),
+                o.extract_field("snsDestination"),
             ),
         }
     }

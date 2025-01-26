@@ -91,64 +91,31 @@ pub mod resource_share_accepter {
                     value: &share_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "invitationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "receiverAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "senderAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceShareAccepterResult {
             invitation_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitationArn").unwrap(),
+                o.extract_field("invitationArn"),
             ),
             receiver_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("receiverAccountId").unwrap(),
+                o.extract_field("receiverAccountId"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             sender_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("senderAccountId").unwrap(),
+                o.extract_field("senderAccountId"),
             ),
             share_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareArn").unwrap(),
+                o.extract_field("shareArn"),
             ),
             share_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareId").unwrap(),
+                o.extract_field("shareId"),
             ),
             share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareName").unwrap(),
+                o.extract_field("shareName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

@@ -118,51 +118,22 @@ pub mod origin_access_control {
                     value: &signing_protocol_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "originAccessControlOriginType".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingProtocol".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OriginAccessControlResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             origin_access_control_origin_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originAccessControlOriginType").unwrap(),
+                o.extract_field("originAccessControlOriginType"),
             ),
             signing_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingBehavior").unwrap(),
+                o.extract_field("signingBehavior"),
             ),
             signing_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingProtocol").unwrap(),
+                o.extract_field("signingProtocol"),
             ),
         }
     }

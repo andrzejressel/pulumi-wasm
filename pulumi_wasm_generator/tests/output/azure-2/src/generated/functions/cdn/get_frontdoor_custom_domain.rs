@@ -67,73 +67,32 @@ pub mod get_frontdoor_custom_domain {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tls".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationToken".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFrontdoorCustomDomainResult {
             cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileId").unwrap(),
+                o.extract_field("cdnFrontdoorProfileId"),
             ),
             dns_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsZoneId").unwrap(),
+                o.extract_field("dnsZoneId"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileName").unwrap(),
+                o.extract_field("profileName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tls").unwrap(),
-            ),
+            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
             validation_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationToken").unwrap(),
+                o.extract_field("validationToken"),
             ),
         }
     }

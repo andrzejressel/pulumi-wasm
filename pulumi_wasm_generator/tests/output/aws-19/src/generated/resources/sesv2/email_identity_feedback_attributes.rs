@@ -80,27 +80,14 @@ pub mod email_identity_feedback_attributes {
                     value: &email_identity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "emailForwardingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailIdentity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EmailIdentityFeedbackAttributesResult {
             email_forwarding_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailForwardingEnabled").unwrap(),
+                o.extract_field("emailForwardingEnabled"),
             ),
             email_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailIdentity").unwrap(),
+                o.extract_field("emailIdentity"),
             ),
         }
     }

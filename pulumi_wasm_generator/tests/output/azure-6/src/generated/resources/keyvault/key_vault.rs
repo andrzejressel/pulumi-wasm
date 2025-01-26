@@ -308,117 +308,55 @@ pub mod key_vault {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "contacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableRbacAuthorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledForDeployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledForDiskEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledForTemplateDeployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "purgeProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "softDeleteRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultUri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyVaultResult {
             access_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicies").unwrap(),
+                o.extract_field("accessPolicies"),
             ),
             contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contacts").unwrap(),
+                o.extract_field("contacts"),
             ),
             enable_rbac_authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableRbacAuthorization").unwrap(),
+                o.extract_field("enableRbacAuthorization"),
             ),
             enabled_for_deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledForDeployment").unwrap(),
+                o.extract_field("enabledForDeployment"),
             ),
             enabled_for_disk_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledForDiskEncryption").unwrap(),
+                o.extract_field("enabledForDiskEncryption"),
             ),
             enabled_for_template_deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledForTemplateDeployment").unwrap(),
+                o.extract_field("enabledForTemplateDeployment"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAcls").unwrap(),
+                o.extract_field("networkAcls"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             purge_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purgeProtectionEnabled").unwrap(),
+                o.extract_field("purgeProtectionEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             soft_delete_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softDeleteRetentionDays").unwrap(),
+                o.extract_field("softDeleteRetentionDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
             vault_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultUri").unwrap(),
+                o.extract_field("vaultUri"),
             ),
         }
     }

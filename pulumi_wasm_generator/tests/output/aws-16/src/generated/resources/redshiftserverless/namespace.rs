@@ -188,105 +188,47 @@ pub mod namespace {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminPasswordSecretArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminPasswordSecretKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUserPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultIamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoles".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "manageAdminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceResult {
             admin_password_secret_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPasswordSecretArn").unwrap(),
+                o.extract_field("adminPasswordSecretArn"),
             ),
             admin_password_secret_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPasswordSecretKmsKeyId").unwrap(),
+                o.extract_field("adminPasswordSecretKmsKeyId"),
             ),
             admin_user_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUserPassword").unwrap(),
+                o.extract_field("adminUserPassword"),
             ),
             admin_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsername").unwrap(),
+                o.extract_field("adminUsername"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            db_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbName").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            db_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbName")),
             default_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultIamRoleArn").unwrap(),
+                o.extract_field("defaultIamRoleArn"),
             ),
             iam_roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoles").unwrap(),
+                o.extract_field("iamRoles"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             log_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logExports").unwrap(),
+                o.extract_field("logExports"),
             ),
             manage_admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manageAdminPassword").unwrap(),
+                o.extract_field("manageAdminPassword"),
             ),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

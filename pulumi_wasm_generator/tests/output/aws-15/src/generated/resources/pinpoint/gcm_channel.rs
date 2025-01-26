@@ -85,45 +85,21 @@ pub mod gcm_channel {
                     value: &service_json_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAuthenticationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceJson".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GcmChannelResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             default_authentication_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAuthenticationMethod").unwrap(),
+                o.extract_field("defaultAuthenticationMethod"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             service_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceJson").unwrap(),
+                o.extract_field("serviceJson"),
             ),
         }
     }

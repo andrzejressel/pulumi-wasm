@@ -301,99 +301,46 @@ pub mod game_server_group {
                     value: &vpc_subnets_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "balancingStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "gameServerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "gameServerProtectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceDefinitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "minSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSubnets".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GameServerGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_scaling_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingGroupArn").unwrap(),
+                o.extract_field("autoScalingGroupArn"),
             ),
             auto_scaling_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingPolicy").unwrap(),
+                o.extract_field("autoScalingPolicy"),
             ),
             balancing_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("balancingStrategy").unwrap(),
+                o.extract_field("balancingStrategy"),
             ),
             game_server_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gameServerGroupName").unwrap(),
+                o.extract_field("gameServerGroupName"),
             ),
             game_server_protection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gameServerProtectionPolicy").unwrap(),
+                o.extract_field("gameServerProtectionPolicy"),
             ),
             instance_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceDefinitions").unwrap(),
+                o.extract_field("instanceDefinitions"),
             ),
             launch_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplate").unwrap(),
+                o.extract_field("launchTemplate"),
             ),
             max_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSize").unwrap(),
+                o.extract_field("maxSize"),
             ),
             min_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minSize").unwrap(),
+                o.extract_field("minSize"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSubnets").unwrap(),
+                o.extract_field("vpcSubnets"),
             ),
         }
     }

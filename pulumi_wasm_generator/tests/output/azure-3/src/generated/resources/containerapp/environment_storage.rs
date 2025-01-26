@@ -162,51 +162,24 @@ pub mod environment_storage {
                     value: &share_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentStorageResult {
             access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessKey").unwrap(),
+                o.extract_field("accessKey"),
             ),
             access_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessMode").unwrap(),
+                o.extract_field("accessMode"),
             ),
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareName").unwrap(),
+                o.extract_field("shareName"),
             ),
         }
     }

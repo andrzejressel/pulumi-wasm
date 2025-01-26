@@ -169,100 +169,41 @@ pub mod hosted_transit_virtual_interface {
                     value: &vlan_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "amazonAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "amazonSideAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAuthKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "jumboFrameCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlan".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostedTransitVirtualInterfaceResult {
             address_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressFamily").unwrap(),
+                o.extract_field("addressFamily"),
             ),
             amazon_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amazonAddress").unwrap(),
+                o.extract_field("amazonAddress"),
             ),
             amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amazonSideAsn").unwrap(),
+                o.extract_field("amazonSideAsn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsDevice").unwrap(),
+                o.extract_field("awsDevice"),
             ),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAsn").unwrap(),
-            ),
+            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
             bgp_auth_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAuthKey").unwrap(),
+                o.extract_field("bgpAuthKey"),
             ),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             customer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerAddress").unwrap(),
+                o.extract_field("customerAddress"),
             ),
             jumbo_frame_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jumboFrameCapable").unwrap(),
+                o.extract_field("jumboFrameCapable"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
-            vlan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlan").unwrap(),
-            ),
+            vlan: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlan")),
         }
     }
 }

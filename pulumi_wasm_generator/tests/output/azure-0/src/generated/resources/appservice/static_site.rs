@@ -162,76 +162,33 @@ pub mod static_site {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StaticSiteResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             app_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSettings").unwrap(),
+                o.extract_field("appSettings"),
             ),
             default_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostName").unwrap(),
+                o.extract_field("defaultHostName"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuSize").unwrap(),
+                o.extract_field("skuSize"),
             ),
             sku_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuTier").unwrap(),
+                o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

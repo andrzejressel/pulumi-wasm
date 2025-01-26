@@ -60,56 +60,26 @@ pub mod get_serverless_security_config {
                     value: &saml_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "samlOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServerlessSecurityConfigResult {
             config_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configVersion").unwrap(),
+                o.extract_field("configVersion"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_modified_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedDate").unwrap(),
+                o.extract_field("lastModifiedDate"),
             ),
             saml_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samlOptions").unwrap(),
+                o.extract_field("samlOptions"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

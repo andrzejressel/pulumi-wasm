@@ -126,51 +126,26 @@ pub mod custom_log_source {
                     value: &source_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventClasses".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomLogSourceResult {
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             event_classes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventClasses").unwrap(),
+                o.extract_field("eventClasses"),
             ),
             provider_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerDetails").unwrap(),
+                o.extract_field("providerDetails"),
             ),
             source_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceName").unwrap(),
+                o.extract_field("sourceName"),
             ),
             source_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVersion").unwrap(),
+                o.extract_field("sourceVersion"),
             ),
         }
     }

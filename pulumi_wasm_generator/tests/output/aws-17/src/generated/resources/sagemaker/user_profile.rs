@@ -139,69 +139,31 @@ pub mod user_profile {
                     value: &user_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeEfsFileSystemUid".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSignOnUserIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSignOnUserValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userProfileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             home_efs_file_system_uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeEfsFileSystemUid").unwrap(),
+                o.extract_field("homeEfsFileSystemUid"),
             ),
             single_sign_on_user_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSignOnUserIdentifier").unwrap(),
+                o.extract_field("singleSignOnUserIdentifier"),
             ),
             single_sign_on_user_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSignOnUserValue").unwrap(),
+                o.extract_field("singleSignOnUserValue"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userProfileName").unwrap(),
+                o.extract_field("userProfileName"),
             ),
             user_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userSettings").unwrap(),
+                o.extract_field("userSettings"),
             ),
         }
     }

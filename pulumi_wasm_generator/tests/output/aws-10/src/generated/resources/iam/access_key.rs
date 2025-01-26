@@ -130,70 +130,28 @@ pub mod access_key {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptedSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptedSesSmtpPasswordV4".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "pgpKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-                register_interface::ResultField {
-                    name: "sesSmtpPasswordV4".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessKeyResult {
             create_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createDate").unwrap(),
+                o.extract_field("createDate"),
             ),
             encrypted_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptedSecret").unwrap(),
+                o.extract_field("encryptedSecret"),
             ),
             encrypted_ses_smtp_password_v4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptedSesSmtpPasswordV4").unwrap(),
+                o.extract_field("encryptedSesSmtpPasswordV4"),
             ),
             key_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyFingerprint").unwrap(),
+                o.extract_field("keyFingerprint"),
             ),
-            pgp_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pgpKey").unwrap(),
-            ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            pgp_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("pgpKey")),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
             ses_smtp_password_v4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sesSmtpPasswordV4").unwrap(),
+                o.extract_field("sesSmtpPasswordV4"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

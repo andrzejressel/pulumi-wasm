@@ -119,69 +119,33 @@ pub mod bgp_peer {
                     value: &virtual_interface_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "amazonAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAuthKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpPeerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualInterfaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BgpPeerResult {
             address_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressFamily").unwrap(),
+                o.extract_field("addressFamily"),
             ),
             amazon_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amazonAddress").unwrap(),
+                o.extract_field("amazonAddress"),
             ),
             aws_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsDevice").unwrap(),
+                o.extract_field("awsDevice"),
             ),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAsn").unwrap(),
-            ),
+            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
             bgp_auth_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAuthKey").unwrap(),
+                o.extract_field("bgpAuthKey"),
             ),
             bgp_peer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpPeerId").unwrap(),
+                o.extract_field("bgpPeerId"),
             ),
             bgp_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpStatus").unwrap(),
+                o.extract_field("bgpStatus"),
             ),
             customer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerAddress").unwrap(),
+                o.extract_field("customerAddress"),
             ),
             virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualInterfaceId").unwrap(),
+                o.extract_field("virtualInterfaceId"),
             ),
         }
     }

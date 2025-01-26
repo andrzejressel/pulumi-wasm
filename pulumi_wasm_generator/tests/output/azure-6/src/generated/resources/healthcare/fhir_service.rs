@@ -262,99 +262,42 @@ pub mod fhir_service {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyObjectIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationExportStorageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRegistryLoginServerUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "cors".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ociArtifacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FhirServiceResult {
             access_policy_object_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyObjectIds").unwrap(),
+                o.extract_field("accessPolicyObjectIds"),
             ),
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             configuration_export_storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationExportStorageAccountName").unwrap(),
+                o.extract_field("configurationExportStorageAccountName"),
             ),
             container_registry_login_server_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryLoginServerUrls").unwrap(),
+                o.extract_field("containerRegistryLoginServerUrls"),
             ),
-            cors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cors").unwrap(),
-            ),
+            cors: pulumi_wasm_rust::__private::into_domain(o.extract_field("cors")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             oci_artifacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ociArtifacts").unwrap(),
+                o.extract_field("ociArtifacts"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

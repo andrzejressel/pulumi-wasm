@@ -173,63 +173,30 @@ pub mod lifecycle_hook {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultResult".into(),
-                },
-                register_interface::ResultField {
-                    name: "heartbeatTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleTransition".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationMetadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTargetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LifecycleHookResult {
             autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroupName").unwrap(),
+                o.extract_field("autoscalingGroupName"),
             ),
             default_result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultResult").unwrap(),
+                o.extract_field("defaultResult"),
             ),
             heartbeat_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("heartbeatTimeout").unwrap(),
+                o.extract_field("heartbeatTimeout"),
             ),
             lifecycle_transition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleTransition").unwrap(),
+                o.extract_field("lifecycleTransition"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationMetadata").unwrap(),
+                o.extract_field("notificationMetadata"),
             ),
             notification_target_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTargetArn").unwrap(),
+                o.extract_field("notificationTargetArn"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

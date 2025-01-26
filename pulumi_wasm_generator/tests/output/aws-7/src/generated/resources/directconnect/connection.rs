@@ -207,124 +207,55 @@ pub mod connection {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasLogicalRedundancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "jumboFrameCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "macsecCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "portEncryptionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestMacsec".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlanId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsDevice").unwrap(),
+                o.extract_field("awsDevice"),
             ),
             bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidth").unwrap(),
+                o.extract_field("bandwidth"),
             ),
             encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionMode").unwrap(),
+                o.extract_field("encryptionMode"),
             ),
             has_logical_redundancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasLogicalRedundancy").unwrap(),
+                o.extract_field("hasLogicalRedundancy"),
             ),
             jumbo_frame_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jumboFrameCapable").unwrap(),
+                o.extract_field("jumboFrameCapable"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             macsec_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macsecCapable").unwrap(),
+                o.extract_field("macsecCapable"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerName").unwrap(),
+                o.extract_field("partnerName"),
             ),
             port_encryption_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portEncryptionStatus").unwrap(),
+                o.extract_field("portEncryptionStatus"),
             ),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
             request_macsec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestMacsec").unwrap(),
+                o.extract_field("requestMacsec"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vlan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlanId").unwrap(),
-            ),
+            vlan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlanId")),
         }
     }
 }

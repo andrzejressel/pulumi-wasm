@@ -198,79 +198,35 @@ pub mod data_repository_association {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchImportMetaDataOnCreate".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataRepositoryPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteDataInFilesystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "importedFileChunkSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataRepositoryAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             batch_import_meta_data_on_create: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchImportMetaDataOnCreate").unwrap(),
+                o.extract_field("batchImportMetaDataOnCreate"),
             ),
             data_repository_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataRepositoryPath").unwrap(),
+                o.extract_field("dataRepositoryPath"),
             ),
             delete_data_in_filesystem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteDataInFilesystem").unwrap(),
+                o.extract_field("deleteDataInFilesystem"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
             file_system_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemPath").unwrap(),
+                o.extract_field("fileSystemPath"),
             ),
             imported_file_chunk_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importedFileChunkSize").unwrap(),
+                o.extract_field("importedFileChunkSize"),
             ),
-            s3: pulumi_wasm_rust::__private::into_domain(hashmap.remove("s3").unwrap()),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            s3: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

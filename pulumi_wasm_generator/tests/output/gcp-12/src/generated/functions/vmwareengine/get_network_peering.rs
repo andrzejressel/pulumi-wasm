@@ -55,115 +55,51 @@ pub mod get_network_peering {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportCustomRoutesWithPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "importCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "importCustomRoutesWithPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerNetworkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareEngineNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareEngineNetworkCanonical".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkPeeringResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             export_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportCustomRoutes").unwrap(),
+                o.extract_field("exportCustomRoutes"),
             ),
             export_custom_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportCustomRoutesWithPublicIp").unwrap(),
+                o.extract_field("exportCustomRoutesWithPublicIp"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             import_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importCustomRoutes").unwrap(),
+                o.extract_field("importCustomRoutes"),
             ),
             import_custom_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importCustomRoutesWithPublicIp").unwrap(),
+                o.extract_field("importCustomRoutesWithPublicIp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerNetwork").unwrap(),
+                o.extract_field("peerNetwork"),
             ),
             peer_network_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerNetworkType").unwrap(),
+                o.extract_field("peerNetworkType"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateDetails").unwrap(),
+                o.extract_field("stateDetails"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             vmware_engine_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareEngineNetwork").unwrap(),
+                o.extract_field("vmwareEngineNetwork"),
             ),
             vmware_engine_network_canonical: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareEngineNetworkCanonical").unwrap(),
+                o.extract_field("vmwareEngineNetworkCanonical"),
             ),
         }
     }

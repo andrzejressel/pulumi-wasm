@@ -574,315 +574,150 @@ pub mod account {
                     value: &virtual_network_rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessKeyMetadataWritesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "analyticalStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "analyticalStorageEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticFailoverEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "backup".into(),
-                },
-                register_interface::ResultField {
-                    name: "burstCapacityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "capabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "consistencyPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultIdentityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "freeTierEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipRangeFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "isVirtualNetworkFilterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimalTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "mongoServerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "multipleWriteLocationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAclBypassForAzureServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAclBypassIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "offerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionMergeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryMongodbConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryReadonlyKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryReadonlyMongodbConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryReadonlySqlConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primarySqlConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "readEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restore".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryMongodbConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryReadonlyKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryReadonlyMongodbConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryReadonlySqlConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondarySqlConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeEndpoints".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             access_key_metadata_writes_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessKeyMetadataWritesEnabled").unwrap(),
+                o.extract_field("accessKeyMetadataWritesEnabled"),
             ),
             analytical_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticalStorage").unwrap(),
+                o.extract_field("analyticalStorage"),
             ),
             analytical_storage_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticalStorageEnabled").unwrap(),
+                o.extract_field("analyticalStorageEnabled"),
             ),
             automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticFailoverEnabled").unwrap(),
+                o.extract_field("automaticFailoverEnabled"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backup").unwrap(),
-            ),
+            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
             burst_capacity_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("burstCapacityEnabled").unwrap(),
+                o.extract_field("burstCapacityEnabled"),
             ),
             capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilities").unwrap(),
+                o.extract_field("capabilities"),
             ),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             consistency_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consistencyPolicy").unwrap(),
+                o.extract_field("consistencyPolicy"),
             ),
             cors_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsRule").unwrap(),
+                o.extract_field("corsRule"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             default_identity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultIdentityType").unwrap(),
+                o.extract_field("defaultIdentityType"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             free_tier_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("freeTierEnabled").unwrap(),
+                o.extract_field("freeTierEnabled"),
             ),
             geo_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoLocations").unwrap(),
+                o.extract_field("geoLocations"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ip_range_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipRangeFilters").unwrap(),
+                o.extract_field("ipRangeFilters"),
             ),
             is_virtual_network_filter_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isVirtualNetworkFilterEnabled").unwrap(),
+                o.extract_field("isVirtualNetworkFilterEnabled"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             local_authentication_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationDisabled").unwrap(),
+                o.extract_field("localAuthenticationDisabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmKeyId").unwrap(),
+                o.extract_field("managedHsmKeyId"),
             ),
             minimal_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimalTlsVersion").unwrap(),
+                o.extract_field("minimalTlsVersion"),
             ),
             mongo_server_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mongoServerVersion").unwrap(),
+                o.extract_field("mongoServerVersion"),
             ),
             multiple_write_locations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multipleWriteLocationsEnabled").unwrap(),
+                o.extract_field("multipleWriteLocationsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_acl_bypass_for_azure_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAclBypassForAzureServices").unwrap(),
+                o.extract_field("networkAclBypassForAzureServices"),
             ),
             network_acl_bypass_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAclBypassIds").unwrap(),
+                o.extract_field("networkAclBypassIds"),
             ),
             offer_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offerType").unwrap(),
+                o.extract_field("offerType"),
             ),
             partition_merge_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionMergeEnabled").unwrap(),
+                o.extract_field("partitionMergeEnabled"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             primary_mongodb_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryMongodbConnectionString").unwrap(),
+                o.extract_field("primaryMongodbConnectionString"),
             ),
             primary_readonly_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryReadonlyKey").unwrap(),
+                o.extract_field("primaryReadonlyKey"),
             ),
             primary_readonly_mongodb_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryReadonlyMongodbConnectionString").unwrap(),
+                o.extract_field("primaryReadonlyMongodbConnectionString"),
             ),
             primary_readonly_sql_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryReadonlySqlConnectionString").unwrap(),
+                o.extract_field("primaryReadonlySqlConnectionString"),
             ),
             primary_sql_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primarySqlConnectionString").unwrap(),
+                o.extract_field("primarySqlConnectionString"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             read_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readEndpoints").unwrap(),
+                o.extract_field("readEndpoints"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restore").unwrap(),
+                o.extract_field("restore"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
             secondary_mongodb_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryMongodbConnectionString").unwrap(),
+                o.extract_field("secondaryMongodbConnectionString"),
             ),
             secondary_readonly_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryReadonlyKey").unwrap(),
+                o.extract_field("secondaryReadonlyKey"),
             ),
             secondary_readonly_mongodb_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryReadonlyMongodbConnectionString").unwrap(),
+                o.extract_field("secondaryReadonlyMongodbConnectionString"),
             ),
             secondary_readonly_sql_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryReadonlySqlConnectionString").unwrap(),
+                o.extract_field("secondaryReadonlySqlConnectionString"),
             ),
             secondary_sql_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondarySqlConnectionString").unwrap(),
+                o.extract_field("secondarySqlConnectionString"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_network_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkRules").unwrap(),
+                o.extract_field("virtualNetworkRules"),
             ),
             write_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeEndpoints").unwrap(),
+                o.extract_field("writeEndpoints"),
             ),
         }
     }

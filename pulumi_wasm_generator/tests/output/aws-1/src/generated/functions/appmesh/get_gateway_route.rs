@@ -87,79 +87,31 @@ pub mod get_gateway_route {
                     value: &virtual_gateway_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "meshName".into(),
-                },
-                register_interface::ResultField {
-                    name: "meshOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "specs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualGatewayName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGatewayRouteResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
             mesh_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("meshName").unwrap(),
+                o.extract_field("meshName"),
             ),
             mesh_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("meshOwner").unwrap(),
+                o.extract_field("meshOwner"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwner").unwrap(),
+                o.extract_field("resourceOwner"),
             ),
-            specs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("specs").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            specs: pulumi_wasm_rust::__private::into_domain(o.extract_field("specs")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_gateway_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualGatewayName").unwrap(),
+                o.extract_field("virtualGatewayName"),
             ),
         }
     }

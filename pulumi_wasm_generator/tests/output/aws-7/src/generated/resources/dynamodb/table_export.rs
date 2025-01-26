@@ -198,105 +198,51 @@ pub mod table_export {
                     value: &table_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "billedSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "itemCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifestFilesS3Key".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3SseAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3SseKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableExportResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             billed_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billedSizeInBytes").unwrap(),
+                o.extract_field("billedSizeInBytes"),
             ),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             export_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportFormat").unwrap(),
+                o.extract_field("exportFormat"),
             ),
             export_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportStatus").unwrap(),
+                o.extract_field("exportStatus"),
             ),
             export_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportTime").unwrap(),
+                o.extract_field("exportTime"),
             ),
             item_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("itemCount").unwrap(),
+                o.extract_field("itemCount"),
             ),
             manifest_files_s3_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifestFilesS3Key").unwrap(),
+                o.extract_field("manifestFilesS3Key"),
             ),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
             s3_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketOwner").unwrap(),
+                o.extract_field("s3BucketOwner"),
             ),
             s3_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Prefix").unwrap(),
+                o.extract_field("s3Prefix"),
             ),
             s3_sse_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3SseAlgorithm").unwrap(),
+                o.extract_field("s3SseAlgorithm"),
             ),
             s3_sse_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3SseKmsKeyId").unwrap(),
+                o.extract_field("s3SseKmsKeyId"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             table_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableArn").unwrap(),
+                o.extract_field("tableArn"),
             ),
         }
     }

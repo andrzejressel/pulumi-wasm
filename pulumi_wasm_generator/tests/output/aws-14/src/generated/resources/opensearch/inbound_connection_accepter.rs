@@ -80,27 +80,14 @@ pub mod inbound_connection_accepter {
                     value: &connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InboundConnectionAccepterResult {
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             connection_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStatus").unwrap(),
+                o.extract_field("connectionStatus"),
             ),
         }
     }

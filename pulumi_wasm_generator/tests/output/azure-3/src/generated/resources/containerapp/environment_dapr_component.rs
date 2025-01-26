@@ -193,70 +193,30 @@ pub mod environment_dapr_component {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "componentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "initTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "secrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentDaprComponentResult {
             component_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("componentType").unwrap(),
+                o.extract_field("componentType"),
             ),
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
             ignore_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreErrors").unwrap(),
+                o.extract_field("ignoreErrors"),
             ),
             init_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initTimeout").unwrap(),
+                o.extract_field("initTimeout"),
             ),
             metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadatas").unwrap(),
+                o.extract_field("metadatas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
             secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secrets").unwrap(),
+                o.extract_field("secrets"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

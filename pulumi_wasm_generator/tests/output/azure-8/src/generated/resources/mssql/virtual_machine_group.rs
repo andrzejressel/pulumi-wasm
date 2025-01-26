@@ -154,57 +154,25 @@ pub mod virtual_machine_group {
                     value: &wsfc_domain_profile_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlImageOffer".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlImageSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "wsfcDomainProfile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualMachineGroupResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sql_image_offer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlImageOffer").unwrap(),
+                o.extract_field("sqlImageOffer"),
             ),
             sql_image_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlImageSku").unwrap(),
+                o.extract_field("sqlImageSku"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             wsfc_domain_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wsfcDomainProfile").unwrap(),
+                o.extract_field("wsfcDomainProfile"),
             ),
         }
     }

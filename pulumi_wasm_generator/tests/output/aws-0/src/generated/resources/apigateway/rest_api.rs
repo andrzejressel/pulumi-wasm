@@ -215,123 +215,52 @@ pub mod rest_api {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKeySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "binaryMediaTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableExecuteApiEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "failOnWarnings".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumCompressionSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "putRestApiMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RestApiResult {
             api_key_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeySource").unwrap(),
+                o.extract_field("apiKeySource"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             binary_media_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("binaryMediaTypes").unwrap(),
+                o.extract_field("binaryMediaTypes"),
             ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_execute_api_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableExecuteApiEndpoint").unwrap(),
+                o.extract_field("disableExecuteApiEndpoint"),
             ),
             endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointConfiguration").unwrap(),
+                o.extract_field("endpointConfiguration"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
             fail_on_warnings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failOnWarnings").unwrap(),
+                o.extract_field("failOnWarnings"),
             ),
             minimum_compression_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumCompressionSize").unwrap(),
+                o.extract_field("minimumCompressionSize"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             put_rest_api_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("putRestApiMode").unwrap(),
+                o.extract_field("putRestApiMode"),
             ),
             root_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootResourceId").unwrap(),
+                o.extract_field("rootResourceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

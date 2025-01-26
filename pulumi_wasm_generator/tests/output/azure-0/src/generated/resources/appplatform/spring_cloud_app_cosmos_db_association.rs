@@ -229,75 +229,36 @@ pub mod spring_cloud_app_cosmos_db_association {
                     value: &spring_cloud_app_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiType".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbCassandraKeyspaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbGremlinDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbGremlinGraphName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbMongoDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbSqlDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAppId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudAppCosmosDBAssociationResult {
             api_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiType").unwrap(),
+                o.extract_field("apiType"),
             ),
             cosmosdb_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbAccessKey").unwrap(),
+                o.extract_field("cosmosdbAccessKey"),
             ),
             cosmosdb_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbAccountId").unwrap(),
+                o.extract_field("cosmosdbAccountId"),
             ),
             cosmosdb_cassandra_keyspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbCassandraKeyspaceName").unwrap(),
+                o.extract_field("cosmosdbCassandraKeyspaceName"),
             ),
             cosmosdb_gremlin_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbGremlinDatabaseName").unwrap(),
+                o.extract_field("cosmosdbGremlinDatabaseName"),
             ),
             cosmosdb_gremlin_graph_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbGremlinGraphName").unwrap(),
+                o.extract_field("cosmosdbGremlinGraphName"),
             ),
             cosmosdb_mongo_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbMongoDatabaseName").unwrap(),
+                o.extract_field("cosmosdbMongoDatabaseName"),
             ),
             cosmosdb_sql_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbSqlDatabaseName").unwrap(),
+                o.extract_field("cosmosdbSqlDatabaseName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAppId").unwrap(),
+                o.extract_field("springCloudAppId"),
             ),
         }
     }

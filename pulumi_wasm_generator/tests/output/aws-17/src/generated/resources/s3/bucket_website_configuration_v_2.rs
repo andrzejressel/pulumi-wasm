@@ -216,69 +216,33 @@ pub mod bucket_website_configuration_v_2 {
                     value: &routing_rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectAllRequestsTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingRuleDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketWebsiteConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             error_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorDocument").unwrap(),
+                o.extract_field("errorDocument"),
             ),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
             index_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexDocument").unwrap(),
+                o.extract_field("indexDocument"),
             ),
             redirect_all_requests_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectAllRequestsTo").unwrap(),
+                o.extract_field("redirectAllRequestsTo"),
             ),
             routing_rule_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingRuleDetails").unwrap(),
+                o.extract_field("routingRuleDetails"),
             ),
             routing_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingRules").unwrap(),
+                o.extract_field("routingRules"),
             ),
             website_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteDomain").unwrap(),
+                o.extract_field("websiteDomain"),
             ),
             website_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteEndpoint").unwrap(),
+                o.extract_field("websiteEndpoint"),
             ),
         }
     }

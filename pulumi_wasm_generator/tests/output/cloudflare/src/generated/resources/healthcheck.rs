@@ -311,148 +311,63 @@ pub mod healthcheck {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "address".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowInsecure".into(),
-                },
-                register_interface::ResultField {
-                    name: "checkRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "consecutiveFails".into(),
-                },
-                register_interface::ResultField {
-                    name: "consecutiveSuccesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedCodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "followRedirects".into(),
-                },
-                register_interface::ResultField {
-                    name: "headers".into(),
-                },
-                register_interface::ResultField {
-                    name: "interval".into(),
-                },
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "retries".into(),
-                },
-                register_interface::ResultField {
-                    name: "suspended".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HealthcheckResult {
             address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("address").unwrap(),
+                o.extract_field("address"),
             ),
             allow_insecure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowInsecure").unwrap(),
+                o.extract_field("allowInsecure"),
             ),
             check_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkRegions").unwrap(),
+                o.extract_field("checkRegions"),
             ),
             consecutive_fails: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consecutiveFails").unwrap(),
+                o.extract_field("consecutiveFails"),
             ),
             consecutive_successes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consecutiveSuccesses").unwrap(),
+                o.extract_field("consecutiveSuccesses"),
             ),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             expected_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBody").unwrap(),
+                o.extract_field("expectedBody"),
             ),
             expected_codes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedCodes").unwrap(),
+                o.extract_field("expectedCodes"),
             ),
             follow_redirects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("followRedirects").unwrap(),
+                o.extract_field("followRedirects"),
             ),
             headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headers").unwrap(),
+                o.extract_field("headers"),
             ),
             interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interval").unwrap(),
+                o.extract_field("interval"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
             modified_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedOn").unwrap(),
+                o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             retries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retries").unwrap(),
+                o.extract_field("retries"),
             ),
             suspended: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suspended").unwrap(),
+                o.extract_field("suspended"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

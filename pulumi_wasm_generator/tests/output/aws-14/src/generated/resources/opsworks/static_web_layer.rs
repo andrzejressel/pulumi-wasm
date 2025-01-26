@@ -350,165 +350,77 @@ pub mod static_web_layer {
                     value: &use_ebs_optimized_instances_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAssignElasticIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAssignPublicIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoHealing".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "customConfigureRecipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDeployRecipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "customInstanceProfileArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "customSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "customSetupRecipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "customShutdownRecipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "customUndeployRecipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "drainElbOnShutdown".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsVolumes".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticLoadBalancer".into(),
-                },
-                register_interface::ResultField {
-                    name: "installUpdatesOnBoot".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceShutdownTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBasedAutoScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemPackages".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "useEbsOptimizedInstances".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StaticWebLayerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_assign_elastic_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAssignElasticIps").unwrap(),
+                o.extract_field("autoAssignElasticIps"),
             ),
             auto_assign_public_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAssignPublicIps").unwrap(),
+                o.extract_field("autoAssignPublicIps"),
             ),
             auto_healing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoHealing").unwrap(),
+                o.extract_field("autoHealing"),
             ),
             cloudwatch_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchConfiguration").unwrap(),
+                o.extract_field("cloudwatchConfiguration"),
             ),
             custom_configure_recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customConfigureRecipes").unwrap(),
+                o.extract_field("customConfigureRecipes"),
             ),
             custom_deploy_recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDeployRecipes").unwrap(),
+                o.extract_field("customDeployRecipes"),
             ),
             custom_instance_profile_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customInstanceProfileArn").unwrap(),
+                o.extract_field("customInstanceProfileArn"),
             ),
             custom_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customJson").unwrap(),
+                o.extract_field("customJson"),
             ),
             custom_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSecurityGroupIds").unwrap(),
+                o.extract_field("customSecurityGroupIds"),
             ),
             custom_setup_recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSetupRecipes").unwrap(),
+                o.extract_field("customSetupRecipes"),
             ),
             custom_shutdown_recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customShutdownRecipes").unwrap(),
+                o.extract_field("customShutdownRecipes"),
             ),
             custom_undeploy_recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customUndeployRecipes").unwrap(),
+                o.extract_field("customUndeployRecipes"),
             ),
             drain_elb_on_shutdown: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("drainElbOnShutdown").unwrap(),
+                o.extract_field("drainElbOnShutdown"),
             ),
             ebs_volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsVolumes").unwrap(),
+                o.extract_field("ebsVolumes"),
             ),
             elastic_load_balancer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticLoadBalancer").unwrap(),
+                o.extract_field("elasticLoadBalancer"),
             ),
             install_updates_on_boot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("installUpdatesOnBoot").unwrap(),
+                o.extract_field("installUpdatesOnBoot"),
             ),
             instance_shutdown_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceShutdownTimeout").unwrap(),
+                o.extract_field("instanceShutdownTimeout"),
             ),
             load_based_auto_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBasedAutoScaling").unwrap(),
+                o.extract_field("loadBasedAutoScaling"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             stack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackId").unwrap(),
+                o.extract_field("stackId"),
             ),
             system_packages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemPackages").unwrap(),
+                o.extract_field("systemPackages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             use_ebs_optimized_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useEbsOptimizedInstances").unwrap(),
+                o.extract_field("useEbsOptimizedInstances"),
             ),
         }
     }

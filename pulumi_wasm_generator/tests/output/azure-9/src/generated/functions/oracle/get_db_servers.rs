@@ -52,37 +52,18 @@ pub mod get_db_servers {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudExadataInfrastructureName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDbServersResult {
             cloud_exadata_infrastructure_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudExadataInfrastructureName").unwrap(),
+                o.extract_field("cloudExadataInfrastructureName"),
             ),
             db_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbServers").unwrap(),
+                o.extract_field("dbServers"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

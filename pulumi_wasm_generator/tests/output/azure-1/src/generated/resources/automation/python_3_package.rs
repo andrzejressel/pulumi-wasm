@@ -159,64 +159,29 @@ pub mod python_3_package {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "hashAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "hashValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         Python3PackageResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
             content_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentUri").unwrap(),
+                o.extract_field("contentUri"),
             ),
             content_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentVersion").unwrap(),
+                o.extract_field("contentVersion"),
             ),
             hash_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hashAlgorithm").unwrap(),
+                o.extract_field("hashAlgorithm"),
             ),
             hash_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hashValue").unwrap(),
+                o.extract_field("hashValue"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

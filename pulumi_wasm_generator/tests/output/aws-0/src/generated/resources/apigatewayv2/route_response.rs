@@ -123,45 +123,21 @@ pub mod route_response {
                     value: &route_response_key_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseModels".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeResponseKey".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteResponseResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             model_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelSelectionExpression").unwrap(),
+                o.extract_field("modelSelectionExpression"),
             ),
             response_models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseModels").unwrap(),
+                o.extract_field("responseModels"),
             ),
             route_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeId").unwrap(),
+                o.extract_field("routeId"),
             ),
             route_response_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeResponseKey").unwrap(),
+                o.extract_field("routeResponseKey"),
             ),
         }
     }

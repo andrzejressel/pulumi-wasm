@@ -125,33 +125,17 @@ pub mod service_integration {
                     value: &ops_center_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "kmsServerSideEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "logsAnomalyDetection".into(),
-                },
-                register_interface::ResultField {
-                    name: "opsCenter".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceIntegrationResult {
             kms_server_side_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsServerSideEncryption").unwrap(),
+                o.extract_field("kmsServerSideEncryption"),
             ),
             logs_anomaly_detection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logsAnomalyDetection").unwrap(),
+                o.extract_field("logsAnomalyDetection"),
             ),
             ops_center: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opsCenter").unwrap(),
+                o.extract_field("opsCenter"),
             ),
         }
     }

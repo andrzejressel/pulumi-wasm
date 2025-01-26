@@ -306,130 +306,58 @@ pub mod local_rulestack_rule {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "applications".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditComment".into(),
-                },
-                register_interface::ResultField {
-                    name: "category".into(),
-                },
-                register_interface::ResultField {
-                    name: "decryptionRuleType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "inspectionCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "negateDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "negateSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulestackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalRulestackRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             applications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applications").unwrap(),
+                o.extract_field("applications"),
             ),
             audit_comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditComment").unwrap(),
+                o.extract_field("auditComment"),
             ),
             category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("category").unwrap(),
+                o.extract_field("category"),
             ),
             decryption_rule_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("decryptionRuleType").unwrap(),
+                o.extract_field("decryptionRuleType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             inspection_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inspectionCertificateId").unwrap(),
+                o.extract_field("inspectionCertificateId"),
             ),
             logging_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingEnabled").unwrap(),
+                o.extract_field("loggingEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             negate_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("negateDestination").unwrap(),
+                o.extract_field("negateDestination"),
             ),
             negate_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("negateSource").unwrap(),
+                o.extract_field("negateSource"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             protocol_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolPorts").unwrap(),
+                o.extract_field("protocolPorts"),
             ),
             rulestack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulestackId").unwrap(),
+                o.extract_field("rulestackId"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

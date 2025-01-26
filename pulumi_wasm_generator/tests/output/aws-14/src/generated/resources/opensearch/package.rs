@@ -118,51 +118,26 @@ pub mod package {
                     value: &package_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availablePackageVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PackageResult {
             available_package_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availablePackageVersion").unwrap(),
+                o.extract_field("availablePackageVersion"),
             ),
             package_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageDescription").unwrap(),
+                o.extract_field("packageDescription"),
             ),
             package_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageId").unwrap(),
+                o.extract_field("packageId"),
             ),
             package_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageName").unwrap(),
+                o.extract_field("packageName"),
             ),
             package_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageSource").unwrap(),
+                o.extract_field("packageSource"),
             ),
             package_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageType").unwrap(),
+                o.extract_field("packageType"),
             ),
         }
     }

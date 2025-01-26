@@ -143,51 +143,24 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
                     value: &spring_cloud_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationPackages".into(),
-                },
-                register_interface::ResultField {
-                    name: "globallyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudElasticApplicationPerformanceMonitoringResult {
             application_packages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationPackages").unwrap(),
+                o.extract_field("applicationPackages"),
             ),
             globally_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globallyEnabled").unwrap(),
+                o.extract_field("globallyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             server_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverUrl").unwrap(),
+                o.extract_field("serverUrl"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
         }
     }

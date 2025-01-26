@@ -179,94 +179,42 @@ pub mod security_group_egress_rule {
                     value: &to_port_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fromPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "referencedSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "toPort".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecurityGroupEgressRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cidr_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrIpv4").unwrap(),
+                o.extract_field("cidrIpv4"),
             ),
             cidr_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrIpv6").unwrap(),
+                o.extract_field("cidrIpv6"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             from_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fromPort").unwrap(),
+                o.extract_field("fromPort"),
             ),
             ip_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipProtocol").unwrap(),
+                o.extract_field("ipProtocol"),
             ),
             prefix_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixListId").unwrap(),
+                o.extract_field("prefixListId"),
             ),
             referenced_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referencedSecurityGroupId").unwrap(),
+                o.extract_field("referencedSecurityGroupId"),
             ),
             security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupId").unwrap(),
+                o.extract_field("securityGroupId"),
             ),
             security_group_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupRuleId").unwrap(),
+                o.extract_field("securityGroupRuleId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            to_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("toPort").unwrap(),
-            ),
+            to_port: pulumi_wasm_rust::__private::into_domain(o.extract_field("toPort")),
         }
     }
 }

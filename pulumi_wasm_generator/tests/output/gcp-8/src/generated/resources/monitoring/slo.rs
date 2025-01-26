@@ -477,87 +477,38 @@ pub mod slo {
                     value: &windows_based_sli_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "basicSli".into(),
-                },
-                register_interface::ResultField {
-                    name: "calendarPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "goal".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestBasedSli".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollingPeriodDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "sloId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowsBasedSli".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SloResult {
             basic_sli: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicSli").unwrap(),
+                o.extract_field("basicSli"),
             ),
             calendar_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("calendarPeriod").unwrap(),
+                o.extract_field("calendarPeriod"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            goal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("goal").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            goal: pulumi_wasm_rust::__private::into_domain(o.extract_field("goal")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             request_based_sli: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestBasedSli").unwrap(),
+                o.extract_field("requestBasedSli"),
             ),
             rolling_period_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollingPeriodDays").unwrap(),
+                o.extract_field("rollingPeriodDays"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
-            slo_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sloId").unwrap(),
-            ),
+            slo_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("sloId")),
             user_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userLabels").unwrap(),
+                o.extract_field("userLabels"),
             ),
             windows_based_sli: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowsBasedSli").unwrap(),
+                o.extract_field("windowsBasedSli"),
             ),
         }
     }

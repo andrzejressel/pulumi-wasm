@@ -183,57 +183,27 @@ pub mod deployment_config {
                     value: &zonal_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentConfigId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentConfigName".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumHealthyHosts".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficRoutingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "zonalConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computePlatform").unwrap(),
+                o.extract_field("computePlatform"),
             ),
             deployment_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentConfigId").unwrap(),
+                o.extract_field("deploymentConfigId"),
             ),
             deployment_config_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentConfigName").unwrap(),
+                o.extract_field("deploymentConfigName"),
             ),
             minimum_healthy_hosts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumHealthyHosts").unwrap(),
+                o.extract_field("minimumHealthyHosts"),
             ),
             traffic_routing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficRoutingConfig").unwrap(),
+                o.extract_field("trafficRoutingConfig"),
             ),
             zonal_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zonalConfig").unwrap(),
+                o.extract_field("zonalConfig"),
             ),
         }
     }

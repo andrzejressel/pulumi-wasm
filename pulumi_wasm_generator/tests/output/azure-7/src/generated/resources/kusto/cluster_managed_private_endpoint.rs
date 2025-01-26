@@ -165,57 +165,27 @@ pub mod cluster_managed_private_endpoint {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkResourceRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterManagedPrivateEndpointResult {
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupId").unwrap(),
+                o.extract_field("groupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_link_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkResourceId").unwrap(),
+                o.extract_field("privateLinkResourceId"),
             ),
             private_link_resource_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkResourceRegion").unwrap(),
+                o.extract_field("privateLinkResourceRegion"),
             ),
             request_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestMessage").unwrap(),
+                o.extract_field("requestMessage"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

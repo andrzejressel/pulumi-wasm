@@ -85,85 +85,38 @@ pub mod get_subnetwork {
                     value: &self_link_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalIpv6Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipCidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpGoogleAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSubnetworkResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             gateway_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayAddress").unwrap(),
+                o.extract_field("gatewayAddress"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             internal_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalIpv6Prefix").unwrap(),
+                o.extract_field("internalIpv6Prefix"),
             ),
             ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipCidrRange").unwrap(),
+                o.extract_field("ipCidrRange"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             private_ip_google_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpGoogleAccess").unwrap(),
+                o.extract_field("privateIpGoogleAccess"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             secondary_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryIpRanges").unwrap(),
+                o.extract_field("secondaryIpRanges"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
         }
     }

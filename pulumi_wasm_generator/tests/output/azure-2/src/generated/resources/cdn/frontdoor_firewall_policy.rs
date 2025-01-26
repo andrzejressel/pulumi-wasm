@@ -280,94 +280,42 @@ pub mod frontdoor_firewall_policy {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customBlockResponseBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "customBlockResponseStatusCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "customRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendEndpointIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestBodyCheckEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorFirewallPolicyResult {
             custom_block_response_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customBlockResponseBody").unwrap(),
+                o.extract_field("customBlockResponseBody"),
             ),
             custom_block_response_status_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customBlockResponseStatusCode").unwrap(),
+                o.extract_field("customBlockResponseStatusCode"),
             ),
             custom_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRules").unwrap(),
+                o.extract_field("customRules"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frontend_endpoint_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendEndpointIds").unwrap(),
+                o.extract_field("frontendEndpointIds"),
             ),
             managed_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedRules").unwrap(),
+                o.extract_field("managedRules"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redirect_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectUrl").unwrap(),
+                o.extract_field("redirectUrl"),
             ),
             request_body_check_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestBodyCheckEnabled").unwrap(),
+                o.extract_field("requestBodyCheckEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

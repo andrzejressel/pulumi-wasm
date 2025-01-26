@@ -152,51 +152,24 @@ pub mod data_connector_office_365 {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "exchangeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharepointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "teamsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataConnectorOffice365Result {
             exchange_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exchangeEnabled").unwrap(),
+                o.extract_field("exchangeEnabled"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sharepoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharepointEnabled").unwrap(),
+                o.extract_field("sharepointEnabled"),
             ),
             teams_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("teamsEnabled").unwrap(),
+                o.extract_field("teamsEnabled"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

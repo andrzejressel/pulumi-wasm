@@ -114,45 +114,21 @@ pub mod group {
                     value: &subscription_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentManagementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantScopedId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_management_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentManagementGroupId").unwrap(),
+                o.extract_field("parentManagementGroupId"),
             ),
             subscription_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionIds").unwrap(),
+                o.extract_field("subscriptionIds"),
             ),
             tenant_scoped_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantScopedId").unwrap(),
+                o.extract_field("tenantScopedId"),
             ),
         }
     }

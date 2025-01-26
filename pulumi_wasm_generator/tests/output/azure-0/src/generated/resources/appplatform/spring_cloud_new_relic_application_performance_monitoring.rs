@@ -216,87 +216,40 @@ pub mod spring_cloud_new_relic_application_performance_monitoring {
                     value: &spring_cloud_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "appName".into(),
-                },
-                register_interface::ResultField {
-                    name: "appServerPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditModeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAppNamingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoTransactionNamingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "customTracingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "globallyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudNewRelicApplicationPerformanceMonitoringResult {
             agent_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentEnabled").unwrap(),
+                o.extract_field("agentEnabled"),
             ),
             app_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appName").unwrap(),
+                o.extract_field("appName"),
             ),
             app_server_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServerPort").unwrap(),
+                o.extract_field("appServerPort"),
             ),
             audit_mode_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditModeEnabled").unwrap(),
+                o.extract_field("auditModeEnabled"),
             ),
             auto_app_naming_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAppNamingEnabled").unwrap(),
+                o.extract_field("autoAppNamingEnabled"),
             ),
             auto_transaction_naming_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoTransactionNamingEnabled").unwrap(),
+                o.extract_field("autoTransactionNamingEnabled"),
             ),
             custom_tracing_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customTracingEnabled").unwrap(),
+                o.extract_field("customTracingEnabled"),
             ),
             globally_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globallyEnabled").unwrap(),
+                o.extract_field("globallyEnabled"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             license_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseKey").unwrap(),
+                o.extract_field("licenseKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
         }
     }

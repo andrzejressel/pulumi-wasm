@@ -98,27 +98,14 @@ pub mod log_data_protection_policy {
                     value: &policy_document_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "logGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogDataProtectionPolicyResult {
             log_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupName").unwrap(),
+                o.extract_field("logGroupName"),
             ),
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
         }
     }

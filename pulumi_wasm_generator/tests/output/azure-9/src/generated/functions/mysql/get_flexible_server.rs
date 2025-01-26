@@ -86,140 +86,62 @@ pub mod get_flexible_server {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoRedundantBackupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "highAvailabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindows".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorePointInTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storages".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFlexibleServerResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionDays").unwrap(),
+                o.extract_field("backupRetentionDays"),
             ),
             delegated_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedSubnetId").unwrap(),
+                o.extract_field("delegatedSubnetId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoRedundantBackupEnabled").unwrap(),
+                o.extract_field("geoRedundantBackupEnabled"),
             ),
             high_availabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("highAvailabilities").unwrap(),
+                o.extract_field("highAvailabilities"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindows").unwrap(),
+                o.extract_field("maintenanceWindows"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsZoneId").unwrap(),
+                o.extract_field("privateDnsZoneId"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             replica_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCapacity").unwrap(),
+                o.extract_field("replicaCapacity"),
             ),
             replication_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationRole").unwrap(),
+                o.extract_field("replicationRole"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restore_point_in_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorePointInTime").unwrap(),
+                o.extract_field("restorePointInTime"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storages").unwrap(),
+                o.extract_field("storages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

@@ -143,63 +143,30 @@ pub mod job_schedule {
                     value: &schedule_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobScheduleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "runOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "runbookName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobScheduleResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
             job_schedule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobScheduleId").unwrap(),
+                o.extract_field("jobScheduleId"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             resource_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceManagerId").unwrap(),
+                o.extract_field("resourceManagerId"),
             ),
-            run_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runOn").unwrap(),
-            ),
+            run_on: pulumi_wasm_rust::__private::into_domain(o.extract_field("runOn")),
             runbook_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runbookName").unwrap(),
+                o.extract_field("runbookName"),
             ),
             schedule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleName").unwrap(),
+                o.extract_field("scheduleName"),
             ),
         }
     }

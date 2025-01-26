@@ -226,87 +226,38 @@ pub mod schedule {
                     value: &weekly_recurrence_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dailyRecurrence".into(),
-                },
-                register_interface::ResultField {
-                    name: "hourlyRecurrence".into(),
-                },
-                register_interface::ResultField {
-                    name: "labName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyRecurrence".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduleResult {
             daily_recurrence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyRecurrence").unwrap(),
+                o.extract_field("dailyRecurrence"),
             ),
             hourly_recurrence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hourlyRecurrence").unwrap(),
+                o.extract_field("hourlyRecurrence"),
             ),
             lab_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labName").unwrap(),
+                o.extract_field("labName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationSettings").unwrap(),
+                o.extract_field("notificationSettings"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             task_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskType").unwrap(),
+                o.extract_field("taskType"),
             ),
             time_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZoneId").unwrap(),
+                o.extract_field("timeZoneId"),
             ),
             weekly_recurrence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyRecurrence").unwrap(),
+                o.extract_field("weeklyRecurrence"),
             ),
         }
     }

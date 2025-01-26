@@ -103,52 +103,23 @@ pub mod sub_account {
                     value: &master_billing_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterBillingAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "open".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubAccountResult {
             billing_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccountId").unwrap(),
+                o.extract_field("billingAccountId"),
             ),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             master_billing_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterBillingAccount").unwrap(),
+                o.extract_field("masterBillingAccount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            open: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("open").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            open: pulumi_wasm_rust::__private::into_domain(o.extract_field("open")),
         }
     }
 }

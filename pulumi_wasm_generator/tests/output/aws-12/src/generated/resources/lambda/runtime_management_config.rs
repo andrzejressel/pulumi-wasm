@@ -129,45 +129,23 @@ pub mod runtime_management_config {
                     value: &update_runtime_on_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "functionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeVersionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateRuntimeOn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RuntimeManagementConfigResult {
             function_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionArn").unwrap(),
+                o.extract_field("functionArn"),
             ),
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
             runtime_version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeVersionArn").unwrap(),
+                o.extract_field("runtimeVersionArn"),
             ),
             update_runtime_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateRuntimeOn").unwrap(),
+                o.extract_field("updateRuntimeOn"),
             ),
         }
     }

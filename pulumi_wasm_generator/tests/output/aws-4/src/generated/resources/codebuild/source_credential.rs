@@ -114,45 +114,19 @@ pub mod source_credential {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authType".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverType".into(),
-                },
-                register_interface::ResultField {
-                    name: "token".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceCredentialResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authType").unwrap(),
+                o.extract_field("authType"),
             ),
             server_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverType").unwrap(),
+                o.extract_field("serverType"),
             ),
-            token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("token").unwrap(),
-            ),
+            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

@@ -465,118 +465,54 @@ pub mod fhir_store {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "complexDataTypeReferenceParsing".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSearchHandlingStrict".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableReferentialIntegrity".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableResourceVersioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableHistoryImport".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableHistoryModifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableUpdateCreate".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FhirStoreResult {
             complex_data_type_reference_parsing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("complexDataTypeReferenceParsing").unwrap(),
+                o.extract_field("complexDataTypeReferenceParsing"),
             ),
             dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataset").unwrap(),
+                o.extract_field("dataset"),
             ),
             default_search_handling_strict: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSearchHandlingStrict").unwrap(),
+                o.extract_field("defaultSearchHandlingStrict"),
             ),
             disable_referential_integrity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableReferentialIntegrity").unwrap(),
+                o.extract_field("disableReferentialIntegrity"),
             ),
             disable_resource_versioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableResourceVersioning").unwrap(),
+                o.extract_field("disableResourceVersioning"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_history_import: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableHistoryImport").unwrap(),
+                o.extract_field("enableHistoryImport"),
             ),
             enable_history_modifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableHistoryModifications").unwrap(),
+                o.extract_field("enableHistoryModifications"),
             ),
             enable_update_create: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableUpdateCreate").unwrap(),
+                o.extract_field("enableUpdateCreate"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationConfig").unwrap(),
+                o.extract_field("notificationConfig"),
             ),
             notification_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationConfigs").unwrap(),
+                o.extract_field("notificationConfigs"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             stream_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamConfigs").unwrap(),
+                o.extract_field("streamConfigs"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

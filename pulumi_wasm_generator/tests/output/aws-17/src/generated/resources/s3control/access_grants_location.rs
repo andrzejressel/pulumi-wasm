@@ -109,57 +109,27 @@ pub mod access_grants_location {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessGrantsLocationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessGrantsLocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessGrantsLocationResult {
             access_grants_location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsLocationArn").unwrap(),
+                o.extract_field("accessGrantsLocationArn"),
             ),
             access_grants_location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsLocationId").unwrap(),
+                o.extract_field("accessGrantsLocationId"),
             ),
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             location_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationScope").unwrap(),
+                o.extract_field("locationScope"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

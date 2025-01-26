@@ -39,44 +39,16 @@ pub mod get_rule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includedPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "stage".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRuleResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             included_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includedPermissions").unwrap(),
+                o.extract_field("includedPermissions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stage").unwrap(),
-            ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

@@ -298,159 +298,72 @@ pub mod nfs_file_share {
                     value: &vpc_endpoint_dns_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditDestinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultStorageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileshareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "guessMimeTypeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "nfsFileShareDefaults".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectAcl".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "readOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterPays".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "squash".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointDnsName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NfsFileShareResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             audit_destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditDestinationArn").unwrap(),
+                o.extract_field("auditDestinationArn"),
             ),
             bucket_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketRegion").unwrap(),
+                o.extract_field("bucketRegion"),
             ),
             cache_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheAttributes").unwrap(),
+                o.extract_field("cacheAttributes"),
             ),
             client_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientLists").unwrap(),
+                o.extract_field("clientLists"),
             ),
             default_storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultStorageClass").unwrap(),
+                o.extract_field("defaultStorageClass"),
             ),
             file_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileShareName").unwrap(),
+                o.extract_field("fileShareName"),
             ),
             fileshare_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileshareId").unwrap(),
+                o.extract_field("fileshareId"),
             ),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
             guess_mime_type_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guessMimeTypeEnabled").unwrap(),
+                o.extract_field("guessMimeTypeEnabled"),
             ),
             kms_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsEncrypted").unwrap(),
+                o.extract_field("kmsEncrypted"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationArn").unwrap(),
+                o.extract_field("locationArn"),
             ),
             nfs_file_share_defaults: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nfsFileShareDefaults").unwrap(),
+                o.extract_field("nfsFileShareDefaults"),
             ),
             notification_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationPolicy").unwrap(),
+                o.extract_field("notificationPolicy"),
             ),
             object_acl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectAcl").unwrap(),
+                o.extract_field("objectAcl"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readOnly").unwrap(),
+                o.extract_field("readOnly"),
             ),
             requester_pays: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterPays").unwrap(),
+                o.extract_field("requesterPays"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            squash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("squash").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            squash: pulumi_wasm_rust::__private::into_domain(o.extract_field("squash")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_endpoint_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointDnsName").unwrap(),
+                o.extract_field("vpcEndpointDnsName"),
             ),
         }
     }

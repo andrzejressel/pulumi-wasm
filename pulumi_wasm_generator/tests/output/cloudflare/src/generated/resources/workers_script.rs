@@ -340,135 +340,62 @@ pub mod workers_script {
                     value: &webassembly_bindings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "analyticsEngineBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "compatibilityDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "compatibilityFlags".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "d1DatabaseBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "dispatchNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperdriveConfigBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "kvNamespaceBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "logpush".into(),
-                },
-                register_interface::ResultField {
-                    name: "module".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "placements".into(),
-                },
-                register_interface::ResultField {
-                    name: "plainTextBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "r2BucketBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretTextBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceBindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "webassemblyBindings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkersScriptResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             analytics_engine_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticsEngineBindings").unwrap(),
+                o.extract_field("analyticsEngineBindings"),
             ),
             compatibility_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibilityDate").unwrap(),
+                o.extract_field("compatibilityDate"),
             ),
             compatibility_flags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibilityFlags").unwrap(),
+                o.extract_field("compatibilityFlags"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             d1_database_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("d1DatabaseBindings").unwrap(),
+                o.extract_field("d1DatabaseBindings"),
             ),
             dispatch_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dispatchNamespace").unwrap(),
+                o.extract_field("dispatchNamespace"),
             ),
             hyperdrive_config_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperdriveConfigBindings").unwrap(),
+                o.extract_field("hyperdriveConfigBindings"),
             ),
             kv_namespace_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kvNamespaceBindings").unwrap(),
+                o.extract_field("kvNamespaceBindings"),
             ),
             logpush: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logpush").unwrap(),
+                o.extract_field("logpush"),
             ),
-            module: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("module").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            module: pulumi_wasm_rust::__private::into_domain(o.extract_field("module")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             placements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placements").unwrap(),
+                o.extract_field("placements"),
             ),
             plain_text_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plainTextBindings").unwrap(),
+                o.extract_field("plainTextBindings"),
             ),
             queue_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueBindings").unwrap(),
+                o.extract_field("queueBindings"),
             ),
             r2_bucket_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("r2BucketBindings").unwrap(),
+                o.extract_field("r2BucketBindings"),
             ),
             secret_text_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretTextBindings").unwrap(),
+                o.extract_field("secretTextBindings"),
             ),
             service_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceBindings").unwrap(),
+                o.extract_field("serviceBindings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             webassembly_bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webassemblyBindings").unwrap(),
+                o.extract_field("webassemblyBindings"),
             ),
         }
     }

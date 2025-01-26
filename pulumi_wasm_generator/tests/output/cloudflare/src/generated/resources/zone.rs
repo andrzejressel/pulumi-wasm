@@ -133,82 +133,30 @@ pub mod zone {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "jumpStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "meta".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "paused".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vanityNameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             jump_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jumpStart").unwrap(),
+                o.extract_field("jumpStart"),
             ),
-            meta: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("meta").unwrap(),
-            ),
+            meta: pulumi_wasm_rust::__private::into_domain(o.extract_field("meta")),
             name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameServers").unwrap(),
+                o.extract_field("nameServers"),
             ),
-            paused: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("paused").unwrap(),
-            ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            paused: pulumi_wasm_rust::__private::into_domain(o.extract_field("paused")),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vanity_name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vanityNameServers").unwrap(),
+                o.extract_field("vanityNameServers"),
             ),
             verification_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationKey").unwrap(),
+                o.extract_field("verificationKey"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

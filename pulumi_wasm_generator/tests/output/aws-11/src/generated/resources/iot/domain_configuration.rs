@@ -173,87 +173,36 @@ pub mod domain_configuration {
                     value: &validation_certificate_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCertificateArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationCertificateArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authorizer_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerConfig").unwrap(),
+                o.extract_field("authorizerConfig"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainType").unwrap(),
+                o.extract_field("domainType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             server_certificate_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCertificateArns").unwrap(),
+                o.extract_field("serverCertificateArns"),
             ),
             service_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceType").unwrap(),
+                o.extract_field("serviceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tls_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsConfig").unwrap(),
+                o.extract_field("tlsConfig"),
             ),
             validation_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationCertificateArn").unwrap(),
+                o.extract_field("validationCertificateArn"),
             ),
         }
     }

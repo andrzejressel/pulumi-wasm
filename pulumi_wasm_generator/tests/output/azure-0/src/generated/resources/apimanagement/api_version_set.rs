@@ -175,63 +175,30 @@ pub mod api_version_set {
                     value: &versioning_scheme_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionHeaderName".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionQueryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "versioningScheme".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiVersionSetResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             version_header_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionHeaderName").unwrap(),
+                o.extract_field("versionHeaderName"),
             ),
             version_query_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionQueryName").unwrap(),
+                o.extract_field("versionQueryName"),
             ),
             versioning_scheme: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versioningScheme").unwrap(),
+                o.extract_field("versioningScheme"),
             ),
         }
     }

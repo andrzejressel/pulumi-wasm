@@ -103,46 +103,20 @@ pub mod local_gateway_route_table_vpc_association {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "localGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalGatewayRouteTableVpcAssociationResult {
             local_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayId").unwrap(),
+                o.extract_field("localGatewayId"),
             ),
             local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayRouteTableId").unwrap(),
+                o.extract_field("localGatewayRouteTableId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

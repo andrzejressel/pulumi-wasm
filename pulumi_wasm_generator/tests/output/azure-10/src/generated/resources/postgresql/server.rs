@@ -351,148 +351,67 @@ pub mod server {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorLoginPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoGrowEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationSourceServerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoRedundantBackupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorePointInTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslEnforcementEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslMinimalTlsVersionEnforced".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMb".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatDetectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             administrator_login_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLoginPassword").unwrap(),
+                o.extract_field("administratorLoginPassword"),
             ),
             auto_grow_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoGrowEnabled").unwrap(),
+                o.extract_field("autoGrowEnabled"),
             ),
             backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionDays").unwrap(),
+                o.extract_field("backupRetentionDays"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             creation_source_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationSourceServerId").unwrap(),
+                o.extract_field("creationSourceServerId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoRedundantBackupEnabled").unwrap(),
+                o.extract_field("geoRedundantBackupEnabled"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             infrastructure_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureEncryptionEnabled").unwrap(),
+                o.extract_field("infrastructureEncryptionEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restore_point_in_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorePointInTime").unwrap(),
+                o.extract_field("restorePointInTime"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             ssl_enforcement_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslEnforcementEnabled").unwrap(),
+                o.extract_field("sslEnforcementEnabled"),
             ),
             ssl_minimal_tls_version_enforced: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslMinimalTlsVersionEnforced").unwrap(),
+                o.extract_field("sslMinimalTlsVersionEnforced"),
             ),
             storage_mb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMb").unwrap(),
+                o.extract_field("storageMb"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threat_detection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatDetectionPolicy").unwrap(),
+                o.extract_field("threatDetectionPolicy"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

@@ -844,135 +844,62 @@ pub mod event_target {
                     value: &target_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appsyncTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetterConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecsTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventBusName".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "input".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputTransformer".into(),
-                },
-                register_interface::ResultField {
-                    name: "kinesisTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "redshiftTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "rule".into(),
-                },
-                register_interface::ResultField {
-                    name: "runCommandTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "sagemakerPipelineTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventTargetResult {
             appsync_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appsyncTarget").unwrap(),
+                o.extract_field("appsyncTarget"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             batch_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchTarget").unwrap(),
+                o.extract_field("batchTarget"),
             ),
             dead_letter_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterConfig").unwrap(),
+                o.extract_field("deadLetterConfig"),
             ),
             ecs_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecsTarget").unwrap(),
+                o.extract_field("ecsTarget"),
             ),
             event_bus_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventBusName").unwrap(),
+                o.extract_field("eventBusName"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
             http_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpTarget").unwrap(),
+                o.extract_field("httpTarget"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("input").unwrap(),
-            ),
+            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
             input_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputPath").unwrap(),
+                o.extract_field("inputPath"),
             ),
             input_transformer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputTransformer").unwrap(),
+                o.extract_field("inputTransformer"),
             ),
             kinesis_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kinesisTarget").unwrap(),
+                o.extract_field("kinesisTarget"),
             ),
             redshift_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redshiftTarget").unwrap(),
+                o.extract_field("redshiftTarget"),
             ),
             retry_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryPolicy").unwrap(),
+                o.extract_field("retryPolicy"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rule").unwrap(),
-            ),
+            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
             run_command_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runCommandTargets").unwrap(),
+                o.extract_field("runCommandTargets"),
             ),
             sagemaker_pipeline_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sagemakerPipelineTarget").unwrap(),
+                o.extract_field("sagemakerPipelineTarget"),
             ),
             sqs_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsTarget").unwrap(),
+                o.extract_field("sqsTarget"),
             ),
             target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetId").unwrap(),
+                o.extract_field("targetId"),
             ),
         }
     }

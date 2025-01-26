@@ -269,93 +269,45 @@ pub mod agent {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "avatarUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "avatarUriBackend".into(),
-                },
-                register_interface::ResultField {
-                    name: "classificationThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultLanguageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "matchMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedLanguageCodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentResult {
             api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiVersion").unwrap(),
+                o.extract_field("apiVersion"),
             ),
             avatar_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("avatarUri").unwrap(),
+                o.extract_field("avatarUri"),
             ),
             avatar_uri_backend: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("avatarUriBackend").unwrap(),
+                o.extract_field("avatarUriBackend"),
             ),
             classification_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("classificationThreshold").unwrap(),
+                o.extract_field("classificationThreshold"),
             ),
             default_language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultLanguageCode").unwrap(),
+                o.extract_field("defaultLanguageCode"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogging").unwrap(),
+                o.extract_field("enableLogging"),
             ),
             match_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("matchMode").unwrap(),
+                o.extract_field("matchMode"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             supported_language_codes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedLanguageCodes").unwrap(),
+                o.extract_field("supportedLanguageCodes"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

@@ -70,61 +70,28 @@ pub mod get_sdk {
                     value: &stage_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentDisposition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sdkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSdkResult {
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             content_disposition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentDisposition").unwrap(),
+                o.extract_field("contentDisposition"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             rest_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApiId").unwrap(),
+                o.extract_field("restApiId"),
             ),
             sdk_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sdkType").unwrap(),
+                o.extract_field("sdkType"),
             ),
             stage_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageName").unwrap(),
+                o.extract_field("stageName"),
             ),
         }
     }

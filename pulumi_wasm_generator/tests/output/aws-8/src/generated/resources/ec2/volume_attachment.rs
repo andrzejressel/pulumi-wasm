@@ -145,51 +145,26 @@ pub mod volume_attachment {
                     value: &volume_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDetach".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopInstanceBeforeDetaching".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeAttachmentResult {
             device_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceName").unwrap(),
+                o.extract_field("deviceName"),
             ),
             force_detach: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDetach").unwrap(),
+                o.extract_field("forceDetach"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             stop_instance_before_detaching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopInstanceBeforeDetaching").unwrap(),
+                o.extract_field("stopInstanceBeforeDetaching"),
             ),
             volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeId").unwrap(),
+                o.extract_field("volumeId"),
             ),
         }
     }

@@ -108,63 +108,24 @@ pub mod observability_configuration {
                     value: &trace_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "latest".into(),
-                },
-                register_interface::ResultField {
-                    name: "observabilityConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "observabilityConfigurationRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "traceConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ObservabilityConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latest").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
             observability_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("observabilityConfigurationName").unwrap(),
+                o.extract_field("observabilityConfigurationName"),
             ),
             observability_configuration_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("observabilityConfigurationRevision").unwrap(),
+                o.extract_field("observabilityConfigurationRevision"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             trace_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("traceConfiguration").unwrap(),
+                o.extract_field("traceConfiguration"),
             ),
         }
     }

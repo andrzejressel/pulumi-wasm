@@ -199,52 +199,25 @@ pub mod custom_domain {
                     value: &scms_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerPortals".into(),
-                },
-                register_interface::ResultField {
-                    name: "gateways".into(),
-                },
-                register_interface::ResultField {
-                    name: "managements".into(),
-                },
-                register_interface::ResultField {
-                    name: "portals".into(),
-                },
-                register_interface::ResultField {
-                    name: "scms".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDomainResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
             developer_portals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerPortals").unwrap(),
+                o.extract_field("developerPortals"),
             ),
             gateways: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gateways").unwrap(),
+                o.extract_field("gateways"),
             ),
             managements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managements").unwrap(),
+                o.extract_field("managements"),
             ),
             portals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portals").unwrap(),
+                o.extract_field("portals"),
             ),
-            scms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scms").unwrap(),
-            ),
+            scms: pulumi_wasm_rust::__private::into_domain(o.extract_field("scms")),
         }
     }
 }

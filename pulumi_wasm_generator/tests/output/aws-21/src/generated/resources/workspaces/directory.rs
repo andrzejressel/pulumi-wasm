@@ -306,117 +306,55 @@ pub mod directory {
                     value: &workspace_creation_properties_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerUserName".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "samlProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfServicePermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceAccessProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceCreationProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceSecurityGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DirectoryResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             customer_user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerUserName").unwrap(),
+                o.extract_field("customerUserName"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             directory_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryName").unwrap(),
+                o.extract_field("directoryName"),
             ),
             directory_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryType").unwrap(),
+                o.extract_field("directoryType"),
             ),
             dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsIpAddresses").unwrap(),
+                o.extract_field("dnsIpAddresses"),
             ),
             iam_role_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleId").unwrap(),
+                o.extract_field("iamRoleId"),
             ),
             ip_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipGroupIds").unwrap(),
+                o.extract_field("ipGroupIds"),
             ),
             registration_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationCode").unwrap(),
+                o.extract_field("registrationCode"),
             ),
             saml_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samlProperties").unwrap(),
+                o.extract_field("samlProperties"),
             ),
             self_service_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfServicePermissions").unwrap(),
+                o.extract_field("selfServicePermissions"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             workspace_access_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceAccessProperties").unwrap(),
+                o.extract_field("workspaceAccessProperties"),
             ),
             workspace_creation_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceCreationProperties").unwrap(),
+                o.extract_field("workspaceCreationProperties"),
             ),
             workspace_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceSecurityGroupId").unwrap(),
+                o.extract_field("workspaceSecurityGroupId"),
             ),
         }
     }

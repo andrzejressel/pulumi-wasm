@@ -83,33 +83,13 @@ pub mod domain_identity {
                     value: &domain_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationToken".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainIdentityResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             verification_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationToken").unwrap(),
+                o.extract_field("verificationToken"),
             ),
         }
     }

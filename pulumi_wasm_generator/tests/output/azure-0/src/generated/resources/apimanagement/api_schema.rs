@@ -150,64 +150,31 @@ pub mod api_schema {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiName".into(),
-                },
-                register_interface::ResultField {
-                    name: "components".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "definitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiSchemaResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             api_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiName").unwrap(),
+                o.extract_field("apiName"),
             ),
             components: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("components").unwrap(),
+                o.extract_field("components"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("definitions").unwrap(),
+                o.extract_field("definitions"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             schema_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaId").unwrap(),
+                o.extract_field("schemaId"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

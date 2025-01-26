@@ -135,64 +135,31 @@ pub mod vpc_ipv_6_cidr_block_association {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignGeneratedIpv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressAttribute".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6IpamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6NetmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpv6CidrBlockAssociationResult {
             assign_generated_ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignGeneratedIpv6CidrBlock").unwrap(),
+                o.extract_field("assignGeneratedIpv6CidrBlock"),
             ),
             ip_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipSource").unwrap(),
+                o.extract_field("ipSource"),
             ),
             ipv6_address_attribute: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressAttribute").unwrap(),
+                o.extract_field("ipv6AddressAttribute"),
             ),
             ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlock").unwrap(),
+                o.extract_field("ipv6CidrBlock"),
             ),
             ipv6_ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6IpamPoolId").unwrap(),
+                o.extract_field("ipv6IpamPoolId"),
             ),
             ipv6_netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6NetmaskLength").unwrap(),
+                o.extract_field("ipv6NetmaskLength"),
             ),
             ipv6_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Pool").unwrap(),
+                o.extract_field("ipv6Pool"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

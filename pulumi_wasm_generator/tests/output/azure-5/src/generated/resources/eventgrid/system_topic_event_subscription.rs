@@ -451,147 +451,70 @@ pub mod system_topic_event_subscription {
                     value: &webhook_endpoint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedFilteringOnArraysEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureFunctionEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetterIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventDeliverySchema".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationTimeUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "hybridConnectionEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "includedEventTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceBusQueueEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceBusTopicEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageBlobDeadLetterDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageQueueEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemTopic".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhookEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SystemTopicEventSubscriptionResult {
             advanced_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedFilter").unwrap(),
+                o.extract_field("advancedFilter"),
             ),
             advanced_filtering_on_arrays_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedFilteringOnArraysEnabled").unwrap(),
+                o.extract_field("advancedFilteringOnArraysEnabled"),
             ),
             azure_function_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureFunctionEndpoint").unwrap(),
+                o.extract_field("azureFunctionEndpoint"),
             ),
             dead_letter_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterIdentity").unwrap(),
+                o.extract_field("deadLetterIdentity"),
             ),
             delivery_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryIdentity").unwrap(),
+                o.extract_field("deliveryIdentity"),
             ),
             delivery_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryProperties").unwrap(),
+                o.extract_field("deliveryProperties"),
             ),
             event_delivery_schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventDeliverySchema").unwrap(),
+                o.extract_field("eventDeliverySchema"),
             ),
             eventhub_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubEndpointId").unwrap(),
+                o.extract_field("eventhubEndpointId"),
             ),
             expiration_time_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationTimeUtc").unwrap(),
+                o.extract_field("expirationTimeUtc"),
             ),
             hybrid_connection_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hybridConnectionEndpointId").unwrap(),
+                o.extract_field("hybridConnectionEndpointId"),
             ),
             included_event_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includedEventTypes").unwrap(),
+                o.extract_field("includedEventTypes"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retry_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryPolicy").unwrap(),
+                o.extract_field("retryPolicy"),
             ),
             service_bus_queue_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceBusQueueEndpointId").unwrap(),
+                o.extract_field("serviceBusQueueEndpointId"),
             ),
             service_bus_topic_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceBusTopicEndpointId").unwrap(),
+                o.extract_field("serviceBusTopicEndpointId"),
             ),
             storage_blob_dead_letter_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageBlobDeadLetterDestination").unwrap(),
+                o.extract_field("storageBlobDeadLetterDestination"),
             ),
             storage_queue_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageQueueEndpoint").unwrap(),
+                o.extract_field("storageQueueEndpoint"),
             ),
             subject_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectFilter").unwrap(),
+                o.extract_field("subjectFilter"),
             ),
             system_topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemTopic").unwrap(),
+                o.extract_field("systemTopic"),
             ),
             webhook_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhookEndpoint").unwrap(),
+                o.extract_field("webhookEndpoint"),
             ),
         }
     }

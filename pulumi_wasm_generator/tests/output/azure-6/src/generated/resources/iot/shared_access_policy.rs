@@ -156,81 +156,39 @@ pub mod shared_access_policy {
                     value: &service_connect_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deviceConnect".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryRead".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceConnect".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedAccessPolicyResult {
             device_connect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceConnect").unwrap(),
+                o.extract_field("deviceConnect"),
             ),
             iothub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubName").unwrap(),
+                o.extract_field("iothubName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             registry_read: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryRead").unwrap(),
+                o.extract_field("registryRead"),
             ),
             registry_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryWrite").unwrap(),
+                o.extract_field("registryWrite"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
             service_connect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceConnect").unwrap(),
+                o.extract_field("serviceConnect"),
             ),
         }
     }

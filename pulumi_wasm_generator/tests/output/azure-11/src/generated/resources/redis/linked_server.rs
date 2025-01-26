@@ -154,57 +154,27 @@ pub mod linked_server {
                     value: &target_redis_cache_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "geoReplicatedPrimaryHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedRedisCacheId".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedRedisCacheLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRedisCacheName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LinkedServerResult {
             geo_replicated_primary_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoReplicatedPrimaryHostName").unwrap(),
+                o.extract_field("geoReplicatedPrimaryHostName"),
             ),
             linked_redis_cache_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedRedisCacheId").unwrap(),
+                o.extract_field("linkedRedisCacheId"),
             ),
             linked_redis_cache_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedRedisCacheLocation").unwrap(),
+                o.extract_field("linkedRedisCacheLocation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             server_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverRole").unwrap(),
+                o.extract_field("serverRole"),
             ),
             target_redis_cache_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRedisCacheName").unwrap(),
+                o.extract_field("targetRedisCacheName"),
             ),
         }
     }

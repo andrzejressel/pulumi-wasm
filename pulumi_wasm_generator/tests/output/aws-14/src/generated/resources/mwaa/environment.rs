@@ -393,219 +393,100 @@ pub mod environment {
                     value: &weekly_maintenance_window_start_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "airflowConfigurationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "airflowVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "dagS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseVpcEndpointService".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointManagement".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdateds".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxWebservers".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "minWebservers".into(),
-                },
-                register_interface::ResultField {
-                    name: "minWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "pluginsS3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "pluginsS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "requirementsS3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "requirementsS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulers".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceBucketArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startupScriptS3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "startupScriptS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "webserverAccessMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "webserverUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "webserverVpcEndpointService".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyMaintenanceWindowStart".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             airflow_configuration_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("airflowConfigurationOptions").unwrap(),
+                o.extract_field("airflowConfigurationOptions"),
             ),
             airflow_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("airflowVersion").unwrap(),
+                o.extract_field("airflowVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             dag_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dagS3Path").unwrap(),
+                o.extract_field("dagS3Path"),
             ),
             database_vpc_endpoint_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseVpcEndpointService").unwrap(),
+                o.extract_field("databaseVpcEndpointService"),
             ),
             endpoint_management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointManagement").unwrap(),
+                o.extract_field("endpointManagement"),
             ),
             environment_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentClass").unwrap(),
+                o.extract_field("environmentClass"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
             last_updateds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdateds").unwrap(),
+                o.extract_field("lastUpdateds"),
             ),
             logging_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfiguration").unwrap(),
+                o.extract_field("loggingConfiguration"),
             ),
             max_webservers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxWebservers").unwrap(),
+                o.extract_field("maxWebservers"),
             ),
             max_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxWorkers").unwrap(),
+                o.extract_field("maxWorkers"),
             ),
             min_webservers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minWebservers").unwrap(),
+                o.extract_field("minWebservers"),
             ),
             min_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minWorkers").unwrap(),
+                o.extract_field("minWorkers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             plugins_s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pluginsS3ObjectVersion").unwrap(),
+                o.extract_field("pluginsS3ObjectVersion"),
             ),
             plugins_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pluginsS3Path").unwrap(),
+                o.extract_field("pluginsS3Path"),
             ),
             requirements_s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requirementsS3ObjectVersion").unwrap(),
+                o.extract_field("requirementsS3ObjectVersion"),
             ),
             requirements_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requirementsS3Path").unwrap(),
+                o.extract_field("requirementsS3Path"),
             ),
             schedulers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulers").unwrap(),
+                o.extract_field("schedulers"),
             ),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
             source_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceBucketArn").unwrap(),
+                o.extract_field("sourceBucketArn"),
             ),
             startup_script_s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startupScriptS3ObjectVersion").unwrap(),
+                o.extract_field("startupScriptS3ObjectVersion"),
             ),
             startup_script_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startupScriptS3Path").unwrap(),
+                o.extract_field("startupScriptS3Path"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             webserver_access_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webserverAccessMode").unwrap(),
+                o.extract_field("webserverAccessMode"),
             ),
             webserver_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webserverUrl").unwrap(),
+                o.extract_field("webserverUrl"),
             ),
             webserver_vpc_endpoint_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webserverVpcEndpointService").unwrap(),
+                o.extract_field("webserverVpcEndpointService"),
             ),
             weekly_maintenance_window_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyMaintenanceWindowStart").unwrap(),
+                o.extract_field("weeklyMaintenanceWindowStart"),
             ),
         }
     }

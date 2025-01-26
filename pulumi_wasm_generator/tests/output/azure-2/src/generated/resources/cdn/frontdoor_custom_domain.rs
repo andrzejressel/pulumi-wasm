@@ -195,57 +195,25 @@ pub mod frontdoor_custom_domain {
                     value: &tls_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tls".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationToken".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorCustomDomainResult {
             cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileId").unwrap(),
+                o.extract_field("cdnFrontdoorProfileId"),
             ),
             dns_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsZoneId").unwrap(),
+                o.extract_field("dnsZoneId"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tls").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
             validation_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationToken").unwrap(),
+                o.extract_field("validationToken"),
             ),
         }
     }

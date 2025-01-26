@@ -117,45 +117,21 @@ pub mod service_trust {
                     value: &trusted_domain_fqdn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedDomainDnsIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedDomainFqdn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceTrustResult {
             domain_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainServiceId").unwrap(),
+                o.extract_field("domainServiceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             trusted_domain_dns_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedDomainDnsIps").unwrap(),
+                o.extract_field("trustedDomainDnsIps"),
             ),
             trusted_domain_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedDomainFqdn").unwrap(),
+                o.extract_field("trustedDomainFqdn"),
             ),
         }
     }

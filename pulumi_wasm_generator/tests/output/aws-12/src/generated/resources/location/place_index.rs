@@ -125,69 +125,33 @@ pub mod place_index {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PlaceIndexResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             data_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSource").unwrap(),
+                o.extract_field("dataSource"),
             ),
             data_source_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceConfiguration").unwrap(),
+                o.extract_field("dataSourceConfiguration"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             index_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexArn").unwrap(),
+                o.extract_field("indexArn"),
             ),
             index_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexName").unwrap(),
+                o.extract_field("indexName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

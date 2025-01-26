@@ -195,82 +195,36 @@ pub mod resolver_firewall_rule {
                     value: &q_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockOverrideDnsType".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockOverrideDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockOverrideTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockResponse".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallDomainListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallDomainRedirectionAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallRuleGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "qType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverFirewallRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             block_override_dns_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockOverrideDnsType").unwrap(),
+                o.extract_field("blockOverrideDnsType"),
             ),
             block_override_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockOverrideDomain").unwrap(),
+                o.extract_field("blockOverrideDomain"),
             ),
             block_override_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockOverrideTtl").unwrap(),
+                o.extract_field("blockOverrideTtl"),
             ),
             block_response: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockResponse").unwrap(),
+                o.extract_field("blockResponse"),
             ),
             firewall_domain_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallDomainListId").unwrap(),
+                o.extract_field("firewallDomainListId"),
             ),
             firewall_domain_redirection_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallDomainRedirectionAction").unwrap(),
+                o.extract_field("firewallDomainRedirectionAction"),
             ),
             firewall_rule_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallRuleGroupId").unwrap(),
+                o.extract_field("firewallRuleGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
-            q_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qType").unwrap(),
-            ),
+            q_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("qType")),
         }
     }
 }

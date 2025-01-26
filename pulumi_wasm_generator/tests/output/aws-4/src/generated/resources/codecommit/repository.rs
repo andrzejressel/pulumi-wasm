@@ -141,75 +141,34 @@ pub mod repository {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloneUrlHttp".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloneUrlSsh".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultBranch".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             clone_url_http: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloneUrlHttp").unwrap(),
+                o.extract_field("cloneUrlHttp"),
             ),
             clone_url_ssh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloneUrlSsh").unwrap(),
+                o.extract_field("cloneUrlSsh"),
             ),
             default_branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultBranch").unwrap(),
+                o.extract_field("defaultBranch"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             repository_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryId").unwrap(),
+                o.extract_field("repositoryId"),
             ),
             repository_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryName").unwrap(),
+                o.extract_field("repositoryName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

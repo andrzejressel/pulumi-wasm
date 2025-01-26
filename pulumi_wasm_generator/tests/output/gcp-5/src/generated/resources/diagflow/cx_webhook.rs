@@ -227,82 +227,36 @@ pub mod cx_webhook {
                     value: &timeout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSpellCorrection".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStackdriverLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "genericWebService".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "securitySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "startFlow".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxWebhookResult {
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_spell_correction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSpellCorrection").unwrap(),
+                o.extract_field("enableSpellCorrection"),
             ),
             enable_stackdriver_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStackdriverLogging").unwrap(),
+                o.extract_field("enableStackdriverLogging"),
             ),
             generic_web_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("genericWebService").unwrap(),
+                o.extract_field("genericWebService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             security_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securitySettings").unwrap(),
+                o.extract_field("securitySettings"),
             ),
             service_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceDirectory").unwrap(),
+                o.extract_field("serviceDirectory"),
             ),
             start_flow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startFlow").unwrap(),
+                o.extract_field("startFlow"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
-            ),
+            timeout: pulumi_wasm_rust::__private::into_domain(o.extract_field("timeout")),
         }
     }
 }

@@ -85,55 +85,21 @@ pub mod get_tags {
                     value: &time_period_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "searchString".into(),
-                },
-                register_interface::ResultField {
-                    name: "sortBies".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePeriod".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTagsResult {
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             search_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("searchString").unwrap(),
+                o.extract_field("searchString"),
             ),
             sort_bies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sortBies").unwrap(),
+                o.extract_field("sortBies"),
             ),
-            tag_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagKey").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tag_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("tagKey")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             time_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePeriod").unwrap(),
+                o.extract_field("timePeriod"),
             ),
         }
     }

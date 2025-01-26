@@ -649,159 +649,74 @@ pub mod workspace {
                     value: &v1_legacy_mode_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationInsightsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "discoveryUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureStore".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "highBusinessImpact".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageBuildComputeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryUserAssignedIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverlessCompute".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "v1LegacyModeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceResult {
             application_insights_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationInsightsId").unwrap(),
+                o.extract_field("applicationInsightsId"),
             ),
             container_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryId").unwrap(),
+                o.extract_field("containerRegistryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             discovery_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discoveryUrl").unwrap(),
+                o.extract_field("discoveryUrl"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             feature_store: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureStore").unwrap(),
+                o.extract_field("featureStore"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             high_business_impact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("highBusinessImpact").unwrap(),
+                o.extract_field("highBusinessImpact"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             image_build_compute_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageBuildComputeName").unwrap(),
+                o.extract_field("imageBuildComputeName"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedNetwork").unwrap(),
+                o.extract_field("managedNetwork"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_user_assigned_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryUserAssignedIdentity").unwrap(),
+                o.extract_field("primaryUserAssignedIdentity"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             serverless_compute: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverlessCompute").unwrap(),
+                o.extract_field("serverlessCompute"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             v1_legacy_mode_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("v1LegacyModeEnabled").unwrap(),
+                o.extract_field("v1LegacyModeEnabled"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

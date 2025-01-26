@@ -219,64 +219,29 @@ pub mod project_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "devBoxDefinitionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "devCenterAttachedNetworkName".into(),
-                },
-                register_interface::ResultField {
-                    name: "devCenterProjectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAdministratorEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopOnDisconnectGracePeriodMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectPoolResult {
             dev_box_definition_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devBoxDefinitionName").unwrap(),
+                o.extract_field("devBoxDefinitionName"),
             ),
             dev_center_attached_network_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devCenterAttachedNetworkName").unwrap(),
+                o.extract_field("devCenterAttachedNetworkName"),
             ),
             dev_center_project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devCenterProjectId").unwrap(),
+                o.extract_field("devCenterProjectId"),
             ),
             local_administrator_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAdministratorEnabled").unwrap(),
+                o.extract_field("localAdministratorEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopOnDisconnectGracePeriodMinutes").unwrap(),
+                o.extract_field("stopOnDisconnectGracePeriodMinutes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -489,154 +489,66 @@ pub mod task_definition {
                     value: &volumes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arnWithoutRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerDefinitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpu".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "family".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceAccelerators".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipcMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "memory".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "pidMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementConstraints".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiresCompatibilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackLatest".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TaskDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             arn_without_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arnWithoutRevision").unwrap(),
+                o.extract_field("arnWithoutRevision"),
             ),
             container_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerDefinitions").unwrap(),
+                o.extract_field("containerDefinitions"),
             ),
-            cpu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpu").unwrap(),
-            ),
+            cpu: pulumi_wasm_rust::__private::into_domain(o.extract_field("cpu")),
             ephemeral_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralStorage").unwrap(),
+                o.extract_field("ephemeralStorage"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
-            family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("family").unwrap(),
-            ),
+            family: pulumi_wasm_rust::__private::into_domain(o.extract_field("family")),
             inference_accelerators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceAccelerators").unwrap(),
+                o.extract_field("inferenceAccelerators"),
             ),
             ipc_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipcMode").unwrap(),
+                o.extract_field("ipcMode"),
             ),
-            memory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memory").unwrap(),
-            ),
+            memory: pulumi_wasm_rust::__private::into_domain(o.extract_field("memory")),
             network_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkMode").unwrap(),
+                o.extract_field("networkMode"),
             ),
             pid_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pidMode").unwrap(),
+                o.extract_field("pidMode"),
             ),
             placement_constraints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementConstraints").unwrap(),
+                o.extract_field("placementConstraints"),
             ),
             proxy_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyConfiguration").unwrap(),
+                o.extract_field("proxyConfiguration"),
             ),
             requires_compatibilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiresCompatibilities").unwrap(),
+                o.extract_field("requiresCompatibilities"),
             ),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
             runtime_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimePlatform").unwrap(),
+                o.extract_field("runtimePlatform"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             task_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskRoleArn").unwrap(),
+                o.extract_field("taskRoleArn"),
             ),
             track_latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackLatest").unwrap(),
+                o.extract_field("trackLatest"),
             ),
-            volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumes").unwrap(),
-            ),
+            volumes: pulumi_wasm_rust::__private::into_domain(o.extract_field("volumes")),
         }
     }
 }

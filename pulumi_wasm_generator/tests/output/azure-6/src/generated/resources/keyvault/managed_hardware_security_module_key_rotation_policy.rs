@@ -112,39 +112,20 @@ pub mod managed_hardware_security_module_key_rotation_policy {
                     value: &time_before_expiry_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "expireAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeAfterCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeBeforeExpiry".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedHardwareSecurityModuleKeyRotationPolicyResult {
             expire_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireAfter").unwrap(),
+                o.extract_field("expireAfter"),
             ),
             managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmKeyId").unwrap(),
+                o.extract_field("managedHsmKeyId"),
             ),
             time_after_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeAfterCreation").unwrap(),
+                o.extract_field("timeAfterCreation"),
             ),
             time_before_expiry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeBeforeExpiry").unwrap(),
+                o.extract_field("timeBeforeExpiry"),
             ),
         }
     }

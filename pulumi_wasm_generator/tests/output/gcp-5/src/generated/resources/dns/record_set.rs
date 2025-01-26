@@ -425,58 +425,24 @@ pub mod record_set {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "managedZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "rrdatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RecordSetResult {
             managed_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedZone").unwrap(),
+                o.extract_field("managedZone"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             routing_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingPolicy").unwrap(),
+                o.extract_field("routingPolicy"),
             ),
             rrdatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rrdatas").unwrap(),
+                o.extract_field("rrdatas"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

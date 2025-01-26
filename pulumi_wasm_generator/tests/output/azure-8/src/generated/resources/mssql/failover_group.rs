@@ -181,58 +181,26 @@ pub mod failover_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "databases".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "readWriteEndpointFailoverPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FailoverGroupResult {
             databases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databases").unwrap(),
+                o.extract_field("databases"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partner_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerServers").unwrap(),
+                o.extract_field("partnerServers"),
             ),
             read_write_endpoint_failover_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readWriteEndpointFailoverPolicy").unwrap(),
+                o.extract_field("readWriteEndpointFailoverPolicy"),
             ),
             readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readonlyEndpointFailoverPolicyEnabled").unwrap(),
+                o.extract_field("readonlyEndpointFailoverPolicyEnabled"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

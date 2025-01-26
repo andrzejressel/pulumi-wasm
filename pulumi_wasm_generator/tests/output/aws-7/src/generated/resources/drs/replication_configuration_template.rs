@@ -266,123 +266,58 @@ pub mod replication_configuration_template {
                     value: &use_dedicated_replication_server_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associateDefaultSecurityGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoReplicateNewDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidthThrottling".into(),
-                },
-                register_interface::ResultField {
-                    name: "createPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataPlaneRouting".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultLargeStagingDiskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsEncryptionKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "pitPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationServerInstanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationServersSecurityGroupsIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "stagingAreaSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "stagingAreaTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "useDedicatedReplicationServer".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationConfigurationTemplateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associate_default_security_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associateDefaultSecurityGroup").unwrap(),
+                o.extract_field("associateDefaultSecurityGroup"),
             ),
             auto_replicate_new_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoReplicateNewDisks").unwrap(),
+                o.extract_field("autoReplicateNewDisks"),
             ),
             bandwidth_throttling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidthThrottling").unwrap(),
+                o.extract_field("bandwidthThrottling"),
             ),
             create_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createPublicIp").unwrap(),
+                o.extract_field("createPublicIp"),
             ),
             data_plane_routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataPlaneRouting").unwrap(),
+                o.extract_field("dataPlaneRouting"),
             ),
             default_large_staging_disk_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultLargeStagingDiskType").unwrap(),
+                o.extract_field("defaultLargeStagingDiskType"),
             ),
             ebs_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsEncryption").unwrap(),
+                o.extract_field("ebsEncryption"),
             ),
             ebs_encryption_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsEncryptionKeyArn").unwrap(),
+                o.extract_field("ebsEncryptionKeyArn"),
             ),
             pit_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pitPolicies").unwrap(),
+                o.extract_field("pitPolicies"),
             ),
             replication_server_instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationServerInstanceType").unwrap(),
+                o.extract_field("replicationServerInstanceType"),
             ),
             replication_servers_security_groups_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationServersSecurityGroupsIds").unwrap(),
+                o.extract_field("replicationServersSecurityGroupsIds"),
             ),
             staging_area_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stagingAreaSubnetId").unwrap(),
+                o.extract_field("stagingAreaSubnetId"),
             ),
             staging_area_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stagingAreaTags").unwrap(),
+                o.extract_field("stagingAreaTags"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             use_dedicated_replication_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useDedicatedReplicationServer").unwrap(),
+                o.extract_field("useDedicatedReplicationServer"),
             ),
         }
     }

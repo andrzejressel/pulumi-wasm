@@ -458,219 +458,102 @@ pub mod cluster {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowMajorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifierPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterMembers".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbClusterParameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbSubnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledCloudwatchLogsExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalClusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredBackupWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "readerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreToPointInTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFinalSnapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             allow_major_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowMajorVersionUpgrade").unwrap(),
+                o.extract_field("allowMajorVersionUpgrade"),
             ),
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             backup_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionPeriod").unwrap(),
+                o.extract_field("backupRetentionPeriod"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             cluster_identifier_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifierPrefix").unwrap(),
+                o.extract_field("clusterIdentifierPrefix"),
             ),
             cluster_members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterMembers").unwrap(),
+                o.extract_field("clusterMembers"),
             ),
             cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterResourceId").unwrap(),
+                o.extract_field("clusterResourceId"),
             ),
             db_cluster_parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterParameterGroupName").unwrap(),
+                o.extract_field("dbClusterParameterGroupName"),
             ),
             db_subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbSubnetGroupName").unwrap(),
+                o.extract_field("dbSubnetGroupName"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             enabled_cloudwatch_logs_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledCloudwatchLogsExports").unwrap(),
+                o.extract_field("enabledCloudwatchLogsExports"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             final_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalSnapshotIdentifier").unwrap(),
+                o.extract_field("finalSnapshotIdentifier"),
             ),
             global_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalClusterIdentifier").unwrap(),
+                o.extract_field("globalClusterIdentifier"),
             ),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             master_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterPassword").unwrap(),
+                o.extract_field("masterPassword"),
             ),
             master_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterUsername").unwrap(),
+                o.extract_field("masterUsername"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredBackupWindow").unwrap(),
+                o.extract_field("preferredBackupWindow"),
             ),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             reader_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readerEndpoint").unwrap(),
+                o.extract_field("readerEndpoint"),
             ),
             restore_to_point_in_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreToPointInTime").unwrap(),
+                o.extract_field("restoreToPointInTime"),
             ),
             skip_final_snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFinalSnapshot").unwrap(),
+                o.extract_field("skipFinalSnapshot"),
             ),
             snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotIdentifier").unwrap(),
+                o.extract_field("snapshotIdentifier"),
             ),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEncrypted").unwrap(),
+                o.extract_field("storageEncrypted"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

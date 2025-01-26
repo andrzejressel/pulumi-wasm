@@ -135,39 +135,20 @@ pub mod gateway_certificate_authority {
                     value: &is_trusted_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "isTrusted".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GatewayCertificateAuthorityResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
             certificate_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateName").unwrap(),
+                o.extract_field("certificateName"),
             ),
             gateway_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayName").unwrap(),
+                o.extract_field("gatewayName"),
             ),
             is_trusted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isTrusted").unwrap(),
+                o.extract_field("isTrusted"),
             ),
         }
     }

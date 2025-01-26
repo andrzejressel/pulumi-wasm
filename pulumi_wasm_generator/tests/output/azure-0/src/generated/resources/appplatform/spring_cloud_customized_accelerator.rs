@@ -181,63 +181,30 @@ pub mod spring_cloud_customized_accelerator {
                     value: &spring_cloud_accelerator_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "acceleratorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "gitRepository".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAcceleratorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudCustomizedAcceleratorResult {
             accelerator_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorTags").unwrap(),
+                o.extract_field("acceleratorTags"),
             ),
             accelerator_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorType").unwrap(),
+                o.extract_field("acceleratorType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             git_repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gitRepository").unwrap(),
+                o.extract_field("gitRepository"),
             ),
             icon_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconUrl").unwrap(),
+                o.extract_field("iconUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_accelerator_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAcceleratorId").unwrap(),
+                o.extract_field("springCloudAcceleratorId"),
             ),
         }
     }

@@ -71,49 +71,22 @@ pub mod get_shared_image_versions {
                     value: &tags_filter_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "galleryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "images".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsFilter".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSharedImageVersionsResult {
             gallery_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryName").unwrap(),
+                o.extract_field("galleryName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
-            images: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("images").unwrap(),
-            ),
+            images: pulumi_wasm_rust::__private::into_domain(o.extract_field("images")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             tags_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsFilter").unwrap(),
+                o.extract_field("tagsFilter"),
             ),
         }
     }

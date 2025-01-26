@@ -295,153 +295,69 @@ pub mod bucket_object {
                     value: &temporary_hold_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentDisposition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentEncoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "crc32c".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectMd5hash".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventBasedHold".into(),
-                },
-                register_interface::ResultField {
-                    name: "generation".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "md5hash".into(),
-                },
-                register_interface::ResultField {
-                    name: "mediaLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retention".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "temporaryHold".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketObjectResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             cache_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheControl").unwrap(),
+                o.extract_field("cacheControl"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             content_disposition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentDisposition").unwrap(),
+                o.extract_field("contentDisposition"),
             ),
             content_encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentEncoding").unwrap(),
+                o.extract_field("contentEncoding"),
             ),
             content_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLanguage").unwrap(),
+                o.extract_field("contentLanguage"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            crc32c: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crc32c").unwrap(),
-            ),
+            crc32c: pulumi_wasm_rust::__private::into_domain(o.extract_field("crc32c")),
             customer_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerEncryption").unwrap(),
+                o.extract_field("customerEncryption"),
             ),
             detect_md5hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectMd5hash").unwrap(),
+                o.extract_field("detectMd5hash"),
             ),
             event_based_hold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventBasedHold").unwrap(),
+                o.extract_field("eventBasedHold"),
             ),
             generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generation").unwrap(),
+                o.extract_field("generation"),
             ),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
             md5hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("md5hash").unwrap(),
+                o.extract_field("md5hash"),
             ),
             media_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mediaLink").unwrap(),
+                o.extract_field("mediaLink"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputName").unwrap(),
+                o.extract_field("outputName"),
             ),
             retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retention").unwrap(),
+                o.extract_field("retention"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageClass").unwrap(),
+                o.extract_field("storageClass"),
             ),
             temporary_hold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("temporaryHold").unwrap(),
+                o.extract_field("temporaryHold"),
             ),
         }
     }

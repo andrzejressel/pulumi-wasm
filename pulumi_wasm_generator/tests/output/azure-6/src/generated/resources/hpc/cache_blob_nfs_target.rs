@@ -147,69 +147,33 @@ pub mod cache_blob_nfs_target {
                     value: &write_back_timer_in_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespacePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageContainerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationTimerInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeBackTimerInSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CacheBlobNfsTargetResult {
             access_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyName").unwrap(),
+                o.extract_field("accessPolicyName"),
             ),
             cache_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheName").unwrap(),
+                o.extract_field("cacheName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespacePath").unwrap(),
+                o.extract_field("namespacePath"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_container_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageContainerId").unwrap(),
+                o.extract_field("storageContainerId"),
             ),
             usage_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageModel").unwrap(),
+                o.extract_field("usageModel"),
             ),
             verification_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationTimerInSeconds").unwrap(),
+                o.extract_field("verificationTimerInSeconds"),
             ),
             write_back_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeBackTimerInSeconds").unwrap(),
+                o.extract_field("writeBackTimerInSeconds"),
             ),
         }
     }

@@ -100,39 +100,20 @@ pub mod principal_portfolio_association {
                     value: &principal_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "portfolioId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrincipalPortfolioAssociationResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
             portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portfolioId").unwrap(),
+                o.extract_field("portfolioId"),
             ),
             principal_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalArn").unwrap(),
+                o.extract_field("principalArn"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
         }
     }

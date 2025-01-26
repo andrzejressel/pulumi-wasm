@@ -60,74 +60,31 @@ pub mod get_service_network {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authType".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfAssociatedServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfAssociatedVpcs".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceNetworkIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceNetworkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authType").unwrap(),
+                o.extract_field("authType"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedAt").unwrap(),
+                o.extract_field("lastUpdatedAt"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_associated_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfAssociatedServices").unwrap(),
+                o.extract_field("numberOfAssociatedServices"),
             ),
             number_of_associated_vpcs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfAssociatedVpcs").unwrap(),
+                o.extract_field("numberOfAssociatedVpcs"),
             ),
             service_network_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceNetworkIdentifier").unwrap(),
+                o.extract_field("serviceNetworkIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

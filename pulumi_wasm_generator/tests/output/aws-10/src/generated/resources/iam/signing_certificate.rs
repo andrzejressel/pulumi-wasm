@@ -103,39 +103,18 @@ pub mod signing_certificate {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SigningCertificateResult {
             certificate_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBody").unwrap(),
+                o.extract_field("certificateBody"),
             ),
             certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateId").unwrap(),
+                o.extract_field("certificateId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

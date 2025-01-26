@@ -268,124 +268,53 @@ pub mod ipsec_tunnel {
                     value: &user_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowNullCipher".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudflareEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdnId".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckDirection".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckType".into(),
-                },
-                register_interface::ResultField {
-                    name: "hexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "interfaceAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "psk".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replayProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IpsecTunnelResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             allow_null_cipher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowNullCipher").unwrap(),
+                o.extract_field("allowNullCipher"),
             ),
             cloudflare_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudflareEndpoint").unwrap(),
+                o.extract_field("cloudflareEndpoint"),
             ),
             customer_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerEndpoint").unwrap(),
+                o.extract_field("customerEndpoint"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            fqdn_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdnId").unwrap(),
-            ),
+            fqdn_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdnId")),
             health_check_direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckDirection").unwrap(),
+                o.extract_field("healthCheckDirection"),
             ),
             health_check_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckEnabled").unwrap(),
+                o.extract_field("healthCheckEnabled"),
             ),
             health_check_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckRate").unwrap(),
+                o.extract_field("healthCheckRate"),
             ),
             health_check_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckTarget").unwrap(),
+                o.extract_field("healthCheckTarget"),
             ),
             health_check_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckType").unwrap(),
+                o.extract_field("healthCheckType"),
             ),
-            hex_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hexId").unwrap(),
-            ),
+            hex_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hexId")),
             interface_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interfaceAddress").unwrap(),
+                o.extract_field("interfaceAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            psk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("psk").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            psk: pulumi_wasm_rust::__private::into_domain(o.extract_field("psk")),
             remote_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteId").unwrap(),
+                o.extract_field("remoteId"),
             ),
             replay_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replayProtection").unwrap(),
+                o.extract_field("replayProtection"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
         }
     }
 }

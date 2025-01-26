@@ -330,178 +330,80 @@ pub mod cluster_instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "caCertIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToSnapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbSubnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbiResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePerformanceInsights".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifierPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "performanceInsightsKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredBackupWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "promotionTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "writer".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterInstanceResult {
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             ca_cert_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertIdentifier").unwrap(),
+                o.extract_field("caCertIdentifier"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             copy_tags_to_snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToSnapshot").unwrap(),
+                o.extract_field("copyTagsToSnapshot"),
             ),
             db_subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbSubnetGroupName").unwrap(),
+                o.extract_field("dbSubnetGroupName"),
             ),
             dbi_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbiResourceId").unwrap(),
+                o.extract_field("dbiResourceId"),
             ),
             enable_performance_insights: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePerformanceInsights").unwrap(),
+                o.extract_field("enablePerformanceInsights"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
             identifier_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifierPrefix").unwrap(),
+                o.extract_field("identifierPrefix"),
             ),
             instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceClass").unwrap(),
+                o.extract_field("instanceClass"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             performance_insights_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("performanceInsightsKmsKeyId").unwrap(),
+                o.extract_field("performanceInsightsKmsKeyId"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredBackupWindow").unwrap(),
+                o.extract_field("preferredBackupWindow"),
             ),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             promotion_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("promotionTier").unwrap(),
+                o.extract_field("promotionTier"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEncrypted").unwrap(),
+                o.extract_field("storageEncrypted"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            writer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writer").unwrap(),
-            ),
+            writer: pulumi_wasm_rust::__private::into_domain(o.extract_field("writer")),
         }
     }
 }

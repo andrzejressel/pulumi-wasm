@@ -173,45 +173,23 @@ pub mod cluster_customer_managed_key {
                     value: &user_identity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "userIdentity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterCustomerManagedKeyResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
             key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVersion").unwrap(),
+                o.extract_field("keyVersion"),
             ),
             user_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userIdentity").unwrap(),
+                o.extract_field("userIdentity"),
             ),
         }
     }

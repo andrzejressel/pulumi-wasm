@@ -42,37 +42,16 @@ pub mod get_organization_service_account {
                     value: &organization_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOrganizationServiceAccountResult {
             account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountEmail").unwrap(),
+                o.extract_field("accountEmail"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
         }
     }

@@ -57,37 +57,16 @@ pub mod get_route_table_routes {
                     value: &transit_gateway_route_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayRouteTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRouteTableRoutesResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
             transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayRouteTableId").unwrap(),
+                o.extract_field("transitGatewayRouteTableId"),
             ),
         }
     }

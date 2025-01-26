@@ -52,55 +52,21 @@ pub mod get_plugin {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "envs".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantAllPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pluginReference".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPluginResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            envs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envs").unwrap(),
-            ),
+            envs: pulumi_wasm_rust::__private::into_domain(o.extract_field("envs")),
             grant_all_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantAllPermissions").unwrap(),
+                o.extract_field("grantAllPermissions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             plugin_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pluginReference").unwrap(),
+                o.extract_field("pluginReference"),
             ),
         }
     }

@@ -644,111 +644,52 @@ pub mod service_attachment {
                     value: &target_service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectedEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerAcceptLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerRejectLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableProxyProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "natSubnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "propagatedConnectionLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconcileConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetService".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceAttachmentResult {
             connected_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectedEndpoints").unwrap(),
+                o.extract_field("connectedEndpoints"),
             ),
             connection_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionPreference").unwrap(),
+                o.extract_field("connectionPreference"),
             ),
             consumer_accept_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerAcceptLists").unwrap(),
+                o.extract_field("consumerAcceptLists"),
             ),
             consumer_reject_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerRejectLists").unwrap(),
+                o.extract_field("consumerRejectLists"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNames").unwrap(),
+                o.extract_field("domainNames"),
             ),
             enable_proxy_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableProxyProtocol").unwrap(),
+                o.extract_field("enableProxyProtocol"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nat_subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natSubnets").unwrap(),
+                o.extract_field("natSubnets"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             propagated_connection_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propagatedConnectionLimit").unwrap(),
+                o.extract_field("propagatedConnectionLimit"),
             ),
             reconcile_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconcileConnections").unwrap(),
+                o.extract_field("reconcileConnections"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             target_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetService").unwrap(),
+                o.extract_field("targetService"),
             ),
         }
     }

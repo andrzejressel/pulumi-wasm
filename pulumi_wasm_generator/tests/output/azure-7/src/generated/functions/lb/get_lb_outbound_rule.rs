@@ -60,67 +60,31 @@ pub mod get_lb_outbound_rule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedOutboundPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendAddressPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpResetEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLbOutboundRuleResult {
             allocated_outbound_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedOutboundPorts").unwrap(),
+                o.extract_field("allocatedOutboundPorts"),
             ),
             backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPoolId").unwrap(),
+                o.extract_field("backendAddressPoolId"),
             ),
             frontend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurations").unwrap(),
+                o.extract_field("frontendIpConfigurations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeoutInMinutes").unwrap(),
+                o.extract_field("idleTimeoutInMinutes"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             tcp_reset_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpResetEnabled").unwrap(),
+                o.extract_field("tcpResetEnabled"),
             ),
         }
     }

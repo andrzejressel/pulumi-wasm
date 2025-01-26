@@ -136,40 +136,17 @@ pub mod spring_cloud_builder {
                     value: &stack_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "buildPackGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "stack".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudBuilderResult {
             build_pack_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildPackGroups").unwrap(),
+                o.extract_field("buildPackGroups"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
-            stack: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stack").unwrap(),
-            ),
+            stack: pulumi_wasm_rust::__private::into_domain(o.extract_field("stack")),
         }
     }
 }

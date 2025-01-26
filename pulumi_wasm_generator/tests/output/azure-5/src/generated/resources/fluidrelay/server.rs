@@ -159,94 +159,44 @@ pub mod server {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "frsTenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ordererEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerResult {
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             frs_tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frsTenantId").unwrap(),
+                o.extract_field("frsTenantId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             orderer_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ordererEndpoints").unwrap(),
+                o.extract_field("ordererEndpoints"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
             service_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpoints").unwrap(),
+                o.extract_field("serviceEndpoints"),
             ),
             storage_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEndpoints").unwrap(),
+                o.extract_field("storageEndpoints"),
             ),
             storage_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageSku").unwrap(),
+                o.extract_field("storageSku"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

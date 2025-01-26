@@ -175,69 +175,33 @@ pub mod group_policy_exemption {
                     value: &policy_definition_reference_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "exemptionCategory".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyAssignmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionReferenceIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupPolicyExemptionResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             exemption_category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exemptionCategory").unwrap(),
+                o.extract_field("exemptionCategory"),
             ),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
             management_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementGroupId").unwrap(),
+                o.extract_field("managementGroupId"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_assignment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyAssignmentId").unwrap(),
+                o.extract_field("policyAssignmentId"),
             ),
             policy_definition_reference_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionReferenceIds").unwrap(),
+                o.extract_field("policyDefinitionReferenceIds"),
             ),
         }
     }

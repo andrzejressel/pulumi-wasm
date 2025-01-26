@@ -180,39 +180,20 @@ pub mod method_settings {
                     value: &stage_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "methodPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MethodSettingsResult {
             method_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("methodPath").unwrap(),
+                o.extract_field("methodPath"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
             stage_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageName").unwrap(),
+                o.extract_field("stageName"),
             ),
         }
     }

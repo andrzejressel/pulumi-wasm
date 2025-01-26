@@ -106,27 +106,14 @@ pub mod principal_association {
                     value: &resource_share_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceShareArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrincipalAssociationResult {
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             resource_share_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceShareArn").unwrap(),
+                o.extract_field("resourceShareArn"),
             ),
         }
     }

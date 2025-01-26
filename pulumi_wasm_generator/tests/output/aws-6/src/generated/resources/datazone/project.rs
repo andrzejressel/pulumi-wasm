@@ -149,81 +149,39 @@ pub mod project {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureReasons".into(),
-                },
-                register_interface::ResultField {
-                    name: "glossaryTerms".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDeletionCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainIdentifier").unwrap(),
+                o.extract_field("domainIdentifier"),
             ),
             failure_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureReasons").unwrap(),
+                o.extract_field("failureReasons"),
             ),
             glossary_terms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glossaryTerms").unwrap(),
+                o.extract_field("glossaryTerms"),
             ),
             last_updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedAt").unwrap(),
+                o.extract_field("lastUpdatedAt"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectStatus").unwrap(),
+                o.extract_field("projectStatus"),
             ),
             skip_deletion_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDeletionCheck").unwrap(),
+                o.extract_field("skipDeletionCheck"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

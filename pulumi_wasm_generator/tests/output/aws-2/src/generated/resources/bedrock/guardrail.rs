@@ -303,123 +303,56 @@ pub mod guardrail {
                     value: &word_policy_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blockedInputMessaging".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockedOutputsMessaging".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentPolicyConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "contextualGroundingPolicyConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardrailArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardrailId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sensitiveInformationPolicyConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicPolicyConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "wordPolicyConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GuardrailResult {
             blocked_input_messaging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockedInputMessaging").unwrap(),
+                o.extract_field("blockedInputMessaging"),
             ),
             blocked_outputs_messaging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockedOutputsMessaging").unwrap(),
+                o.extract_field("blockedOutputsMessaging"),
             ),
             content_policy_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentPolicyConfig").unwrap(),
+                o.extract_field("contentPolicyConfig"),
             ),
             contextual_grounding_policy_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contextualGroundingPolicyConfig").unwrap(),
+                o.extract_field("contextualGroundingPolicyConfig"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             guardrail_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardrailArn").unwrap(),
+                o.extract_field("guardrailArn"),
             ),
             guardrail_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardrailId").unwrap(),
+                o.extract_field("guardrailId"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sensitive_information_policy_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sensitiveInformationPolicyConfig").unwrap(),
+                o.extract_field("sensitiveInformationPolicyConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             topic_policy_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicPolicyConfig").unwrap(),
+                o.extract_field("topicPolicyConfig"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             word_policy_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wordPolicyConfig").unwrap(),
+                o.extract_field("wordPolicyConfig"),
             ),
         }
     }

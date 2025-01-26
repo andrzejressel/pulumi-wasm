@@ -41,44 +41,20 @@ pub mod get_detector {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "features".into(),
-                },
-                register_interface::ResultField {
-                    name: "findingPublishingFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDetectorResult {
             features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("features").unwrap(),
+                o.extract_field("features"),
             ),
             finding_publishing_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("findingPublishingFrequency").unwrap(),
+                o.extract_field("findingPublishingFrequency"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

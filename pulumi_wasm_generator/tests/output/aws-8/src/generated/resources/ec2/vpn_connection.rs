@@ -956,447 +956,216 @@ pub mod vpn_connection {
                     value: &vpn_gateway_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkAttachmentArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerGatewayConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAcceleration".into(),
-                },
-                register_interface::ResultField {
-                    name: "localIpv4NetworkCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "localIpv6NetworkCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "outsideIpAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteIpv4NetworkCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteIpv6NetworkCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticRoutesOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transportTransitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1BgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1BgpHoldtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1CgwInsideAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1DpdTimeoutAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1DpdTimeoutSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1EnableTunnelLifecycleControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1IkeVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1InsideCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1InsideIpv6Cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1LogOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase1DhGroupNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase1EncryptionAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase1IntegrityAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase1LifetimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase2DhGroupNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase2EncryptionAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase2IntegrityAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1Phase2LifetimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1PresharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1RekeyFuzzPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1RekeyMarginTimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1ReplayWindowSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1StartupAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel1VgwInsideAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2BgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2BgpHoldtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2CgwInsideAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2DpdTimeoutAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2DpdTimeoutSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2EnableTunnelLifecycleControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2IkeVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2InsideCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2InsideIpv6Cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2LogOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase1DhGroupNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase1EncryptionAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase1IntegrityAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase1LifetimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase2DhGroupNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase2EncryptionAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase2IntegrityAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2Phase2LifetimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2PresharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2RekeyFuzzPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2RekeyMarginTimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2ReplayWindowSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2StartupAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnel2VgwInsideAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelInsideIpVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vgwTelemetries".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             core_network_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkArn").unwrap(),
+                o.extract_field("coreNetworkArn"),
             ),
             core_network_attachment_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkAttachmentArn").unwrap(),
+                o.extract_field("coreNetworkAttachmentArn"),
             ),
             customer_gateway_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerGatewayConfiguration").unwrap(),
+                o.extract_field("customerGatewayConfiguration"),
             ),
             customer_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerGatewayId").unwrap(),
+                o.extract_field("customerGatewayId"),
             ),
             enable_acceleration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAcceleration").unwrap(),
+                o.extract_field("enableAcceleration"),
             ),
             local_ipv4_network_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localIpv4NetworkCidr").unwrap(),
+                o.extract_field("localIpv4NetworkCidr"),
             ),
             local_ipv6_network_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localIpv6NetworkCidr").unwrap(),
+                o.extract_field("localIpv6NetworkCidr"),
             ),
             outside_ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outsideIpAddressType").unwrap(),
+                o.extract_field("outsideIpAddressType"),
             ),
             remote_ipv4_network_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteIpv4NetworkCidr").unwrap(),
+                o.extract_field("remoteIpv4NetworkCidr"),
             ),
             remote_ipv6_network_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteIpv6NetworkCidr").unwrap(),
+                o.extract_field("remoteIpv6NetworkCidr"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
             static_routes_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticRoutesOnly").unwrap(),
+                o.extract_field("staticRoutesOnly"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
             transport_transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transportTransitGatewayAttachmentId").unwrap(),
+                o.extract_field("transportTransitGatewayAttachmentId"),
             ),
             tunnel1_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Address").unwrap(),
+                o.extract_field("tunnel1Address"),
             ),
             tunnel1_bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1BgpAsn").unwrap(),
+                o.extract_field("tunnel1BgpAsn"),
             ),
             tunnel1_bgp_holdtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1BgpHoldtime").unwrap(),
+                o.extract_field("tunnel1BgpHoldtime"),
             ),
             tunnel1_cgw_inside_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1CgwInsideAddress").unwrap(),
+                o.extract_field("tunnel1CgwInsideAddress"),
             ),
             tunnel1_dpd_timeout_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1DpdTimeoutAction").unwrap(),
+                o.extract_field("tunnel1DpdTimeoutAction"),
             ),
             tunnel1_dpd_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1DpdTimeoutSeconds").unwrap(),
+                o.extract_field("tunnel1DpdTimeoutSeconds"),
             ),
             tunnel1_enable_tunnel_lifecycle_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1EnableTunnelLifecycleControl").unwrap(),
+                o.extract_field("tunnel1EnableTunnelLifecycleControl"),
             ),
             tunnel1_ike_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1IkeVersions").unwrap(),
+                o.extract_field("tunnel1IkeVersions"),
             ),
             tunnel1_inside_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1InsideCidr").unwrap(),
+                o.extract_field("tunnel1InsideCidr"),
             ),
             tunnel1_inside_ipv6_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1InsideIpv6Cidr").unwrap(),
+                o.extract_field("tunnel1InsideIpv6Cidr"),
             ),
             tunnel1_log_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1LogOptions").unwrap(),
+                o.extract_field("tunnel1LogOptions"),
             ),
             tunnel1_phase1_dh_group_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase1DhGroupNumbers").unwrap(),
+                o.extract_field("tunnel1Phase1DhGroupNumbers"),
             ),
             tunnel1_phase1_encryption_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase1EncryptionAlgorithms").unwrap(),
+                o.extract_field("tunnel1Phase1EncryptionAlgorithms"),
             ),
             tunnel1_phase1_integrity_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase1IntegrityAlgorithms").unwrap(),
+                o.extract_field("tunnel1Phase1IntegrityAlgorithms"),
             ),
             tunnel1_phase1_lifetime_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase1LifetimeSeconds").unwrap(),
+                o.extract_field("tunnel1Phase1LifetimeSeconds"),
             ),
             tunnel1_phase2_dh_group_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase2DhGroupNumbers").unwrap(),
+                o.extract_field("tunnel1Phase2DhGroupNumbers"),
             ),
             tunnel1_phase2_encryption_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase2EncryptionAlgorithms").unwrap(),
+                o.extract_field("tunnel1Phase2EncryptionAlgorithms"),
             ),
             tunnel1_phase2_integrity_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase2IntegrityAlgorithms").unwrap(),
+                o.extract_field("tunnel1Phase2IntegrityAlgorithms"),
             ),
             tunnel1_phase2_lifetime_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1Phase2LifetimeSeconds").unwrap(),
+                o.extract_field("tunnel1Phase2LifetimeSeconds"),
             ),
             tunnel1_preshared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1PresharedKey").unwrap(),
+                o.extract_field("tunnel1PresharedKey"),
             ),
             tunnel1_rekey_fuzz_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1RekeyFuzzPercentage").unwrap(),
+                o.extract_field("tunnel1RekeyFuzzPercentage"),
             ),
             tunnel1_rekey_margin_time_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1RekeyMarginTimeSeconds").unwrap(),
+                o.extract_field("tunnel1RekeyMarginTimeSeconds"),
             ),
             tunnel1_replay_window_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1ReplayWindowSize").unwrap(),
+                o.extract_field("tunnel1ReplayWindowSize"),
             ),
             tunnel1_startup_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1StartupAction").unwrap(),
+                o.extract_field("tunnel1StartupAction"),
             ),
             tunnel1_vgw_inside_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel1VgwInsideAddress").unwrap(),
+                o.extract_field("tunnel1VgwInsideAddress"),
             ),
             tunnel2_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Address").unwrap(),
+                o.extract_field("tunnel2Address"),
             ),
             tunnel2_bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2BgpAsn").unwrap(),
+                o.extract_field("tunnel2BgpAsn"),
             ),
             tunnel2_bgp_holdtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2BgpHoldtime").unwrap(),
+                o.extract_field("tunnel2BgpHoldtime"),
             ),
             tunnel2_cgw_inside_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2CgwInsideAddress").unwrap(),
+                o.extract_field("tunnel2CgwInsideAddress"),
             ),
             tunnel2_dpd_timeout_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2DpdTimeoutAction").unwrap(),
+                o.extract_field("tunnel2DpdTimeoutAction"),
             ),
             tunnel2_dpd_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2DpdTimeoutSeconds").unwrap(),
+                o.extract_field("tunnel2DpdTimeoutSeconds"),
             ),
             tunnel2_enable_tunnel_lifecycle_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2EnableTunnelLifecycleControl").unwrap(),
+                o.extract_field("tunnel2EnableTunnelLifecycleControl"),
             ),
             tunnel2_ike_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2IkeVersions").unwrap(),
+                o.extract_field("tunnel2IkeVersions"),
             ),
             tunnel2_inside_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2InsideCidr").unwrap(),
+                o.extract_field("tunnel2InsideCidr"),
             ),
             tunnel2_inside_ipv6_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2InsideIpv6Cidr").unwrap(),
+                o.extract_field("tunnel2InsideIpv6Cidr"),
             ),
             tunnel2_log_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2LogOptions").unwrap(),
+                o.extract_field("tunnel2LogOptions"),
             ),
             tunnel2_phase1_dh_group_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase1DhGroupNumbers").unwrap(),
+                o.extract_field("tunnel2Phase1DhGroupNumbers"),
             ),
             tunnel2_phase1_encryption_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase1EncryptionAlgorithms").unwrap(),
+                o.extract_field("tunnel2Phase1EncryptionAlgorithms"),
             ),
             tunnel2_phase1_integrity_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase1IntegrityAlgorithms").unwrap(),
+                o.extract_field("tunnel2Phase1IntegrityAlgorithms"),
             ),
             tunnel2_phase1_lifetime_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase1LifetimeSeconds").unwrap(),
+                o.extract_field("tunnel2Phase1LifetimeSeconds"),
             ),
             tunnel2_phase2_dh_group_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase2DhGroupNumbers").unwrap(),
+                o.extract_field("tunnel2Phase2DhGroupNumbers"),
             ),
             tunnel2_phase2_encryption_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase2EncryptionAlgorithms").unwrap(),
+                o.extract_field("tunnel2Phase2EncryptionAlgorithms"),
             ),
             tunnel2_phase2_integrity_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase2IntegrityAlgorithms").unwrap(),
+                o.extract_field("tunnel2Phase2IntegrityAlgorithms"),
             ),
             tunnel2_phase2_lifetime_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2Phase2LifetimeSeconds").unwrap(),
+                o.extract_field("tunnel2Phase2LifetimeSeconds"),
             ),
             tunnel2_preshared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2PresharedKey").unwrap(),
+                o.extract_field("tunnel2PresharedKey"),
             ),
             tunnel2_rekey_fuzz_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2RekeyFuzzPercentage").unwrap(),
+                o.extract_field("tunnel2RekeyFuzzPercentage"),
             ),
             tunnel2_rekey_margin_time_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2RekeyMarginTimeSeconds").unwrap(),
+                o.extract_field("tunnel2RekeyMarginTimeSeconds"),
             ),
             tunnel2_replay_window_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2ReplayWindowSize").unwrap(),
+                o.extract_field("tunnel2ReplayWindowSize"),
             ),
             tunnel2_startup_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2StartupAction").unwrap(),
+                o.extract_field("tunnel2StartupAction"),
             ),
             tunnel2_vgw_inside_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnel2VgwInsideAddress").unwrap(),
+                o.extract_field("tunnel2VgwInsideAddress"),
             ),
             tunnel_inside_ip_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelInsideIpVersion").unwrap(),
+                o.extract_field("tunnelInsideIpVersion"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vgw_telemetries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vgwTelemetries").unwrap(),
+                o.extract_field("vgwTelemetries"),
             ),
             vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGatewayId").unwrap(),
+                o.extract_field("vpnGatewayId"),
             ),
         }
     }

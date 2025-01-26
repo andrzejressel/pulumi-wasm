@@ -165,39 +165,18 @@ pub mod restore_point {
                     value: &virtual_machine_restore_point_collection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "crashConsistencyModeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludedDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineRestorePointCollectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RestorePointResult {
             crash_consistency_mode_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crashConsistencyModeEnabled").unwrap(),
+                o.extract_field("crashConsistencyModeEnabled"),
             ),
             excluded_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludedDisks").unwrap(),
+                o.extract_field("excludedDisks"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             virtual_machine_restore_point_collection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineRestorePointCollectionId").unwrap(),
+                o.extract_field("virtualMachineRestorePointCollectionId"),
             ),
         }
     }

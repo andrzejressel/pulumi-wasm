@@ -49,37 +49,16 @@ pub mod get_registry_image {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "insecureSkipVerify".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha256Digest".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegistryImageResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             insecure_skip_verify: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insecureSkipVerify").unwrap(),
+                o.extract_field("insecureSkipVerify"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sha256_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha256Digest").unwrap(),
+                o.extract_field("sha256Digest"),
             ),
         }
     }

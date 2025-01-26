@@ -154,75 +154,32 @@ pub mod plugin {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "envs".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDisable".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantAllPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pluginReference".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PluginResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             enable_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableTimeout").unwrap(),
+                o.extract_field("enableTimeout"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            envs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envs").unwrap(),
-            ),
+            envs: pulumi_wasm_rust::__private::into_domain(o.extract_field("envs")),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
             force_disable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDisable").unwrap(),
+                o.extract_field("forceDisable"),
             ),
             grant_all_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantAllPermissions").unwrap(),
+                o.extract_field("grantAllPermissions"),
             ),
             grant_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantPermissions").unwrap(),
+                o.extract_field("grantPermissions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             plugin_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pluginReference").unwrap(),
+                o.extract_field("pluginReference"),
             ),
         }
     }

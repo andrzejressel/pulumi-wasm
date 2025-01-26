@@ -205,57 +205,27 @@ pub mod spring_cloud_certificate {
                     value: &service_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludePrivateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudCertificateResult {
             certificate_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateContent").unwrap(),
+                o.extract_field("certificateContent"),
             ),
             exclude_private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludePrivateKey").unwrap(),
+                o.extract_field("excludePrivateKey"),
             ),
             key_vault_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultCertificateId").unwrap(),
+                o.extract_field("keyVaultCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

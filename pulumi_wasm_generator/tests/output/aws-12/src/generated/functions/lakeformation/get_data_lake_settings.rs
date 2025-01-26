@@ -63,85 +63,40 @@ pub mod get_data_lake_settings {
                     value: &catalog_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "admins".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowExternalDataFiltering".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowFullTableExternalDataAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedSessionTagValueLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createDatabaseDefaultPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTableDefaultPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalDataFilteringAllowLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "readOnlyAdmins".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedResourceOwners".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDataLakeSettingsResult {
-            admins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("admins").unwrap(),
-            ),
+            admins: pulumi_wasm_rust::__private::into_domain(o.extract_field("admins")),
             allow_external_data_filtering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowExternalDataFiltering").unwrap(),
+                o.extract_field("allowExternalDataFiltering"),
             ),
             allow_full_table_external_data_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowFullTableExternalDataAccess").unwrap(),
+                o.extract_field("allowFullTableExternalDataAccess"),
             ),
             authorized_session_tag_value_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedSessionTagValueLists").unwrap(),
+                o.extract_field("authorizedSessionTagValueLists"),
             ),
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             create_database_default_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createDatabaseDefaultPermissions").unwrap(),
+                o.extract_field("createDatabaseDefaultPermissions"),
             ),
             create_table_default_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTableDefaultPermissions").unwrap(),
+                o.extract_field("createTableDefaultPermissions"),
             ),
             external_data_filtering_allow_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalDataFilteringAllowLists").unwrap(),
+                o.extract_field("externalDataFilteringAllowLists"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             read_only_admins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readOnlyAdmins").unwrap(),
+                o.extract_field("readOnlyAdmins"),
             ),
             trusted_resource_owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedResourceOwners").unwrap(),
+                o.extract_field("trustedResourceOwners"),
             ),
         }
     }

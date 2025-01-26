@@ -173,81 +173,37 @@ pub mod composite_alarm {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionsSuppressor".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmName".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "insufficientDataActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "okActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CompositeAlarmResult {
             actions_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionsEnabled").unwrap(),
+                o.extract_field("actionsEnabled"),
             ),
             actions_suppressor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionsSuppressor").unwrap(),
+                o.extract_field("actionsSuppressor"),
             ),
             alarm_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmActions").unwrap(),
+                o.extract_field("alarmActions"),
             ),
             alarm_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmDescription").unwrap(),
+                o.extract_field("alarmDescription"),
             ),
             alarm_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmName").unwrap(),
+                o.extract_field("alarmName"),
             ),
             alarm_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmRule").unwrap(),
+                o.extract_field("alarmRule"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             insufficient_data_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insufficientDataActions").unwrap(),
+                o.extract_field("insufficientDataActions"),
             ),
             ok_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("okActions").unwrap(),
+                o.extract_field("okActions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

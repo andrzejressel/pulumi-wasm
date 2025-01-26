@@ -154,80 +154,36 @@ pub mod space {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeEfsFileSystemUid".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceSharingSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpaceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             home_efs_file_system_uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeEfsFileSystemUid").unwrap(),
+                o.extract_field("homeEfsFileSystemUid"),
             ),
             ownership_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipSettings").unwrap(),
+                o.extract_field("ownershipSettings"),
             ),
             space_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceDisplayName").unwrap(),
+                o.extract_field("spaceDisplayName"),
             ),
             space_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceName").unwrap(),
+                o.extract_field("spaceName"),
             ),
             space_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceSettings").unwrap(),
+                o.extract_field("spaceSettings"),
             ),
             space_sharing_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceSharingSettings").unwrap(),
+                o.extract_field("spaceSharingSettings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

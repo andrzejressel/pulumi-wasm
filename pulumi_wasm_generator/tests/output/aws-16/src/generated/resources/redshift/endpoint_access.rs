@@ -118,63 +118,30 @@ pub mod endpoint_access {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "address".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointAccessResult {
             address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("address").unwrap(),
+                o.extract_field("address"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             endpoint_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointName").unwrap(),
+                o.extract_field("endpointName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             resource_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwner").unwrap(),
+                o.extract_field("resourceOwner"),
             ),
             subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetGroupName").unwrap(),
+                o.extract_field("subnetGroupName"),
             ),
             vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpoints").unwrap(),
+                o.extract_field("vpcEndpoints"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

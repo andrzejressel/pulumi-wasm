@@ -88,33 +88,17 @@ pub mod cluster_iam_roles {
                     value: &iam_role_arns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultIamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterIamRolesResult {
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             default_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultIamRoleArn").unwrap(),
+                o.extract_field("defaultIamRoleArn"),
             ),
             iam_role_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArns").unwrap(),
+                o.extract_field("iamRoleArns"),
             ),
         }
     }

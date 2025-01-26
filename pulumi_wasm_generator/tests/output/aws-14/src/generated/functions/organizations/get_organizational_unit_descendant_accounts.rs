@@ -40,31 +40,15 @@ pub mod get_organizational_unit_descendant_accounts {
                     value: &parent_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOrganizationalUnitDescendantAccountsResult {
             accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accounts").unwrap(),
+                o.extract_field("accounts"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             parent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentId").unwrap(),
+                o.extract_field("parentId"),
             ),
         }
     }

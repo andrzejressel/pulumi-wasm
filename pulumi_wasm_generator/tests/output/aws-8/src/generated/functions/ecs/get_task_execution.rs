@@ -254,133 +254,62 @@ pub mod get_task_execution {
                     value: &task_definition_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capacityProviderStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableEcsManagedTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableExecuteCommand".into(),
-                },
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchType".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementConstraints".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "propagateTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "referenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "startedBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskDefinition".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTaskExecutionResult {
             capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityProviderStrategies").unwrap(),
+                o.extract_field("capacityProviderStrategies"),
             ),
             client_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientToken").unwrap(),
+                o.extract_field("clientToken"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             desired_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredCount").unwrap(),
+                o.extract_field("desiredCount"),
             ),
             enable_ecs_managed_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableEcsManagedTags").unwrap(),
+                o.extract_field("enableEcsManagedTags"),
             ),
             enable_execute_command: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableExecuteCommand").unwrap(),
+                o.extract_field("enableExecuteCommand"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             launch_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchType").unwrap(),
+                o.extract_field("launchType"),
             ),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrides").unwrap(),
+                o.extract_field("overrides"),
             ),
             placement_constraints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementConstraints").unwrap(),
+                o.extract_field("placementConstraints"),
             ),
             placement_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementStrategies").unwrap(),
+                o.extract_field("placementStrategies"),
             ),
             platform_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformVersion").unwrap(),
+                o.extract_field("platformVersion"),
             ),
             propagate_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propagateTags").unwrap(),
+                o.extract_field("propagateTags"),
             ),
             reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referenceId").unwrap(),
+                o.extract_field("referenceId"),
             ),
             started_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startedBy").unwrap(),
+                o.extract_field("startedBy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             task_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskArns").unwrap(),
+                o.extract_field("taskArns"),
             ),
             task_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskDefinition").unwrap(),
+                o.extract_field("taskDefinition"),
             ),
         }
     }

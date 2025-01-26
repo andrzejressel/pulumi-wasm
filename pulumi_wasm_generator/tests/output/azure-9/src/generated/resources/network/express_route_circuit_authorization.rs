@@ -109,45 +109,21 @@ pub mod express_route_circuit_authorization {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationUseStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteCircuitName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExpressRouteCircuitAuthorizationResult {
             authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationKey").unwrap(),
+                o.extract_field("authorizationKey"),
             ),
             authorization_use_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationUseStatus").unwrap(),
+                o.extract_field("authorizationUseStatus"),
             ),
             express_route_circuit_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteCircuitName").unwrap(),
+                o.extract_field("expressRouteCircuitName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

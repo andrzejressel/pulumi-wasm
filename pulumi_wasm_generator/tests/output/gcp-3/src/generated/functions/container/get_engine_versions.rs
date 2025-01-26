@@ -78,79 +78,39 @@ pub mod get_engine_versions {
                     value: &version_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultClusterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestMasterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestNodeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseChannelDefaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseChannelLatestVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "validMasterVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "validNodeVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEngineVersionsResult {
             default_cluster_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultClusterVersion").unwrap(),
+                o.extract_field("defaultClusterVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             latest_master_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestMasterVersion").unwrap(),
+                o.extract_field("latestMasterVersion"),
             ),
             latest_node_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestNodeVersion").unwrap(),
+                o.extract_field("latestNodeVersion"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             release_channel_default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseChannelDefaultVersion").unwrap(),
+                o.extract_field("releaseChannelDefaultVersion"),
             ),
             release_channel_latest_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseChannelLatestVersion").unwrap(),
+                o.extract_field("releaseChannelLatestVersion"),
             ),
             valid_master_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validMasterVersions").unwrap(),
+                o.extract_field("validMasterVersions"),
             ),
             valid_node_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validNodeVersions").unwrap(),
+                o.extract_field("validNodeVersions"),
             ),
             version_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionPrefix").unwrap(),
+                o.extract_field("versionPrefix"),
             ),
         }
     }

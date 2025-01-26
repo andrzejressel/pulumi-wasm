@@ -131,70 +131,28 @@ pub mod keystores_aliases_pkcs_12 {
                     value: &password_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "certsInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "file".into(),
-                },
-                register_interface::ResultField {
-                    name: "filehash".into(),
-                },
-                register_interface::ResultField {
-                    name: "keystore".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeystoresAliasesPkcs12Result {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             certs_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certsInfos").unwrap(),
+                o.extract_field("certsInfos"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
-            file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("file").unwrap(),
-            ),
+            file: pulumi_wasm_rust::__private::into_domain(o.extract_field("file")),
             filehash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filehash").unwrap(),
+                o.extract_field("filehash"),
             ),
             keystore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keystore").unwrap(),
+                o.extract_field("keystore"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

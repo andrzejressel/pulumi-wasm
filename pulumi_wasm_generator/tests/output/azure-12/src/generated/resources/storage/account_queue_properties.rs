@@ -157,45 +157,23 @@ pub mod account_queue_properties {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "corsRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "hourMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "logging".into(),
-                },
-                register_interface::ResultField {
-                    name: "minuteMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountQueuePropertiesResult {
             cors_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsRules").unwrap(),
+                o.extract_field("corsRules"),
             ),
             hour_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hourMetrics").unwrap(),
+                o.extract_field("hourMetrics"),
             ),
             logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logging").unwrap(),
+                o.extract_field("logging"),
             ),
             minute_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minuteMetrics").unwrap(),
+                o.extract_field("minuteMetrics"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

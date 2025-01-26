@@ -153,98 +153,43 @@ pub mod get_account_blob_container_sas {
                     value: &start_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cacheControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentDisposition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentEncoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiry".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "sas".into(),
-                },
-                register_interface::ResultField {
-                    name: "start".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountBlobContainerSasResult {
             cache_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheControl").unwrap(),
+                o.extract_field("cacheControl"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             content_disposition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentDisposition").unwrap(),
+                o.extract_field("contentDisposition"),
             ),
             content_encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentEncoding").unwrap(),
+                o.extract_field("contentEncoding"),
             ),
             content_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLanguage").unwrap(),
+                o.extract_field("contentLanguage"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            expiry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiry").unwrap(),
-            ),
+            expiry: pulumi_wasm_rust::__private::into_domain(o.extract_field("expiry")),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
-            sas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sas").unwrap(),
-            ),
-            start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("start").unwrap(),
-            ),
+            sas: pulumi_wasm_rust::__private::into_domain(o.extract_field("sas")),
+            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
         }
     }
 }

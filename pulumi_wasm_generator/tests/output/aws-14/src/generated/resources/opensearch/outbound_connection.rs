@@ -157,57 +157,29 @@ pub mod outbound_connection {
                     value: &remote_domain_info_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptConnection".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "localDomainInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteDomainInfo".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutboundConnectionResult {
             accept_connection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptConnection").unwrap(),
+                o.extract_field("acceptConnection"),
             ),
             connection_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionAlias").unwrap(),
+                o.extract_field("connectionAlias"),
             ),
             connection_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionMode").unwrap(),
+                o.extract_field("connectionMode"),
             ),
             connection_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionProperties").unwrap(),
+                o.extract_field("connectionProperties"),
             ),
             connection_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStatus").unwrap(),
+                o.extract_field("connectionStatus"),
             ),
             local_domain_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localDomainInfo").unwrap(),
+                o.extract_field("localDomainInfo"),
             ),
             remote_domain_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteDomainInfo").unwrap(),
+                o.extract_field("remoteDomainInfo"),
             ),
         }
     }

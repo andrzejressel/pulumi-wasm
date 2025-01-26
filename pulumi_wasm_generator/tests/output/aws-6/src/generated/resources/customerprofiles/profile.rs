@@ -326,147 +326,74 @@ pub mod profile {
                     value: &shipping_address_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalInformation".into(),
-                },
-                register_interface::ResultField {
-                    name: "address".into(),
-                },
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "birthDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "businessEmailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "businessName".into(),
-                },
-                register_interface::ResultField {
-                    name: "businessPhoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstName".into(),
-                },
-                register_interface::ResultField {
-                    name: "genderString".into(),
-                },
-                register_interface::ResultField {
-                    name: "homePhoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastName".into(),
-                },
-                register_interface::ResultField {
-                    name: "mailingAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "middleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobilePhoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "partyTypeString".into(),
-                },
-                register_interface::ResultField {
-                    name: "personalEmailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "shippingAddress".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProfileResult {
             account_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountNumber").unwrap(),
+                o.extract_field("accountNumber"),
             ),
             additional_information: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalInformation").unwrap(),
+                o.extract_field("additionalInformation"),
             ),
             address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("address").unwrap(),
+                o.extract_field("address"),
             ),
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             billing_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAddress").unwrap(),
+                o.extract_field("billingAddress"),
             ),
             birth_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("birthDate").unwrap(),
+                o.extract_field("birthDate"),
             ),
             business_email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("businessEmailAddress").unwrap(),
+                o.extract_field("businessEmailAddress"),
             ),
             business_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("businessName").unwrap(),
+                o.extract_field("businessName"),
             ),
             business_phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("businessPhoneNumber").unwrap(),
+                o.extract_field("businessPhoneNumber"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
             first_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstName").unwrap(),
+                o.extract_field("firstName"),
             ),
             gender_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("genderString").unwrap(),
+                o.extract_field("genderString"),
             ),
             home_phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homePhoneNumber").unwrap(),
+                o.extract_field("homePhoneNumber"),
             ),
             last_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastName").unwrap(),
+                o.extract_field("lastName"),
             ),
             mailing_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mailingAddress").unwrap(),
+                o.extract_field("mailingAddress"),
             ),
             middle_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("middleName").unwrap(),
+                o.extract_field("middleName"),
             ),
             mobile_phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobilePhoneNumber").unwrap(),
+                o.extract_field("mobilePhoneNumber"),
             ),
             party_type_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partyTypeString").unwrap(),
+                o.extract_field("partyTypeString"),
             ),
             personal_email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("personalEmailAddress").unwrap(),
+                o.extract_field("personalEmailAddress"),
             ),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
             shipping_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shippingAddress").unwrap(),
+                o.extract_field("shippingAddress"),
             ),
         }
     }

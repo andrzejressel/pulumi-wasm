@@ -455,219 +455,100 @@ pub mod windows_web_app_slot {
                     value: &zip_deploy_file_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "authSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "authSettingsV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "backup".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAffinityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateExclusionPaths".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStrings".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ftpPublishBasicAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostingEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultReferenceIdentityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "logs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddressLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "possibleOutboundIpAddressLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "possibleOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "webdeployPublishBasicAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "zipDeployFile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WindowsWebAppSlotResult {
             app_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceId").unwrap(),
+                o.extract_field("appServiceId"),
             ),
             app_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSettings").unwrap(),
+                o.extract_field("appSettings"),
             ),
             auth_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authSettings").unwrap(),
+                o.extract_field("authSettings"),
             ),
             auth_settings_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authSettingsV2").unwrap(),
+                o.extract_field("authSettingsV2"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backup").unwrap(),
-            ),
+            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
             client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAffinityEnabled").unwrap(),
+                o.extract_field("clientAffinityEnabled"),
             ),
             client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateEnabled").unwrap(),
+                o.extract_field("clientCertificateEnabled"),
             ),
             client_certificate_exclusion_paths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateExclusionPaths").unwrap(),
+                o.extract_field("clientCertificateExclusionPaths"),
             ),
             client_certificate_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateMode").unwrap(),
+                o.extract_field("clientCertificateMode"),
             ),
             connection_strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStrings").unwrap(),
+                o.extract_field("connectionStrings"),
             ),
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
             default_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostname").unwrap(),
+                o.extract_field("defaultHostname"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ftpPublishBasicAuthenticationEnabled").unwrap(),
+                o.extract_field("ftpPublishBasicAuthenticationEnabled"),
             ),
             hosting_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostingEnvironmentId").unwrap(),
+                o.extract_field("hostingEnvironmentId"),
             ),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             key_vault_reference_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultReferenceIdentityId").unwrap(),
+                o.extract_field("keyVaultReferenceIdentityId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
-            logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logs").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
+            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddressLists").unwrap(),
+                o.extract_field("outboundIpAddressLists"),
             ),
             outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddresses").unwrap(),
+                o.extract_field("outboundIpAddresses"),
             ),
             possible_outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("possibleOutboundIpAddressLists").unwrap(),
+                o.extract_field("possibleOutboundIpAddressLists"),
             ),
             possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("possibleOutboundIpAddresses").unwrap(),
+                o.extract_field("possibleOutboundIpAddresses"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             service_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePlanId").unwrap(),
+                o.extract_field("servicePlanId"),
             ),
             site_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteConfig").unwrap(),
+                o.extract_field("siteConfig"),
             ),
             site_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteCredentials").unwrap(),
+                o.extract_field("siteCredentials"),
             ),
             storage_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccounts").unwrap(),
+                o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkSubnetId").unwrap(),
+                o.extract_field("virtualNetworkSubnetId"),
             ),
             webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webdeployPublishBasicAuthenticationEnabled").unwrap(),
+                o.extract_field("webdeployPublishBasicAuthenticationEnabled"),
             ),
             zip_deploy_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zipDeployFile").unwrap(),
+                o.extract_field("zipDeployFile"),
             ),
         }
     }

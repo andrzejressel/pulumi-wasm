@@ -125,51 +125,22 @@ pub mod hosted_private_virtual_interface_accepter {
                     value: &vpn_gateway_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dxGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostedPrivateVirtualInterfaceAccepterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             dx_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dxGatewayId").unwrap(),
+                o.extract_field("dxGatewayId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualInterfaceId").unwrap(),
+                o.extract_field("virtualInterfaceId"),
             ),
             vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGatewayId").unwrap(),
+                o.extract_field("vpnGatewayId"),
             ),
         }
     }

@@ -212,106 +212,46 @@ pub mod logpush_job {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConf".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "logpullOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUploadBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUploadIntervalSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUploadRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipChallenge".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogpushJobResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataset").unwrap(),
+                o.extract_field("dataset"),
             ),
             destination_conf: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConf").unwrap(),
+                o.extract_field("destinationConf"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             logpull_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logpullOptions").unwrap(),
+                o.extract_field("logpullOptions"),
             ),
             max_upload_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUploadBytes").unwrap(),
+                o.extract_field("maxUploadBytes"),
             ),
             max_upload_interval_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUploadIntervalSeconds").unwrap(),
+                o.extract_field("maxUploadIntervalSeconds"),
             ),
             max_upload_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUploadRecords").unwrap(),
+                o.extract_field("maxUploadRecords"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputOptions").unwrap(),
+                o.extract_field("outputOptions"),
             ),
             ownership_challenge: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipChallenge").unwrap(),
+                o.extract_field("ownershipChallenge"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

@@ -129,57 +129,25 @@ pub mod member {
                     value: &invite_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableEmailNotification".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitationMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "invite".into(),
-                },
-                register_interface::ResultField {
-                    name: "relationshipStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MemberResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             detector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectorId").unwrap(),
+                o.extract_field("detectorId"),
             ),
             disable_email_notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableEmailNotification").unwrap(),
+                o.extract_field("disableEmailNotification"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             invitation_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitationMessage").unwrap(),
+                o.extract_field("invitationMessage"),
             ),
-            invite: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invite").unwrap(),
-            ),
+            invite: pulumi_wasm_rust::__private::into_domain(o.extract_field("invite")),
             relationship_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relationshipStatus").unwrap(),
+                o.extract_field("relationshipStatus"),
             ),
         }
     }

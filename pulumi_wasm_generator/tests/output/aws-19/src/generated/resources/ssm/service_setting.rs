@@ -76,40 +76,17 @@ pub mod service_setting {
                     value: &setting_value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "settingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "settingValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceSettingResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             setting_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settingId").unwrap(),
+                o.extract_field("settingId"),
             ),
             setting_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settingValue").unwrap(),
+                o.extract_field("settingValue"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

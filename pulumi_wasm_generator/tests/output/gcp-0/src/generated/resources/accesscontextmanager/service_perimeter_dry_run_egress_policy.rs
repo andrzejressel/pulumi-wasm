@@ -108,33 +108,17 @@ pub mod service_perimeter_dry_run_egress_policy {
                     value: &perimeter_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "egressFrom".into(),
-                },
-                register_interface::ResultField {
-                    name: "egressTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "perimeter".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServicePerimeterDryRunEgressPolicyResult {
             egress_from: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressFrom").unwrap(),
+                o.extract_field("egressFrom"),
             ),
             egress_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressTo").unwrap(),
+                o.extract_field("egressTo"),
             ),
             perimeter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perimeter").unwrap(),
+                o.extract_field("perimeter"),
             ),
         }
     }

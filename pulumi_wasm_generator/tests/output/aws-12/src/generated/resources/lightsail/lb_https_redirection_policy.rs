@@ -87,28 +87,13 @@ pub mod lb_https_redirection_policy {
                     value: &lb_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LbHttpsRedirectionPolicyResult {
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbName").unwrap(),
-            ),
+            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
         }
     }
 }

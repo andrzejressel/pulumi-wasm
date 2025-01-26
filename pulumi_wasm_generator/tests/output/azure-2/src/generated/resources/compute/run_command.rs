@@ -419,99 +419,44 @@ pub mod run_command {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "errorBlobManagedIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorBlobUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceViews".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputBlobManagedIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputBlobUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "runAsPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "runAsUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RunCommandResult {
             error_blob_managed_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorBlobManagedIdentity").unwrap(),
+                o.extract_field("errorBlobManagedIdentity"),
             ),
             error_blob_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorBlobUri").unwrap(),
+                o.extract_field("errorBlobUri"),
             ),
             instance_views: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceViews").unwrap(),
+                o.extract_field("instanceViews"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_blob_managed_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputBlobManagedIdentity").unwrap(),
+                o.extract_field("outputBlobManagedIdentity"),
             ),
             output_blob_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputBlobUri").unwrap(),
+                o.extract_field("outputBlobUri"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             protected_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedParameters").unwrap(),
+                o.extract_field("protectedParameters"),
             ),
             run_as_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runAsPassword").unwrap(),
+                o.extract_field("runAsPassword"),
             ),
             run_as_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runAsUser").unwrap(),
+                o.extract_field("runAsUser"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

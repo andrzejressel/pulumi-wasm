@@ -174,39 +174,20 @@ pub mod job_schedule {
                     value: &stream_analytics_job_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "lastOutputTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "startMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobScheduleResult {
             last_output_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastOutputTime").unwrap(),
+                o.extract_field("lastOutputTime"),
             ),
             start_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startMode").unwrap(),
+                o.extract_field("startMode"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             stream_analytics_job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobId").unwrap(),
+                o.extract_field("streamAnalyticsJobId"),
             ),
         }
     }

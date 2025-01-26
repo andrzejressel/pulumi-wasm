@@ -382,87 +382,40 @@ pub mod tls_inspection_policy {
                     value: &trust_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "caPool".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customTlsFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludePublicCaSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsFeatureProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TlsInspectionPolicyResult {
-            ca_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caPool").unwrap(),
-            ),
+            ca_pool: pulumi_wasm_rust::__private::into_domain(o.extract_field("caPool")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             custom_tls_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customTlsFeatures").unwrap(),
+                o.extract_field("customTlsFeatures"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             exclude_public_ca_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludePublicCaSet").unwrap(),
+                o.extract_field("excludePublicCaSet"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             min_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minTlsVersion").unwrap(),
+                o.extract_field("minTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             tls_feature_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsFeatureProfile").unwrap(),
+                o.extract_field("tlsFeatureProfile"),
             ),
             trust_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustConfig").unwrap(),
+                o.extract_field("trustConfig"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

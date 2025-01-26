@@ -226,69 +226,33 @@ pub mod mover_job_definition {
                     value: &target_sub_path_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSubPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMoverProjectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSubPath".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MoverJobDefinitionResult {
             agent_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentName").unwrap(),
+                o.extract_field("agentName"),
             ),
             copy_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyMode").unwrap(),
+                o.extract_field("copyMode"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             source_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceName").unwrap(),
+                o.extract_field("sourceName"),
             ),
             source_sub_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSubPath").unwrap(),
+                o.extract_field("sourceSubPath"),
             ),
             storage_mover_project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMoverProjectId").unwrap(),
+                o.extract_field("storageMoverProjectId"),
             ),
             target_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetName").unwrap(),
+                o.extract_field("targetName"),
             ),
             target_sub_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSubPath").unwrap(),
+                o.extract_field("targetSubPath"),
             ),
         }
     }

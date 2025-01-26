@@ -70,97 +70,38 @@ pub mod get_certificate_authority {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateChain".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateSigningRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyStorageSecurityStandard".into(),
-                },
-                register_interface::ResultField {
-                    name: "notAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBefore".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "serial".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageMode".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateAuthorityResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             certificate_chain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateChain").unwrap(),
+                o.extract_field("certificateChain"),
             ),
             certificate_signing_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateSigningRequest").unwrap(),
+                o.extract_field("certificateSigningRequest"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_storage_security_standard: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyStorageSecurityStandard").unwrap(),
+                o.extract_field("keyStorageSecurityStandard"),
             ),
             not_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notAfter").unwrap(),
+                o.extract_field("notAfter"),
             ),
             not_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBefore").unwrap(),
+                o.extract_field("notBefore"),
             ),
             revocation_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationConfigurations").unwrap(),
+                o.extract_field("revocationConfigurations"),
             ),
-            serial: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serial").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            serial: pulumi_wasm_rust::__private::into_domain(o.extract_field("serial")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             usage_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageMode").unwrap(),
+                o.extract_field("usageMode"),
             ),
         }
     }

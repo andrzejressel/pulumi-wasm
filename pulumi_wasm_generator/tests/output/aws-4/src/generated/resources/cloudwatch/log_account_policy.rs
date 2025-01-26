@@ -154,45 +154,21 @@ pub mod log_account_policy {
                     value: &selection_criteria_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectionCriteria".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogAccountPolicyResult {
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
             policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyName").unwrap(),
+                o.extract_field("policyName"),
             ),
             policy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyType").unwrap(),
+                o.extract_field("policyType"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
             selection_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectionCriteria").unwrap(),
+                o.extract_field("selectionCriteria"),
             ),
         }
     }

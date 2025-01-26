@@ -237,76 +237,31 @@ pub mod cx_entity_type {
                     value: &redact_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoExpansionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableFuzzyExtraction".into(),
-                },
-                register_interface::ResultField {
-                    name: "entities".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludedPhrases".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "redact".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxEntityTypeResult {
             auto_expansion_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoExpansionMode").unwrap(),
+                o.extract_field("autoExpansionMode"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_fuzzy_extraction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableFuzzyExtraction").unwrap(),
+                o.extract_field("enableFuzzyExtraction"),
             ),
             entities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entities").unwrap(),
+                o.extract_field("entities"),
             ),
             excluded_phrases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludedPhrases").unwrap(),
+                o.extract_field("excludedPhrases"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            redact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redact").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            redact: pulumi_wasm_rust::__private::into_domain(o.extract_field("redact")),
         }
     }
 }

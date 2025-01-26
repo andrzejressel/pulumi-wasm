@@ -281,87 +281,38 @@ pub mod compute_instance {
                     value: &virtual_machine_size_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignToUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineLearningWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePublicIpEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ssh".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ComputeInstanceResult {
             assign_to_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignToUser").unwrap(),
+                o.extract_field("assignToUser"),
             ),
             authorization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationType").unwrap(),
+                o.extract_field("authorizationType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             machine_learning_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineLearningWorkspaceId").unwrap(),
+                o.extract_field("machineLearningWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_public_ip_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePublicIpEnabled").unwrap(),
+                o.extract_field("nodePublicIpEnabled"),
             ),
-            ssh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ssh").unwrap(),
-            ),
+            ssh: pulumi_wasm_rust::__private::into_domain(o.extract_field("ssh")),
             subnet_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetResourceId").unwrap(),
+                o.extract_field("subnetResourceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_machine_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineSize").unwrap(),
+                o.extract_field("virtualMachineSize"),
             ),
         }
     }

@@ -114,27 +114,14 @@ pub mod protection_health_check_association {
                     value: &shield_protection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "healthCheckArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "shieldProtectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProtectionHealthCheckAssociationResult {
             health_check_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckArn").unwrap(),
+                o.extract_field("healthCheckArn"),
             ),
             shield_protection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shieldProtectionId").unwrap(),
+                o.extract_field("shieldProtectionId"),
             ),
         }
     }

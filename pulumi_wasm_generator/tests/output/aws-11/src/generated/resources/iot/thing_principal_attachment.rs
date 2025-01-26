@@ -70,28 +70,13 @@ pub mod thing_principal_attachment {
                     value: &thing_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "thing".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ThingPrincipalAttachmentResult {
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
-            thing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thing").unwrap(),
-            ),
+            thing: pulumi_wasm_rust::__private::into_domain(o.extract_field("thing")),
         }
     }
 }

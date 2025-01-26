@@ -53,38 +53,15 @@ pub mod get_crypto_keys {
                     value: &key_ring_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRing".into(),
-                },
-                register_interface::ResultField {
-                    name: "keys".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCryptoKeysResult {
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_ring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRing").unwrap(),
+                o.extract_field("keyRing"),
             ),
-            keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keys").unwrap(),
-            ),
+            keys: pulumi_wasm_rust::__private::into_domain(o.extract_field("keys")),
         }
     }
 }

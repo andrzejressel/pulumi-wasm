@@ -152,69 +152,35 @@ pub mod radius_settings {
                     value: &use_same_username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "radiusPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "radiusRetries".into(),
-                },
-                register_interface::ResultField {
-                    name: "radiusServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "radiusTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "useSameUsername".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RadiusSettingsResult {
             authentication_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationProtocol").unwrap(),
+                o.extract_field("authenticationProtocol"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             display_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayLabel").unwrap(),
+                o.extract_field("displayLabel"),
             ),
             radius_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("radiusPort").unwrap(),
+                o.extract_field("radiusPort"),
             ),
             radius_retries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("radiusRetries").unwrap(),
+                o.extract_field("radiusRetries"),
             ),
             radius_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("radiusServers").unwrap(),
+                o.extract_field("radiusServers"),
             ),
             radius_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("radiusTimeout").unwrap(),
+                o.extract_field("radiusTimeout"),
             ),
             shared_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedSecret").unwrap(),
+                o.extract_field("sharedSecret"),
             ),
             use_same_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useSameUsername").unwrap(),
+                o.extract_field("useSameUsername"),
             ),
         }
     }

@@ -189,57 +189,29 @@ pub mod tag_rule {
                     value: &subscription_log_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activityLogEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureActiveDirectoryLogEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logTagFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricTagFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionLogEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TagRuleResult {
             activity_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activityLogEnabled").unwrap(),
+                o.extract_field("activityLogEnabled"),
             ),
             azure_active_directory_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureActiveDirectoryLogEnabled").unwrap(),
+                o.extract_field("azureActiveDirectoryLogEnabled"),
             ),
             log_tag_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logTagFilters").unwrap(),
+                o.extract_field("logTagFilters"),
             ),
             metric_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricEnabled").unwrap(),
+                o.extract_field("metricEnabled"),
             ),
             metric_tag_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricTagFilters").unwrap(),
+                o.extract_field("metricTagFilters"),
             ),
             monitor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorId").unwrap(),
+                o.extract_field("monitorId"),
             ),
             subscription_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionLogEnabled").unwrap(),
+                o.extract_field("subscriptionLogEnabled"),
             ),
         }
     }

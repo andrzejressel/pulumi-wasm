@@ -79,33 +79,17 @@ pub mod schema {
                     value: &policy_store_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "definition".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyStoreId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SchemaResult {
             definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("definition").unwrap(),
+                o.extract_field("definition"),
             ),
             namespaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaces").unwrap(),
+                o.extract_field("namespaces"),
             ),
             policy_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyStoreId").unwrap(),
+                o.extract_field("policyStoreId"),
             ),
         }
     }

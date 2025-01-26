@@ -200,51 +200,24 @@ pub mod virtual_hub_route_table_route {
                     value: &route_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationsType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHop".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopType".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualHubRouteTableRouteResult {
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
             destinations_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationsType").unwrap(),
+                o.extract_field("destinationsType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             next_hop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHop").unwrap(),
+                o.extract_field("nextHop"),
             ),
             next_hop_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopType").unwrap(),
+                o.extract_field("nextHopType"),
             ),
             route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableId").unwrap(),
+                o.extract_field("routeTableId"),
             ),
         }
     }

@@ -83,33 +83,17 @@ pub mod vpc_endpoint {
                     value: &vpc_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcEndpointResult {
             domain_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainArn").unwrap(),
+                o.extract_field("domainArn"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             vpc_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOptions").unwrap(),
+                o.extract_field("vpcOptions"),
             ),
         }
     }

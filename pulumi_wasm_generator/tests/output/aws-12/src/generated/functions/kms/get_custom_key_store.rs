@@ -55,55 +55,27 @@ pub mod get_custom_key_store {
                     value: &custom_key_store_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudHsmClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionState".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "customKeyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customKeyStoreName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustAnchorCertificate".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCustomKeyStoreResult {
             cloud_hsm_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudHsmClusterId").unwrap(),
+                o.extract_field("cloudHsmClusterId"),
             ),
             connection_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionState").unwrap(),
+                o.extract_field("connectionState"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             custom_key_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customKeyStoreId").unwrap(),
+                o.extract_field("customKeyStoreId"),
             ),
             custom_key_store_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customKeyStoreName").unwrap(),
+                o.extract_field("customKeyStoreName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             trust_anchor_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustAnchorCertificate").unwrap(),
+                o.extract_field("trustAnchorCertificate"),
             ),
         }
     }

@@ -270,94 +270,40 @@ pub mod data_source {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamodbConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearchConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventBridgeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "opensearchserviceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "relationalDatabaseConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataSourceResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dynamodb_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamodbConfig").unwrap(),
+                o.extract_field("dynamodbConfig"),
             ),
             elasticsearch_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearchConfig").unwrap(),
+                o.extract_field("elasticsearchConfig"),
             ),
             event_bridge_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventBridgeConfig").unwrap(),
+                o.extract_field("eventBridgeConfig"),
             ),
             http_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpConfig").unwrap(),
+                o.extract_field("httpConfig"),
             ),
             lambda_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaConfig").unwrap(),
+                o.extract_field("lambdaConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             opensearchservice_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opensearchserviceConfig").unwrap(),
+                o.extract_field("opensearchserviceConfig"),
             ),
             relational_database_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relationalDatabaseConfig").unwrap(),
+                o.extract_field("relationalDatabaseConfig"),
             ),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

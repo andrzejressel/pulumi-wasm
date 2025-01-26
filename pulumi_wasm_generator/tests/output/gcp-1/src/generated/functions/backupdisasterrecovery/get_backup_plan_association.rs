@@ -69,91 +69,43 @@ pub mod get_backup_plan_association {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupPlan".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupPlanAssociationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastSuccessfulBackupConsistencyTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "resource".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulesConfigInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBackupPlanAssociationResult {
             backup_plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPlan").unwrap(),
+                o.extract_field("backupPlan"),
             ),
             backup_plan_association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPlanAssociationId").unwrap(),
+                o.extract_field("backupPlanAssociationId"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             data_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSource").unwrap(),
+                o.extract_field("dataSource"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_successful_backup_consistency_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastSuccessfulBackupConsistencyTime").unwrap(),
+                o.extract_field("lastSuccessfulBackupConsistencyTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resource").unwrap(),
+                o.extract_field("resource"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             rules_config_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulesConfigInfos").unwrap(),
+                o.extract_field("rulesConfigInfos"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

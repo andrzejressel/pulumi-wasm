@@ -100,51 +100,24 @@ pub mod app_authorization_connection {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "app".into(),
-                },
-                register_interface::ResultField {
-                    name: "appAuthorizationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "appBundleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenants".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppAuthorizationConnectionResult {
-            app: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("app").unwrap(),
-            ),
+            app: pulumi_wasm_rust::__private::into_domain(o.extract_field("app")),
             app_authorization_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appAuthorizationArn").unwrap(),
+                o.extract_field("appAuthorizationArn"),
             ),
             app_bundle_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appBundleArn").unwrap(),
+                o.extract_field("appBundleArn"),
             ),
             auth_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authRequest").unwrap(),
+                o.extract_field("authRequest"),
             ),
             tenants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenants").unwrap(),
+                o.extract_field("tenants"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

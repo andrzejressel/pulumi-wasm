@@ -297,159 +297,70 @@ pub mod canary {
                     value: &zip_file_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "artifactConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "artifactS3Location".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteLambda".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureRetentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "handler".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "runConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Key".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Version".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceLocationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startCanary".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "successRetentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timelines".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "zipFile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CanaryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             artifact_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactConfig").unwrap(),
+                o.extract_field("artifactConfig"),
             ),
             artifact_s3_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactS3Location").unwrap(),
+                o.extract_field("artifactS3Location"),
             ),
             delete_lambda: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteLambda").unwrap(),
+                o.extract_field("deleteLambda"),
             ),
             engine_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineArn").unwrap(),
+                o.extract_field("engineArn"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
             failure_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureRetentionPeriod").unwrap(),
+                o.extract_field("failureRetentionPeriod"),
             ),
             handler: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("handler").unwrap(),
+                o.extract_field("handler"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             run_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runConfig").unwrap(),
+                o.extract_field("runConfig"),
             ),
             runtime_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeVersion").unwrap(),
+                o.extract_field("runtimeVersion"),
             ),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
-            s3_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Key").unwrap(),
-            ),
+            s3_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Key")),
             s3_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Version").unwrap(),
+                o.extract_field("s3Version"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             source_location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceLocationArn").unwrap(),
+                o.extract_field("sourceLocationArn"),
             ),
             start_canary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startCanary").unwrap(),
+                o.extract_field("startCanary"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             success_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("successRetentionPeriod").unwrap(),
+                o.extract_field("successRetentionPeriod"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timelines: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timelines").unwrap(),
+                o.extract_field("timelines"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
             zip_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zipFile").unwrap(),
+                o.extract_field("zipFile"),
             ),
         }
     }

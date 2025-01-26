@@ -383,81 +383,39 @@ pub mod permission {
                     value: &statement_id_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventSourceToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "function".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionUrlAuthType".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalOrgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementIdPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             event_source_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSourceToken").unwrap(),
+                o.extract_field("eventSourceToken"),
             ),
             function: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("function").unwrap(),
+                o.extract_field("function"),
             ),
             function_url_auth_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionUrlAuthType").unwrap(),
+                o.extract_field("functionUrlAuthType"),
             ),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             principal_org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalOrgId").unwrap(),
+                o.extract_field("principalOrgId"),
             ),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
             source_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceAccount").unwrap(),
+                o.extract_field("sourceAccount"),
             ),
             source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArn").unwrap(),
+                o.extract_field("sourceArn"),
             ),
             statement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementId").unwrap(),
+                o.extract_field("statementId"),
             ),
             statement_id_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementIdPrefix").unwrap(),
+                o.extract_field("statementIdPrefix"),
             ),
         }
     }

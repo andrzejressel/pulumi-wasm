@@ -131,70 +131,32 @@ pub mod key_ring_import_job {
                     value: &protection_level_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attestations".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "importJobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "importMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRing".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyRingImportJobResult {
             attestations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attestations").unwrap(),
+                o.extract_field("attestations"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
             import_job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importJobId").unwrap(),
+                o.extract_field("importJobId"),
             ),
             import_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importMethod").unwrap(),
+                o.extract_field("importMethod"),
             ),
             key_ring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRing").unwrap(),
+                o.extract_field("keyRing"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protection_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionLevel").unwrap(),
+                o.extract_field("protectionLevel"),
             ),
             public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeys").unwrap(),
+                o.extract_field("publicKeys"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

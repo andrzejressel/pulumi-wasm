@@ -183,99 +183,48 @@ pub mod slack_channel_configuration {
                     value: &user_authorization_required_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "chatConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardrailPolicyArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "slackChannelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "slackChannelName".into(),
-                },
-                register_interface::ResultField {
-                    name: "slackTeamId".into(),
-                },
-                register_interface::ResultField {
-                    name: "slackTeamName".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAuthorizationRequired".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SlackChannelConfigurationResult {
             chat_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chatConfigurationArn").unwrap(),
+                o.extract_field("chatConfigurationArn"),
             ),
             configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationName").unwrap(),
+                o.extract_field("configurationName"),
             ),
             guardrail_policy_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardrailPolicyArns").unwrap(),
+                o.extract_field("guardrailPolicyArns"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             logging_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingLevel").unwrap(),
+                o.extract_field("loggingLevel"),
             ),
             slack_channel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slackChannelId").unwrap(),
+                o.extract_field("slackChannelId"),
             ),
             slack_channel_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slackChannelName").unwrap(),
+                o.extract_field("slackChannelName"),
             ),
             slack_team_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slackTeamId").unwrap(),
+                o.extract_field("slackTeamId"),
             ),
             slack_team_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slackTeamName").unwrap(),
+                o.extract_field("slackTeamName"),
             ),
             sns_topic_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArns").unwrap(),
+                o.extract_field("snsTopicArns"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             user_authorization_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAuthorizationRequired").unwrap(),
+                o.extract_field("userAuthorizationRequired"),
             ),
         }
     }

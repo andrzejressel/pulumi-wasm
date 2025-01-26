@@ -443,105 +443,49 @@ pub mod uptime_check_config {
                     value: &user_labels_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "checkerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentMatchers".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoredResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectedRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "syntheticMonitor".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "uptimeCheckId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userLabels".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UptimeCheckConfigResult {
             checker_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkerType").unwrap(),
+                o.extract_field("checkerType"),
             ),
             content_matchers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentMatchers").unwrap(),
+                o.extract_field("contentMatchers"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             http_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpCheck").unwrap(),
+                o.extract_field("httpCheck"),
             ),
             monitored_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoredResource").unwrap(),
+                o.extract_field("monitoredResource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             resource_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroup").unwrap(),
+                o.extract_field("resourceGroup"),
             ),
             selected_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectedRegions").unwrap(),
+                o.extract_field("selectedRegions"),
             ),
             synthetic_monitor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syntheticMonitor").unwrap(),
+                o.extract_field("syntheticMonitor"),
             ),
             tcp_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpCheck").unwrap(),
+                o.extract_field("tcpCheck"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             uptime_check_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uptimeCheckId").unwrap(),
+                o.extract_field("uptimeCheckId"),
             ),
             user_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userLabels").unwrap(),
+                o.extract_field("userLabels"),
             ),
         }
     }

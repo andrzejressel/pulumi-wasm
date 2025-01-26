@@ -168,122 +168,53 @@ pub mod get_vpc_peering_connection {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accepter".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlockSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlockSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerCidrBlockSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIpv6CidrBlockSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerOwnerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerVpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "requester".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcPeeringConnectionResult {
             accepter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accepter").unwrap(),
+                o.extract_field("accepter"),
             ),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             cidr_block_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlockSets").unwrap(),
+                o.extract_field("cidrBlockSets"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv6_cidr_block_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlockSets").unwrap(),
+                o.extract_field("ipv6CidrBlockSets"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             peer_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerCidrBlock").unwrap(),
+                o.extract_field("peerCidrBlock"),
             ),
             peer_cidr_block_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerCidrBlockSets").unwrap(),
+                o.extract_field("peerCidrBlockSets"),
             ),
             peer_ipv6_cidr_block_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIpv6CidrBlockSets").unwrap(),
+                o.extract_field("peerIpv6CidrBlockSets"),
             ),
             peer_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerOwnerId").unwrap(),
+                o.extract_field("peerOwnerId"),
             ),
             peer_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerRegion").unwrap(),
+                o.extract_field("peerRegion"),
             ),
             peer_vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerVpcId").unwrap(),
+                o.extract_field("peerVpcId"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             requester: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requester").unwrap(),
+                o.extract_field("requester"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

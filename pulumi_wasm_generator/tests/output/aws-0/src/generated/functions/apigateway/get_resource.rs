@@ -46,43 +46,19 @@ pub mod get_resource {
                     value: &rest_api_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathPart".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApiId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourceResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             parent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentId").unwrap(),
+                o.extract_field("parentId"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             path_part: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathPart").unwrap(),
+                o.extract_field("pathPart"),
             ),
             rest_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApiId").unwrap(),
+                o.extract_field("restApiId"),
             ),
         }
     }

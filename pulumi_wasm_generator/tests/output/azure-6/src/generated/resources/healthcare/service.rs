@@ -262,94 +262,42 @@ pub mod service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyObjectIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationExportStorageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbKeyVaultKeyVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
             access_policy_object_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyObjectIds").unwrap(),
+                o.extract_field("accessPolicyObjectIds"),
             ),
             authentication_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationConfiguration").unwrap(),
+                o.extract_field("authenticationConfiguration"),
             ),
             configuration_export_storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationExportStorageAccountName").unwrap(),
+                o.extract_field("configurationExportStorageAccountName"),
             ),
             cors_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsConfiguration").unwrap(),
+                o.extract_field("corsConfiguration"),
             ),
             cosmosdb_key_vault_key_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbKeyVaultKeyVersionlessId").unwrap(),
+                o.extract_field("cosmosdbKeyVaultKeyVersionlessId"),
             ),
             cosmosdb_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbThroughput").unwrap(),
+                o.extract_field("cosmosdbThroughput"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

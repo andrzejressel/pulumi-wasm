@@ -247,105 +247,47 @@ pub mod backup {
                     value: &vault_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupType".into(),
-                },
-                register_interface::ResultField {
-                    name: "chainStorageBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSnapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVolume".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeUsageBytes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupResult {
             backup_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupType").unwrap(),
+                o.extract_field("backupType"),
             ),
             chain_storage_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chainStorageBytes").unwrap(),
+                o.extract_field("chainStorageBytes"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             source_snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSnapshot").unwrap(),
+                o.extract_field("sourceSnapshot"),
             ),
             source_volume: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVolume").unwrap(),
+                o.extract_field("sourceVolume"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultName").unwrap(),
+                o.extract_field("vaultName"),
             ),
             volume_usage_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeUsageBytes").unwrap(),
+                o.extract_field("volumeUsageBytes"),
             ),
         }
     }

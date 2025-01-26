@@ -271,99 +271,44 @@ pub mod service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "observabilityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_scaling_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingConfigurationArn").unwrap(),
+                o.extract_field("autoScalingConfigurationArn"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
             health_check_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckConfiguration").unwrap(),
+                o.extract_field("healthCheckConfiguration"),
             ),
             instance_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceConfiguration").unwrap(),
+                o.extract_field("instanceConfiguration"),
             ),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             observability_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("observabilityConfiguration").unwrap(),
+                o.extract_field("observabilityConfiguration"),
             ),
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             service_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceUrl").unwrap(),
+                o.extract_field("serviceUrl"),
             ),
             source_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceConfiguration").unwrap(),
+                o.extract_field("sourceConfiguration"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -194,69 +194,31 @@ pub mod local_user {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "homeDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sid".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshAuthorizedKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshKeyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshPasswordEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalUserResult {
             home_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeDirectory").unwrap(),
+                o.extract_field("homeDirectory"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             permission_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionScopes").unwrap(),
+                o.extract_field("permissionScopes"),
             ),
-            sid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sid").unwrap(),
-            ),
+            sid: pulumi_wasm_rust::__private::into_domain(o.extract_field("sid")),
             ssh_authorized_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshAuthorizedKeys").unwrap(),
+                o.extract_field("sshAuthorizedKeys"),
             ),
             ssh_key_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshKeyEnabled").unwrap(),
+                o.extract_field("sshKeyEnabled"),
             ),
             ssh_password_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshPasswordEnabled").unwrap(),
+                o.extract_field("sshPasswordEnabled"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

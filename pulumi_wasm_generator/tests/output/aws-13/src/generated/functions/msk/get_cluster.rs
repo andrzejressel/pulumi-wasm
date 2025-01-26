@@ -75,115 +75,53 @@ pub mod get_cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokers".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "brokerNodeGroupInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterUuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfBrokerNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zookeeperConnectString".into(),
-                },
-                register_interface::ResultField {
-                    name: "zookeeperConnectStringTls".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bootstrap_brokers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokers").unwrap(),
+                o.extract_field("bootstrapBrokers"),
             ),
             bootstrap_brokers_public_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslIam"),
             ),
             bootstrap_brokers_public_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslScram"),
             ),
             bootstrap_brokers_public_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicTls").unwrap(),
+                o.extract_field("bootstrapBrokersPublicTls"),
             ),
             bootstrap_brokers_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersSaslIam"),
             ),
             bootstrap_brokers_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersSaslScram"),
             ),
             bootstrap_brokers_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersTls").unwrap(),
+                o.extract_field("bootstrapBrokersTls"),
             ),
             broker_node_group_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brokerNodeGroupInfos").unwrap(),
+                o.extract_field("brokerNodeGroupInfos"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             cluster_uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterUuid").unwrap(),
+                o.extract_field("clusterUuid"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kafka_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaVersion").unwrap(),
+                o.extract_field("kafkaVersion"),
             ),
             number_of_broker_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfBrokerNodes").unwrap(),
+                o.extract_field("numberOfBrokerNodes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             zookeeper_connect_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zookeeperConnectString").unwrap(),
+                o.extract_field("zookeeperConnectString"),
             ),
             zookeeper_connect_string_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zookeeperConnectStringTls").unwrap(),
+                o.extract_field("zookeeperConnectStringTls"),
             ),
         }
     }

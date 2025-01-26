@@ -175,57 +175,27 @@ pub mod output_cosmosdb {
                     value: &stream_analytics_job_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbAccountKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbSqlDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutputCosmosdbResult {
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             cosmosdb_account_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbAccountKey").unwrap(),
+                o.extract_field("cosmosdbAccountKey"),
             ),
             cosmosdb_sql_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbSqlDatabaseId").unwrap(),
+                o.extract_field("cosmosdbSqlDatabaseId"),
             ),
             document_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentId").unwrap(),
+                o.extract_field("documentId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKey").unwrap(),
+                o.extract_field("partitionKey"),
             ),
             stream_analytics_job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobId").unwrap(),
+                o.extract_field("streamAnalyticsJobId"),
             ),
         }
     }

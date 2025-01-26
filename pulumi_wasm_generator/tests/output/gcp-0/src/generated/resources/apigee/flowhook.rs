@@ -117,51 +117,24 @@ pub mod flowhook {
                     value: &sharedflow_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "continueOnError".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "flowHookPoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedflow".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlowhookResult {
             continue_on_error: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("continueOnError").unwrap(),
+                o.extract_field("continueOnError"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
             flow_hook_point: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flowHookPoint").unwrap(),
+                o.extract_field("flowHookPoint"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             sharedflow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedflow").unwrap(),
+                o.extract_field("sharedflow"),
             ),
         }
     }

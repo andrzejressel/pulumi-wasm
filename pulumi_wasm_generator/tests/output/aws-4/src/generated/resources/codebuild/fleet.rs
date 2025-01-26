@@ -221,105 +221,47 @@ pub mod fleet {
                     value: &vpc_configs_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "created".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetServiceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "overflowBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseCapacity").unwrap(),
+                o.extract_field("baseCapacity"),
             ),
             compute_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeType").unwrap(),
+                o.extract_field("computeType"),
             ),
             created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("created").unwrap(),
+                o.extract_field("created"),
             ),
             environment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentType").unwrap(),
+                o.extract_field("environmentType"),
             ),
             fleet_service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetServiceRole").unwrap(),
+                o.extract_field("fleetServiceRole"),
             ),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             overflow_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overflowBehavior").unwrap(),
+                o.extract_field("overflowBehavior"),
             ),
             scaling_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingConfiguration").unwrap(),
+                o.extract_field("scalingConfiguration"),
             ),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfigs").unwrap(),
+                o.extract_field("vpcConfigs"),
             ),
         }
     }

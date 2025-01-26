@@ -140,63 +140,28 @@ pub mod email_service_domain {
                     value: &user_engagement_tracking_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainManagement".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fromSenderDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "mailFromSenderDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEngagementTrackingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationRecords".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EmailServiceDomainResult {
             domain_management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainManagement").unwrap(),
+                o.extract_field("domainManagement"),
             ),
             email_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailServiceId").unwrap(),
+                o.extract_field("emailServiceId"),
             ),
             from_sender_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fromSenderDomain").unwrap(),
+                o.extract_field("fromSenderDomain"),
             ),
             mail_from_sender_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mailFromSenderDomain").unwrap(),
+                o.extract_field("mailFromSenderDomain"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_engagement_tracking_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEngagementTrackingEnabled").unwrap(),
+                o.extract_field("userEngagementTrackingEnabled"),
             ),
             verification_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationRecords").unwrap(),
+                o.extract_field("verificationRecords"),
             ),
         }
     }

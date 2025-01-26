@@ -168,75 +168,34 @@ pub mod pipeline {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "parallelismConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineDefinitionS3Location".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             parallelism_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parallelismConfiguration").unwrap(),
+                o.extract_field("parallelismConfiguration"),
             ),
             pipeline_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineDefinition").unwrap(),
+                o.extract_field("pipelineDefinition"),
             ),
             pipeline_definition_s3_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineDefinitionS3Location").unwrap(),
+                o.extract_field("pipelineDefinitionS3Location"),
             ),
             pipeline_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineDescription").unwrap(),
+                o.extract_field("pipelineDescription"),
             ),
             pipeline_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineDisplayName").unwrap(),
+                o.extract_field("pipelineDisplayName"),
             ),
             pipeline_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineName").unwrap(),
+                o.extract_field("pipelineName"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

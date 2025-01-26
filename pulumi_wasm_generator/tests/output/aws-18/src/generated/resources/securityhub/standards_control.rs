@@ -108,76 +108,37 @@ pub mod standards_control {
                     value: &standards_control_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "controlId".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlStatusUpdatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabledReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "relatedRequirements".into(),
-                },
-                register_interface::ResultField {
-                    name: "remediationUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "severityRating".into(),
-                },
-                register_interface::ResultField {
-                    name: "standardsControlArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardsControlResult {
             control_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlId").unwrap(),
+                o.extract_field("controlId"),
             ),
             control_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlStatus").unwrap(),
+                o.extract_field("controlStatus"),
             ),
             control_status_updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlStatusUpdatedAt").unwrap(),
+                o.extract_field("controlStatusUpdatedAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabledReason").unwrap(),
+                o.extract_field("disabledReason"),
             ),
             related_requirements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relatedRequirements").unwrap(),
+                o.extract_field("relatedRequirements"),
             ),
             remediation_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remediationUrl").unwrap(),
+                o.extract_field("remediationUrl"),
             ),
             severity_rating: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severityRating").unwrap(),
+                o.extract_field("severityRating"),
             ),
             standards_control_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("standardsControlArn").unwrap(),
+                o.extract_field("standardsControlArn"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

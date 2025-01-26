@@ -185,81 +185,35 @@ pub mod stream {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "enforceConsumerDeletion".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardLevelMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamModeDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
             enforce_consumer_deletion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enforceConsumerDeletion").unwrap(),
+                o.extract_field("enforceConsumerDeletion"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
             shard_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCount").unwrap(),
+                o.extract_field("shardCount"),
             ),
             shard_level_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardLevelMetrics").unwrap(),
+                o.extract_field("shardLevelMetrics"),
             ),
             stream_mode_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamModeDetails").unwrap(),
+                o.extract_field("streamModeDetails"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

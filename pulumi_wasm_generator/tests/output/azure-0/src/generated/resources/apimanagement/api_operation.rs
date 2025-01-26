@@ -202,81 +202,39 @@ pub mod api_operation {
                     value: &url_template_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "request".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "responses".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlTemplate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiOperationResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             api_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiName").unwrap(),
+                o.extract_field("apiName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
             operation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationId").unwrap(),
+                o.extract_field("operationId"),
             ),
             request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("request").unwrap(),
+                o.extract_field("request"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             responses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responses").unwrap(),
+                o.extract_field("responses"),
             ),
             template_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateParameters").unwrap(),
+                o.extract_field("templateParameters"),
             ),
             url_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlTemplate").unwrap(),
+                o.extract_field("urlTemplate"),
             ),
         }
     }

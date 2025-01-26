@@ -103,39 +103,20 @@ pub mod product_portfolio_association {
                     value: &source_portfolio_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "portfolioId".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePortfolioId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProductPortfolioAssociationResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
             portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portfolioId").unwrap(),
+                o.extract_field("portfolioId"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             source_portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePortfolioId").unwrap(),
+                o.extract_field("sourcePortfolioId"),
             ),
         }
     }

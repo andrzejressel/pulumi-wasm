@@ -392,82 +392,38 @@ pub mod frontdoor_origin {
                     value: &weight_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorOriginGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateNameCheckEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "originHostHeader".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "weight".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorOriginResult {
             cdn_frontdoor_origin_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorOriginGroupId").unwrap(),
+                o.extract_field("cdnFrontdoorOriginGroupId"),
             ),
             certificate_name_check_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateNameCheckEnabled").unwrap(),
+                o.extract_field("certificateNameCheckEnabled"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
             http_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpPort").unwrap(),
+                o.extract_field("httpPort"),
             ),
             https_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsPort").unwrap(),
+                o.extract_field("httpsPort"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             origin_host_header: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originHostHeader").unwrap(),
+                o.extract_field("originHostHeader"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             private_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLink").unwrap(),
+                o.extract_field("privateLink"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weight").unwrap(),
-            ),
+            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
         }
     }
 }

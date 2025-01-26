@@ -212,69 +212,31 @@ pub mod domain {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetterQueueUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultEncryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultExpirationDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "matching".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleBasedMatching".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             dead_letter_queue_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterQueueUrl").unwrap(),
+                o.extract_field("deadLetterQueueUrl"),
             ),
             default_encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultEncryptionKey").unwrap(),
+                o.extract_field("defaultEncryptionKey"),
             ),
             default_expiration_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultExpirationDays").unwrap(),
+                o.extract_field("defaultExpirationDays"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             matching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("matching").unwrap(),
+                o.extract_field("matching"),
             ),
             rule_based_matching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleBasedMatching").unwrap(),
+                o.extract_field("ruleBasedMatching"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

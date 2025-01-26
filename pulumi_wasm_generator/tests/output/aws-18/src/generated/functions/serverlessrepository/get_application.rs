@@ -54,55 +54,25 @@ pub mod get_application {
                     value: &semantic_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiredCapabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "semanticVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCodeUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApplicationResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             required_capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiredCapabilities").unwrap(),
+                o.extract_field("requiredCapabilities"),
             ),
             semantic_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("semanticVersion").unwrap(),
+                o.extract_field("semanticVersion"),
             ),
             source_code_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCodeUrl").unwrap(),
+                o.extract_field("sourceCodeUrl"),
             ),
             template_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateUrl").unwrap(),
+                o.extract_field("templateUrl"),
             ),
         }
     }

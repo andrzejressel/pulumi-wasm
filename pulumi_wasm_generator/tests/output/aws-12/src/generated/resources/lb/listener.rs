@@ -397,87 +397,38 @@ pub mod listener {
                     value: &tcp_idle_timeout_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alpnPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutualAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpIdleTimeoutSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListenerResult {
             alpn_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alpnPolicy").unwrap(),
+                o.extract_field("alpnPolicy"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             default_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultActions").unwrap(),
+                o.extract_field("defaultActions"),
             ),
             load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerArn").unwrap(),
+                o.extract_field("loadBalancerArn"),
             ),
             mutual_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutualAuthentication").unwrap(),
+                o.extract_field("mutualAuthentication"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             ssl_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslPolicy").unwrap(),
+                o.extract_field("sslPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tcp_idle_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpIdleTimeoutSeconds").unwrap(),
+                o.extract_field("tcpIdleTimeoutSeconds"),
             ),
         }
     }

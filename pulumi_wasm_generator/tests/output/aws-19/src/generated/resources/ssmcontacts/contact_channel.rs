@@ -138,52 +138,21 @@ pub mod contact_channel {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activationStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactChannelResult {
             activation_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activationStatus").unwrap(),
+                o.extract_field("activationStatus"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             contact_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactId").unwrap(),
+                o.extract_field("contactId"),
             ),
             delivery_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryAddress").unwrap(),
+                o.extract_field("deliveryAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -159,51 +159,24 @@ pub mod bucket_logging_v_2 {
                     value: &target_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetGrants".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetObjectKeyFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketLoggingV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
             target_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetBucket").unwrap(),
+                o.extract_field("targetBucket"),
             ),
             target_grants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetGrants").unwrap(),
+                o.extract_field("targetGrants"),
             ),
             target_object_key_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetObjectKeyFormat").unwrap(),
+                o.extract_field("targetObjectKeyFormat"),
             ),
             target_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetPrefix").unwrap(),
+                o.extract_field("targetPrefix"),
             ),
         }
     }

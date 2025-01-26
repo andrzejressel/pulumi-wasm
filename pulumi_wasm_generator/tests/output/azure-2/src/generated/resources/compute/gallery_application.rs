@@ -184,76 +184,33 @@ pub mod gallery_application {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endOfLifeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "eula".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privacyStatementUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseNoteUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedOsType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GalleryApplicationResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             end_of_life_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endOfLifeDate").unwrap(),
+                o.extract_field("endOfLifeDate"),
             ),
-            eula: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eula").unwrap(),
-            ),
+            eula: pulumi_wasm_rust::__private::into_domain(o.extract_field("eula")),
             gallery_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryId").unwrap(),
+                o.extract_field("galleryId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             privacy_statement_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privacyStatementUri").unwrap(),
+                o.extract_field("privacyStatementUri"),
             ),
             release_note_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseNoteUri").unwrap(),
+                o.extract_field("releaseNoteUri"),
             ),
             supported_os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedOsType").unwrap(),
+                o.extract_field("supportedOsType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

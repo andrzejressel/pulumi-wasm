@@ -701,231 +701,102 @@ pub mod instance {
                     value: &transit_encryption_mode_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alternativeLocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "authString".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentLocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenancePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceSchedules".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistenceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistenceIamIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "readEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "readEndpointPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "readReplicasMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedIpRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryIpRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCaCerts".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionMode".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             alternative_location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternativeLocationId").unwrap(),
+                o.extract_field("alternativeLocationId"),
             ),
             auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authEnabled").unwrap(),
+                o.extract_field("authEnabled"),
             ),
             auth_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authString").unwrap(),
+                o.extract_field("authString"),
             ),
             authorized_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedNetwork").unwrap(),
+                o.extract_field("authorizedNetwork"),
             ),
             connect_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectMode").unwrap(),
+                o.extract_field("connectMode"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             current_location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentLocationId").unwrap(),
+                o.extract_field("currentLocationId"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationId").unwrap(),
+                o.extract_field("locationId"),
             ),
             maintenance_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenancePolicy").unwrap(),
+                o.extract_field("maintenancePolicy"),
             ),
             maintenance_schedules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceSchedules").unwrap(),
+                o.extract_field("maintenanceSchedules"),
             ),
             maintenance_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceVersion").unwrap(),
+                o.extract_field("maintenanceVersion"),
             ),
             memory_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySizeGb").unwrap(),
+                o.extract_field("memorySizeGb"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodes").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            nodes: pulumi_wasm_rust::__private::into_domain(o.extract_field("nodes")),
             persistence_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistenceConfig").unwrap(),
+                o.extract_field("persistenceConfig"),
             ),
             persistence_iam_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistenceIamIdentity").unwrap(),
+                o.extract_field("persistenceIamIdentity"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             read_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readEndpoint").unwrap(),
+                o.extract_field("readEndpoint"),
             ),
             read_endpoint_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readEndpointPort").unwrap(),
+                o.extract_field("readEndpointPort"),
             ),
             read_replicas_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readReplicasMode").unwrap(),
+                o.extract_field("readReplicasMode"),
             ),
             redis_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisConfigs").unwrap(),
+                o.extract_field("redisConfigs"),
             ),
             redis_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisVersion").unwrap(),
+                o.extract_field("redisVersion"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCount").unwrap(),
+                o.extract_field("replicaCount"),
             ),
             reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedIpRange").unwrap(),
+                o.extract_field("reservedIpRange"),
             ),
             secondary_ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryIpRange").unwrap(),
+                o.extract_field("secondaryIpRange"),
             ),
             server_ca_certs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCaCerts").unwrap(),
+                o.extract_field("serverCaCerts"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionMode").unwrap(),
+                o.extract_field("transitEncryptionMode"),
             ),
         }
     }

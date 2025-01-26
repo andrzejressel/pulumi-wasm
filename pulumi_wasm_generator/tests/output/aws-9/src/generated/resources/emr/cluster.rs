@@ -772,225 +772,103 @@ pub mod cluster {
                     value: &visible_to_all_users_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "applications".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoTerminationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscalingRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterState".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationsJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreInstanceFleet".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreInstanceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "customAmiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsRootVolumeSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2Attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepJobFlowAliveWhenNoSteps".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "listStepsStates".into(),
-                },
-                register_interface::ResultField {
-                    name: "logEncryptionKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterInstanceFleet".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterInstanceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterPublicDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroupConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "scaleDownBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "stepConcurrencyLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "steps".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminationProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "unhealthyNodeReplacement".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibleToAllUsers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             additional_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalInfo").unwrap(),
+                o.extract_field("additionalInfo"),
             ),
             applications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applications").unwrap(),
+                o.extract_field("applications"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_termination_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoTerminationPolicy").unwrap(),
+                o.extract_field("autoTerminationPolicy"),
             ),
             autoscaling_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingRole").unwrap(),
+                o.extract_field("autoscalingRole"),
             ),
             bootstrap_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapActions").unwrap(),
+                o.extract_field("bootstrapActions"),
             ),
             cluster_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterState").unwrap(),
+                o.extract_field("clusterState"),
             ),
             configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurations").unwrap(),
+                o.extract_field("configurations"),
             ),
             configurations_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationsJson").unwrap(),
+                o.extract_field("configurationsJson"),
             ),
             core_instance_fleet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreInstanceFleet").unwrap(),
+                o.extract_field("coreInstanceFleet"),
             ),
             core_instance_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreInstanceGroup").unwrap(),
+                o.extract_field("coreInstanceGroup"),
             ),
             custom_ami_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customAmiId").unwrap(),
+                o.extract_field("customAmiId"),
             ),
             ebs_root_volume_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsRootVolumeSize").unwrap(),
+                o.extract_field("ebsRootVolumeSize"),
             ),
             ec2_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2Attributes").unwrap(),
+                o.extract_field("ec2Attributes"),
             ),
             keep_job_flow_alive_when_no_steps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepJobFlowAliveWhenNoSteps").unwrap(),
+                o.extract_field("keepJobFlowAliveWhenNoSteps"),
             ),
             kerberos_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosAttributes").unwrap(),
+                o.extract_field("kerberosAttributes"),
             ),
             list_steps_states: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listStepsStates").unwrap(),
+                o.extract_field("listStepsStates"),
             ),
             log_encryption_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logEncryptionKmsKeyId").unwrap(),
+                o.extract_field("logEncryptionKmsKeyId"),
             ),
-            log_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logUri").unwrap(),
-            ),
+            log_uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("logUri")),
             master_instance_fleet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterInstanceFleet").unwrap(),
+                o.extract_field("masterInstanceFleet"),
             ),
             master_instance_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterInstanceGroup").unwrap(),
+                o.extract_field("masterInstanceGroup"),
             ),
             master_public_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterPublicDns").unwrap(),
+                o.extract_field("masterPublicDns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             placement_group_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroupConfigs").unwrap(),
+                o.extract_field("placementGroupConfigs"),
             ),
             release_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseLabel").unwrap(),
+                o.extract_field("releaseLabel"),
             ),
             scale_down_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scaleDownBehavior").unwrap(),
+                o.extract_field("scaleDownBehavior"),
             ),
             security_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityConfiguration").unwrap(),
+                o.extract_field("securityConfiguration"),
             ),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
             step_concurrency_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stepConcurrencyLevel").unwrap(),
+                o.extract_field("stepConcurrencyLevel"),
             ),
-            steps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("steps").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            steps: pulumi_wasm_rust::__private::into_domain(o.extract_field("steps")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             termination_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminationProtection").unwrap(),
+                o.extract_field("terminationProtection"),
             ),
             unhealthy_node_replacement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unhealthyNodeReplacement").unwrap(),
+                o.extract_field("unhealthyNodeReplacement"),
             ),
             visible_to_all_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibleToAllUsers").unwrap(),
+                o.extract_field("visibleToAllUsers"),
             ),
         }
     }

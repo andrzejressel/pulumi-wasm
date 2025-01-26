@@ -64,55 +64,25 @@ pub mod get_virtual_network {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedSubnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "labName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualNetworkResult {
             allowed_subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedSubnets").unwrap(),
+                o.extract_field("allowedSubnets"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lab_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labName").unwrap(),
+                o.extract_field("labName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnet_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetOverrides").unwrap(),
+                o.extract_field("subnetOverrides"),
             ),
             unique_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueIdentifier").unwrap(),
+                o.extract_field("uniqueIdentifier"),
             ),
         }
     }

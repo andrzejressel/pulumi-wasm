@@ -56,21 +56,11 @@ pub mod get_bastion_shareable_link {
                     value: &vms_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "nextLink".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBastionShareableLinkResult {
             next_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextLink").unwrap(),
+                o.extract_field("nextLink"),
             ),
         }
     }

@@ -812,297 +812,141 @@ pub mod replication_group {
                     value: &user_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "atRestEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "authToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "authTokenUpdateStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticFailoverEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataTieringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersionActual".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalReplicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipDiscovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDeliveryConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAzEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "numCacheClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "numNodeGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredCacheClusterAzs".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "readerEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicasPerNodeGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotRetentionLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "userGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationGroupResult {
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("atRestEncryptionEnabled").unwrap(),
+                o.extract_field("atRestEncryptionEnabled"),
             ),
             auth_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authToken").unwrap(),
+                o.extract_field("authToken"),
             ),
             auth_token_update_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authTokenUpdateStrategy").unwrap(),
+                o.extract_field("authTokenUpdateStrategy"),
             ),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticFailoverEnabled").unwrap(),
+                o.extract_field("automaticFailoverEnabled"),
             ),
             cluster_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEnabled").unwrap(),
+                o.extract_field("clusterEnabled"),
             ),
             cluster_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterMode").unwrap(),
+                o.extract_field("clusterMode"),
             ),
             configuration_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationEndpointAddress").unwrap(),
+                o.extract_field("configurationEndpointAddress"),
             ),
             data_tiering_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataTieringEnabled").unwrap(),
+                o.extract_field("dataTieringEnabled"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             engine_version_actual: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersionActual").unwrap(),
+                o.extract_field("engineVersionActual"),
             ),
             final_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalSnapshotIdentifier").unwrap(),
+                o.extract_field("finalSnapshotIdentifier"),
             ),
             global_replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalReplicationGroupId").unwrap(),
+                o.extract_field("globalReplicationGroupId"),
             ),
             ip_discovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipDiscovery").unwrap(),
+                o.extract_field("ipDiscovery"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             log_delivery_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDeliveryConfigurations").unwrap(),
+                o.extract_field("logDeliveryConfigurations"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
             member_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberClusters").unwrap(),
+                o.extract_field("memberClusters"),
             ),
             multi_az_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAzEnabled").unwrap(),
+                o.extract_field("multiAzEnabled"),
             ),
             network_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkType").unwrap(),
+                o.extract_field("networkType"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             notification_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTopicArn").unwrap(),
+                o.extract_field("notificationTopicArn"),
             ),
             num_cache_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numCacheClusters").unwrap(),
+                o.extract_field("numCacheClusters"),
             ),
             num_node_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numNodeGroups").unwrap(),
+                o.extract_field("numNodeGroups"),
             ),
             parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupName").unwrap(),
+                o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             preferred_cache_cluster_azs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredCacheClusterAzs").unwrap(),
+                o.extract_field("preferredCacheClusterAzs"),
             ),
             primary_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryEndpointAddress").unwrap(),
+                o.extract_field("primaryEndpointAddress"),
             ),
             reader_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readerEndpointAddress").unwrap(),
+                o.extract_field("readerEndpointAddress"),
             ),
             replicas_per_node_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicasPerNodeGroup").unwrap(),
+                o.extract_field("replicasPerNodeGroup"),
             ),
             replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationGroupId").unwrap(),
+                o.extract_field("replicationGroupId"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             security_group_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupNames").unwrap(),
+                o.extract_field("securityGroupNames"),
             ),
             snapshot_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotArns").unwrap(),
+                o.extract_field("snapshotArns"),
             ),
             snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotName").unwrap(),
+                o.extract_field("snapshotName"),
             ),
             snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotRetentionLimit").unwrap(),
+                o.extract_field("snapshotRetentionLimit"),
             ),
             snapshot_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotWindow").unwrap(),
+                o.extract_field("snapshotWindow"),
             ),
             subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetGroupName").unwrap(),
+                o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionEnabled").unwrap(),
+                o.extract_field("transitEncryptionEnabled"),
             ),
             transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionMode").unwrap(),
+                o.extract_field("transitEncryptionMode"),
             ),
             user_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userGroupIds").unwrap(),
+                o.extract_field("userGroupIds"),
             ),
         }
     }

@@ -228,69 +228,33 @@ pub mod sync_server_endpoint {
                     value: &volume_free_space_percent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudTieringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialDownloadPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "localCacheMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "registeredServerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverLocalPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageSyncGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tierFilesOlderThanDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeFreeSpacePercent".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SyncServerEndpointResult {
             cloud_tiering_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudTieringEnabled").unwrap(),
+                o.extract_field("cloudTieringEnabled"),
             ),
             initial_download_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialDownloadPolicy").unwrap(),
+                o.extract_field("initialDownloadPolicy"),
             ),
             local_cache_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localCacheMode").unwrap(),
+                o.extract_field("localCacheMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             registered_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registeredServerId").unwrap(),
+                o.extract_field("registeredServerId"),
             ),
             server_local_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverLocalPath").unwrap(),
+                o.extract_field("serverLocalPath"),
             ),
             storage_sync_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageSyncGroupId").unwrap(),
+                o.extract_field("storageSyncGroupId"),
             ),
             tier_files_older_than_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tierFilesOlderThanDays").unwrap(),
+                o.extract_field("tierFilesOlderThanDays"),
             ),
             volume_free_space_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeFreeSpacePercent").unwrap(),
+                o.extract_field("volumeFreeSpacePercent"),
             ),
         }
     }

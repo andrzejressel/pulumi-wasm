@@ -172,33 +172,17 @@ pub mod identity_source {
                     value: &principal_entity_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalEntityType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentitySourceResult {
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             policy_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyStoreId").unwrap(),
+                o.extract_field("policyStoreId"),
             ),
             principal_entity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalEntityType").unwrap(),
+                o.extract_field("principalEntityType"),
             ),
         }
     }

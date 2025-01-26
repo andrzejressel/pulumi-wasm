@@ -222,81 +222,37 @@ pub mod trigger_custom_event {
                     value: &subject_ends_with_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activated".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventgridTopicId".into(),
-                },
-                register_interface::ResultField {
-                    name: "events".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelines".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectBeginsWith".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectEndsWith".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TriggerCustomEventResult {
             activated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activated").unwrap(),
+                o.extract_field("activated"),
             ),
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             eventgrid_topic_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventgridTopicId").unwrap(),
+                o.extract_field("eventgridTopicId"),
             ),
-            events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("events").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            events: pulumi_wasm_rust::__private::into_domain(o.extract_field("events")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipelines: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelines").unwrap(),
+                o.extract_field("pipelines"),
             ),
             subject_begins_with: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectBeginsWith").unwrap(),
+                o.extract_field("subjectBeginsWith"),
             ),
             subject_ends_with: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectEndsWith").unwrap(),
+                o.extract_field("subjectEndsWith"),
             ),
         }
     }

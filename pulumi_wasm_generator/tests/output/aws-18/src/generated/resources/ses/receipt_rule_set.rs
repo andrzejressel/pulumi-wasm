@@ -59,27 +59,12 @@ pub mod receipt_rule_set {
                     value: &rule_set_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleSetName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReceiptRuleSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             rule_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleSetName").unwrap(),
+                o.extract_field("ruleSetName"),
             ),
         }
     }

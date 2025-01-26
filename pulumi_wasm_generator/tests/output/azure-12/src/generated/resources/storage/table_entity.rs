@@ -114,39 +114,16 @@ pub mod table_entity {
                     value: &storage_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "entity".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableEntityResult {
-            entity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entity").unwrap(),
-            ),
+            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
             partition_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKey").unwrap(),
+                o.extract_field("partitionKey"),
             ),
-            row_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowKey").unwrap(),
-            ),
+            row_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("rowKey")),
             storage_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageTableId").unwrap(),
+                o.extract_field("storageTableId"),
             ),
         }
     }

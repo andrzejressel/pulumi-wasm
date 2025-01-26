@@ -59,73 +59,32 @@ pub mod get_virtual_hub {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualWanId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualHubResult {
             address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefix").unwrap(),
+                o.extract_field("addressPrefix"),
             ),
             default_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteTableId").unwrap(),
+                o.extract_field("defaultRouteTableId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_router_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterAsn").unwrap(),
+                o.extract_field("virtualRouterAsn"),
             ),
             virtual_router_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterIps").unwrap(),
+                o.extract_field("virtualRouterIps"),
             ),
             virtual_wan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualWanId").unwrap(),
+                o.extract_field("virtualWanId"),
             ),
         }
     }

@@ -154,57 +154,21 @@ pub mod data_lake_gen_2_filesystem {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aces".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultEncryptionScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataLakeGen2FilesystemResult {
-            aces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aces").unwrap(),
-            ),
+            aces: pulumi_wasm_rust::__private::into_domain(o.extract_field("aces")),
             default_encryption_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultEncryptionScope").unwrap(),
+                o.extract_field("defaultEncryptionScope"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

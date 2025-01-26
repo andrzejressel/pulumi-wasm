@@ -75,49 +75,20 @@ pub mod get_table_item {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "expressionAttributeNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "item".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTableItemResult {
             expression_attribute_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressionAttributeNames").unwrap(),
+                o.extract_field("expressionAttributeNames"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            item: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("item").unwrap(),
-            ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            item: pulumi_wasm_rust::__private::into_domain(o.extract_field("item")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
             projection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectionExpression").unwrap(),
+                o.extract_field("projectionExpression"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

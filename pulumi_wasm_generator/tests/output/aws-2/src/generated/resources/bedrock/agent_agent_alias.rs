@@ -199,69 +199,33 @@ pub mod agent_agent_alias {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentAliasArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentAliasId".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentAliasName".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentAgentAliasResult {
             agent_alias_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentAliasArn").unwrap(),
+                o.extract_field("agentAliasArn"),
             ),
             agent_alias_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentAliasId").unwrap(),
+                o.extract_field("agentAliasId"),
             ),
             agent_alias_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentAliasName").unwrap(),
+                o.extract_field("agentAliasName"),
             ),
             agent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentId").unwrap(),
+                o.extract_field("agentId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             routing_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingConfigurations").unwrap(),
+                o.extract_field("routingConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

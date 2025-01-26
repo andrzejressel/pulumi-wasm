@@ -162,105 +162,45 @@ pub mod table {
                     value: &table_bucket_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "format".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableBucketArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "warehouseLocation".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("format").unwrap(),
-            ),
+            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
             maintenance_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfiguration").unwrap(),
+                o.extract_field("maintenanceConfiguration"),
             ),
             metadata_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataLocation").unwrap(),
+                o.extract_field("metadataLocation"),
             ),
             modified_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedAt").unwrap(),
+                o.extract_field("modifiedAt"),
             ),
             modified_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedBy").unwrap(),
+                o.extract_field("modifiedBy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             table_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableBucketArn").unwrap(),
+                o.extract_field("tableBucketArn"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             version_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionToken").unwrap(),
+                o.extract_field("versionToken"),
             ),
             warehouse_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warehouseLocation").unwrap(),
+                o.extract_field("warehouseLocation"),
             ),
         }
     }

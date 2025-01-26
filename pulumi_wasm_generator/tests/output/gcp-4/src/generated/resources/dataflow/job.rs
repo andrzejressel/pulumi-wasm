@@ -391,166 +391,70 @@ pub mod job {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalExperiments".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStreamingEngine".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipWaitOnJobTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "tempGcsLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateGcsPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "transformNameMapping".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             additional_experiments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalExperiments").unwrap(),
+                o.extract_field("additionalExperiments"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_streaming_engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStreamingEngine").unwrap(),
+                o.extract_field("enableStreamingEngine"),
             ),
             ip_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfiguration").unwrap(),
+                o.extract_field("ipConfiguration"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             machine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineType").unwrap(),
+                o.extract_field("machineType"),
             ),
             max_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxWorkers").unwrap(),
+                o.extract_field("maxWorkers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             on_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDelete").unwrap(),
+                o.extract_field("onDelete"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             service_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountEmail").unwrap(),
+                o.extract_field("serviceAccountEmail"),
             ),
             skip_wait_on_job_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipWaitOnJobTermination").unwrap(),
+                o.extract_field("skipWaitOnJobTermination"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnetwork: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetwork").unwrap(),
+                o.extract_field("subnetwork"),
             ),
             temp_gcs_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tempGcsLocation").unwrap(),
+                o.extract_field("tempGcsLocation"),
             ),
             template_gcs_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateGcsPath").unwrap(),
+                o.extract_field("templateGcsPath"),
             ),
             transform_name_mapping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transformNameMapping").unwrap(),
+                o.extract_field("transformNameMapping"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

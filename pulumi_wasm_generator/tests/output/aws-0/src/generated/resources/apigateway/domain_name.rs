@@ -351,147 +351,68 @@ pub mod domain_name {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateChain".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePrivateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateUploadDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNameId".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutualTlsAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipVerificationCertificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionalCertificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionalCertificateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionalDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionalZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainNameResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             certificate_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBody").unwrap(),
+                o.extract_field("certificateBody"),
             ),
             certificate_chain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateChain").unwrap(),
+                o.extract_field("certificateChain"),
             ),
             certificate_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateName").unwrap(),
+                o.extract_field("certificateName"),
             ),
             certificate_private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePrivateKey").unwrap(),
+                o.extract_field("certificatePrivateKey"),
             ),
             certificate_upload_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateUploadDate").unwrap(),
+                o.extract_field("certificateUploadDate"),
             ),
             cloudfront_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontDomainName").unwrap(),
+                o.extract_field("cloudfrontDomainName"),
             ),
             cloudfront_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontZoneId").unwrap(),
+                o.extract_field("cloudfrontZoneId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_name_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNameId").unwrap(),
+                o.extract_field("domainNameId"),
             ),
             endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointConfiguration").unwrap(),
+                o.extract_field("endpointConfiguration"),
             ),
             mutual_tls_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutualTlsAuthentication").unwrap(),
+                o.extract_field("mutualTlsAuthentication"),
             ),
             ownership_verification_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipVerificationCertificateArn").unwrap(),
+                o.extract_field("ownershipVerificationCertificateArn"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             regional_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionalCertificateArn").unwrap(),
+                o.extract_field("regionalCertificateArn"),
             ),
             regional_certificate_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionalCertificateName").unwrap(),
+                o.extract_field("regionalCertificateName"),
             ),
             regional_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionalDomainName").unwrap(),
+                o.extract_field("regionalDomainName"),
             ),
             regional_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionalZoneId").unwrap(),
+                o.extract_field("regionalZoneId"),
             ),
             security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPolicy").unwrap(),
+                o.extract_field("securityPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

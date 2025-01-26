@@ -104,115 +104,51 @@ pub mod get_data_set {
                     value: &tags_all_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "columnGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "columnLevelPermissionRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSetUsageConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "fieldFolders".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "importMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicalTableMaps".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "physicalTableMaps".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowLevelPermissionDataSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowLevelPermissionTagConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDataSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             column_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("columnGroups").unwrap(),
+                o.extract_field("columnGroups"),
             ),
             column_level_permission_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("columnLevelPermissionRules").unwrap(),
+                o.extract_field("columnLevelPermissionRules"),
             ),
             data_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSetId").unwrap(),
+                o.extract_field("dataSetId"),
             ),
             data_set_usage_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSetUsageConfigurations").unwrap(),
+                o.extract_field("dataSetUsageConfigurations"),
             ),
             field_folders: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fieldFolders").unwrap(),
+                o.extract_field("fieldFolders"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             import_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importMode").unwrap(),
+                o.extract_field("importMode"),
             ),
             logical_table_maps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicalTableMaps").unwrap(),
+                o.extract_field("logicalTableMaps"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
             physical_table_maps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("physicalTableMaps").unwrap(),
+                o.extract_field("physicalTableMaps"),
             ),
             row_level_permission_data_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowLevelPermissionDataSets").unwrap(),
+                o.extract_field("rowLevelPermissionDataSets"),
             ),
             row_level_permission_tag_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowLevelPermissionTagConfigurations").unwrap(),
+                o.extract_field("rowLevelPermissionTagConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

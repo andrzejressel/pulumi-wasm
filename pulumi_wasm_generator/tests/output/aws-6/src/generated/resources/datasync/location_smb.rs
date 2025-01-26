@@ -153,82 +153,32 @@ pub mod location_smb {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocationSmbResult {
             agent_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentArns").unwrap(),
+                o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             mount_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountOptions").unwrap(),
+                o.extract_field("mountOptions"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             server_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverHostname").unwrap(),
+                o.extract_field("serverHostname"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uri").unwrap(),
-            ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

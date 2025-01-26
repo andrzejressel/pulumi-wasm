@@ -633,165 +633,77 @@ pub mod subnetwork {
                     value: &stack_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowSubnetCidrRoutesOverlap".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalIpv6Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalIpv6Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipCidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AccessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpGoogleAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpv6GoogleAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "purpose".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedInternalRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendSecondaryIpRangeIfEmpty".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubnetworkResult {
             allow_subnet_cidr_routes_overlap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowSubnetCidrRoutesOverlap").unwrap(),
+                o.extract_field("allowSubnetCidrRoutesOverlap"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             external_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalIpv6Prefix").unwrap(),
+                o.extract_field("externalIpv6Prefix"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
             gateway_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayAddress").unwrap(),
+                o.extract_field("gatewayAddress"),
             ),
             internal_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalIpv6Prefix").unwrap(),
+                o.extract_field("internalIpv6Prefix"),
             ),
             ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipCidrRange").unwrap(),
+                o.extract_field("ipCidrRange"),
             ),
             ipv6_access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AccessType").unwrap(),
+                o.extract_field("ipv6AccessType"),
             ),
             ipv6_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrRange").unwrap(),
+                o.extract_field("ipv6CidrRange"),
             ),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             private_ip_google_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpGoogleAccess").unwrap(),
+                o.extract_field("privateIpGoogleAccess"),
             ),
             private_ipv6_google_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpv6GoogleAccess").unwrap(),
+                o.extract_field("privateIpv6GoogleAccess"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             purpose: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purpose").unwrap(),
+                o.extract_field("purpose"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             reserved_internal_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedInternalRange").unwrap(),
+                o.extract_field("reservedInternalRange"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             secondary_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryIpRanges").unwrap(),
+                o.extract_field("secondaryIpRanges"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             send_secondary_ip_range_if_empty: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendSecondaryIpRangeIfEmpty").unwrap(),
+                o.extract_field("sendSecondaryIpRangeIfEmpty"),
             ),
             stack_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackType").unwrap(),
+                o.extract_field("stackType"),
             ),
             subnetwork_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetworkId").unwrap(),
+                o.extract_field("subnetworkId"),
             ),
         }
     }

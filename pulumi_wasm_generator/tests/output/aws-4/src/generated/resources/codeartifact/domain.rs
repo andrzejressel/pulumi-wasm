@@ -97,75 +97,30 @@ pub mod domain {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             asset_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetSizeBytes").unwrap(),
+                o.extract_field("assetSizeBytes"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKey").unwrap(),
+                o.extract_field("encryptionKey"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             repository_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryCount").unwrap(),
+                o.extract_field("repositoryCount"),
             ),
             s3_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketArn").unwrap(),
+                o.extract_field("s3BucketArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

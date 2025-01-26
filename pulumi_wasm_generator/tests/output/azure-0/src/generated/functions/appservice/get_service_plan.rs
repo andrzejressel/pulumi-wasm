@@ -67,97 +67,40 @@ pub mod get_service_plan {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumElasticWorkerCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "perSiteScalingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "reserved".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneBalancingEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServicePlanResult {
             app_service_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceEnvironmentId").unwrap(),
+                o.extract_field("appServiceEnvironmentId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maximum_elastic_worker_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumElasticWorkerCount").unwrap(),
+                o.extract_field("maximumElasticWorkerCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             per_site_scaling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perSiteScalingEnabled").unwrap(),
+                o.extract_field("perSiteScalingEnabled"),
             ),
             reserved: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reserved").unwrap(),
+                o.extract_field("reserved"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             worker_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerCount").unwrap(),
+                o.extract_field("workerCount"),
             ),
             zone_balancing_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneBalancingEnabled").unwrap(),
+                o.extract_field("zoneBalancingEnabled"),
             ),
         }
     }

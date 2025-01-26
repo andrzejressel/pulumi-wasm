@@ -337,166 +337,72 @@ pub mod stack {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "berkshelfVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "color".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationManagerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationManagerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "customCookbooksSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "customJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAvailabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultInstanceProfileArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultOs".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRootDeviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSshKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnameTheme".into(),
-                },
-                register_interface::ResultField {
-                    name: "manageBerkshelf".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "useCustomCookbooks".into(),
-                },
-                register_interface::ResultField {
-                    name: "useOpsworksSecurityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackResult {
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             berkshelf_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("berkshelfVersion").unwrap(),
+                o.extract_field("berkshelfVersion"),
             ),
-            color: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("color").unwrap(),
-            ),
+            color: pulumi_wasm_rust::__private::into_domain(o.extract_field("color")),
             configuration_manager_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationManagerName").unwrap(),
+                o.extract_field("configurationManagerName"),
             ),
             configuration_manager_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationManagerVersion").unwrap(),
+                o.extract_field("configurationManagerVersion"),
             ),
             custom_cookbooks_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customCookbooksSources").unwrap(),
+                o.extract_field("customCookbooksSources"),
             ),
             custom_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customJson").unwrap(),
+                o.extract_field("customJson"),
             ),
             default_availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAvailabilityZone").unwrap(),
+                o.extract_field("defaultAvailabilityZone"),
             ),
             default_instance_profile_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultInstanceProfileArn").unwrap(),
+                o.extract_field("defaultInstanceProfileArn"),
             ),
             default_os: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultOs").unwrap(),
+                o.extract_field("defaultOs"),
             ),
             default_root_device_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRootDeviceType").unwrap(),
+                o.extract_field("defaultRootDeviceType"),
             ),
             default_ssh_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSshKeyName").unwrap(),
+                o.extract_field("defaultSshKeyName"),
             ),
             default_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSubnetId").unwrap(),
+                o.extract_field("defaultSubnetId"),
             ),
             hostname_theme: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnameTheme").unwrap(),
+                o.extract_field("hostnameTheme"),
             ),
             manage_berkshelf: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manageBerkshelf").unwrap(),
+                o.extract_field("manageBerkshelf"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
             stack_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackEndpoint").unwrap(),
+                o.extract_field("stackEndpoint"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             use_custom_cookbooks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useCustomCookbooks").unwrap(),
+                o.extract_field("useCustomCookbooks"),
             ),
             use_opsworks_security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useOpsworksSecurityGroups").unwrap(),
+                o.extract_field("useOpsworksSecurityGroups"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

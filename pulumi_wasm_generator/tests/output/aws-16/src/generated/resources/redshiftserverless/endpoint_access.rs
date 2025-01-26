@@ -113,69 +113,31 @@ pub mod endpoint_access {
                     value: &workgroup_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "address".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointAccessResult {
             address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("address").unwrap(),
+                o.extract_field("address"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             endpoint_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointName").unwrap(),
+                o.extract_field("endpointName"),
             ),
             owner_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccount").unwrap(),
+                o.extract_field("ownerAccount"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
             vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpoints").unwrap(),
+                o.extract_field("vpcEndpoints"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
             workgroup_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupName").unwrap(),
+                o.extract_field("workgroupName"),
             ),
         }
     }

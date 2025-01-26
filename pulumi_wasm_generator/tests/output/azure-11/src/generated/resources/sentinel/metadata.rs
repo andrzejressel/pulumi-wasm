@@ -348,141 +348,61 @@ pub mod metadata {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "author".into(),
-                },
-                register_interface::ResultField {
-                    name: "category".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentSchemaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "customVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "dependency".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstPublishDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastPublishDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "previewImages".into(),
-                },
-                register_interface::ResultField {
-                    name: "previewImagesDarks".into(),
-                },
-                register_interface::ResultField {
-                    name: "providers".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "support".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatAnalysisTactics".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatAnalysisTechniques".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetadataResult {
-            author: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("author").unwrap(),
-            ),
+            author: pulumi_wasm_rust::__private::into_domain(o.extract_field("author")),
             category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("category").unwrap(),
+                o.extract_field("category"),
             ),
             content_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentId").unwrap(),
+                o.extract_field("contentId"),
             ),
             content_schema_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentSchemaVersion").unwrap(),
+                o.extract_field("contentSchemaVersion"),
             ),
             custom_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customVersion").unwrap(),
+                o.extract_field("customVersion"),
             ),
             dependency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dependency").unwrap(),
+                o.extract_field("dependency"),
             ),
             first_publish_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstPublishDate").unwrap(),
+                o.extract_field("firstPublishDate"),
             ),
-            icon_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconId").unwrap(),
-            ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            icon_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("iconId")),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             last_publish_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastPublishDate").unwrap(),
+                o.extract_field("lastPublishDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentId").unwrap(),
+                o.extract_field("parentId"),
             ),
             preview_images: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("previewImages").unwrap(),
+                o.extract_field("previewImages"),
             ),
             preview_images_darks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("previewImagesDarks").unwrap(),
+                o.extract_field("previewImagesDarks"),
             ),
             providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providers").unwrap(),
+                o.extract_field("providers"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("support").unwrap(),
+                o.extract_field("support"),
             ),
             threat_analysis_tactics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatAnalysisTactics").unwrap(),
+                o.extract_field("threatAnalysisTactics"),
             ),
             threat_analysis_techniques: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatAnalysisTechniques").unwrap(),
+                o.extract_field("threatAnalysisTechniques"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

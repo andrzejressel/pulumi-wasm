@@ -171,69 +171,31 @@ pub mod statement {
                     value: &workgroup_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sql".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "withEvent".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StatementResult {
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
-            db_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbUser").unwrap(),
-            ),
+            db_user: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbUser")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             secret_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretArn").unwrap(),
+                o.extract_field("secretArn"),
             ),
-            sql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sql").unwrap(),
-            ),
+            sql: pulumi_wasm_rust::__private::into_domain(o.extract_field("sql")),
             statement_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementName").unwrap(),
+                o.extract_field("statementName"),
             ),
             with_event: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("withEvent").unwrap(),
+                o.extract_field("withEvent"),
             ),
             workgroup_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupName").unwrap(),
+                o.extract_field("workgroupName"),
             ),
         }
     }

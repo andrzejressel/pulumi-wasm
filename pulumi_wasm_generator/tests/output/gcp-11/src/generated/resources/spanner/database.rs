@@ -246,75 +246,32 @@ pub mod database {
                     value: &version_retention_period_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "databaseDialect".into(),
-                },
-                register_interface::ResultField {
-                    name: "ddls".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDropProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionRetentionPeriod".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             database_dialect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseDialect").unwrap(),
+                o.extract_field("databaseDialect"),
             ),
-            ddls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ddls").unwrap(),
-            ),
+            ddls: pulumi_wasm_rust::__private::into_domain(o.extract_field("ddls")),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             enable_drop_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDropProtection").unwrap(),
+                o.extract_field("enableDropProtection"),
             ),
             encryption_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfig").unwrap(),
+                o.extract_field("encryptionConfig"),
             ),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             version_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionRetentionPeriod").unwrap(),
+                o.extract_field("versionRetentionPeriod"),
             ),
         }
     }

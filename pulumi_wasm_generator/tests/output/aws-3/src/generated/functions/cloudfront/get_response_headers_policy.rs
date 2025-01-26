@@ -75,67 +75,29 @@ pub mod get_response_headers_policy {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHeadersConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "removeHeadersConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityHeadersConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverTimingHeadersConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResponseHeadersPolicyResult {
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             cors_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsConfigs").unwrap(),
+                o.extract_field("corsConfigs"),
             ),
             custom_headers_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHeadersConfigs").unwrap(),
+                o.extract_field("customHeadersConfigs"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remove_headers_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("removeHeadersConfigs").unwrap(),
+                o.extract_field("removeHeadersConfigs"),
             ),
             security_headers_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityHeadersConfigs").unwrap(),
+                o.extract_field("securityHeadersConfigs"),
             ),
             server_timing_headers_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverTimingHeadersConfigs").unwrap(),
+                o.extract_field("serverTimingHeadersConfigs"),
             ),
         }
     }

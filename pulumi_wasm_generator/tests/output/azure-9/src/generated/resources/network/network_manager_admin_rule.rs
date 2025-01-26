@@ -238,82 +238,36 @@ pub mod network_manager_admin_rule {
                     value: &sources_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminRuleCollectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPortRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePortRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkManagerAdminRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             admin_rule_collection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminRuleCollectionId").unwrap(),
+                o.extract_field("adminRuleCollectionId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPortRanges").unwrap(),
+                o.extract_field("destinationPortRanges"),
             ),
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             source_port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePortRanges").unwrap(),
+                o.extract_field("sourcePortRanges"),
             ),
-            sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
-            ),
+            sources: pulumi_wasm_rust::__private::into_domain(o.extract_field("sources")),
         }
     }
 }

@@ -161,80 +161,36 @@ pub mod location_azure_blob {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "blobType".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocationAzureBlobResult {
             access_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessTier").unwrap(),
+                o.extract_field("accessTier"),
             ),
             agent_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentArns").unwrap(),
+                o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             blob_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobType").unwrap(),
+                o.extract_field("blobType"),
             ),
             container_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerUrl").unwrap(),
+                o.extract_field("containerUrl"),
             ),
             sas_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasConfiguration").unwrap(),
+                o.extract_field("sasConfiguration"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

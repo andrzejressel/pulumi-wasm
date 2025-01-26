@@ -518,93 +518,39 @@ pub mod workforce_pool_provider {
                     value: &workforce_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributeCondition".into(),
-                },
-                register_interface::ResultField {
-                    name: "attributeMapping".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "extraAttributesOauth2Client".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oidc".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "saml".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "workforcePoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkforcePoolProviderResult {
             attribute_condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributeCondition").unwrap(),
+                o.extract_field("attributeCondition"),
             ),
             attribute_mapping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributeMapping").unwrap(),
+                o.extract_field("attributeMapping"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             extra_attributes_oauth2_client: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extraAttributesOauth2Client").unwrap(),
+                o.extract_field("extraAttributesOauth2Client"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            oidc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oidc").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            oidc: pulumi_wasm_rust::__private::into_domain(o.extract_field("oidc")),
             provider_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerId").unwrap(),
+                o.extract_field("providerId"),
             ),
-            saml: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("saml").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            saml: pulumi_wasm_rust::__private::into_domain(o.extract_field("saml")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             workforce_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workforcePoolId").unwrap(),
+                o.extract_field("workforcePoolId"),
             ),
         }
     }

@@ -368,171 +368,72 @@ pub mod active_directory {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administrators".into(),
-                },
-                register_interface::ResultField {
-                    name: "aesEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupOperators".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dns".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptDcConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "kdcHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "kdcIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ldapSigning".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "netBiosPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "nfsUsersWithLdap".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnit".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityOperators".into(),
-                },
-                register_interface::ResultField {
-                    name: "site".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ActiveDirectoryResult {
             administrators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administrators").unwrap(),
+                o.extract_field("administrators"),
             ),
             aes_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aesEncryption").unwrap(),
+                o.extract_field("aesEncryption"),
             ),
             backup_operators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupOperators").unwrap(),
+                o.extract_field("backupOperators"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dns").unwrap(),
-            ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encrypt_dc_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptDcConnections").unwrap(),
+                o.extract_field("encryptDcConnections"),
             ),
             kdc_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kdcHostname").unwrap(),
+                o.extract_field("kdcHostname"),
             ),
-            kdc_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kdcIp").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            kdc_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("kdcIp")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             ldap_signing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ldapSigning").unwrap(),
+                o.extract_field("ldapSigning"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             net_bios_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netBiosPrefix").unwrap(),
+                o.extract_field("netBiosPrefix"),
             ),
             nfs_users_with_ldap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nfsUsersWithLdap").unwrap(),
+                o.extract_field("nfsUsersWithLdap"),
             ),
             organizational_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnit").unwrap(),
+                o.extract_field("organizationalUnit"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             security_operators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityOperators").unwrap(),
+                o.extract_field("securityOperators"),
             ),
-            site: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("site").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            site: pulumi_wasm_rust::__private::into_domain(o.extract_field("site")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateDetails").unwrap(),
+                o.extract_field("stateDetails"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

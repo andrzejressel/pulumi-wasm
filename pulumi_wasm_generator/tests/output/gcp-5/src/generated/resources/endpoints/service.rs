@@ -141,69 +141,33 @@ pub mod service {
                     value: &service_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apis".into(),
-                },
-                register_interface::ResultField {
-                    name: "configId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "grpcConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "openapiConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocOutputBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
-            apis: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apis").unwrap(),
-            ),
+            apis: pulumi_wasm_rust::__private::into_domain(o.extract_field("apis")),
             config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configId").unwrap(),
+                o.extract_field("configId"),
             ),
             dns_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsAddress").unwrap(),
+                o.extract_field("dnsAddress"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             grpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grpcConfig").unwrap(),
+                o.extract_field("grpcConfig"),
             ),
             openapi_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openapiConfig").unwrap(),
+                o.extract_field("openapiConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             protoc_output_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocOutputBase64").unwrap(),
+                o.extract_field("protocOutputBase64"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
         }
     }

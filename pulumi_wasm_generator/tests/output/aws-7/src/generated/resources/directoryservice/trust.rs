@@ -236,93 +236,47 @@ pub mod trust {
                     value: &trust_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "conditionalForwarderIpAddrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteAssociatedConditionalForwarder".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectiveAuth".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateLastUpdatedDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustDirection".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustState".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustStateReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrustResult {
             conditional_forwarder_ip_addrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditionalForwarderIpAddrs").unwrap(),
+                o.extract_field("conditionalForwarderIpAddrs"),
             ),
             created_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDateTime").unwrap(),
+                o.extract_field("createdDateTime"),
             ),
             delete_associated_conditional_forwarder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteAssociatedConditionalForwarder").unwrap(),
+                o.extract_field("deleteAssociatedConditionalForwarder"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             last_updated_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDateTime").unwrap(),
+                o.extract_field("lastUpdatedDateTime"),
             ),
             remote_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteDomainName").unwrap(),
+                o.extract_field("remoteDomainName"),
             ),
             selective_auth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectiveAuth").unwrap(),
+                o.extract_field("selectiveAuth"),
             ),
             state_last_updated_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateLastUpdatedDateTime").unwrap(),
+                o.extract_field("stateLastUpdatedDateTime"),
             ),
             trust_direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustDirection").unwrap(),
+                o.extract_field("trustDirection"),
             ),
             trust_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustPassword").unwrap(),
+                o.extract_field("trustPassword"),
             ),
             trust_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustState").unwrap(),
+                o.extract_field("trustState"),
             ),
             trust_state_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustStateReason").unwrap(),
+                o.extract_field("trustStateReason"),
             ),
             trust_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustType").unwrap(),
+                o.extract_field("trustType"),
             ),
         }
     }

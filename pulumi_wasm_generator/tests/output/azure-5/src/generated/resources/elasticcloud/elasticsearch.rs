@@ -178,100 +178,45 @@ pub mod elasticsearch {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "elasticCloudDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticCloudEmailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticCloudSsoDefaultUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticCloudUserId".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearchServiceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "kibanaServiceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "kibanaSsoUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logs".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ElasticsearchResult {
             elastic_cloud_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticCloudDeploymentId").unwrap(),
+                o.extract_field("elasticCloudDeploymentId"),
             ),
             elastic_cloud_email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticCloudEmailAddress").unwrap(),
+                o.extract_field("elasticCloudEmailAddress"),
             ),
             elastic_cloud_sso_default_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticCloudSsoDefaultUrl").unwrap(),
+                o.extract_field("elasticCloudSsoDefaultUrl"),
             ),
             elastic_cloud_user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticCloudUserId").unwrap(),
+                o.extract_field("elasticCloudUserId"),
             ),
             elasticsearch_service_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearchServiceUrl").unwrap(),
+                o.extract_field("elasticsearchServiceUrl"),
             ),
             kibana_service_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kibanaServiceUrl").unwrap(),
+                o.extract_field("kibanaServiceUrl"),
             ),
             kibana_sso_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kibanaSsoUri").unwrap(),
+                o.extract_field("kibanaSsoUri"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logs").unwrap(),
-            ),
+            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
             monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringEnabled").unwrap(),
+                o.extract_field("monitoringEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

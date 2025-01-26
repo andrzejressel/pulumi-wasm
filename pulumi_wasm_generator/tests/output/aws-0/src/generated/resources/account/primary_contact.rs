@@ -194,93 +194,45 @@ pub mod primary_contact {
                     value: &website_url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressLine1".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressLine2".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressLine3".into(),
-                },
-                register_interface::ResultField {
-                    name: "city".into(),
-                },
-                register_interface::ResultField {
-                    name: "companyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "countryCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "districtOrCounty".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullName".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "postalCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateOrRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrimaryContactResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             address_line1: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressLine1").unwrap(),
+                o.extract_field("addressLine1"),
             ),
             address_line2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressLine2").unwrap(),
+                o.extract_field("addressLine2"),
             ),
             address_line3: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressLine3").unwrap(),
+                o.extract_field("addressLine3"),
             ),
-            city: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("city").unwrap(),
-            ),
+            city: pulumi_wasm_rust::__private::into_domain(o.extract_field("city")),
             company_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("companyName").unwrap(),
+                o.extract_field("companyName"),
             ),
             country_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("countryCode").unwrap(),
+                o.extract_field("countryCode"),
             ),
             district_or_county: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("districtOrCounty").unwrap(),
+                o.extract_field("districtOrCounty"),
             ),
             full_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullName").unwrap(),
+                o.extract_field("fullName"),
             ),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
             postal_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postalCode").unwrap(),
+                o.extract_field("postalCode"),
             ),
             state_or_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateOrRegion").unwrap(),
+                o.extract_field("stateOrRegion"),
             ),
             website_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteUrl").unwrap(),
+                o.extract_field("websiteUrl"),
             ),
         }
     }

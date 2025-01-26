@@ -168,99 +168,44 @@ pub mod external_key {
                     value: &valid_to_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bypassPolicyLockoutSafetyCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionWindowInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyMaterialBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyState".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyUsage".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "validTo".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExternalKeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bypass_policy_lockout_safety_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassPolicyLockoutSafetyCheck").unwrap(),
+                o.extract_field("bypassPolicyLockoutSafetyCheck"),
             ),
             deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionWindowInDays").unwrap(),
+                o.extract_field("deletionWindowInDays"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             expiration_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationModel").unwrap(),
+                o.extract_field("expirationModel"),
             ),
             key_material_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyMaterialBase64").unwrap(),
+                o.extract_field("keyMaterialBase64"),
             ),
             key_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyState").unwrap(),
+                o.extract_field("keyState"),
             ),
             key_usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyUsage").unwrap(),
+                o.extract_field("keyUsage"),
             ),
             multi_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegion").unwrap(),
+                o.extract_field("multiRegion"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             valid_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validTo").unwrap(),
+                o.extract_field("validTo"),
             ),
         }
     }

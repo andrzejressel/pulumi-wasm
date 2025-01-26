@@ -84,27 +84,14 @@ pub mod redrive_allow_policy {
                     value: &redrive_allow_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "queueUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "redriveAllowPolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RedriveAllowPolicyResult {
             queue_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueUrl").unwrap(),
+                o.extract_field("queueUrl"),
             ),
             redrive_allow_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redriveAllowPolicy").unwrap(),
+                o.extract_field("redriveAllowPolicy"),
             ),
         }
     }

@@ -173,51 +173,26 @@ pub mod response_policy_rule {
                     value: &rule_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "behavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "localData".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "responsePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResponsePolicyRuleResult {
             behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("behavior").unwrap(),
+                o.extract_field("behavior"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             local_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localData").unwrap(),
+                o.extract_field("localData"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             response_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responsePolicy").unwrap(),
+                o.extract_field("responsePolicy"),
             ),
             rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleName").unwrap(),
+                o.extract_field("ruleName"),
             ),
         }
     }

@@ -101,64 +101,31 @@ pub mod endpoint_authorization {
                     value: &vpc_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "account".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedAllVpcs".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantee".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantor".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointAuthorizationResult {
             account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("account").unwrap(),
+                o.extract_field("account"),
             ),
             allowed_all_vpcs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedAllVpcs").unwrap(),
+                o.extract_field("allowedAllVpcs"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             endpoint_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointCount").unwrap(),
+                o.extract_field("endpointCount"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             grantee: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantee").unwrap(),
+                o.extract_field("grantee"),
             ),
             grantor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantor").unwrap(),
+                o.extract_field("grantor"),
             ),
-            vpc_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcIds").unwrap(),
-            ),
+            vpc_ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcIds")),
         }
     }
 }

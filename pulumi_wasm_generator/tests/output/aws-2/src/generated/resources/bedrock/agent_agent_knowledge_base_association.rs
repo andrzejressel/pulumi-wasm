@@ -131,51 +131,26 @@ pub mod agent_agent_knowledge_base_association {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "knowledgeBaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "knowledgeBaseState".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentAgentKnowledgeBaseAssociationResult {
             agent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentId").unwrap(),
+                o.extract_field("agentId"),
             ),
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             knowledge_base_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("knowledgeBaseId").unwrap(),
+                o.extract_field("knowledgeBaseId"),
             ),
             knowledge_base_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("knowledgeBaseState").unwrap(),
+                o.extract_field("knowledgeBaseState"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

@@ -36,31 +36,15 @@ pub mod get_broker_nodes {
                     value: &cluster_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeInfoLists".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBrokerNodesResult {
             cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterArn").unwrap(),
+                o.extract_field("clusterArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             node_info_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeInfoLists").unwrap(),
+                o.extract_field("nodeInfoLists"),
             ),
         }
     }

@@ -75,22 +75,10 @@ pub mod aws_log_source {
                     value: &source_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AwsLogSourceResult {
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
         }
     }
 }

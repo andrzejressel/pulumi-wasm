@@ -159,51 +159,26 @@ pub mod storage_defender {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "malwareScanningOnUploadCapGbPerMonth".into(),
-                },
-                register_interface::ResultField {
-                    name: "malwareScanningOnUploadEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrideSubscriptionSettingsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "scanResultsEventGridTopicId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sensitiveDataDiscoveryEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StorageDefenderResult {
             malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("malwareScanningOnUploadCapGbPerMonth").unwrap(),
+                o.extract_field("malwareScanningOnUploadCapGbPerMonth"),
             ),
             malware_scanning_on_upload_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("malwareScanningOnUploadEnabled").unwrap(),
+                o.extract_field("malwareScanningOnUploadEnabled"),
             ),
             override_subscription_settings_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrideSubscriptionSettingsEnabled").unwrap(),
+                o.extract_field("overrideSubscriptionSettingsEnabled"),
             ),
             scan_results_event_grid_topic_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scanResultsEventGridTopicId").unwrap(),
+                o.extract_field("scanResultsEventGridTopicId"),
             ),
             sensitive_data_discovery_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sensitiveDataDiscoveryEnabled").unwrap(),
+                o.extract_field("sensitiveDataDiscoveryEnabled"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

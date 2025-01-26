@@ -208,75 +208,34 @@ pub mod application {
                     value: &show_in_portal_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "commandLineArgumentPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "commandLineArguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconIndex".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "showInPortal".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
             application_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationGroupId").unwrap(),
+                o.extract_field("applicationGroupId"),
             ),
             command_line_argument_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commandLineArgumentPolicy").unwrap(),
+                o.extract_field("commandLineArgumentPolicy"),
             ),
             command_line_arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commandLineArguments").unwrap(),
+                o.extract_field("commandLineArguments"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             icon_index: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconIndex").unwrap(),
+                o.extract_field("iconIndex"),
             ),
             icon_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconPath").unwrap(),
+                o.extract_field("iconPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             show_in_portal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("showInPortal").unwrap(),
+                o.extract_field("showInPortal"),
             ),
         }
     }

@@ -281,100 +281,45 @@ pub mod cassandra_cluster {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificatePems".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAdminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedManagementSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalGossipCertificatePems".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalSeedNodeIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "hoursBetweenBackups".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "repairEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CassandraClusterResult {
             authentication_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationMethod").unwrap(),
+                o.extract_field("authenticationMethod"),
             ),
             client_certificate_pems: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificatePems").unwrap(),
+                o.extract_field("clientCertificatePems"),
             ),
             default_admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAdminPassword").unwrap(),
+                o.extract_field("defaultAdminPassword"),
             ),
             delegated_management_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedManagementSubnetId").unwrap(),
+                o.extract_field("delegatedManagementSubnetId"),
             ),
             external_gossip_certificate_pems: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalGossipCertificatePems").unwrap(),
+                o.extract_field("externalGossipCertificatePems"),
             ),
             external_seed_node_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalSeedNodeIpAddresses").unwrap(),
+                o.extract_field("externalSeedNodeIpAddresses"),
             ),
             hours_between_backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hoursBetweenBackups").unwrap(),
+                o.extract_field("hoursBetweenBackups"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             repair_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repairEnabled").unwrap(),
+                o.extract_field("repairEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

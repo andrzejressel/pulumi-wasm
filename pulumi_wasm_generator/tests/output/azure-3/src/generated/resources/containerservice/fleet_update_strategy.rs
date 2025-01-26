@@ -112,34 +112,14 @@ pub mod fleet_update_strategy {
                     value: &stages_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "kubernetesFleetManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "stages".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetUpdateStrategyResult {
             kubernetes_fleet_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesFleetManagerId").unwrap(),
+                o.extract_field("kubernetesFleetManagerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stages").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
         }
     }
 }

@@ -96,52 +96,25 @@ pub mod custom_domain_association {
                     value: &service_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateValidationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableWwwSubdomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDomainAssociationResult {
             certificate_validation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateValidationRecords").unwrap(),
+                o.extract_field("certificateValidationRecords"),
             ),
             dns_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsTarget").unwrap(),
+                o.extract_field("dnsTarget"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             enable_www_subdomain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableWwwSubdomain").unwrap(),
+                o.extract_field("enableWwwSubdomain"),
             ),
             service_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceArn").unwrap(),
+                o.extract_field("serviceArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

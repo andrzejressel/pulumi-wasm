@@ -148,63 +148,30 @@ pub mod user_pool_ui_customization {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "css".into(),
-                },
-                register_interface::ResultField {
-                    name: "cssVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageFile".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserPoolUICustomizationResult {
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
-            css: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("css").unwrap(),
-            ),
+            css: pulumi_wasm_rust::__private::into_domain(o.extract_field("css")),
             css_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cssVersion").unwrap(),
+                o.extract_field("cssVersion"),
             ),
             image_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageFile").unwrap(),
+                o.extract_field("imageFile"),
             ),
             image_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageUrl").unwrap(),
+                o.extract_field("imageUrl"),
             ),
             last_modified_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedDate").unwrap(),
+                o.extract_field("lastModifiedDate"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
         }
     }

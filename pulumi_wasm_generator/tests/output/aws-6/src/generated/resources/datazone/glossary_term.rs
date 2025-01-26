@@ -215,75 +215,34 @@ pub mod glossary_term {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "glossaryIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "longDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "termRelations".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlossaryTermResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             domain_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainIdentifier").unwrap(),
+                o.extract_field("domainIdentifier"),
             ),
             glossary_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glossaryIdentifier").unwrap(),
+                o.extract_field("glossaryIdentifier"),
             ),
             long_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longDescription").unwrap(),
+                o.extract_field("longDescription"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             short_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortDescription").unwrap(),
+                o.extract_field("shortDescription"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             term_relations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("termRelations").unwrap(),
+                o.extract_field("termRelations"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

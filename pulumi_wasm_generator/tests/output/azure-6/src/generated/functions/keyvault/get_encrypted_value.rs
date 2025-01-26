@@ -70,49 +70,24 @@ pub mod get_encrypted_value {
                     value: &plain_text_value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "algorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "decodedPlainTextValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptedData".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "plainTextValue".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEncryptedValueResult {
             algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("algorithm").unwrap(),
+                o.extract_field("algorithm"),
             ),
             decoded_plain_text_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("decodedPlainTextValue").unwrap(),
+                o.extract_field("decodedPlainTextValue"),
             ),
             encrypted_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptedData").unwrap(),
+                o.extract_field("encryptedData"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             plain_text_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plainTextValue").unwrap(),
+                o.extract_field("plainTextValue"),
             ),
         }
     }

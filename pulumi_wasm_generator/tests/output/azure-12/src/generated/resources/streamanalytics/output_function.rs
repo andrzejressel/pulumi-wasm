@@ -200,63 +200,28 @@ pub mod output_function {
                     value: &stream_analytics_job_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchMaxCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchMaxInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionApp".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutputFunctionResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             batch_max_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchMaxCount").unwrap(),
+                o.extract_field("batchMaxCount"),
             ),
             batch_max_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchMaxInBytes").unwrap(),
+                o.extract_field("batchMaxInBytes"),
             ),
             function_app: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionApp").unwrap(),
+                o.extract_field("functionApp"),
             ),
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
         }
     }

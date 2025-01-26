@@ -171,57 +171,25 @@ pub mod configuration_set {
                     value: &tracking_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastFreshStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "reputationMetricsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackingOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             delivery_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryOptions").unwrap(),
+                o.extract_field("deliveryOptions"),
             ),
             last_fresh_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastFreshStart").unwrap(),
+                o.extract_field("lastFreshStart"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             reputation_metrics_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reputationMetricsEnabled").unwrap(),
+                o.extract_field("reputationMetricsEnabled"),
             ),
             sending_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendingEnabled").unwrap(),
+                o.extract_field("sendingEnabled"),
             ),
             tracking_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackingOptions").unwrap(),
+                o.extract_field("trackingOptions"),
             ),
         }
     }

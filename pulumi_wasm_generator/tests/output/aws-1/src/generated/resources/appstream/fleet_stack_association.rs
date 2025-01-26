@@ -85,27 +85,14 @@ pub mod fleet_stack_association {
                     value: &stack_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "fleetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetStackAssociationResult {
             fleet_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetName").unwrap(),
+                o.extract_field("fleetName"),
             ),
             stack_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackName").unwrap(),
+                o.extract_field("stackName"),
             ),
         }
     }

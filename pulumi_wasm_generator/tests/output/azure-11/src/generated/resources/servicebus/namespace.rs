@@ -238,124 +238,57 @@ pub mod namespace {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "premiumMessagingPartitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceResult {
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             default_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryConnectionString").unwrap(),
+                o.extract_field("defaultPrimaryConnectionString"),
             ),
             default_primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryKey").unwrap(),
+                o.extract_field("defaultPrimaryKey"),
             ),
             default_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryConnectionString").unwrap(),
+                o.extract_field("defaultSecondaryConnectionString"),
             ),
             default_secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryKey").unwrap(),
+                o.extract_field("defaultSecondaryKey"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumTlsVersion").unwrap(),
+                o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_rule_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleSet").unwrap(),
+                o.extract_field("networkRuleSet"),
             ),
             premium_messaging_partitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("premiumMessagingPartitions").unwrap(),
+                o.extract_field("premiumMessagingPartitions"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

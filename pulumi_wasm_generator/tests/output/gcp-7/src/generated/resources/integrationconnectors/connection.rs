@@ -555,183 +555,88 @@ pub mod connection {
                     value: &suspended_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "configVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorVersionInfraConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorVersionLaunchStage".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventingEnablementType".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventingRuntimeDatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "suspended".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionResult {
             auth_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authConfig").unwrap(),
+                o.extract_field("authConfig"),
             ),
             config_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configVariables").unwrap(),
+                o.extract_field("configVariables"),
             ),
             connection_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionRevision").unwrap(),
+                o.extract_field("connectionRevision"),
             ),
             connector_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorVersion").unwrap(),
+                o.extract_field("connectorVersion"),
             ),
             connector_version_infra_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorVersionInfraConfigs").unwrap(),
+                o.extract_field("connectorVersionInfraConfigs"),
             ),
             connector_version_launch_stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorVersionLaunchStage").unwrap(),
+                o.extract_field("connectorVersionLaunchStage"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfigs").unwrap(),
+                o.extract_field("destinationConfigs"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             eventing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventingConfig").unwrap(),
+                o.extract_field("eventingConfig"),
             ),
             eventing_enablement_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventingEnablementType").unwrap(),
+                o.extract_field("eventingEnablementType"),
             ),
             eventing_runtime_datas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventingRuntimeDatas").unwrap(),
+                o.extract_field("eventingRuntimeDatas"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             lock_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockConfig").unwrap(),
+                o.extract_field("lockConfig"),
             ),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfig").unwrap(),
+                o.extract_field("nodeConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             service_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceDirectory").unwrap(),
+                o.extract_field("serviceDirectory"),
             ),
             ssl_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslConfig").unwrap(),
+                o.extract_field("sslConfig"),
             ),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
             subscription_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionType").unwrap(),
+                o.extract_field("subscriptionType"),
             ),
             suspended: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suspended").unwrap(),
+                o.extract_field("suspended"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

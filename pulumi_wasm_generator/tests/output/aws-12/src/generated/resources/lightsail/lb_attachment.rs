@@ -91,28 +91,13 @@ pub mod lb_attachment {
                     value: &lb_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LbAttachmentResult {
             instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceName").unwrap(),
+                o.extract_field("instanceName"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbName").unwrap(),
-            ),
+            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
         }
     }
 }

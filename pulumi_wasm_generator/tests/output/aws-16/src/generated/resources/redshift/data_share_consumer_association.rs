@@ -138,57 +138,29 @@ pub mod data_share_consumer_association {
                     value: &data_share_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowWrites".into(),
-                },
-                register_interface::ResultField {
-                    name: "associateEntireAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataShareArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "producerArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataShareConsumerAssociationResult {
             allow_writes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowWrites").unwrap(),
+                o.extract_field("allowWrites"),
             ),
             associate_entire_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associateEntireAccount").unwrap(),
+                o.extract_field("associateEntireAccount"),
             ),
             consumer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerArn").unwrap(),
+                o.extract_field("consumerArn"),
             ),
             consumer_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerRegion").unwrap(),
+                o.extract_field("consumerRegion"),
             ),
             data_share_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataShareArn").unwrap(),
+                o.extract_field("dataShareArn"),
             ),
             managed_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedBy").unwrap(),
+                o.extract_field("managedBy"),
             ),
             producer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("producerArn").unwrap(),
+                o.extract_field("producerArn"),
             ),
         }
     }

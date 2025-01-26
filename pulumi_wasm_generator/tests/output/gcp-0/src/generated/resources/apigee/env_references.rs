@@ -109,45 +109,17 @@ pub mod env_references {
                     value: &resource_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "envId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "refers".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvReferencesResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envId").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            refers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refers").unwrap(),
-            ),
+            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            refers: pulumi_wasm_rust::__private::into_domain(o.extract_field("refers")),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
         }
     }

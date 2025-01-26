@@ -254,93 +254,41 @@ pub mod elastic_pool {
                     value: &zone_redundant_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enclaveType".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "perDatabaseSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ElasticPoolResult {
             enclave_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enclaveType").unwrap(),
+                o.extract_field("enclaveType"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfigurationName").unwrap(),
+                o.extract_field("maintenanceConfigurationName"),
             ),
             max_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSizeBytes").unwrap(),
+                o.extract_field("maxSizeBytes"),
             ),
             max_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSizeGb").unwrap(),
+                o.extract_field("maxSizeGb"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             per_database_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perDatabaseSettings").unwrap(),
+                o.extract_field("perDatabaseSettings"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             server_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverName").unwrap(),
+                o.extract_field("serverName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

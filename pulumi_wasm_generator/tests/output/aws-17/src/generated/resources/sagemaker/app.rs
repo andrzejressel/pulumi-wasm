@@ -141,69 +141,31 @@ pub mod app {
                     value: &user_profile_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appName".into(),
-                },
-                register_interface::ResultField {
-                    name: "appType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userProfileName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppResult {
             app_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appName").unwrap(),
+                o.extract_field("appName"),
             ),
             app_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appType").unwrap(),
+                o.extract_field("appType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             resource_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSpec").unwrap(),
+                o.extract_field("resourceSpec"),
             ),
             space_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceName").unwrap(),
+                o.extract_field("spaceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userProfileName").unwrap(),
+                o.extract_field("userProfileName"),
             ),
         }
     }

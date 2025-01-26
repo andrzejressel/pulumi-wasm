@@ -149,52 +149,23 @@ pub mod tenant {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowPasswordSignup".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableAuth".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableEmailLinkSignin".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TenantResult {
             allow_password_signup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowPasswordSignup").unwrap(),
+                o.extract_field("allowPasswordSignup"),
             ),
             disable_auth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableAuth").unwrap(),
+                o.extract_field("disableAuth"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_email_link_signin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableEmailLinkSignin").unwrap(),
+                o.extract_field("enableEmailLinkSignin"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

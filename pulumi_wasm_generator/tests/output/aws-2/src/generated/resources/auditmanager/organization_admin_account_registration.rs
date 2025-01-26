@@ -67,27 +67,14 @@ pub mod organization_admin_account_registration {
                     value: &admin_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationAdminAccountRegistrationResult {
             admin_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminAccountId").unwrap(),
+                o.extract_field("adminAccountId"),
             ),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
         }
     }

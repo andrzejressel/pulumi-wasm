@@ -95,39 +95,14 @@ pub mod sink_policy {
                     value: &sink_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sinkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sinkIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SinkPolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
-            sink_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sinkId").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
+            sink_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("sinkId")),
             sink_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sinkIdentifier").unwrap(),
+                o.extract_field("sinkIdentifier"),
             ),
         }
     }

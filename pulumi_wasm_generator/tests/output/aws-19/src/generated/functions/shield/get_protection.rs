@@ -45,43 +45,19 @@ pub mod get_protection {
                     value: &resource_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProtectionResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protection_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionArn").unwrap(),
+                o.extract_field("protectionArn"),
             ),
             protection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionId").unwrap(),
+                o.extract_field("protectionId"),
             ),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
         }
     }

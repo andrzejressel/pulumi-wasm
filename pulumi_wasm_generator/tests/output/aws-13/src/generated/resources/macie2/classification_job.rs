@@ -209,111 +209,48 @@ pub mod classification_job {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDataIdentifierIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialRun".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3JobDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPausedDetails".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClassificationJobResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             custom_data_identifier_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDataIdentifierIds").unwrap(),
+                o.extract_field("customDataIdentifierIds"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             initial_run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialRun").unwrap(),
+                o.extract_field("initialRun"),
             ),
-            job_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobArn").unwrap(),
-            ),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            job_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobArn")),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             job_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobStatus").unwrap(),
+                o.extract_field("jobStatus"),
             ),
             job_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobType").unwrap(),
+                o.extract_field("jobType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             s3_job_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3JobDefinition").unwrap(),
+                o.extract_field("s3JobDefinition"),
             ),
             sampling_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingPercentage").unwrap(),
+                o.extract_field("samplingPercentage"),
             ),
             schedule_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleFrequency").unwrap(),
+                o.extract_field("scheduleFrequency"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_paused_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPausedDetails").unwrap(),
+                o.extract_field("userPausedDetails"),
             ),
         }
     }

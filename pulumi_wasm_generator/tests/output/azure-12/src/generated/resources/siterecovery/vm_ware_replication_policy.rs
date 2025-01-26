@@ -122,41 +122,18 @@ pub mod vm_ware_replication_policy {
                     value: &recovery_vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationConsistentSnapshotFrequencyInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryPointRetentionInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VMWareReplicationPolicyResult {
             application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("applicationConsistentSnapshotFrequencyInMinutes")
-                    .unwrap(),
+                o.extract_field("applicationConsistentSnapshotFrequencyInMinutes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_point_retention_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryPointRetentionInMinutes").unwrap(),
+                o.extract_field("recoveryPointRetentionInMinutes"),
             ),
             recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultId").unwrap(),
+                o.extract_field("recoveryVaultId"),
             ),
         }
     }

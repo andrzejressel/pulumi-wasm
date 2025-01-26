@@ -247,81 +247,37 @@ pub mod note {
                     value: &short_description_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attestationAuthority".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "longDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "relatedNoteNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "relatedUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NoteResult {
             attestation_authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attestationAuthority").unwrap(),
+                o.extract_field("attestationAuthority"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             expiration_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationTime").unwrap(),
+                o.extract_field("expirationTime"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             long_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longDescription").unwrap(),
+                o.extract_field("longDescription"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             related_note_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relatedNoteNames").unwrap(),
+                o.extract_field("relatedNoteNames"),
             ),
             related_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relatedUrls").unwrap(),
+                o.extract_field("relatedUrls"),
             ),
             short_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortDescription").unwrap(),
+                o.extract_field("shortDescription"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

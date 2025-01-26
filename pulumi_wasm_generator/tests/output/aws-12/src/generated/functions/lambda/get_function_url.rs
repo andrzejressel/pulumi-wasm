@@ -60,80 +60,36 @@ pub mod get_function_url {
                     value: &qualifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "cors".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "invokeMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionUrlResult {
             authorization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationType").unwrap(),
+                o.extract_field("authorizationType"),
             ),
-            cors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cors").unwrap(),
-            ),
+            cors: pulumi_wasm_rust::__private::into_domain(o.extract_field("cors")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             function_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionArn").unwrap(),
+                o.extract_field("functionArn"),
             ),
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
             function_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionUrl").unwrap(),
+                o.extract_field("functionUrl"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             invoke_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invokeMode").unwrap(),
+                o.extract_field("invokeMode"),
             ),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
-            url_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlId").unwrap(),
-            ),
+            url_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("urlId")),
         }
     }
 }

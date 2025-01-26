@@ -186,75 +186,26 @@ pub mod listener_rule {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListenerRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             listener_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerIdentifier").unwrap(),
+                o.extract_field("listenerIdentifier"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
-            rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleId").unwrap(),
-            ),
+            rule_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("ruleId")),
             service_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceIdentifier").unwrap(),
+                o.extract_field("serviceIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

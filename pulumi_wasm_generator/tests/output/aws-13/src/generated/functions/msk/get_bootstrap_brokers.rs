@@ -57,86 +57,43 @@ pub mod get_bootstrap_brokers {
                     value: &cluster_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bootstrapBrokers".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivitySaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivitySaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivityTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBootstrapBrokersResult {
             bootstrap_brokers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokers").unwrap(),
+                o.extract_field("bootstrapBrokers"),
             ),
             bootstrap_brokers_public_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslIam"),
             ),
             bootstrap_brokers_public_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslScram"),
             ),
             bootstrap_brokers_public_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicTls").unwrap(),
+                o.extract_field("bootstrapBrokersPublicTls"),
             ),
             bootstrap_brokers_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersSaslIam"),
             ),
             bootstrap_brokers_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersSaslScram"),
             ),
             bootstrap_brokers_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersTls").unwrap(),
+                o.extract_field("bootstrapBrokersTls"),
             ),
             bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivitySaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivitySaslIam"),
             ),
             bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivitySaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivitySaslScram"),
             ),
             bootstrap_brokers_vpc_connectivity_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivityTls").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivityTls"),
             ),
             cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterArn").unwrap(),
+                o.extract_field("clusterArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

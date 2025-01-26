@@ -203,81 +203,39 @@ pub mod endpoint_group {
                     value: &traffic_dial_percentage_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointGroupRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckIntervalSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "portOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "thresholdCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficDialPercentage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             endpoint_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointConfigurations").unwrap(),
+                o.extract_field("endpointConfigurations"),
             ),
             endpoint_group_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointGroupRegion").unwrap(),
+                o.extract_field("endpointGroupRegion"),
             ),
             health_check_interval_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckIntervalSeconds").unwrap(),
+                o.extract_field("healthCheckIntervalSeconds"),
             ),
             health_check_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckPath").unwrap(),
+                o.extract_field("healthCheckPath"),
             ),
             health_check_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckPort").unwrap(),
+                o.extract_field("healthCheckPort"),
             ),
             health_check_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckProtocol").unwrap(),
+                o.extract_field("healthCheckProtocol"),
             ),
             listener_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerArn").unwrap(),
+                o.extract_field("listenerArn"),
             ),
             port_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portOverrides").unwrap(),
+                o.extract_field("portOverrides"),
             ),
             threshold_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thresholdCount").unwrap(),
+                o.extract_field("thresholdCount"),
             ),
             traffic_dial_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficDialPercentage").unwrap(),
+                o.extract_field("trafficDialPercentage"),
             ),
         }
     }

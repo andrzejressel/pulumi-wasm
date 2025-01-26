@@ -172,64 +172,27 @@ pub mod connector_profile {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorProfileConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentialsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectorProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             connection_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionMode").unwrap(),
+                o.extract_field("connectionMode"),
             ),
             connector_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorLabel").unwrap(),
+                o.extract_field("connectorLabel"),
             ),
             connector_profile_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorProfileConfig").unwrap(),
+                o.extract_field("connectorProfileConfig"),
             ),
             connector_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorType").unwrap(),
+                o.extract_field("connectorType"),
             ),
             credentials_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialsArn").unwrap(),
+                o.extract_field("credentialsArn"),
             ),
-            kms_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsArn").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            kms_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsArn")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

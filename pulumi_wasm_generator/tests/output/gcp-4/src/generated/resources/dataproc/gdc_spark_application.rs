@@ -505,184 +505,83 @@ pub mod gdc_spark_application {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationEnvironment".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dependencyImages".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "pysparkApplicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceinstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkApplicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkRApplicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkSqlApplicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GdcSparkApplicationResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             application_environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationEnvironment").unwrap(),
+                o.extract_field("applicationEnvironment"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dependency_images: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dependencyImages").unwrap(),
+                o.extract_field("dependencyImages"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             monitoring_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringEndpoint").unwrap(),
+                o.extract_field("monitoringEndpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             output_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputUri").unwrap(),
+                o.extract_field("outputUri"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             pyspark_application_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pysparkApplicationConfig").unwrap(),
+                o.extract_field("pysparkApplicationConfig"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             serviceinstance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceinstance").unwrap(),
+                o.extract_field("serviceinstance"),
             ),
             spark_application_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkApplicationConfig").unwrap(),
+                o.extract_field("sparkApplicationConfig"),
             ),
             spark_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkApplicationId").unwrap(),
+                o.extract_field("sparkApplicationId"),
             ),
             spark_r_application_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkRApplicationConfig").unwrap(),
+                o.extract_field("sparkRApplicationConfig"),
             ),
             spark_sql_application_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkSqlApplicationConfig").unwrap(),
+                o.extract_field("sparkSqlApplicationConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateMessage").unwrap(),
+                o.extract_field("stateMessage"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

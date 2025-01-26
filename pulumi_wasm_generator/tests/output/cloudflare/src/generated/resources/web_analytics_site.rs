@@ -98,63 +98,30 @@ pub mod web_analytics_site {
                     value: &zone_tag_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoInstall".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulesetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "snippet".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneTag".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAnalyticsSiteResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             auto_install: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoInstall").unwrap(),
+                o.extract_field("autoInstall"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             ruleset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulesetId").unwrap(),
+                o.extract_field("rulesetId"),
             ),
             site_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteTag").unwrap(),
+                o.extract_field("siteTag"),
             ),
             site_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteToken").unwrap(),
+                o.extract_field("siteToken"),
             ),
             snippet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snippet").unwrap(),
+                o.extract_field("snippet"),
             ),
             zone_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneTag").unwrap(),
+                o.extract_field("zoneTag"),
             ),
         }
     }

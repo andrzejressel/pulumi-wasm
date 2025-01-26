@@ -256,117 +256,53 @@ pub mod policy {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteAllPolicyResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteUnusedFmManagedResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeResourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyUpdateToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "remediationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypeLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityServicePolicyData".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             delete_all_policy_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteAllPolicyResources").unwrap(),
+                o.extract_field("deleteAllPolicyResources"),
             ),
             delete_unused_fm_managed_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteUnusedFmManagedResources").unwrap(),
+                o.extract_field("deleteUnusedFmManagedResources"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             exclude_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeMap").unwrap(),
+                o.extract_field("excludeMap"),
             ),
             exclude_resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeResourceTags").unwrap(),
+                o.extract_field("excludeResourceTags"),
             ),
             include_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeMap").unwrap(),
+                o.extract_field("includeMap"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_update_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyUpdateToken").unwrap(),
+                o.extract_field("policyUpdateToken"),
             ),
             remediation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remediationEnabled").unwrap(),
+                o.extract_field("remediationEnabled"),
             ),
             resource_set_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSetIds").unwrap(),
+                o.extract_field("resourceSetIds"),
             ),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             resource_type_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypeLists").unwrap(),
+                o.extract_field("resourceTypeLists"),
             ),
             security_service_policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityServicePolicyData").unwrap(),
+                o.extract_field("securityServicePolicyData"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

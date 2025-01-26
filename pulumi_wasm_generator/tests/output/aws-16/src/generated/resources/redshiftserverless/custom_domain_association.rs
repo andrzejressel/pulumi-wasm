@@ -105,39 +105,20 @@ pub mod custom_domain_association {
                     value: &workgroup_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customDomainCertificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainCertificateExpiryTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDomainAssociationResult {
             custom_domain_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainCertificateArn").unwrap(),
+                o.extract_field("customDomainCertificateArn"),
             ),
             custom_domain_certificate_expiry_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainCertificateExpiryTime").unwrap(),
+                o.extract_field("customDomainCertificateExpiryTime"),
             ),
             custom_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainName").unwrap(),
+                o.extract_field("customDomainName"),
             ),
             workgroup_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupName").unwrap(),
+                o.extract_field("workgroupName"),
             ),
         }
     }

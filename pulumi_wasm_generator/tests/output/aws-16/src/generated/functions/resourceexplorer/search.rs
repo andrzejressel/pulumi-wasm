@@ -52,43 +52,21 @@ pub mod search {
                     value: &view_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryString".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceCounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "viewArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SearchResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             query_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryString").unwrap(),
+                o.extract_field("queryString"),
             ),
             resource_counts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceCounts").unwrap(),
+                o.extract_field("resourceCounts"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             view_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("viewArn").unwrap(),
+                o.extract_field("viewArn"),
             ),
         }
     }

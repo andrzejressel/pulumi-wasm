@@ -215,87 +215,44 @@ pub mod identity_provider_aadb_2_c {
                     value: &signup_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedTenant".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "authority".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientLibrary".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordResetPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileEditingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "signinPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "signinTenant".into(),
-                },
-                register_interface::ResultField {
-                    name: "signupPolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityProviderAadb2cResult {
             allowed_tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedTenant").unwrap(),
+                o.extract_field("allowedTenant"),
             ),
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authority").unwrap(),
+                o.extract_field("authority"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_library: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientLibrary").unwrap(),
+                o.extract_field("clientLibrary"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             password_reset_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordResetPolicy").unwrap(),
+                o.extract_field("passwordResetPolicy"),
             ),
             profile_editing_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileEditingPolicy").unwrap(),
+                o.extract_field("profileEditingPolicy"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             signin_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signinPolicy").unwrap(),
+                o.extract_field("signinPolicy"),
             ),
             signin_tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signinTenant").unwrap(),
+                o.extract_field("signinTenant"),
             ),
             signup_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signupPolicy").unwrap(),
+                o.extract_field("signupPolicy"),
             ),
         }
     }

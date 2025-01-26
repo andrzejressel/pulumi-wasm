@@ -84,28 +84,11 @@ pub mod bucket_ownership_controls {
                     value: &rule_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "rule".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketOwnershipControlsResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rule").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
         }
     }
 }

@@ -114,51 +114,24 @@ pub mod resource {
                     value: &with_federation_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hybridAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "useServiceLinkedRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "withFederation".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             hybrid_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hybridAccessEnabled").unwrap(),
+                o.extract_field("hybridAccessEnabled"),
             ),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             use_service_linked_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useServiceLinkedRole").unwrap(),
+                o.extract_field("useServiceLinkedRole"),
             ),
             with_federation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("withFederation").unwrap(),
+                o.extract_field("withFederation"),
             ),
         }
     }

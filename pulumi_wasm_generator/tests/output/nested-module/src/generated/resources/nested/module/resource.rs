@@ -32,20 +32,10 @@ pub mod resource {
                     value: &bar_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bar".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceResult {
-            bar: pulumi_wasm_rust::__private::into_domain(hashmap.remove("bar").unwrap()),
+            bar: pulumi_wasm_rust::__private::into_domain(o.extract_field("bar")),
         }
     }
 }

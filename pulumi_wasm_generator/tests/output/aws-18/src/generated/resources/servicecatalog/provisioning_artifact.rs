@@ -179,88 +179,39 @@ pub mod provisioning_artifact {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableTemplateValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "guidance".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningArtifactId".into(),
-                },
-                register_interface::ResultField {
-                    name: "templatePhysicalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProvisioningArtifactResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_template_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableTemplateValidation").unwrap(),
+                o.extract_field("disableTemplateValidation"),
             ),
             guidance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guidance").unwrap(),
+                o.extract_field("guidance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             provisioning_artifact_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningArtifactId").unwrap(),
+                o.extract_field("provisioningArtifactId"),
             ),
             template_physical_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templatePhysicalId").unwrap(),
+                o.extract_field("templatePhysicalId"),
             ),
             template_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateUrl").unwrap(),
+                o.extract_field("templateUrl"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

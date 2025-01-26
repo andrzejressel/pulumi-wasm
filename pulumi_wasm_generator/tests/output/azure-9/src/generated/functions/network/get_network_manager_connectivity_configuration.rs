@@ -66,67 +66,29 @@ pub mod get_network_manager_connectivity_configuration {
                     value: &network_manager_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appliesToGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectivityTopology".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteExistingPeeringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalMeshEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkManagerId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkManagerConnectivityConfigurationResult {
             applies_to_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appliesToGroups").unwrap(),
+                o.extract_field("appliesToGroups"),
             ),
             connectivity_topology: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectivityTopology").unwrap(),
+                o.extract_field("connectivityTopology"),
             ),
             delete_existing_peering_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteExistingPeeringEnabled").unwrap(),
+                o.extract_field("deleteExistingPeeringEnabled"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             global_mesh_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalMeshEnabled").unwrap(),
+                o.extract_field("globalMeshEnabled"),
             ),
-            hubs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubs").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            hubs: pulumi_wasm_rust::__private::into_domain(o.extract_field("hubs")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkManagerId").unwrap(),
+                o.extract_field("networkManagerId"),
             ),
         }
     }

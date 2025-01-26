@@ -65,39 +65,20 @@ pub mod member_association {
                     value: &account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedAdminAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "relationshipStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MemberAssociationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             delegated_admin_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedAdminAccountId").unwrap(),
+                o.extract_field("delegatedAdminAccountId"),
             ),
             relationship_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relationshipStatus").unwrap(),
+                o.extract_field("relationshipStatus"),
             ),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

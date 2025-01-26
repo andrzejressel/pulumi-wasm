@@ -144,45 +144,19 @@ pub mod managed_private_endpoint {
                     value: &target_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdns".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subresourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedPrivateEndpointResult {
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdns").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subresource_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subresourceName").unwrap(),
+                o.extract_field("subresourceName"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
         }
     }

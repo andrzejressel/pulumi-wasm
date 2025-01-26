@@ -83,34 +83,16 @@ pub mod env_group_attachment {
                     value: &environment_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "envgroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvGroupAttachmentResult {
             envgroup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envgroupId").unwrap(),
+                o.extract_field("envgroupId"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

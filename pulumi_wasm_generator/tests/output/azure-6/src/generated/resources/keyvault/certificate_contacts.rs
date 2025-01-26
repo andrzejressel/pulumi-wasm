@@ -116,27 +116,14 @@ pub mod certificate_contacts {
                     value: &key_vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateContactsResult {
             contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contacts").unwrap(),
+                o.extract_field("contacts"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
         }
     }

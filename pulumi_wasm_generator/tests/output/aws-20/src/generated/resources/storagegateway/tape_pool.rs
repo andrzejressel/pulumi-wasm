@@ -116,57 +116,25 @@ pub mod tape_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionLockTimeInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionLockType".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TapePoolResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             pool_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolName").unwrap(),
+                o.extract_field("poolName"),
             ),
             retention_lock_time_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionLockTimeInDays").unwrap(),
+                o.extract_field("retentionLockTimeInDays"),
             ),
             retention_lock_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionLockType").unwrap(),
+                o.extract_field("retentionLockType"),
             ),
             storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageClass").unwrap(),
+                o.extract_field("storageClass"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

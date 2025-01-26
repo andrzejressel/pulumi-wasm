@@ -196,76 +196,33 @@ pub mod output_table {
                     value: &table_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "batchSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "columnsToRemoves".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-                register_interface::ResultField {
-                    name: "table".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutputTableResult {
             batch_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchSize").unwrap(),
+                o.extract_field("batchSize"),
             ),
             columns_to_removes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("columnsToRemoves").unwrap(),
+                o.extract_field("columnsToRemoves"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKey").unwrap(),
+                o.extract_field("partitionKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            row_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowKey").unwrap(),
-            ),
+            row_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("rowKey")),
             storage_account_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountKey").unwrap(),
+                o.extract_field("storageAccountKey"),
             ),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("table").unwrap(),
-            ),
+            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
         }
     }
 }

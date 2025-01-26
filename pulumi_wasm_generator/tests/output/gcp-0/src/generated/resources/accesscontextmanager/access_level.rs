@@ -168,52 +168,17 @@ pub mod access_level {
                     value: &title_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "basic".into(),
-                },
-                register_interface::ResultField {
-                    name: "custom".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessLevelResult {
-            basic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basic").unwrap(),
-            ),
-            custom: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("custom").unwrap(),
-            ),
+            basic: pulumi_wasm_rust::__private::into_domain(o.extract_field("basic")),
+            custom: pulumi_wasm_rust::__private::into_domain(o.extract_field("custom")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

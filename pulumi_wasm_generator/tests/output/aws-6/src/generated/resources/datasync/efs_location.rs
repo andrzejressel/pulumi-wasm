@@ -154,74 +154,33 @@ pub mod efs_location {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2Config".into(),
-                },
-                register_interface::ResultField {
-                    name: "efsFileSystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "inTransitEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EfsLocationResult {
             access_point_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPointArn").unwrap(),
+                o.extract_field("accessPointArn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             ec2_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2Config").unwrap(),
+                o.extract_field("ec2Config"),
             ),
             efs_file_system_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("efsFileSystemArn").unwrap(),
+                o.extract_field("efsFileSystemArn"),
             ),
             file_system_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemAccessRoleArn").unwrap(),
+                o.extract_field("fileSystemAccessRoleArn"),
             ),
             in_transit_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inTransitEncryption").unwrap(),
+                o.extract_field("inTransitEncryption"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

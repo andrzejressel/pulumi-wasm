@@ -110,58 +110,26 @@ pub mod user_login_profile {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "encryptedPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordResetRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "pgpKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserLoginProfileResult {
             encrypted_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptedPassword").unwrap(),
+                o.extract_field("encryptedPassword"),
             ),
             key_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyFingerprint").unwrap(),
+                o.extract_field("keyFingerprint"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             password_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordLength").unwrap(),
+                o.extract_field("passwordLength"),
             ),
             password_reset_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordResetRequired").unwrap(),
+                o.extract_field("passwordResetRequired"),
             ),
-            pgp_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pgpKey").unwrap(),
-            ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            pgp_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("pgpKey")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

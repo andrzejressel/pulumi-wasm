@@ -492,99 +492,40 @@ pub mod job {
                     value: &query_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "copy".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "extract".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobTimeoutMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobType".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "load".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "query".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEmail".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
-            copy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copy").unwrap(),
-            ),
+            copy: pulumi_wasm_rust::__private::into_domain(o.extract_field("copy")),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             extract: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extract").unwrap(),
+                o.extract_field("extract"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             job_timeout_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobTimeoutMs").unwrap(),
+                o.extract_field("jobTimeoutMs"),
             ),
             job_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobType").unwrap(),
+                o.extract_field("jobType"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            load: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("load").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            load: pulumi_wasm_rust::__private::into_domain(o.extract_field("load")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("query").unwrap(),
-            ),
+            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
             user_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEmail").unwrap(),
+                o.extract_field("userEmail"),
             ),
         }
     }

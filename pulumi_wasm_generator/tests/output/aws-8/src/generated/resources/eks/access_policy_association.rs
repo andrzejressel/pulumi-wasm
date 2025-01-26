@@ -97,51 +97,26 @@ pub mod access_policy_association {
                     value: &principal_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessPolicyAssociationResult {
             access_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessScope").unwrap(),
+                o.extract_field("accessScope"),
             ),
             associated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedAt").unwrap(),
+                o.extract_field("associatedAt"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             modified_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedAt").unwrap(),
+                o.extract_field("modifiedAt"),
             ),
             policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyArn").unwrap(),
+                o.extract_field("policyArn"),
             ),
             principal_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalArn").unwrap(),
+                o.extract_field("principalArn"),
             ),
         }
     }

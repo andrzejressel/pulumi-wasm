@@ -167,46 +167,22 @@ pub mod endpoint_event_hub {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deadLetterStorageSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "digitalTwinsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubPrimaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubSecondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointEventHubResult {
             dead_letter_storage_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterStorageSecret").unwrap(),
+                o.extract_field("deadLetterStorageSecret"),
             ),
             digital_twins_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digitalTwinsId").unwrap(),
+                o.extract_field("digitalTwinsId"),
             ),
             eventhub_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubPrimaryConnectionString").unwrap(),
+                o.extract_field("eventhubPrimaryConnectionString"),
             ),
             eventhub_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubSecondaryConnectionString").unwrap(),
+                o.extract_field("eventhubSecondaryConnectionString"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

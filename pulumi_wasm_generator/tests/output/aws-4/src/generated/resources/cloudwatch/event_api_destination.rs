@@ -126,58 +126,26 @@ pub mod event_api_destination {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "invocationEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "invocationRateLimitPerSecond".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventApiDestinationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             connection_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionArn").unwrap(),
+                o.extract_field("connectionArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpMethod").unwrap(),
+                o.extract_field("httpMethod"),
             ),
             invocation_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invocationEndpoint").unwrap(),
+                o.extract_field("invocationEndpoint"),
             ),
             invocation_rate_limit_per_second: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invocationRateLimitPerSecond").unwrap(),
+                o.extract_field("invocationRateLimitPerSecond"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

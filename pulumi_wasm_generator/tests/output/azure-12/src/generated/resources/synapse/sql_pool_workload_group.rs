@@ -194,63 +194,30 @@ pub mod sql_pool_workload_group {
                     value: &sql_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "importance".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxResourcePercent".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxResourcePercentPerRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "minResourcePercent".into(),
-                },
-                register_interface::ResultField {
-                    name: "minResourcePercentPerRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryExecutionTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SqlPoolWorkloadGroupResult {
             importance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importance").unwrap(),
+                o.extract_field("importance"),
             ),
             max_resource_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxResourcePercent").unwrap(),
+                o.extract_field("maxResourcePercent"),
             ),
             max_resource_percent_per_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxResourcePercentPerRequest").unwrap(),
+                o.extract_field("maxResourcePercentPerRequest"),
             ),
             min_resource_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minResourcePercent").unwrap(),
+                o.extract_field("minResourcePercent"),
             ),
             min_resource_percent_per_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minResourcePercentPerRequest").unwrap(),
+                o.extract_field("minResourcePercentPerRequest"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_execution_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryExecutionTimeoutInSeconds").unwrap(),
+                o.extract_field("queryExecutionTimeoutInSeconds"),
             ),
             sql_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlPoolId").unwrap(),
+                o.extract_field("sqlPoolId"),
             ),
         }
     }

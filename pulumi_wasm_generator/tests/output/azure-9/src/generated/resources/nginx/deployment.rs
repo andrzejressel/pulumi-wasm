@@ -316,124 +316,55 @@ pub mod deployment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoScaleProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticUpgradeChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "diagnoseSupportEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPrivates".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPublic".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingStorageAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "nginxVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             auto_scale_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScaleProfiles").unwrap(),
+                o.extract_field("autoScaleProfiles"),
             ),
             automatic_upgrade_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticUpgradeChannel").unwrap(),
+                o.extract_field("automaticUpgradeChannel"),
             ),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             diagnose_support_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diagnoseSupportEnabled").unwrap(),
+                o.extract_field("diagnoseSupportEnabled"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             frontend_privates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPrivates").unwrap(),
+                o.extract_field("frontendPrivates"),
             ),
             frontend_public: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPublic").unwrap(),
+                o.extract_field("frontendPublic"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logging_storage_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingStorageAccounts").unwrap(),
+                o.extract_field("loggingStorageAccounts"),
             ),
             managed_resource_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroup").unwrap(),
+                o.extract_field("managedResourceGroup"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             nginx_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nginxVersion").unwrap(),
+                o.extract_field("nginxVersion"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

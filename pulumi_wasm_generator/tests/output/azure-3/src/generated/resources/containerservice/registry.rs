@@ -413,147 +413,68 @@ pub mod registry {
                     value: &zone_redundancy_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "anonymousPullEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportPolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "georeplications".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleBypassOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "quarantinePolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPolicyInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustPolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundancyEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryResult {
             admin_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminEnabled").unwrap(),
+                o.extract_field("adminEnabled"),
             ),
             admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPassword").unwrap(),
+                o.extract_field("adminPassword"),
             ),
             admin_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsername").unwrap(),
+                o.extract_field("adminUsername"),
             ),
             anonymous_pull_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anonymousPullEnabled").unwrap(),
+                o.extract_field("anonymousPullEnabled"),
             ),
             data_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataEndpointEnabled").unwrap(),
+                o.extract_field("dataEndpointEnabled"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             export_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportPolicyEnabled").unwrap(),
+                o.extract_field("exportPolicyEnabled"),
             ),
             georeplications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("georeplications").unwrap(),
+                o.extract_field("georeplications"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             login_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginServer").unwrap(),
+                o.extract_field("loginServer"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_rule_bypass_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleBypassOption").unwrap(),
+                o.extract_field("networkRuleBypassOption"),
             ),
             network_rule_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleSet").unwrap(),
+                o.extract_field("networkRuleSet"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             quarantine_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quarantinePolicyEnabled").unwrap(),
+                o.extract_field("quarantinePolicyEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_policy_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPolicyInDays").unwrap(),
+                o.extract_field("retentionPolicyInDays"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trust_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustPolicyEnabled").unwrap(),
+                o.extract_field("trustPolicyEnabled"),
             ),
             zone_redundancy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundancyEnabled").unwrap(),
+                o.extract_field("zoneRedundancyEnabled"),
             ),
         }
     }

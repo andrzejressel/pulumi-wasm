@@ -131,45 +131,21 @@ pub mod cache_access_policy_assignment {
                     value: &redis_cache_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectIdAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisCacheId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CacheAccessPolicyAssignmentResult {
             access_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyName").unwrap(),
+                o.extract_field("accessPolicyName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             object_id_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectIdAlias").unwrap(),
+                o.extract_field("objectIdAlias"),
             ),
             redis_cache_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisCacheId").unwrap(),
+                o.extract_field("redisCacheId"),
             ),
         }
     }

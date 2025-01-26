@@ -70,80 +70,36 @@ pub mod get_identity_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowClassicFlow".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowUnauthenticatedIdentities".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitoIdentityProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerProviderName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityPoolName".into(),
-                },
-                register_interface::ResultField {
-                    name: "openidConnectProviderArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "samlProviderArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedLoginProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIdentityPoolResult {
             allow_classic_flow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowClassicFlow").unwrap(),
+                o.extract_field("allowClassicFlow"),
             ),
             allow_unauthenticated_identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowUnauthenticatedIdentities").unwrap(),
+                o.extract_field("allowUnauthenticatedIdentities"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cognito_identity_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitoIdentityProviders").unwrap(),
+                o.extract_field("cognitoIdentityProviders"),
             ),
             developer_provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerProviderName").unwrap(),
+                o.extract_field("developerProviderName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_pool_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityPoolName").unwrap(),
+                o.extract_field("identityPoolName"),
             ),
             openid_connect_provider_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openidConnectProviderArns").unwrap(),
+                o.extract_field("openidConnectProviderArns"),
             ),
             saml_provider_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samlProviderArns").unwrap(),
+                o.extract_field("samlProviderArns"),
             ),
             supported_login_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedLoginProviders").unwrap(),
+                o.extract_field("supportedLoginProviders"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

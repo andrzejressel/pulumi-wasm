@@ -217,75 +217,36 @@ pub mod integration_account_agreement {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agreementType".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestPartnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostPartnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationAccountAgreementResult {
             agreement_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agreementType").unwrap(),
+                o.extract_field("agreementType"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             guest_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestIdentity").unwrap(),
+                o.extract_field("guestIdentity"),
             ),
             guest_partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestPartnerName").unwrap(),
+                o.extract_field("guestPartnerName"),
             ),
             host_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostIdentity").unwrap(),
+                o.extract_field("hostIdentity"),
             ),
             host_partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostPartnerName").unwrap(),
+                o.extract_field("hostPartnerName"),
             ),
             integration_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationAccountName").unwrap(),
+                o.extract_field("integrationAccountName"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

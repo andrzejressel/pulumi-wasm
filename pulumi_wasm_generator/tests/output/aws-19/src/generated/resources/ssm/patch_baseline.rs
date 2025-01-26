@@ -336,105 +336,45 @@ pub mod patch_baseline {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approvalRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatchesComplianceLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatchesEnableNonSecurity".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatingSystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "rejectedPatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "rejectedPatchesAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PatchBaselineResult {
             approval_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRules").unwrap(),
+                o.extract_field("approvalRules"),
             ),
             approved_patches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatches").unwrap(),
+                o.extract_field("approvedPatches"),
             ),
             approved_patches_compliance_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatchesComplianceLevel").unwrap(),
+                o.extract_field("approvedPatchesComplianceLevel"),
             ),
             approved_patches_enable_non_security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatchesEnableNonSecurity").unwrap(),
+                o.extract_field("approvedPatchesEnableNonSecurity"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             global_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalFilters").unwrap(),
+                o.extract_field("globalFilters"),
             ),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operating_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatingSystem").unwrap(),
+                o.extract_field("operatingSystem"),
             ),
             rejected_patches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rejectedPatches").unwrap(),
+                o.extract_field("rejectedPatches"),
             ),
             rejected_patches_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rejectedPatchesAction").unwrap(),
+                o.extract_field("rejectedPatchesAction"),
             ),
             sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
+                o.extract_field("sources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

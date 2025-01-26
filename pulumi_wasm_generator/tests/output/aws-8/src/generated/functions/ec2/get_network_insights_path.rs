@@ -79,92 +79,40 @@ pub mod get_network_insights_path {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInsightsPathId".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkInsightsPathResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationArn").unwrap(),
+                o.extract_field("destinationArn"),
             ),
             destination_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationIp").unwrap(),
+                o.extract_field("destinationIp"),
             ),
             destination_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPort").unwrap(),
+                o.extract_field("destinationPort"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             network_insights_path_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInsightsPathId").unwrap(),
+                o.extract_field("networkInsightsPathId"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArn").unwrap(),
+                o.extract_field("sourceArn"),
             ),
             source_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceIp").unwrap(),
+                o.extract_field("sourceIp"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

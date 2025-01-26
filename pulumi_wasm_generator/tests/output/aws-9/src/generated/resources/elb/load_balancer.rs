@@ -328,148 +328,67 @@ pub mod load_balancer {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionDraining".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionDrainingTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "crossZoneLoadBalancing".into(),
-                },
-                register_interface::ResultField {
-                    name: "desyncMitigationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "instances".into(),
-                },
-                register_interface::ResultField {
-                    name: "internal".into(),
-                },
-                register_interface::ResultField {
-                    name: "listeners".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSecurityGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoadBalancerResult {
             access_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLogs").unwrap(),
+                o.extract_field("accessLogs"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             connection_draining: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionDraining").unwrap(),
+                o.extract_field("connectionDraining"),
             ),
             connection_draining_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionDrainingTimeout").unwrap(),
+                o.extract_field("connectionDrainingTimeout"),
             ),
             cross_zone_load_balancing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crossZoneLoadBalancing").unwrap(),
+                o.extract_field("crossZoneLoadBalancing"),
             ),
             desync_mitigation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desyncMitigationMode").unwrap(),
+                o.extract_field("desyncMitigationMode"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             health_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheck").unwrap(),
+                o.extract_field("healthCheck"),
             ),
             idle_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeout").unwrap(),
+                o.extract_field("idleTimeout"),
             ),
             instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instances").unwrap(),
+                o.extract_field("instances"),
             ),
             internal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internal").unwrap(),
+                o.extract_field("internal"),
             ),
             listeners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listeners").unwrap(),
+                o.extract_field("listeners"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             source_security_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSecurityGroup").unwrap(),
+                o.extract_field("sourceSecurityGroup"),
             ),
             source_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSecurityGroupId").unwrap(),
+                o.extract_field("sourceSecurityGroupId"),
             ),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

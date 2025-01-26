@@ -172,69 +172,33 @@ pub mod apns_voip_channel {
                     value: &token_key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAuthenticationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "teamId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenKeyId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApnsVoipChannelResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             default_authentication_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAuthenticationMethod").unwrap(),
+                o.extract_field("defaultAuthenticationMethod"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
-            team_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("teamId").unwrap(),
-            ),
+            team_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("teamId")),
             token_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenKey").unwrap(),
+                o.extract_field("tokenKey"),
             ),
             token_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenKeyId").unwrap(),
+                o.extract_field("tokenKeyId"),
             ),
         }
     }

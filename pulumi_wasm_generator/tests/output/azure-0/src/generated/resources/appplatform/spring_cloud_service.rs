@@ -322,135 +322,62 @@ pub mod spring_cloud_service {
                     value: &zone_redundant_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "buildAgentPoolSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "configServerGitSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRegistries".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultBuildService".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logStreamPublicEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "marketplace".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundPublicIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiredNetworkTrafficRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRegistryEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trace".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudServiceResult {
             build_agent_pool_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildAgentPoolSize").unwrap(),
+                o.extract_field("buildAgentPoolSize"),
             ),
             config_server_git_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configServerGitSetting").unwrap(),
+                o.extract_field("configServerGitSetting"),
             ),
             container_registries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistries").unwrap(),
+                o.extract_field("containerRegistries"),
             ),
             default_build_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultBuildService").unwrap(),
+                o.extract_field("defaultBuildService"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             log_stream_public_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logStreamPublicEndpointEnabled").unwrap(),
+                o.extract_field("logStreamPublicEndpointEnabled"),
             ),
             managed_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedEnvironmentId").unwrap(),
+                o.extract_field("managedEnvironmentId"),
             ),
             marketplace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("marketplace").unwrap(),
+                o.extract_field("marketplace"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             outbound_public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundPublicIpAddresses").unwrap(),
+                o.extract_field("outboundPublicIpAddresses"),
             ),
             required_network_traffic_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiredNetworkTrafficRules").unwrap(),
+                o.extract_field("requiredNetworkTrafficRules"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_registry_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRegistryEnabled").unwrap(),
+                o.extract_field("serviceRegistryEnabled"),
             ),
             service_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRegistryId").unwrap(),
+                o.extract_field("serviceRegistryId"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             sku_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuTier").unwrap(),
+                o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            trace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trace").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            trace: pulumi_wasm_rust::__private::into_domain(o.extract_field("trace")),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

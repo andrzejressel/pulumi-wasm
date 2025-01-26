@@ -92,51 +92,26 @@ pub mod sms_channel {
                     value: &short_code_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "promotionalMessagesPerSecond".into(),
-                },
-                register_interface::ResultField {
-                    name: "senderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "transactionalMessagesPerSecond".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SmsChannelResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             promotional_messages_per_second: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("promotionalMessagesPerSecond").unwrap(),
+                o.extract_field("promotionalMessagesPerSecond"),
             ),
             sender_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("senderId").unwrap(),
+                o.extract_field("senderId"),
             ),
             short_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortCode").unwrap(),
+                o.extract_field("shortCode"),
             ),
             transactional_messages_per_second: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transactionalMessagesPerSecond").unwrap(),
+                o.extract_field("transactionalMessagesPerSecond"),
             ),
         }
     }

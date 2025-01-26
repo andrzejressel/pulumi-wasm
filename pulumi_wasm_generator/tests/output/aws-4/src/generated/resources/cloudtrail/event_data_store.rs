@@ -214,81 +214,35 @@ pub mod event_data_store {
                     value: &termination_protection_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedEventSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminationProtectionEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventDataStoreResult {
             advanced_event_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedEventSelectors").unwrap(),
+                o.extract_field("advancedEventSelectors"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             billing_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingMode").unwrap(),
+                o.extract_field("billingMode"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             multi_region_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegionEnabled").unwrap(),
+                o.extract_field("multiRegionEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationEnabled").unwrap(),
+                o.extract_field("organizationEnabled"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             termination_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminationProtectionEnabled").unwrap(),
+                o.extract_field("terminationProtectionEnabled"),
             ),
         }
     }

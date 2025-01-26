@@ -62,62 +62,27 @@ pub mod get_service_tags {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4Cidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Cidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceTagsResult {
             address_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefixes").unwrap(),
+                o.extract_field("addressPrefixes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv4_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4Cidrs").unwrap(),
+                o.extract_field("ipv4Cidrs"),
             ),
             ipv6_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Cidrs").unwrap(),
+                o.extract_field("ipv6Cidrs"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             location_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationFilter").unwrap(),
+                o.extract_field("locationFilter"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

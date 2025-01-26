@@ -221,64 +221,29 @@ pub mod role_management_policy {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activationRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "activeAssignmentRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eligibleAssignmentRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoleManagementPolicyResult {
             activation_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activationRules").unwrap(),
+                o.extract_field("activationRules"),
             ),
             active_assignment_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeAssignmentRules").unwrap(),
+                o.extract_field("activeAssignmentRules"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             eligible_assignment_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eligibleAssignmentRules").unwrap(),
+                o.extract_field("eligibleAssignmentRules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationRules").unwrap(),
+                o.extract_field("notificationRules"),
             ),
             role_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleDefinitionId").unwrap(),
+                o.extract_field("roleDefinitionId"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

@@ -158,93 +158,39 @@ pub mod extensions_instance {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastOperationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastOperationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeDatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExtensionsInstanceResult {
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             error_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorStatuses").unwrap(),
+                o.extract_field("errorStatuses"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             last_operation_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastOperationName").unwrap(),
+                o.extract_field("lastOperationName"),
             ),
             last_operation_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastOperationType").unwrap(),
+                o.extract_field("lastOperationType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             runtime_datas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeDatas").unwrap(),
+                o.extract_field("runtimeDatas"),
             ),
             service_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountEmail").unwrap(),
+                o.extract_field("serviceAccountEmail"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

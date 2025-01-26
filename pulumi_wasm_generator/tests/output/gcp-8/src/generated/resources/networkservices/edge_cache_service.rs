@@ -540,111 +540,52 @@ pub mod edge_cache_service {
                     value: &ssl_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableHttp2".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableQuic".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeSecurityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeSslCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "routing".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslPolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EdgeCacheServiceResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_http2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableHttp2").unwrap(),
+                o.extract_field("disableHttp2"),
             ),
             disable_quic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableQuic").unwrap(),
+                o.extract_field("disableQuic"),
             ),
             edge_security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeSecurityPolicy").unwrap(),
+                o.extract_field("edgeSecurityPolicy"),
             ),
             edge_ssl_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeSslCertificates").unwrap(),
+                o.extract_field("edgeSslCertificates"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             ipv4_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4Addresses").unwrap(),
+                o.extract_field("ipv4Addresses"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             require_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireTls").unwrap(),
+                o.extract_field("requireTls"),
             ),
             routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routing").unwrap(),
+                o.extract_field("routing"),
             ),
             ssl_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslPolicy").unwrap(),
+                o.extract_field("sslPolicy"),
             ),
         }
     }

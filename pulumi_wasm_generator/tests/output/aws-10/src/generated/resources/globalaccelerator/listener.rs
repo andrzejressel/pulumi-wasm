@@ -121,39 +121,20 @@ pub mod listener {
                     value: &protocol_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "portRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListenerResult {
             accelerator_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorArn").unwrap(),
+                o.extract_field("acceleratorArn"),
             ),
             client_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAffinity").unwrap(),
+                o.extract_field("clientAffinity"),
             ),
             port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portRanges").unwrap(),
+                o.extract_field("portRanges"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
         }
     }

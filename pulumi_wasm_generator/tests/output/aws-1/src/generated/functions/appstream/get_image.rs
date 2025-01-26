@@ -100,128 +100,56 @@ pub mod get_image {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applications".into(),
-                },
-                register_interface::ResultField {
-                    name: "appstreamAgentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseImageArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageBuilderName".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageBuilderSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "imagePermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicBaseImageReleasedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateChangeReasons".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetImageResult {
             applications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applications").unwrap(),
+                o.extract_field("applications"),
             ),
             appstream_agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appstreamAgentVersion").unwrap(),
+                o.extract_field("appstreamAgentVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base_image_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseImageArn").unwrap(),
+                o.extract_field("baseImageArn"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_builder_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageBuilderName").unwrap(),
+                o.extract_field("imageBuilderName"),
             ),
             image_builder_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageBuilderSupported").unwrap(),
+                o.extract_field("imageBuilderSupported"),
             ),
             image_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imagePermissions").unwrap(),
+                o.extract_field("imagePermissions"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameRegex").unwrap(),
+                o.extract_field("nameRegex"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             public_base_image_released_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicBaseImageReleasedDate").unwrap(),
+                o.extract_field("publicBaseImageReleasedDate"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_change_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateChangeReasons").unwrap(),
+                o.extract_field("stateChangeReasons"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

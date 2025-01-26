@@ -79,39 +79,20 @@ pub mod application_snapshot {
                     value: &snapshot_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationVersionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotCreationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationSnapshotResult {
             application_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationName").unwrap(),
+                o.extract_field("applicationName"),
             ),
             application_version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationVersionId").unwrap(),
+                o.extract_field("applicationVersionId"),
             ),
             snapshot_creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotCreationTimestamp").unwrap(),
+                o.extract_field("snapshotCreationTimestamp"),
             ),
             snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotName").unwrap(),
+                o.extract_field("snapshotName"),
             ),
         }
     }

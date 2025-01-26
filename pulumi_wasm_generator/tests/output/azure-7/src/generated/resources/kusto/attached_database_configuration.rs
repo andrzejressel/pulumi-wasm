@@ -218,70 +218,32 @@ pub mod attached_database_configuration {
                     value: &sharing_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachedDatabaseNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrincipalModificationKind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharing".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AttachedDatabaseConfigurationResult {
             attached_database_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachedDatabaseNames").unwrap(),
+                o.extract_field("attachedDatabaseNames"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterResourceId").unwrap(),
+                o.extract_field("clusterResourceId"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             default_principal_modification_kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrincipalModificationKind").unwrap(),
+                o.extract_field("defaultPrincipalModificationKind"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sharing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharing").unwrap(),
-            ),
+            sharing: pulumi_wasm_rust::__private::into_domain(o.extract_field("sharing")),
         }
     }
 }

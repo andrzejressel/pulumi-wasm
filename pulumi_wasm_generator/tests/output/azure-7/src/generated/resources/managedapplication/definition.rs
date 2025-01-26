@@ -208,88 +208,41 @@ pub mod definition {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "createUiDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "mainTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageFileUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefinitionResult {
             authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizations").unwrap(),
+                o.extract_field("authorizations"),
             ),
             create_ui_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createUiDefinition").unwrap(),
+                o.extract_field("createUiDefinition"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             lock_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockLevel").unwrap(),
+                o.extract_field("lockLevel"),
             ),
             main_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mainTemplate").unwrap(),
+                o.extract_field("mainTemplate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             package_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageEnabled").unwrap(),
+                o.extract_field("packageEnabled"),
             ),
             package_file_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageFileUri").unwrap(),
+                o.extract_field("packageFileUri"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

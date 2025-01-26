@@ -67,80 +67,28 @@ pub mod get_certificate_data {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificatesCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "expires".into(),
-                },
-                register_interface::ResultField {
-                    name: "hex".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBefore".into(),
-                },
-                register_interface::ResultField {
-                    name: "pem".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateDataResult {
             certificates_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatesCount").unwrap(),
+                o.extract_field("certificatesCount"),
             ),
             expires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expires").unwrap(),
+                o.extract_field("expires"),
             ),
-            hex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hex").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
+            hex: pulumi_wasm_rust::__private::into_domain(o.extract_field("hex")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBefore").unwrap(),
+                o.extract_field("notBefore"),
             ),
-            pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pem").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            pem: pulumi_wasm_rust::__private::into_domain(o.extract_field("pem")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

@@ -236,94 +236,44 @@ pub mod hci_virtual_hard_disk {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blockSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "customLocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskFileFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamicEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hypervGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicalSectorInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "physicalSectorInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storagePathId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HciVirtualHardDiskResult {
             block_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockSizeInBytes").unwrap(),
+                o.extract_field("blockSizeInBytes"),
             ),
             custom_location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customLocationId").unwrap(),
+                o.extract_field("customLocationId"),
             ),
             disk_file_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskFileFormat").unwrap(),
+                o.extract_field("diskFileFormat"),
             ),
             disk_size_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeInGb").unwrap(),
+                o.extract_field("diskSizeInGb"),
             ),
             dynamic_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamicEnabled").unwrap(),
+                o.extract_field("dynamicEnabled"),
             ),
             hyperv_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hypervGeneration").unwrap(),
+                o.extract_field("hypervGeneration"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logical_sector_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicalSectorInBytes").unwrap(),
+                o.extract_field("logicalSectorInBytes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             physical_sector_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("physicalSectorInBytes").unwrap(),
+                o.extract_field("physicalSectorInBytes"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_path_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storagePathId").unwrap(),
+                o.extract_field("storagePathId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -249,33 +249,15 @@ pub mod netapp_volume_attachment {
                     value: &vmware_cluster_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "netappVolumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareClusterId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetappVolumeAttachmentResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             netapp_volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netappVolumeId").unwrap(),
+                o.extract_field("netappVolumeId"),
             ),
             vmware_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareClusterId").unwrap(),
+                o.extract_field("vmwareClusterId"),
             ),
         }
     }

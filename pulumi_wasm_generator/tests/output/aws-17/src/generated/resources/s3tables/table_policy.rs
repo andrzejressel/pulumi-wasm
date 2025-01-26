@@ -130,39 +130,18 @@ pub mod table_policy {
                     value: &table_bucket_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourcePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableBucketArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TablePolicyResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             resource_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourcePolicy").unwrap(),
+                o.extract_field("resourcePolicy"),
             ),
             table_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableBucketArn").unwrap(),
+                o.extract_field("tableBucketArn"),
             ),
         }
     }

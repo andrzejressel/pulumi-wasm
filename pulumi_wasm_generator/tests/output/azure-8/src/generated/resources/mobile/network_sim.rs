@@ -240,87 +240,42 @@ pub mod network_sim {
                     value: &static_ip_configurations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "integratedCircuitCardIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "internationalMobileSubscriberIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkSimGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatorKeyCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "simPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "simState".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "vendorKeyFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vendorName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkSimResult {
             authentication_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationKey").unwrap(),
+                o.extract_field("authenticationKey"),
             ),
             device_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceType").unwrap(),
+                o.extract_field("deviceType"),
             ),
             integrated_circuit_card_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integratedCircuitCardIdentifier").unwrap(),
+                o.extract_field("integratedCircuitCardIdentifier"),
             ),
             international_mobile_subscriber_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internationalMobileSubscriberIdentity").unwrap(),
+                o.extract_field("internationalMobileSubscriberIdentity"),
             ),
             mobile_network_sim_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkSimGroupId").unwrap(),
+                o.extract_field("mobileNetworkSimGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operator_key_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatorKeyCode").unwrap(),
+                o.extract_field("operatorKeyCode"),
             ),
             sim_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("simPolicyId").unwrap(),
+                o.extract_field("simPolicyId"),
             ),
             sim_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("simState").unwrap(),
+                o.extract_field("simState"),
             ),
             static_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticIpConfigurations").unwrap(),
+                o.extract_field("staticIpConfigurations"),
             ),
             vendor_key_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vendorKeyFingerprint").unwrap(),
+                o.extract_field("vendorKeyFingerprint"),
             ),
             vendor_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vendorName").unwrap(),
+                o.extract_field("vendorName"),
             ),
         }
     }

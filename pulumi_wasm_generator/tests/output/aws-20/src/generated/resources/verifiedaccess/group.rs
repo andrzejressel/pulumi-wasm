@@ -158,87 +158,40 @@ pub mod group {
                     value: &verifiedaccess_instance_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "sseConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedaccessGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedaccessGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedaccessInstanceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             deletion_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionTime").unwrap(),
+                o.extract_field("deletionTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
             sse_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sseConfiguration").unwrap(),
+                o.extract_field("sseConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             verifiedaccess_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedaccessGroupArn").unwrap(),
+                o.extract_field("verifiedaccessGroupArn"),
             ),
             verifiedaccess_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedaccessGroupId").unwrap(),
+                o.extract_field("verifiedaccessGroupId"),
             ),
             verifiedaccess_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedaccessInstanceId").unwrap(),
+                o.extract_field("verifiedaccessInstanceId"),
             ),
         }
     }

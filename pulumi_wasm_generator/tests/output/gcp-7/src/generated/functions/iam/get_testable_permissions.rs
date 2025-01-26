@@ -62,44 +62,20 @@ pub mod get_testable_permissions {
                     value: &stages_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customSupportLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullResourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "stages".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTestablePermissionsResult {
             custom_support_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSupportLevel").unwrap(),
+                o.extract_field("customSupportLevel"),
             ),
             full_resource_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullResourceName").unwrap(),
+                o.extract_field("fullResourceName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
-            stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stages").unwrap(),
-            ),
+            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
         }
     }
 }

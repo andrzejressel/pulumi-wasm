@@ -74,80 +74,34 @@ pub mod get_listener {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alpnPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutualAuthentications".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetListenerResult {
             alpn_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alpnPolicy").unwrap(),
+                o.extract_field("alpnPolicy"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             default_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultActions").unwrap(),
+                o.extract_field("defaultActions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerArn").unwrap(),
+                o.extract_field("loadBalancerArn"),
             ),
             mutual_authentications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutualAuthentications").unwrap(),
+                o.extract_field("mutualAuthentications"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             ssl_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslPolicy").unwrap(),
+                o.extract_field("sslPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

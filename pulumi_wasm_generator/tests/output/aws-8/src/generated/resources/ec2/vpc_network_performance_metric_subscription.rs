@@ -85,45 +85,17 @@ pub mod vpc_network_performance_metric_subscription {
                     value: &statistic_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "metric".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "statistic".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcNetworkPerformanceMetricSubscriptionResult {
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
-            metric: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metric").unwrap(),
-            ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            metric: pulumi_wasm_rust::__private::into_domain(o.extract_field("metric")),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             statistic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statistic").unwrap(),
+                o.extract_field("statistic"),
             ),
         }
     }

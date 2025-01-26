@@ -86,46 +86,18 @@ pub mod shared_directory {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "notes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedDirectoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedDirectoryResult {
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
-            notes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notes").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
+            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
             shared_directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedDirectoryId").unwrap(),
+                o.extract_field("sharedDirectoryId"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
         }
     }
 }

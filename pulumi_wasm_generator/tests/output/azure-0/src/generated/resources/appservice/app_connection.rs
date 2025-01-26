@@ -196,57 +196,27 @@ pub mod app_connection {
                     value: &vnet_solution_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientType".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretStore".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vnetSolution".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppConnectionResult {
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             client_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientType").unwrap(),
+                o.extract_field("clientType"),
             ),
             function_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionAppId").unwrap(),
+                o.extract_field("functionAppId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             secret_store: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretStore").unwrap(),
+                o.extract_field("secretStore"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
             vnet_solution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vnetSolution").unwrap(),
+                o.extract_field("vnetSolution"),
             ),
         }
     }

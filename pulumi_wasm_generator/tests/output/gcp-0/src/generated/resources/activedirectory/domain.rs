@@ -201,87 +201,36 @@ pub mod domain {
                     value: &reserved_ip_range_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "admin".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedNetworks".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "locations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedIpRange".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainResult {
-            admin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("admin").unwrap(),
-            ),
+            admin: pulumi_wasm_rust::__private::into_domain(o.extract_field("admin")),
             authorized_networks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedNetworks").unwrap(),
+                o.extract_field("authorizedNetworks"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locations").unwrap(),
+                o.extract_field("locations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedIpRange").unwrap(),
+                o.extract_field("reservedIpRange"),
             ),
         }
     }

@@ -277,172 +277,75 @@ pub mod provisioned_product {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchDashboardNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastProvisioningRecordId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastRecordId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastSuccessfulProvisioningRecordId".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathId".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathName".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "productName".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningArtifactId".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningArtifactName".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainPhysicalResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetProvisioningPreferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProvisionedProductResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloudwatch_dashboard_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchDashboardNames").unwrap(),
+                o.extract_field("cloudwatchDashboardNames"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             ignore_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreErrors").unwrap(),
+                o.extract_field("ignoreErrors"),
             ),
             last_provisioning_record_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastProvisioningRecordId").unwrap(),
+                o.extract_field("lastProvisioningRecordId"),
             ),
             last_record_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastRecordId").unwrap(),
+                o.extract_field("lastRecordId"),
             ),
             last_successful_provisioning_record_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastSuccessfulProvisioningRecordId").unwrap(),
+                o.extract_field("lastSuccessfulProvisioningRecordId"),
             ),
             launch_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchRoleArn").unwrap(),
+                o.extract_field("launchRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationArns").unwrap(),
+                o.extract_field("notificationArns"),
             ),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
-            path_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathId").unwrap(),
-            ),
+            path_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("pathId")),
             path_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathName").unwrap(),
+                o.extract_field("pathName"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             product_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productName").unwrap(),
+                o.extract_field("productName"),
             ),
             provisioning_artifact_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningArtifactId").unwrap(),
+                o.extract_field("provisioningArtifactId"),
             ),
             provisioning_artifact_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningArtifactName").unwrap(),
+                o.extract_field("provisioningArtifactName"),
             ),
             provisioning_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningParameters").unwrap(),
+                o.extract_field("provisioningParameters"),
             ),
             retain_physical_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainPhysicalResources").unwrap(),
+                o.extract_field("retainPhysicalResources"),
             ),
             stack_set_provisioning_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetProvisioningPreferences").unwrap(),
+                o.extract_field("stackSetProvisioningPreferences"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusMessage").unwrap(),
+                o.extract_field("statusMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

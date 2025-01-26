@@ -122,73 +122,34 @@ pub mod teams_location {
                     value: &networks_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "anonymizedLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "dohSubdomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ip".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4Destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networks".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TeamsLocationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             anonymized_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anonymizedLogsEnabled").unwrap(),
+                o.extract_field("anonymizedLogsEnabled"),
             ),
             client_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientDefault").unwrap(),
+                o.extract_field("clientDefault"),
             ),
             doh_subdomain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dohSubdomain").unwrap(),
+                o.extract_field("dohSubdomain"),
             ),
             ecs_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecsSupport").unwrap(),
+                o.extract_field("ecsSupport"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
+            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
             ipv4_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4Destination").unwrap(),
+                o.extract_field("ipv4Destination"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             networks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networks").unwrap(),
+                o.extract_field("networks"),
             ),
             policy_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyIds").unwrap(),
+                o.extract_field("policyIds"),
             ),
         }
     }

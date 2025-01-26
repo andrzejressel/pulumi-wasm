@@ -158,46 +158,20 @@ pub mod fleet_update_run {
                     value: &stages_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "fleetUpdateStrategyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesFleetManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedClusterUpdate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "stages".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetUpdateRunResult {
             fleet_update_strategy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetUpdateStrategyId").unwrap(),
+                o.extract_field("fleetUpdateStrategyId"),
             ),
             kubernetes_fleet_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesFleetManagerId").unwrap(),
+                o.extract_field("kubernetesFleetManagerId"),
             ),
             managed_cluster_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedClusterUpdate").unwrap(),
+                o.extract_field("managedClusterUpdate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stages").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
         }
     }
 }

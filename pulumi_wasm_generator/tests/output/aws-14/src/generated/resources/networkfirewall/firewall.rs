@@ -194,100 +194,43 @@ pub mod firewall {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyChangeProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetChangeProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             delete_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteProtection").unwrap(),
+                o.extract_field("deleteProtection"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
             firewall_policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyArn").unwrap(),
+                o.extract_field("firewallPolicyArn"),
             ),
             firewall_policy_change_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyChangeProtection").unwrap(),
+                o.extract_field("firewallPolicyChangeProtection"),
             ),
             firewall_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallStatuses").unwrap(),
+                o.extract_field("firewallStatuses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subnet_change_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetChangeProtection").unwrap(),
+                o.extract_field("subnetChangeProtection"),
             ),
             subnet_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetMappings").unwrap(),
+                o.extract_field("subnetMappings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             update_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateToken").unwrap(),
+                o.extract_field("updateToken"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -218,111 +218,54 @@ pub mod environment {
                     value: &user_parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "blueprintIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "glossaryTerms".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastDeployments".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerEnvironment".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "userParameters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             account_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountIdentifier").unwrap(),
+                o.extract_field("accountIdentifier"),
             ),
             account_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountRegion").unwrap(),
+                o.extract_field("accountRegion"),
             ),
             blueprint_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueprintIdentifier").unwrap(),
+                o.extract_field("blueprintIdentifier"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainIdentifier").unwrap(),
+                o.extract_field("domainIdentifier"),
             ),
             glossary_terms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glossaryTerms").unwrap(),
+                o.extract_field("glossaryTerms"),
             ),
             last_deployments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastDeployments").unwrap(),
+                o.extract_field("lastDeployments"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             profile_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileIdentifier").unwrap(),
+                o.extract_field("profileIdentifier"),
             ),
             project_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectIdentifier").unwrap(),
+                o.extract_field("projectIdentifier"),
             ),
             provider_environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerEnvironment").unwrap(),
+                o.extract_field("providerEnvironment"),
             ),
             provisioned_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedResources").unwrap(),
+                o.extract_field("provisionedResources"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             user_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userParameters").unwrap(),
+                o.extract_field("userParameters"),
             ),
         }
     }

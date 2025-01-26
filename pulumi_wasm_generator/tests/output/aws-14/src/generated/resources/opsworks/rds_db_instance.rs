@@ -87,39 +87,18 @@ pub mod rds_db_instance {
                     value: &stack_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dbPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "rdsDbInstanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RdsDbInstanceResult {
             db_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbPassword").unwrap(),
+                o.extract_field("dbPassword"),
             ),
-            db_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbUser").unwrap(),
-            ),
+            db_user: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbUser")),
             rds_db_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rdsDbInstanceArn").unwrap(),
+                o.extract_field("rdsDbInstanceArn"),
             ),
             stack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackId").unwrap(),
+                o.extract_field("stackId"),
             ),
         }
     }

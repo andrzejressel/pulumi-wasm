@@ -182,75 +182,32 @@ pub mod share_file {
                     value: &storage_share_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contentDisposition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentEncoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentMd5".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageShareId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ShareFileResult {
             content_disposition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentDisposition").unwrap(),
+                o.extract_field("contentDisposition"),
             ),
             content_encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentEncoding").unwrap(),
+                o.extract_field("contentEncoding"),
             ),
             content_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLength").unwrap(),
+                o.extract_field("contentLength"),
             ),
             content_md5: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentMd5").unwrap(),
+                o.extract_field("contentMd5"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             storage_share_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageShareId").unwrap(),
+                o.extract_field("storageShareId"),
             ),
         }
     }

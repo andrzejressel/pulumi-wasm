@@ -245,82 +245,34 @@ pub mod prefix {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "commissioningEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetAdvertisingDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentCustomIpPrefixId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roaValidityEndDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "wanValidationSignedMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrefixResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             commissioning_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commissioningEnabled").unwrap(),
+                o.extract_field("commissioningEnabled"),
             ),
             internet_advertising_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetAdvertisingDisabled").unwrap(),
+                o.extract_field("internetAdvertisingDisabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_custom_ip_prefix_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentCustomIpPrefixId").unwrap(),
+                o.extract_field("parentCustomIpPrefixId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             roa_validity_end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roaValidityEndDate").unwrap(),
+                o.extract_field("roaValidityEndDate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             wan_validation_signed_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wanValidationSignedMessage").unwrap(),
+                o.extract_field("wanValidationSignedMessage"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

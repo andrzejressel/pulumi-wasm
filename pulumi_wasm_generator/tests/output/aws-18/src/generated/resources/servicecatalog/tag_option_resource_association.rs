@@ -83,51 +83,26 @@ pub mod tag_option_resource_association {
                     value: &tag_option_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceCreatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagOptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TagOptionResourceAssociationResult {
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
             resource_created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceCreatedTime").unwrap(),
+                o.extract_field("resourceCreatedTime"),
             ),
             resource_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceDescription").unwrap(),
+                o.extract_field("resourceDescription"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             resource_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceName").unwrap(),
+                o.extract_field("resourceName"),
             ),
             tag_option_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagOptionId").unwrap(),
+                o.extract_field("tagOptionId"),
             ),
         }
     }

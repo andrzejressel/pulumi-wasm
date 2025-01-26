@@ -127,57 +127,25 @@ pub mod medical_vocabulary {
                     value: &vocabulary_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "downloadUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vocabularyFileUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "vocabularyName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MedicalVocabularyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             download_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downloadUri").unwrap(),
+                o.extract_field("downloadUri"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vocabulary_file_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vocabularyFileUri").unwrap(),
+                o.extract_field("vocabularyFileUri"),
             ),
             vocabulary_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vocabularyName").unwrap(),
+                o.extract_field("vocabularyName"),
             ),
         }
     }

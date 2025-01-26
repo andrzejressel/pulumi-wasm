@@ -95,86 +95,37 @@ pub mod get_regional_secret_version {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "destroyTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "isSecretDataBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretData".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegionalSecretVersionResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             customer_managed_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedEncryptions").unwrap(),
+                o.extract_field("customerManagedEncryptions"),
             ),
             destroy_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destroyTime").unwrap(),
+                o.extract_field("destroyTime"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             is_secret_data_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isSecretDataBase64").unwrap(),
+                o.extract_field("isSecretDataBase64"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
             secret_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretData").unwrap(),
+                o.extract_field("secretData"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

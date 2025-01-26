@@ -199,45 +199,23 @@ pub mod configuration {
                     value: &root_file_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configFiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "nginxDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageData".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedFiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootFile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationResult {
             config_files: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configFiles").unwrap(),
+                o.extract_field("configFiles"),
             ),
             nginx_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nginxDeploymentId").unwrap(),
+                o.extract_field("nginxDeploymentId"),
             ),
             package_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageData").unwrap(),
+                o.extract_field("packageData"),
             ),
             protected_files: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedFiles").unwrap(),
+                o.extract_field("protectedFiles"),
             ),
             root_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootFile").unwrap(),
+                o.extract_field("rootFile"),
             ),
         }
     }

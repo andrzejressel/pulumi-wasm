@@ -476,160 +476,71 @@ pub mod metric_alarm {
                     value: &unit_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "alarmDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "comparisonOperator".into(),
-                },
-                register_interface::ResultField {
-                    name: "datapointsToAlarm".into(),
-                },
-                register_interface::ResultField {
-                    name: "dimensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "evaluateLowSampleCountPercentiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "evaluationPeriods".into(),
-                },
-                register_interface::ResultField {
-                    name: "extendedStatistic".into(),
-                },
-                register_interface::ResultField {
-                    name: "insufficientDataActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricQueries".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "okActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "statistic".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "threshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "thresholdMetricId".into(),
-                },
-                register_interface::ResultField {
-                    name: "treatMissingData".into(),
-                },
-                register_interface::ResultField {
-                    name: "unit".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricAlarmResult {
             actions_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionsEnabled").unwrap(),
+                o.extract_field("actionsEnabled"),
             ),
             alarm_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmActions").unwrap(),
+                o.extract_field("alarmActions"),
             ),
             alarm_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmDescription").unwrap(),
+                o.extract_field("alarmDescription"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             comparison_operator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comparisonOperator").unwrap(),
+                o.extract_field("comparisonOperator"),
             ),
             datapoints_to_alarm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datapointsToAlarm").unwrap(),
+                o.extract_field("datapointsToAlarm"),
             ),
             dimensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dimensions").unwrap(),
+                o.extract_field("dimensions"),
             ),
             evaluate_low_sample_count_percentiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evaluateLowSampleCountPercentiles").unwrap(),
+                o.extract_field("evaluateLowSampleCountPercentiles"),
             ),
             evaluation_periods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evaluationPeriods").unwrap(),
+                o.extract_field("evaluationPeriods"),
             ),
             extended_statistic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extendedStatistic").unwrap(),
+                o.extract_field("extendedStatistic"),
             ),
             insufficient_data_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insufficientDataActions").unwrap(),
+                o.extract_field("insufficientDataActions"),
             ),
             metric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricName").unwrap(),
+                o.extract_field("metricName"),
             ),
             metric_queries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricQueries").unwrap(),
+                o.extract_field("metricQueries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             ok_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("okActions").unwrap(),
+                o.extract_field("okActions"),
             ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
             statistic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statistic").unwrap(),
+                o.extract_field("statistic"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threshold").unwrap(),
+                o.extract_field("threshold"),
             ),
             threshold_metric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thresholdMetricId").unwrap(),
+                o.extract_field("thresholdMetricId"),
             ),
             treat_missing_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("treatMissingData").unwrap(),
+                o.extract_field("treatMissingData"),
             ),
-            unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unit").unwrap(),
-            ),
+            unit: pulumi_wasm_rust::__private::into_domain(o.extract_field("unit")),
         }
     }
 }

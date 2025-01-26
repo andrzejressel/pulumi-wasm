@@ -131,28 +131,13 @@ pub mod bot_association {
                     value: &lex_bot_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lexBot".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BotAssociationResult {
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
-            lex_bot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lexBot").unwrap(),
-            ),
+            lex_bot: pulumi_wasm_rust::__private::into_domain(o.extract_field("lexBot")),
         }
     }
 }

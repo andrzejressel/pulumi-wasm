@@ -188,57 +188,27 @@ pub mod backup_policy_postgresql {
                     value: &vault_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupRepeatingTimeIntervals".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRetentionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupPolicyPostgresqlResult {
             backup_repeating_time_intervals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRepeatingTimeIntervals").unwrap(),
+                o.extract_field("backupRepeatingTimeIntervals"),
             ),
             default_retention_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRetentionDuration").unwrap(),
+                o.extract_field("defaultRetentionDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionRules").unwrap(),
+                o.extract_field("retentionRules"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
             vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultName").unwrap(),
+                o.extract_field("vaultName"),
             ),
         }
     }

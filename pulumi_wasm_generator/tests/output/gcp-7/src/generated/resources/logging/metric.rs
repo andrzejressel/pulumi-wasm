@@ -356,75 +356,34 @@ pub mod metric {
                     value: &value_extractor_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelExtractors".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricDescriptor".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "valueExtractor".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricResult {
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             bucket_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketOptions").unwrap(),
+                o.extract_field("bucketOptions"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             label_extractors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelExtractors").unwrap(),
+                o.extract_field("labelExtractors"),
             ),
             metric_descriptor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricDescriptor").unwrap(),
+                o.extract_field("metricDescriptor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             value_extractor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("valueExtractor").unwrap(),
+                o.extract_field("valueExtractor"),
             ),
         }
     }

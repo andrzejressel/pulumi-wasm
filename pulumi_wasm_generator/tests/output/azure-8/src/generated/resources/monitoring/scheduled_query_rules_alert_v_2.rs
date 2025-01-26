@@ -395,153 +395,69 @@ pub mod scheduled_query_rules_alert_v_2 {
                     value: &workspace_alerts_storage_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMitigationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdWithApiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "criterias".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "evaluationFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "isALegacyLogAnalyticsRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "isWorkspaceAlertsStorageConfigured".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "muteActionsAfterAlertDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryTimeRangeOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipQueryValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceAlertsStorageEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduledQueryRulesAlertV2Result {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             auto_mitigation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMitigationEnabled").unwrap(),
+                o.extract_field("autoMitigationEnabled"),
             ),
             created_with_api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdWithApiVersion").unwrap(),
+                o.extract_field("createdWithApiVersion"),
             ),
             criterias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("criterias").unwrap(),
+                o.extract_field("criterias"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             evaluation_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evaluationFrequency").unwrap(),
+                o.extract_field("evaluationFrequency"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             is_a_legacy_log_analytics_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isALegacyLogAnalyticsRule").unwrap(),
+                o.extract_field("isALegacyLogAnalyticsRule"),
             ),
             is_workspace_alerts_storage_configured: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isWorkspaceAlertsStorageConfigured").unwrap(),
+                o.extract_field("isWorkspaceAlertsStorageConfigured"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mute_actions_after_alert_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("muteActionsAfterAlertDuration").unwrap(),
+                o.extract_field("muteActionsAfterAlertDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_time_range_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryTimeRangeOverride").unwrap(),
+                o.extract_field("queryTimeRangeOverride"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
             skip_query_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipQueryValidation").unwrap(),
+                o.extract_field("skipQueryValidation"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceTypes").unwrap(),
+                o.extract_field("targetResourceTypes"),
             ),
             window_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowDuration").unwrap(),
+                o.extract_field("windowDuration"),
             ),
             workspace_alerts_storage_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceAlertsStorageEnabled").unwrap(),
+                o.extract_field("workspaceAlertsStorageEnabled"),
             ),
         }
     }

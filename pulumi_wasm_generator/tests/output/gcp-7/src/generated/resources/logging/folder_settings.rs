@@ -147,57 +147,25 @@ pub mod folder_settings {
                     value: &storage_location_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "disableDefaultSink".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsServiceAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingServiceAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageLocation".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FolderSettingsResult {
             disable_default_sink: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableDefaultSink").unwrap(),
+                o.extract_field("disableDefaultSink"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
             kms_service_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsServiceAccountId").unwrap(),
+                o.extract_field("kmsServiceAccountId"),
             ),
             logging_service_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingServiceAccountId").unwrap(),
+                o.extract_field("loggingServiceAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             storage_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageLocation").unwrap(),
+                o.extract_field("storageLocation"),
             ),
         }
     }

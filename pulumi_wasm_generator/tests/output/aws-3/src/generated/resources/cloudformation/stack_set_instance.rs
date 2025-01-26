@@ -260,81 +260,37 @@ pub mod stack_set_instance {
                     value: &stack_set_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "callAs".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationPreferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnitId".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainStack".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackInstanceSummaries".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackSetInstanceResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            call_as: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callAs").unwrap(),
-            ),
+            call_as: pulumi_wasm_rust::__private::into_domain(o.extract_field("callAs")),
             deployment_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentTargets").unwrap(),
+                o.extract_field("deploymentTargets"),
             ),
             operation_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationPreferences").unwrap(),
+                o.extract_field("operationPreferences"),
             ),
             organizational_unit_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnitId").unwrap(),
+                o.extract_field("organizationalUnitId"),
             ),
             parameter_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterOverrides").unwrap(),
+                o.extract_field("parameterOverrides"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             retain_stack: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainStack").unwrap(),
+                o.extract_field("retainStack"),
             ),
             stack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackId").unwrap(),
+                o.extract_field("stackId"),
             ),
             stack_instance_summaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackInstanceSummaries").unwrap(),
+                o.extract_field("stackInstanceSummaries"),
             ),
             stack_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetName").unwrap(),
+                o.extract_field("stackSetName"),
             ),
         }
     }

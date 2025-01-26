@@ -83,39 +83,18 @@ pub mod control_tower_control {
                     value: &target_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ControlTowerControlResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             control_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlIdentifier").unwrap(),
+                o.extract_field("controlIdentifier"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             target_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetIdentifier").unwrap(),
+                o.extract_field("targetIdentifier"),
             ),
         }
     }

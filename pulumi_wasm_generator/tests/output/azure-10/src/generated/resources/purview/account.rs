@@ -163,94 +163,44 @@ pub mod account {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "atlasKafkaEndpointPrimaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "atlasKafkaEndpointSecondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardianEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scanEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             atlas_kafka_endpoint_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("atlasKafkaEndpointPrimaryConnectionString").unwrap(),
+                o.extract_field("atlasKafkaEndpointPrimaryConnectionString"),
             ),
             atlas_kafka_endpoint_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("atlasKafkaEndpointSecondaryConnectionString").unwrap(),
+                o.extract_field("atlasKafkaEndpointSecondaryConnectionString"),
             ),
             catalog_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogEndpoint").unwrap(),
+                o.extract_field("catalogEndpoint"),
             ),
             guardian_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardianEndpoint").unwrap(),
+                o.extract_field("guardianEndpoint"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupName").unwrap(),
+                o.extract_field("managedResourceGroupName"),
             ),
             managed_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResources").unwrap(),
+                o.extract_field("managedResources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkEnabled").unwrap(),
+                o.extract_field("publicNetworkEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scan_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scanEndpoint").unwrap(),
+                o.extract_field("scanEndpoint"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

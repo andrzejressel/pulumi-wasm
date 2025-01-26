@@ -146,45 +146,21 @@ pub mod virtual_hub_connection {
                     value: &virtual_hub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "internetSecurityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVirtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routing".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualHubConnectionResult {
             internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetSecurityEnabled").unwrap(),
+                o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVirtualNetworkId").unwrap(),
+                o.extract_field("remoteVirtualNetworkId"),
             ),
             routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routing").unwrap(),
+                o.extract_field("routing"),
             ),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
         }
     }

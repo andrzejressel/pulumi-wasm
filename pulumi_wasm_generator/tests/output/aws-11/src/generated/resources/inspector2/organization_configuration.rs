@@ -71,27 +71,14 @@ pub mod organization_configuration {
                     value: &auto_enable_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoEnable".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxAccountLimitReached".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationConfigurationResult {
             auto_enable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoEnable").unwrap(),
+                o.extract_field("autoEnable"),
             ),
             max_account_limit_reached: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxAccountLimitReached").unwrap(),
+                o.extract_field("maxAccountLimitReached"),
             ),
         }
     }

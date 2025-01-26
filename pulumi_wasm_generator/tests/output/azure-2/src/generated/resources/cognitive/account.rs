@@ -394,172 +394,79 @@ pub mod account {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customQuestionAnsweringSearchServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customQuestionAnsweringSearchServiceKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "customSubdomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamicThrottlingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdns".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsAdvisorAadClientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsAdvisorAadTenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsAdvisorSuperUserName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsAdvisorWebsiteName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundNetworkAccessRestricted".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "qnaRuntimeEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storages".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             custom_question_answering_search_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customQuestionAnsweringSearchServiceId").unwrap(),
+                o.extract_field("customQuestionAnsweringSearchServiceId"),
             ),
             custom_question_answering_search_service_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customQuestionAnsweringSearchServiceKey").unwrap(),
+                o.extract_field("customQuestionAnsweringSearchServiceKey"),
             ),
             custom_subdomain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSubdomainName").unwrap(),
+                o.extract_field("customSubdomainName"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             dynamic_throttling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamicThrottlingEnabled").unwrap(),
+                o.extract_field("dynamicThrottlingEnabled"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdns").unwrap(),
-            ),
+            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             metrics_advisor_aad_client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsAdvisorAadClientId").unwrap(),
+                o.extract_field("metricsAdvisorAadClientId"),
             ),
             metrics_advisor_aad_tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsAdvisorAadTenantId").unwrap(),
+                o.extract_field("metricsAdvisorAadTenantId"),
             ),
             metrics_advisor_super_user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsAdvisorSuperUserName").unwrap(),
+                o.extract_field("metricsAdvisorSuperUserName"),
             ),
             metrics_advisor_website_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsAdvisorWebsiteName").unwrap(),
+                o.extract_field("metricsAdvisorWebsiteName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAcls").unwrap(),
+                o.extract_field("networkAcls"),
             ),
             outbound_network_access_restricted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundNetworkAccessRestricted").unwrap(),
+                o.extract_field("outboundNetworkAccessRestricted"),
             ),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             qna_runtime_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qnaRuntimeEndpoint").unwrap(),
+                o.extract_field("qnaRuntimeEndpoint"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storages").unwrap(),
+                o.extract_field("storages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

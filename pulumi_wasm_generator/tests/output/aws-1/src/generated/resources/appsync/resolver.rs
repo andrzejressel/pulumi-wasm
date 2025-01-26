@@ -291,100 +291,39 @@ pub mod resolver {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cachingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "field".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxBatchSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             caching_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cachingConfig").unwrap(),
+                o.extract_field("cachingConfig"),
             ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             data_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSource").unwrap(),
+                o.extract_field("dataSource"),
             ),
-            field: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("field").unwrap(),
-            ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            field: pulumi_wasm_rust::__private::into_domain(o.extract_field("field")),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             max_batch_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxBatchSize").unwrap(),
+                o.extract_field("maxBatchSize"),
             ),
             pipeline_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineConfig").unwrap(),
+                o.extract_field("pipelineConfig"),
             ),
             request_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestTemplate").unwrap(),
+                o.extract_field("requestTemplate"),
             ),
             response_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseTemplate").unwrap(),
+                o.extract_field("responseTemplate"),
             ),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             sync_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncConfig").unwrap(),
+                o.extract_field("syncConfig"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

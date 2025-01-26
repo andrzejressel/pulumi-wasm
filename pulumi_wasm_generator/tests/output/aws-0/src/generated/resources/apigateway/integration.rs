@@ -456,116 +456,56 @@ pub mod integration {
                     value: &uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cacheKeyParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentHandling".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationHttpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "passthroughBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutMilliseconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationResult {
             cache_key_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheKeyParameters").unwrap(),
+                o.extract_field("cacheKeyParameters"),
             ),
             cache_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheNamespace").unwrap(),
+                o.extract_field("cacheNamespace"),
             ),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             connection_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionType").unwrap(),
+                o.extract_field("connectionType"),
             ),
             content_handling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentHandling").unwrap(),
+                o.extract_field("contentHandling"),
             ),
             credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentials").unwrap(),
+                o.extract_field("credentials"),
             ),
             http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpMethod").unwrap(),
+                o.extract_field("httpMethod"),
             ),
             integration_http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationHttpMethod").unwrap(),
+                o.extract_field("integrationHttpMethod"),
             ),
             passthrough_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passthroughBehavior").unwrap(),
+                o.extract_field("passthroughBehavior"),
             ),
             request_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestParameters").unwrap(),
+                o.extract_field("requestParameters"),
             ),
             request_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestTemplates").unwrap(),
+                o.extract_field("requestTemplates"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             timeout_milliseconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutMilliseconds").unwrap(),
+                o.extract_field("timeoutMilliseconds"),
             ),
             tls_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsConfig").unwrap(),
+                o.extract_field("tlsConfig"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

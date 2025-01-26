@@ -340,177 +340,85 @@ pub mod network_interface {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePrimaryIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "interfaceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4PrefixCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4Prefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressListEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6PrefixCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Prefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "macAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpListEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpsCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDestCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkInterfaceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachments").unwrap(),
+                o.extract_field("attachments"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enable_primary_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePrimaryIpv6").unwrap(),
+                o.extract_field("enablePrimaryIpv6"),
             ),
             interface_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interfaceType").unwrap(),
+                o.extract_field("interfaceType"),
             ),
             ipv4_prefix_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4PrefixCount").unwrap(),
+                o.extract_field("ipv4PrefixCount"),
             ),
             ipv4_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4Prefixes").unwrap(),
+                o.extract_field("ipv4Prefixes"),
             ),
             ipv6_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressCount").unwrap(),
+                o.extract_field("ipv6AddressCount"),
             ),
             ipv6_address_list_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressListEnabled").unwrap(),
+                o.extract_field("ipv6AddressListEnabled"),
             ),
             ipv6_address_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressLists").unwrap(),
+                o.extract_field("ipv6AddressLists"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
             ipv6_prefix_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6PrefixCount").unwrap(),
+                o.extract_field("ipv6PrefixCount"),
             ),
             ipv6_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Prefixes").unwrap(),
+                o.extract_field("ipv6Prefixes"),
             ),
             mac_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macAddress").unwrap(),
+                o.extract_field("macAddress"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             private_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsName").unwrap(),
+                o.extract_field("privateDnsName"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             private_ip_list_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpListEnabled").unwrap(),
+                o.extract_field("privateIpListEnabled"),
             ),
             private_ip_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpLists").unwrap(),
+                o.extract_field("privateIpLists"),
             ),
             private_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIps").unwrap(),
+                o.extract_field("privateIps"),
             ),
             private_ips_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpsCount").unwrap(),
+                o.extract_field("privateIpsCount"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             source_dest_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDestCheck").unwrap(),
+                o.extract_field("sourceDestCheck"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

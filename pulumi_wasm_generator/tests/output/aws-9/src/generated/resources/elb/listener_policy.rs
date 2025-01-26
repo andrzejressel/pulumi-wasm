@@ -155,39 +155,20 @@ pub mod listener_policy {
                     value: &triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "loadBalancerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListenerPolicyResult {
             load_balancer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerName").unwrap(),
+                o.extract_field("loadBalancerName"),
             ),
             load_balancer_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerPort").unwrap(),
+                o.extract_field("loadBalancerPort"),
             ),
             policy_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyNames").unwrap(),
+                o.extract_field("policyNames"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

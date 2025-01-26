@@ -42,49 +42,24 @@ pub mod get_account_public_access_block {
                     value: &account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockPublicAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockPublicPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignorePublicAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictPublicBuckets".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountPublicAccessBlockResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             block_public_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicAcls").unwrap(),
+                o.extract_field("blockPublicAcls"),
             ),
             block_public_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicPolicy").unwrap(),
+                o.extract_field("blockPublicPolicy"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ignore_public_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignorePublicAcls").unwrap(),
+                o.extract_field("ignorePublicAcls"),
             ),
             restrict_public_buckets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictPublicBuckets").unwrap(),
+                o.extract_field("restrictPublicBuckets"),
             ),
         }
     }

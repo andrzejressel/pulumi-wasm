@@ -201,63 +201,28 @@ pub mod project_environment_type {
                     value: &user_role_assignments_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creatorRoleAssignmentRoles".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentTargetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "devCenterProjectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userRoleAssignments".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectEnvironmentTypeResult {
             creator_role_assignment_roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creatorRoleAssignmentRoles").unwrap(),
+                o.extract_field("creatorRoleAssignmentRoles"),
             ),
             deployment_target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentTargetId").unwrap(),
+                o.extract_field("deploymentTargetId"),
             ),
             dev_center_project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devCenterProjectId").unwrap(),
+                o.extract_field("devCenterProjectId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_role_assignments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userRoleAssignments").unwrap(),
+                o.extract_field("userRoleAssignments"),
             ),
         }
     }

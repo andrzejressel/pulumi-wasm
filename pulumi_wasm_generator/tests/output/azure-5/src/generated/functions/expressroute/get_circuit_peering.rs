@@ -76,104 +76,50 @@ pub mod get_circuit_peering {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteCircuitName".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayManagerEtag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringType".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAzurePort".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryPeerAddressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeFilterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAzurePort".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPeerAddressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlanId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCircuitPeeringResult {
             azure_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureAsn").unwrap(),
+                o.extract_field("azureAsn"),
             ),
             express_route_circuit_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteCircuitName").unwrap(),
+                o.extract_field("expressRouteCircuitName"),
             ),
             gateway_manager_etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayManagerEtag").unwrap(),
+                o.extract_field("gatewayManagerEtag"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv4_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4Enabled").unwrap(),
+                o.extract_field("ipv4Enabled"),
             ),
             peer_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAsn").unwrap(),
+                o.extract_field("peerAsn"),
             ),
             peering_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringType").unwrap(),
+                o.extract_field("peeringType"),
             ),
             primary_azure_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAzurePort").unwrap(),
+                o.extract_field("primaryAzurePort"),
             ),
             primary_peer_address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryPeerAddressPrefix").unwrap(),
+                o.extract_field("primaryPeerAddressPrefix"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             route_filter_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeFilterId").unwrap(),
+                o.extract_field("routeFilterId"),
             ),
             secondary_azure_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAzurePort").unwrap(),
+                o.extract_field("secondaryAzurePort"),
             ),
             secondary_peer_address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPeerAddressPrefix").unwrap(),
+                o.extract_field("secondaryPeerAddressPrefix"),
             ),
             shared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedKey").unwrap(),
+                o.extract_field("sharedKey"),
             ),
-            vlan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlanId").unwrap(),
-            ),
+            vlan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlanId")),
         }
     }
 }

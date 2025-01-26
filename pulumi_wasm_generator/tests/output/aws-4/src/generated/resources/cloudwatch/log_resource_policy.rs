@@ -113,27 +113,14 @@ pub mod log_resource_policy {
                     value: &policy_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogResourcePolicyResult {
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
             policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyName").unwrap(),
+                o.extract_field("policyName"),
             ),
         }
     }

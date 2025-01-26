@@ -343,154 +343,68 @@ pub mod cluster {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedFqdns".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoStopEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataIngestionUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "doubleEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageExtensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "optimizedAutoScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundNetworkAccessRestricted".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpType".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "purgeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingIngestionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedExternalTenants".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             allowed_fqdns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedFqdns").unwrap(),
+                o.extract_field("allowedFqdns"),
             ),
             allowed_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedIpRanges").unwrap(),
+                o.extract_field("allowedIpRanges"),
             ),
             auto_stop_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoStopEnabled").unwrap(),
+                o.extract_field("autoStopEnabled"),
             ),
             data_ingestion_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataIngestionUri").unwrap(),
+                o.extract_field("dataIngestionUri"),
             ),
             disk_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionEnabled").unwrap(),
+                o.extract_field("diskEncryptionEnabled"),
             ),
             double_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("doubleEncryptionEnabled").unwrap(),
+                o.extract_field("doubleEncryptionEnabled"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             language_extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageExtensions").unwrap(),
+                o.extract_field("languageExtensions"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             optimized_auto_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optimizedAutoScale").unwrap(),
+                o.extract_field("optimizedAutoScale"),
             ),
             outbound_network_access_restricted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundNetworkAccessRestricted").unwrap(),
+                o.extract_field("outboundNetworkAccessRestricted"),
             ),
             public_ip_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpType").unwrap(),
+                o.extract_field("publicIpType"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             purge_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purgeEnabled").unwrap(),
+                o.extract_field("purgeEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             streaming_ingestion_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingIngestionEnabled").unwrap(),
+                o.extract_field("streamingIngestionEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trusted_external_tenants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedExternalTenants").unwrap(),
+                o.extract_field("trustedExternalTenants"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uri").unwrap(),
-            ),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
             virtual_network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkConfiguration").unwrap(),
+                o.extract_field("virtualNetworkConfiguration"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

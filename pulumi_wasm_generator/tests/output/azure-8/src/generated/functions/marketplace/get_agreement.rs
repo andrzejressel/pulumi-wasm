@@ -53,49 +53,20 @@ pub mod get_agreement {
                     value: &publisher_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseTextLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "offer".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "privacyPolicyLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisher".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAgreementResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             license_text_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseTextLink").unwrap(),
+                o.extract_field("licenseTextLink"),
             ),
-            offer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offer").unwrap(),
-            ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            offer: pulumi_wasm_rust::__private::into_domain(o.extract_field("offer")),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             privacy_policy_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privacyPolicyLink").unwrap(),
+                o.extract_field("privacyPolicyLink"),
             ),
             publisher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisher").unwrap(),
+                o.extract_field("publisher"),
             ),
         }
     }

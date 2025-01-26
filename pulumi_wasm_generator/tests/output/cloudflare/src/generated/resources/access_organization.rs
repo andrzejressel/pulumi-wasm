@@ -220,94 +220,44 @@ pub mod access_organization {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowAuthenticateViaWarp".into(),
-                },
-                register_interface::ResultField {
-                    name: "authDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRedirectToIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "customPages".into(),
-                },
-                register_interface::ResultField {
-                    name: "isUiReadOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginDesigns".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "uiReadOnlyToggleReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "userSeatExpirationInactiveTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "warpAuthSessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessOrganizationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             allow_authenticate_via_warp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowAuthenticateViaWarp").unwrap(),
+                o.extract_field("allowAuthenticateViaWarp"),
             ),
             auth_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authDomain").unwrap(),
+                o.extract_field("authDomain"),
             ),
             auto_redirect_to_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRedirectToIdentity").unwrap(),
+                o.extract_field("autoRedirectToIdentity"),
             ),
             custom_pages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customPages").unwrap(),
+                o.extract_field("customPages"),
             ),
             is_ui_read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isUiReadOnly").unwrap(),
+                o.extract_field("isUiReadOnly"),
             ),
             login_designs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginDesigns").unwrap(),
+                o.extract_field("loginDesigns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionDuration").unwrap(),
+                o.extract_field("sessionDuration"),
             ),
             ui_read_only_toggle_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uiReadOnlyToggleReason").unwrap(),
+                o.extract_field("uiReadOnlyToggleReason"),
             ),
             user_seat_expiration_inactive_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userSeatExpirationInactiveTime").unwrap(),
+                o.extract_field("userSeatExpirationInactiveTime"),
             ),
             warp_auth_session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warpAuthSessionDuration").unwrap(),
+                o.extract_field("warpAuthSessionDuration"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

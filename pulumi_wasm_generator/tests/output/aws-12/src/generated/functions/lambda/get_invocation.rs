@@ -54,44 +54,18 @@ pub mod get_invocation {
                     value: &qualifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "input".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInvocationResult {
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            input: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("input").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
         }
     }
 }

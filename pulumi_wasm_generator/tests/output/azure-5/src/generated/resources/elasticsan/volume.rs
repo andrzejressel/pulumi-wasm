@@ -204,63 +204,30 @@ pub mod volume {
                     value: &volume_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sizeInGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetIqn".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetPortalHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetPortalPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeResult {
             create_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createSource").unwrap(),
+                o.extract_field("createSource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             size_in_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sizeInGib").unwrap(),
+                o.extract_field("sizeInGib"),
             ),
             target_iqn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetIqn").unwrap(),
+                o.extract_field("targetIqn"),
             ),
             target_portal_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetPortalHostname").unwrap(),
+                o.extract_field("targetPortalHostname"),
             ),
             target_portal_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetPortalPort").unwrap(),
+                o.extract_field("targetPortalPort"),
             ),
             volume_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeGroupId").unwrap(),
+                o.extract_field("volumeGroupId"),
             ),
             volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeId").unwrap(),
+                o.extract_field("volumeId"),
             ),
         }
     }

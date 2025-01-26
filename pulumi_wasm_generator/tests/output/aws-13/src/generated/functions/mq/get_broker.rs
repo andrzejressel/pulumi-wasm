@@ -84,146 +84,65 @@ pub mod get_broker {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "brokerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "brokerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostInstanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instances".into(),
-                },
-                register_interface::ResultField {
-                    name: "ldapServerMetadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "logs".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindowStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "users".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBrokerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationStrategy").unwrap(),
+                o.extract_field("authenticationStrategy"),
             ),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             broker_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brokerId").unwrap(),
+                o.extract_field("brokerId"),
             ),
             broker_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brokerName").unwrap(),
+                o.extract_field("brokerName"),
             ),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             deployment_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentMode").unwrap(),
+                o.extract_field("deploymentMode"),
             ),
             encryption_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionOptions").unwrap(),
+                o.extract_field("encryptionOptions"),
             ),
             engine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineType").unwrap(),
+                o.extract_field("engineType"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             host_instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostInstanceType").unwrap(),
+                o.extract_field("hostInstanceType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instances").unwrap(),
+                o.extract_field("instances"),
             ),
             ldap_server_metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ldapServerMetadatas").unwrap(),
+                o.extract_field("ldapServerMetadatas"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logs").unwrap(),
-            ),
+            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
             maintenance_window_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindowStartTime").unwrap(),
+                o.extract_field("maintenanceWindowStartTime"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("users").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

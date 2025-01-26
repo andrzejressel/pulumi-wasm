@@ -125,64 +125,25 @@ pub mod turnstile_widget {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "botFightMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "domains".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "offlabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TurnstileWidgetResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             bot_fight_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botFightMode").unwrap(),
+                o.extract_field("botFightMode"),
             ),
             domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domains").unwrap(),
+                o.extract_field("domains"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             offlabel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offlabel").unwrap(),
+                o.extract_field("offlabel"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
         }
     }
 }

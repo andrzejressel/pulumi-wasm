@@ -70,98 +70,41 @@ pub mod get {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baseSizeInTib".into(),
-                },
-                register_interface::ResultField {
-                    name: "extendedSizeInTib".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skus".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalIops".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalMbps".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalSizeInTib".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalVolumeSizeInGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeGroupCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResult {
             base_size_in_tib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseSizeInTib").unwrap(),
+                o.extract_field("baseSizeInTib"),
             ),
             extended_size_in_tib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extendedSizeInTib").unwrap(),
+                o.extract_field("extendedSizeInTib"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            skus: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skus").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            skus: pulumi_wasm_rust::__private::into_domain(o.extract_field("skus")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             total_iops: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalIops").unwrap(),
+                o.extract_field("totalIops"),
             ),
             total_mbps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalMbps").unwrap(),
+                o.extract_field("totalMbps"),
             ),
             total_size_in_tib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalSizeInTib").unwrap(),
+                o.extract_field("totalSizeInTib"),
             ),
             total_volume_size_in_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalVolumeSizeInGib").unwrap(),
+                o.extract_field("totalVolumeSizeInGib"),
             ),
             volume_group_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeGroupCount").unwrap(),
+                o.extract_field("volumeGroupCount"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

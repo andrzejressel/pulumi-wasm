@@ -99,55 +99,27 @@ pub mod get_resources {
                     value: &tag_filters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "excludeCompliantResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeComplianceDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArnLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTagMappingLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypeFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagFilters".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourcesResult {
             exclude_compliant_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeCompliantResources").unwrap(),
+                o.extract_field("excludeCompliantResources"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_compliance_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeComplianceDetails").unwrap(),
+                o.extract_field("includeComplianceDetails"),
             ),
             resource_arn_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArnLists").unwrap(),
+                o.extract_field("resourceArnLists"),
             ),
             resource_tag_mapping_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTagMappingLists").unwrap(),
+                o.extract_field("resourceTagMappingLists"),
             ),
             resource_type_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypeFilters").unwrap(),
+                o.extract_field("resourceTypeFilters"),
             ),
             tag_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagFilters").unwrap(),
+                o.extract_field("tagFilters"),
             ),
         }
     }

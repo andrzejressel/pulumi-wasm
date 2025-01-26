@@ -224,160 +224,71 @@ pub mod snapshot_copy {
                     value: &target_db_snapshot_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbSnapshotArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "iops".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "optionGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "presignedUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDbSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCustomAvailabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetDbSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotCopyResult {
             allocated_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorage").unwrap(),
+                o.extract_field("allocatedStorage"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             copy_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTags").unwrap(),
+                o.extract_field("copyTags"),
             ),
             db_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbSnapshotArn").unwrap(),
+                o.extract_field("dbSnapshotArn"),
             ),
             destination_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationRegion").unwrap(),
+                o.extract_field("destinationRegion"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
-            iops: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iops").unwrap(),
-            ),
+            iops: pulumi_wasm_rust::__private::into_domain(o.extract_field("iops")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
             option_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optionGroupName").unwrap(),
+                o.extract_field("optionGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             presigned_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("presignedUrl").unwrap(),
+                o.extract_field("presignedUrl"),
             ),
             shared_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccounts").unwrap(),
+                o.extract_field("sharedAccounts"),
             ),
             snapshot_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotType").unwrap(),
+                o.extract_field("snapshotType"),
             ),
             source_db_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDbSnapshotIdentifier").unwrap(),
+                o.extract_field("sourceDbSnapshotIdentifier"),
             ),
             source_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRegion").unwrap(),
+                o.extract_field("sourceRegion"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_custom_availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCustomAvailabilityZone").unwrap(),
+                o.extract_field("targetCustomAvailabilityZone"),
             ),
             target_db_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetDbSnapshotIdentifier").unwrap(),
+                o.extract_field("targetDbSnapshotIdentifier"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

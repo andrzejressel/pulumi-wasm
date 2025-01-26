@@ -164,75 +164,34 @@ pub mod managed_certificate {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "canonicalName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHostnameBindingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "issueDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuer".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedCertificateResult {
             canonical_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canonicalName").unwrap(),
+                o.extract_field("canonicalName"),
             ),
             custom_hostname_binding_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHostnameBindingId").unwrap(),
+                o.extract_field("customHostnameBindingId"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             host_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostNames").unwrap(),
+                o.extract_field("hostNames"),
             ),
             issue_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issueDate").unwrap(),
+                o.extract_field("issueDate"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuer").unwrap(),
-            ),
+            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
             subject_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectName").unwrap(),
+                o.extract_field("subjectName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

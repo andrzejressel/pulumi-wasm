@@ -217,69 +217,31 @@ pub mod spring_cloud_gateway_route_config {
                     value: &sso_validation_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "openApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "predicates".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ssoValidationEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudGatewayRouteConfigResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             open_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openApi").unwrap(),
+                o.extract_field("openApi"),
             ),
             predicates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predicates").unwrap(),
+                o.extract_field("predicates"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
             spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAppId").unwrap(),
+                o.extract_field("springCloudAppId"),
             ),
             spring_cloud_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudGatewayId").unwrap(),
+                o.extract_field("springCloudGatewayId"),
             ),
             sso_validation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ssoValidationEnabled").unwrap(),
+                o.extract_field("ssoValidationEnabled"),
             ),
         }
     }

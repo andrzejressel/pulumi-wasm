@@ -210,81 +210,35 @@ pub mod organization_sink {
                     value: &org_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigqueryOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "exclusions".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeChildren".into(),
-                },
-                register_interface::ResultField {
-                    name: "interceptChildren".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "writerIdentity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationSinkResult {
             bigquery_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryOptions").unwrap(),
+                o.extract_field("bigqueryOptions"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             exclusions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exclusions").unwrap(),
+                o.extract_field("exclusions"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             include_children: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeChildren").unwrap(),
+                o.extract_field("includeChildren"),
             ),
             intercept_children: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interceptChildren").unwrap(),
+                o.extract_field("interceptChildren"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             writer_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writerIdentity").unwrap(),
+                o.extract_field("writerIdentity"),
             ),
         }
     }

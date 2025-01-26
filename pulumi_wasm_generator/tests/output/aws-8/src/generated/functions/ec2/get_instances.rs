@@ -73,61 +73,28 @@ pub mod get_instances {
                     value: &instance_tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ids".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceStateNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIps".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstancesResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ids").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
             instance_state_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceStateNames").unwrap(),
+                o.extract_field("instanceStateNames"),
             ),
             instance_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTags").unwrap(),
+                o.extract_field("instanceTags"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
             private_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIps").unwrap(),
+                o.extract_field("privateIps"),
             ),
             public_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIps").unwrap(),
+                o.extract_field("publicIps"),
             ),
         }
     }

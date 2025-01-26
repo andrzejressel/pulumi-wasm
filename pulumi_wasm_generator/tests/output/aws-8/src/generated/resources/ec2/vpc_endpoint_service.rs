@@ -209,117 +209,53 @@ pub mod vpc_endpoint_service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptanceRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedPrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseEndpointDnsNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayLoadBalancerArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "managesVpcEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkLoadBalancerArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsNameConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedIpAddressTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcEndpointServiceResult {
             acceptance_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptanceRequired").unwrap(),
+                o.extract_field("acceptanceRequired"),
             ),
             allowed_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedPrincipals").unwrap(),
+                o.extract_field("allowedPrincipals"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             base_endpoint_dns_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseEndpointDnsNames").unwrap(),
+                o.extract_field("baseEndpointDnsNames"),
             ),
             gateway_load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayLoadBalancerArns").unwrap(),
+                o.extract_field("gatewayLoadBalancerArns"),
             ),
             manages_vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managesVpcEndpoints").unwrap(),
+                o.extract_field("managesVpcEndpoints"),
             ),
             network_load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkLoadBalancerArns").unwrap(),
+                o.extract_field("networkLoadBalancerArns"),
             ),
             private_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsName").unwrap(),
+                o.extract_field("privateDnsName"),
             ),
             private_dns_name_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsNameConfigurations").unwrap(),
+                o.extract_field("privateDnsNameConfigurations"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             service_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceType").unwrap(),
+                o.extract_field("serviceType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             supported_ip_address_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedIpAddressTypes").unwrap(),
+                o.extract_field("supportedIpAddressTypes"),
             ),
             supported_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedRegions").unwrap(),
+                o.extract_field("supportedRegions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

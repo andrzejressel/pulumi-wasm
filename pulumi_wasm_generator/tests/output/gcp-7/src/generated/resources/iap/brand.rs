@@ -141,45 +141,21 @@ pub mod brand {
                     value: &support_email_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationTitle".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgInternalOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportEmail".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BrandResult {
             application_title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationTitle").unwrap(),
+                o.extract_field("applicationTitle"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             org_internal_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgInternalOnly").unwrap(),
+                o.extract_field("orgInternalOnly"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             support_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportEmail").unwrap(),
+                o.extract_field("supportEmail"),
             ),
         }
     }

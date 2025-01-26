@@ -216,39 +216,20 @@ pub mod server_transparent_data_encryption {
                     value: &server_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerTransparentDataEncryptionResult {
             auto_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRotationEnabled").unwrap(),
+                o.extract_field("autoRotationEnabled"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmKeyId").unwrap(),
+                o.extract_field("managedHsmKeyId"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
         }
     }

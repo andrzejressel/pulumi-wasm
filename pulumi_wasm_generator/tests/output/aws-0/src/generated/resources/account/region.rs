@@ -79,39 +79,20 @@ pub mod region {
                     value: &region_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "optStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             opt_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optStatus").unwrap(),
+                o.extract_field("optStatus"),
             ),
             region_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionName").unwrap(),
+                o.extract_field("regionName"),
             ),
         }
     }

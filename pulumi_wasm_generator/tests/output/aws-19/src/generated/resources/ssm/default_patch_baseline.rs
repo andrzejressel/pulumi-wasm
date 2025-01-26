@@ -130,27 +130,14 @@ pub mod default_patch_baseline {
                     value: &operating_system_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baselineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatingSystem".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultPatchBaselineResult {
             baseline_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baselineId").unwrap(),
+                o.extract_field("baselineId"),
             ),
             operating_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatingSystem").unwrap(),
+                o.extract_field("operatingSystem"),
             ),
         }
     }

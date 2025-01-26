@@ -164,63 +164,30 @@ pub mod integration_account_assembly {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assemblyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "assemblyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLinkUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationAccountAssemblyResult {
             assembly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assemblyName").unwrap(),
+                o.extract_field("assemblyName"),
             ),
             assembly_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assemblyVersion").unwrap(),
+                o.extract_field("assemblyVersion"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             content_link_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLinkUri").unwrap(),
+                o.extract_field("contentLinkUri"),
             ),
             integration_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationAccountName").unwrap(),
+                o.extract_field("integrationAccountName"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

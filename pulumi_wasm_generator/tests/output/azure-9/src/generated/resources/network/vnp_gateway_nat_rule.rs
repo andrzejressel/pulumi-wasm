@@ -184,57 +184,23 @@ pub mod vnp_gateway_nat_rule {
                     value: &vpn_gateway_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "externalMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VnpGatewayNatRuleResult {
             external_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalMappings").unwrap(),
+                o.extract_field("externalMappings"),
             ),
             internal_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalMappings").unwrap(),
+                o.extract_field("internalMappings"),
             ),
             ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurationId").unwrap(),
+                o.extract_field("ipConfigurationId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGatewayId").unwrap(),
+                o.extract_field("vpnGatewayId"),
             ),
         }
     }

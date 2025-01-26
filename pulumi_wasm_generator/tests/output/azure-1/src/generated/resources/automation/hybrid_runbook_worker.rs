@@ -207,73 +207,36 @@ pub mod hybrid_runbook_worker {
                     value: &worker_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ip".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastSeenDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HybridRunbookWorkerResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
+            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
             last_seen_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastSeenDateTime").unwrap(),
+                o.extract_field("lastSeenDateTime"),
             ),
             registration_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationDateTime").unwrap(),
+                o.extract_field("registrationDateTime"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             vm_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmResourceId").unwrap(),
+                o.extract_field("vmResourceId"),
             ),
             worker_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerGroupName").unwrap(),
+                o.extract_field("workerGroupName"),
             ),
             worker_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerId").unwrap(),
+                o.extract_field("workerId"),
             ),
             worker_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerName").unwrap(),
+                o.extract_field("workerName"),
             ),
             worker_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerType").unwrap(),
+                o.extract_field("workerType"),
             ),
         }
     }

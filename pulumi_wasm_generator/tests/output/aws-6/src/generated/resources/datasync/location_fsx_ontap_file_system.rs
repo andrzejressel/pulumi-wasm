@@ -135,74 +135,33 @@ pub mod location_fsx_ontap_file_system {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "fsxFilesystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageVirtualMachineArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocationFsxOntapFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             fsx_filesystem_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fsxFilesystemArn").unwrap(),
+                o.extract_field("fsxFilesystemArn"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             security_group_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupArns").unwrap(),
+                o.extract_field("securityGroupArns"),
             ),
             storage_virtual_machine_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageVirtualMachineArn").unwrap(),
+                o.extract_field("storageVirtualMachineArn"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

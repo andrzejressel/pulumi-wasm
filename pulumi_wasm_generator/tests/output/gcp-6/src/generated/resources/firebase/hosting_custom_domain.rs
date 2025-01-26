@@ -360,123 +360,52 @@ pub mod hosting_custom_domain {
                     value: &wait_dns_verification_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "certs".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostState".into(),
-                },
-                register_interface::ResultField {
-                    name: "issues".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipState".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiredDnsUpdates".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitDnsVerification".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostingCustomDomainResult {
             cert_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certPreference").unwrap(),
+                o.extract_field("certPreference"),
             ),
-            certs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certs").unwrap(),
-            ),
+            certs: pulumi_wasm_rust::__private::into_domain(o.extract_field("certs")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             custom_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomain").unwrap(),
+                o.extract_field("customDomain"),
             ),
             delete_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteTime").unwrap(),
+                o.extract_field("deleteTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
             host_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostState").unwrap(),
+                o.extract_field("hostState"),
             ),
-            issues: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issues").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            issues: pulumi_wasm_rust::__private::into_domain(o.extract_field("issues")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             ownership_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipState").unwrap(),
+                o.extract_field("ownershipState"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             redirect_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectTarget").unwrap(),
+                o.extract_field("redirectTarget"),
             ),
             required_dns_updates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiredDnsUpdates").unwrap(),
+                o.extract_field("requiredDnsUpdates"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             wait_dns_verification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitDnsVerification").unwrap(),
+                o.extract_field("waitDnsVerification"),
             ),
         }
     }

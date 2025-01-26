@@ -47,67 +47,27 @@ pub mod get_bucket {
                     value: &bucket_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketRegionalDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBucketResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             bucket_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketDomainName").unwrap(),
+                o.extract_field("bucketDomainName"),
             ),
             bucket_regional_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketRegionalDomainName").unwrap(),
+                o.extract_field("bucketRegionalDomainName"),
             ),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             website_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteDomain").unwrap(),
+                o.extract_field("websiteDomain"),
             ),
             website_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteEndpoint").unwrap(),
+                o.extract_field("websiteEndpoint"),
             ),
         }
     }

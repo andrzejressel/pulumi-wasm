@@ -126,51 +126,22 @@ pub mod cluster {
                     value: &vmware_cloud_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterNodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "hosts".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareCloudId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             cluster_node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterNodeCount").unwrap(),
+                o.extract_field("clusterNodeCount"),
             ),
             cluster_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterNumber").unwrap(),
+                o.extract_field("clusterNumber"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hosts").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             vmware_cloud_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareCloudId").unwrap(),
+                o.extract_field("vmwareCloudId"),
             ),
         }
     }

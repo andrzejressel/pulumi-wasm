@@ -109,121 +109,54 @@ pub mod get_catalog_table {
                     value: &transaction_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionIndices".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryAsOfTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "retention".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageDescriptors".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableType".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetTables".into(),
-                },
-                register_interface::ResultField {
-                    name: "transactionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "viewExpandedText".into(),
-                },
-                register_interface::ResultField {
-                    name: "viewOriginalText".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCatalogTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             partition_indices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionIndices").unwrap(),
+                o.extract_field("partitionIndices"),
             ),
             partition_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKeys").unwrap(),
+                o.extract_field("partitionKeys"),
             ),
             query_as_of_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryAsOfTime").unwrap(),
+                o.extract_field("queryAsOfTime"),
             ),
             retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retention").unwrap(),
+                o.extract_field("retention"),
             ),
             storage_descriptors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageDescriptors").unwrap(),
+                o.extract_field("storageDescriptors"),
             ),
             table_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableType").unwrap(),
+                o.extract_field("tableType"),
             ),
             target_tables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetTables").unwrap(),
+                o.extract_field("targetTables"),
             ),
             transaction_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transactionId").unwrap(),
+                o.extract_field("transactionId"),
             ),
             view_expanded_text: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("viewExpandedText").unwrap(),
+                o.extract_field("viewExpandedText"),
             ),
             view_original_text: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("viewOriginalText").unwrap(),
+                o.extract_field("viewOriginalText"),
             ),
         }
     }

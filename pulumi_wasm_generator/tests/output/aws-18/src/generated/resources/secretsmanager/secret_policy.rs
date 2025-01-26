@@ -105,33 +105,15 @@ pub mod secret_policy {
                     value: &secret_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blockPublicPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecretPolicyResult {
             block_public_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicPolicy").unwrap(),
+                o.extract_field("blockPublicPolicy"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             secret_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretArn").unwrap(),
+                o.extract_field("secretArn"),
             ),
         }
     }

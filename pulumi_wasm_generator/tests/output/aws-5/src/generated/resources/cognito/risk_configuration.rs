@@ -146,45 +146,23 @@ pub mod risk_configuration {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountTakeoverRiskConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "compromisedCredentialsRiskConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "riskExceptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RiskConfigurationResult {
             account_takeover_risk_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountTakeoverRiskConfiguration").unwrap(),
+                o.extract_field("accountTakeoverRiskConfiguration"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             compromised_credentials_risk_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compromisedCredentialsRiskConfiguration").unwrap(),
+                o.extract_field("compromisedCredentialsRiskConfiguration"),
             ),
             risk_exception_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("riskExceptionConfiguration").unwrap(),
+                o.extract_field("riskExceptionConfiguration"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
         }
     }

@@ -214,81 +214,37 @@ pub mod authomation_rule {
                     value: &triggers_when_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionIncidents".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionPlaybooks".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditionJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "order".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggersOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggersWhen".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthomationRuleResult {
             action_incidents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionIncidents").unwrap(),
+                o.extract_field("actionIncidents"),
             ),
             action_playbooks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionPlaybooks").unwrap(),
+                o.extract_field("actionPlaybooks"),
             ),
             condition_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditionJson").unwrap(),
+                o.extract_field("conditionJson"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiration").unwrap(),
+                o.extract_field("expiration"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            order: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("order").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
             triggers_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggersOn").unwrap(),
+                o.extract_field("triggersOn"),
             ),
             triggers_when: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggersWhen").unwrap(),
+                o.extract_field("triggersWhen"),
             ),
         }
     }

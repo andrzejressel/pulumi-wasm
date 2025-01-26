@@ -109,81 +109,37 @@ pub mod transit_gateway_peering {
                     value: &transit_gateway_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayPeeringAttachmentId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TransitGatewayPeeringResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             core_network_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkArn").unwrap(),
+                o.extract_field("coreNetworkArn"),
             ),
             core_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkId").unwrap(),
+                o.extract_field("coreNetworkId"),
             ),
             edge_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeLocation").unwrap(),
+                o.extract_field("edgeLocation"),
             ),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             peering_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringType").unwrap(),
+                o.extract_field("peeringType"),
             ),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayArn").unwrap(),
+                o.extract_field("transitGatewayArn"),
             ),
             transit_gateway_peering_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayPeeringAttachmentId").unwrap(),
+                o.extract_field("transitGatewayPeeringAttachmentId"),
             ),
         }
     }

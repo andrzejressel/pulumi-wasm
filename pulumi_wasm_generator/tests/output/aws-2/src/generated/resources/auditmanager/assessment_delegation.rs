@@ -112,58 +112,28 @@ pub mod assessment_delegation {
                     value: &role_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assessmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssessmentDelegationResult {
             assessment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assessmentId").unwrap(),
+                o.extract_field("assessmentId"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             control_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlSetId").unwrap(),
+                o.extract_field("controlSetId"),
             ),
             delegation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegationId").unwrap(),
+                o.extract_field("delegationId"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             role_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleType").unwrap(),
+                o.extract_field("roleType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

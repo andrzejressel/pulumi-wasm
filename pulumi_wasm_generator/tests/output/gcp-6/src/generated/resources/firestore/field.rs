@@ -261,57 +261,25 @@ pub mod field {
                     value: &ttl_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "collection".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "field".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttlConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FieldResult {
             collection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collection").unwrap(),
+                o.extract_field("collection"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
-            field: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("field").unwrap(),
-            ),
+            field: pulumi_wasm_rust::__private::into_domain(o.extract_field("field")),
             index_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexConfig").unwrap(),
+                o.extract_field("indexConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             ttl_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttlConfig").unwrap(),
+                o.extract_field("ttlConfig"),
             ),
         }
     }

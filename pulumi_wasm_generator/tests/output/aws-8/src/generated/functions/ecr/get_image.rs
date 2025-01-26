@@ -80,73 +80,36 @@ pub mod get_image {
                     value: &repository_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageDigest".into(),
-                },
-                register_interface::ResultField {
-                    name: "imagePushedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetImageResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageDigest").unwrap(),
+                o.extract_field("imageDigest"),
             ),
             image_pushed_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imagePushedAt").unwrap(),
+                o.extract_field("imagePushedAt"),
             ),
             image_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageSizeInBytes").unwrap(),
+                o.extract_field("imageSizeInBytes"),
             ),
             image_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTag").unwrap(),
+                o.extract_field("imageTag"),
             ),
             image_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTags").unwrap(),
+                o.extract_field("imageTags"),
             ),
             image_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageUri").unwrap(),
+                o.extract_field("imageUri"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             repository_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryName").unwrap(),
+                o.extract_field("repositoryName"),
             ),
         }
     }

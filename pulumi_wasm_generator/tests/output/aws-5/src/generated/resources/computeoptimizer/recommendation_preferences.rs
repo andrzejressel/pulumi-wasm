@@ -243,69 +243,33 @@ pub mod recommendation_preferences {
                     value: &utilization_preferences_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enhancedInfrastructureMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalMetricsPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferredWorkloadTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "lookBackPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "savingsEstimationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "utilizationPreferences".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RecommendationPreferencesResult {
             enhanced_infrastructure_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedInfrastructureMetrics").unwrap(),
+                o.extract_field("enhancedInfrastructureMetrics"),
             ),
             external_metrics_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalMetricsPreference").unwrap(),
+                o.extract_field("externalMetricsPreference"),
             ),
             inferred_workload_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferredWorkloadTypes").unwrap(),
+                o.extract_field("inferredWorkloadTypes"),
             ),
             look_back_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lookBackPeriod").unwrap(),
+                o.extract_field("lookBackPeriod"),
             ),
             preferred_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredResources").unwrap(),
+                o.extract_field("preferredResources"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             savings_estimation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("savingsEstimationMode").unwrap(),
+                o.extract_field("savingsEstimationMode"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
             utilization_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("utilizationPreferences").unwrap(),
+                o.extract_field("utilizationPreferences"),
             ),
         }
     }

@@ -78,44 +78,20 @@ pub mod get_local_gateway_virtual_interface_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayVirtualInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLocalGatewayVirtualInterfaceGroupResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             local_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayId").unwrap(),
+                o.extract_field("localGatewayId"),
             ),
             local_gateway_virtual_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayVirtualInterfaceIds").unwrap(),
+                o.extract_field("localGatewayVirtualInterfaceIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

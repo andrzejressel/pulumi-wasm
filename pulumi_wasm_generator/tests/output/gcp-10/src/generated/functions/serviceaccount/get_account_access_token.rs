@@ -66,49 +66,22 @@ pub mod get_account_access_token {
                     value: &target_service_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegates".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifetime".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccount".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountAccessTokenResult {
             access_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessToken").unwrap(),
+                o.extract_field("accessToken"),
             ),
             delegates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegates").unwrap(),
+                o.extract_field("delegates"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lifetime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifetime").unwrap(),
+                o.extract_field("lifetime"),
             ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
             target_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccount").unwrap(),
+                o.extract_field("targetServiceAccount"),
             ),
         }
     }

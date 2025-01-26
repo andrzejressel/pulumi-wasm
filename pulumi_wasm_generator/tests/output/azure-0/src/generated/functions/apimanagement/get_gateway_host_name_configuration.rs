@@ -68,73 +68,34 @@ pub mod get_gateway_host_name_configuration {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "http2Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestClientCertificateEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tls10Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tls11Enabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGatewayHostNameConfigurationResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
             certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateId").unwrap(),
+                o.extract_field("certificateId"),
             ),
             gateway_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayName").unwrap(),
+                o.extract_field("gatewayName"),
             ),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
             http2_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("http2Enabled").unwrap(),
+                o.extract_field("http2Enabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             request_client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestClientCertificateEnabled").unwrap(),
+                o.extract_field("requestClientCertificateEnabled"),
             ),
             tls10_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tls10Enabled").unwrap(),
+                o.extract_field("tls10Enabled"),
             ),
             tls11_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tls11Enabled").unwrap(),
+                o.extract_field("tls11Enabled"),
             ),
         }
     }

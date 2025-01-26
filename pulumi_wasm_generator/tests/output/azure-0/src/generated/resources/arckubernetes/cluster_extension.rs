@@ -195,82 +195,38 @@ pub mod cluster_extension {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationProtectedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseTrain".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterExtensionResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             configuration_protected_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationProtectedSettings").unwrap(),
+                o.extract_field("configurationProtectedSettings"),
             ),
             configuration_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationSettings").unwrap(),
+                o.extract_field("configurationSettings"),
             ),
             current_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentVersion").unwrap(),
+                o.extract_field("currentVersion"),
             ),
             extension_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensionType").unwrap(),
+                o.extract_field("extensionType"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             release_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseNamespace").unwrap(),
+                o.extract_field("releaseNamespace"),
             ),
             release_train: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseTrain").unwrap(),
+                o.extract_field("releaseTrain"),
             ),
             target_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetNamespace").unwrap(),
+                o.extract_field("targetNamespace"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

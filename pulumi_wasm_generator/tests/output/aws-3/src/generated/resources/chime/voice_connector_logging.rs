@@ -97,33 +97,17 @@ pub mod voice_connector_logging {
                     value: &voice_connector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enableMediaMetricLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSipLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceConnectorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VoiceConnectorLoggingResult {
             enable_media_metric_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableMediaMetricLogs").unwrap(),
+                o.extract_field("enableMediaMetricLogs"),
             ),
             enable_sip_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSipLogs").unwrap(),
+                o.extract_field("enableSipLogs"),
             ),
             voice_connector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceConnectorId").unwrap(),
+                o.extract_field("voiceConnectorId"),
             ),
         }
     }

@@ -56,37 +56,18 @@ pub mod get_virtual_machine_manager_inventory_items {
                     value: &system_center_virtual_machine_manager_server_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inventoryItems".into(),
-                },
-                register_interface::ResultField {
-                    name: "inventoryType".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemCenterVirtualMachineManagerServerId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualMachineManagerInventoryItemsResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inventory_items: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inventoryItems").unwrap(),
+                o.extract_field("inventoryItems"),
             ),
             inventory_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inventoryType").unwrap(),
+                o.extract_field("inventoryType"),
             ),
             system_center_virtual_machine_manager_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemCenterVirtualMachineManagerServerId").unwrap(),
+                o.extract_field("systemCenterVirtualMachineManagerServerId"),
             ),
         }
     }

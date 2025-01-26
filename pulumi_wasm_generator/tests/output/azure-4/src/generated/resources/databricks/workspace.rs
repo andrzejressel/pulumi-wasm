@@ -344,171 +344,80 @@ pub mod workspace {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessConnectorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultStorageFirewallEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedSecurityCompliance".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerBackendAddressPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskCmkKeyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskCmkKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskCmkRotationToLatestVersionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskIdentities".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedServicesCmkKeyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedServicesCmkKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSecurityGroupRulesRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountIdentities".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceResult {
             access_connector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessConnectorId").unwrap(),
+                o.extract_field("accessConnectorId"),
             ),
             custom_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customParameters").unwrap(),
+                o.extract_field("customParameters"),
             ),
             customer_managed_key_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyEnabled").unwrap(),
+                o.extract_field("customerManagedKeyEnabled"),
             ),
             default_storage_firewall_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultStorageFirewallEnabled").unwrap(),
+                o.extract_field("defaultStorageFirewallEnabled"),
             ),
             disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionSetId").unwrap(),
+                o.extract_field("diskEncryptionSetId"),
             ),
             enhanced_security_compliance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedSecurityCompliance").unwrap(),
+                o.extract_field("enhancedSecurityCompliance"),
             ),
             infrastructure_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureEncryptionEnabled").unwrap(),
+                o.extract_field("infrastructureEncryptionEnabled"),
             ),
             load_balancer_backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerBackendAddressPoolId").unwrap(),
+                o.extract_field("loadBalancerBackendAddressPoolId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_disk_cmk_key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskCmkKeyVaultId").unwrap(),
+                o.extract_field("managedDiskCmkKeyVaultId"),
             ),
             managed_disk_cmk_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskCmkKeyVaultKeyId").unwrap(),
+                o.extract_field("managedDiskCmkKeyVaultKeyId"),
             ),
             managed_disk_cmk_rotation_to_latest_version_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskCmkRotationToLatestVersionEnabled").unwrap(),
+                o.extract_field("managedDiskCmkRotationToLatestVersionEnabled"),
             ),
             managed_disk_identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskIdentities").unwrap(),
+                o.extract_field("managedDiskIdentities"),
             ),
             managed_resource_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupId").unwrap(),
+                o.extract_field("managedResourceGroupId"),
             ),
             managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupName").unwrap(),
+                o.extract_field("managedResourceGroupName"),
             ),
             managed_services_cmk_key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedServicesCmkKeyVaultId").unwrap(),
+                o.extract_field("managedServicesCmkKeyVaultId"),
             ),
             managed_services_cmk_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedServicesCmkKeyVaultKeyId").unwrap(),
+                o.extract_field("managedServicesCmkKeyVaultKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_security_group_rules_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSecurityGroupRulesRequired").unwrap(),
+                o.extract_field("networkSecurityGroupRulesRequired"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             storage_account_identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountIdentities").unwrap(),
+                o.extract_field("storageAccountIdentities"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
             workspace_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceUrl").unwrap(),
+                o.extract_field("workspaceUrl"),
             ),
         }
     }

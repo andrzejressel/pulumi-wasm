@@ -276,141 +276,63 @@ pub mod bot {
                     value: &voice_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "abortStatement".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "checksum".into(),
-                },
-                register_interface::ResultField {
-                    name: "childDirected".into(),
-                },
-                register_interface::ResultField {
-                    name: "clarificationPrompt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectSentiment".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableModelImprovements".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleSessionTtlInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "intents".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "locale".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nluIntentConfidenceThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "processBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BotResult {
             abort_statement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("abortStatement").unwrap(),
+                o.extract_field("abortStatement"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             checksum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checksum").unwrap(),
+                o.extract_field("checksum"),
             ),
             child_directed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("childDirected").unwrap(),
+                o.extract_field("childDirected"),
             ),
             clarification_prompt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clarificationPrompt").unwrap(),
+                o.extract_field("clarificationPrompt"),
             ),
             create_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createVersion").unwrap(),
+                o.extract_field("createVersion"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             detect_sentiment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectSentiment").unwrap(),
+                o.extract_field("detectSentiment"),
             ),
             enable_model_improvements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableModelImprovements").unwrap(),
+                o.extract_field("enableModelImprovements"),
             ),
             failure_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureReason").unwrap(),
+                o.extract_field("failureReason"),
             ),
             idle_session_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleSessionTtlInSeconds").unwrap(),
+                o.extract_field("idleSessionTtlInSeconds"),
             ),
             intents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("intents").unwrap(),
+                o.extract_field("intents"),
             ),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
-            locale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locale").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            locale: pulumi_wasm_rust::__private::into_domain(o.extract_field("locale")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nlu_intent_confidence_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nluIntentConfidenceThreshold").unwrap(),
+                o.extract_field("nluIntentConfidenceThreshold"),
             ),
             process_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("processBehavior").unwrap(),
+                o.extract_field("processBehavior"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             voice_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceId").unwrap(),
+                o.extract_field("voiceId"),
             ),
         }
     }

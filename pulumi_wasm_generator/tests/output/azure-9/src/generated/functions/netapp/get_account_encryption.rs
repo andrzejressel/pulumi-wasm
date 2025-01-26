@@ -39,43 +39,21 @@ pub mod get_account_encryption {
                     value: &netapp_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "encryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "netappAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemAssignedIdentityPrincipalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAssignedIdentityId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountEncryptionResult {
             encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKey").unwrap(),
+                o.extract_field("encryptionKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             netapp_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netappAccountId").unwrap(),
+                o.extract_field("netappAccountId"),
             ),
             system_assigned_identity_principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemAssignedIdentityPrincipalId").unwrap(),
+                o.extract_field("systemAssignedIdentityPrincipalId"),
             ),
             user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAssignedIdentityId").unwrap(),
+                o.extract_field("userAssignedIdentityId"),
             ),
         }
     }

@@ -19,32 +19,16 @@ pub mod get_functions {
             token: "aws:lambda/getFunctions:getFunctions".into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "functionArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionsResult {
             function_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionArns").unwrap(),
+                o.extract_field("functionArns"),
             ),
             function_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionNames").unwrap(),
+                o.extract_field("functionNames"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

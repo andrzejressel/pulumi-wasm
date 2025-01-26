@@ -92,68 +92,28 @@ pub mod get_instance_guest_attributes {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "variableKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "variableValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceGuestAttributesResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             query_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryPath").unwrap(),
+                o.extract_field("queryPath"),
             ),
             query_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryValues").unwrap(),
+                o.extract_field("queryValues"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             variable_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variableKey").unwrap(),
+                o.extract_field("variableKey"),
             ),
             variable_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variableValue").unwrap(),
+                o.extract_field("variableValue"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

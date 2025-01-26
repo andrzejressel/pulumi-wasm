@@ -191,75 +191,34 @@ pub mod workteam {
                     value: &workteam_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberDefinitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerAccessConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "workforceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workteamName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkteamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             member_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberDefinitions").unwrap(),
+                o.extract_field("memberDefinitions"),
             ),
             notification_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationConfiguration").unwrap(),
+                o.extract_field("notificationConfiguration"),
             ),
             subdomain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdomain").unwrap(),
+                o.extract_field("subdomain"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             worker_access_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerAccessConfiguration").unwrap(),
+                o.extract_field("workerAccessConfiguration"),
             ),
             workforce_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workforceName").unwrap(),
+                o.extract_field("workforceName"),
             ),
             workteam_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workteamName").unwrap(),
+                o.extract_field("workteamName"),
             ),
         }
     }

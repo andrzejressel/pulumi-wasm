@@ -75,27 +75,14 @@ pub mod invitation_accepter {
                     value: &administrator_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InvitationAccepterResult {
             administrator_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorAccountId").unwrap(),
+                o.extract_field("administratorAccountId"),
             ),
             invitation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitationId").unwrap(),
+                o.extract_field("invitationId"),
             ),
         }
     }

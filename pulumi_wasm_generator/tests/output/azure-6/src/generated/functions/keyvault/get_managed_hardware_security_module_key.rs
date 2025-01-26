@@ -61,85 +61,36 @@ pub mod get_managed_hardware_security_module_key {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "curve".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBeforeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionedId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetManagedHardwareSecurityModuleKeyResult {
-            curve: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("curve").unwrap(),
-            ),
+            curve: pulumi_wasm_rust::__private::into_domain(o.extract_field("curve")),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyOpts").unwrap(),
+                o.extract_field("keyOpts"),
             ),
             key_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySize").unwrap(),
+                o.extract_field("keySize"),
             ),
             key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyType").unwrap(),
+                o.extract_field("keyType"),
             ),
             managed_hsm_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmId").unwrap(),
+                o.extract_field("managedHsmId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBeforeDate").unwrap(),
+                o.extract_field("notBeforeDate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             versioned_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionedId").unwrap(),
+                o.extract_field("versionedId"),
             ),
         }
     }

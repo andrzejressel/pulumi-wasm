@@ -399,81 +399,37 @@ pub mod assignment {
                     value: &skip_service_principal_aad_check_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditionVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedManagedIdentityResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleDefinitionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipServicePrincipalAadCheck".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentResult {
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             condition_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditionVersion").unwrap(),
+                o.extract_field("conditionVersion"),
             ),
             delegated_managed_identity_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedManagedIdentityResourceId").unwrap(),
+                o.extract_field("delegatedManagedIdentityResourceId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             role_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleDefinitionId").unwrap(),
+                o.extract_field("roleDefinitionId"),
             ),
             role_definition_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleDefinitionName").unwrap(),
+                o.extract_field("roleDefinitionName"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
             skip_service_principal_aad_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipServicePrincipalAadCheck").unwrap(),
+                o.extract_field("skipServicePrincipalAadCheck"),
             ),
         }
     }

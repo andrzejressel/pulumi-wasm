@@ -72,27 +72,14 @@ pub mod function_recursion_config {
                     value: &recursive_loop_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "recursiveLoop".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FunctionRecursionConfigResult {
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
             recursive_loop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recursiveLoop").unwrap(),
+                o.extract_field("recursiveLoop"),
             ),
         }
     }

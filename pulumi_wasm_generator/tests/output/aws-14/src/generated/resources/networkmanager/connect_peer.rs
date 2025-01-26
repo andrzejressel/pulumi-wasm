@@ -153,105 +153,47 @@ pub mod connect_peer {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectPeerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "insideCidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectPeerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bgp_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpOptions").unwrap(),
+                o.extract_field("bgpOptions"),
             ),
             configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurations").unwrap(),
+                o.extract_field("configurations"),
             ),
             connect_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectAttachmentId").unwrap(),
+                o.extract_field("connectAttachmentId"),
             ),
             connect_peer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectPeerId").unwrap(),
+                o.extract_field("connectPeerId"),
             ),
             core_network_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkAddress").unwrap(),
+                o.extract_field("coreNetworkAddress"),
             ),
             core_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkId").unwrap(),
+                o.extract_field("coreNetworkId"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             edge_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeLocation").unwrap(),
+                o.extract_field("edgeLocation"),
             ),
             inside_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insideCidrBlocks").unwrap(),
+                o.extract_field("insideCidrBlocks"),
             ),
             peer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAddress").unwrap(),
+                o.extract_field("peerAddress"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnet_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetArn").unwrap(),
+                o.extract_field("subnetArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

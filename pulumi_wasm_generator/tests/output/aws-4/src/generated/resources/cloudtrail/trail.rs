@@ -534,129 +534,59 @@ pub mod trail {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedEventSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudWatchLogsGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudWatchLogsRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogFileValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeGlobalServiceEvents".into(),
-                },
-                register_interface::ResultField {
-                    name: "insightSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "isMultiRegionTrail".into(),
-                },
-                register_interface::ResultField {
-                    name: "isOrganizationTrail".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3KeyPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrailResult {
             advanced_event_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedEventSelectors").unwrap(),
+                o.extract_field("advancedEventSelectors"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloud_watch_logs_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudWatchLogsGroupArn").unwrap(),
+                o.extract_field("cloudWatchLogsGroupArn"),
             ),
             cloud_watch_logs_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudWatchLogsRoleArn").unwrap(),
+                o.extract_field("cloudWatchLogsRoleArn"),
             ),
             enable_log_file_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogFileValidation").unwrap(),
+                o.extract_field("enableLogFileValidation"),
             ),
             enable_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogging").unwrap(),
+                o.extract_field("enableLogging"),
             ),
             event_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSelectors").unwrap(),
+                o.extract_field("eventSelectors"),
             ),
             home_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeRegion").unwrap(),
+                o.extract_field("homeRegion"),
             ),
             include_global_service_events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeGlobalServiceEvents").unwrap(),
+                o.extract_field("includeGlobalServiceEvents"),
             ),
             insight_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insightSelectors").unwrap(),
+                o.extract_field("insightSelectors"),
             ),
             is_multi_region_trail: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isMultiRegionTrail").unwrap(),
+                o.extract_field("isMultiRegionTrail"),
             ),
             is_organization_trail: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isOrganizationTrail").unwrap(),
+                o.extract_field("isOrganizationTrail"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketName").unwrap(),
+                o.extract_field("s3BucketName"),
             ),
             s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3KeyPrefix").unwrap(),
+                o.extract_field("s3KeyPrefix"),
             ),
             sns_topic_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicName").unwrap(),
+                o.extract_field("snsTopicName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

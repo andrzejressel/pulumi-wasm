@@ -77,70 +77,30 @@ pub mod license_grant_accepter {
                     value: &grant_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedOperations".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LicenseGrantAccepterResult {
             allowed_operations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedOperations").unwrap(),
+                o.extract_field("allowedOperations"),
             ),
             grant_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantArn").unwrap(),
+                o.extract_field("grantArn"),
             ),
             home_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeRegion").unwrap(),
+                o.extract_field("homeRegion"),
             ),
             license_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseArn").unwrap(),
+                o.extract_field("licenseArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentArn").unwrap(),
+                o.extract_field("parentArn"),
             ),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

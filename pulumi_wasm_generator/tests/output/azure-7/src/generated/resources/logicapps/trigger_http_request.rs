@@ -129,52 +129,21 @@ pub mod trigger_http_request {
                     value: &schema_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "callbackUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "relativePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TriggerHttpRequestResult {
             callback_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callbackUrl").unwrap(),
+                o.extract_field("callbackUrl"),
             ),
             logic_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicAppId").unwrap(),
+                o.extract_field("logicAppId"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             relative_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relativePath").unwrap(),
+                o.extract_field("relativePath"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
         }
     }
 }

@@ -61,55 +61,27 @@ pub mod get_kubernetes_service_versions {
                     value: &version_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includePreview".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "versions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKubernetesServiceVersionsResult {
             default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVersion").unwrap(),
+                o.extract_field("defaultVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includePreview").unwrap(),
+                o.extract_field("includePreview"),
             ),
             latest_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestVersion").unwrap(),
+                o.extract_field("latestVersion"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             version_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionPrefix").unwrap(),
+                o.extract_field("versionPrefix"),
             ),
             versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versions").unwrap(),
+                o.extract_field("versions"),
             ),
         }
     }

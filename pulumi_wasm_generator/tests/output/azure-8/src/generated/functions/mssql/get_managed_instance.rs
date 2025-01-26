@@ -84,146 +84,65 @@ pub mod get_managed_instance {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "collation".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsZonePartnerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicDataEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageSizeInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timezoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcores".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetManagedInstanceResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collation").unwrap(),
+                o.extract_field("collation"),
             ),
             customer_managed_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyId").unwrap(),
+                o.extract_field("customerManagedKeyId"),
             ),
             dns_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsZone").unwrap(),
+                o.extract_field("dnsZone"),
             ),
             dns_zone_partner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsZonePartnerId").unwrap(),
+                o.extract_field("dnsZonePartnerId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumTlsVersion").unwrap(),
+                o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             proxy_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyOverride").unwrap(),
+                o.extract_field("proxyOverride"),
             ),
             public_data_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicDataEndpointEnabled").unwrap(),
+                o.extract_field("publicDataEndpointEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
             storage_size_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageSizeInGb").unwrap(),
+                o.extract_field("storageSizeInGb"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timezone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timezoneId").unwrap(),
+                o.extract_field("timezoneId"),
             ),
-            vcores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcores").unwrap(),
-            ),
+            vcores: pulumi_wasm_rust::__private::into_domain(o.extract_field("vcores")),
         }
     }
 }

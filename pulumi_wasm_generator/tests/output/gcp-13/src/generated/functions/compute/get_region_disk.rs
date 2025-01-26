@@ -92,182 +92,79 @@ pub mod get_region_disk {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "asyncPrimaryDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestOsFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "interface".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastAttachTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastDetachTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenses".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "physicalBlockSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "size".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSnapshotEncryptionKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSnapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "users".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegionDiskResult {
             async_primary_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("asyncPrimaryDisks").unwrap(),
+                o.extract_field("asyncPrimaryDisks"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disk_encryption_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionKeys").unwrap(),
+                o.extract_field("diskEncryptionKeys"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             guest_os_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestOsFeatures").unwrap(),
+                o.extract_field("guestOsFeatures"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interface").unwrap(),
+                o.extract_field("interface"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             last_attach_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastAttachTimestamp").unwrap(),
+                o.extract_field("lastAttachTimestamp"),
             ),
             last_detach_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastDetachTimestamp").unwrap(),
+                o.extract_field("lastDetachTimestamp"),
             ),
             licenses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenses").unwrap(),
+                o.extract_field("licenses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             physical_block_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("physicalBlockSizeBytes").unwrap(),
+                o.extract_field("physicalBlockSizeBytes"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             replica_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaZones").unwrap(),
+                o.extract_field("replicaZones"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("size").unwrap(),
-            ),
+            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
             snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshot").unwrap(),
+                o.extract_field("snapshot"),
             ),
             source_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDisk").unwrap(),
+                o.extract_field("sourceDisk"),
             ),
             source_disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDiskId").unwrap(),
+                o.extract_field("sourceDiskId"),
             ),
             source_snapshot_encryption_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSnapshotEncryptionKeys").unwrap(),
+                o.extract_field("sourceSnapshotEncryptionKeys"),
             ),
             source_snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSnapshotId").unwrap(),
+                o.extract_field("sourceSnapshotId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("users").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

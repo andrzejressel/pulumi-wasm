@@ -464,123 +464,60 @@ pub mod organization {
                     value: &runtime_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "analyticsRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiConsumerDataEncryptionKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiConsumerDataLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "apigeeProjectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "caCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneEncryptionKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableVpcPeering".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "retention".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeDatabaseEncryptionKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationResult {
             analytics_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticsRegion").unwrap(),
+                o.extract_field("analyticsRegion"),
             ),
             api_consumer_data_encryption_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiConsumerDataEncryptionKeyName").unwrap(),
+                o.extract_field("apiConsumerDataEncryptionKeyName"),
             ),
             api_consumer_data_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiConsumerDataLocation").unwrap(),
+                o.extract_field("apiConsumerDataLocation"),
             ),
             apigee_project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apigeeProjectId").unwrap(),
+                o.extract_field("apigeeProjectId"),
             ),
             authorized_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedNetwork").unwrap(),
+                o.extract_field("authorizedNetwork"),
             ),
             billing_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingType").unwrap(),
+                o.extract_field("billingType"),
             ),
             ca_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertificate").unwrap(),
+                o.extract_field("caCertificate"),
             ),
             control_plane_encryption_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneEncryptionKeyName").unwrap(),
+                o.extract_field("controlPlaneEncryptionKeyName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_vpc_peering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableVpcPeering").unwrap(),
+                o.extract_field("disableVpcPeering"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectId").unwrap(),
+                o.extract_field("projectId"),
             ),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retention").unwrap(),
+                o.extract_field("retention"),
             ),
             runtime_database_encryption_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeDatabaseEncryptionKeyName").unwrap(),
+                o.extract_field("runtimeDatabaseEncryptionKeyName"),
             ),
             runtime_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeType").unwrap(),
+                o.extract_field("runtimeType"),
             ),
             subscription_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionType").unwrap(),
+                o.extract_field("subscriptionType"),
             ),
         }
     }

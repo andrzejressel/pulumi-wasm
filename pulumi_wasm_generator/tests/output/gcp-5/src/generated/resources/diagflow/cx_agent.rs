@@ -361,117 +361,57 @@ pub mod cx_agent {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "avatarUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultLanguageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSpellCorrection".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStackdriverLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "gitIntegrationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "securitySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "speechToTextSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "startFlow".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedLanguageCodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "textToSpeechSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxAgentResult {
             advanced_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedSettings").unwrap(),
+                o.extract_field("advancedSettings"),
             ),
             avatar_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("avatarUri").unwrap(),
+                o.extract_field("avatarUri"),
             ),
             default_language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultLanguageCode").unwrap(),
+                o.extract_field("defaultLanguageCode"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_spell_correction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSpellCorrection").unwrap(),
+                o.extract_field("enableSpellCorrection"),
             ),
             enable_stackdriver_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStackdriverLogging").unwrap(),
+                o.extract_field("enableStackdriverLogging"),
             ),
             git_integration_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gitIntegrationSettings").unwrap(),
+                o.extract_field("gitIntegrationSettings"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             security_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securitySettings").unwrap(),
+                o.extract_field("securitySettings"),
             ),
             speech_to_text_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("speechToTextSettings").unwrap(),
+                o.extract_field("speechToTextSettings"),
             ),
             start_flow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startFlow").unwrap(),
+                o.extract_field("startFlow"),
             ),
             supported_language_codes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedLanguageCodes").unwrap(),
+                o.extract_field("supportedLanguageCodes"),
             ),
             text_to_speech_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("textToSpeechSettings").unwrap(),
+                o.extract_field("textToSpeechSettings"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

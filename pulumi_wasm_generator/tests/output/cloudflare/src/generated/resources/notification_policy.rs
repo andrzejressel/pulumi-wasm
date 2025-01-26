@@ -153,81 +153,39 @@ pub mod notification_policy {
                     value: &webhooks_integrations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "alertType".into(),
-                },
-                register_interface::ResultField {
-                    name: "created".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailIntegrations".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "modified".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pagerdutyIntegrations".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhooksIntegrations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationPolicyResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             alert_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertType").unwrap(),
+                o.extract_field("alertType"),
             ),
             created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("created").unwrap(),
+                o.extract_field("created"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             email_integrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailIntegrations").unwrap(),
+                o.extract_field("emailIntegrations"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modified").unwrap(),
+                o.extract_field("modified"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pagerduty_integrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pagerdutyIntegrations").unwrap(),
+                o.extract_field("pagerdutyIntegrations"),
             ),
             webhooks_integrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhooksIntegrations").unwrap(),
+                o.extract_field("webhooksIntegrations"),
             ),
         }
     }

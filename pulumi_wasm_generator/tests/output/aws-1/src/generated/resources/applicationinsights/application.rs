@@ -166,75 +166,34 @@ pub mod application {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoConfigEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoCreate".into(),
-                },
-                register_interface::ResultField {
-                    name: "cweMonitorEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "opsCenterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "opsItemSnsTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_config_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoConfigEnabled").unwrap(),
+                o.extract_field("autoConfigEnabled"),
             ),
             auto_create: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoCreate").unwrap(),
+                o.extract_field("autoCreate"),
             ),
             cwe_monitor_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cweMonitorEnabled").unwrap(),
+                o.extract_field("cweMonitorEnabled"),
             ),
             grouping_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupingType").unwrap(),
+                o.extract_field("groupingType"),
             ),
             ops_center_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opsCenterEnabled").unwrap(),
+                o.extract_field("opsCenterEnabled"),
             ),
             ops_item_sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opsItemSnsTopicArn").unwrap(),
+                o.extract_field("opsItemSnsTopicArn"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

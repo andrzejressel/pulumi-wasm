@@ -109,151 +109,71 @@ pub mod get_domain {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedSecurityOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoTuneOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitoOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "created".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleted".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearchVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionAtRests".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kibanaEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "logPublishingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeToNodeEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "processing".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDomainResult {
             access_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicies").unwrap(),
+                o.extract_field("accessPolicies"),
             ),
             advanced_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedOptions").unwrap(),
+                o.extract_field("advancedOptions"),
             ),
             advanced_security_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedSecurityOptions").unwrap(),
+                o.extract_field("advancedSecurityOptions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_tune_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoTuneOptions").unwrap(),
+                o.extract_field("autoTuneOptions"),
             ),
             cluster_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterConfigs").unwrap(),
+                o.extract_field("clusterConfigs"),
             ),
             cognito_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitoOptions").unwrap(),
+                o.extract_field("cognitoOptions"),
             ),
             created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("created").unwrap(),
+                o.extract_field("created"),
             ),
             deleted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleted").unwrap(),
+                o.extract_field("deleted"),
             ),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             ebs_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptions").unwrap(),
+                o.extract_field("ebsOptions"),
             ),
             elasticsearch_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearchVersion").unwrap(),
+                o.extract_field("elasticsearchVersion"),
             ),
             encryption_at_rests: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionAtRests").unwrap(),
+                o.extract_field("encryptionAtRests"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kibana_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kibanaEndpoint").unwrap(),
+                o.extract_field("kibanaEndpoint"),
             ),
             log_publishing_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logPublishingOptions").unwrap(),
+                o.extract_field("logPublishingOptions"),
             ),
             node_to_node_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeToNodeEncryptions").unwrap(),
+                o.extract_field("nodeToNodeEncryptions"),
             ),
             processing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("processing").unwrap(),
+                o.extract_field("processing"),
             ),
             snapshot_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotOptions").unwrap(),
+                o.extract_field("snapshotOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vpc_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOptions").unwrap(),
+                o.extract_field("vpcOptions"),
             ),
         }
     }

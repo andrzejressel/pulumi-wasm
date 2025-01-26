@@ -182,69 +182,31 @@ pub mod cluster_endpoint {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEndpointIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "customEndpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludedMembers".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticMembers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_endpoint_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEndpointIdentifier").unwrap(),
+                o.extract_field("clusterEndpointIdentifier"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             custom_endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customEndpointType").unwrap(),
+                o.extract_field("customEndpointType"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             excluded_members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludedMembers").unwrap(),
+                o.extract_field("excludedMembers"),
             ),
             static_members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticMembers").unwrap(),
+                o.extract_field("staticMembers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

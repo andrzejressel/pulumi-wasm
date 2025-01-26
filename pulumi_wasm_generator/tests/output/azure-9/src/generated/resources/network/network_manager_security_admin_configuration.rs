@@ -129,39 +129,18 @@ pub mod network_manager_security_admin_configuration {
                     value: &network_manager_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyOnNetworkIntentPolicyBasedServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkManagerId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkManagerSecurityAdminConfigurationResult {
             apply_on_network_intent_policy_based_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyOnNetworkIntentPolicyBasedServices").unwrap(),
+                o.extract_field("applyOnNetworkIntentPolicyBasedServices"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkManagerId").unwrap(),
+                o.extract_field("networkManagerId"),
             ),
         }
     }

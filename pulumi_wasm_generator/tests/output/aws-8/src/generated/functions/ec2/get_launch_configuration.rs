@@ -76,121 +76,56 @@ pub mod get_launch_configuration {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatePublicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsBlockDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableMonitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralBlockDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamInstanceProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementTenancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootBlockDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "userData".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLaunchConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associate_public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatePublicIpAddress").unwrap(),
+                o.extract_field("associatePublicIpAddress"),
             ),
             ebs_block_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsBlockDevices").unwrap(),
+                o.extract_field("ebsBlockDevices"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             enable_monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableMonitoring").unwrap(),
+                o.extract_field("enableMonitoring"),
             ),
             ephemeral_block_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralBlockDevices").unwrap(),
+                o.extract_field("ephemeralBlockDevices"),
             ),
             iam_instance_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamInstanceProfile").unwrap(),
+                o.extract_field("iamInstanceProfile"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             metadata_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataOptions").unwrap(),
+                o.extract_field("metadataOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             placement_tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementTenancy").unwrap(),
+                o.extract_field("placementTenancy"),
             ),
             root_block_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootBlockDevices").unwrap(),
+                o.extract_field("rootBlockDevices"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             spot_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotPrice").unwrap(),
+                o.extract_field("spotPrice"),
             ),
             user_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userData").unwrap(),
+                o.extract_field("userData"),
             ),
         }
     }

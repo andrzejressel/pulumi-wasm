@@ -240,111 +240,50 @@ pub mod open_zfs_volume {
                     value: &volume_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToSnapshots".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCompressionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteVolumeOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nfsExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "originSnapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentVolumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "readOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordSizeKib".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacityQuotaGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacityReservationGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAndGroupQuotas".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OpenZfsVolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             copy_tags_to_snapshots: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToSnapshots").unwrap(),
+                o.extract_field("copyTagsToSnapshots"),
             ),
             data_compression_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCompressionType").unwrap(),
+                o.extract_field("dataCompressionType"),
             ),
             delete_volume_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteVolumeOptions").unwrap(),
+                o.extract_field("deleteVolumeOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nfs_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nfsExports").unwrap(),
+                o.extract_field("nfsExports"),
             ),
             origin_snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originSnapshot").unwrap(),
+                o.extract_field("originSnapshot"),
             ),
             parent_volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentVolumeId").unwrap(),
+                o.extract_field("parentVolumeId"),
             ),
             read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readOnly").unwrap(),
+                o.extract_field("readOnly"),
             ),
             record_size_kib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordSizeKib").unwrap(),
+                o.extract_field("recordSizeKib"),
             ),
             storage_capacity_quota_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacityQuotaGib").unwrap(),
+                o.extract_field("storageCapacityQuotaGib"),
             ),
             storage_capacity_reservation_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacityReservationGib").unwrap(),
+                o.extract_field("storageCapacityReservationGib"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_and_group_quotas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAndGroupQuotas").unwrap(),
+                o.extract_field("userAndGroupQuotas"),
             ),
             volume_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeType").unwrap(),
+                o.extract_field("volumeType"),
             ),
         }
     }

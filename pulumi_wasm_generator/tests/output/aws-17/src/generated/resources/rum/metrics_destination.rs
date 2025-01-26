@@ -96,39 +96,20 @@ pub mod metrics_destination {
                     value: &iam_role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appMonitorName".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricsDestinationResult {
             app_monitor_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appMonitorName").unwrap(),
+                o.extract_field("appMonitorName"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationArn").unwrap(),
+                o.extract_field("destinationArn"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
         }
     }

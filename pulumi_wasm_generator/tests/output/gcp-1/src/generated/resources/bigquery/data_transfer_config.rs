@@ -465,111 +465,52 @@ pub mod data_transfer_config {
                     value: &service_account_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataRefreshWindowDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationDatasetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailPreferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationPubsubTopic".into(),
-                },
-                register_interface::ResultField {
-                    name: "params".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "sensitiveParams".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataTransferConfigResult {
             data_refresh_window_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataRefreshWindowDays").unwrap(),
+                o.extract_field("dataRefreshWindowDays"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
             destination_dataset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationDatasetId").unwrap(),
+                o.extract_field("destinationDatasetId"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             email_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailPreferences").unwrap(),
+                o.extract_field("emailPreferences"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_pubsub_topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationPubsubTopic").unwrap(),
+                o.extract_field("notificationPubsubTopic"),
             ),
-            params: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("params").unwrap(),
-            ),
+            params: pulumi_wasm_rust::__private::into_domain(o.extract_field("params")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             schedule_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleOptions").unwrap(),
+                o.extract_field("scheduleOptions"),
             ),
             sensitive_params: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sensitiveParams").unwrap(),
+                o.extract_field("sensitiveParams"),
             ),
             service_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountName").unwrap(),
+                o.extract_field("serviceAccountName"),
             ),
         }
     }

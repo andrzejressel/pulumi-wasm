@@ -172,75 +172,32 @@ pub mod resolver_rule {
                     value: &target_ips_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resolverEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleType".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetIps".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             resolver_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverEndpointId").unwrap(),
+                o.extract_field("resolverEndpointId"),
             ),
             rule_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleType").unwrap(),
+                o.extract_field("ruleType"),
             ),
             share_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareStatus").unwrap(),
+                o.extract_field("shareStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetIps").unwrap(),
+                o.extract_field("targetIps"),
             ),
         }
     }

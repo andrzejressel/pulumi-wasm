@@ -192,75 +192,34 @@ pub mod source_control_slot {
                     value: &use_mercurial_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "branch".into(),
-                },
-                register_interface::ResultField {
-                    name: "githubActionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "repoUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollbackEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "scmType".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "useLocalGit".into(),
-                },
-                register_interface::ResultField {
-                    name: "useManualIntegration".into(),
-                },
-                register_interface::ResultField {
-                    name: "useMercurial".into(),
-                },
-                register_interface::ResultField {
-                    name: "usesGithubAction".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceControlSlotResult {
-            branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branch").unwrap(),
-            ),
+            branch: pulumi_wasm_rust::__private::into_domain(o.extract_field("branch")),
             github_action_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("githubActionConfiguration").unwrap(),
+                o.extract_field("githubActionConfiguration"),
             ),
             repo_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repoUrl").unwrap(),
+                o.extract_field("repoUrl"),
             ),
             rollback_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollbackEnabled").unwrap(),
+                o.extract_field("rollbackEnabled"),
             ),
             scm_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scmType").unwrap(),
+                o.extract_field("scmType"),
             ),
-            slot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotId").unwrap(),
-            ),
+            slot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("slotId")),
             use_local_git: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useLocalGit").unwrap(),
+                o.extract_field("useLocalGit"),
             ),
             use_manual_integration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useManualIntegration").unwrap(),
+                o.extract_field("useManualIntegration"),
             ),
             use_mercurial: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useMercurial").unwrap(),
+                o.extract_field("useMercurial"),
             ),
             uses_github_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usesGithubAction").unwrap(),
+                o.extract_field("usesGithubAction"),
             ),
         }
     }

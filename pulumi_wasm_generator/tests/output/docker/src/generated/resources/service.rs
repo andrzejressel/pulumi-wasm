@@ -197,69 +197,27 @@ pub mod service {
                     value: &update_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auth".into(),
-                },
-                register_interface::ResultField {
-                    name: "convergeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollbackConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
-            auth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auth").unwrap(),
-            ),
+            auth: pulumi_wasm_rust::__private::into_domain(o.extract_field("auth")),
             converge_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("convergeConfig").unwrap(),
+                o.extract_field("convergeConfig"),
             ),
             endpoint_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointSpec").unwrap(),
+                o.extract_field("endpointSpec"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rollback_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollbackConfig").unwrap(),
+                o.extract_field("rollbackConfig"),
             ),
             task_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskSpec").unwrap(),
+                o.extract_field("taskSpec"),
             ),
             update_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateConfig").unwrap(),
+                o.extract_field("updateConfig"),
             ),
         }
     }

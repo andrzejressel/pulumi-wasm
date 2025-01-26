@@ -196,75 +196,30 @@ pub mod response_plan {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "chatChannels".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "engagements".into(),
-                },
-                register_interface::ResultField {
-                    name: "incidentTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "integration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResponsePlanResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             chat_channels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chatChannels").unwrap(),
+                o.extract_field("chatChannels"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             engagements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engagements").unwrap(),
+                o.extract_field("engagements"),
             ),
             incident_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("incidentTemplate").unwrap(),
+                o.extract_field("incidentTemplate"),
             ),
             integration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integration").unwrap(),
+                o.extract_field("integration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

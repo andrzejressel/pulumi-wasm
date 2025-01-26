@@ -88,27 +88,14 @@ pub mod monitoring_subscription {
                     value: &monitoring_subscription_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "distributionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringSubscription".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MonitoringSubscriptionResult {
             distribution_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionId").unwrap(),
+                o.extract_field("distributionId"),
             ),
             monitoring_subscription: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringSubscription").unwrap(),
+                o.extract_field("monitoringSubscription"),
             ),
         }
     }

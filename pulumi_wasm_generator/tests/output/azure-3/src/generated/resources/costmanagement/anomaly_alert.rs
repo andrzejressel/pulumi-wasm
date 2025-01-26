@@ -122,51 +122,24 @@ pub mod anomaly_alert {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailSubject".into(),
-                },
-                register_interface::ResultField {
-                    name: "message".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnomalyAlertResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             email_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddresses").unwrap(),
+                o.extract_field("emailAddresses"),
             ),
             email_subject: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailSubject").unwrap(),
+                o.extract_field("emailSubject"),
             ),
             message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("message").unwrap(),
+                o.extract_field("message"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
         }
     }

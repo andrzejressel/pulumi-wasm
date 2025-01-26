@@ -105,39 +105,20 @@ pub mod standards_control_association {
                     value: &updated_reason_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "associationStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityControlId".into(),
-                },
-                register_interface::ResultField {
-                    name: "standardsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedReason".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardsControlAssociationResult {
             association_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationStatus").unwrap(),
+                o.extract_field("associationStatus"),
             ),
             security_control_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityControlId").unwrap(),
+                o.extract_field("securityControlId"),
             ),
             standards_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("standardsArn").unwrap(),
+                o.extract_field("standardsArn"),
             ),
             updated_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedReason").unwrap(),
+                o.extract_field("updatedReason"),
             ),
         }
     }

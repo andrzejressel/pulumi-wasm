@@ -118,45 +118,21 @@ pub mod local_rulestack_prefix_list {
                     value: &rulestack_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditComment".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulestackId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalRulestackPrefixListResult {
             audit_comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditComment").unwrap(),
+                o.extract_field("auditComment"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             prefix_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixLists").unwrap(),
+                o.extract_field("prefixLists"),
             ),
             rulestack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulestackId").unwrap(),
+                o.extract_field("rulestackId"),
             ),
         }
     }

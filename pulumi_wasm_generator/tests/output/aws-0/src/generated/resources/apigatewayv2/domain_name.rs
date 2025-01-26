@@ -167,57 +167,25 @@ pub mod domain_name {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiMappingSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNameConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutualTlsAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainNameResult {
             api_mapping_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiMappingSelectionExpression").unwrap(),
+                o.extract_field("apiMappingSelectionExpression"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_name_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNameConfiguration").unwrap(),
+                o.extract_field("domainNameConfiguration"),
             ),
             mutual_tls_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutualTlsAuthentication").unwrap(),
+                o.extract_field("mutualTlsAuthentication"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

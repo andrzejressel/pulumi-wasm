@@ -171,57 +171,27 @@ pub mod dataset_data_lake_gen_2 {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "filePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemName".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatasetDataLakeGen2Result {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             file_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filePath").unwrap(),
+                o.extract_field("filePath"),
             ),
             file_system_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemName").unwrap(),
+                o.extract_field("fileSystemName"),
             ),
             folder_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderPath").unwrap(),
+                o.extract_field("folderPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             share_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareId").unwrap(),
+                o.extract_field("shareId"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

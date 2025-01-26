@@ -192,57 +192,25 @@ pub mod invocation {
                     value: &triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "input".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-                register_interface::ResultField {
-                    name: "terraformKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InvocationResult {
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("input").unwrap(),
-            ),
+            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
             lifecycle_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleScope").unwrap(),
+                o.extract_field("lifecycleScope"),
             ),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
             terraform_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terraformKey").unwrap(),
+                o.extract_field("terraformKey"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

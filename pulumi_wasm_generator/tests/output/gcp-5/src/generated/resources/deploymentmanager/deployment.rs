@@ -194,82 +194,36 @@ pub mod deployment {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifest".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preview".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             create_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createPolicy").unwrap(),
+                o.extract_field("createPolicy"),
             ),
             delete_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletePolicy").unwrap(),
+                o.extract_field("deletePolicy"),
             ),
             deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentId").unwrap(),
+                o.extract_field("deploymentId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             manifest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifest").unwrap(),
+                o.extract_field("manifest"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preview").unwrap(),
+                o.extract_field("preview"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
         }
     }
 }

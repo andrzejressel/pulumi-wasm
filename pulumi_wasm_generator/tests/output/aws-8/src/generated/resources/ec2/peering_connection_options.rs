@@ -178,33 +178,17 @@ pub mod peering_connection_options {
                     value: &vpc_peering_connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accepter".into(),
-                },
-                register_interface::ResultField {
-                    name: "requester".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcPeeringConnectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PeeringConnectionOptionsResult {
             accepter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accepter").unwrap(),
+                o.extract_field("accepter"),
             ),
             requester: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requester").unwrap(),
+                o.extract_field("requester"),
             ),
             vpc_peering_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcPeeringConnectionId").unwrap(),
+                o.extract_field("vpcPeeringConnectionId"),
             ),
         }
     }

@@ -105,39 +105,20 @@ pub mod custom_key_store {
                     value: &trust_anchor_certificate_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudHsmClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customKeyStoreName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyStorePassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustAnchorCertificate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomKeyStoreResult {
             cloud_hsm_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudHsmClusterId").unwrap(),
+                o.extract_field("cloudHsmClusterId"),
             ),
             custom_key_store_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customKeyStoreName").unwrap(),
+                o.extract_field("customKeyStoreName"),
             ),
             key_store_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyStorePassword").unwrap(),
+                o.extract_field("keyStorePassword"),
             ),
             trust_anchor_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustAnchorCertificate").unwrap(),
+                o.extract_field("trustAnchorCertificate"),
             ),
         }
     }

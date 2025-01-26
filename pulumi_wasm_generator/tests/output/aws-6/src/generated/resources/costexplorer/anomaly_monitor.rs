@@ -144,57 +144,23 @@ pub mod anomaly_monitor {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorDimension".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnomalyMonitorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             monitor_dimension: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorDimension").unwrap(),
+                o.extract_field("monitorDimension"),
             ),
             monitor_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorSpecification").unwrap(),
+                o.extract_field("monitorSpecification"),
             ),
             monitor_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorType").unwrap(),
+                o.extract_field("monitorType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

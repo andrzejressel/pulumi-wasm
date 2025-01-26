@@ -133,27 +133,14 @@ pub mod user_hierarchy_structure {
                     value: &instance_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "hierarchyStructure".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserHierarchyStructureResult {
             hierarchy_structure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hierarchyStructure").unwrap(),
+                o.extract_field("hierarchyStructure"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
         }
     }

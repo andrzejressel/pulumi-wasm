@@ -284,122 +284,57 @@ pub mod location_hdfs {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosKeytab".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosKeytabBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosKrb5Conf".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosKrb5ConfBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosPrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyProviderUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "qopConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationFactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "simpleUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocationHdfsResult {
             agent_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentArns").unwrap(),
+                o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             block_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockSize").unwrap(),
+                o.extract_field("blockSize"),
             ),
             kerberos_keytab: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosKeytab").unwrap(),
+                o.extract_field("kerberosKeytab"),
             ),
             kerberos_keytab_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosKeytabBase64").unwrap(),
+                o.extract_field("kerberosKeytabBase64"),
             ),
             kerberos_krb5_conf: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosKrb5Conf").unwrap(),
+                o.extract_field("kerberosKrb5Conf"),
             ),
             kerberos_krb5_conf_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosKrb5ConfBase64").unwrap(),
+                o.extract_field("kerberosKrb5ConfBase64"),
             ),
             kerberos_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosPrincipal").unwrap(),
+                o.extract_field("kerberosPrincipal"),
             ),
             kms_key_provider_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyProviderUri").unwrap(),
+                o.extract_field("kmsKeyProviderUri"),
             ),
             name_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameNodes").unwrap(),
+                o.extract_field("nameNodes"),
             ),
             qop_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qopConfiguration").unwrap(),
+                o.extract_field("qopConfiguration"),
             ),
             replication_factor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationFactor").unwrap(),
+                o.extract_field("replicationFactor"),
             ),
             simple_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("simpleUser").unwrap(),
+                o.extract_field("simpleUser"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

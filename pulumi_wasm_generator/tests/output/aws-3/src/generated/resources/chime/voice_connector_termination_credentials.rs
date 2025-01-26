@@ -106,27 +106,14 @@ pub mod voice_connector_termination_credentials {
                     value: &voice_connector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "credentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceConnectorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VoiceConnectorTerminationCredentialsResult {
             credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentials").unwrap(),
+                o.extract_field("credentials"),
             ),
             voice_connector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceConnectorId").unwrap(),
+                o.extract_field("voiceConnectorId"),
             ),
         }
     }

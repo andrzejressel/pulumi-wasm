@@ -60,73 +60,32 @@ pub mod get_public_key {
                     value: &key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerMasterKeySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionAlgorithms".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantTokens".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyUsage".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeyPem".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingAlgorithms".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPublicKeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             customer_master_key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerMasterKeySpec").unwrap(),
+                o.extract_field("customerMasterKeySpec"),
             ),
             encryption_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionAlgorithms").unwrap(),
+                o.extract_field("encryptionAlgorithms"),
             ),
             grant_tokens: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantTokens").unwrap(),
+                o.extract_field("grantTokens"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             key_usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyUsage").unwrap(),
+                o.extract_field("keyUsage"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
             public_key_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeyPem").unwrap(),
+                o.extract_field("publicKeyPem"),
             ),
             signing_algorithms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingAlgorithms").unwrap(),
+                o.extract_field("signingAlgorithms"),
             ),
         }
     }

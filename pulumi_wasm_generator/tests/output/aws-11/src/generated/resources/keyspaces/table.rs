@@ -238,92 +238,42 @@ pub mod table {
                     value: &ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacitySpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSideTimestamps".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTimeToLive".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyspaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRecovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacitySpecification").unwrap(),
+                o.extract_field("capacitySpecification"),
             ),
             client_side_timestamps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSideTimestamps").unwrap(),
+                o.extract_field("clientSideTimestamps"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             default_time_to_live: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTimeToLive").unwrap(),
+                o.extract_field("defaultTimeToLive"),
             ),
             encryption_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSpecification").unwrap(),
+                o.extract_field("encryptionSpecification"),
             ),
             keyspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyspaceName").unwrap(),
+                o.extract_field("keyspaceName"),
             ),
             point_in_time_recovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRecovery").unwrap(),
+                o.extract_field("pointInTimeRecovery"),
             ),
             schema_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaDefinition").unwrap(),
+                o.extract_field("schemaDefinition"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ttl").unwrap()),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

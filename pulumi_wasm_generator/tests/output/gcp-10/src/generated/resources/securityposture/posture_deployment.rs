@@ -166,111 +166,48 @@ pub mod posture_deployment {
                     value: &target_resource_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredPostureId".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredPostureRevisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "postureDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "postureId".into(),
-                },
-                register_interface::ResultField {
-                    name: "postureRevisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PostureDeploymentResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             desired_posture_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredPostureId").unwrap(),
+                o.extract_field("desiredPostureId"),
             ),
             desired_posture_revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredPostureRevisionId").unwrap(),
+                o.extract_field("desiredPostureRevisionId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             failure_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureMessage").unwrap(),
+                o.extract_field("failureMessage"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             posture_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postureDeploymentId").unwrap(),
+                o.extract_field("postureDeploymentId"),
             ),
             posture_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postureId").unwrap(),
+                o.extract_field("postureId"),
             ),
             posture_revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postureRevisionId").unwrap(),
+                o.extract_field("postureRevisionId"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             target_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResource").unwrap(),
+                o.extract_field("targetResource"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

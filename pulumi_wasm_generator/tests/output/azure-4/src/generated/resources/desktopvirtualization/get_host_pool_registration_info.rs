@@ -95,34 +95,16 @@ pub mod get_host_pool_registration_info {
                     value: &hostpool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostpoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "token".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         getHostPoolRegistrationInfoResult {
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             hostpool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostpoolId").unwrap(),
+                o.extract_field("hostpoolId"),
             ),
-            token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("token").unwrap(),
-            ),
+            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

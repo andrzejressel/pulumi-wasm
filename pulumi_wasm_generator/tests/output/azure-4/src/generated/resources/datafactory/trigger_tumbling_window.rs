@@ -274,105 +274,47 @@ pub mod trigger_tumbling_window {
                     value: &trigger_dependencies_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activated".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "delay".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "interval".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxConcurrency".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipeline".into(),
-                },
-                register_interface::ResultField {
-                    name: "retry".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerDependencies".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TriggerTumblingWindowResult {
             activated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activated").unwrap(),
+                o.extract_field("activated"),
             ),
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
-            delay: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delay").unwrap(),
-            ),
+            delay: pulumi_wasm_rust::__private::into_domain(o.extract_field("delay")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
             interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interval").unwrap(),
+                o.extract_field("interval"),
             ),
             max_concurrency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxConcurrency").unwrap(),
+                o.extract_field("maxConcurrency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipeline: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipeline").unwrap(),
+                o.extract_field("pipeline"),
             ),
-            retry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retry").unwrap(),
-            ),
+            retry: pulumi_wasm_rust::__private::into_domain(o.extract_field("retry")),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             trigger_dependencies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerDependencies").unwrap(),
+                o.extract_field("triggerDependencies"),
             ),
         }
     }

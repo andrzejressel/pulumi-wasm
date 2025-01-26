@@ -234,94 +234,40 @@ pub mod schedule {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "flexibleTimeWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleExpressionTimezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDate").unwrap(),
+                o.extract_field("endDate"),
             ),
             flexible_time_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flexibleTimeWindow").unwrap(),
+                o.extract_field("flexibleTimeWindow"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             schedule_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleExpression").unwrap(),
+                o.extract_field("scheduleExpression"),
             ),
             schedule_expression_timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleExpressionTimezone").unwrap(),
+                o.extract_field("scheduleExpressionTimezone"),
             ),
             start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDate").unwrap(),
+                o.extract_field("startDate"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
         }
     }
 }

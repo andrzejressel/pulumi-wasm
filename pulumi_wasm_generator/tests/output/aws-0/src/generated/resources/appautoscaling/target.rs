@@ -262,75 +262,34 @@ pub mod target {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "minCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalableDimension".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "suspendedState".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             max_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCapacity").unwrap(),
+                o.extract_field("maxCapacity"),
             ),
             min_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minCapacity").unwrap(),
+                o.extract_field("minCapacity"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             scalable_dimension: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalableDimension").unwrap(),
+                o.extract_field("scalableDimension"),
             ),
             service_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceNamespace").unwrap(),
+                o.extract_field("serviceNamespace"),
             ),
             suspended_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suspendedState").unwrap(),
+                o.extract_field("suspendedState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

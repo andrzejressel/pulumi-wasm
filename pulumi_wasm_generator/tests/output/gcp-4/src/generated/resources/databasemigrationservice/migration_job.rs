@@ -665,147 +665,60 @@ pub mod migration_job {
                     value: &vpc_peering_connectivity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dumpFlags".into(),
-                },
-                register_interface::ResultField {
-                    name: "dumpPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "dumpType".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "errors".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "migrationJobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "performanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "phase".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseSshConnectivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticIpConnectivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcPeeringConnectivity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MigrationJobResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             dump_flags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dumpFlags").unwrap(),
+                o.extract_field("dumpFlags"),
             ),
             dump_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dumpPath").unwrap(),
+                o.extract_field("dumpPath"),
             ),
             dump_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dumpType").unwrap(),
+                o.extract_field("dumpType"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errors").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             migration_job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("migrationJobId").unwrap(),
+                o.extract_field("migrationJobId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             performance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("performanceConfig").unwrap(),
+                o.extract_field("performanceConfig"),
             ),
-            phase: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phase").unwrap(),
-            ),
+            phase: pulumi_wasm_rust::__private::into_domain(o.extract_field("phase")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reverse_ssh_connectivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseSshConnectivity").unwrap(),
+                o.extract_field("reverseSshConnectivity"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             static_ip_connectivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticIpConnectivity").unwrap(),
+                o.extract_field("staticIpConnectivity"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vpc_peering_connectivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcPeeringConnectivity").unwrap(),
+                o.extract_field("vpcPeeringConnectivity"),
             ),
         }
     }

@@ -189,64 +189,29 @@ pub mod zero_trust_dlp_profile {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedMatchCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "contextAwareness".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "entries".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ocrEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustDlpProfileResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             allowed_match_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedMatchCount").unwrap(),
+                o.extract_field("allowedMatchCount"),
             ),
             context_awareness: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contextAwareness").unwrap(),
+                o.extract_field("contextAwareness"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             entries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entries").unwrap(),
+                o.extract_field("entries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             ocr_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ocrEnabled").unwrap(),
+                o.extract_field("ocrEnabled"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -617,112 +617,53 @@ pub mod target_https_proxy {
                     value: &url_map_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateManagerCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpKeepAliveTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyBind".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "quicOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverTlsPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsEarlyData".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlMap".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetHttpsProxyResult {
             certificate_manager_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateManagerCertificates").unwrap(),
+                o.extract_field("certificateManagerCertificates"),
             ),
             certificate_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateMap").unwrap(),
+                o.extract_field("certificateMap"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             http_keep_alive_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpKeepAliveTimeoutSec").unwrap(),
+                o.extract_field("httpKeepAliveTimeoutSec"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             proxy_bind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyBind").unwrap(),
+                o.extract_field("proxyBind"),
             ),
             proxy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyId").unwrap(),
+                o.extract_field("proxyId"),
             ),
             quic_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quicOverride").unwrap(),
+                o.extract_field("quicOverride"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             server_tls_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverTlsPolicy").unwrap(),
+                o.extract_field("serverTlsPolicy"),
             ),
             ssl_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslCertificates").unwrap(),
+                o.extract_field("sslCertificates"),
             ),
             ssl_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslPolicy").unwrap(),
+                o.extract_field("sslPolicy"),
             ),
             tls_early_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsEarlyData").unwrap(),
+                o.extract_field("tlsEarlyData"),
             ),
-            url_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlMap").unwrap(),
-            ),
+            url_map: pulumi_wasm_rust::__private::into_domain(o.extract_field("urlMap")),
         }
     }
 }

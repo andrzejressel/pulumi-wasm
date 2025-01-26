@@ -309,87 +309,38 @@ pub mod bitbucket_server_config {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "configId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectedRepositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeredNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "secrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslCa".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhookKey".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BitbucketServerConfigResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configId").unwrap(),
+                o.extract_field("configId"),
             ),
             connected_repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectedRepositories").unwrap(),
+                o.extract_field("connectedRepositories"),
             ),
             host_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostUri").unwrap(),
+                o.extract_field("hostUri"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peered_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeredNetwork").unwrap(),
+                o.extract_field("peeredNetwork"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secrets").unwrap(),
+                o.extract_field("secrets"),
             ),
-            ssl_ca: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslCa").unwrap(),
-            ),
+            ssl_ca: pulumi_wasm_rust::__private::into_domain(o.extract_field("sslCa")),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
             webhook_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhookKey").unwrap(),
+                o.extract_field("webhookKey"),
             ),
         }
     }

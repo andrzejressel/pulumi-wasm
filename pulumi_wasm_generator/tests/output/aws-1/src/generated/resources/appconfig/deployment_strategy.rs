@@ -147,75 +147,32 @@ pub mod deployment_strategy {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentDurationInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalBakeTimeInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "growthFactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "growthType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicateTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentStrategyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deployment_duration_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentDurationInMinutes").unwrap(),
+                o.extract_field("deploymentDurationInMinutes"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             final_bake_time_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalBakeTimeInMinutes").unwrap(),
+                o.extract_field("finalBakeTimeInMinutes"),
             ),
             growth_factor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("growthFactor").unwrap(),
+                o.extract_field("growthFactor"),
             ),
             growth_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("growthType").unwrap(),
+                o.extract_field("growthType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             replicate_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicateTo").unwrap(),
+                o.extract_field("replicateTo"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

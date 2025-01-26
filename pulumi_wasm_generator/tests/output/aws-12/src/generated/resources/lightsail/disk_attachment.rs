@@ -100,33 +100,17 @@ pub mod disk_attachment {
                     value: &instance_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "diskName".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         Disk_attachmentResult {
             disk_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskName").unwrap(),
+                o.extract_field("diskName"),
             ),
             disk_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskPath").unwrap(),
+                o.extract_field("diskPath"),
             ),
             instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceName").unwrap(),
+                o.extract_field("instanceName"),
             ),
         }
     }

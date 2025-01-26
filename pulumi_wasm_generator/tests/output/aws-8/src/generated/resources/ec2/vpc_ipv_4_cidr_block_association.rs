@@ -104,40 +104,19 @@ pub mod vpc_ipv_4_cidr_block_association {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4IpamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4NetmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpv4CidrBlockAssociationResult {
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             ipv4_ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4IpamPoolId").unwrap(),
+                o.extract_field("ipv4IpamPoolId"),
             ),
             ipv4_netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4NetmaskLength").unwrap(),
+                o.extract_field("ipv4NetmaskLength"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

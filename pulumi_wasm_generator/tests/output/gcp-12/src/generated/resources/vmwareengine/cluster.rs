@@ -212,56 +212,22 @@ pub mod cluster {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "management".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeTypeConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             autoscaling_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingSettings").unwrap(),
+                o.extract_field("autoscalingSettings"),
             ),
             management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("management").unwrap(),
+                o.extract_field("management"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_type_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeTypeConfigs").unwrap(),
+                o.extract_field("nodeTypeConfigs"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

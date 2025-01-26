@@ -140,69 +140,33 @@ pub mod assessment_policy {
                     value: &user_impact_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "categories".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "implementationEffort".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "remediationDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "threats".into(),
-                },
-                register_interface::ResultField {
-                    name: "userImpact".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssessmentPolicyResult {
             categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("categories").unwrap(),
+                o.extract_field("categories"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             implementation_effort: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("implementationEffort").unwrap(),
+                o.extract_field("implementationEffort"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remediation_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remediationDescription").unwrap(),
+                o.extract_field("remediationDescription"),
             ),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
             threats: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threats").unwrap(),
+                o.extract_field("threats"),
             ),
             user_impact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userImpact").unwrap(),
+                o.extract_field("userImpact"),
             ),
         }
     }

@@ -101,82 +101,38 @@ pub mod service_quota {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adjustable".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaName".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestId".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceQuotaResult {
             adjustable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adjustable").unwrap(),
+                o.extract_field("adjustable"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             default_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultValue").unwrap(),
+                o.extract_field("defaultValue"),
             ),
             quota_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaCode").unwrap(),
+                o.extract_field("quotaCode"),
             ),
             quota_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaName").unwrap(),
+                o.extract_field("quotaName"),
             ),
             request_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestId").unwrap(),
+                o.extract_field("requestId"),
             ),
             request_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestStatus").unwrap(),
+                o.extract_field("requestStatus"),
             ),
             service_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceCode").unwrap(),
+                o.extract_field("serviceCode"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             usage_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageMetrics").unwrap(),
+                o.extract_field("usageMetrics"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

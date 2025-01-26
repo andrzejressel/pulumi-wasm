@@ -192,57 +192,27 @@ pub mod network_mapping {
                     value: &target_recovery_fabric_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRecoveryFabricName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRecoveryFabricName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkMappingResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceNetworkId").unwrap(),
+                o.extract_field("sourceNetworkId"),
             ),
             source_recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRecoveryFabricName").unwrap(),
+                o.extract_field("sourceRecoveryFabricName"),
             ),
             target_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetNetworkId").unwrap(),
+                o.extract_field("targetNetworkId"),
             ),
             target_recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRecoveryFabricName").unwrap(),
+                o.extract_field("targetRecoveryFabricName"),
             ),
         }
     }

@@ -101,34 +101,16 @@ pub mod application_access_scope {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationAccessScopeResult {
             application_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationArn").unwrap(),
+                o.extract_field("applicationArn"),
             ),
             authorized_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedTargets").unwrap(),
+                o.extract_field("authorizedTargets"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

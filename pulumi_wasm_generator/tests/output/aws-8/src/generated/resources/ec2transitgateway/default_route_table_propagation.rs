@@ -90,39 +90,20 @@ pub mod default_route_table_propagation {
                     value: &transit_gateway_route_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "originalDefaultRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayRouteTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultRouteTablePropagationResult {
             original_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originalDefaultRouteTableId").unwrap(),
+                o.extract_field("originalDefaultRouteTableId"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
             transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayRouteTableId").unwrap(),
+                o.extract_field("transitGatewayRouteTableId"),
             ),
         }
     }

@@ -207,93 +207,43 @@ pub mod replication_config {
                     value: &target_endpoint_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationConfigIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceEndpointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startReplication".into(),
-                },
-                register_interface::ResultField {
-                    name: "supplementalSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetEndpointArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeConfig").unwrap(),
+                o.extract_field("computeConfig"),
             ),
             replication_config_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationConfigIdentifier").unwrap(),
+                o.extract_field("replicationConfigIdentifier"),
             ),
             replication_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSettings").unwrap(),
+                o.extract_field("replicationSettings"),
             ),
             replication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationType").unwrap(),
+                o.extract_field("replicationType"),
             ),
             resource_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceIdentifier").unwrap(),
+                o.extract_field("resourceIdentifier"),
             ),
             source_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceEndpointArn").unwrap(),
+                o.extract_field("sourceEndpointArn"),
             ),
             start_replication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startReplication").unwrap(),
+                o.extract_field("startReplication"),
             ),
             supplemental_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supplementalSettings").unwrap(),
+                o.extract_field("supplementalSettings"),
             ),
             table_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableMappings").unwrap(),
+                o.extract_field("tableMappings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetEndpointArn").unwrap(),
+                o.extract_field("targetEndpointArn"),
             ),
         }
     }

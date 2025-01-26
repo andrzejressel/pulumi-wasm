@@ -84,28 +84,13 @@ pub mod lb_certificate_attachment {
                     value: &lb_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LbCertificateAttachmentResult {
             certificate_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateName").unwrap(),
+                o.extract_field("certificateName"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbName").unwrap(),
-            ),
+            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
         }
     }
 }

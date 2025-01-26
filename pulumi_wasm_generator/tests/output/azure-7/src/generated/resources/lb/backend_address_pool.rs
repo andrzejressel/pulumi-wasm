@@ -162,69 +162,33 @@ pub mod backend_address_pool {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundNatRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "synchronousMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendAddressPoolResult {
             backend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendIpConfigurations").unwrap(),
+                o.extract_field("backendIpConfigurations"),
             ),
             inbound_nat_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundNatRules").unwrap(),
+                o.extract_field("inboundNatRules"),
             ),
             load_balancing_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingRules").unwrap(),
+                o.extract_field("loadBalancingRules"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundRules").unwrap(),
+                o.extract_field("outboundRules"),
             ),
             synchronous_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synchronousMode").unwrap(),
+                o.extract_field("synchronousMode"),
             ),
             tunnel_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelInterfaces").unwrap(),
+                o.extract_field("tunnelInterfaces"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

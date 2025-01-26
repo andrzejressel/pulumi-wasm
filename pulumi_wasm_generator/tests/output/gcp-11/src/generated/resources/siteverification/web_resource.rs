@@ -134,39 +134,16 @@ pub mod web_resource {
                     value: &verification_method_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "owners".into(),
-                },
-                register_interface::ResultField {
-                    name: "site".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "webResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebResourceResult {
-            owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owners").unwrap(),
-            ),
-            site: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("site").unwrap(),
-            ),
+            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
+            site: pulumi_wasm_rust::__private::into_domain(o.extract_field("site")),
             verification_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationMethod").unwrap(),
+                o.extract_field("verificationMethod"),
             ),
             web_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webResourceId").unwrap(),
+                o.extract_field("webResourceId"),
             ),
         }
     }

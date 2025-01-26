@@ -184,63 +184,30 @@ pub mod protection_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aggregation".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "pattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProtectionGroupResult {
             aggregation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aggregation").unwrap(),
+                o.extract_field("aggregation"),
             ),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
             pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pattern").unwrap(),
+                o.extract_field("pattern"),
             ),
             protection_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionGroupArn").unwrap(),
+                o.extract_field("protectionGroupArn"),
             ),
             protection_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionGroupId").unwrap(),
+                o.extract_field("protectionGroupId"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

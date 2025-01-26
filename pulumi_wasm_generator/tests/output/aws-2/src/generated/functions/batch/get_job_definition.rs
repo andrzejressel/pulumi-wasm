@@ -85,98 +85,39 @@ pub mod get_job_definition {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arnPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerOrchestrationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "eksProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingPriority".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetJobDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             arn_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arnPrefix").unwrap(),
+                o.extract_field("arnPrefix"),
             ),
             container_orchestration_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerOrchestrationType").unwrap(),
+                o.extract_field("containerOrchestrationType"),
             ),
             eks_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eksProperties").unwrap(),
+                o.extract_field("eksProperties"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeProperties").unwrap(),
+                o.extract_field("nodeProperties"),
             ),
             retry_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryStrategies").unwrap(),
+                o.extract_field("retryStrategies"),
             ),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
             scheduling_priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingPriority").unwrap(),
+                o.extract_field("schedulingPriority"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

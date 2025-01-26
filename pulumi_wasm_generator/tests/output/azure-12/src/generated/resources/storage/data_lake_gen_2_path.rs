@@ -152,57 +152,21 @@ pub mod data_lake_gen_2_path {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aces".into(),
-                },
-                register_interface::ResultField {
-                    name: "filesystemName".into(),
-                },
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "resource".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataLakeGen2PathResult {
-            aces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aces").unwrap(),
-            ),
+            aces: pulumi_wasm_rust::__private::into_domain(o.extract_field("aces")),
             filesystem_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filesystemName").unwrap(),
+                o.extract_field("filesystemName"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resource").unwrap(),
+                o.extract_field("resource"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

@@ -179,45 +179,21 @@ pub mod hub {
                     value: &web_pubsub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "anonymousConnectionsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHandlers".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventListeners".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HubResult {
             anonymous_connections_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anonymousConnectionsEnabled").unwrap(),
+                o.extract_field("anonymousConnectionsEnabled"),
             ),
             event_handlers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHandlers").unwrap(),
+                o.extract_field("eventHandlers"),
             ),
             event_listeners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventListeners").unwrap(),
+                o.extract_field("eventListeners"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubId").unwrap(),
+                o.extract_field("webPubsubId"),
             ),
         }
     }

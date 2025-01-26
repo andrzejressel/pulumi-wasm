@@ -62,68 +62,30 @@ pub mod get_application {
                     value: &portal_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationProviderArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "portalOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApplicationResult {
             application_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationAccount").unwrap(),
+                o.extract_field("applicationAccount"),
             ),
             application_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationArn").unwrap(),
+                o.extract_field("applicationArn"),
             ),
             application_provider_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationProviderArn").unwrap(),
+                o.extract_field("applicationProviderArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             portal_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portalOptions").unwrap(),
+                o.extract_field("portalOptions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

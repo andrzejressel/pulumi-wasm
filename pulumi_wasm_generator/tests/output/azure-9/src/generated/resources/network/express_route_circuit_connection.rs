@@ -218,51 +218,24 @@ pub mod express_route_circuit_connection {
                     value: &peering_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefixIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressPrefixIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerPeeringId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExpressRouteCircuitConnectionResult {
             address_prefix_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefixIpv4").unwrap(),
+                o.extract_field("addressPrefixIpv4"),
             ),
             address_prefix_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefixIpv6").unwrap(),
+                o.extract_field("addressPrefixIpv6"),
             ),
             authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationKey").unwrap(),
+                o.extract_field("authorizationKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_peering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerPeeringId").unwrap(),
+                o.extract_field("peerPeeringId"),
             ),
             peering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringId").unwrap(),
+                o.extract_field("peeringId"),
             ),
         }
     }

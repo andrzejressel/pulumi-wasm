@@ -99,75 +99,36 @@ pub mod snapshot {
                     value: &snapshot_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountsWithProvisionedRestoreAccesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountsWithRestoreAccesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotResult {
             accounts_with_provisioned_restore_accesses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountsWithProvisionedRestoreAccesses").unwrap(),
+                o.extract_field("accountsWithProvisionedRestoreAccesses"),
             ),
             accounts_with_restore_accesses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountsWithRestoreAccesses").unwrap(),
+                o.extract_field("accountsWithRestoreAccesses"),
             ),
             admin_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsername").unwrap(),
+                o.extract_field("adminUsername"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             namespace_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceArn").unwrap(),
+                o.extract_field("namespaceArn"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             owner_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccount").unwrap(),
+                o.extract_field("ownerAccount"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
             snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotName").unwrap(),
+                o.extract_field("snapshotName"),
             ),
         }
     }

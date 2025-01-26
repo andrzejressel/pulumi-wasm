@@ -82,27 +82,14 @@ pub mod proxy_protocol_policy {
                     value: &load_balancer_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instancePorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancer".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProxyProtocolPolicyResult {
             instance_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePorts").unwrap(),
+                o.extract_field("instancePorts"),
             ),
             load_balancer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancer").unwrap(),
+                o.extract_field("loadBalancer"),
             ),
         }
     }

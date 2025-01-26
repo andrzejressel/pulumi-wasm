@@ -308,69 +308,29 @@ pub mod network_connection_monitor {
                     value: &test_groups_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkWatcherId".into(),
-                },
-                register_interface::ResultField {
-                    name: "notes".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputWorkspaceResourceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "testConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "testGroups".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkConnectionMonitorResult {
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_watcher_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkWatcherId").unwrap(),
+                o.extract_field("networkWatcherId"),
             ),
-            notes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notes").unwrap(),
-            ),
+            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
             output_workspace_resource_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputWorkspaceResourceIds").unwrap(),
+                o.extract_field("outputWorkspaceResourceIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             test_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testConfigurations").unwrap(),
+                o.extract_field("testConfigurations"),
             ),
             test_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testGroups").unwrap(),
+                o.extract_field("testGroups"),
             ),
         }
     }

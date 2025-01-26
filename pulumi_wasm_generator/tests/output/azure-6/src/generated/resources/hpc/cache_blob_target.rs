@@ -193,51 +193,24 @@ pub mod cache_blob_target {
                     value: &storage_container_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespacePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageContainerId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CacheBlobTargetResult {
             access_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyName").unwrap(),
+                o.extract_field("accessPolicyName"),
             ),
             cache_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheName").unwrap(),
+                o.extract_field("cacheName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespacePath").unwrap(),
+                o.extract_field("namespacePath"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_container_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageContainerId").unwrap(),
+                o.extract_field("storageContainerId"),
             ),
         }
     }

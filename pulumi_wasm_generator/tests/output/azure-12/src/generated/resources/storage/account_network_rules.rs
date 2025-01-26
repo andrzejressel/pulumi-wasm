@@ -197,51 +197,26 @@ pub mod account_network_rules {
                     value: &virtual_network_subnet_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bypasses".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkAccessRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkSubnetIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountNetworkRulesResult {
             bypasses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypasses").unwrap(),
+                o.extract_field("bypasses"),
             ),
             default_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAction").unwrap(),
+                o.extract_field("defaultAction"),
             ),
             ip_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipRules").unwrap(),
+                o.extract_field("ipRules"),
             ),
             private_link_access_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkAccessRules").unwrap(),
+                o.extract_field("privateLinkAccessRules"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             virtual_network_subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkSubnetIds").unwrap(),
+                o.extract_field("virtualNetworkSubnetIds"),
             ),
         }
     }

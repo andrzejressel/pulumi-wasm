@@ -79,121 +79,56 @@ pub mod get_private_cloud {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "circuits".into(),
-                },
-                register_interface::ResultField {
-                    name: "hcxCloudManagerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetConnectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxtCertificateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxtManagerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcenterCertificateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcsaEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmotionSubnetCidr".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPrivateCloudResult {
             circuits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("circuits").unwrap(),
+                o.extract_field("circuits"),
             ),
             hcx_cloud_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hcxCloudManagerEndpoint").unwrap(),
+                o.extract_field("hcxCloudManagerEndpoint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             internet_connection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetConnectionEnabled").unwrap(),
+                o.extract_field("internetConnectionEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementClusters").unwrap(),
+                o.extract_field("managementClusters"),
             ),
             management_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementSubnetCidr").unwrap(),
+                o.extract_field("managementSubnetCidr"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSubnetCidr").unwrap(),
+                o.extract_field("networkSubnetCidr"),
             ),
             nsxt_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxtCertificateThumbprint").unwrap(),
+                o.extract_field("nsxtCertificateThumbprint"),
             ),
             nsxt_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxtManagerEndpoint").unwrap(),
+                o.extract_field("nsxtManagerEndpoint"),
             ),
             provisioning_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningSubnetCidr").unwrap(),
+                o.extract_field("provisioningSubnetCidr"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vcenter_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcenterCertificateThumbprint").unwrap(),
+                o.extract_field("vcenterCertificateThumbprint"),
             ),
             vcsa_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcsaEndpoint").unwrap(),
+                o.extract_field("vcsaEndpoint"),
             ),
             vmotion_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmotionSubnetCidr").unwrap(),
+                o.extract_field("vmotionSubnetCidr"),
             ),
         }
     }

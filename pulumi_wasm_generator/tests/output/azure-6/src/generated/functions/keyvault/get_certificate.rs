@@ -81,109 +81,50 @@ pub mod get_certificate {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateData".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateDataBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "expires".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBefore".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceManagerVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionlessSecretId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateResult {
             certificate_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateData").unwrap(),
+                o.extract_field("certificateData"),
             ),
             certificate_data_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateDataBase64").unwrap(),
+                o.extract_field("certificateDataBase64"),
             ),
             certificate_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePolicies").unwrap(),
+                o.extract_field("certificatePolicies"),
             ),
             expires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expires").unwrap(),
+                o.extract_field("expires"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBefore").unwrap(),
+                o.extract_field("notBefore"),
             ),
             resource_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceManagerId").unwrap(),
+                o.extract_field("resourceManagerId"),
             ),
             resource_manager_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceManagerVersionlessId").unwrap(),
+                o.extract_field("resourceManagerVersionlessId"),
             ),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionlessId").unwrap(),
+                o.extract_field("versionlessId"),
             ),
             versionless_secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionlessSecretId").unwrap(),
+                o.extract_field("versionlessSecretId"),
             ),
         }
     }

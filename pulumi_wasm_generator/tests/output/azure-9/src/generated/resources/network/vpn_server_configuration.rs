@@ -233,81 +233,35 @@ pub mod vpn_server_configuration {
                     value: &vpn_protocols_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureActiveDirectoryAuthentications".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientRevokedCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientRootCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipsecPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "radius".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnAuthenticationTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnProtocols".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnServerConfigurationResult {
             azure_active_directory_authentications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureActiveDirectoryAuthentications").unwrap(),
+                o.extract_field("azureActiveDirectoryAuthentications"),
             ),
             client_revoked_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientRevokedCertificates").unwrap(),
+                o.extract_field("clientRevokedCertificates"),
             ),
             client_root_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientRootCertificates").unwrap(),
+                o.extract_field("clientRootCertificates"),
             ),
             ipsec_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipsecPolicy").unwrap(),
+                o.extract_field("ipsecPolicy"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            radius: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("radius").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            radius: pulumi_wasm_rust::__private::into_domain(o.extract_field("radius")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vpn_authentication_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnAuthenticationTypes").unwrap(),
+                o.extract_field("vpnAuthenticationTypes"),
             ),
             vpn_protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnProtocols").unwrap(),
+                o.extract_field("vpnProtocols"),
             ),
         }
     }

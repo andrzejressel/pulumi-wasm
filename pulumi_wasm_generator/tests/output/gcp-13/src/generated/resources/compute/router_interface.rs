@@ -218,81 +218,35 @@ pub mod router_interface {
                     value: &vpn_tunnel_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "interconnectAttachment".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "redundantInterface".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnTunnel".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouterInterfaceResult {
             interconnect_attachment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interconnectAttachment").unwrap(),
+                o.extract_field("interconnectAttachment"),
             ),
             ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipRange").unwrap(),
+                o.extract_field("ipRange"),
             ),
             ip_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipVersion").unwrap(),
+                o.extract_field("ipVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddress").unwrap(),
+                o.extract_field("privateIpAddress"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             redundant_interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redundantInterface").unwrap(),
+                o.extract_field("redundantInterface"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             subnetwork: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetwork").unwrap(),
+                o.extract_field("subnetwork"),
             ),
             vpn_tunnel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnTunnel").unwrap(),
+                o.extract_field("vpnTunnel"),
             ),
         }
     }

@@ -90,163 +90,69 @@ pub mod get_router_nat {
                     value: &router_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoNetworkTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "drainNatIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDynamicPortAllocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableEndpointIndependentMapping".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "icmpIdleTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialNatIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxPortsPerVm".into(),
-                },
-                register_interface::ResultField {
-                    name: "minPortsPerVm".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "natIpAllocateOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "natIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSubnetworkIpRangesToNat".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetworks".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpEstablishedIdleTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpTimeWaitTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpTransitoryIdleTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "udpIdleTimeoutSec".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRouterNatResult {
             auto_network_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoNetworkTier").unwrap(),
+                o.extract_field("autoNetworkTier"),
             ),
             drain_nat_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("drainNatIps").unwrap(),
+                o.extract_field("drainNatIps"),
             ),
             enable_dynamic_port_allocation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDynamicPortAllocation").unwrap(),
+                o.extract_field("enableDynamicPortAllocation"),
             ),
             enable_endpoint_independent_mapping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableEndpointIndependentMapping").unwrap(),
+                o.extract_field("enableEndpointIndependentMapping"),
             ),
             endpoint_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointTypes").unwrap(),
+                o.extract_field("endpointTypes"),
             ),
             icmp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icmpIdleTimeoutSec").unwrap(),
+                o.extract_field("icmpIdleTimeoutSec"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             initial_nat_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialNatIps").unwrap(),
+                o.extract_field("initialNatIps"),
             ),
             log_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfigs").unwrap(),
+                o.extract_field("logConfigs"),
             ),
             max_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxPortsPerVm").unwrap(),
+                o.extract_field("maxPortsPerVm"),
             ),
             min_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minPortsPerVm").unwrap(),
+                o.extract_field("minPortsPerVm"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nat_ip_allocate_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natIpAllocateOption").unwrap(),
+                o.extract_field("natIpAllocateOption"),
             ),
-            nat_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natIps").unwrap(),
-            ),
+            nat_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("natIps")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSubnetworkIpRangesToNat").unwrap(),
+                o.extract_field("sourceSubnetworkIpRangesToNat"),
             ),
             subnetworks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetworks").unwrap(),
+                o.extract_field("subnetworks"),
             ),
             tcp_established_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpEstablishedIdleTimeoutSec").unwrap(),
+                o.extract_field("tcpEstablishedIdleTimeoutSec"),
             ),
             tcp_time_wait_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpTimeWaitTimeoutSec").unwrap(),
+                o.extract_field("tcpTimeWaitTimeoutSec"),
             ),
             tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpTransitoryIdleTimeoutSec").unwrap(),
+                o.extract_field("tcpTransitoryIdleTimeoutSec"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             udp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("udpIdleTimeoutSec").unwrap(),
+                o.extract_field("udpIdleTimeoutSec"),
             ),
         }
     }

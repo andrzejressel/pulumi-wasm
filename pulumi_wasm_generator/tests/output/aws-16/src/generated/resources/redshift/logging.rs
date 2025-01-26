@@ -132,45 +132,23 @@ pub mod logging {
                     value: &s3_key_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDestinationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "logExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3KeyPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoggingResult {
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             log_destination_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDestinationType").unwrap(),
+                o.extract_field("logDestinationType"),
             ),
             log_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logExports").unwrap(),
+                o.extract_field("logExports"),
             ),
             s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3KeyPrefix").unwrap(),
+                o.extract_field("s3KeyPrefix"),
             ),
         }
     }

@@ -156,75 +156,34 @@ pub mod activation {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activationCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "expired".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ActivationResult {
             activation_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activationCode").unwrap(),
+                o.extract_field("activationCode"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             expired: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expired").unwrap(),
+                o.extract_field("expired"),
             ),
             iam_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRole").unwrap(),
+                o.extract_field("iamRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             registration_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationCount").unwrap(),
+                o.extract_field("registrationCount"),
             ),
             registration_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationLimit").unwrap(),
+                o.extract_field("registrationLimit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

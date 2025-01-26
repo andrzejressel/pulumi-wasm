@@ -118,39 +118,18 @@ pub mod default_service_accounts {
                     value: &restore_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccounts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultServiceAccountsResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             restore_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorePolicy").unwrap(),
+                o.extract_field("restorePolicy"),
             ),
             service_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccounts").unwrap(),
+                o.extract_field("serviceAccounts"),
             ),
         }
     }

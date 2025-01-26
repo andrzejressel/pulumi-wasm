@@ -208,45 +208,23 @@ pub mod client {
                     value: &run_as_service_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudKmsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createSampleIntegrations".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "runAsServiceAccount".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClientResult {
             cloud_kms_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudKmsConfig").unwrap(),
+                o.extract_field("cloudKmsConfig"),
             ),
             create_sample_integrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createSampleIntegrations").unwrap(),
+                o.extract_field("createSampleIntegrations"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             run_as_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runAsServiceAccount").unwrap(),
+                o.extract_field("runAsServiceAccount"),
             ),
         }
     }

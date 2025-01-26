@@ -84,61 +84,28 @@ pub mod get_service {
                     value: &service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "partition".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseDnsPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "supported".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             partition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partition").unwrap(),
+                o.extract_field("partition"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             reverse_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseDnsName").unwrap(),
+                o.extract_field("reverseDnsName"),
             ),
             reverse_dns_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseDnsPrefix").unwrap(),
+                o.extract_field("reverseDnsPrefix"),
             ),
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
             supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supported").unwrap(),
+                o.extract_field("supported"),
             ),
         }
     }

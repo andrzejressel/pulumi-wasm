@@ -180,81 +180,37 @@ pub mod fleet {
                     value: &optimize_for_end_user_location_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditStreamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "companyCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceCaCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityProvider".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "optimizeForEndUserLocation".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             audit_stream_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditStreamArn").unwrap(),
+                o.extract_field("auditStreamArn"),
             ),
             company_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("companyCode").unwrap(),
+                o.extract_field("companyCode"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             device_ca_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceCaCertificate").unwrap(),
+                o.extract_field("deviceCaCertificate"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             identity_provider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityProvider").unwrap(),
+                o.extract_field("identityProvider"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             optimize_for_end_user_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optimizeForEndUserLocation").unwrap(),
+                o.extract_field("optimizeForEndUserLocation"),
             ),
         }
     }

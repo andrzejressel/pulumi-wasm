@@ -73,73 +73,32 @@ pub mod get_configuration_set {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "reputationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "suppressionOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "vdmOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationSetName").unwrap(),
+                o.extract_field("configurationSetName"),
             ),
             delivery_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryOptions").unwrap(),
+                o.extract_field("deliveryOptions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             reputation_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reputationOptions").unwrap(),
+                o.extract_field("reputationOptions"),
             ),
             sending_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendingOptions").unwrap(),
+                o.extract_field("sendingOptions"),
             ),
             suppression_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressionOptions").unwrap(),
+                o.extract_field("suppressionOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tracking_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackingOptions").unwrap(),
+                o.extract_field("trackingOptions"),
             ),
             vdm_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vdmOptions").unwrap(),
+                o.extract_field("vdmOptions"),
             ),
         }
     }

@@ -191,70 +191,28 @@ pub mod rate_limit {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "bypassUrlPatterns".into(),
-                },
-                register_interface::ResultField {
-                    name: "correlate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "threshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RateLimitResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             bypass_url_patterns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassUrlPatterns").unwrap(),
+                o.extract_field("bypassUrlPatterns"),
             ),
             correlate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("correlate").unwrap(),
+                o.extract_field("correlate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
             threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threshold").unwrap(),
+                o.extract_field("threshold"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

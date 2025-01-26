@@ -300,135 +300,62 @@ pub mod workspace {
                     value: &vpc_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountAccessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "grafanaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAccessControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationDestinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationRoleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "samlConfigurationStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceResult {
             account_access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountAccessType").unwrap(),
+                o.extract_field("accountAccessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationProviders").unwrap(),
+                o.extract_field("authenticationProviders"),
             ),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             data_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSources").unwrap(),
+                o.extract_field("dataSources"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             grafana_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grafanaVersion").unwrap(),
+                o.extract_field("grafanaVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_access_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAccessControl").unwrap(),
+                o.extract_field("networkAccessControl"),
             ),
             notification_destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationDestinations").unwrap(),
+                o.extract_field("notificationDestinations"),
             ),
             organization_role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationRoleName").unwrap(),
+                o.extract_field("organizationRoleName"),
             ),
             organizational_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnits").unwrap(),
+                o.extract_field("organizationalUnits"),
             ),
             permission_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionType").unwrap(),
+                o.extract_field("permissionType"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             saml_configuration_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samlConfigurationStatus").unwrap(),
+                o.extract_field("samlConfigurationStatus"),
             ),
             stack_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetName").unwrap(),
+                o.extract_field("stackSetName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfiguration").unwrap(),
+                o.extract_field("vpcConfiguration"),
             ),
         }
     }

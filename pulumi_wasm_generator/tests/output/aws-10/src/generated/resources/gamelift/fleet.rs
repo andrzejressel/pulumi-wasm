@@ -259,135 +259,62 @@ pub mod fleet {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2InboundPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2InstanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "logPaths".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "newGameSessionProtectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatingSystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceCreationLimitPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             build_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildArn").unwrap(),
+                o.extract_field("buildArn"),
             ),
             build_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildId").unwrap(),
+                o.extract_field("buildId"),
             ),
             certificate_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateConfiguration").unwrap(),
+                o.extract_field("certificateConfiguration"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             ec2_inbound_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2InboundPermissions").unwrap(),
+                o.extract_field("ec2InboundPermissions"),
             ),
             ec2_instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2InstanceType").unwrap(),
+                o.extract_field("ec2InstanceType"),
             ),
             fleet_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetType").unwrap(),
+                o.extract_field("fleetType"),
             ),
             instance_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceRoleArn").unwrap(),
+                o.extract_field("instanceRoleArn"),
             ),
             log_paths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logPaths").unwrap(),
+                o.extract_field("logPaths"),
             ),
             metric_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricGroups").unwrap(),
+                o.extract_field("metricGroups"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             new_game_session_protection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("newGameSessionProtectionPolicy").unwrap(),
+                o.extract_field("newGameSessionProtectionPolicy"),
             ),
             operating_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatingSystem").unwrap(),
+                o.extract_field("operatingSystem"),
             ),
             resource_creation_limit_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceCreationLimitPolicy").unwrap(),
+                o.extract_field("resourceCreationLimitPolicy"),
             ),
             runtime_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeConfiguration").unwrap(),
+                o.extract_field("runtimeConfiguration"),
             ),
             script_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptArn").unwrap(),
+                o.extract_field("scriptArn"),
             ),
             script_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptId").unwrap(),
+                o.extract_field("scriptId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

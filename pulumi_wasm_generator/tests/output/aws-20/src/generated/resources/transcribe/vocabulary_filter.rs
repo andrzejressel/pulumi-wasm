@@ -123,64 +123,27 @@ pub mod vocabulary_filter {
                     value: &words_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "downloadUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vocabularyFilterFileUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "vocabularyFilterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "words".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VocabularyFilterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             download_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downloadUri").unwrap(),
+                o.extract_field("downloadUri"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vocabulary_filter_file_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vocabularyFilterFileUri").unwrap(),
+                o.extract_field("vocabularyFilterFileUri"),
             ),
             vocabulary_filter_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vocabularyFilterName").unwrap(),
+                o.extract_field("vocabularyFilterName"),
             ),
-            words: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("words").unwrap(),
-            ),
+            words: pulumi_wasm_rust::__private::into_domain(o.extract_field("words")),
         }
     }
 }

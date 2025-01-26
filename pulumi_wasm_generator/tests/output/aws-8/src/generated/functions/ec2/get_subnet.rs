@@ -159,164 +159,74 @@ pub mod get_subnet {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assignIpv6AddressOnCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "availableIpAddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOwnedIpv4Pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultForAz".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDns64".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLniAtDeviceIndex".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableResourceNameDnsARecordOnLaunch".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableResourceNameDnsAaaaRecordOnLaunch".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlockAssociationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Native".into(),
-                },
-                register_interface::ResultField {
-                    name: "mapCustomerOwnedIpOnLaunch".into(),
-                },
-                register_interface::ResultField {
-                    name: "mapPublicIpOnLaunch".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsHostnameTypeOnLaunch".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSubnetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             assign_ipv6_address_on_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignIpv6AddressOnCreation").unwrap(),
+                o.extract_field("assignIpv6AddressOnCreation"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
             available_ip_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableIpAddressCount").unwrap(),
+                o.extract_field("availableIpAddressCount"),
             ),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOwnedIpv4Pool").unwrap(),
+                o.extract_field("customerOwnedIpv4Pool"),
             ),
             default_for_az: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultForAz").unwrap(),
+                o.extract_field("defaultForAz"),
             ),
             enable_dns64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDns64").unwrap(),
+                o.extract_field("enableDns64"),
             ),
             enable_lni_at_device_index: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLniAtDeviceIndex").unwrap(),
+                o.extract_field("enableLniAtDeviceIndex"),
             ),
             enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableResourceNameDnsARecordOnLaunch").unwrap(),
+                o.extract_field("enableResourceNameDnsARecordOnLaunch"),
             ),
             enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableResourceNameDnsAaaaRecordOnLaunch").unwrap(),
+                o.extract_field("enableResourceNameDnsAaaaRecordOnLaunch"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlock").unwrap(),
+                o.extract_field("ipv6CidrBlock"),
             ),
             ipv6_cidr_block_association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlockAssociationId").unwrap(),
+                o.extract_field("ipv6CidrBlockAssociationId"),
             ),
             ipv6_native: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Native").unwrap(),
+                o.extract_field("ipv6Native"),
             ),
             map_customer_owned_ip_on_launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mapCustomerOwnedIpOnLaunch").unwrap(),
+                o.extract_field("mapCustomerOwnedIpOnLaunch"),
             ),
             map_public_ip_on_launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mapPublicIpOnLaunch").unwrap(),
+                o.extract_field("mapPublicIpOnLaunch"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             private_dns_hostname_type_on_launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsHostnameTypeOnLaunch").unwrap(),
+                o.extract_field("privateDnsHostnameTypeOnLaunch"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

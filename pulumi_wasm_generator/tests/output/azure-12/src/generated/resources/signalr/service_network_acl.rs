@@ -155,39 +155,20 @@ pub mod service_network_acl {
                     value: &signalr_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "signalrServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceNetworkAclResult {
             default_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAction").unwrap(),
+                o.extract_field("defaultAction"),
             ),
             private_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpoints").unwrap(),
+                o.extract_field("privateEndpoints"),
             ),
             public_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetwork").unwrap(),
+                o.extract_field("publicNetwork"),
             ),
             signalr_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signalrServiceId").unwrap(),
+                o.extract_field("signalrServiceId"),
             ),
         }
     }

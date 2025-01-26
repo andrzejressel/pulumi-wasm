@@ -71,62 +71,27 @@ pub mod get_dns_zone {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxNumberOfRecordSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxNumberOfVirtualNetworkLinks".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxNumberOfVirtualNetworkLinksWithRegistration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfRecordSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDnsZoneResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             max_number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxNumberOfRecordSets").unwrap(),
+                o.extract_field("maxNumberOfRecordSets"),
             ),
             max_number_of_virtual_network_links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxNumberOfVirtualNetworkLinks").unwrap(),
+                o.extract_field("maxNumberOfVirtualNetworkLinks"),
             ),
             max_number_of_virtual_network_links_with_registration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxNumberOfVirtualNetworkLinksWithRegistration").unwrap(),
+                o.extract_field("maxNumberOfVirtualNetworkLinksWithRegistration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfRecordSets").unwrap(),
+                o.extract_field("numberOfRecordSets"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -88,39 +88,20 @@ pub mod instance_metadata_defaults {
                     value: &instance_metadata_tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "httpEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpPutResponseHopLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpTokens".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMetadataTags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceMetadataDefaultsResult {
             http_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpEndpoint").unwrap(),
+                o.extract_field("httpEndpoint"),
             ),
             http_put_response_hop_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpPutResponseHopLimit").unwrap(),
+                o.extract_field("httpPutResponseHopLimit"),
             ),
             http_tokens: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpTokens").unwrap(),
+                o.extract_field("httpTokens"),
             ),
             instance_metadata_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMetadataTags").unwrap(),
+                o.extract_field("instanceMetadataTags"),
             ),
         }
     }

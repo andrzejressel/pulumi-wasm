@@ -291,81 +291,33 @@ pub mod pipeline {
                     value: &variables_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "artifactStores".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stages".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "variables".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             artifact_stores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactStores").unwrap(),
+                o.extract_field("artifactStores"),
             ),
             execution_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionMode").unwrap(),
+                o.extract_field("executionMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipeline_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineType").unwrap(),
+                o.extract_field("pipelineType"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stages").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
             variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variables").unwrap(),
+                o.extract_field("variables"),
             ),
         }
     }

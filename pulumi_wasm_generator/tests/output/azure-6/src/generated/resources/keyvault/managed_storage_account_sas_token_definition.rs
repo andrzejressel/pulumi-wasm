@@ -207,57 +207,25 @@ pub mod managed_storage_account_sas_token_definition {
                     value: &validity_period_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "managedStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasTemplateUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasType".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "validityPeriod".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedStorageAccountSasTokenDefinitionResult {
             managed_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedStorageAccountId").unwrap(),
+                o.extract_field("managedStorageAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sas_template_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasTemplateUri").unwrap(),
+                o.extract_field("sasTemplateUri"),
             ),
             sas_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasType").unwrap(),
+                o.extract_field("sasType"),
             ),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             validity_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validityPeriod").unwrap(),
+                o.extract_field("validityPeriod"),
             ),
         }
     }

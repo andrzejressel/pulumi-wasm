@@ -138,193 +138,92 @@ pub mod get_domain {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedSecurityOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoTuneOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitoOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "created".into(),
-                },
-                register_interface::ResultField {
-                    name: "dashboardEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "dashboardEndpointV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleted".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainEndpointV2HostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionAtRests".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "kibanaEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "logPublishingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeToNodeEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "offPeakWindowOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "processing".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "softwareUpdateOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDomainResult {
             access_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicies").unwrap(),
+                o.extract_field("accessPolicies"),
             ),
             advanced_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedOptions").unwrap(),
+                o.extract_field("advancedOptions"),
             ),
             advanced_security_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedSecurityOptions").unwrap(),
+                o.extract_field("advancedSecurityOptions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_tune_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoTuneOptions").unwrap(),
+                o.extract_field("autoTuneOptions"),
             ),
             cluster_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterConfigs").unwrap(),
+                o.extract_field("clusterConfigs"),
             ),
             cognito_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitoOptions").unwrap(),
+                o.extract_field("cognitoOptions"),
             ),
             created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("created").unwrap(),
+                o.extract_field("created"),
             ),
             dashboard_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardEndpoint").unwrap(),
+                o.extract_field("dashboardEndpoint"),
             ),
             dashboard_endpoint_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardEndpointV2").unwrap(),
+                o.extract_field("dashboardEndpointV2"),
             ),
             deleted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleted").unwrap(),
+                o.extract_field("deleted"),
             ),
             domain_endpoint_v2_hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainEndpointV2HostedZoneId").unwrap(),
+                o.extract_field("domainEndpointV2HostedZoneId"),
             ),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             ebs_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptions").unwrap(),
+                o.extract_field("ebsOptions"),
             ),
             encryption_at_rests: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionAtRests").unwrap(),
+                o.extract_field("encryptionAtRests"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             endpoint_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointV2").unwrap(),
+                o.extract_field("endpointV2"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             kibana_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kibanaEndpoint").unwrap(),
+                o.extract_field("kibanaEndpoint"),
             ),
             log_publishing_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logPublishingOptions").unwrap(),
+                o.extract_field("logPublishingOptions"),
             ),
             node_to_node_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeToNodeEncryptions").unwrap(),
+                o.extract_field("nodeToNodeEncryptions"),
             ),
             off_peak_window_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offPeakWindowOptions").unwrap(),
+                o.extract_field("offPeakWindowOptions"),
             ),
             processing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("processing").unwrap(),
+                o.extract_field("processing"),
             ),
             snapshot_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotOptions").unwrap(),
+                o.extract_field("snapshotOptions"),
             ),
             software_update_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softwareUpdateOptions").unwrap(),
+                o.extract_field("softwareUpdateOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vpc_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOptions").unwrap(),
+                o.extract_field("vpcOptions"),
             ),
         }
     }

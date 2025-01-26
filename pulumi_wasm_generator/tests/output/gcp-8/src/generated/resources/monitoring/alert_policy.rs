@@ -327,87 +327,42 @@ pub mod alert_policy {
                     value: &user_labels_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alertStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "combiner".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentation".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationChannels".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "userLabels".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AlertPolicyResult {
             alert_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertStrategy").unwrap(),
+                o.extract_field("alertStrategy"),
             ),
             combiner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("combiner").unwrap(),
+                o.extract_field("combiner"),
             ),
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
             creation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationRecords").unwrap(),
+                o.extract_field("creationRecords"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             documentation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentation").unwrap(),
+                o.extract_field("documentation"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_channels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationChannels").unwrap(),
+                o.extract_field("notificationChannels"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
             user_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userLabels").unwrap(),
+                o.extract_field("userLabels"),
             ),
         }
     }

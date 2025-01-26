@@ -242,87 +242,40 @@ pub mod trigger_blob_event {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activated".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "blobPathBeginsWith".into(),
-                },
-                register_interface::ResultField {
-                    name: "blobPathEndsWith".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "events".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreEmptyBlobs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelines".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TriggerBlobEventResult {
             activated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activated").unwrap(),
+                o.extract_field("activated"),
             ),
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             blob_path_begins_with: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobPathBeginsWith").unwrap(),
+                o.extract_field("blobPathBeginsWith"),
             ),
             blob_path_ends_with: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobPathEndsWith").unwrap(),
+                o.extract_field("blobPathEndsWith"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("events").unwrap(),
-            ),
+            events: pulumi_wasm_rust::__private::into_domain(o.extract_field("events")),
             ignore_empty_blobs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreEmptyBlobs").unwrap(),
+                o.extract_field("ignoreEmptyBlobs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipelines: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelines").unwrap(),
+                o.extract_field("pipelines"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

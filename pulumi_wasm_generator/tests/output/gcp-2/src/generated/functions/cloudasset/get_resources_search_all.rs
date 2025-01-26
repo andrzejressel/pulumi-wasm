@@ -55,44 +55,18 @@ pub mod get_resources_search_all {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assetTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "query".into(),
-                },
-                register_interface::ResultField {
-                    name: "results".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourcesSearchAllResult {
             asset_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetTypes").unwrap(),
+                o.extract_field("assetTypes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("query").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
             results: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("results").unwrap(),
+                o.extract_field("results"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

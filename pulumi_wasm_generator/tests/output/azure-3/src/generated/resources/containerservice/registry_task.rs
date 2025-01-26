@@ -324,123 +324,58 @@ pub mod registry_task {
                     value: &timer_triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentPoolName".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseImageTrigger".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerStep".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "encodedStep".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileStep".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "isSystemTask".into(),
-                },
-                register_interface::ResultField {
-                    name: "logTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryCredential".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceTriggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "timerTriggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryTaskResult {
             agent_pool_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentPoolName").unwrap(),
+                o.extract_field("agentPoolName"),
             ),
             agent_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentSetting").unwrap(),
+                o.extract_field("agentSetting"),
             ),
             base_image_trigger: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseImageTrigger").unwrap(),
+                o.extract_field("baseImageTrigger"),
             ),
             container_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryId").unwrap(),
+                o.extract_field("containerRegistryId"),
             ),
             docker_step: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerStep").unwrap(),
+                o.extract_field("dockerStep"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             encoded_step: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encodedStep").unwrap(),
+                o.extract_field("encodedStep"),
             ),
             file_step: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileStep").unwrap(),
+                o.extract_field("fileStep"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             is_system_task: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isSystemTask").unwrap(),
+                o.extract_field("isSystemTask"),
             ),
             log_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logTemplate").unwrap(),
+                o.extract_field("logTemplate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             registry_credential: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryCredential").unwrap(),
+                o.extract_field("registryCredential"),
             ),
             source_triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceTriggers").unwrap(),
+                o.extract_field("sourceTriggers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutInSeconds").unwrap(),
+                o.extract_field("timeoutInSeconds"),
             ),
             timer_triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timerTriggers").unwrap(),
+                o.extract_field("timerTriggers"),
             ),
         }
     }

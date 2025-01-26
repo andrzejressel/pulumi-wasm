@@ -119,73 +119,36 @@ pub mod get_random_password {
                     value: &require_each_included_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "excludeCharacters".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeLowercase".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludePunctuation".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeUppercase".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeSpace".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "randomPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireEachIncludedType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRandomPasswordResult {
             exclude_characters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeCharacters").unwrap(),
+                o.extract_field("excludeCharacters"),
             ),
             exclude_lowercase: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeLowercase").unwrap(),
+                o.extract_field("excludeLowercase"),
             ),
             exclude_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeNumbers").unwrap(),
+                o.extract_field("excludeNumbers"),
             ),
             exclude_punctuation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludePunctuation").unwrap(),
+                o.extract_field("excludePunctuation"),
             ),
             exclude_uppercase: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeUppercase").unwrap(),
+                o.extract_field("excludeUppercase"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_space: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeSpace").unwrap(),
+                o.extract_field("includeSpace"),
             ),
             password_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordLength").unwrap(),
+                o.extract_field("passwordLength"),
             ),
             random_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("randomPassword").unwrap(),
+                o.extract_field("randomPassword"),
             ),
             require_each_included_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireEachIncludedType").unwrap(),
+                o.extract_field("requireEachIncludedType"),
             ),
         }
     }

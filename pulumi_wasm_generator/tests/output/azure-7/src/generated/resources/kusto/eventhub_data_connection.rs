@@ -270,99 +270,48 @@ pub mod eventhub_data_connection {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "compression".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseRoutingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventSystemProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mappingRuleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventhubDataConnectionResult {
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             compression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compression").unwrap(),
+                o.extract_field("compression"),
             ),
             consumer_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerGroup").unwrap(),
+                o.extract_field("consumerGroup"),
             ),
             data_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFormat").unwrap(),
+                o.extract_field("dataFormat"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             database_routing_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseRoutingType").unwrap(),
+                o.extract_field("databaseRoutingType"),
             ),
             event_system_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSystemProperties").unwrap(),
+                o.extract_field("eventSystemProperties"),
             ),
             eventhub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubId").unwrap(),
+                o.extract_field("eventhubId"),
             ),
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mapping_rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mappingRuleName").unwrap(),
+                o.extract_field("mappingRuleName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

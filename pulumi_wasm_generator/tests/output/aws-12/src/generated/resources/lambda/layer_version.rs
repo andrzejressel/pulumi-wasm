@@ -207,130 +207,58 @@ pub mod layer_version {
                     value: &source_code_hash_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "codeSha256".into(),
-                },
-                register_interface::ResultField {
-                    name: "compatibleArchitectures".into(),
-                },
-                register_interface::ResultField {
-                    name: "compatibleRuntimes".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "layerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "layerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Key".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingJobArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingProfileVersionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCodeHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCodeSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LayerVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             code_sha256: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeSha256").unwrap(),
+                o.extract_field("codeSha256"),
             ),
             compatible_architectures: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibleArchitectures").unwrap(),
+                o.extract_field("compatibleArchitectures"),
             ),
             compatible_runtimes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibleRuntimes").unwrap(),
+                o.extract_field("compatibleRuntimes"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             layer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("layerArn").unwrap(),
+                o.extract_field("layerArn"),
             ),
             layer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("layerName").unwrap(),
+                o.extract_field("layerName"),
             ),
             license_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseInfo").unwrap(),
+                o.extract_field("licenseInfo"),
             ),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
-            s3_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Key").unwrap(),
-            ),
+            s3_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Key")),
             s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3ObjectVersion").unwrap(),
+                o.extract_field("s3ObjectVersion"),
             ),
             signing_job_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingJobArn").unwrap(),
+                o.extract_field("signingJobArn"),
             ),
             signing_profile_version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingProfileVersionArn").unwrap(),
+                o.extract_field("signingProfileVersionArn"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             source_code_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCodeHash").unwrap(),
+                o.extract_field("sourceCodeHash"),
             ),
             source_code_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCodeSize").unwrap(),
+                o.extract_field("sourceCodeSize"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

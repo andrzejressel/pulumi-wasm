@@ -123,45 +123,21 @@ pub mod hybrid_connection {
                     value: &user_metadata_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "relayNamespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiresClientAuthorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userMetadata".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HybridConnectionResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             relay_namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relayNamespaceName").unwrap(),
+                o.extract_field("relayNamespaceName"),
             ),
             requires_client_authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiresClientAuthorization").unwrap(),
+                o.extract_field("requiresClientAuthorization"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             user_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userMetadata").unwrap(),
+                o.extract_field("userMetadata"),
             ),
         }
     }

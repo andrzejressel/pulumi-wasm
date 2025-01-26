@@ -182,57 +182,27 @@ pub mod backup_policy_blob_storage {
                     value: &vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupRepeatingTimeIntervals".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationalDefaultRetentionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultDefaultRetentionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupPolicyBlobStorageResult {
             backup_repeating_time_intervals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRepeatingTimeIntervals").unwrap(),
+                o.extract_field("backupRepeatingTimeIntervals"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operational_default_retention_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationalDefaultRetentionDuration").unwrap(),
+                o.extract_field("operationalDefaultRetentionDuration"),
             ),
             retention_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionRules").unwrap(),
+                o.extract_field("retentionRules"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
             vault_default_retention_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultDefaultRetentionDuration").unwrap(),
+                o.extract_field("vaultDefaultRetentionDuration"),
             ),
             vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultId").unwrap(),
+                o.extract_field("vaultId"),
             ),
         }
     }

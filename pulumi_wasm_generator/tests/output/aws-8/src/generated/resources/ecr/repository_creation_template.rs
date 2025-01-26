@@ -221,75 +221,36 @@ pub mod repository_creation_template {
                     value: &resource_tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appliedFors".into(),
-                },
-                register_interface::ResultField {
-                    name: "customRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTagMutability".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecyclePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryCreationTemplateResult {
             applied_fors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appliedFors").unwrap(),
+                o.extract_field("appliedFors"),
             ),
             custom_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRoleArn").unwrap(),
+                o.extract_field("customRoleArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encryption_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfigurations").unwrap(),
+                o.extract_field("encryptionConfigurations"),
             ),
             image_tag_mutability: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTagMutability").unwrap(),
+                o.extract_field("imageTagMutability"),
             ),
             lifecycle_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecyclePolicy").unwrap(),
+                o.extract_field("lifecyclePolicy"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             repository_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryPolicy").unwrap(),
+                o.extract_field("repositoryPolicy"),
             ),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
         }
     }

@@ -147,301 +147,146 @@ pub mod get_instance_type {
                     value: &instance_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoRecoverySupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "bareMetal".into(),
-                },
-                register_interface::ResultField {
-                    name: "burstablePerformanceSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedHostsSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCores".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultThreadsPerCore".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultVcpus".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsEncryptionSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsNvmeSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimizedSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceBaselineBandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceBaselineIops".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceBaselineThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceMaximumBandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceMaximumIops".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsPerformanceMaximumThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "efaSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "enaSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionInTransitSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "fpgas".into(),
-                },
-                register_interface::ResultField {
-                    name: "freeTierEligible".into(),
-                },
-                register_interface::ResultField {
-                    name: "gpuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "hibernationSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "hypervisor".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceAccelerators".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceStorageSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Supported".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumIpv4AddressesPerInterface".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumIpv6AddressesPerInterface".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumNetworkCards".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumNetworkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkPerformance".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedArchitectures".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedPlacementStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedRootDeviceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedUsagesClasses".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedVirtualizationTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sustainedClockSpeed".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalFpgaMemory".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalGpuMemory".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalInstanceStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "validCores".into(),
-                },
-                register_interface::ResultField {
-                    name: "validThreadsPerCores".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceTypeResult {
             auto_recovery_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRecoverySupported").unwrap(),
+                o.extract_field("autoRecoverySupported"),
             ),
             bare_metal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bareMetal").unwrap(),
+                o.extract_field("bareMetal"),
             ),
             burstable_performance_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("burstablePerformanceSupported").unwrap(),
+                o.extract_field("burstablePerformanceSupported"),
             ),
             current_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentGeneration").unwrap(),
+                o.extract_field("currentGeneration"),
             ),
             dedicated_hosts_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedHostsSupported").unwrap(),
+                o.extract_field("dedicatedHostsSupported"),
             ),
             default_cores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCores").unwrap(),
+                o.extract_field("defaultCores"),
             ),
             default_threads_per_core: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultThreadsPerCore").unwrap(),
+                o.extract_field("defaultThreadsPerCore"),
             ),
             default_vcpus: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVcpus").unwrap(),
+                o.extract_field("defaultVcpus"),
             ),
             ebs_encryption_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsEncryptionSupport").unwrap(),
+                o.extract_field("ebsEncryptionSupport"),
             ),
             ebs_nvme_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsNvmeSupport").unwrap(),
+                o.extract_field("ebsNvmeSupport"),
             ),
             ebs_optimized_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimizedSupport").unwrap(),
+                o.extract_field("ebsOptimizedSupport"),
             ),
             ebs_performance_baseline_bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceBaselineBandwidth").unwrap(),
+                o.extract_field("ebsPerformanceBaselineBandwidth"),
             ),
             ebs_performance_baseline_iops: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceBaselineIops").unwrap(),
+                o.extract_field("ebsPerformanceBaselineIops"),
             ),
             ebs_performance_baseline_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceBaselineThroughput").unwrap(),
+                o.extract_field("ebsPerformanceBaselineThroughput"),
             ),
             ebs_performance_maximum_bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceMaximumBandwidth").unwrap(),
+                o.extract_field("ebsPerformanceMaximumBandwidth"),
             ),
             ebs_performance_maximum_iops: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceMaximumIops").unwrap(),
+                o.extract_field("ebsPerformanceMaximumIops"),
             ),
             ebs_performance_maximum_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsPerformanceMaximumThroughput").unwrap(),
+                o.extract_field("ebsPerformanceMaximumThroughput"),
             ),
             efa_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("efaSupported").unwrap(),
+                o.extract_field("efaSupported"),
             ),
             ena_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enaSupport").unwrap(),
+                o.extract_field("enaSupport"),
             ),
             encryption_in_transit_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionInTransitSupported").unwrap(),
+                o.extract_field("encryptionInTransitSupported"),
             ),
-            fpgas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fpgas").unwrap(),
-            ),
+            fpgas: pulumi_wasm_rust::__private::into_domain(o.extract_field("fpgas")),
             free_tier_eligible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("freeTierEligible").unwrap(),
+                o.extract_field("freeTierEligible"),
             ),
-            gpuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gpuses").unwrap(),
-            ),
+            gpuses: pulumi_wasm_rust::__private::into_domain(o.extract_field("gpuses")),
             hibernation_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hibernationSupported").unwrap(),
+                o.extract_field("hibernationSupported"),
             ),
             hypervisor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hypervisor").unwrap(),
+                o.extract_field("hypervisor"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inference_accelerators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceAccelerators").unwrap(),
+                o.extract_field("inferenceAccelerators"),
             ),
             instance_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceDisks").unwrap(),
+                o.extract_field("instanceDisks"),
             ),
             instance_storage_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceStorageSupported").unwrap(),
+                o.extract_field("instanceStorageSupported"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             ipv6_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Supported").unwrap(),
+                o.extract_field("ipv6Supported"),
             ),
             maximum_ipv4_addresses_per_interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumIpv4AddressesPerInterface").unwrap(),
+                o.extract_field("maximumIpv4AddressesPerInterface"),
             ),
             maximum_ipv6_addresses_per_interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumIpv6AddressesPerInterface").unwrap(),
+                o.extract_field("maximumIpv6AddressesPerInterface"),
             ),
             maximum_network_cards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumNetworkCards").unwrap(),
+                o.extract_field("maximumNetworkCards"),
             ),
             maximum_network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumNetworkInterfaces").unwrap(),
+                o.extract_field("maximumNetworkInterfaces"),
             ),
             memory_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySize").unwrap(),
+                o.extract_field("memorySize"),
             ),
             network_performance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkPerformance").unwrap(),
+                o.extract_field("networkPerformance"),
             ),
             supported_architectures: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedArchitectures").unwrap(),
+                o.extract_field("supportedArchitectures"),
             ),
             supported_placement_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedPlacementStrategies").unwrap(),
+                o.extract_field("supportedPlacementStrategies"),
             ),
             supported_root_device_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedRootDeviceTypes").unwrap(),
+                o.extract_field("supportedRootDeviceTypes"),
             ),
             supported_usages_classes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedUsagesClasses").unwrap(),
+                o.extract_field("supportedUsagesClasses"),
             ),
             supported_virtualization_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedVirtualizationTypes").unwrap(),
+                o.extract_field("supportedVirtualizationTypes"),
             ),
             sustained_clock_speed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sustainedClockSpeed").unwrap(),
+                o.extract_field("sustainedClockSpeed"),
             ),
             total_fpga_memory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalFpgaMemory").unwrap(),
+                o.extract_field("totalFpgaMemory"),
             ),
             total_gpu_memory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalGpuMemory").unwrap(),
+                o.extract_field("totalGpuMemory"),
             ),
             total_instance_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalInstanceStorage").unwrap(),
+                o.extract_field("totalInstanceStorage"),
             ),
             valid_cores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validCores").unwrap(),
+                o.extract_field("validCores"),
             ),
             valid_threads_per_cores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validThreadsPerCores").unwrap(),
+                o.extract_field("validThreadsPerCores"),
             ),
         }
     }

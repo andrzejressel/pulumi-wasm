@@ -99,27 +99,14 @@ pub mod role_policies_exclusive {
                     value: &role_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policyNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RolePoliciesExclusiveResult {
             policy_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyNames").unwrap(),
+                o.extract_field("policyNames"),
             ),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
         }
     }

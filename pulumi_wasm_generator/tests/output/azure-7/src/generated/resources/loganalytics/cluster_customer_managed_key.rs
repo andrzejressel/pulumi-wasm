@@ -133,27 +133,14 @@ pub mod cluster_customer_managed_key {
                     value: &log_analytics_cluster_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsClusterId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterCustomerManagedKeyResult {
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             log_analytics_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsClusterId").unwrap(),
+                o.extract_field("logAnalyticsClusterId"),
             ),
         }
     }

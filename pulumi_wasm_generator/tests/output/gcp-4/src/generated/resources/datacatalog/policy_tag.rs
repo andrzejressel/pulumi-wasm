@@ -186,51 +186,24 @@ pub mod policy_tag {
                     value: &taxonomy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "childPolicyTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentPolicyTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "taxonomy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyTagResult {
             child_policy_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("childPolicyTags").unwrap(),
+                o.extract_field("childPolicyTags"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_policy_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentPolicyTag").unwrap(),
+                o.extract_field("parentPolicyTag"),
             ),
             taxonomy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taxonomy").unwrap(),
+                o.extract_field("taxonomy"),
             ),
         }
     }

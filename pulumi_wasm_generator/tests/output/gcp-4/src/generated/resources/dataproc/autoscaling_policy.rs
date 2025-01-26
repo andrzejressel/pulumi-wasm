@@ -202,57 +202,27 @@ pub mod autoscaling_policy {
                     value: &worker_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "basicAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWorkerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutoscalingPolicyResult {
             basic_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicAlgorithm").unwrap(),
+                o.extract_field("basicAlgorithm"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             secondary_worker_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWorkerConfig").unwrap(),
+                o.extract_field("secondaryWorkerConfig"),
             ),
             worker_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerConfig").unwrap(),
+                o.extract_field("workerConfig"),
             ),
         }
     }

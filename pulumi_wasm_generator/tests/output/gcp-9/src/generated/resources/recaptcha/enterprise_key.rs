@@ -299,87 +299,40 @@ pub mod enterprise_key {
                     value: &web_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "androidSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "iosSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "testingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "wafSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "webSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnterpriseKeyResult {
             android_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("androidSettings").unwrap(),
+                o.extract_field("androidSettings"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             ios_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iosSettings").unwrap(),
+                o.extract_field("iosSettings"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             testing_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testingOptions").unwrap(),
+                o.extract_field("testingOptions"),
             ),
             waf_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wafSettings").unwrap(),
+                o.extract_field("wafSettings"),
             ),
             web_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webSettings").unwrap(),
+                o.extract_field("webSettings"),
             ),
         }
     }

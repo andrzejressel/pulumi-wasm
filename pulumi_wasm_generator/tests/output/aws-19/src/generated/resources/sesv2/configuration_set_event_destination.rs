@@ -239,33 +239,17 @@ pub mod configuration_set_event_destination {
                     value: &event_destination_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventDestinationName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationSetEventDestinationResult {
             configuration_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationSetName").unwrap(),
+                o.extract_field("configurationSetName"),
             ),
             event_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventDestination").unwrap(),
+                o.extract_field("eventDestination"),
             ),
             event_destination_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventDestinationName").unwrap(),
+                o.extract_field("eventDestinationName"),
             ),
         }
     }

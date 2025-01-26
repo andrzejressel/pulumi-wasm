@@ -293,147 +293,66 @@ pub mod fleet {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disconnectTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainJoinInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDefaultInternetAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleDisconnectTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSessionsPerInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUserDurationInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamView".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeCapacity").unwrap(),
+                o.extract_field("computeCapacity"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disconnect_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disconnectTimeoutInSeconds").unwrap(),
+                o.extract_field("disconnectTimeoutInSeconds"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             domain_join_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainJoinInfo").unwrap(),
+                o.extract_field("domainJoinInfo"),
             ),
             enable_default_internet_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDefaultInternetAccess").unwrap(),
+                o.extract_field("enableDefaultInternetAccess"),
             ),
             fleet_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetType").unwrap(),
+                o.extract_field("fleetType"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             idle_disconnect_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleDisconnectTimeoutInSeconds").unwrap(),
+                o.extract_field("idleDisconnectTimeoutInSeconds"),
             ),
             image_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageArn").unwrap(),
+                o.extract_field("imageArn"),
             ),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             max_sessions_per_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSessionsPerInstance").unwrap(),
+                o.extract_field("maxSessionsPerInstance"),
             ),
             max_user_duration_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUserDurationInSeconds").unwrap(),
+                o.extract_field("maxUserDurationInSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             stream_view: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamView").unwrap(),
+                o.extract_field("streamView"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

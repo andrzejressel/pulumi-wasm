@@ -173,69 +173,33 @@ pub mod agent_data_source {
                     value: &vector_ingestion_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataDeletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "knowledgeBaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "vectorIngestionConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentDataSourceResult {
             data_deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDeletionPolicy").unwrap(),
+                o.extract_field("dataDeletionPolicy"),
             ),
             data_source_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceConfiguration").unwrap(),
+                o.extract_field("dataSourceConfiguration"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             knowledge_base_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("knowledgeBaseId").unwrap(),
+                o.extract_field("knowledgeBaseId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             server_side_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryptionConfiguration").unwrap(),
+                o.extract_field("serverSideEncryptionConfiguration"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             vector_ingestion_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vectorIngestionConfiguration").unwrap(),
+                o.extract_field("vectorIngestionConfiguration"),
             ),
         }
     }

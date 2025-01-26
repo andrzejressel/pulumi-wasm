@@ -335,105 +335,45 @@ pub mod metric_stream {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "firehoseArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeLinkedAccountsMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdateDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "statisticsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             exclude_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeFilters").unwrap(),
+                o.extract_field("excludeFilters"),
             ),
             firehose_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firehoseArn").unwrap(),
+                o.extract_field("firehoseArn"),
             ),
             include_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeFilters").unwrap(),
+                o.extract_field("includeFilters"),
             ),
             include_linked_accounts_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeLinkedAccountsMetrics").unwrap(),
+                o.extract_field("includeLinkedAccountsMetrics"),
             ),
             last_update_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdateDate").unwrap(),
+                o.extract_field("lastUpdateDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             output_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputFormat").unwrap(),
+                o.extract_field("outputFormat"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             statistics_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statisticsConfigurations").unwrap(),
+                o.extract_field("statisticsConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

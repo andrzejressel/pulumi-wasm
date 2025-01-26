@@ -190,75 +190,34 @@ pub mod source_control {
                     value: &source_control_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automaticSync".into(),
-                },
-                register_interface::ResultField {
-                    name: "automationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "branch".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publishRunbookEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "security".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceControlType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceControlResult {
             automatic_sync: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticSync").unwrap(),
+                o.extract_field("automaticSync"),
             ),
             automation_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountId").unwrap(),
+                o.extract_field("automationAccountId"),
             ),
-            branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branch").unwrap(),
-            ),
+            branch: pulumi_wasm_rust::__private::into_domain(o.extract_field("branch")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             folder_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderPath").unwrap(),
+                o.extract_field("folderPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             publish_runbook_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publishRunbookEnabled").unwrap(),
+                o.extract_field("publishRunbookEnabled"),
             ),
             repository_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryUrl").unwrap(),
+                o.extract_field("repositoryUrl"),
             ),
             security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("security").unwrap(),
+                o.extract_field("security"),
             ),
             source_control_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceControlType").unwrap(),
+                o.extract_field("sourceControlType"),
             ),
         }
     }

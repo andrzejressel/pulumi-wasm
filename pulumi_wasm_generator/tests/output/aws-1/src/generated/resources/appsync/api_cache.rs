@@ -128,52 +128,21 @@ pub mod api_cache {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiCachingBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "atRestEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiCacheResult {
             api_caching_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiCachingBehavior").unwrap(),
+                o.extract_field("apiCachingBehavior"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("atRestEncryptionEnabled").unwrap(),
+                o.extract_field("atRestEncryptionEnabled"),
             ),
             transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionEnabled").unwrap(),
+                o.extract_field("transitEncryptionEnabled"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -123,33 +123,17 @@ pub mod token_password {
                     value: &password2_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerRegistryTokenId".into(),
-                },
-                register_interface::ResultField {
-                    name: "password1".into(),
-                },
-                register_interface::ResultField {
-                    name: "password2".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TokenPasswordResult {
             container_registry_token_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryTokenId").unwrap(),
+                o.extract_field("containerRegistryTokenId"),
             ),
             password1: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password1").unwrap(),
+                o.extract_field("password1"),
             ),
             password2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password2").unwrap(),
+                o.extract_field("password2"),
             ),
         }
     }

@@ -61,85 +61,40 @@ pub mod get_certificate {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateCreationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePem".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateWallet".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "validFromDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "validToDate".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateResult {
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             certificate_creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateCreationDate").unwrap(),
+                o.extract_field("certificateCreationDate"),
             ),
             certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateId").unwrap(),
+                o.extract_field("certificateId"),
             ),
             certificate_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateOwner").unwrap(),
+                o.extract_field("certificateOwner"),
             ),
             certificate_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePem").unwrap(),
+                o.extract_field("certificatePem"),
             ),
             certificate_wallet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateWallet").unwrap(),
+                o.extract_field("certificateWallet"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyLength").unwrap(),
+                o.extract_field("keyLength"),
             ),
             signing_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingAlgorithm").unwrap(),
+                o.extract_field("signingAlgorithm"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             valid_from_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validFromDate").unwrap(),
+                o.extract_field("validFromDate"),
             ),
             valid_to_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validToDate").unwrap(),
+                o.extract_field("validToDate"),
             ),
         }
     }

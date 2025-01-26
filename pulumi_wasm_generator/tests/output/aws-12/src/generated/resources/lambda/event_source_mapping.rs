@@ -624,226 +624,102 @@ pub mod event_source_mapping {
                     value: &tumbling_window_in_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amazonManagedKafkaEventSourceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "bisectBatchOnFunctionError".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentDbEventSourceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventSourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterCriteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionResponseTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastProcessingResult".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumBatchingWindowInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumRecordAgeInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumRetryAttempts".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "parallelizationFactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedPollerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "queues".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfManagedEventSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfManagedKafkaEventSourceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceAccessConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "startingPosition".into(),
-                },
-                register_interface::ResultField {
-                    name: "startingPositionTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateTransitionReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "topics".into(),
-                },
-                register_interface::ResultField {
-                    name: "tumblingWindowInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "uuid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventSourceMappingResult {
             amazon_managed_kafka_event_source_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amazonManagedKafkaEventSourceConfig").unwrap(),
+                o.extract_field("amazonManagedKafkaEventSourceConfig"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             batch_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchSize").unwrap(),
+                o.extract_field("batchSize"),
             ),
             bisect_batch_on_function_error: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bisectBatchOnFunctionError").unwrap(),
+                o.extract_field("bisectBatchOnFunctionError"),
             ),
             destination_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfig").unwrap(),
+                o.extract_field("destinationConfig"),
             ),
             document_db_event_source_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentDbEventSourceConfig").unwrap(),
+                o.extract_field("documentDbEventSourceConfig"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             event_source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSourceArn").unwrap(),
+                o.extract_field("eventSourceArn"),
             ),
             filter_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterCriteria").unwrap(),
+                o.extract_field("filterCriteria"),
             ),
             function_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionArn").unwrap(),
+                o.extract_field("functionArn"),
             ),
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
             function_response_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionResponseTypes").unwrap(),
+                o.extract_field("functionResponseTypes"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
             last_processing_result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastProcessingResult").unwrap(),
+                o.extract_field("lastProcessingResult"),
             ),
             maximum_batching_window_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumBatchingWindowInSeconds").unwrap(),
+                o.extract_field("maximumBatchingWindowInSeconds"),
             ),
             maximum_record_age_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumRecordAgeInSeconds").unwrap(),
+                o.extract_field("maximumRecordAgeInSeconds"),
             ),
             maximum_retry_attempts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumRetryAttempts").unwrap(),
+                o.extract_field("maximumRetryAttempts"),
             ),
             metrics_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricsConfig").unwrap(),
+                o.extract_field("metricsConfig"),
             ),
             parallelization_factor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parallelizationFactor").unwrap(),
+                o.extract_field("parallelizationFactor"),
             ),
             provisioned_poller_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedPollerConfig").unwrap(),
+                o.extract_field("provisionedPollerConfig"),
             ),
-            queues: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queues").unwrap(),
-            ),
+            queues: pulumi_wasm_rust::__private::into_domain(o.extract_field("queues")),
             scaling_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingConfig").unwrap(),
+                o.extract_field("scalingConfig"),
             ),
             self_managed_event_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfManagedEventSource").unwrap(),
+                o.extract_field("selfManagedEventSource"),
             ),
             self_managed_kafka_event_source_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfManagedKafkaEventSourceConfig").unwrap(),
+                o.extract_field("selfManagedKafkaEventSourceConfig"),
             ),
             source_access_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceAccessConfigurations").unwrap(),
+                o.extract_field("sourceAccessConfigurations"),
             ),
             starting_position: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startingPosition").unwrap(),
+                o.extract_field("startingPosition"),
             ),
             starting_position_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startingPositionTimestamp").unwrap(),
+                o.extract_field("startingPositionTimestamp"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_transition_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateTransitionReason").unwrap(),
+                o.extract_field("stateTransitionReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            topics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topics").unwrap(),
-            ),
+            topics: pulumi_wasm_rust::__private::into_domain(o.extract_field("topics")),
             tumbling_window_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tumblingWindowInSeconds").unwrap(),
+                o.extract_field("tumblingWindowInSeconds"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uuid").unwrap(),
-            ),
+            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

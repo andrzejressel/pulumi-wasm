@@ -285,100 +285,43 @@ pub mod application {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "architecture".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoStartConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoStopConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialCapacities".into(),
-                },
-                register_interface::ResultField {
-                    name: "interactiveConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
             architecture: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("architecture").unwrap(),
+                o.extract_field("architecture"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_start_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoStartConfiguration").unwrap(),
+                o.extract_field("autoStartConfiguration"),
             ),
             auto_stop_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoStopConfiguration").unwrap(),
+                o.extract_field("autoStopConfiguration"),
             ),
             image_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageConfiguration").unwrap(),
+                o.extract_field("imageConfiguration"),
             ),
             initial_capacities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialCapacities").unwrap(),
+                o.extract_field("initialCapacities"),
             ),
             interactive_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interactiveConfiguration").unwrap(),
+                o.extract_field("interactiveConfiguration"),
             ),
             maximum_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumCapacity").unwrap(),
+                o.extract_field("maximumCapacity"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             release_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseLabel").unwrap(),
+                o.extract_field("releaseLabel"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }
