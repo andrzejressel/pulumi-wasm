@@ -194,84 +194,84 @@
 /// $ pulumi import aws:elasticsearch/domain:Domain example domain_name
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// IAM policy document specifying the access policies for the domain.
         #[builder(into, default)]
-        pub access_policies: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_policies: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         #[builder(into, default)]
-        pub advanced_options: pulumi_wasm_rust::Output<
+        pub advanced_options: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         #[builder(into, default)]
-        pub advanced_security_options: pulumi_wasm_rust::Output<
+        pub advanced_security_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainAdvancedSecurityOptions>,
         >,
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         #[builder(into, default)]
-        pub auto_tune_options: pulumi_wasm_rust::Output<
+        pub auto_tune_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainAutoTuneOptions>,
         >,
         /// Configuration block for the cluster of the domain. Detailed below.
         #[builder(into, default)]
-        pub cluster_config: pulumi_wasm_rust::Output<
+        pub cluster_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainClusterConfig>,
         >,
         /// Configuration block for authenticating Kibana with Cognito. Detailed below.
         #[builder(into, default)]
-        pub cognito_options: pulumi_wasm_rust::Output<
+        pub cognito_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainCognitoOptions>,
         >,
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         #[builder(into, default)]
-        pub domain_endpoint_options: pulumi_wasm_rust::Output<
+        pub domain_endpoint_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainDomainEndpointOptions>,
         >,
         /// Name of the domain.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         #[builder(into, default)]
-        pub ebs_options: pulumi_wasm_rust::Output<
+        pub ebs_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainEbsOptions>,
         >,
         /// Version of Elasticsearch to deploy. Defaults to `1.5`.
         #[builder(into, default)]
-        pub elasticsearch_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub elasticsearch_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         #[builder(into, default)]
-        pub encrypt_at_rest: pulumi_wasm_rust::Output<
+        pub encrypt_at_rest: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainEncryptAtRest>,
         >,
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         #[builder(into, default)]
-        pub log_publishing_options: pulumi_wasm_rust::Output<
+        pub log_publishing_options: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::elasticsearch::DomainLogPublishingOption>>,
         >,
         /// Configuration block for node-to-node encryption options. Detailed below.
         #[builder(into, default)]
-        pub node_to_node_encryption: pulumi_wasm_rust::Output<
+        pub node_to_node_encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainNodeToNodeEncryption>,
         >,
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         #[builder(into, default)]
-        pub snapshot_options: pulumi_wasm_rust::Output<
+        pub snapshot_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainSnapshotOptions>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         #[builder(into, default)]
-        pub vpc_options: pulumi_wasm_rust::Output<
+        pub vpc_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsearch::DomainVpcOptions>,
         >,
     }
@@ -354,27 +354,62 @@ pub mod domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainArgs) -> DomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainArgs,
+    ) -> DomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_policies_binding = args.access_policies.get_inner();
-        let advanced_options_binding = args.advanced_options.get_inner();
+        let access_policies_binding = args
+            .access_policies
+            .get_output(context)
+            .get_inner();
+        let advanced_options_binding = args
+            .advanced_options
+            .get_output(context)
+            .get_inner();
         let advanced_security_options_binding = args
             .advanced_security_options
+            .get_output(context)
             .get_inner();
-        let auto_tune_options_binding = args.auto_tune_options.get_inner();
-        let cluster_config_binding = args.cluster_config.get_inner();
-        let cognito_options_binding = args.cognito_options.get_inner();
-        let domain_endpoint_options_binding = args.domain_endpoint_options.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let ebs_options_binding = args.ebs_options.get_inner();
-        let elasticsearch_version_binding = args.elasticsearch_version.get_inner();
-        let encrypt_at_rest_binding = args.encrypt_at_rest.get_inner();
-        let log_publishing_options_binding = args.log_publishing_options.get_inner();
-        let node_to_node_encryption_binding = args.node_to_node_encryption.get_inner();
-        let snapshot_options_binding = args.snapshot_options.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_options_binding = args.vpc_options.get_inner();
+        let auto_tune_options_binding = args
+            .auto_tune_options
+            .get_output(context)
+            .get_inner();
+        let cluster_config_binding = args.cluster_config.get_output(context).get_inner();
+        let cognito_options_binding = args
+            .cognito_options
+            .get_output(context)
+            .get_inner();
+        let domain_endpoint_options_binding = args
+            .domain_endpoint_options
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let ebs_options_binding = args.ebs_options.get_output(context).get_inner();
+        let elasticsearch_version_binding = args
+            .elasticsearch_version
+            .get_output(context)
+            .get_inner();
+        let encrypt_at_rest_binding = args
+            .encrypt_at_rest
+            .get_output(context)
+            .get_inner();
+        let log_publishing_options_binding = args
+            .log_publishing_options
+            .get_output(context)
+            .get_inner();
+        let node_to_node_encryption_binding = args
+            .node_to_node_encryption
+            .get_output(context)
+            .get_inner();
+        let snapshot_options_binding = args
+            .snapshot_options
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticsearch/domain:Domain".into(),
             name: name.to_string(),
@@ -511,7 +546,7 @@ pub mod domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -46,32 +46,32 @@
 /// ```
 ///
 pub mod integration_account_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountCertificateArgs {
         /// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `key_vault_key` block as documented below.
         #[builder(into, default)]
-        pub key_vault_key: pulumi_wasm_rust::Output<
+        pub key_vault_key: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::logicapps::IntegrationAccountCertificateKeyVaultKey,
             >,
         >,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The public certificate for the Logic App Integration Account Certificate.
         #[builder(into, default)]
-        pub public_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountCertificateResult {
@@ -97,17 +97,27 @@ pub mod integration_account_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountCertificateArgs,
     ) -> IntegrationAccountCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let integration_account_name_binding = args.integration_account_name.get_inner();
-        let key_vault_key_binding = args.key_vault_key.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let public_certificate_binding = args.public_certificate.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let integration_account_name_binding = args
+            .integration_account_name
+            .get_output(context)
+            .get_inner();
+        let key_vault_key_binding = args.key_vault_key.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let public_certificate_binding = args
+            .public_certificate
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate"
                 .into(),
@@ -160,7 +170,7 @@ pub mod integration_account_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

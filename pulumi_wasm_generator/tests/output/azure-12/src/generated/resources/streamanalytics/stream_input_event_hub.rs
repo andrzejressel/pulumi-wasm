@@ -71,45 +71,47 @@
 /// ```
 ///
 pub mod stream_input_event_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamInputEventHubArgs {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         #[builder(into, default)]
-        pub authentication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         #[builder(into, default)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the Event Hub.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The property the input Event Hub has been partitioned by.
         #[builder(into, default)]
-        pub partition_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub partition_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `serialization` block as defined below.
         #[builder(into)]
-        pub serialization: pulumi_wasm_rust::Output<
+        pub serialization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::streamanalytics::StreamInputEventHubSerialization,
         >,
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         #[builder(into)]
-        pub servicebus_namespace: pulumi_wasm_rust::Output<String>,
+        pub servicebus_namespace: pulumi_wasm_rust::InputOrOutput<String>,
         /// The shared access policy key for the specified shared access policy.
         #[builder(into, default)]
-        pub shared_access_policy_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub shared_access_policy_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         #[builder(into, default)]
-        pub shared_access_policy_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub shared_access_policy_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StreamInputEventHubResult {
@@ -143,27 +145,43 @@ pub mod stream_input_event_hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StreamInputEventHubArgs,
     ) -> StreamInputEventHubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding = args.authentication_mode.get_inner();
+        let authentication_mode_binding = args
+            .authentication_mode
+            .get_output(context)
+            .get_inner();
         let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
+            .get_output(context)
             .get_inner();
-        let eventhub_name_binding = args.eventhub_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let partition_key_binding = args.partition_key.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let serialization_binding = args.serialization.get_inner();
-        let servicebus_namespace_binding = args.servicebus_namespace.get_inner();
-        let shared_access_policy_key_binding = args.shared_access_policy_key.get_inner();
+        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let partition_key_binding = args.partition_key.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let serialization_binding = args.serialization.get_output(context).get_inner();
+        let servicebus_namespace_binding = args
+            .servicebus_namespace
+            .get_output(context)
+            .get_inner();
+        let shared_access_policy_key_binding = args
+            .shared_access_policy_key
+            .get_output(context)
+            .get_inner();
         let shared_access_policy_name_binding = args
             .shared_access_policy_name
+            .get_output(context)
             .get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/streamInputEventHub:StreamInputEventHub"
@@ -252,7 +270,7 @@ pub mod stream_input_event_hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

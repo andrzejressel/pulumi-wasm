@@ -1,5 +1,5 @@
 pub mod get_key_ring_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKeyRingIamPolicyArgs {
@@ -8,7 +8,7 @@ pub mod get_key_ring_iam_policy {
         /// `{location_name}/{key_ring_name}`. In the second form, the provider's
         /// project setting will be used as a fallback.
         #[builder(into)]
-        pub key_ring_id: pulumi_wasm_rust::Output<String>,
+        pub key_ring_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetKeyRingIamPolicyResult {
@@ -24,10 +24,13 @@ pub mod get_key_ring_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKeyRingIamPolicyArgs) -> GetKeyRingIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKeyRingIamPolicyArgs,
+    ) -> GetKeyRingIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_ring_id_binding = args.key_ring_id.get_inner();
+        let key_ring_id_binding = args.key_ring_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKeyRingIamPolicy:getKeyRingIamPolicy".into(),
             version: super::super::super::get_version(),
@@ -52,7 +55,7 @@ pub mod get_key_ring_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -114,50 +114,50 @@
 /// ```
 ///
 pub mod branch_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BranchRuleArgs {
         /// Determines if allow stale reviews or approvals before merging to the branch.
         #[builder(into, default)]
-        pub allow_stale_reviews: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_stale_reviews: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID for the BranchRule.
         #[builder(into)]
-        pub branch_rule_id: pulumi_wasm_rust::Output<String>,
+        pub branch_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Determines if the branch rule is disabled or not.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
         #[builder(into)]
-        pub include_pattern: pulumi_wasm_rust::Output<String>,
+        pub include_pattern: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location for the Repository.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The minimum number of approvals required for the branch rule to be matched.
         #[builder(into, default)]
-        pub minimum_approvals_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_approvals_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The minimum number of reviews required for the branch rule to be matched.
         #[builder(into, default)]
-        pub minimum_reviews_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_reviews_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Determines if require comments resolved before merging to the branch.
         #[builder(into, default)]
-        pub require_comments_resolved: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_comments_resolved: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Determines if require linear history before merging to the branch.
         #[builder(into, default)]
-        pub require_linear_history: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_linear_history: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Determines if the branch rule requires a pull request or not.
         #[builder(into, default)]
-        pub require_pull_request: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_pull_request: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct BranchRuleResult {
@@ -202,23 +202,46 @@ pub mod branch_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BranchRuleArgs) -> BranchRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BranchRuleArgs,
+    ) -> BranchRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_stale_reviews_binding = args.allow_stale_reviews.get_inner();
-        let branch_rule_id_binding = args.branch_rule_id.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let include_pattern_binding = args.include_pattern.get_inner();
-        let location_binding = args.location.get_inner();
-        let minimum_approvals_count_binding = args.minimum_approvals_count.get_inner();
-        let minimum_reviews_count_binding = args.minimum_reviews_count.get_inner();
-        let project_binding = args.project.get_inner();
-        let repository_id_binding = args.repository_id.get_inner();
+        let allow_stale_reviews_binding = args
+            .allow_stale_reviews
+            .get_output(context)
+            .get_inner();
+        let branch_rule_id_binding = args.branch_rule_id.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let include_pattern_binding = args
+            .include_pattern
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let minimum_approvals_count_binding = args
+            .minimum_approvals_count
+            .get_output(context)
+            .get_inner();
+        let minimum_reviews_count_binding = args
+            .minimum_reviews_count
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let repository_id_binding = args.repository_id.get_output(context).get_inner();
         let require_comments_resolved_binding = args
             .require_comments_resolved
+            .get_output(context)
             .get_inner();
-        let require_linear_history_binding = args.require_linear_history.get_inner();
-        let require_pull_request_binding = args.require_pull_request.get_inner();
+        let require_linear_history_binding = args
+            .require_linear_history
+            .get_output(context)
+            .get_inner();
+        let require_pull_request_binding = args
+            .require_pull_request
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/branchRule:BranchRule".into(),
             name: name.to_string(),
@@ -324,7 +347,7 @@ pub mod branch_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

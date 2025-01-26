@@ -13,32 +13,34 @@
 /// ```
 ///
 pub mod pages_project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PagesProjectArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for the project build process. Read more about the build configuration in the [developer documentation](https://developers.cloudflare.com/pages/platform/build-configuration).
         #[builder(into, default)]
-        pub build_config: pulumi_wasm_rust::Output<
+        pub build_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::PagesProjectBuildConfig>,
         >,
         /// Configuration for deployments in a project.
         #[builder(into, default)]
-        pub deployment_configs: pulumi_wasm_rust::Output<
+        pub deployment_configs: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::PagesProjectDeploymentConfigs>,
         >,
         /// Name of the project.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the branch that is used for the production environment.
         #[builder(into)]
-        pub production_branch: pulumi_wasm_rust::Output<String>,
+        pub production_branch: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for the project source. Read more about the source configuration in the [developer documentation](https://developers.cloudflare.com/pages/platform/branch-build-controls/).
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::Output<Option<super::types::PagesProjectSource>>,
+        pub source: pulumi_wasm_rust::InputOrOutput<
+            Option<super::types::PagesProjectSource>,
+        >,
     }
     #[allow(dead_code)]
     pub struct PagesProjectResult {
@@ -69,15 +71,25 @@ pub mod pages_project {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PagesProjectArgs) -> PagesProjectResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PagesProjectArgs,
+    ) -> PagesProjectResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let build_config_binding = args.build_config.get_inner();
-        let deployment_configs_binding = args.deployment_configs.get_inner();
-        let name_binding = args.name.get_inner();
-        let production_branch_binding = args.production_branch.get_inner();
-        let source_binding = args.source.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let build_config_binding = args.build_config.get_output(context).get_inner();
+        let deployment_configs_binding = args
+            .deployment_configs
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let production_branch_binding = args
+            .production_branch
+            .get_output(context)
+            .get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pagesProject:PagesProject".into(),
             name: name.to_string(),
@@ -138,7 +150,7 @@ pub mod pages_project {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

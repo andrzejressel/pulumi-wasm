@@ -56,34 +56,34 @@
 /// ```
 ///
 pub mod ekm_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EkmConnectionArgs {
         /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if
         /// KeyManagementMode is CLOUD_KMS.
         #[builder(into, default)]
-        pub crypto_space_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub crypto_space_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Etag of the currently stored EkmConnection.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default
         /// value: "MANUAL" Possible values: ["MANUAL", "CLOUD_KMS"]
         #[builder(into, default)]
-        pub key_management_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_management_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location for the EkmConnection.
         /// A full list of valid locations can be found by running `gcloud kms locations list`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource name for the EkmConnection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported
         /// Structure is documented below.
         #[builder(into)]
-        pub service_resolvers: pulumi_wasm_rust::Output<
+        pub service_resolvers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::kms::EkmConnectionServiceResolver>,
         >,
     }
@@ -116,16 +116,29 @@ pub mod ekm_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EkmConnectionArgs) -> EkmConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EkmConnectionArgs,
+    ) -> EkmConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let crypto_space_path_binding = args.crypto_space_path.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let key_management_mode_binding = args.key_management_mode.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_resolvers_binding = args.service_resolvers.get_inner();
+        let crypto_space_path_binding = args
+            .crypto_space_path
+            .get_output(context)
+            .get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let key_management_mode_binding = args
+            .key_management_mode
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_resolvers_binding = args
+            .service_resolvers
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/ekmConnection:EkmConnection".into(),
             name: name.to_string(),
@@ -187,7 +200,7 @@ pub mod ekm_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

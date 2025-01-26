@@ -22,7 +22,7 @@
 /// $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
 /// ```
 pub mod cell {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CellArgs {
@@ -30,13 +30,13 @@ pub mod cell {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub cell_name: pulumi_wasm_rust::Output<String>,
+        pub cell_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of cell arns to add as nested fault domains within this cell.
         #[builder(into, default)]
-        pub cells: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cells: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -65,12 +65,16 @@ pub mod cell {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CellArgs) -> CellResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CellArgs,
+    ) -> CellResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cell_name_binding = args.cell_name.get_inner();
-        let cells_binding = args.cells.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let cell_name_binding = args.cell_name.get_output(context).get_inner();
+        let cells_binding = args.cells.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoveryreadiness/cell:Cell".into(),
             name: name.to_string(),
@@ -110,7 +114,7 @@ pub mod cell {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

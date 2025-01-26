@@ -125,57 +125,63 @@
 /// ```
 ///
 pub mod server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerArgs {
         /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub administrator_login: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_login: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         #[builder(into, default)]
-        pub administrator_login_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_login_password: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// An `azuread_administrator` block as defined below.
         #[builder(into, default)]
-        pub azuread_administrator: pulumi_wasm_rust::Output<
+        pub azuread_administrator: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::ServerAzureadAdministrator>,
         >,
         /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         #[builder(into, default)]
-        pub connection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::ServerIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
         ///
         /// > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         ///
         /// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         #[builder(into, default)]
-        pub minimum_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimum_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
         #[builder(into, default)]
-        pub outbound_network_restriction_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub outbound_network_restriction_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         #[builder(into, default)]
-        pub primary_user_assigned_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether public network access is allowed for this server. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
@@ -186,12 +192,12 @@ pub mod server {
         ///
         /// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         #[builder(into, default)]
-        pub transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::Output<
+        pub transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServerResult {
@@ -252,34 +258,58 @@ pub mod server {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServerArgs) -> ServerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServerArgs,
+    ) -> ServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding = args.administrator_login.get_inner();
+        let administrator_login_binding = args
+            .administrator_login
+            .get_output(context)
+            .get_inner();
         let administrator_login_password_binding = args
             .administrator_login_password
+            .get_output(context)
             .get_inner();
-        let azuread_administrator_binding = args.azuread_administrator.get_inner();
-        let connection_policy_binding = args.connection_policy.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let minimum_tls_version_binding = args.minimum_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
+        let azuread_administrator_binding = args
+            .azuread_administrator
+            .get_output(context)
+            .get_inner();
+        let connection_policy_binding = args
+            .connection_policy
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let minimum_tls_version_binding = args
+            .minimum_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let outbound_network_restriction_enabled_binding = args
             .outbound_network_restriction_enabled
+            .get_output(context)
             .get_inner();
         let primary_user_assigned_identity_id_binding = args
             .primary_user_assigned_identity_id
+            .get_output(context)
             .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let transparent_data_encryption_key_vault_key_id_binding = args
             .transparent_data_encryption_key_vault_key_id
+            .get_output(context)
             .get_inner();
-        let version_binding = args.version.get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/server:Server".into(),
             name: name.to_string(),
@@ -400,7 +430,7 @@ pub mod server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

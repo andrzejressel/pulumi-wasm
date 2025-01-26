@@ -22,21 +22,21 @@
 /// $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
 /// ```
 pub mod observability_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObservabilityConfigurationArgs {
         /// Name of the observability configuration.
         #[builder(into)]
-        pub observability_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub observability_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         #[builder(into, default)]
-        pub trace_configuration: pulumi_wasm_rust::Output<
+        pub trace_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::apprunner::ObservabilityConfigurationTraceConfiguration,
             >,
@@ -74,6 +74,7 @@ pub mod observability_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ObservabilityConfigurationArgs,
     ) -> ObservabilityConfigurationResult {
@@ -81,9 +82,13 @@ pub mod observability_configuration {
         use std::collections::HashMap;
         let observability_configuration_name_binding = args
             .observability_configuration_name
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let trace_configuration_binding = args.trace_configuration.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let trace_configuration_binding = args
+            .trace_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration"
                 .into(),
@@ -130,7 +135,7 @@ pub mod observability_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

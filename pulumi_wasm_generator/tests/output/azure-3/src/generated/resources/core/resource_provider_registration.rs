@@ -54,17 +54,17 @@
 /// ```
 ///
 pub mod resource_provider_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceProviderRegistrationArgs {
         #[builder(into, default)]
-        pub features: pulumi_wasm_rust::Output<
+        pub features: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::core::ResourceProviderRegistrationFeature>>,
         >,
         /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ResourceProviderRegistrationResult {
@@ -79,13 +79,14 @@ pub mod resource_provider_registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourceProviderRegistrationArgs,
     ) -> ResourceProviderRegistrationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let features_binding = args.features.get_inner();
-        let name_binding = args.name.get_inner();
+        let features_binding = args.features.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceProviderRegistration:ResourceProviderRegistration"
                 .into(),
@@ -110,7 +111,7 @@ pub mod resource_provider_registration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

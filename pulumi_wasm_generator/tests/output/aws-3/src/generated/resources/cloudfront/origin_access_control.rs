@@ -32,25 +32,25 @@
 /// $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
 /// ```
 pub mod origin_access_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OriginAccessControlArgs {
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A name that identifies the Origin Access Control.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         #[builder(into)]
-        pub origin_access_control_origin_type: pulumi_wasm_rust::Output<String>,
+        pub origin_access_control_origin_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         #[builder(into)]
-        pub signing_behavior: pulumi_wasm_rust::Output<String>,
+        pub signing_behavior: pulumi_wasm_rust::InputOrOutput<String>,
         /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         #[builder(into)]
-        pub signing_protocol: pulumi_wasm_rust::Output<String>,
+        pub signing_protocol: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OriginAccessControlResult {
@@ -72,18 +72,26 @@ pub mod origin_access_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OriginAccessControlArgs,
     ) -> OriginAccessControlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let origin_access_control_origin_type_binding = args
             .origin_access_control_origin_type
+            .get_output(context)
             .get_inner();
-        let signing_behavior_binding = args.signing_behavior.get_inner();
-        let signing_protocol_binding = args.signing_protocol.get_inner();
+        let signing_behavior_binding = args
+            .signing_behavior
+            .get_output(context)
+            .get_inner();
+        let signing_protocol_binding = args
+            .signing_protocol
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/originAccessControl:OriginAccessControl".into(),
             name: name.to_string(),
@@ -131,7 +139,7 @@ pub mod origin_access_control {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

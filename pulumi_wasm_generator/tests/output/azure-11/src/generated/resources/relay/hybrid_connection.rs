@@ -39,25 +39,25 @@
 /// ```
 ///
 pub mod hybrid_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HybridConnectionArgs {
         /// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub relay_namespace_name: pulumi_wasm_rust::Output<String>,
+        pub relay_namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
         #[builder(into, default)]
-        pub requires_client_authorization: pulumi_wasm_rust::Output<Option<bool>>,
+        pub requires_client_authorization: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         #[builder(into, default)]
-        pub user_metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HybridConnectionResult {
@@ -76,16 +76,27 @@ pub mod hybrid_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HybridConnectionArgs) -> HybridConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HybridConnectionArgs,
+    ) -> HybridConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let relay_namespace_name_binding = args.relay_namespace_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let relay_namespace_name_binding = args
+            .relay_namespace_name
+            .get_output(context)
+            .get_inner();
         let requires_client_authorization_binding = args
             .requires_client_authorization
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let user_metadata_binding = args.user_metadata.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let user_metadata_binding = args.user_metadata.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:relay/hybridConnection:HybridConnection".into(),
             name: name.to_string(),
@@ -130,7 +141,7 @@ pub mod hybrid_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -94,7 +94,7 @@
 /// ```
 ///
 pub mod apple_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppleAppArgs {
@@ -102,28 +102,28 @@ pub mod apple_app {
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AppleApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
         #[builder(into, default)]
-        pub api_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The automatically generated Apple ID assigned to the Apple app by Apple in the Apple App Store.
         #[builder(into, default)]
-        pub app_store_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_store_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The canonical bundle ID of the Apple app as it would appear in the Apple AppStore.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user-assigned display name of the App.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Apple Developer Team ID associated with the App in the App Store.
         #[builder(into, default)]
-        pub team_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub team_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppleAppResult {
@@ -157,16 +157,23 @@ pub mod apple_app {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AppleAppArgs) -> AppleAppResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AppleAppArgs,
+    ) -> AppleAppResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_id_binding = args.api_key_id.get_inner();
-        let app_store_id_binding = args.app_store_id.get_inner();
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let project_binding = args.project.get_inner();
-        let team_id_binding = args.team_id.get_inner();
+        let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
+        let app_store_id_binding = args.app_store_id.get_output(context).get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let team_id_binding = args.team_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appleApp:AppleApp".into(),
             name: name.to_string(),
@@ -231,7 +238,7 @@ pub mod apple_app {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -27,28 +27,28 @@
 /// $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
 /// ```
 pub mod query_suggestions_block_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QuerySuggestionsBlockListArgs {
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the index for a block list.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name for the block list.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// S3 path where your block list text file is located. See details below.
         #[builder(into)]
-        pub source_s3_path: pulumi_wasm_rust::Output<
+        pub source_s3_path: pulumi_wasm_rust::InputOrOutput<
             super::super::types::kendra::QuerySuggestionsBlockListSourceS3Path,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -83,17 +83,18 @@ pub mod query_suggestions_block_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: QuerySuggestionsBlockListArgs,
     ) -> QuerySuggestionsBlockListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let index_id_binding = args.index_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let source_s3_path_binding = args.source_s3_path.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let index_id_binding = args.index_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let source_s3_path_binding = args.source_s3_path.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList"
                 .into(),
@@ -158,7 +159,7 @@ pub mod query_suggestions_block_list {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

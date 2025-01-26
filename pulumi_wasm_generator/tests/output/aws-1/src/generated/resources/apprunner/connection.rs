@@ -23,19 +23,19 @@
 /// $ pulumi import aws:apprunner/connection:Connection example example
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// Name of the connection.
         #[builder(into)]
-        pub connection_name: pulumi_wasm_rust::Output<String>,
+        pub connection_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Source repository provider. Valid values: `GITHUB`.
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -62,12 +62,19 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_name_binding = args.connection_name.get_inner();
-        let provider_type_binding = args.provider_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let connection_name_binding = args
+            .connection_name
+            .get_output(context)
+            .get_inner();
+        let provider_type_binding = args.provider_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/connection:Connection".into(),
             name: name.to_string(),
@@ -107,7 +114,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

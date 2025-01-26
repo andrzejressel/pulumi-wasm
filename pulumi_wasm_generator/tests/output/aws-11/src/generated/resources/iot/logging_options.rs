@@ -17,19 +17,19 @@
 /// }
 /// ```
 pub mod logging_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggingOptionsArgs {
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         #[builder(into)]
-        pub default_log_level: pulumi_wasm_rust::Output<String>,
+        pub default_log_level: pulumi_wasm_rust::InputOrOutput<String>,
         /// If `true` all logs are disabled. The default is `false`.
         #[builder(into, default)]
-        pub disable_all_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_all_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LoggingOptionsResult {
@@ -44,12 +44,22 @@ pub mod logging_options {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LoggingOptionsArgs) -> LoggingOptionsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LoggingOptionsArgs,
+    ) -> LoggingOptionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_log_level_binding = args.default_log_level.get_inner();
-        let disable_all_logs_binding = args.disable_all_logs.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
+        let default_log_level_binding = args
+            .default_log_level
+            .get_output(context)
+            .get_inner();
+        let disable_all_logs_binding = args
+            .disable_all_logs
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/loggingOptions:LoggingOptions".into(),
             name: name.to_string(),
@@ -80,7 +90,7 @@ pub mod logging_options {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

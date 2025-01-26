@@ -23,25 +23,25 @@
 /// $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 /// ```
 pub mod auto_scaling_configuration_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutoScalingConfigurationVersionArgs {
         /// Name of the auto scaling configuration.
         #[builder(into)]
-        pub auto_scaling_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub auto_scaling_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Maximal number of instances that App Runner provisions for your service.
         #[builder(into, default)]
-        pub max_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimal number of instances that App Runner provisions for your service.
         #[builder(into, default)]
-        pub min_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -79,6 +79,7 @@ pub mod auto_scaling_configuration_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AutoScalingConfigurationVersionArgs,
     ) -> AutoScalingConfigurationVersionResult {
@@ -86,11 +87,15 @@ pub mod auto_scaling_configuration_version {
         use std::collections::HashMap;
         let auto_scaling_configuration_name_binding = args
             .auto_scaling_configuration_name
+            .get_output(context)
             .get_inner();
-        let max_concurrency_binding = args.max_concurrency.get_inner();
-        let max_size_binding = args.max_size.get_inner();
-        let min_size_binding = args.min_size.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let max_concurrency_binding = args
+            .max_concurrency
+            .get_output(context)
+            .get_inner();
+        let max_size_binding = args.max_size.get_output(context).get_inner();
+        let min_size_binding = args.min_size.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion"
                 .into(),
@@ -157,7 +162,7 @@ pub mod auto_scaling_configuration_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

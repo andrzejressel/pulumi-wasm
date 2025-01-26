@@ -48,64 +48,64 @@
 /// $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
 /// ```
 pub mod container_recipe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerRecipeArgs {
         /// Ordered configuration block(s) with components for the container recipe. Detailed below.
         #[builder(into)]
-        pub components: pulumi_wasm_rust::Output<
+        pub components: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::imagebuilder::ContainerRecipeComponent>,
         >,
         /// The type of the container to create. Valid values: `DOCKER`.
         #[builder(into)]
-        pub container_type: pulumi_wasm_rust::Output<String>,
+        pub container_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the container recipe.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Dockerfile template used to build the image as an inline data blob.
         #[builder(into, default)]
-        pub dockerfile_template_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub dockerfile_template_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         #[builder(into, default)]
-        pub dockerfile_template_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub dockerfile_template_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block used to configure an instance for building and testing container images. Detailed below.
         #[builder(into, default)]
-        pub instance_configuration: pulumi_wasm_rust::Output<
+        pub instance_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::imagebuilder::ContainerRecipeInstanceConfiguration,
             >,
         >,
         /// The KMS key used to encrypt the container image.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the container recipe.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The base image for the container recipe.
         #[builder(into)]
-        pub parent_image: pulumi_wasm_rust::Output<String>,
+        pub parent_image: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the operating system platform when you use a custom base image.
         #[builder(into, default)]
-        pub platform_override: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_override: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The destination repository for the container image. Detailed below.
         #[builder(into)]
-        pub target_repository: pulumi_wasm_rust::Output<
+        pub target_repository: pulumi_wasm_rust::InputOrOutput<
             super::super::types::imagebuilder::ContainerRecipeTargetRepository,
         >,
         /// Version of the container recipe.
         ///
         /// The following attributes are optional:
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The working directory to be used during build and test workflows.
         #[builder(into, default)]
-        pub working_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub working_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ContainerRecipeResult {
@@ -168,23 +168,45 @@ pub mod container_recipe {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContainerRecipeArgs) -> ContainerRecipeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContainerRecipeArgs,
+    ) -> ContainerRecipeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let components_binding = args.components.get_inner();
-        let container_type_binding = args.container_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let dockerfile_template_data_binding = args.dockerfile_template_data.get_inner();
-        let dockerfile_template_uri_binding = args.dockerfile_template_uri.get_inner();
-        let instance_configuration_binding = args.instance_configuration.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_image_binding = args.parent_image.get_inner();
-        let platform_override_binding = args.platform_override.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_repository_binding = args.target_repository.get_inner();
-        let version_binding = args.version.get_inner();
-        let working_directory_binding = args.working_directory.get_inner();
+        let components_binding = args.components.get_output(context).get_inner();
+        let container_type_binding = args.container_type.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dockerfile_template_data_binding = args
+            .dockerfile_template_data
+            .get_output(context)
+            .get_inner();
+        let dockerfile_template_uri_binding = args
+            .dockerfile_template_uri
+            .get_output(context)
+            .get_inner();
+        let instance_configuration_binding = args
+            .instance_configuration
+            .get_output(context)
+            .get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_image_binding = args.parent_image.get_output(context).get_inner();
+        let platform_override_binding = args
+            .platform_override
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_repository_binding = args
+            .target_repository
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
+        let working_directory_binding = args
+            .working_directory
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/containerRecipe:ContainerRecipe".into(),
             name: name.to_string(),
@@ -310,7 +332,7 @@ pub mod container_recipe {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

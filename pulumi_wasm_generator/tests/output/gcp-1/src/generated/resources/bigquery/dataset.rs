@@ -224,14 +224,14 @@
 /// ```
 ///
 pub mod dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetArgs {
         /// An array of objects that define dataset access for one or more entities.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accesses: pulumi_wasm_rust::Output<
+        pub accesses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::DatasetAccess>>,
         >,
         /// A unique ID for this dataset, without the project name. The ID
@@ -241,7 +241,7 @@ pub mod dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines the default collation specification of future tables created
         /// in the dataset. If a table is created in this dataset without table-level
         /// default collation, then the table inherits the dataset default collation,
@@ -252,13 +252,13 @@ pub mod dataset {
         /// - 'und:ci': undetermined locale, case insensitive.
         /// - '': empty string. Default to case-sensitive behavior.
         #[builder(into, default)]
-        pub default_collation: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default encryption key for all tables in the dataset. Once this property is set,
         /// all newly-created partitioned tables in the dataset will have encryption key set to
         /// this value, unless table creation request (or query) overrides the key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_encryption_configuration: pulumi_wasm_rust::Output<
+        pub default_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetDefaultEncryptionConfiguration>,
         >,
         /// The default partition expiration for all partitioned tables in
@@ -275,7 +275,9 @@ pub mod dataset {
         /// creating or updating a partitioned table, that value takes precedence
         /// over the default partition expiration time indicated by this property.
         #[builder(into, default)]
-        pub default_partition_expiration_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_partition_expiration_ms: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The default lifetime of all tables in the dataset, in milliseconds.
         /// The minimum value is 3600000 milliseconds (one hour).
         /// Once this property is set, all newly-created tables in the dataset
@@ -288,43 +290,43 @@ pub mod dataset {
         /// creating a table, that value takes precedence over the default
         /// expiration time indicated by this property.
         #[builder(into, default)]
-        pub default_table_expiration_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_table_expiration_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If set to `true`, delete all the tables in the
         /// dataset when destroying the resource; otherwise,
         /// destroying the resource will fail if tables are present.
         #[builder(into, default)]
-        pub delete_contents_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_contents_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A user-friendly description of the dataset
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Options defining open source compatible datasets living in the BigQuery catalog. Contains
         /// metadata of open source database, schema or namespace represented by the current dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_catalog_dataset_options: pulumi_wasm_rust::Output<
+        pub external_catalog_dataset_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetExternalCatalogDatasetOptions>,
         >,
         /// Information about the external metadata storage where the dataset is defined.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_dataset_reference: pulumi_wasm_rust::Output<
+        pub external_dataset_reference: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetExternalDatasetReference>,
         >,
         /// A descriptive name for the dataset
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
         /// By default, this is FALSE, which means the dataset and its table names are
         /// case-sensitive. This field does not affect routine references.
         #[builder(into, default)]
-        pub is_case_insensitive: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_case_insensitive: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The labels associated with this dataset. You can use these to
         /// organize and group your datasets.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The geographic location where the dataset should reside.
@@ -336,21 +338,21 @@ pub mod dataset {
         /// The default value is multi-regional location `US`.
         /// Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
         #[builder(into, default)]
-        pub max_time_travel_hours: pulumi_wasm_rust::Output<Option<String>>,
+        pub max_time_travel_hours: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
         /// in the namespaced format, for example "123456789012/environment" where 123456789012 is the
         /// ID of the parent organization or project resource for this tag key. Tag value is expected
         /// to be the short name, for example "Production". See [Tag definitions](https://www.terraform.io/iam/docs/tags-access-control#definitions)
         /// for more details.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the storage billing model for the dataset.
@@ -358,7 +360,7 @@ pub mod dataset {
         /// or to PHYSICAL to use physical bytes instead.
         /// LOGICAL is the default if this flag isn't specified.
         #[builder(into, default)]
-        pub storage_billing_model: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_billing_model: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatasetResult {
@@ -499,39 +501,61 @@ pub mod dataset {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatasetArgs) -> DatasetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatasetArgs,
+    ) -> DatasetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accesses_binding = args.accesses.get_inner();
-        let dataset_id_binding = args.dataset_id.get_inner();
-        let default_collation_binding = args.default_collation.get_inner();
+        let accesses_binding = args.accesses.get_output(context).get_inner();
+        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
+        let default_collation_binding = args
+            .default_collation
+            .get_output(context)
+            .get_inner();
         let default_encryption_configuration_binding = args
             .default_encryption_configuration
+            .get_output(context)
             .get_inner();
         let default_partition_expiration_ms_binding = args
             .default_partition_expiration_ms
+            .get_output(context)
             .get_inner();
         let default_table_expiration_ms_binding = args
             .default_table_expiration_ms
+            .get_output(context)
             .get_inner();
         let delete_contents_on_destroy_binding = args
             .delete_contents_on_destroy
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let external_catalog_dataset_options_binding = args
             .external_catalog_dataset_options
+            .get_output(context)
             .get_inner();
         let external_dataset_reference_binding = args
             .external_dataset_reference
+            .get_output(context)
             .get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let is_case_insensitive_binding = args.is_case_insensitive.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let max_time_travel_hours_binding = args.max_time_travel_hours.get_inner();
-        let project_binding = args.project.get_inner();
-        let resource_tags_binding = args.resource_tags.get_inner();
-        let storage_billing_model_binding = args.storage_billing_model.get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let is_case_insensitive_binding = args
+            .is_case_insensitive
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let max_time_travel_hours_binding = args
+            .max_time_travel_hours
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
+        let storage_billing_model_binding = args
+            .storage_billing_model
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/dataset:Dataset".into(),
             name: name.to_string(),
@@ -685,7 +709,7 @@ pub mod dataset {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

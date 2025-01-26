@@ -199,15 +199,15 @@
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
 pub mod function_iam_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionIamBindingArgs {
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub cloud_function: pulumi_wasm_rust::Output<String>,
+        pub cloud_function: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudfunctions::FunctionIamBindingCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -222,21 +222,21 @@ pub mod function_iam_binding {
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
         #[builder(into)]
-        pub members: pulumi_wasm_rust::Output<Vec<String>>,
+        pub members: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of this cloud function. Used to find the parent resource to bind the IAM policy to. If not specified,
         /// the value will be parsed from the identifier of the parent resource. If no region is provided in the parent identifier and no
         /// region is specified, it is taken from the provider configuration.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.cloudfunctions.FunctionIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FunctionIamBindingResult {
@@ -275,15 +275,19 @@ pub mod function_iam_binding {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionIamBindingArgs) -> FunctionIamBindingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionIamBindingArgs,
+    ) -> FunctionIamBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloud_function_binding = args.cloud_function.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let members_binding = args.members.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let role_binding = args.role.get_inner();
+        let cloud_function_binding = args.cloud_function.get_output(context).get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let members_binding = args.members.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudfunctions/functionIamBinding:FunctionIamBinding".into(),
             name: name.to_string(),
@@ -338,7 +342,7 @@ pub mod function_iam_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

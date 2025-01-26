@@ -44,18 +44,18 @@
 /// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
 /// ```
 pub mod security_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityConfigurationArgs {
         /// Configuration block containing encryption configuration. Detailed below.
         #[builder(into)]
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::glue::SecurityConfigurationEncryptionConfiguration,
         >,
         /// Name of the security configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SecurityConfigurationResult {
@@ -71,13 +71,17 @@ pub mod security_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SecurityConfigurationArgs,
     ) -> SecurityConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encryption_configuration_binding = args.encryption_configuration.get_inner();
-        let name_binding = args.name.get_inner();
+        let encryption_configuration_binding = args
+            .encryption_configuration
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/securityConfiguration:SecurityConfiguration".into(),
             name: name.to_string(),
@@ -101,7 +105,7 @@ pub mod security_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

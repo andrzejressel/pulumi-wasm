@@ -30,30 +30,30 @@
 /// $ pulumi import aws:codeconnections/host:Host example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
 /// ```
 pub mod host {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostArgs {
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         #[builder(into)]
-        pub provider_endpoint: pulumi_wasm_rust::Output<String>,
+        pub provider_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the external provider where your third-party code repository is configured.
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codeconnections::HostTimeouts>,
         >,
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         #[builder(into, default)]
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codeconnections::HostVpcConfiguration>,
         >,
     }
@@ -85,15 +85,25 @@ pub mod host {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostArgs) -> HostResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostArgs,
+    ) -> HostResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let provider_endpoint_binding = args.provider_endpoint.get_inner();
-        let provider_type_binding = args.provider_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let vpc_configuration_binding = args.vpc_configuration.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let provider_endpoint_binding = args
+            .provider_endpoint
+            .get_output(context)
+            .get_inner();
+        let provider_type_binding = args.provider_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let vpc_configuration_binding = args
+            .vpc_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codeconnections/host:Host".into(),
             name: name.to_string(),
@@ -151,7 +161,7 @@ pub mod host {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

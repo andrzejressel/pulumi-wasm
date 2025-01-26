@@ -64,51 +64,53 @@
 /// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// A map that contains user attributes and attribute values to be set for the user.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         #[builder(into, default)]
-        pub client_metadata: pulumi_wasm_rust::Output<
+        pub client_metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
         #[builder(into, default)]
-        pub desired_delivery_mediums: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub desired_delivery_mediums: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
         #[builder(into, default)]
-        pub force_alias_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_alias_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
         #[builder(into, default)]
-        pub message_action: pulumi_wasm_rust::Output<Option<String>>,
+        pub message_action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user's temporary password. Conflicts with `password`.
         #[builder(into, default)]
-        pub temporary_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub temporary_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user pool ID for the user pool where the user will be created.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         ///
         /// > **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         #[builder(into, default)]
-        pub validation_data: pulumi_wasm_rust::Output<
+        pub validation_data: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -159,20 +161,39 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_inner();
-        let client_metadata_binding = args.client_metadata.get_inner();
-        let desired_delivery_mediums_binding = args.desired_delivery_mediums.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let force_alias_creation_binding = args.force_alias_creation.get_inner();
-        let message_action_binding = args.message_action.get_inner();
-        let password_binding = args.password.get_inner();
-        let temporary_password_binding = args.temporary_password.get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_inner();
-        let username_binding = args.username.get_inner();
-        let validation_data_binding = args.validation_data.get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let client_metadata_binding = args
+            .client_metadata
+            .get_output(context)
+            .get_inner();
+        let desired_delivery_mediums_binding = args
+            .desired_delivery_mediums
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let force_alias_creation_binding = args
+            .force_alias_creation
+            .get_output(context)
+            .get_inner();
+        let message_action_binding = args.message_action.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let temporary_password_binding = args
+            .temporary_password
+            .get_output(context)
+            .get_inner();
+        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
+        let validation_data_binding = args
+            .validation_data
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/user:User".into(),
             name: name.to_string(),
@@ -277,7 +298,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

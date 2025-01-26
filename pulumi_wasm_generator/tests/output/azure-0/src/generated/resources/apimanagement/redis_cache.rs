@@ -53,28 +53,28 @@
 /// ```
 ///
 pub mod redis_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RedisCacheArgs {
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         #[builder(into, default)]
-        pub cache_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The connection string to the Cache for Redis.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the API Management Redis Cache.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Cache for Redis.
         #[builder(into, default)]
-        pub redis_cache_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub redis_cache_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RedisCacheResult {
@@ -95,15 +95,25 @@ pub mod redis_cache {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RedisCacheArgs) -> RedisCacheResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RedisCacheArgs,
+    ) -> RedisCacheResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let cache_location_binding = args.cache_location.get_inner();
-        let connection_string_binding = args.connection_string.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let redis_cache_id_binding = args.redis_cache_id.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let cache_location_binding = args.cache_location.get_output(context).get_inner();
+        let connection_string_binding = args
+            .connection_string
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let redis_cache_id_binding = args.redis_cache_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/redisCache:RedisCache".into(),
             name: name.to_string(),
@@ -155,7 +165,7 @@ pub mod redis_cache {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

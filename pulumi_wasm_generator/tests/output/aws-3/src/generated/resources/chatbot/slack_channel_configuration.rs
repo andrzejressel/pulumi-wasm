@@ -25,45 +25,45 @@
 /// $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
 /// ```
 pub mod slack_channel_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SlackChannelConfigurationArgs {
         /// Name of the Slack channel configuration.
         #[builder(into)]
-        pub configuration_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         #[builder(into, default)]
-        pub guardrail_policy_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub guardrail_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
         #[builder(into, default)]
-        pub logging_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub logging_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
         #[builder(into)]
-        pub slack_channel_id: pulumi_wasm_rust::Output<String>,
+        pub slack_channel_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub slack_team_id: pulumi_wasm_rust::Output<String>,
+        pub slack_team_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         #[builder(into, default)]
-        pub sns_topic_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sns_topic_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::chatbot::SlackChannelConfigurationTimeouts>,
         >,
         /// Enables use of a user role requirement in your chat configuration.
         #[builder(into, default)]
-        pub user_authorization_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_authorization_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SlackChannelConfigurationResult {
@@ -108,22 +108,33 @@ pub mod slack_channel_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SlackChannelConfigurationArgs,
     ) -> SlackChannelConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_name_binding = args.configuration_name.get_inner();
-        let guardrail_policy_arns_binding = args.guardrail_policy_arns.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
-        let logging_level_binding = args.logging_level.get_inner();
-        let slack_channel_id_binding = args.slack_channel_id.get_inner();
-        let slack_team_id_binding = args.slack_team_id.get_inner();
-        let sns_topic_arns_binding = args.sns_topic_arns.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let configuration_name_binding = args
+            .configuration_name
+            .get_output(context)
+            .get_inner();
+        let guardrail_policy_arns_binding = args
+            .guardrail_policy_arns
+            .get_output(context)
+            .get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let logging_level_binding = args.logging_level.get_output(context).get_inner();
+        let slack_channel_id_binding = args
+            .slack_channel_id
+            .get_output(context)
+            .get_inner();
+        let slack_team_id_binding = args.slack_team_id.get_output(context).get_inner();
+        let sns_topic_arns_binding = args.sns_topic_arns.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let user_authorization_required_binding = args
             .user_authorization_required
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration"
@@ -217,7 +228,7 @@ pub mod slack_channel_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

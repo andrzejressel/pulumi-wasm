@@ -31,19 +31,19 @@
 /// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
 /// ```
 pub mod parameter_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ParameterGroupArgs {
         /// A description of the parameter group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the parameter group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parameters of the parameter group.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dax::ParameterGroupParameter>>,
         >,
     }
@@ -62,12 +62,16 @@ pub mod parameter_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ParameterGroupArgs) -> ParameterGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ParameterGroupArgs,
+    ) -> ParameterGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dax/parameterGroup:ParameterGroup".into(),
             name: name.to_string(),
@@ -98,7 +102,7 @@ pub mod parameter_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

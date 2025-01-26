@@ -57,46 +57,46 @@
 /// ```
 ///
 pub mod identity_provider_aadb_2_c {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderAadb2cArgs {
         /// The allowed AAD tenant, usually your B2C tenant domain.
         #[builder(into)]
-        pub allowed_tenant: pulumi_wasm_rust::Output<String>,
+        pub allowed_tenant: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         #[builder(into)]
-        pub authority: pulumi_wasm_rust::Output<String>,
+        pub authority: pulumi_wasm_rust::InputOrOutput<String>,
         /// Client ID of the Application in your B2C tenant.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The client library to be used in the Azure AD B2C Identity Provider.
         #[builder(into, default)]
-        pub client_library: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_library: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Client secret of the Application in your B2C tenant.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// Password reset Policy Name.
         #[builder(into, default)]
-        pub password_reset_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub password_reset_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Profile editing Policy Name.
         #[builder(into, default)]
-        pub profile_editing_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_editing_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Signin Policy Name.
         #[builder(into)]
-        pub signin_policy: pulumi_wasm_rust::Output<String>,
+        pub signin_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         #[builder(into)]
-        pub signin_tenant: pulumi_wasm_rust::Output<String>,
+        pub signin_tenant: pulumi_wasm_rust::InputOrOutput<String>,
         /// Signup Policy Name.
         #[builder(into)]
-        pub signup_policy: pulumi_wasm_rust::Output<String>,
+        pub signup_policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderAadb2cResult {
@@ -130,23 +130,36 @@ pub mod identity_provider_aadb_2_c {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IdentityProviderAadb2cArgs,
     ) -> IdentityProviderAadb2cResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_tenant_binding = args.allowed_tenant.get_inner();
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let authority_binding = args.authority.get_inner();
-        let client_id_binding = args.client_id.get_inner();
-        let client_library_binding = args.client_library.get_inner();
-        let client_secret_binding = args.client_secret.get_inner();
-        let password_reset_policy_binding = args.password_reset_policy.get_inner();
-        let profile_editing_policy_binding = args.profile_editing_policy.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let signin_policy_binding = args.signin_policy.get_inner();
-        let signin_tenant_binding = args.signin_tenant.get_inner();
-        let signup_policy_binding = args.signup_policy.get_inner();
+        let allowed_tenant_binding = args.allowed_tenant.get_output(context).get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let authority_binding = args.authority.get_output(context).get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let client_library_binding = args.client_library.get_output(context).get_inner();
+        let client_secret_binding = args.client_secret.get_output(context).get_inner();
+        let password_reset_policy_binding = args
+            .password_reset_policy
+            .get_output(context)
+            .get_inner();
+        let profile_editing_policy_binding = args
+            .profile_editing_policy
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let signin_policy_binding = args.signin_policy.get_output(context).get_inner();
+        let signin_tenant_binding = args.signin_tenant.get_output(context).get_inner();
+        let signup_policy_binding = args.signup_policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c"
                 .into(),
@@ -241,7 +254,7 @@ pub mod identity_provider_aadb_2_c {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

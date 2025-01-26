@@ -10,7 +10,9 @@ pub mod get_default_scraper_configuration {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke() -> GetDefaultScraperConfigurationResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+    ) -> GetDefaultScraperConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
@@ -27,7 +29,7 @@ pub mod get_default_scraper_configuration {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

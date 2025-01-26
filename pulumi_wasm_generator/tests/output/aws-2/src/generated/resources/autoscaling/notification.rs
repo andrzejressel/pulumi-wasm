@@ -41,20 +41,20 @@
 /// }
 /// ```
 pub mod notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationArgs {
         /// List of AutoScaling Group Names
         #[builder(into)]
-        pub group_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub group_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         #[builder(into)]
-        pub notifications: pulumi_wasm_rust::Output<Vec<String>>,
+        pub notifications: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Topic ARN for notifications to be sent through
         #[builder(into)]
-        pub topic_arn: pulumi_wasm_rust::Output<String>,
+        pub topic_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NotificationResult {
@@ -70,12 +70,16 @@ pub mod notification {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NotificationArgs) -> NotificationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NotificationArgs,
+    ) -> NotificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_names_binding = args.group_names.get_inner();
-        let notifications_binding = args.notifications.get_inner();
-        let topic_arn_binding = args.topic_arn.get_inner();
+        let group_names_binding = args.group_names.get_output(context).get_inner();
+        let notifications_binding = args.notifications.get_output(context).get_inner();
+        let topic_arn_binding = args.topic_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/notification:Notification".into(),
             name: name.to_string(),
@@ -106,7 +110,7 @@ pub mod notification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -93,40 +93,40 @@
 /// ```
 ///
 pub mod ai_feature_store_entity_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureStoreEntityTypeArgs {
         /// Optional. Description of the EntityType.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Featurestore to use, in the format projects/{project}/locations/{location}/featurestores/{featurestore}.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub featurestore: pulumi_wasm_rust::Output<String>,
+        pub featurestore: pulumi_wasm_rust::InputOrOutput<String>,
         /// A set of key/value label pairs to assign to this EntityType.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The default monitoring configuration for all Features under this EntityType.
         /// If this is populated with [FeaturestoreMonitoringConfig.monitoring_interval] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub monitoring_config: pulumi_wasm_rust::Output<
+        pub monitoring_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureStoreEntityTypeMonitoringConfig>,
         >,
         /// The name of the EntityType. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Config for data retention policy in offline storage. TTL in days for feature values that will be stored in offline storage. The Feature Store offline storage periodically removes obsolete feature values older than offlineStorageTtlDays since the feature generation time. If unset (or explicitly set to 0), default to 4000 days TTL.
         #[builder(into, default)]
-        pub offline_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub offline_storage_ttl_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct AiFeatureStoreEntityTypeResult {
@@ -177,17 +177,24 @@ pub mod ai_feature_store_entity_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AiFeatureStoreEntityTypeArgs,
     ) -> AiFeatureStoreEntityTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let featurestore_binding = args.featurestore.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let monitoring_config_binding = args.monitoring_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let offline_storage_ttl_days_binding = args.offline_storage_ttl_days.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let featurestore_binding = args.featurestore.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let monitoring_config_binding = args
+            .monitoring_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let offline_storage_ttl_days_binding = args
+            .offline_storage_ttl_days
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStoreEntityType:AiFeatureStoreEntityType".into(),
             name: name.to_string(),
@@ -257,7 +264,7 @@ pub mod ai_feature_store_entity_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -196,39 +196,39 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Desired state of the Workbench Instance. Set this field to `ACTIVE` to start the Instance, and `STOPPED` to stop the Instance.
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If true, the workbench instance will not register with the proxy.
         #[builder(into, default)]
-        pub disable_proxy_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_proxy_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The definition of how to configure a VM instance outside of Resources and Identity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gce_setup: pulumi_wasm_rust::Output<
+        pub gce_setup: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workbench::InstanceGceSetup>,
         >,
         /// Required. User-defined unique ID of this instance.
         #[builder(into, default)]
-        pub instance_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// 'Optional. Input only. The owner of this instance after creation. Format:
         /// `alias@example.com` Currently supports one owner only. If not specified, all of
         /// the service account users of your VM instance''s service account can use the instance.
         /// If specified, sets the access mode to `Single user`. For more details, see
         /// https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-access-jupyterlab'
         #[builder(into, default)]
-        pub instance_owners: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub instance_owners: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Optional. Labels to apply to this instance. These can be later modified
         /// by the UpdateInstance method.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
@@ -236,14 +236,14 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of this workbench instance. Format: `projects/{project_id}/locations/{location}/instances/{instance_id}`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -322,18 +322,28 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let desired_state_binding = args.desired_state.get_inner();
-        let disable_proxy_access_binding = args.disable_proxy_access.get_inner();
-        let gce_setup_binding = args.gce_setup.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let instance_owners_binding = args.instance_owners.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let desired_state_binding = args.desired_state.get_output(context).get_inner();
+        let disable_proxy_access_binding = args
+            .disable_proxy_access
+            .get_output(context)
+            .get_inner();
+        let gce_setup_binding = args.gce_setup.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let instance_owners_binding = args
+            .instance_owners
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workbench/instance:Instance".into(),
             name: name.to_string(),
@@ -436,7 +446,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

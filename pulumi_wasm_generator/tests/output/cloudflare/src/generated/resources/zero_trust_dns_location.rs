@@ -34,25 +34,25 @@
 /// ```
 ///
 pub mod zero_trust_dns_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDnsLocationArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicator that this is the default location.
         #[builder(into, default)]
-        pub client_default: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_default: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicator that this location needs to resolve EDNS queries.
         #[builder(into, default)]
-        pub ecs_support: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ecs_support: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the teams location.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The networks CIDRs that comprise the location.
         #[builder(into, default)]
-        pub networks: pulumi_wasm_rust::Output<
+        pub networks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustDnsLocationNetwork>>,
         >,
     }
@@ -85,16 +85,17 @@ pub mod zero_trust_dns_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustDnsLocationArgs,
     ) -> ZeroTrustDnsLocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let client_default_binding = args.client_default.get_inner();
-        let ecs_support_binding = args.ecs_support.get_inner();
-        let name_binding = args.name.get_inner();
-        let networks_binding = args.networks.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let client_default_binding = args.client_default.get_output(context).get_inner();
+        let ecs_support_binding = args.ecs_support.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networks_binding = args.networks.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDnsLocation:ZeroTrustDnsLocation".into(),
             name: name.to_string(),
@@ -154,7 +155,7 @@ pub mod zero_trust_dns_location {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

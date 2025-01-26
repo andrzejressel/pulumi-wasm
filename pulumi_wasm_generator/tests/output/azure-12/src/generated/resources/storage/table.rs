@@ -45,21 +45,21 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// One or more `acl` blocks as defined below.
         #[builder(into, default)]
-        pub acls: pulumi_wasm_rust::Output<
+        pub acls: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::TableAcl>>,
         >,
         /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
@@ -76,12 +76,19 @@ pub mod table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableArgs) -> TableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableArgs,
+    ) -> TableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let acls_binding = args.acls.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
+        let acls_binding = args.acls.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/table:Table".into(),
             name: name.to_string(),
@@ -112,7 +119,7 @@ pub mod table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

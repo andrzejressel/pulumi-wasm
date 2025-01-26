@@ -50,27 +50,27 @@
 /// ```
 ///
 pub mod v_2_organization_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2OrganizationSourceArgs {
         /// The description of the source (max of 1024 characters).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The source’s display name. A source’s display name must be unique
         /// amongst its siblings, for example, two sources with the same parent
         /// can't share the same display name. The display name must start and end
         /// with a letter or digit, may contain letters, digits, spaces, hyphens,
         /// and underscores, and can be no longer than 32 characters.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The organization whose Cloud Security Command Center the Source
         /// lives in.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct V2OrganizationSourceResult {
@@ -97,14 +97,15 @@ pub mod v_2_organization_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: V2OrganizationSourceArgs,
     ) -> V2OrganizationSourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let organization_binding = args.organization.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2OrganizationSource:V2OrganizationSource".into(),
             name: name.to_string(),
@@ -138,7 +139,7 @@ pub mod v_2_organization_source {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

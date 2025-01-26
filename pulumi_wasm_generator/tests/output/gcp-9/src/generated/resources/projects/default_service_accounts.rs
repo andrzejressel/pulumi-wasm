@@ -53,22 +53,22 @@
 /// This resource does not support import
 ///
 pub mod default_service_accounts {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultServiceAccountsArgs {
         /// The action to be performed in the default service accounts. Valid values are: `DEPRIVILEGE`, `DELETE`, `DISABLE`. Note that `DEPRIVILEGE` action will ignore the REVERT configuration in the restore_policy
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project ID where service accounts are created.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
         /// The action to be performed in the default service accounts on the resource destroy.
         /// Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
         /// If set to REVERT it attempts to restore all default SAs but the DEPRIVILEGE action.
         /// If set to REVERT_AND_IGNORE_FAILURE it is the same behavior as REVERT but ignores errors returned by the API.
         #[builder(into, default)]
-        pub restore_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub restore_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DefaultServiceAccountsResult {
@@ -91,14 +91,15 @@ pub mod default_service_accounts {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DefaultServiceAccountsArgs,
     ) -> DefaultServiceAccountsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let project_binding = args.project.get_inner();
-        let restore_policy_binding = args.restore_policy.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let restore_policy_binding = args.restore_policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/defaultServiceAccounts:DefaultServiceAccounts".into(),
             name: name.to_string(),
@@ -132,7 +133,7 @@ pub mod default_service_accounts {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

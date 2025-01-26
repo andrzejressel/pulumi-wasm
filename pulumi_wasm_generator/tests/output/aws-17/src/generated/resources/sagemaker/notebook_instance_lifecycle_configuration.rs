@@ -32,19 +32,19 @@
 /// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
 /// ```
 pub mod notebook_instance_lifecycle_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotebookInstanceLifecycleConfigurationArgs {
         /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
         #[builder(into, default)]
-        pub on_create: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_create: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
         #[builder(into, default)]
-        pub on_start: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_start: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NotebookInstanceLifecycleConfigurationResult {
@@ -62,14 +62,15 @@ pub mod notebook_instance_lifecycle_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NotebookInstanceLifecycleConfigurationArgs,
     ) -> NotebookInstanceLifecycleConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let on_create_binding = args.on_create.get_inner();
-        let on_start_binding = args.on_start.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let on_create_binding = args.on_create.get_output(context).get_inner();
+        let on_start_binding = args.on_start.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration"
                 .into(),
@@ -104,7 +105,7 @@ pub mod notebook_instance_lifecycle_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

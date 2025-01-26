@@ -316,38 +316,38 @@
 /// Note: The record name must include the trailing dot at the end.
 ///
 pub mod record_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordSetArgs {
         /// The name of the zone in which this record set will
         /// reside.
         #[builder(into)]
-        pub managed_zone: pulumi_wasm_rust::Output<String>,
+        pub managed_zone: pulumi_wasm_rust::InputOrOutput<String>,
         /// The DNS name this record set will apply to.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration for steering traffic based on query.
         /// Now you can specify either Weighted Round Robin(WRR) type or Geolocation(GEO) type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub routing_policy: pulumi_wasm_rust::Output<
+        pub routing_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::RecordSetRoutingPolicy>,
         >,
         #[builder(into, default)]
-        pub rrdatas: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub rrdatas: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The time-to-live of this record set (seconds).
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The DNS record set type.
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RecordSetResult {
@@ -377,16 +377,20 @@ pub mod record_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RecordSetArgs) -> RecordSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RecordSetArgs,
+    ) -> RecordSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let managed_zone_binding = args.managed_zone.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let routing_policy_binding = args.routing_policy.get_inner();
-        let rrdatas_binding = args.rrdatas.get_inner();
-        let ttl_binding = args.ttl.get_inner();
-        let type__binding = args.type_.get_inner();
+        let managed_zone_binding = args.managed_zone.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let routing_policy_binding = args.routing_policy.get_output(context).get_inner();
+        let rrdatas_binding = args.rrdatas.get_output(context).get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/recordSet:RecordSet".into(),
             name: name.to_string(),
@@ -445,7 +449,7 @@ pub mod record_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

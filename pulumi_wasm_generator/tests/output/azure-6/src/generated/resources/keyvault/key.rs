@@ -75,46 +75,46 @@
 /// ```
 ///
 pub mod key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyArgs {
         /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub curve: pulumi_wasm_rust::Output<Option<String>>,
+        pub curve: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         ///
         /// > **Note:** Removing this field from the config forces a new resource to be created.
         #[builder(into, default)]
-        pub expiration_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         #[builder(into)]
-        pub key_opts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub key_opts: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub key_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_type: pulumi_wasm_rust::Output<String>,
+        pub key_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         ///
         /// > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
         #[builder(into, default)]
-        pub not_before_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub not_before_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `rotation_policy` block as defined below.
         #[builder(into, default)]
-        pub rotation_policy: pulumi_wasm_rust::Output<
+        pub rotation_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyvault::KeyRotationPolicy>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -173,19 +173,32 @@ pub mod key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyArgs) -> KeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyArgs,
+    ) -> KeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let curve_binding = args.curve.get_inner();
-        let expiration_date_binding = args.expiration_date.get_inner();
-        let key_opts_binding = args.key_opts.get_inner();
-        let key_size_binding = args.key_size.get_inner();
-        let key_type_binding = args.key_type.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let not_before_date_binding = args.not_before_date.get_inner();
-        let rotation_policy_binding = args.rotation_policy.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let curve_binding = args.curve.get_output(context).get_inner();
+        let expiration_date_binding = args
+            .expiration_date
+            .get_output(context)
+            .get_inner();
+        let key_opts_binding = args.key_opts.get_output(context).get_inner();
+        let key_size_binding = args.key_size.get_output(context).get_inner();
+        let key_type_binding = args.key_type.get_output(context).get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let not_before_date_binding = args
+            .not_before_date
+            .get_output(context)
+            .get_inner();
+        let rotation_policy_binding = args
+            .rotation_policy
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/key:Key".into(),
             name: name.to_string(),
@@ -295,7 +308,7 @@ pub mod key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

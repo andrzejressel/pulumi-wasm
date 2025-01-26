@@ -1,17 +1,17 @@
 pub mod get_mount_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetMountTargetArgs {
         /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
         #[builder(into, default)]
-        pub access_point_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_point_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
         #[builder(into, default)]
-        pub file_system_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_system_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
         #[builder(into, default)]
-        pub mount_target_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub mount_target_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetMountTargetResult {
@@ -45,12 +45,21 @@ pub mod get_mount_target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetMountTargetArgs) -> GetMountTargetResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetMountTargetArgs,
+    ) -> GetMountTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_point_id_binding = args.access_point_id.get_inner();
-        let file_system_id_binding = args.file_system_id.get_inner();
-        let mount_target_id_binding = args.mount_target_id.get_inner();
+        let access_point_id_binding = args
+            .access_point_id
+            .get_output(context)
+            .get_inner();
+        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let mount_target_id_binding = args
+            .mount_target_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:efs/getMountTarget:getMountTarget".into(),
             version: super::super::super::get_version(),
@@ -113,7 +122,7 @@ pub mod get_mount_target {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

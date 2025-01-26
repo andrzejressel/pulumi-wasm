@@ -53,16 +53,16 @@
 /// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
 /// ```
 pub mod global_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalTableArgs {
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         #[builder(into)]
-        pub replicas: pulumi_wasm_rust::Output<
+        pub replicas: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::dynamodb::GlobalTableReplica>,
         >,
     }
@@ -81,11 +81,15 @@ pub mod global_table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GlobalTableArgs) -> GlobalTableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GlobalTableArgs,
+    ) -> GlobalTableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let replicas_binding = args.replicas.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let replicas_binding = args.replicas.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/globalTable:GlobalTable".into(),
             name: name.to_string(),
@@ -112,7 +116,7 @@ pub mod global_table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

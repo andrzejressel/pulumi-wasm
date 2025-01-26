@@ -26,89 +26,97 @@
 /// $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
 /// ```
 pub mod custom_layer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomLayerArgs {
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         #[builder(into, default)]
-        pub auto_assign_elastic_ips: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_assign_elastic_ips: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         #[builder(into, default)]
-        pub auto_assign_public_ips: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_assign_public_ips: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable auto-healing for the layer.
         #[builder(into, default)]
-        pub auto_healing: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_healing: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         #[builder(into, default)]
-        pub cloudwatch_configuration: pulumi_wasm_rust::Output<
+        pub cloudwatch_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::opsworks::CustomLayerCloudwatchConfiguration>,
         >,
         #[builder(into, default)]
-        pub custom_configure_recipes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_configure_recipes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         #[builder(into, default)]
-        pub custom_deploy_recipes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_deploy_recipes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ARN of an IAM profile that will be used for the layer's instances.
         #[builder(into, default)]
-        pub custom_instance_profile_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_instance_profile_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Custom JSON attributes to apply to the layer.
         #[builder(into, default)]
-        pub custom_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Ids for a set of security groups to apply to the layer's instances.
         #[builder(into, default)]
-        pub custom_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_security_group_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         #[builder(into, default)]
-        pub custom_setup_recipes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_setup_recipes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub custom_shutdown_recipes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_shutdown_recipes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         #[builder(into, default)]
-        pub custom_undeploy_recipes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_undeploy_recipes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Whether to enable Elastic Load Balancing connection draining.
         #[builder(into, default)]
-        pub drain_elb_on_shutdown: pulumi_wasm_rust::Output<Option<bool>>,
+        pub drain_elb_on_shutdown: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         #[builder(into, default)]
-        pub ebs_volumes: pulumi_wasm_rust::Output<
+        pub ebs_volumes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::opsworks::CustomLayerEbsVolume>>,
         >,
         /// Name of an Elastic Load Balancer to attach to this layer
         #[builder(into, default)]
-        pub elastic_load_balancer: pulumi_wasm_rust::Output<Option<String>>,
+        pub elastic_load_balancer: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to install OS and package updates on each instance when it boots.
         #[builder(into, default)]
-        pub install_updates_on_boot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub install_updates_on_boot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         #[builder(into, default)]
-        pub instance_shutdown_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_shutdown_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Load-based auto scaling configuration. See Load Based AutoScaling
         #[builder(into, default)]
-        pub load_based_auto_scaling: pulumi_wasm_rust::Output<
+        pub load_based_auto_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::opsworks::CustomLayerLoadBasedAutoScaling>,
         >,
         /// A human-readable name for the layer.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the stack the layer will belong to.
         #[builder(into)]
-        pub stack_id: pulumi_wasm_rust::Output<String>,
+        pub stack_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Names of a set of system packages to install on the layer's instances.
         #[builder(into, default)]
-        pub system_packages: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub system_packages: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// The following extra optional arguments, all lists of Chef recipe names, allow
         /// custom Chef recipes to be applied to layer instances at the five different
         /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether to use EBS-optimized instances.
         #[builder(into, default)]
-        pub use_ebs_optimized_instances: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_ebs_optimized_instances: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct CustomLayerResult {
@@ -178,40 +186,87 @@ pub mod custom_layer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomLayerArgs) -> CustomLayerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomLayerArgs,
+    ) -> CustomLayerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_assign_elastic_ips_binding = args.auto_assign_elastic_ips.get_inner();
-        let auto_assign_public_ips_binding = args.auto_assign_public_ips.get_inner();
-        let auto_healing_binding = args.auto_healing.get_inner();
-        let cloudwatch_configuration_binding = args.cloudwatch_configuration.get_inner();
-        let custom_configure_recipes_binding = args.custom_configure_recipes.get_inner();
-        let custom_deploy_recipes_binding = args.custom_deploy_recipes.get_inner();
+        let auto_assign_elastic_ips_binding = args
+            .auto_assign_elastic_ips
+            .get_output(context)
+            .get_inner();
+        let auto_assign_public_ips_binding = args
+            .auto_assign_public_ips
+            .get_output(context)
+            .get_inner();
+        let auto_healing_binding = args.auto_healing.get_output(context).get_inner();
+        let cloudwatch_configuration_binding = args
+            .cloudwatch_configuration
+            .get_output(context)
+            .get_inner();
+        let custom_configure_recipes_binding = args
+            .custom_configure_recipes
+            .get_output(context)
+            .get_inner();
+        let custom_deploy_recipes_binding = args
+            .custom_deploy_recipes
+            .get_output(context)
+            .get_inner();
         let custom_instance_profile_arn_binding = args
             .custom_instance_profile_arn
+            .get_output(context)
             .get_inner();
-        let custom_json_binding = args.custom_json.get_inner();
+        let custom_json_binding = args.custom_json.get_output(context).get_inner();
         let custom_security_group_ids_binding = args
             .custom_security_group_ids
+            .get_output(context)
             .get_inner();
-        let custom_setup_recipes_binding = args.custom_setup_recipes.get_inner();
-        let custom_shutdown_recipes_binding = args.custom_shutdown_recipes.get_inner();
-        let custom_undeploy_recipes_binding = args.custom_undeploy_recipes.get_inner();
-        let drain_elb_on_shutdown_binding = args.drain_elb_on_shutdown.get_inner();
-        let ebs_volumes_binding = args.ebs_volumes.get_inner();
-        let elastic_load_balancer_binding = args.elastic_load_balancer.get_inner();
-        let install_updates_on_boot_binding = args.install_updates_on_boot.get_inner();
+        let custom_setup_recipes_binding = args
+            .custom_setup_recipes
+            .get_output(context)
+            .get_inner();
+        let custom_shutdown_recipes_binding = args
+            .custom_shutdown_recipes
+            .get_output(context)
+            .get_inner();
+        let custom_undeploy_recipes_binding = args
+            .custom_undeploy_recipes
+            .get_output(context)
+            .get_inner();
+        let drain_elb_on_shutdown_binding = args
+            .drain_elb_on_shutdown
+            .get_output(context)
+            .get_inner();
+        let ebs_volumes_binding = args.ebs_volumes.get_output(context).get_inner();
+        let elastic_load_balancer_binding = args
+            .elastic_load_balancer
+            .get_output(context)
+            .get_inner();
+        let install_updates_on_boot_binding = args
+            .install_updates_on_boot
+            .get_output(context)
+            .get_inner();
         let instance_shutdown_timeout_binding = args
             .instance_shutdown_timeout
+            .get_output(context)
             .get_inner();
-        let load_based_auto_scaling_binding = args.load_based_auto_scaling.get_inner();
-        let name_binding = args.name.get_inner();
-        let short_name_binding = args.short_name.get_inner();
-        let stack_id_binding = args.stack_id.get_inner();
-        let system_packages_binding = args.system_packages.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let load_based_auto_scaling_binding = args
+            .load_based_auto_scaling
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
+        let stack_id_binding = args.stack_id.get_output(context).get_inner();
+        let system_packages_binding = args
+            .system_packages
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let use_ebs_optimized_instances_binding = args
             .use_ebs_optimized_instances
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/customLayer:CustomLayer".into(),
@@ -396,7 +451,7 @@ pub mod custom_layer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

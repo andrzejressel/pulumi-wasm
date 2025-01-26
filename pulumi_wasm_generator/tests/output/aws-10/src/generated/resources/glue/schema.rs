@@ -30,31 +30,31 @@
 /// $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
 /// ```
 pub mod schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SchemaArgs {
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         #[builder(into)]
-        pub compatibility: pulumi_wasm_rust::Output<String>,
+        pub compatibility: pulumi_wasm_rust::InputOrOutput<String>,
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         #[builder(into)]
-        pub data_format: pulumi_wasm_rust::Output<String>,
+        pub data_format: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the schema.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the Glue Registry to create the schema in.
         #[builder(into, default)]
-        pub registry_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub registry_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The schema definition using the `data_format` setting for `schema_name`.
         #[builder(into)]
-        pub schema_definition: pulumi_wasm_rust::Output<String>,
+        pub schema_definition: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the schema.
         #[builder(into)]
-        pub schema_name: pulumi_wasm_rust::Output<String>,
+        pub schema_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -95,16 +95,23 @@ pub mod schema {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SchemaArgs) -> SchemaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SchemaArgs,
+    ) -> SchemaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let compatibility_binding = args.compatibility.get_inner();
-        let data_format_binding = args.data_format.get_inner();
-        let description_binding = args.description.get_inner();
-        let registry_arn_binding = args.registry_arn.get_inner();
-        let schema_definition_binding = args.schema_definition.get_inner();
-        let schema_name_binding = args.schema_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let compatibility_binding = args.compatibility.get_output(context).get_inner();
+        let data_format_binding = args.data_format.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let registry_arn_binding = args.registry_arn.get_output(context).get_inner();
+        let schema_definition_binding = args
+            .schema_definition
+            .get_output(context)
+            .get_inner();
+        let schema_name_binding = args.schema_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/schema:Schema".into(),
             name: name.to_string(),
@@ -181,7 +188,7 @@ pub mod schema {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

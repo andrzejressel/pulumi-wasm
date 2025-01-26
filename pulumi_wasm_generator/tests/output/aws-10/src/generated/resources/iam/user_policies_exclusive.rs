@@ -8,16 +8,16 @@
 /// $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser
 /// ```
 pub mod user_policies_exclusive {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoliciesExclusiveArgs {
         /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
         #[builder(into)]
-        pub policy_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub policy_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// IAM user name.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPoliciesExclusiveResult {
@@ -31,13 +31,14 @@ pub mod user_policies_exclusive {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserPoliciesExclusiveArgs,
     ) -> UserPoliciesExclusiveResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_names_binding = args.policy_names.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let policy_names_binding = args.policy_names.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userPoliciesExclusive:UserPoliciesExclusive".into(),
             name: name.to_string(),
@@ -61,7 +62,7 @@ pub mod user_policies_exclusive {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -55,22 +55,22 @@
 /// ```
 ///
 pub mod namespace_disaster_recovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceDisasterRecoveryConfigArgs {
         /// The Shared access policies used to access the connection string for the alias.
         #[builder(into, default)]
-        pub alias_authorization_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias_authorization_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Service Bus Namespace to replicate to.
         #[builder(into)]
-        pub partner_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub partner_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub primary_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub primary_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NamespaceDisasterRecoveryConfigResult {
@@ -96,6 +96,7 @@ pub mod namespace_disaster_recovery_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NamespaceDisasterRecoveryConfigArgs,
     ) -> NamespaceDisasterRecoveryConfigResult {
@@ -103,10 +104,17 @@ pub mod namespace_disaster_recovery_config {
         use std::collections::HashMap;
         let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let partner_namespace_id_binding = args.partner_namespace_id.get_inner();
-        let primary_namespace_id_binding = args.primary_namespace_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let partner_namespace_id_binding = args
+            .partner_namespace_id
+            .get_output(context)
+            .get_inner();
+        let primary_namespace_id_binding = args
+            .primary_namespace_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig"
                 .into(),
@@ -157,7 +165,7 @@ pub mod namespace_disaster_recovery_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -190,7 +190,7 @@
 /// ```
 ///
 pub mod gdc_spark_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GdcSparkApplicationArgs {
@@ -198,55 +198,55 @@ pub mod gdc_spark_application {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ApplicationEnvironment from which to inherit configuration properties.
         #[builder(into, default)]
-        pub application_environment: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_environment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
         #[builder(into, default)]
-        pub dependency_images: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dependency_images: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// User-provided human-readable name to be used in user interfaces.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The labels to associate with this application. Labels may be used for filtering and billing tracking.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the spark application.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Kubernetes namespace in which to create the application. This namespace must already exist on the cluster.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// application-specific properties.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Represents the PySparkApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pyspark_application_config: pulumi_wasm_rust::Output<
+        pub pyspark_application_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationPysparkApplicationConfig,
             >,
         >,
         /// The id of the service instance to which this spark application belongs.
         #[builder(into)]
-        pub serviceinstance: pulumi_wasm_rust::Output<String>,
+        pub serviceinstance: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents the SparkApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_application_config: pulumi_wasm_rust::Output<
+        pub spark_application_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkApplicationConfig,
             >,
@@ -256,11 +256,11 @@ pub mod gdc_spark_application {
         ///
         /// - - -
         #[builder(into)]
-        pub spark_application_id: pulumi_wasm_rust::Output<String>,
+        pub spark_application_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_r_application_config: pulumi_wasm_rust::Output<
+        pub spark_r_application_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkRApplicationConfig,
             >,
@@ -268,14 +268,14 @@ pub mod gdc_spark_application {
         /// Represents the SparkRApplicationConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_sql_application_config: pulumi_wasm_rust::Output<
+        pub spark_sql_application_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcSparkApplicationSparkSqlApplicationConfig,
             >,
         >,
         /// The Dataproc version of this application.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GdcSparkApplicationResult {
@@ -389,33 +389,52 @@ pub mod gdc_spark_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GdcSparkApplicationArgs,
     ) -> GdcSparkApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let application_environment_binding = args.application_environment.get_inner();
-        let dependency_images_binding = args.dependency_images.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let project_binding = args.project.get_inner();
-        let properties_binding = args.properties.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let application_environment_binding = args
+            .application_environment
+            .get_output(context)
+            .get_inner();
+        let dependency_images_binding = args
+            .dependency_images
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
         let pyspark_application_config_binding = args
             .pyspark_application_config
+            .get_output(context)
             .get_inner();
-        let serviceinstance_binding = args.serviceinstance.get_inner();
-        let spark_application_config_binding = args.spark_application_config.get_inner();
-        let spark_application_id_binding = args.spark_application_id.get_inner();
+        let serviceinstance_binding = args
+            .serviceinstance
+            .get_output(context)
+            .get_inner();
+        let spark_application_config_binding = args
+            .spark_application_config
+            .get_output(context)
+            .get_inner();
+        let spark_application_id_binding = args
+            .spark_application_id
+            .get_output(context)
+            .get_inner();
         let spark_r_application_config_binding = args
             .spark_r_application_config
+            .get_output(context)
             .get_inner();
         let spark_sql_application_config_binding = args
             .spark_sql_application_config
+            .get_output(context)
             .get_inner();
-        let version_binding = args.version.get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcSparkApplication:GdcSparkApplication".into(),
             name: name.to_string(),
@@ -573,7 +592,7 @@ pub mod gdc_spark_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

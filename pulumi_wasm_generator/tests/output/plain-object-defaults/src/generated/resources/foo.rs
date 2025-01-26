@@ -1,24 +1,24 @@
 /// test new feature with resoruces
 pub mod foo {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FooArgs {
         #[builder(into, default)]
-        pub argument: pulumi_wasm_rust::Output<Option<String>>,
+        pub argument: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Options for tuning the Kubernetes client used by a Provider.
         #[builder(into)]
-        pub backup_kube_client_settings: pulumi_wasm_rust::Output<
+        pub backup_kube_client_settings: pulumi_wasm_rust::InputOrOutput<
             super::types::KubeClientSettings,
         >,
         /// Options for tuning the Kubernetes client used by a Provider.
         #[builder(into, default)]
-        pub kube_client_settings: pulumi_wasm_rust::Output<
+        pub kube_client_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::KubeClientSettings>,
         >,
         /// describing things
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<Option<super::types::LayeredType>>,
+        pub settings: pulumi_wasm_rust::InputOrOutput<Option<super::types::LayeredType>>,
     }
     #[allow(dead_code)]
     pub struct FooResult {
@@ -31,15 +31,23 @@ pub mod foo {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FooArgs) -> FooResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FooArgs,
+    ) -> FooResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let argument_binding = args.argument.get_inner();
+        let argument_binding = args.argument.get_output(context).get_inner();
         let backup_kube_client_settings_binding = args
             .backup_kube_client_settings
+            .get_output(context)
             .get_inner();
-        let kube_client_settings_binding = args.kube_client_settings.get_inner();
-        let settings_binding = args.settings.get_inner();
+        let kube_client_settings_binding = args
+            .kube_client_settings
+            .get_output(context)
+            .get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:Foo".into(),
             name: name.to_string(),
@@ -68,7 +76,7 @@ pub mod foo {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -41,29 +41,29 @@
 /// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// Domain endpoint options. Documented below.
         #[builder(into, default)]
-        pub endpoint_options: pulumi_wasm_rust::Output<
+        pub endpoint_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudsearch::DomainEndpointOptions>,
         >,
         /// The index fields for documents added to the domain. Documented below.
         #[builder(into, default)]
-        pub index_fields: pulumi_wasm_rust::Output<
+        pub index_fields: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudsearch::DomainIndexField>>,
         >,
         /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         #[builder(into, default)]
-        pub multi_az: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_az: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the CloudSearch domain.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Domain scaling parameters. Documented below.
         #[builder(into, default)]
-        pub scaling_parameters: pulumi_wasm_rust::Output<
+        pub scaling_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudsearch::DomainScalingParameters>,
         >,
     }
@@ -98,14 +98,24 @@ pub mod domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainArgs) -> DomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainArgs,
+    ) -> DomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_options_binding = args.endpoint_options.get_inner();
-        let index_fields_binding = args.index_fields.get_inner();
-        let multi_az_binding = args.multi_az.get_inner();
-        let name_binding = args.name.get_inner();
-        let scaling_parameters_binding = args.scaling_parameters.get_inner();
+        let endpoint_options_binding = args
+            .endpoint_options
+            .get_output(context)
+            .get_inner();
+        let index_fields_binding = args.index_fields.get_output(context).get_inner();
+        let multi_az_binding = args.multi_az.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scaling_parameters_binding = args
+            .scaling_parameters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudsearch/domain:Domain".into(),
             name: name.to_string(),
@@ -162,7 +172,7 @@ pub mod domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

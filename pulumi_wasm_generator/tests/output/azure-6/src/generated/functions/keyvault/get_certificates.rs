@@ -1,16 +1,16 @@
 pub mod get_certificates {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCertificatesArgs {
         /// Specifies whether to include certificates which are not completely provisioned. Defaults to true.
         #[builder(into, default)]
-        pub include_pending: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_pending: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
         ///
         /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetCertificatesResult {
@@ -30,11 +30,17 @@ pub mod get_certificates {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCertificatesArgs) -> GetCertificatesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCertificatesArgs,
+    ) -> GetCertificatesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let include_pending_binding = args.include_pending.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
+        let include_pending_binding = args
+            .include_pending
+            .get_output(context)
+            .get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getCertificates:getCertificates".into(),
             version: super::super::super::get_version(),
@@ -66,7 +72,7 @@ pub mod get_certificates {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -18,33 +18,33 @@
 ///         example: tag
 /// ```
 pub mod stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamArgs {
         /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         #[builder(into, default)]
-        pub exclusive_end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub exclusive_end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         #[builder(into)]
-        pub inclusive_start_time: pulumi_wasm_rust::Output<String>,
+        pub inclusive_start_time: pulumi_wasm_rust::InputOrOutput<String>,
         /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         #[builder(into)]
-        pub kinesis_configuration: pulumi_wasm_rust::Output<
+        pub kinesis_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::qldb::StreamKinesisConfiguration,
         >,
         /// The name of the QLDB ledger.
         #[builder(into)]
-        pub ledger_name: pulumi_wasm_rust::Output<String>,
+        pub ledger_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         #[builder(into)]
-        pub stream_name: pulumi_wasm_rust::Output<String>,
+        pub stream_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -79,16 +79,29 @@ pub mod stream {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StreamArgs) -> StreamResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StreamArgs,
+    ) -> StreamResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let exclusive_end_time_binding = args.exclusive_end_time.get_inner();
-        let inclusive_start_time_binding = args.inclusive_start_time.get_inner();
-        let kinesis_configuration_binding = args.kinesis_configuration.get_inner();
-        let ledger_name_binding = args.ledger_name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let stream_name_binding = args.stream_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let exclusive_end_time_binding = args
+            .exclusive_end_time
+            .get_output(context)
+            .get_inner();
+        let inclusive_start_time_binding = args
+            .inclusive_start_time
+            .get_output(context)
+            .get_inner();
+        let kinesis_configuration_binding = args
+            .kinesis_configuration
+            .get_output(context)
+            .get_inner();
+        let ledger_name_binding = args.ledger_name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let stream_name_binding = args.stream_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:qldb/stream:Stream".into(),
             name: name.to_string(),
@@ -153,7 +166,7 @@ pub mod stream {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

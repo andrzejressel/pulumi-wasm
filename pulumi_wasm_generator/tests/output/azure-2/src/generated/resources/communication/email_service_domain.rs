@@ -42,27 +42,29 @@
 /// ```
 ///
 pub mod email_service_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailServiceDomainArgs {
         /// Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
         #[builder(into)]
-        pub domain_management: pulumi_wasm_rust::Output<String>,
+        pub domain_management: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
         #[builder(into)]
-        pub email_service_id: pulumi_wasm_rust::Output<String>,
+        pub email_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Email Communication Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub user_engagement_tracking_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_engagement_tracking_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct EmailServiceDomainResult {
@@ -91,15 +93,26 @@ pub mod email_service_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EmailServiceDomainArgs) -> EmailServiceDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EmailServiceDomainArgs,
+    ) -> EmailServiceDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_management_binding = args.domain_management.get_inner();
-        let email_service_id_binding = args.email_service_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let domain_management_binding = args
+            .domain_management
+            .get_output(context)
+            .get_inner();
+        let email_service_id_binding = args
+            .email_service_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let user_engagement_tracking_enabled_binding = args
             .user_engagement_tracking_enabled
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:communication/emailServiceDomain:EmailServiceDomain".into(),
@@ -154,7 +167,7 @@ pub mod email_service_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

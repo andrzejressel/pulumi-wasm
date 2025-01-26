@@ -245,135 +245,137 @@
 /// $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
 /// ```
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         #[builder(into, default)]
-        pub architectures: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub architectures: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         #[builder(into, default)]
-        pub code_signing_config_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub code_signing_config_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub dead_letter_config: pulumi_wasm_rust::Output<
+        pub dead_letter_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionDeadLetterConfig>,
         >,
         /// Description of what your Lambda Function does.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub environment: pulumi_wasm_rust::Output<
+        pub environment: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionEnvironment>,
         >,
         /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         #[builder(into, default)]
-        pub ephemeral_storage: pulumi_wasm_rust::Output<
+        pub ephemeral_storage: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionEphemeralStorage>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub file_system_config: pulumi_wasm_rust::Output<
+        pub file_system_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionFileSystemConfig>,
         >,
         /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         #[builder(into, default)]
-        pub handler: pulumi_wasm_rust::Output<Option<String>>,
+        pub handler: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub image_config: pulumi_wasm_rust::Output<
+        pub image_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionImageConfig>,
         >,
         /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         #[builder(into, default)]
-        pub image_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         #[builder(into, default)]
-        pub layers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub layers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block used to specify advanced logging settings. Detailed below.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionLoggingConfig>,
         >,
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         #[builder(into, default)]
-        pub memory_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Unique name for your Lambda Function.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         #[builder(into, default)]
-        pub package_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         #[builder(into, default)]
-        pub publish: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publish: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
         /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
         /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
         /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         #[builder(into, default)]
-        pub replace_security_groups_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_security_groups_on_destroy: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
         /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         #[builder(into, default)]
-        pub replacement_security_group_ids: pulumi_wasm_rust::Output<
+        pub replacement_security_group_ids: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         #[builder(into, default)]
-        pub reserved_concurrent_executions: pulumi_wasm_rust::Output<Option<i32>>,
+        pub reserved_concurrent_executions: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         #[builder(into, default)]
-        pub s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         #[builder(into, default)]
-        pub s3_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         #[builder(into, default)]
-        pub s3_object_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_object_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Snap start settings block. Detailed below.
         #[builder(into, default)]
-        pub snap_start: pulumi_wasm_rust::Output<
+        pub snap_start: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionSnapStart>,
         >,
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         #[builder(into, default)]
-        pub source_code_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_code_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub tracing_config: pulumi_wasm_rust::Output<
+        pub tracing_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionTracingConfig>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lambda::FunctionVpcConfig>,
         >,
     }
@@ -502,48 +504,73 @@ pub mod function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionArgs) -> FunctionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionArgs,
+    ) -> FunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let architectures_binding = args.architectures.get_inner();
-        let code_binding = args.code.get_inner();
-        let code_signing_config_arn_binding = args.code_signing_config_arn.get_inner();
-        let dead_letter_config_binding = args.dead_letter_config.get_inner();
-        let description_binding = args.description.get_inner();
-        let environment_binding = args.environment.get_inner();
-        let ephemeral_storage_binding = args.ephemeral_storage.get_inner();
-        let file_system_config_binding = args.file_system_config.get_inner();
-        let handler_binding = args.handler.get_inner();
-        let image_config_binding = args.image_config.get_inner();
-        let image_uri_binding = args.image_uri.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
-        let layers_binding = args.layers.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let memory_size_binding = args.memory_size.get_inner();
-        let name_binding = args.name.get_inner();
-        let package_type_binding = args.package_type.get_inner();
-        let publish_binding = args.publish.get_inner();
+        let architectures_binding = args.architectures.get_output(context).get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let code_signing_config_arn_binding = args
+            .code_signing_config_arn
+            .get_output(context)
+            .get_inner();
+        let dead_letter_config_binding = args
+            .dead_letter_config
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let ephemeral_storage_binding = args
+            .ephemeral_storage
+            .get_output(context)
+            .get_inner();
+        let file_system_config_binding = args
+            .file_system_config
+            .get_output(context)
+            .get_inner();
+        let handler_binding = args.handler.get_output(context).get_inner();
+        let image_config_binding = args.image_config.get_output(context).get_inner();
+        let image_uri_binding = args.image_uri.get_output(context).get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let layers_binding = args.layers.get_output(context).get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let memory_size_binding = args.memory_size.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let package_type_binding = args.package_type.get_output(context).get_inner();
+        let publish_binding = args.publish.get_output(context).get_inner();
         let replace_security_groups_on_destroy_binding = args
             .replace_security_groups_on_destroy
+            .get_output(context)
             .get_inner();
         let replacement_security_group_ids_binding = args
             .replacement_security_group_ids
+            .get_output(context)
             .get_inner();
         let reserved_concurrent_executions_binding = args
             .reserved_concurrent_executions
+            .get_output(context)
             .get_inner();
-        let role_binding = args.role.get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_inner();
-        let s3_key_binding = args.s3_key.get_inner();
-        let s3_object_version_binding = args.s3_object_version.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let snap_start_binding = args.snap_start.get_inner();
-        let source_code_hash_binding = args.source_code_hash.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let tracing_config_binding = args.tracing_config.get_inner();
-        let vpc_config_binding = args.vpc_config.get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
+        let s3_key_binding = args.s3_key.get_output(context).get_inner();
+        let s3_object_version_binding = args
+            .s3_object_version
+            .get_output(context)
+            .get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let snap_start_binding = args.snap_start.get_output(context).get_inner();
+        let source_code_hash_binding = args
+            .source_code_hash
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let tracing_config_binding = args.tracing_config.get_output(context).get_inner();
+        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/function:Function".into(),
             name: name.to_string(),
@@ -817,7 +844,7 @@ pub mod function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

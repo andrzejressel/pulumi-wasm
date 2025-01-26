@@ -18,21 +18,23 @@
 /// }
 /// ```
 pub mod api_shield_schema_validation_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiShieldSchemaValidationSettingsArgs {
         /// The default mitigation action used when there is no mitigation action defined on the operation.
         #[builder(into)]
-        pub validation_default_mitigation_action: pulumi_wasm_rust::Output<String>,
+        pub validation_default_mitigation_action: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// When set, this overrides both zone level and operation level mitigation actions.
         #[builder(into, default)]
-        pub validation_override_mitigation_action: pulumi_wasm_rust::Output<
+        pub validation_override_mitigation_action: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiShieldSchemaValidationSettingsResult {
@@ -50,6 +52,7 @@ pub mod api_shield_schema_validation_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApiShieldSchemaValidationSettingsArgs,
     ) -> ApiShieldSchemaValidationSettingsResult {
@@ -57,11 +60,13 @@ pub mod api_shield_schema_validation_settings {
         use std::collections::HashMap;
         let validation_default_mitigation_action_binding = args
             .validation_default_mitigation_action
+            .get_output(context)
             .get_inner();
         let validation_override_mitigation_action_binding = args
             .validation_override_mitigation_action
+            .get_output(context)
             .get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchemaValidationSettings:ApiShieldSchemaValidationSettings"
                 .into(),
@@ -93,7 +98,7 @@ pub mod api_shield_schema_validation_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

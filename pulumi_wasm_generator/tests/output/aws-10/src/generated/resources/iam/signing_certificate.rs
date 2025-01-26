@@ -43,19 +43,19 @@
 /// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
 /// ```
 pub mod signing_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SigningCertificateArgs {
         /// The contents of the signing certificate in PEM-encoded format.
         #[builder(into)]
-        pub certificate_body: pulumi_wasm_rust::Output<String>,
+        pub certificate_body: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the user the signing certificate is for.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SigningCertificateResult {
@@ -72,12 +72,19 @@ pub mod signing_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SigningCertificateArgs) -> SigningCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SigningCertificateArgs,
+    ) -> SigningCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_body_binding = args.certificate_body.get_inner();
-        let status_binding = args.status.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let certificate_body_binding = args
+            .certificate_body
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/signingCertificate:SigningCertificate".into(),
             name: name.to_string(),
@@ -111,7 +118,7 @@ pub mod signing_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

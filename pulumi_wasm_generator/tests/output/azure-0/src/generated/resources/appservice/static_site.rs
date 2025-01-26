@@ -38,38 +38,38 @@
 /// ```
 ///
 pub mod static_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticSiteArgs {
         /// A key-value pair of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::StaticSiteIdentity>,
         >,
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         #[builder(into, default)]
-        pub sku_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,17 +106,24 @@ pub mod static_site {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StaticSiteArgs) -> StaticSiteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StaticSiteArgs,
+    ) -> StaticSiteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_settings_binding = args.app_settings.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_size_binding = args.sku_size.get_inner();
-        let sku_tier_binding = args.sku_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let app_settings_binding = args.app_settings.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_size_binding = args.sku_size.get_output(context).get_inner();
+        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticSite:StaticSite".into(),
             name: name.to_string(),
@@ -188,7 +195,7 @@ pub mod static_site {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

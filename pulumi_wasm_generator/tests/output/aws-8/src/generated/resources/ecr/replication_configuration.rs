@@ -85,13 +85,13 @@
 /// $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
 /// ```
 pub mod replication_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationConfigurationArgs {
         /// Replication configuration for a registry. See Replication Configuration.
         #[builder(into, default)]
-        pub replication_configuration: pulumi_wasm_rust::Output<
+        pub replication_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ecr::ReplicationConfigurationReplicationConfiguration,
             >,
@@ -113,6 +113,7 @@ pub mod replication_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReplicationConfigurationArgs,
     ) -> ReplicationConfigurationResult {
@@ -120,6 +121,7 @@ pub mod replication_configuration {
         use std::collections::HashMap;
         let replication_configuration_binding = args
             .replication_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/replicationConfiguration:ReplicationConfiguration".into(),
@@ -140,7 +142,7 @@ pub mod replication_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

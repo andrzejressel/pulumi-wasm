@@ -73,22 +73,22 @@
 /// ```
 ///
 pub mod network_manager_management_group_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerManagementGroupConnectionArgs {
         /// A description of the Network Manager Management Group Connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub management_group_id: pulumi_wasm_rust::Output<String>,
+        pub management_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkManagerManagementGroupConnectionResult {
@@ -108,15 +108,22 @@ pub mod network_manager_management_group_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkManagerManagementGroupConnectionArgs,
     ) -> NetworkManagerManagementGroupConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let management_group_id_binding = args.management_group_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_manager_id_binding = args.network_manager_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let management_group_id_binding = args
+            .management_group_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_manager_id_binding = args
+            .network_manager_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection"
                 .into(),
@@ -158,7 +165,7 @@ pub mod network_manager_management_group_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

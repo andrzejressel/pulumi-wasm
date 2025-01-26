@@ -81,16 +81,16 @@
 /// ```
 ///
 pub mod cluster_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyArgs {
         /// The ID of the Key Vault Key to use for encryption.
         #[builder(into)]
-        pub key_vault_key_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         #[builder(into)]
-        pub log_analytics_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyResult {
@@ -104,13 +104,20 @@ pub mod cluster_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClusterCustomerManagedKeyArgs,
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_vault_key_id_binding = args.key_vault_key_id.get_inner();
-        let log_analytics_cluster_id_binding = args.log_analytics_cluster_id.get_inner();
+        let key_vault_key_id_binding = args
+            .key_vault_key_id
+            .get_output(context)
+            .get_inner();
+        let log_analytics_cluster_id_binding = args
+            .log_analytics_cluster_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),
@@ -135,7 +142,7 @@ pub mod cluster_customer_managed_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

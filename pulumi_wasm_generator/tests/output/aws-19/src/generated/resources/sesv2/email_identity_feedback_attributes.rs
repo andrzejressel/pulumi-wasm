@@ -31,16 +31,16 @@
 /// $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
 /// ```
 pub mod email_identity_feedback_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityFeedbackAttributesArgs {
         /// Sets the feedback forwarding configuration for the identity.
         #[builder(into, default)]
-        pub email_forwarding_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub email_forwarding_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The email identity.
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EmailIdentityFeedbackAttributesResult {
@@ -54,13 +54,17 @@ pub mod email_identity_feedback_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EmailIdentityFeedbackAttributesArgs,
     ) -> EmailIdentityFeedbackAttributesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let email_forwarding_enabled_binding = args.email_forwarding_enabled.get_inner();
-        let email_identity_binding = args.email_identity.get_inner();
+        let email_forwarding_enabled_binding = args
+            .email_forwarding_enabled
+            .get_output(context)
+            .get_inner();
+        let email_identity_binding = args.email_identity.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes"
                 .into(),
@@ -85,7 +89,7 @@ pub mod email_identity_feedback_attributes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

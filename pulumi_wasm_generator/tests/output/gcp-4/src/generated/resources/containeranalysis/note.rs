@@ -97,7 +97,7 @@
 /// ```
 ///
 pub mod note {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NoteArgs {
@@ -112,31 +112,31 @@ pub mod note {
         /// project.
         /// Structure is documented below.
         #[builder(into)]
-        pub attestation_authority: pulumi_wasm_rust::Output<
+        pub attestation_authority: pulumi_wasm_rust::InputOrOutput<
             super::super::types::containeranalysis::NoteAttestationAuthority,
         >,
         /// Time of expiration for this note. Leave empty if note does not expire.
         #[builder(into, default)]
-        pub expiration_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A detailed description of the note
         #[builder(into, default)]
-        pub long_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub long_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the note.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Names of other notes related to this note.
         #[builder(into, default)]
-        pub related_note_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub related_note_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// URLs associated with this note and related metadata.
         #[builder(into, default)]
-        pub related_urls: pulumi_wasm_rust::Output<
+        pub related_urls: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containeranalysis::NoteRelatedUrl>>,
         >,
         /// A one sentence description of the note.
         #[builder(into, default)]
-        pub short_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NoteResult {
@@ -179,17 +179,36 @@ pub mod note {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NoteArgs) -> NoteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NoteArgs,
+    ) -> NoteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attestation_authority_binding = args.attestation_authority.get_inner();
-        let expiration_time_binding = args.expiration_time.get_inner();
-        let long_description_binding = args.long_description.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let related_note_names_binding = args.related_note_names.get_inner();
-        let related_urls_binding = args.related_urls.get_inner();
-        let short_description_binding = args.short_description.get_inner();
+        let attestation_authority_binding = args
+            .attestation_authority
+            .get_output(context)
+            .get_inner();
+        let expiration_time_binding = args
+            .expiration_time
+            .get_output(context)
+            .get_inner();
+        let long_description_binding = args
+            .long_description
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let related_note_names_binding = args
+            .related_note_names
+            .get_output(context)
+            .get_inner();
+        let related_urls_binding = args.related_urls.get_output(context).get_inner();
+        let short_description_binding = args
+            .short_description
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:containeranalysis/note:Note".into(),
             name: name.to_string(),
@@ -264,7 +283,7 @@ pub mod note {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

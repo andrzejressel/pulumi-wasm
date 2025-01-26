@@ -89,37 +89,37 @@
 /// $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
 /// ```
 pub mod file_system_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FileSystemAssociationArgs {
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
         #[builder(into, default)]
-        pub audit_destination_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_destination_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Refresh cache information. see Cache Attributes for more details.
         #[builder(into, default)]
-        pub cache_attributes: pulumi_wasm_rust::Output<
+        pub cache_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::storagegateway::FileSystemAssociationCacheAttributes,
             >,
         >,
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         #[builder(into)]
-        pub location_arn: pulumi_wasm_rust::Output<String>,
+        pub location_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The password of the user credential.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FileSystemAssociationResult {
@@ -155,18 +155,25 @@ pub mod file_system_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FileSystemAssociationArgs,
     ) -> FileSystemAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let audit_destination_arn_binding = args.audit_destination_arn.get_inner();
-        let cache_attributes_binding = args.cache_attributes.get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_inner();
-        let location_arn_binding = args.location_arn.get_inner();
-        let password_binding = args.password.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let username_binding = args.username.get_inner();
+        let audit_destination_arn_binding = args
+            .audit_destination_arn
+            .get_output(context)
+            .get_inner();
+        let cache_attributes_binding = args
+            .cache_attributes
+            .get_output(context)
+            .get_inner();
+        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let location_arn_binding = args.location_arn.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
                 .into(),
@@ -232,7 +239,7 @@ pub mod file_system_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

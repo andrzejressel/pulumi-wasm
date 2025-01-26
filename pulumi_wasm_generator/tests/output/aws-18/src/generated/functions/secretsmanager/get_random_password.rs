@@ -1,32 +1,32 @@
 pub mod get_random_password {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRandomPasswordArgs {
         /// String of the characters that you don't want in the password.
         #[builder(into, default)]
-        pub exclude_characters: pulumi_wasm_rust::Output<Option<String>>,
+        pub exclude_characters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to exclude lowercase letters from the password.
         #[builder(into, default)]
-        pub exclude_lowercase: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_lowercase: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether to exclude numbers from the password.
         #[builder(into, default)]
-        pub exclude_numbers: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_numbers: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
         #[builder(into, default)]
-        pub exclude_punctuation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_punctuation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether to exclude uppercase letters from the password.
         #[builder(into, default)]
-        pub exclude_uppercase: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_uppercase: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether to include the space character.
         #[builder(into, default)]
-        pub include_space: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_space: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Length of the password.
         #[builder(into, default)]
-        pub password_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub password_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
         #[builder(into, default)]
-        pub require_each_included_type: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_each_included_type: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetRandomPasswordResult {
@@ -47,18 +47,40 @@ pub mod get_random_password {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRandomPasswordArgs) -> GetRandomPasswordResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRandomPasswordArgs,
+    ) -> GetRandomPasswordResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let exclude_characters_binding = args.exclude_characters.get_inner();
-        let exclude_lowercase_binding = args.exclude_lowercase.get_inner();
-        let exclude_numbers_binding = args.exclude_numbers.get_inner();
-        let exclude_punctuation_binding = args.exclude_punctuation.get_inner();
-        let exclude_uppercase_binding = args.exclude_uppercase.get_inner();
-        let include_space_binding = args.include_space.get_inner();
-        let password_length_binding = args.password_length.get_inner();
+        let exclude_characters_binding = args
+            .exclude_characters
+            .get_output(context)
+            .get_inner();
+        let exclude_lowercase_binding = args
+            .exclude_lowercase
+            .get_output(context)
+            .get_inner();
+        let exclude_numbers_binding = args
+            .exclude_numbers
+            .get_output(context)
+            .get_inner();
+        let exclude_punctuation_binding = args
+            .exclude_punctuation
+            .get_output(context)
+            .get_inner();
+        let exclude_uppercase_binding = args
+            .exclude_uppercase
+            .get_output(context)
+            .get_inner();
+        let include_space_binding = args.include_space.get_output(context).get_inner();
+        let password_length_binding = args
+            .password_length
+            .get_output(context)
+            .get_inner();
         let require_each_included_type_binding = args
             .require_each_included_type
+            .get_output(context)
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getRandomPassword:getRandomPassword".into(),
@@ -130,7 +152,7 @@ pub mod get_random_password {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

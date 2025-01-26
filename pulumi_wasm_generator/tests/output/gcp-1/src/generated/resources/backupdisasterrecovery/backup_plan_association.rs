@@ -90,32 +90,32 @@
 /// ```
 ///
 pub mod backup_plan_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPlanAssociationArgs {
         /// The BP with which resource needs to be created
         #[builder(into)]
-        pub backup_plan: pulumi_wasm_rust::Output<String>,
+        pub backup_plan: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of backupplan association
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub backup_plan_association_id: pulumi_wasm_rust::Output<String>,
+        pub backup_plan_association_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location for the backupplan association
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource for which BPA needs to be created
         #[builder(into)]
-        pub resource: pulumi_wasm_rust::Output<String>,
+        pub resource: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource type of workload on which backupplan is applied
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPlanAssociationResult {
@@ -158,19 +158,21 @@ pub mod backup_plan_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackupPlanAssociationArgs,
     ) -> BackupPlanAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_plan_binding = args.backup_plan.get_inner();
+        let backup_plan_binding = args.backup_plan.get_output(context).get_inner();
         let backup_plan_association_id_binding = args
             .backup_plan_association_id
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let resource_binding = args.resource.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let resource_binding = args.resource.get_output(context).get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:backupdisasterrecovery/backupPlanAssociation:BackupPlanAssociation"
                 .into(),
@@ -241,7 +243,7 @@ pub mod backup_plan_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

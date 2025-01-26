@@ -1,17 +1,17 @@
 pub mod get_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountArgs {
         /// The minimum supported TLS version for this storage account.
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Storage Account
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group the Storage Account is located in.
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAccountResult {
@@ -212,12 +212,21 @@ pub mod get_account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAccountArgs) -> GetAccountResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAccountArgs,
+    ) -> GetAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let min_tls_version_binding = args.min_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let min_tls_version_binding = args
+            .min_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getAccount:getAccount".into(),
             version: super::super::super::get_version(),
@@ -517,7 +526,7 @@ pub mod get_account {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

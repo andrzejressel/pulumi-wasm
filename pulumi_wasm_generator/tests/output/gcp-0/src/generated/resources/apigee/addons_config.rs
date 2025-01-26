@@ -139,14 +139,14 @@
 /// ```
 ///
 pub mod addons_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddonsConfigArgs {
         /// Addon configurations of the Apigee organization.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub addons_config: pulumi_wasm_rust::Output<
+        pub addons_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigee::AddonsConfigAddonsConfig>,
         >,
         /// Name of the Apigee organization.
@@ -154,7 +154,7 @@ pub mod addons_config {
         ///
         /// - - -
         #[builder(into)]
-        pub org: pulumi_wasm_rust::Output<String>,
+        pub org: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AddonsConfigResult {
@@ -173,11 +173,15 @@ pub mod addons_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AddonsConfigArgs) -> AddonsConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AddonsConfigArgs,
+    ) -> AddonsConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addons_config_binding = args.addons_config.get_inner();
-        let org_binding = args.org.get_inner();
+        let addons_config_binding = args.addons_config.get_output(context).get_inner();
+        let org_binding = args.org.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/addonsConfig:AddonsConfig".into(),
             name: name.to_string(),
@@ -201,7 +205,7 @@ pub mod addons_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

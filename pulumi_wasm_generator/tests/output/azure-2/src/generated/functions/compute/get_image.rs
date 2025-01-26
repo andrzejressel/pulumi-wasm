@@ -1,20 +1,20 @@
 pub mod get_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetImageArgs {
         /// The name of the Image.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Regex pattern of the image to match.
         #[builder(into, default)]
-        pub name_regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group where this Image exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
         #[builder(into, default)]
-        pub sort_descending: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sort_descending: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetImageResult {
@@ -44,13 +44,22 @@ pub mod get_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetImageArgs) -> GetImageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetImageArgs,
+    ) -> GetImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let name_regex_binding = args.name_regex.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sort_descending_binding = args.sort_descending.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_regex_binding = args.name_regex.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sort_descending_binding = args
+            .sort_descending
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getImage:getImage".into(),
             version: super::super::super::get_version(),
@@ -105,7 +114,7 @@ pub mod get_image {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

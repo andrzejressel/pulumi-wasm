@@ -59,39 +59,39 @@
 /// ```
 ///
 pub mod scope_rbac_role_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScopeRbacRoleBindingArgs {
         /// Principal that is be authorized in the cluster (at least of one the oneof is required). Updating one will unset the
         /// other automatically. group is the group, as seen by the kubernetes cluster.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels for this ScopeRBACRoleBinding. **Note**: This field is non-authoritative, and will only manage the labels present
         /// in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Role to bind to the principal.
         /// Structure is documented below.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<
+        pub role: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkehub::ScopeRbacRoleBindingRole,
         >,
         /// Id of the scope
         #[builder(into)]
-        pub scope_id: pulumi_wasm_rust::Output<String>,
+        pub scope_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The client-provided identifier of the RBAC Role Binding.
         #[builder(into)]
-        pub scope_rbac_role_binding_id: pulumi_wasm_rust::Output<String>,
+        pub scope_rbac_role_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Principal that is be authorized in the cluster (at least of one the oneof is required). Updating one will unset the
         /// other automatically. user is the name of the user as seen by the kubernetes cluster, example "alice" or
         /// "alice@domain.tld"
         #[builder(into, default)]
-        pub user: pulumi_wasm_rust::Output<Option<String>>,
+        pub user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ScopeRbacRoleBindingResult {
@@ -147,20 +147,22 @@ pub mod scope_rbac_role_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ScopeRbacRoleBindingArgs,
     ) -> ScopeRbacRoleBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let project_binding = args.project.get_inner();
-        let role_binding = args.role.get_inner();
-        let scope_id_binding = args.scope_id.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let scope_id_binding = args.scope_id.get_output(context).get_inner();
         let scope_rbac_role_binding_id_binding = args
             .scope_rbac_role_binding_id
+            .get_output(context)
             .get_inner();
-        let user_binding = args.user.get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/scopeRbacRoleBinding:ScopeRbacRoleBinding".into(),
             name: name.to_string(),
@@ -243,7 +245,7 @@ pub mod scope_rbac_role_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

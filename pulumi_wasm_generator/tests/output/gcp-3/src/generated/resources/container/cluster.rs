@@ -145,32 +145,32 @@
 /// - `remove_default_node_pool`
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// The configuration for addons supported by GKE.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub addons_config: pulumi_wasm_rust::Output<
+        pub addons_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterAddonsConfig>,
         >,
         /// Enable NET_ADMIN for the cluster. Defaults to
         /// `false`. This field should only be enabled for Autopilot clusters (`enable_autopilot`
         /// set to `true`).
         #[builder(into, default)]
-        pub allow_net_admin: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_net_admin: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration for the
         /// [Google Groups for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control#groups-setup-gsuite) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authenticator_groups_config: pulumi_wasm_rust::Output<
+        pub authenticator_groups_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterAuthenticatorGroupsConfig>,
         >,
         /// Configuration options for the Binary
         /// Authorization feature. Structure is documented below.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterBinaryAuthorization>,
         >,
         /// Per-cluster configuration of Node Auto-Provisioning with Cluster Autoscaler to
@@ -179,7 +179,7 @@ pub mod cluster {
         /// [guide to using Node Auto-Provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
         /// for more details. Structure is documented below.
         #[builder(into, default)]
-        pub cluster_autoscaling: pulumi_wasm_rust::Output<
+        pub cluster_autoscaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterClusterAutoscaling>,
         >,
         /// The IP address range of the Kubernetes pods
@@ -187,59 +187,59 @@ pub mod cluster {
         /// automatically chosen or specify a `/14` block in `10.0.0.0/8`. This field will
         /// default a new cluster to routes-based, where `ip_allocation_policy` is not defined.
         #[builder(into, default)]
-        pub cluster_ipv4_cidr: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_ipv4_cidr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for
         /// [ClusterTelemetry](https://cloud.google.com/monitoring/kubernetes-engine/installing#controlling_the_collection_of_application_logs) feature,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cluster_telemetry: pulumi_wasm_rust::Output<
+        pub cluster_telemetry: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterClusterTelemetry>,
         >,
         /// Configuration for [Confidential Nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes) feature. Structure is documented below documented below.
         #[builder(into, default)]
-        pub confidential_nodes: pulumi_wasm_rust::Output<
+        pub confidential_nodes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterConfidentialNodes>,
         >,
         /// Configuration for all of the cluster's control plane endpoints.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub control_plane_endpoints_config: pulumi_wasm_rust::Output<
+        pub control_plane_endpoints_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterControlPlaneEndpointsConfig>,
         >,
         /// Configuration for the
         /// [Cost Allocation](https://cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cost_management_config: pulumi_wasm_rust::Output<
+        pub cost_management_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterCostManagementConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub database_encryption: pulumi_wasm_rust::Output<
+        pub database_encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDatabaseEncryption>,
         >,
         /// The desired datapath provider for this cluster. This is set to `LEGACY_DATAPATH` by default, which uses the IPTables-based kube-proxy implementation. Set to `ADVANCED_DATAPATH` to enable Dataplane v2.
         #[builder(into, default)]
-        pub datapath_provider: pulumi_wasm_rust::Output<Option<String>>,
+        pub datapath_provider: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default maximum number of pods
         /// per node in this cluster. This doesn't work on "routes-based" clusters, clusters
         /// that don't have IP Aliasing enabled. See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr)
         /// for more information.
         #[builder(into, default)]
-        pub default_max_pods_per_node: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_max_pods_per_node: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// [GKE SNAT](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent#how_ipmasq_works) DefaultSnatStatus contains the desired state of whether default sNAT should be disabled on the cluster, [API doc](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#networkconfig). Structure is documented below
         #[builder(into, default)]
-        pub default_snat_status: pulumi_wasm_rust::Output<
+        pub default_snat_status: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDefaultSnatStatus>,
         >,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Description of the cluster.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for [Using Cloud DNS for GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns). Structure is documented below.
         #[builder(into, default)]
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterDnsConfig>,
         >,
         /// Enable Autopilot for this cluster. Defaults to `false`.
@@ -247,69 +247,69 @@ pub mod cluster {
         /// See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison)
         /// for available features.
         #[builder(into, default)]
-        pub enable_autopilot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_autopilot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether CiliumClusterWideNetworkPolicy is enabled on this cluster. Defaults to false.
         #[builder(into, default)]
-        pub enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::Output<
+        pub enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether FQDN Network Policy is enabled on this cluster. Users who enable this feature for existing Standard clusters must restart the GKE Dataplane V2 `anetd` DaemonSet after enabling it. See the [Enable FQDN Network Policy in an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/fqdn-network-policies#enable_fqdn_network_policy_in_an_existing_cluster) for more information.
         #[builder(into, default)]
-        pub enable_fqdn_network_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_fqdn_network_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
         #[builder(into, default)]
-        pub enable_intranode_visibility: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_intranode_visibility: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration for Kubernetes Beta APIs.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub enable_k8s_beta_apis: pulumi_wasm_rust::Output<
+        pub enable_k8s_beta_apis: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterEnableK8SBetaApis>,
         >,
         /// Whether to enable Kubernetes Alpha features for
         /// this cluster. Note that when this option is enabled, the cluster cannot be upgraded
         /// and will be automatically deleted after 30 days.
         #[builder(into, default)]
-        pub enable_kubernetes_alpha: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_kubernetes_alpha: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether L4ILB Subsetting is enabled for this cluster.
         #[builder(into, default)]
-        pub enable_l4_ilb_subsetting: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_l4_ilb_subsetting: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the ABAC authorizer is enabled for this cluster.
         /// When enabled, identities in the system, including service accounts, nodes, and controllers,
         /// will have statically granted permissions beyond those provided by the RBAC configuration or IAM.
         /// Defaults to `false`
         #[builder(into, default)]
-        pub enable_legacy_abac: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_legacy_abac: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether multi-networking is enabled for this cluster.
         #[builder(into, default)]
-        pub enable_multi_networking: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_multi_networking: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable Shielded Nodes features on all nodes in this cluster.  Defaults to `true`.
         #[builder(into, default)]
-        pub enable_shielded_nodes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_shielded_nodes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable Cloud TPU resources in this cluster.
         /// See the [official documentation](https://cloud.google.com/tpu/docs/kubernetes-engine-setup).
         #[builder(into, default)]
-        pub enable_tpu: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_tpu: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration for [Enterprise edition].(https://cloud.google.com/kubernetes-engine/enterprise/docs/concepts/gke-editions). Structure is documented below.
         ///
         ///
         /// <a name="nested_default_snat_status"></a>The `default_snat_status` block supports
         #[builder(into, default)]
-        pub enterprise_config: pulumi_wasm_rust::Output<
+        pub enterprise_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterEnterpriseConfig>,
         >,
         /// Fleet configuration for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterFleet>,
         >,
         /// Configuration for [GKE Gateway API controller](https://cloud.google.com/kubernetes-engine/docs/concepts/gateway-api). Structure is documented below.
         #[builder(into, default)]
-        pub gateway_api_config: pulumi_wasm_rust::Output<
+        pub gateway_api_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterGatewayApiConfig>,
         >,
         /// . Structure is documented below.
         #[builder(into, default)]
-        pub identity_service_config: pulumi_wasm_rust::Output<
+        pub identity_service_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterIdentityServiceConfig>,
         >,
         /// The number of nodes to create in this
@@ -319,12 +319,12 @@ pub mod cluster {
         /// set this to a value of at least `1`, alongside setting
         /// `remove_default_node_pool` to `true`.
         #[builder(into, default)]
-        pub initial_node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub initial_node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Configuration of cluster IP allocation for
         /// VPC-native clusters. If this block is unset during creation, it will be set by the GKE backend.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ip_allocation_policy: pulumi_wasm_rust::Output<
+        pub ip_allocation_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterIpAllocationPolicy>,
         >,
         /// The location (region or zone) in which the cluster
@@ -334,22 +334,22 @@ pub mod cluster {
         /// cluster will be a regional cluster with multiple masters spread across zones in
         /// the region, and with default node locations in those zones as well
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Logging configuration for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterLoggingConfig>,
         >,
         /// The logging service that the cluster should
         /// write logs to. Available options include `logging.googleapis.com`(Legacy Stackdriver),
         /// `logging.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Logging), and `none`. Defaults to `logging.googleapis.com/kubernetes`
         #[builder(into, default)]
-        pub logging_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub logging_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maintenance policy to use for the cluster. Structure is
         /// documented below.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMaintenancePolicy>,
         >,
         /// The authentication information for accessing the
@@ -359,7 +359,7 @@ pub mod cluster {
         /// `container.clusters.getCredentials` permission.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub master_auth: pulumi_wasm_rust::Output<
+        pub master_auth: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMasterAuth>,
         >,
         /// The desired
@@ -368,12 +368,12 @@ pub mod cluster {
         /// the cluster node IPs, which GKE automatically whitelists).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub master_authorized_networks_config: pulumi_wasm_rust::Output<
+        pub master_authorized_networks_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMasterAuthorizedNetworksConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mesh_certificates: pulumi_wasm_rust::Output<
+        pub mesh_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMeshCertificates>,
         >,
         /// The minimum version of the master. GKE
@@ -390,11 +390,11 @@ pub mod cluster {
         /// to the datasource. A region can have a different set of supported versions than its corresponding zones, and not all zones in a
         /// region are guaranteed to support the same version.
         #[builder(into, default)]
-        pub min_master_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_master_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Monitoring configuration for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub monitoring_config: pulumi_wasm_rust::Output<
+        pub monitoring_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterMonitoringConfig>,
         >,
         /// The monitoring service that the cluster
@@ -405,36 +405,36 @@ pub mod cluster {
         /// `monitoring.googleapis.com`(Legacy Stackdriver), `monitoring.googleapis.com/kubernetes`(Stackdriver Kubernetes Engine Monitoring), and `none`.
         /// Defaults to `monitoring.googleapis.com/kubernetes`
         #[builder(into, default)]
-        pub monitoring_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitoring_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the cluster, unique within the project and
         /// location.
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name or self_link of the Google Compute Engine
         /// network to which the cluster is connected. For Shared VPC, set this to the self link of the
         /// shared network.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration options for the
         /// [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/networkpolicies/)
         /// feature. Structure is documented below.
         #[builder(into, default)]
-        pub network_policy: pulumi_wasm_rust::Output<
+        pub network_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNetworkPolicy>,
         >,
         /// Determines whether alias IPs or routes will be used for pod IPs in the cluster.
         /// Options are `VPC_NATIVE` or `ROUTES`. `VPC_NATIVE` enables [IP aliasing](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-aliases). Newly created clusters will default to `VPC_NATIVE`.
         #[builder(into, default)]
-        pub networking_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub networking_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters used in creating the default node pool.
         /// Generally, this field should not be used at the same time as a
         /// `gcp.container.NodePool` or a `node_pool` block; this configuration
         /// manages the default node pool, which isn't recommended to be used.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodeConfig>,
         >,
         /// The list of zones in which the cluster's nodes
@@ -449,17 +449,17 @@ pub mod cluster {
         /// in multiple zones in the region. For that reason, regional clusters should be
         /// preferred.
         #[builder(into, default)]
-        pub node_locations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub node_locations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Node pool configs that apply to auto-provisioned node pools in
         /// [autopilot](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview#comparison) clusters and
         /// [node auto-provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)-enabled clusters. Structure is documented below.
         #[builder(into, default)]
-        pub node_pool_auto_config: pulumi_wasm_rust::Output<
+        pub node_pool_auto_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodePoolAutoConfig>,
         >,
         /// Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object. Structure is documented below.
         #[builder(into, default)]
-        pub node_pool_defaults: pulumi_wasm_rust::Output<
+        pub node_pool_defaults: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNodePoolDefaults>,
         >,
         /// List of node pools associated with this cluster.
@@ -469,7 +469,7 @@ pub mod cluster {
         /// to say "these are the _only_ node pools associated with this cluster", use the
         /// gcp.container.NodePool resource instead of this property.
         #[builder(into, default)]
-        pub node_pools: pulumi_wasm_rust::Output<
+        pub node_pools: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::container::ClusterNodePool>>,
         >,
         /// The Kubernetes version on the nodes. Must either be unset
@@ -481,35 +481,35 @@ pub mod cluster {
         /// `version_prefix` field to approximate fuzzy versions.
         /// To update nodes in other node pools, use the `version` attribute on the node pool.
         #[builder(into, default)]
-        pub node_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for the [cluster upgrade notifications](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-upgrade-notifications) feature. Structure is documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterNotificationConfig>,
         >,
         /// Configuration for the
         /// [PodSecurityPolicy](https://cloud.google.com/kubernetes-engine/docs/how-to/pod-security-policies) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pod_security_policy_config: pulumi_wasm_rust::Output<
+        pub pod_security_policy_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterPodSecurityPolicyConfig>,
         >,
         /// Configuration for [private clusters](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters),
         /// clusters with private nodes. Structure is documented below.
         #[builder(into, default)]
-        pub private_cluster_config: pulumi_wasm_rust::Output<
+        pub private_cluster_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterPrivateClusterConfig>,
         >,
         /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
         #[builder(into, default)]
-        pub private_ipv6_google_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_ipv6_google_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enable/Disable Protect API features for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub protect_config: pulumi_wasm_rust::Output<
+        pub protect_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterProtectConfig>,
         >,
         /// Configuration options for the [Release channel](https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels)
@@ -522,7 +522,7 @@ pub mod cluster {
         /// release channel, but will not unenroll it. Instead, use the `"UNSPECIFIED"`
         /// channel. Structure is documented below.
         #[builder(into, default)]
-        pub release_channel: pulumi_wasm_rust::Output<
+        pub release_channel: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterReleaseChannel>,
         >,
         /// If `true`, deletes the default node
@@ -530,69 +530,69 @@ pub mod cluster {
         /// resources with no default node pool, this should be set to `true`, alongside
         /// setting `initial_node_count` to at least `1`.
         #[builder(into, default)]
-        pub remove_default_node_pool: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_default_node_pool: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The GCE resource labels (a map of key/value pairs) to be applied to the cluster.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub resource_labels: pulumi_wasm_rust::Output<
+        pub resource_labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for the
         /// [ResourceUsageExportConfig](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-usage-metering) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub resource_usage_export_config: pulumi_wasm_rust::Output<
+        pub resource_usage_export_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterResourceUsageExportConfig>,
         >,
         /// Configuration for the
         /// [SecretManagerConfig](https://cloud.google.com/secret-manager/docs/secret-manager-managed-csi-component) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secret_manager_config: pulumi_wasm_rust::Output<
+        pub secret_manager_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterSecretManagerConfig>,
         >,
         /// Enable/Disable Security Posture API features for the cluster. Structure is documented below.
         #[builder(into, default)]
-        pub security_posture_config: pulumi_wasm_rust::Output<
+        pub security_posture_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterSecurityPostureConfig>,
         >,
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_external_ips_config: pulumi_wasm_rust::Output<
+        pub service_external_ips_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterServiceExternalIpsConfig>,
         >,
         /// The name or self_link of the Google Compute Engine
         /// subnetwork in which the cluster's instances are launched.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// TPU configuration for the cluster.
         #[builder(into, default)]
-        pub tpu_config: pulumi_wasm_rust::Output<
+        pub tpu_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterTpuConfig>,
         >,
         /// The custom keys configuration of the cluster.
         #[builder(into, default)]
-        pub user_managed_keys_config: pulumi_wasm_rust::Output<
+        pub user_managed_keys_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterUserManagedKeysConfig>,
         >,
         /// Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vertical_pod_autoscaling: pulumi_wasm_rust::Output<
+        pub vertical_pod_autoscaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterVerticalPodAutoscaling>,
         >,
         /// Configuration for [direct-path (via ALTS) with workload identity.](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#workloadaltsconfig). Structure is documented below.
         #[builder(into, default)]
-        pub workload_alts_config: pulumi_wasm_rust::Output<
+        pub workload_alts_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterWorkloadAltsConfig>,
         >,
         /// Workload Identity allows Kubernetes service accounts to act as a user-managed
         /// [Google IAM Service Account](https://cloud.google.com/iam/docs/service-accounts#user-managed_service_accounts).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workload_identity_config: pulumi_wasm_rust::Output<
+        pub workload_identity_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::ClusterWorkloadIdentityConfig>,
         >,
     }
@@ -1004,104 +1004,248 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addons_config_binding = args.addons_config.get_inner();
-        let allow_net_admin_binding = args.allow_net_admin.get_inner();
+        let addons_config_binding = args.addons_config.get_output(context).get_inner();
+        let allow_net_admin_binding = args
+            .allow_net_admin
+            .get_output(context)
+            .get_inner();
         let authenticator_groups_config_binding = args
             .authenticator_groups_config
+            .get_output(context)
             .get_inner();
-        let binary_authorization_binding = args.binary_authorization.get_inner();
-        let cluster_autoscaling_binding = args.cluster_autoscaling.get_inner();
-        let cluster_ipv4_cidr_binding = args.cluster_ipv4_cidr.get_inner();
-        let cluster_telemetry_binding = args.cluster_telemetry.get_inner();
-        let confidential_nodes_binding = args.confidential_nodes.get_inner();
+        let binary_authorization_binding = args
+            .binary_authorization
+            .get_output(context)
+            .get_inner();
+        let cluster_autoscaling_binding = args
+            .cluster_autoscaling
+            .get_output(context)
+            .get_inner();
+        let cluster_ipv4_cidr_binding = args
+            .cluster_ipv4_cidr
+            .get_output(context)
+            .get_inner();
+        let cluster_telemetry_binding = args
+            .cluster_telemetry
+            .get_output(context)
+            .get_inner();
+        let confidential_nodes_binding = args
+            .confidential_nodes
+            .get_output(context)
+            .get_inner();
         let control_plane_endpoints_config_binding = args
             .control_plane_endpoints_config
+            .get_output(context)
             .get_inner();
-        let cost_management_config_binding = args.cost_management_config.get_inner();
-        let database_encryption_binding = args.database_encryption.get_inner();
-        let datapath_provider_binding = args.datapath_provider.get_inner();
+        let cost_management_config_binding = args
+            .cost_management_config
+            .get_output(context)
+            .get_inner();
+        let database_encryption_binding = args
+            .database_encryption
+            .get_output(context)
+            .get_inner();
+        let datapath_provider_binding = args
+            .datapath_provider
+            .get_output(context)
+            .get_inner();
         let default_max_pods_per_node_binding = args
             .default_max_pods_per_node
+            .get_output(context)
             .get_inner();
-        let default_snat_status_binding = args.default_snat_status.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let description_binding = args.description.get_inner();
-        let dns_config_binding = args.dns_config.get_inner();
-        let enable_autopilot_binding = args.enable_autopilot.get_inner();
+        let default_snat_status_binding = args
+            .default_snat_status
+            .get_output(context)
+            .get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dns_config_binding = args.dns_config.get_output(context).get_inner();
+        let enable_autopilot_binding = args
+            .enable_autopilot
+            .get_output(context)
+            .get_inner();
         let enable_cilium_clusterwide_network_policy_binding = args
             .enable_cilium_clusterwide_network_policy
+            .get_output(context)
             .get_inner();
         let enable_fqdn_network_policy_binding = args
             .enable_fqdn_network_policy
+            .get_output(context)
             .get_inner();
         let enable_intranode_visibility_binding = args
             .enable_intranode_visibility
+            .get_output(context)
             .get_inner();
-        let enable_k8s_beta_apis_binding = args.enable_k8s_beta_apis.get_inner();
-        let enable_kubernetes_alpha_binding = args.enable_kubernetes_alpha.get_inner();
-        let enable_l4_ilb_subsetting_binding = args.enable_l4_ilb_subsetting.get_inner();
-        let enable_legacy_abac_binding = args.enable_legacy_abac.get_inner();
-        let enable_multi_networking_binding = args.enable_multi_networking.get_inner();
-        let enable_shielded_nodes_binding = args.enable_shielded_nodes.get_inner();
-        let enable_tpu_binding = args.enable_tpu.get_inner();
-        let enterprise_config_binding = args.enterprise_config.get_inner();
-        let fleet_binding = args.fleet.get_inner();
-        let gateway_api_config_binding = args.gateway_api_config.get_inner();
-        let identity_service_config_binding = args.identity_service_config.get_inner();
-        let initial_node_count_binding = args.initial_node_count.get_inner();
-        let ip_allocation_policy_binding = args.ip_allocation_policy.get_inner();
-        let location_binding = args.location.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let logging_service_binding = args.logging_service.get_inner();
-        let maintenance_policy_binding = args.maintenance_policy.get_inner();
-        let master_auth_binding = args.master_auth.get_inner();
+        let enable_k8s_beta_apis_binding = args
+            .enable_k8s_beta_apis
+            .get_output(context)
+            .get_inner();
+        let enable_kubernetes_alpha_binding = args
+            .enable_kubernetes_alpha
+            .get_output(context)
+            .get_inner();
+        let enable_l4_ilb_subsetting_binding = args
+            .enable_l4_ilb_subsetting
+            .get_output(context)
+            .get_inner();
+        let enable_legacy_abac_binding = args
+            .enable_legacy_abac
+            .get_output(context)
+            .get_inner();
+        let enable_multi_networking_binding = args
+            .enable_multi_networking
+            .get_output(context)
+            .get_inner();
+        let enable_shielded_nodes_binding = args
+            .enable_shielded_nodes
+            .get_output(context)
+            .get_inner();
+        let enable_tpu_binding = args.enable_tpu.get_output(context).get_inner();
+        let enterprise_config_binding = args
+            .enterprise_config
+            .get_output(context)
+            .get_inner();
+        let fleet_binding = args.fleet.get_output(context).get_inner();
+        let gateway_api_config_binding = args
+            .gateway_api_config
+            .get_output(context)
+            .get_inner();
+        let identity_service_config_binding = args
+            .identity_service_config
+            .get_output(context)
+            .get_inner();
+        let initial_node_count_binding = args
+            .initial_node_count
+            .get_output(context)
+            .get_inner();
+        let ip_allocation_policy_binding = args
+            .ip_allocation_policy
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let logging_service_binding = args
+            .logging_service
+            .get_output(context)
+            .get_inner();
+        let maintenance_policy_binding = args
+            .maintenance_policy
+            .get_output(context)
+            .get_inner();
+        let master_auth_binding = args.master_auth.get_output(context).get_inner();
         let master_authorized_networks_config_binding = args
             .master_authorized_networks_config
+            .get_output(context)
             .get_inner();
-        let mesh_certificates_binding = args.mesh_certificates.get_inner();
-        let min_master_version_binding = args.min_master_version.get_inner();
-        let monitoring_config_binding = args.monitoring_config.get_inner();
-        let monitoring_service_binding = args.monitoring_service.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let network_policy_binding = args.network_policy.get_inner();
-        let networking_mode_binding = args.networking_mode.get_inner();
-        let node_config_binding = args.node_config.get_inner();
-        let node_locations_binding = args.node_locations.get_inner();
-        let node_pool_auto_config_binding = args.node_pool_auto_config.get_inner();
-        let node_pool_defaults_binding = args.node_pool_defaults.get_inner();
-        let node_pools_binding = args.node_pools.get_inner();
-        let node_version_binding = args.node_version.get_inner();
-        let notification_config_binding = args.notification_config.get_inner();
+        let mesh_certificates_binding = args
+            .mesh_certificates
+            .get_output(context)
+            .get_inner();
+        let min_master_version_binding = args
+            .min_master_version
+            .get_output(context)
+            .get_inner();
+        let monitoring_config_binding = args
+            .monitoring_config
+            .get_output(context)
+            .get_inner();
+        let monitoring_service_binding = args
+            .monitoring_service
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let network_policy_binding = args.network_policy.get_output(context).get_inner();
+        let networking_mode_binding = args
+            .networking_mode
+            .get_output(context)
+            .get_inner();
+        let node_config_binding = args.node_config.get_output(context).get_inner();
+        let node_locations_binding = args.node_locations.get_output(context).get_inner();
+        let node_pool_auto_config_binding = args
+            .node_pool_auto_config
+            .get_output(context)
+            .get_inner();
+        let node_pool_defaults_binding = args
+            .node_pool_defaults
+            .get_output(context)
+            .get_inner();
+        let node_pools_binding = args.node_pools.get_output(context).get_inner();
+        let node_version_binding = args.node_version.get_output(context).get_inner();
+        let notification_config_binding = args
+            .notification_config
+            .get_output(context)
+            .get_inner();
         let pod_security_policy_config_binding = args
             .pod_security_policy_config
+            .get_output(context)
             .get_inner();
-        let private_cluster_config_binding = args.private_cluster_config.get_inner();
+        let private_cluster_config_binding = args
+            .private_cluster_config
+            .get_output(context)
+            .get_inner();
         let private_ipv6_google_access_binding = args
             .private_ipv6_google_access
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let protect_config_binding = args.protect_config.get_inner();
-        let release_channel_binding = args.release_channel.get_inner();
-        let remove_default_node_pool_binding = args.remove_default_node_pool.get_inner();
-        let resource_labels_binding = args.resource_labels.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let protect_config_binding = args.protect_config.get_output(context).get_inner();
+        let release_channel_binding = args
+            .release_channel
+            .get_output(context)
+            .get_inner();
+        let remove_default_node_pool_binding = args
+            .remove_default_node_pool
+            .get_output(context)
+            .get_inner();
+        let resource_labels_binding = args
+            .resource_labels
+            .get_output(context)
+            .get_inner();
         let resource_usage_export_config_binding = args
             .resource_usage_export_config
+            .get_output(context)
             .get_inner();
-        let secret_manager_config_binding = args.secret_manager_config.get_inner();
-        let security_posture_config_binding = args.security_posture_config.get_inner();
+        let secret_manager_config_binding = args
+            .secret_manager_config
+            .get_output(context)
+            .get_inner();
+        let security_posture_config_binding = args
+            .security_posture_config
+            .get_output(context)
+            .get_inner();
         let service_external_ips_config_binding = args
             .service_external_ips_config
+            .get_output(context)
             .get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
-        let tpu_config_binding = args.tpu_config.get_inner();
-        let user_managed_keys_config_binding = args.user_managed_keys_config.get_inner();
-        let vertical_pod_autoscaling_binding = args.vertical_pod_autoscaling.get_inner();
-        let workload_alts_config_binding = args.workload_alts_config.get_inner();
-        let workload_identity_config_binding = args.workload_identity_config.get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
+        let tpu_config_binding = args.tpu_config.get_output(context).get_inner();
+        let user_managed_keys_config_binding = args
+            .user_managed_keys_config
+            .get_output(context)
+            .get_inner();
+        let vertical_pod_autoscaling_binding = args
+            .vertical_pod_autoscaling
+            .get_output(context)
+            .get_inner();
+        let workload_alts_config_binding = args
+            .workload_alts_config
+            .get_output(context)
+            .get_inner();
+        let workload_identity_config_binding = args
+            .workload_identity_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/cluster:Cluster".into(),
             name: name.to_string(),
@@ -1649,7 +1793,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

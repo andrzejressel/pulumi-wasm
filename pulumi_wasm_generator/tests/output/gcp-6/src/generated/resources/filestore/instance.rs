@@ -184,68 +184,68 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Indicates whether the instance is protected against deletion.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The reason for enabling deletion protection.
         #[builder(into, default)]
-        pub deletion_protection_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_protection_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A description of the instance.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// File system shares on the instance. For this version, only a
         /// single file share is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub file_shares: pulumi_wasm_rust::Output<
+        pub file_shares: pulumi_wasm_rust::InputOrOutput<
             super::super::types::filestore::InstanceFileShares,
         >,
         /// KMS key name used for data encryption.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VPC networks to which the instance is connected. For this version,
         /// only a single network is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub networks: pulumi_wasm_rust::Output<
+        pub networks: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::filestore::InstanceNetwork>,
         >,
         /// Performance configuration for the instance. If not provided, the default performance settings will be used.
         #[builder(into, default)]
-        pub performance_config: pulumi_wasm_rust::Output<
+        pub performance_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::filestore::InstancePerformanceConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Either NFSv3, for using NFS version 3 as file sharing protocol, or NFSv4.1, for using NFS version 4.1 as file sharing
         /// protocol. NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE. The default is NFSv3. Default value:
         /// "NFS_V3" Possible values: ["NFS_V3", "NFS_V4_1"]
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service tier of the instance.
         /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Filestore zone of the instance.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -312,27 +312,36 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
+            .get_output(context)
             .get_inner();
         let deletion_protection_reason_binding = args
             .deletion_protection_reason
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let file_shares_binding = args.file_shares.get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let networks_binding = args.networks.get_inner();
-        let performance_config_binding = args.performance_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let tier_binding = args.tier.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let file_shares_binding = args.file_shares.get_output(context).get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networks_binding = args.networks.get_output(context).get_inner();
+        let performance_config_binding = args
+            .performance_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:filestore/instance:Instance".into(),
             name: name.to_string(),
@@ -452,7 +461,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

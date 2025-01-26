@@ -106,23 +106,23 @@
 /// $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 /// ```
 pub mod logging_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggingConfigurationArgs {
         /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         #[builder(into, default)]
-        pub destination_configuration: pulumi_wasm_rust::Output<
+        pub destination_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ivschat::LoggingConfigurationDestinationConfiguration,
             >,
         >,
         /// Logging Configuration name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -154,6 +154,7 @@ pub mod logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LoggingConfigurationArgs,
     ) -> LoggingConfigurationResult {
@@ -161,9 +162,10 @@ pub mod logging_configuration {
         use std::collections::HashMap;
         let destination_configuration_binding = args
             .destination_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivschat/loggingConfiguration:LoggingConfiguration".into(),
             name: name.to_string(),
@@ -203,7 +205,7 @@ pub mod logging_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -12,38 +12,42 @@
 /// ```
 ///
 pub mod protection_container_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectionContainerMappingArgs {
         /// a `automatic_update` block defined as below.
         #[builder(into, default)]
-        pub automatic_update: pulumi_wasm_rust::Output<
+        pub automatic_update: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::siterecovery::ProtectionContainerMappingAutomaticUpdate,
             >,
         >,
         /// The name of the protection container mapping. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_replication_policy_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_replication_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the source protection container to map. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_source_protection_container_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_source_protection_container_name: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// Id of target protection container to map to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_target_protection_container_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_target_protection_container_id: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProtectionContainerMappingResult {
@@ -71,25 +75,41 @@ pub mod protection_container_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProtectionContainerMappingArgs,
     ) -> ProtectionContainerMappingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automatic_update_binding = args.automatic_update.get_inner();
-        let name_binding = args.name.get_inner();
-        let recovery_fabric_name_binding = args.recovery_fabric_name.get_inner();
+        let automatic_update_binding = args
+            .automatic_update
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_fabric_name_binding = args
+            .recovery_fabric_name
+            .get_output(context)
+            .get_inner();
         let recovery_replication_policy_id_binding = args
             .recovery_replication_policy_id
+            .get_output(context)
             .get_inner();
         let recovery_source_protection_container_name_binding = args
             .recovery_source_protection_container_name
+            .get_output(context)
             .get_inner();
         let recovery_target_protection_container_id_binding = args
             .recovery_target_protection_container_id
+            .get_output(context)
             .get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping"
                 .into(),
@@ -156,7 +176,7 @@ pub mod protection_container_mapping {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

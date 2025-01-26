@@ -48,31 +48,31 @@
 /// ```
 ///
 pub mod firewall_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallRuleArgs {
         /// The action to apply to a matched request. Available values: `block`, `challenge`, `allow`, `js_challenge`, `managed_challenge`, `log`, `bypass`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the rule to help identify it.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the Filter to use for determining if the Firewall Rule should be triggered.
         #[builder(into)]
-        pub filter_id: pulumi_wasm_rust::Output<String>,
+        pub filter_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether this filter based firewall rule is currently paused.
         #[builder(into, default)]
-        pub paused: pulumi_wasm_rust::Output<Option<bool>>,
+        pub paused: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The priority of the rule to allow control of processing order. A lower number indicates high priority. If not provided, any rules with a priority will be sequenced before those without.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// List of products to bypass for a request when the bypass action is used. Available values: `zoneLockdown`, `uaBlock`, `bic`, `hot`, `securityLevel`, `rateLimit`, `waf`.
         #[builder(into, default)]
-        pub products: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub products: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FirewallRuleResult {
@@ -95,16 +95,20 @@ pub mod firewall_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FirewallRuleArgs) -> FirewallRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FirewallRuleArgs,
+    ) -> FirewallRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let description_binding = args.description.get_inner();
-        let filter_id_binding = args.filter_id.get_inner();
-        let paused_binding = args.paused.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let products_binding = args.products.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_id_binding = args.filter_id.get_output(context).get_inner();
+        let paused_binding = args.paused.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let products_binding = args.products.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/firewallRule:FirewallRule".into(),
             name: name.to_string(),
@@ -163,7 +167,7 @@ pub mod firewall_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -115,30 +115,30 @@
 /// ```
 ///
 pub mod managed_instance_failover_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceFailoverGroupArgs {
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub partner_managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub partner_managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `read_write_endpoint_failover_policy` block as defined below.
         #[builder(into)]
-        pub read_write_endpoint_failover_policy: pulumi_wasm_rust::Output<
+        pub read_write_endpoint_failover_policy: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mssql::ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy,
         >,
         /// Failover policy for the read-only endpoint. Defaults to `true`.
         #[builder(into, default)]
-        pub readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::Output<
+        pub readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
     }
@@ -172,22 +172,29 @@ pub mod managed_instance_failover_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceFailoverGroupArgs,
     ) -> ManagedInstanceFailoverGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let managed_instance_id_binding = args.managed_instance_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_instance_id_binding = args
+            .managed_instance_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let partner_managed_instance_id_binding = args
             .partner_managed_instance_id
+            .get_output(context)
             .get_inner();
         let read_write_endpoint_failover_policy_binding = args
             .read_write_endpoint_failover_policy
+            .get_output(context)
             .get_inner();
         let readonly_endpoint_failover_policy_enabled_binding = args
             .readonly_endpoint_failover_policy_enabled
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"
@@ -247,7 +254,7 @@ pub mod managed_instance_failover_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

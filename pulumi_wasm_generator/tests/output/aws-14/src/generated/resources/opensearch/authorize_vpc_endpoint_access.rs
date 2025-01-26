@@ -26,16 +26,16 @@
 /// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678
 /// ```
 pub mod authorize_vpc_endpoint_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizeVpcEndpointAccessArgs {
         /// AWS account ID to grant access to.
         #[builder(into)]
-        pub account: pulumi_wasm_rust::Output<String>,
+        pub account: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of OpenSearch Service domain to provide access to.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthorizeVpcEndpointAccessResult {
@@ -55,13 +55,14 @@ pub mod authorize_vpc_endpoint_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AuthorizeVpcEndpointAccessArgs,
     ) -> AuthorizeVpcEndpointAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_binding = args.account.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
+        let account_binding = args.account.get_output(context).get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess"
                 .into(),
@@ -89,7 +90,7 @@ pub mod authorize_vpc_endpoint_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

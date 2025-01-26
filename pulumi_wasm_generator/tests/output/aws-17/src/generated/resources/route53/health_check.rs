@@ -83,22 +83,22 @@
 /// $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
 /// ```
 pub mod health_check {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HealthCheckArgs {
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         #[builder(into, default)]
-        pub child_health_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub child_health_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         #[builder(into, default)]
-        pub child_healthchecks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub child_healthchecks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the CloudWatch alarm.
         #[builder(into, default)]
-        pub cloudwatch_alarm_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_alarm_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CloudWatchRegion that the CloudWatch alarm was created in.
         #[builder(into, default)]
-        pub cloudwatch_alarm_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_alarm_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
@@ -106,58 +106,60 @@ pub mod health_check {
         ///
         /// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         #[builder(into, default)]
-        pub enable_sni: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sni: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of consecutive health checks that an endpoint must pass or fail.
         #[builder(into, default)]
-        pub failure_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub failure_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         #[builder(into, default)]
-        pub fqdn: pulumi_wasm_rust::Output<Option<String>>,
+        pub fqdn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         #[builder(into, default)]
-        pub insufficient_data_health_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub insufficient_data_health_status: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         #[builder(into, default)]
-        pub invert_healthcheck: pulumi_wasm_rust::Output<Option<bool>>,
+        pub invert_healthcheck: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The IP address of the endpoint to be checked.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         #[builder(into, default)]
-        pub measure_latency: pulumi_wasm_rust::Output<Option<bool>>,
+        pub measure_latency: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The port of the endpoint to be checked.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single health_check set amongst others)
         #[builder(into, default)]
-        pub reference_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub reference_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         #[builder(into, default)]
-        pub regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         #[builder(into, default)]
-        pub request_interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub request_interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The path that you want Amazon Route 53 to request when performing health checks.
         #[builder(into, default)]
-        pub resource_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         #[builder(into, default)]
-        pub routing_control_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub routing_control_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         #[builder(into, default)]
-        pub search_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub search_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HealthCheckResult {
@@ -222,32 +224,64 @@ pub mod health_check {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HealthCheckArgs) -> HealthCheckResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HealthCheckArgs,
+    ) -> HealthCheckResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let child_health_threshold_binding = args.child_health_threshold.get_inner();
-        let child_healthchecks_binding = args.child_healthchecks.get_inner();
-        let cloudwatch_alarm_name_binding = args.cloudwatch_alarm_name.get_inner();
-        let cloudwatch_alarm_region_binding = args.cloudwatch_alarm_region.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let enable_sni_binding = args.enable_sni.get_inner();
-        let failure_threshold_binding = args.failure_threshold.get_inner();
-        let fqdn_binding = args.fqdn.get_inner();
+        let child_health_threshold_binding = args
+            .child_health_threshold
+            .get_output(context)
+            .get_inner();
+        let child_healthchecks_binding = args
+            .child_healthchecks
+            .get_output(context)
+            .get_inner();
+        let cloudwatch_alarm_name_binding = args
+            .cloudwatch_alarm_name
+            .get_output(context)
+            .get_inner();
+        let cloudwatch_alarm_region_binding = args
+            .cloudwatch_alarm_region
+            .get_output(context)
+            .get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let enable_sni_binding = args.enable_sni.get_output(context).get_inner();
+        let failure_threshold_binding = args
+            .failure_threshold
+            .get_output(context)
+            .get_inner();
+        let fqdn_binding = args.fqdn.get_output(context).get_inner();
         let insufficient_data_health_status_binding = args
             .insufficient_data_health_status
+            .get_output(context)
             .get_inner();
-        let invert_healthcheck_binding = args.invert_healthcheck.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let measure_latency_binding = args.measure_latency.get_inner();
-        let port_binding = args.port.get_inner();
-        let reference_name_binding = args.reference_name.get_inner();
-        let regions_binding = args.regions.get_inner();
-        let request_interval_binding = args.request_interval.get_inner();
-        let resource_path_binding = args.resource_path.get_inner();
-        let routing_control_arn_binding = args.routing_control_arn.get_inner();
-        let search_string_binding = args.search_string.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let invert_healthcheck_binding = args
+            .invert_healthcheck
+            .get_output(context)
+            .get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let measure_latency_binding = args
+            .measure_latency
+            .get_output(context)
+            .get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let reference_name_binding = args.reference_name.get_output(context).get_inner();
+        let regions_binding = args.regions.get_output(context).get_inner();
+        let request_interval_binding = args
+            .request_interval
+            .get_output(context)
+            .get_inner();
+        let resource_path_binding = args.resource_path.get_output(context).get_inner();
+        let routing_control_arn_binding = args
+            .routing_control_arn
+            .get_output(context)
+            .get_inner();
+        let search_string_binding = args.search_string.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/healthCheck:HealthCheck".into(),
             name: name.to_string(),
@@ -410,7 +444,7 @@ pub mod health_check {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

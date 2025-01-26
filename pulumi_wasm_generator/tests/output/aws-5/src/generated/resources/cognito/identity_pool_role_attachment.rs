@@ -8,23 +8,25 @@
 /// $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
 /// ```
 pub mod identity_pool_role_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityPoolRoleAttachmentArgs {
         /// An identity pool ID in the format `REGION_GUID`.
         #[builder(into)]
-        pub identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A List of Role Mapping.
         #[builder(into, default)]
-        pub role_mappings: pulumi_wasm_rust::Output<
+        pub role_mappings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cognito::IdentityPoolRoleAttachmentRoleMapping>,
             >,
         >,
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub roles: pulumi_wasm_rust::InputOrOutput<
+            std::collections::HashMap<String, String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct IdentityPoolRoleAttachmentResult {
@@ -44,14 +46,18 @@ pub mod identity_pool_role_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IdentityPoolRoleAttachmentArgs,
     ) -> IdentityPoolRoleAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identity_pool_id_binding = args.identity_pool_id.get_inner();
-        let role_mappings_binding = args.role_mappings.get_inner();
-        let roles_binding = args.roles.get_inner();
+        let identity_pool_id_binding = args
+            .identity_pool_id
+            .get_output(context)
+            .get_inner();
+        let role_mappings_binding = args.role_mappings.get_output(context).get_inner();
+        let roles_binding = args.roles.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment"
                 .into(),
@@ -83,7 +89,7 @@ pub mod identity_pool_role_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

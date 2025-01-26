@@ -1,24 +1,24 @@
 pub mod get_security_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSecurityGroupArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetSecurityGroupFilter>>,
         >,
         /// Id of the specific security group to retrieve.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired security group.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Id of the VPC that the desired security group belongs to.
@@ -26,7 +26,7 @@ pub mod get_security_group {
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSecurityGroupResult {
@@ -46,14 +46,17 @@ pub mod get_security_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSecurityGroupArgs) -> GetSecurityGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSecurityGroupArgs,
+    ) -> GetSecurityGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSecurityGroup:getSecurityGroup".into(),
             version: super::super::super::get_version(),
@@ -103,7 +106,7 @@ pub mod get_security_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

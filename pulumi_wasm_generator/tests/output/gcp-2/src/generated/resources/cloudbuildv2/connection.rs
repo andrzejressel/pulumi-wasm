@@ -169,7 +169,7 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
@@ -177,42 +177,42 @@ pub mod connection {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for connections to Bitbucket Cloud.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bitbucket_cloud_config: pulumi_wasm_rust::Output<
+        pub bitbucket_cloud_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionBitbucketCloudConfig>,
         >,
         /// Configuration for connections to Bitbucket Data Center.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bitbucket_data_center_config: pulumi_wasm_rust::Output<
+        pub bitbucket_data_center_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudbuildv2::ConnectionBitbucketDataCenterConfig,
             >,
         >,
         /// If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration for connections to github.com.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github_config: pulumi_wasm_rust::Output<
+        pub github_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGithubConfig>,
         >,
         /// Configuration for connections to an instance of GitHub Enterprise.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github_enterprise_config: pulumi_wasm_rust::Output<
+        pub github_enterprise_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGithubEnterpriseConfig>,
         >,
         /// Configuration for connections to gitlab.com or an instance of GitLab Enterprise.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gitlab_config: pulumi_wasm_rust::Output<
+        pub gitlab_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGitlabConfig>,
         >,
         /// The location for the resource
@@ -220,14 +220,14 @@ pub mod connection {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The resource name of the connection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
@@ -297,21 +297,32 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let bitbucket_cloud_config_binding = args.bitbucket_cloud_config.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let bitbucket_cloud_config_binding = args
+            .bitbucket_cloud_config
+            .get_output(context)
+            .get_inner();
         let bitbucket_data_center_config_binding = args
             .bitbucket_data_center_config
+            .get_output(context)
             .get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let github_config_binding = args.github_config.get_inner();
-        let github_enterprise_config_binding = args.github_enterprise_config.get_inner();
-        let gitlab_config_binding = args.gitlab_config.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let github_config_binding = args.github_config.get_output(context).get_inner();
+        let github_enterprise_config_binding = args
+            .github_enterprise_config
+            .get_output(context)
+            .get_inner();
+        let gitlab_config_binding = args.gitlab_config.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuildv2/connection:Connection".into(),
             name: name.to_string(),
@@ -409,7 +420,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

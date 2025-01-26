@@ -1,30 +1,30 @@
 pub mod get_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupArgs {
         /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
         #[builder(into, default)]
-        pub alternate_identifier: pulumi_wasm_rust::Output<
+        pub alternate_identifier: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::super::types::identitystore::GetGroupAlternateIdentifier,
             >,
         >,
         /// Configuration block for filtering by a unique attribute of the group. Detailed below.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::identitystore::GetGroupFilter>,
         >,
         /// The identifier for a group in the Identity Store.
         ///
         /// > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
         #[builder(into, default)]
-        pub group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identity Store ID associated with the Single Sign-On Instance.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGroupResult {
@@ -53,13 +53,22 @@ pub mod get_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetGroupArgs) -> GetGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetGroupArgs,
+    ) -> GetGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alternate_identifier_binding = args.alternate_identifier.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let group_id_binding = args.group_id.get_inner();
-        let identity_store_id_binding = args.identity_store_id.get_inner();
+        let alternate_identifier_binding = args
+            .alternate_identifier
+            .get_output(context)
+            .get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let group_id_binding = args.group_id.get_output(context).get_inner();
+        let identity_store_id_binding = args
+            .identity_store_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getGroup:getGroup".into(),
             version: super::super::super::get_version(),
@@ -108,7 +117,7 @@ pub mod get_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

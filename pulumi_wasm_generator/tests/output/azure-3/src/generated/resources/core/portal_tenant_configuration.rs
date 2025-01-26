@@ -33,7 +33,7 @@
 /// ```
 ///
 pub mod portal_tenant_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PortalTenantConfigurationArgs {
@@ -41,7 +41,7 @@ pub mod portal_tenant_configuration {
         ///
         /// > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         #[builder(into)]
-        pub private_markdown_storage_enforced: pulumi_wasm_rust::Output<bool>,
+        pub private_markdown_storage_enforced: pulumi_wasm_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct PortalTenantConfigurationResult {
@@ -55,6 +55,7 @@ pub mod portal_tenant_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PortalTenantConfigurationArgs,
     ) -> PortalTenantConfigurationResult {
@@ -62,6 +63,7 @@ pub mod portal_tenant_configuration {
         use std::collections::HashMap;
         let private_markdown_storage_enforced_binding = args
             .private_markdown_storage_enforced
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/portalTenantConfiguration:PortalTenantConfiguration"
@@ -80,7 +82,7 @@ pub mod portal_tenant_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

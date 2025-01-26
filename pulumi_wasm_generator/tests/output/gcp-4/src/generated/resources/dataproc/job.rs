@@ -54,7 +54,7 @@
 /// This resource does not support import.
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
@@ -62,70 +62,70 @@ pub mod job {
         /// Dataproc. Setting this to true, and calling destroy, will ensure that the
         /// job is first cancelled before issuing the delete.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The config of Hadoop job
         #[builder(into, default)]
-        pub hadoop_config: pulumi_wasm_rust::Output<
+        pub hadoop_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobHadoopConfig>,
         >,
         /// The config of hive job
         #[builder(into, default)]
-        pub hive_config: pulumi_wasm_rust::Output<
+        pub hive_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobHiveConfig>,
         >,
         /// The list of labels (key/value pairs) to add to the job.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The config of pag job.
         #[builder(into, default)]
-        pub pig_config: pulumi_wasm_rust::Output<
+        pub pig_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobPigConfig>,
         >,
         /// The config of job placement.
         #[builder(into)]
-        pub placement: pulumi_wasm_rust::Output<
+        pub placement: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataproc::JobPlacement,
         >,
         /// The config of presto job
         #[builder(into, default)]
-        pub presto_config: pulumi_wasm_rust::Output<
+        pub presto_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobPrestoConfig>,
         >,
         /// The project in which the `cluster` can be found and jobs
         /// subsequently run against. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The config of pySpark job.
         #[builder(into, default)]
-        pub pyspark_config: pulumi_wasm_rust::Output<
+        pub pyspark_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobPysparkConfig>,
         >,
         /// The reference of the job
         #[builder(into, default)]
-        pub reference: pulumi_wasm_rust::Output<
+        pub reference: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobReference>,
         >,
         /// The Cloud Dataproc region. This essentially determines which clusters are available
         /// for this job to be submitted to. If not specified, defaults to `global`.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Job scheduling configuration.
         #[builder(into, default)]
-        pub scheduling: pulumi_wasm_rust::Output<
+        pub scheduling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobScheduling>,
         >,
         /// The config of the Spark job.
         #[builder(into, default)]
-        pub spark_config: pulumi_wasm_rust::Output<
+        pub spark_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobSparkConfig>,
         >,
         /// The config of SparkSql job
         #[builder(into, default)]
-        pub sparksql_config: pulumi_wasm_rust::Output<
+        pub sparksql_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobSparksqlConfig>,
         >,
     }
@@ -212,23 +212,30 @@ pub mod job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobArgs) -> JobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobArgs,
+    ) -> JobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let force_delete_binding = args.force_delete.get_inner();
-        let hadoop_config_binding = args.hadoop_config.get_inner();
-        let hive_config_binding = args.hive_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let pig_config_binding = args.pig_config.get_inner();
-        let placement_binding = args.placement.get_inner();
-        let presto_config_binding = args.presto_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let pyspark_config_binding = args.pyspark_config.get_inner();
-        let reference_binding = args.reference.get_inner();
-        let region_binding = args.region.get_inner();
-        let scheduling_binding = args.scheduling.get_inner();
-        let spark_config_binding = args.spark_config.get_inner();
-        let sparksql_config_binding = args.sparksql_config.get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let hadoop_config_binding = args.hadoop_config.get_output(context).get_inner();
+        let hive_config_binding = args.hive_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let pig_config_binding = args.pig_config.get_output(context).get_inner();
+        let placement_binding = args.placement.get_output(context).get_inner();
+        let presto_config_binding = args.presto_config.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let pyspark_config_binding = args.pyspark_config.get_output(context).get_inner();
+        let reference_binding = args.reference.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let scheduling_binding = args.scheduling.get_output(context).get_inner();
+        let spark_config_binding = args.spark_config.get_output(context).get_inner();
+        let sparksql_config_binding = args
+            .sparksql_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/job:Job".into(),
             name: name.to_string(),
@@ -351,7 +358,7 @@ pub mod job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

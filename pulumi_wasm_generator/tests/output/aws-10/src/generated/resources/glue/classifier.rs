@@ -101,31 +101,31 @@
 /// $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
 /// ```
 pub mod classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClassifierArgs {
         /// A classifier for CSV content. Defined below.
         #[builder(into, default)]
-        pub csv_classifier: pulumi_wasm_rust::Output<
+        pub csv_classifier: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierCsvClassifier>,
         >,
         /// A classifier that uses grok patterns. Defined below.
         #[builder(into, default)]
-        pub grok_classifier: pulumi_wasm_rust::Output<
+        pub grok_classifier: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierGrokClassifier>,
         >,
         /// A classifier for JSON content. Defined below.
         #[builder(into, default)]
-        pub json_classifier: pulumi_wasm_rust::Output<
+        pub json_classifier: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierJsonClassifier>,
         >,
         /// The name of the classifier.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A classifier for XML content. Defined below.
         #[builder(into, default)]
-        pub xml_classifier: pulumi_wasm_rust::Output<
+        pub xml_classifier: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::ClassifierXmlClassifier>,
         >,
     }
@@ -154,14 +154,24 @@ pub mod classifier {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClassifierArgs) -> ClassifierResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClassifierArgs,
+    ) -> ClassifierResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let csv_classifier_binding = args.csv_classifier.get_inner();
-        let grok_classifier_binding = args.grok_classifier.get_inner();
-        let json_classifier_binding = args.json_classifier.get_inner();
-        let name_binding = args.name.get_inner();
-        let xml_classifier_binding = args.xml_classifier.get_inner();
+        let csv_classifier_binding = args.csv_classifier.get_output(context).get_inner();
+        let grok_classifier_binding = args
+            .grok_classifier
+            .get_output(context)
+            .get_inner();
+        let json_classifier_binding = args
+            .json_classifier
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let xml_classifier_binding = args.xml_classifier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/classifier:Classifier".into(),
             name: name.to_string(),
@@ -206,7 +216,7 @@ pub mod classifier {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

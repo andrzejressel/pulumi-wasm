@@ -135,26 +135,26 @@
 /// ```
 ///
 pub mod prevention_stored_info_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreventionStoredInfoTypeArgs {
         /// A description of the info type.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Dictionary which defines the rule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dictionary: pulumi_wasm_rust::Output<
+        pub dictionary: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataloss::PreventionStoredInfoTypeDictionary>,
         >,
         /// User set display name of the info type.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Dictionary which defines the rule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub large_custom_dictionary: pulumi_wasm_rust::Output<
+        pub large_custom_dictionary: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataloss::PreventionStoredInfoTypeLargeCustomDictionary,
             >,
@@ -168,18 +168,18 @@ pub mod prevention_stored_info_type {
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Regular expression which defines the rule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub regex: pulumi_wasm_rust::Output<
+        pub regex: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataloss::PreventionStoredInfoTypeRegex>,
         >,
         /// The storedInfoType ID can contain uppercase and lowercase letters, numbers, and hyphens;
         /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is 100
         /// characters. Can be empty to allow the system to generate one.
         #[builder(into, default)]
-        pub stored_info_type_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub stored_info_type_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PreventionStoredInfoTypeResult {
@@ -225,18 +225,25 @@ pub mod prevention_stored_info_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PreventionStoredInfoTypeArgs,
     ) -> PreventionStoredInfoTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let dictionary_binding = args.dictionary.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let large_custom_dictionary_binding = args.large_custom_dictionary.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let regex_binding = args.regex.get_inner();
-        let stored_info_type_id_binding = args.stored_info_type_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dictionary_binding = args.dictionary.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let large_custom_dictionary_binding = args
+            .large_custom_dictionary
+            .get_output(context)
+            .get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let regex_binding = args.regex.get_output(context).get_inner();
+        let stored_info_type_id_binding = args
+            .stored_info_type_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionStoredInfoType:PreventionStoredInfoType"
                 .into(),
@@ -299,7 +306,7 @@ pub mod prevention_stored_info_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

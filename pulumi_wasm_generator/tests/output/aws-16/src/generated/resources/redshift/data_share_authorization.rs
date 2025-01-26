@@ -29,21 +29,21 @@
 /// $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
 /// ```
 pub mod data_share_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataShareAuthorizationArgs {
         /// Whether to allow write operations for a datashare.
         #[builder(into, default)]
-        pub allow_writes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_writes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         #[builder(into)]
-        pub consumer_identifier: pulumi_wasm_rust::Output<String>,
+        pub consumer_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub data_share_arn: pulumi_wasm_rust::Output<String>,
+        pub data_share_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataShareAuthorizationResult {
@@ -65,14 +65,18 @@ pub mod data_share_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataShareAuthorizationArgs,
     ) -> DataShareAuthorizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_writes_binding = args.allow_writes.get_inner();
-        let consumer_identifier_binding = args.consumer_identifier.get_inner();
-        let data_share_arn_binding = args.data_share_arn.get_inner();
+        let allow_writes_binding = args.allow_writes.get_output(context).get_inner();
+        let consumer_identifier_binding = args
+            .consumer_identifier
+            .get_output(context)
+            .get_inner();
+        let data_share_arn_binding = args.data_share_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/dataShareAuthorization:DataShareAuthorization".into(),
             name: name.to_string(),
@@ -109,7 +113,7 @@ pub mod data_share_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

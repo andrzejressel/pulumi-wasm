@@ -32,29 +32,29 @@
 /// $ pulumi import aws:gamelift/build:Build example <build-id>
 /// ```
 pub mod build {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BuildArgs {
         /// Name of the build
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         #[builder(into)]
-        pub operating_system: pulumi_wasm_rust::Output<String>,
+        pub operating_system: pulumi_wasm_rust::InputOrOutput<String>,
         /// Information indicating where your game build files are stored. See below.
         #[builder(into)]
-        pub storage_location: pulumi_wasm_rust::Output<
+        pub storage_location: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gamelift::BuildStorageLocation,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Version that is associated with this build.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BuildResult {
@@ -83,14 +83,24 @@ pub mod build {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BuildArgs) -> BuildResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BuildArgs,
+    ) -> BuildResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let operating_system_binding = args.operating_system.get_inner();
-        let storage_location_binding = args.storage_location.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_binding = args.version.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let operating_system_binding = args
+            .operating_system
+            .get_output(context)
+            .get_inner();
+        let storage_location_binding = args
+            .storage_location
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/build:Build".into(),
             name: name.to_string(),
@@ -141,7 +151,7 @@ pub mod build {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

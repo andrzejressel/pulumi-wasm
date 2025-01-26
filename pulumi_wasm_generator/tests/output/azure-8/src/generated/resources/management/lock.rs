@@ -76,7 +76,7 @@
 /// ```
 ///
 pub mod lock {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LockArgs {
@@ -84,16 +84,16 @@ pub mod lock {
         ///
         /// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         #[builder(into)]
-        pub lock_level: pulumi_wasm_rust::Output<String>,
+        pub lock_level: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LockResult {
@@ -112,13 +112,17 @@ pub mod lock {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LockArgs) -> LockResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LockArgs,
+    ) -> LockResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let lock_level_binding = args.lock_level.get_inner();
-        let name_binding = args.name.get_inner();
-        let notes_binding = args.notes.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let lock_level_binding = args.lock_level.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notes_binding = args.notes.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/lock:Lock".into(),
             name: name.to_string(),
@@ -156,7 +160,7 @@ pub mod lock {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

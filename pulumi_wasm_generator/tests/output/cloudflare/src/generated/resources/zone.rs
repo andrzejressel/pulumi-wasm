@@ -28,31 +28,31 @@
 /// ```
 ///
 pub mod zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneArgs {
         /// Account ID to manage the zone resource in.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to scan for DNS records on creation. Ignored after zone is created.
         #[builder(into, default)]
-        pub jump_start: pulumi_wasm_rust::Output<Option<bool>>,
+        pub jump_start: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether this zone is paused (traffic bypasses Cloudflare). Defaults to `false`.
         #[builder(into, default)]
-        pub paused: pulumi_wasm_rust::Output<Option<bool>>,
+        pub paused: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the commercial plan to apply to the zone. Available values: `free`, `lite`, `pro`, `pro_plus`, `business`, `enterprise`, `partners_free`, `partners_pro`, `partners_business`, `partners_enterprise`.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::Output<Option<String>>,
+        pub plan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A full zone implies that DNS is hosted with Cloudflare. A partial zone is typically a partner-hosted zone or a CNAME setup. Available values: `full`, `partial`, `secondary`. Defaults to `full`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of Vanity Nameservers (if set).
         #[builder(into, default)]
-        pub vanity_name_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vanity_name_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The DNS zone name which will be added. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneResult {
@@ -82,16 +82,23 @@ pub mod zone {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZoneArgs,
+    ) -> ZoneResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let jump_start_binding = args.jump_start.get_inner();
-        let paused_binding = args.paused.get_inner();
-        let plan_binding = args.plan.get_inner();
-        let type__binding = args.type_.get_inner();
-        let vanity_name_servers_binding = args.vanity_name_servers.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let jump_start_binding = args.jump_start.get_output(context).get_inner();
+        let paused_binding = args.paused.get_output(context).get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let vanity_name_servers_binding = args
+            .vanity_name_servers
+            .get_output(context)
+            .get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zone:Zone".into(),
             name: name.to_string(),
@@ -162,7 +169,7 @@ pub mod zone {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,17 +1,17 @@
 pub mod get_published_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPublishedVersionArgs {
         /// The name of the Blueprint Definition
         #[builder(into)]
-        pub blueprint_name: pulumi_wasm_rust::Output<String>,
+        pub blueprint_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Management Group / Subscription where this Blueprint Definition is stored.
         #[builder(into)]
-        pub scope_id: pulumi_wasm_rust::Output<String>,
+        pub scope_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Version name of the Published Version of the Blueprint Definition
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPublishedVersionResult {
@@ -35,12 +35,15 @@ pub mod get_published_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPublishedVersionArgs) -> GetPublishedVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPublishedVersionArgs,
+    ) -> GetPublishedVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let blueprint_name_binding = args.blueprint_name.get_inner();
-        let scope_id_binding = args.scope_id.get_inner();
-        let version_binding = args.version.get_inner();
+        let blueprint_name_binding = args.blueprint_name.get_output(context).get_inner();
+        let scope_id_binding = args.scope_id.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:blueprint/getPublishedVersion:getPublishedVersion".into(),
             version: super::super::super::get_version(),
@@ -91,7 +94,7 @@ pub mod get_published_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

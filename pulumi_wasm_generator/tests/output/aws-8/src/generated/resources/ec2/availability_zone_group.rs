@@ -27,16 +27,16 @@
 /// $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
 /// ```
 pub mod availability_zone_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AvailabilityZoneGroupArgs {
         /// Name of the Availability Zone Group.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         #[builder(into)]
-        pub opt_in_status: pulumi_wasm_rust::Output<String>,
+        pub opt_in_status: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AvailabilityZoneGroupResult {
@@ -50,13 +50,14 @@ pub mod availability_zone_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AvailabilityZoneGroupArgs,
     ) -> AvailabilityZoneGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_name_binding = args.group_name.get_inner();
-        let opt_in_status_binding = args.opt_in_status.get_inner();
+        let group_name_binding = args.group_name.get_output(context).get_inner();
+        let opt_in_status_binding = args.opt_in_status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup".into(),
             name: name.to_string(),
@@ -80,7 +81,7 @@ pub mod availability_zone_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

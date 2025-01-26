@@ -62,43 +62,43 @@
 /// ```
 ///
 pub mod output_mssql {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputMssqlArgs {
         /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         #[builder(into, default)]
-        pub authentication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_wasm_rust::InputOrOutput<String>,
         /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         #[builder(into, default)]
-        pub max_batch_count: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_batch_count: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         #[builder(into, default)]
-        pub max_writer_count: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_writer_count: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SQL server url. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Table in the database that the output points to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_wasm_rust::InputOrOutput<String>,
         /// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         #[builder(into, default)]
-        pub user: pulumi_wasm_rust::Output<Option<String>>,
+        pub user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OutputMssqlResult {
@@ -129,22 +129,39 @@ pub mod output_mssql {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OutputMssqlArgs) -> OutputMssqlResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OutputMssqlArgs,
+    ) -> OutputMssqlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding = args.authentication_mode.get_inner();
-        let database_binding = args.database.get_inner();
-        let max_batch_count_binding = args.max_batch_count.get_inner();
-        let max_writer_count_binding = args.max_writer_count.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_binding = args.server.get_inner();
+        let authentication_mode_binding = args
+            .authentication_mode
+            .get_output(context)
+            .get_inner();
+        let database_binding = args.database.get_output(context).get_inner();
+        let max_batch_count_binding = args
+            .max_batch_count
+            .get_output(context)
+            .get_inner();
+        let max_writer_count_binding = args
+            .max_writer_count
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_binding = args.server.get_output(context).get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
-        let table_binding = args.table.get_inner();
-        let user_binding = args.user.get_inner();
+        let table_binding = args.table.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputMssql:OutputMssql".into(),
             name: name.to_string(),
@@ -231,7 +248,7 @@ pub mod output_mssql {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

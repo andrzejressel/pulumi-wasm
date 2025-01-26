@@ -50,19 +50,19 @@
 ///         - ${["wu-tang-root-ca-backend-auth-policy"].policyName}
 /// ```
 pub mod load_balancer_backend_server_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerBackendServerPolicyArgs {
         /// The instance port to apply the policy to.
         #[builder(into)]
-        pub instance_port: pulumi_wasm_rust::Output<i32>,
+        pub instance_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The load balancer to attach the policy to.
         #[builder(into)]
-        pub load_balancer_name: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of Policy Names to apply to the backend server.
         #[builder(into, default)]
-        pub policy_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub policy_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerBackendServerPolicyResult {
@@ -78,14 +78,18 @@ pub mod load_balancer_backend_server_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LoadBalancerBackendServerPolicyArgs,
     ) -> LoadBalancerBackendServerPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_port_binding = args.instance_port.get_inner();
-        let load_balancer_name_binding = args.load_balancer_name.get_inner();
-        let policy_names_binding = args.policy_names.get_inner();
+        let instance_port_binding = args.instance_port.get_output(context).get_inner();
+        let load_balancer_name_binding = args
+            .load_balancer_name
+            .get_output(context)
+            .get_inner();
+        let policy_names_binding = args.policy_names.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"
                 .into(),
@@ -117,7 +121,7 @@ pub mod load_balancer_backend_server_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

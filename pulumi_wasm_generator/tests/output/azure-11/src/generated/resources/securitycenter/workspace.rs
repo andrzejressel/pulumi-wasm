@@ -44,16 +44,16 @@
 /// ```
 ///
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Log Analytics Workspace to save the data in.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
@@ -66,11 +66,15 @@ pub mod workspace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkspaceArgs) -> WorkspaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkspaceArgs,
+    ) -> WorkspaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let scope_binding = args.scope.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/workspace:Workspace".into(),
             name: name.to_string(),
@@ -94,7 +98,7 @@ pub mod workspace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

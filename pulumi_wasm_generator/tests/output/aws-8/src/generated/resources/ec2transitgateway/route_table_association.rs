@@ -29,19 +29,19 @@
 /// $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
 /// ```
 pub mod route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableAssociationArgs {
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         #[builder(into, default)]
-        pub replace_existing_association: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_existing_association: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Identifier of EC2 Transit Gateway Attachment.
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of EC2 Transit Gateway Route Table.
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTableAssociationResult {
@@ -61,6 +61,7 @@ pub mod route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
@@ -68,12 +69,15 @@ pub mod route_table_association {
         use std::collections::HashMap;
         let replace_existing_association_binding = args
             .replace_existing_association
+            .get_output(context)
             .get_inner();
         let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
+            .get_output(context)
             .get_inner();
         let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation"
@@ -112,7 +116,7 @@ pub mod route_table_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

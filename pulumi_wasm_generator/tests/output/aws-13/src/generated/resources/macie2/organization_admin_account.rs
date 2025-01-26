@@ -25,13 +25,13 @@
 /// $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
 /// ```
 pub mod organization_admin_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationAdminAccountArgs {
         /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         #[builder(into)]
-        pub admin_account_id: pulumi_wasm_rust::Output<String>,
+        pub admin_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationAdminAccountResult {
@@ -43,12 +43,16 @@ pub mod organization_admin_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationAdminAccountArgs,
     ) -> OrganizationAdminAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_account_id_binding = args.admin_account_id.get_inner();
+        let admin_account_id_binding = args
+            .admin_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/organizationAdminAccount:OrganizationAdminAccount".into(),
             name: name.to_string(),
@@ -65,7 +69,7 @@ pub mod organization_admin_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

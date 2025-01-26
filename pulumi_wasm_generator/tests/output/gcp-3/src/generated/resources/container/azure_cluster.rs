@@ -127,7 +127,7 @@
 /// ```
 ///
 pub mod azure_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AzureClusterArgs {
@@ -138,20 +138,20 @@ pub mod azure_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
         #[builder(into)]
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureClusterAuthorization,
         >,
         /// The Azure region where the cluster runs. Each Google Cloud region supports a subset of nearby Azure regions. You can call to list all supported Azure regions within a given Google Cloud region.
         #[builder(into)]
-        pub azure_region: pulumi_wasm_rust::Output<String>,
+        pub azure_region: pulumi_wasm_rust::InputOrOutput<String>,
         /// Azure authentication configuration for management of Azure resources
         #[builder(into, default)]
-        pub azure_services_authentication: pulumi_wasm_rust::Output<
+        pub azure_services_authentication: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::container::AzureClusterAzureServicesAuthentication,
             >,
@@ -161,42 +161,42 @@ pub mod azure_cluster {
         /// `projects/<project-number>/locations/<region>/azureClients/<client-id>`. See Resource Names
         /// (https:cloud.google.com/apis/design/resource_names) for more details on Google Cloud resource names.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::Output<Option<String>>,
+        pub client: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration related to the cluster control plane.
         #[builder(into)]
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureClusterControlPlane,
         >,
         /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fleet configuration.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureClusterFleet,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AzureClusterLoggingConfig>,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cluster-wide networking configuration.
         #[builder(into)]
-        pub networking: pulumi_wasm_rust::Output<
+        pub networking: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureClusterNetworking,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARM ID of the resource group where the cluster resources are deployed. For example: `/subscriptions/*/resourceGroups/*`
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AzureClusterResult {
@@ -278,25 +278,33 @@ pub mod azure_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AzureClusterArgs) -> AzureClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AzureClusterArgs,
+    ) -> AzureClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let authorization_binding = args.authorization.get_inner();
-        let azure_region_binding = args.azure_region.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let azure_region_binding = args.azure_region.get_output(context).get_inner();
         let azure_services_authentication_binding = args
             .azure_services_authentication
+            .get_output(context)
             .get_inner();
-        let client_binding = args.client.get_inner();
-        let control_plane_binding = args.control_plane.get_inner();
-        let description_binding = args.description.get_inner();
-        let fleet_binding = args.fleet.get_inner();
-        let location_binding = args.location.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let networking_binding = args.networking.get_inner();
-        let project_binding = args.project.get_inner();
-        let resource_group_id_binding = args.resource_group_id.get_inner();
+        let client_binding = args.client.get_output(context).get_inner();
+        let control_plane_binding = args.control_plane.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let fleet_binding = args.fleet.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networking_binding = args.networking.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let resource_group_id_binding = args
+            .resource_group_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/azureCluster:AzureCluster".into(),
             name: name.to_string(),
@@ -431,7 +439,7 @@ pub mod azure_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

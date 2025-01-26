@@ -62,21 +62,21 @@
 /// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
 /// ```
 pub mod extension_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExtensionAssociationArgs {
         /// The ARN of the extension defined in the association.
         #[builder(into)]
-        pub extension_arn: pulumi_wasm_rust::Output<String>,
+        pub extension_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The parameter names and values defined for the association.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExtensionAssociationResult {
@@ -98,14 +98,15 @@ pub mod extension_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExtensionAssociationArgs,
     ) -> ExtensionAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let extension_arn_binding = args.extension_arn.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
+        let extension_arn_binding = args.extension_arn.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appconfig/extensionAssociation:ExtensionAssociation".into(),
             name: name.to_string(),
@@ -142,7 +143,7 @@ pub mod extension_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

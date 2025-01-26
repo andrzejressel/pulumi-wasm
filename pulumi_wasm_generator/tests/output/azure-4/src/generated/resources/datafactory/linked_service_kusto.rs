@@ -68,7 +68,7 @@
 /// ```
 ///
 pub mod linked_service_kusto {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceKustoArgs {
@@ -76,51 +76,51 @@ pub mod linked_service_kusto {
         ///
         /// The following supported arguments are specific to Azure Kusto Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Kusto Database Name.
         #[builder(into)]
-        pub kusto_database_name: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The URI of the Kusto Cluster endpoint.
         #[builder(into)]
-        pub kusto_endpoint: pulumi_wasm_rust::Output<String>,
+        pub kusto_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The service principal id in which to authenticate against the Kusto Database.
         #[builder(into, default)]
-        pub service_principal_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service principal key in which to authenticate against the Kusto Database.
         #[builder(into, default)]
-        pub service_principal_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
         ///
         /// > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
         ///
         /// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         #[builder(into, default)]
-        pub tenant: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         #[builder(into, default)]
-        pub use_managed_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_managed_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceKustoResult {
@@ -165,22 +165,47 @@ pub mod linked_service_kusto {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkedServiceKustoArgs) -> LinkedServiceKustoResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkedServiceKustoArgs,
+    ) -> LinkedServiceKustoResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let integration_runtime_name_binding = args.integration_runtime_name.get_inner();
-        let kusto_database_name_binding = args.kusto_database_name.get_inner();
-        let kusto_endpoint_binding = args.kusto_endpoint.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let service_principal_id_binding = args.service_principal_id.get_inner();
-        let service_principal_key_binding = args.service_principal_key.get_inner();
-        let tenant_binding = args.tenant.get_inner();
-        let use_managed_identity_binding = args.use_managed_identity.get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let integration_runtime_name_binding = args
+            .integration_runtime_name
+            .get_output(context)
+            .get_inner();
+        let kusto_database_name_binding = args
+            .kusto_database_name
+            .get_output(context)
+            .get_inner();
+        let kusto_endpoint_binding = args.kusto_endpoint.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let service_principal_id_binding = args
+            .service_principal_id
+            .get_output(context)
+            .get_inner();
+        let service_principal_key_binding = args
+            .service_principal_key
+            .get_output(context)
+            .get_inner();
+        let tenant_binding = args.tenant.get_output(context).get_inner();
+        let use_managed_identity_binding = args
+            .use_managed_identity
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceKusto:LinkedServiceKusto".into(),
             name: name.to_string(),
@@ -281,7 +306,7 @@ pub mod linked_service_kusto {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

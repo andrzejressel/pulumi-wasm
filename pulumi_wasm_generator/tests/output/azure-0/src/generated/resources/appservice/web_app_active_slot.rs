@@ -105,16 +105,16 @@
 /// ```
 ///
 pub mod web_app_active_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAppActiveSlotArgs {
         /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub overwrite_network_config: pulumi_wasm_rust::Output<Option<bool>>,
+        pub overwrite_network_config: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Slot to swap with `Production`.
         #[builder(into)]
-        pub slot_id: pulumi_wasm_rust::Output<String>,
+        pub slot_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebAppActiveSlotResult {
@@ -129,11 +129,18 @@ pub mod web_app_active_slot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebAppActiveSlotArgs) -> WebAppActiveSlotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebAppActiveSlotArgs,
+    ) -> WebAppActiveSlotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let overwrite_network_config_binding = args.overwrite_network_config.get_inner();
-        let slot_id_binding = args.slot_id.get_inner();
+        let overwrite_network_config_binding = args
+            .overwrite_network_config
+            .get_output(context)
+            .get_inner();
+        let slot_id_binding = args.slot_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/webAppActiveSlot:WebAppActiveSlot".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod web_app_active_slot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

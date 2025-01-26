@@ -1,14 +1,14 @@
 pub mod get_resolver_virtual_network_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverVirtualNetworkLinkArgs {
         /// ID of the Private DNS Resolver DNS Forwarding Ruleset.
         #[builder(into)]
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::Output<String>,
+        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Private DNS Resolver Virtual Network Link.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetResolverVirtualNetworkLinkResult {
@@ -28,14 +28,16 @@ pub mod get_resolver_virtual_network_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverVirtualNetworkLinkArgs,
     ) -> GetResolverVirtualNetworkLinkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink"
                 .into(),
@@ -68,7 +70,7 @@ pub mod get_resolver_virtual_network_link {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

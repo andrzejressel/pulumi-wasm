@@ -79,31 +79,31 @@
 /// ```
 ///
 pub mod network_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkMappingArgs {
         /// The name of the network mapping. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the primary network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_network_id: pulumi_wasm_rust::Output<String>,
+        pub source_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub source_recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the recovery network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_network_id: pulumi_wasm_rust::Output<String>,
+        pub target_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub target_recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkMappingResult {
@@ -126,19 +126,37 @@ pub mod network_mapping {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkMappingArgs) -> NetworkMappingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkMappingArgs,
+    ) -> NetworkMappingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let source_network_id_binding = args.source_network_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let source_network_id_binding = args
+            .source_network_id
+            .get_output(context)
+            .get_inner();
         let source_recovery_fabric_name_binding = args
             .source_recovery_fabric_name
+            .get_output(context)
             .get_inner();
-        let target_network_id_binding = args.target_network_id.get_inner();
+        let target_network_id_binding = args
+            .target_network_id
+            .get_output(context)
+            .get_inner();
         let target_recovery_fabric_name_binding = args
             .target_recovery_fabric_name
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/networkMapping:NetworkMapping".into(),
@@ -198,7 +216,7 @@ pub mod network_mapping {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

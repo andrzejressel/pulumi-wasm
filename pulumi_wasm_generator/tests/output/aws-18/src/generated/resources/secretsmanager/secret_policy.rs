@@ -43,21 +43,21 @@
 /// $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 /// ```
 pub mod secret_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretPolicyArgs {
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         #[builder(into, default)]
-        pub block_public_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub block_public_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// Secret ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub secret_arn: pulumi_wasm_rust::Output<String>,
+        pub secret_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretPolicyResult {
@@ -74,12 +74,19 @@ pub mod secret_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecretPolicyArgs) -> SecretPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecretPolicyArgs,
+    ) -> SecretPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let block_public_policy_binding = args.block_public_policy.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let secret_arn_binding = args.secret_arn.get_inner();
+        let block_public_policy_binding = args
+            .block_public_policy
+            .get_output(context)
+            .get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretPolicy:SecretPolicy".into(),
             name: name.to_string(),
@@ -110,7 +117,7 @@ pub mod secret_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

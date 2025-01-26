@@ -32,32 +32,32 @@
 /// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
 /// ```
 pub mod configured_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfiguredTableArgs {
         /// The columns of the references table which will be included in the configured table.
         #[builder(into)]
-        pub allowed_columns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_columns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         #[builder(into)]
-        pub analysis_method: pulumi_wasm_rust::Output<String>,
+        pub analysis_method: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for the configured table.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the configured table.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         #[builder(into)]
-        pub table_reference: pulumi_wasm_rust::Output<
+        pub table_reference: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cleanrooms::ConfiguredTableTableReference,
         >,
         /// Key value pairs which tag the configured table.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -95,15 +95,28 @@ pub mod configured_table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfiguredTableArgs) -> ConfiguredTableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfiguredTableArgs,
+    ) -> ConfiguredTableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_columns_binding = args.allowed_columns.get_inner();
-        let analysis_method_binding = args.analysis_method.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let table_reference_binding = args.table_reference.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let allowed_columns_binding = args
+            .allowed_columns
+            .get_output(context)
+            .get_inner();
+        let analysis_method_binding = args
+            .analysis_method
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let table_reference_binding = args
+            .table_reference
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cleanrooms/configuredTable:ConfiguredTable".into(),
             name: name.to_string(),
@@ -167,7 +180,7 @@ pub mod configured_table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

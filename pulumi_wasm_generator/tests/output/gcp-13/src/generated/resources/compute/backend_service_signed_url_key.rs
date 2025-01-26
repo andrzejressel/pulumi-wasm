@@ -76,7 +76,7 @@
 /// This resource does not support import.
 ///
 pub mod backend_service_signed_url_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendServiceSignedUrlKeyArgs {
@@ -85,19 +85,19 @@ pub mod backend_service_signed_url_key {
         ///
         /// - - -
         #[builder(into)]
-        pub backend_service: pulumi_wasm_rust::Output<String>,
+        pub backend_service: pulumi_wasm_rust::InputOrOutput<String>,
         /// 128-bit key value used for signing the URL. The key value must be a
         /// valid RFC 4648 Section 5 base64url encoded string.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub key_value: pulumi_wasm_rust::Output<String>,
+        pub key_value: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the signed URL key.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendServiceSignedUrlKeyResult {
@@ -121,15 +121,19 @@ pub mod backend_service_signed_url_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackendServiceSignedUrlKeyArgs,
     ) -> BackendServiceSignedUrlKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backend_service_binding = args.backend_service.get_inner();
-        let key_value_binding = args.key_value.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let backend_service_binding = args
+            .backend_service
+            .get_output(context)
+            .get_inner();
+        let key_value_binding = args.key_value.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/backendServiceSignedUrlKey:BackendServiceSignedUrlKey"
                 .into(),
@@ -168,7 +172,7 @@ pub mod backend_service_signed_url_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

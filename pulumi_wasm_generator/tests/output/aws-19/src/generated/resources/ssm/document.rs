@@ -56,43 +56,43 @@
 /// The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentArgs {
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         #[builder(into, default)]
-        pub attachments_sources: pulumi_wasm_rust::Output<
+        pub attachments_sources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::DocumentAttachmentsSource>>,
         >,
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         #[builder(into, default)]
-        pub document_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         #[builder(into)]
-        pub document_type: pulumi_wasm_rust::Output<String>,
+        pub document_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Additional permissions to attach to the document. See Permissions below for details.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         #[builder(into, default)]
-        pub target_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DocumentResult {
@@ -157,18 +157,28 @@ pub mod document {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DocumentArgs) -> DocumentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DocumentArgs,
+    ) -> DocumentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attachments_sources_binding = args.attachments_sources.get_inner();
-        let content_binding = args.content.get_inner();
-        let document_format_binding = args.document_format.get_inner();
-        let document_type_binding = args.document_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_type_binding = args.target_type.get_inner();
-        let version_name_binding = args.version_name.get_inner();
+        let attachments_sources_binding = args
+            .attachments_sources
+            .get_output(context)
+            .get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let document_format_binding = args
+            .document_format
+            .get_output(context)
+            .get_inner();
+        let document_type_binding = args.document_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_type_binding = args.target_type.get_output(context).get_inner();
+        let version_name_binding = args.version_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/document:Document".into(),
             name: name.to_string(),
@@ -283,7 +293,7 @@ pub mod document {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

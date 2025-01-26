@@ -149,60 +149,60 @@
 /// ```
 ///
 pub mod configuration_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationStoreArgs {
         /// An `encryption` block as defined below.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appconfiguration::ConfigurationStoreEncryption>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appconfiguration::ConfigurationStoreIdentity>,
         >,
         /// Whether local authentication methods is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         ///
         /// > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
         ///
         /// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         #[builder(into, default)]
-        pub purge_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub purge_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more `replica` blocks as defined below.
         #[builder(into, default)]
-        pub replicas: pulumi_wasm_rust::Output<
+        pub replicas: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appconfiguration::ConfigurationStoreReplica>>,
         >,
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
         ///
         /// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         #[builder(into, default)]
-        pub soft_delete_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub soft_delete_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -275,23 +275,40 @@ pub mod configuration_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigurationStoreArgs) -> ConfigurationStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigurationStoreArgs,
+    ) -> ConfigurationStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encryption_binding = args.encryption.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let local_auth_enabled_binding = args.local_auth_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let public_network_access_binding = args.public_network_access.get_inner();
-        let purge_protection_enabled_binding = args.purge_protection_enabled.get_inner();
-        let replicas_binding = args.replicas.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
+        let encryption_binding = args.encryption.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let local_auth_enabled_binding = args
+            .local_auth_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let public_network_access_binding = args
+            .public_network_access
+            .get_output(context)
+            .get_inner();
+        let purge_protection_enabled_binding = args
+            .purge_protection_enabled
+            .get_output(context)
+            .get_inner();
+        let replicas_binding = args.replicas.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
         let soft_delete_retention_days_binding = args
             .soft_delete_retention_days
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationStore:ConfigurationStore".into(),
             name: name.to_string(),
@@ -400,7 +417,7 @@ pub mod configuration_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

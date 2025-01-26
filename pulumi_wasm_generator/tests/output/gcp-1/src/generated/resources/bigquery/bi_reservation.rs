@@ -46,7 +46,7 @@
 /// ```
 ///
 pub mod bi_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BiReservationArgs {
@@ -55,20 +55,20 @@ pub mod bi_reservation {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Preferred tables to use BI capacity for.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub preferred_tables: pulumi_wasm_rust::Output<
+        pub preferred_tables: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::BiReservationPreferredTable>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Size of a reservation, in bytes.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct BiReservationResult {
@@ -97,13 +97,20 @@ pub mod bi_reservation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BiReservationArgs) -> BiReservationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BiReservationArgs,
+    ) -> BiReservationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let preferred_tables_binding = args.preferred_tables.get_inner();
-        let project_binding = args.project.get_inner();
-        let size_binding = args.size.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let preferred_tables_binding = args
+            .preferred_tables
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/biReservation:BiReservation".into(),
             name: name.to_string(),
@@ -147,7 +154,7 @@ pub mod bi_reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

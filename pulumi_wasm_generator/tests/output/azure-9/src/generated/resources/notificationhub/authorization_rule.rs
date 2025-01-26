@@ -57,33 +57,33 @@
 /// ```
 ///
 pub mod authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizationRuleArgs {
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub listen: pulumi_wasm_rust::Output<Option<bool>>,
+        pub listen: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         ///
         /// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         #[builder(into, default)]
-        pub manage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub notification_hub_name: pulumi_wasm_rust::Output<String>,
+        pub notification_hub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         #[builder(into, default)]
-        pub send: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AuthorizationRuleResult {
@@ -116,16 +116,26 @@ pub mod authorization_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthorizationRuleArgs) -> AuthorizationRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthorizationRuleArgs,
+    ) -> AuthorizationRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let listen_binding = args.listen.get_inner();
-        let manage_binding = args.manage.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let notification_hub_name_binding = args.notification_hub_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let send_binding = args.send.get_inner();
+        let listen_binding = args.listen.get_output(context).get_inner();
+        let manage_binding = args.manage.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let notification_hub_name_binding = args
+            .notification_hub_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let send_binding = args.send.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:notificationhub/authorizationRule:AuthorizationRule".into(),
             name: name.to_string(),
@@ -196,7 +206,7 @@ pub mod authorization_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

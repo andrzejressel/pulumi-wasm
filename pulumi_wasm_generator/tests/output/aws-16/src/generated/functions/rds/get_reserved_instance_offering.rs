@@ -1,23 +1,23 @@
 pub mod get_reserved_instance_offering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetReservedInstanceOfferingArgs {
         /// DB instance class for the reserved DB instance.
         #[builder(into)]
-        pub db_instance_class: pulumi_wasm_rust::Output<String>,
+        pub db_instance_class: pulumi_wasm_rust::InputOrOutput<String>,
         /// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether the reservation applies to Multi-AZ deployments.
         #[builder(into)]
-        pub multi_az: pulumi_wasm_rust::Output<bool>,
+        pub multi_az: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
         #[builder(into)]
-        pub offering_type: pulumi_wasm_rust::Output<String>,
+        pub offering_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the reserved DB instance.
         #[builder(into)]
-        pub product_description: pulumi_wasm_rust::Output<String>,
+        pub product_description: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetReservedInstanceOfferingResult {
@@ -40,15 +40,22 @@ pub mod get_reserved_instance_offering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetReservedInstanceOfferingArgs,
     ) -> GetReservedInstanceOfferingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_instance_class_binding = args.db_instance_class.get_inner();
-        let duration_binding = args.duration.get_inner();
-        let multi_az_binding = args.multi_az.get_inner();
-        let offering_type_binding = args.offering_type.get_inner();
-        let product_description_binding = args.product_description.get_inner();
+        let db_instance_class_binding = args
+            .db_instance_class
+            .get_output(context)
+            .get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let multi_az_binding = args.multi_az.get_output(context).get_inner();
+        let offering_type_binding = args.offering_type.get_output(context).get_inner();
+        let product_description_binding = args
+            .product_description
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getReservedInstanceOffering:getReservedInstanceOffering"
                 .into(),
@@ -105,7 +112,7 @@ pub mod get_reserved_instance_offering {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

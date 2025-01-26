@@ -25,18 +25,18 @@
 ///
 ///
 pub mod random_bytes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomBytesArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The number of bytes requested. The minimum value for length is 1.
         #[builder(into)]
-        pub length: pulumi_wasm_rust::Output<i32>,
+        pub length: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct RandomBytesResult {
@@ -55,11 +55,15 @@ pub mod random_bytes {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RandomBytesArgs,
+    ) -> RandomBytesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_inner();
-        let length_binding = args.length.get_inner();
+        let keepers_binding = args.keepers.get_output(context).get_inner();
+        let length_binding = args.length.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomBytes:RandomBytes".into(),
             name: name.to_string(),
@@ -89,7 +93,7 @@ pub mod random_bytes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -112,23 +112,23 @@
 /// $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
 /// ```
 pub mod peering_connection_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PeeringConnectionOptionsArgs {
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         #[builder(into, default)]
-        pub accepter: pulumi_wasm_rust::Output<
+        pub accepter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::PeeringConnectionOptionsAccepter>,
         >,
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         #[builder(into, default)]
-        pub requester: pulumi_wasm_rust::Output<
+        pub requester: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::PeeringConnectionOptionsRequester>,
         >,
         /// The ID of the requester VPC peering connection.
         #[builder(into)]
-        pub vpc_peering_connection_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_peering_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PeeringConnectionOptionsResult {
@@ -148,15 +148,17 @@ pub mod peering_connection_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PeeringConnectionOptionsArgs,
     ) -> PeeringConnectionOptionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accepter_binding = args.accepter.get_inner();
-        let requester_binding = args.requester.get_inner();
+        let accepter_binding = args.accepter.get_output(context).get_inner();
+        let requester_binding = args.requester.get_output(context).get_inner();
         let vpc_peering_connection_id_binding = args
             .vpc_peering_connection_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions".into(),
@@ -188,7 +190,7 @@ pub mod peering_connection_options {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

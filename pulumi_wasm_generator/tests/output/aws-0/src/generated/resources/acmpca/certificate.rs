@@ -50,29 +50,29 @@
 /// $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         #[builder(into, default)]
-        pub api_passthrough: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_passthrough: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the certificate authority.
         #[builder(into)]
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Certificate Signing Request in PEM format.
         #[builder(into)]
-        pub certificate_signing_request: pulumi_wasm_rust::Output<String>,
+        pub certificate_signing_request: pulumi_wasm_rust::InputOrOutput<String>,
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         #[builder(into)]
-        pub signing_algorithm: pulumi_wasm_rust::Output<String>,
+        pub signing_algorithm: pulumi_wasm_rust::InputOrOutput<String>,
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         #[builder(into, default)]
-        pub template_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configures end of the validity period for the certificate. See validity block below.
         #[builder(into)]
-        pub validity: pulumi_wasm_rust::Output<
+        pub validity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::acmpca::CertificateValidity,
         >,
     }
@@ -104,19 +104,31 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_passthrough_binding = args.api_passthrough.get_inner();
+        let api_passthrough_binding = args
+            .api_passthrough
+            .get_output(context)
+            .get_inner();
         let certificate_authority_arn_binding = args
             .certificate_authority_arn
+            .get_output(context)
             .get_inner();
         let certificate_signing_request_binding = args
             .certificate_signing_request
+            .get_output(context)
             .get_inner();
-        let signing_algorithm_binding = args.signing_algorithm.get_inner();
-        let template_arn_binding = args.template_arn.get_inner();
-        let validity_binding = args.validity.get_inner();
+        let signing_algorithm_binding = args
+            .signing_algorithm
+            .get_output(context)
+            .get_inner();
+        let template_arn_binding = args.template_arn.get_output(context).get_inner();
+        let validity_binding = args.validity.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/certificate:Certificate".into(),
             name: name.to_string(),
@@ -177,7 +189,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -27,22 +27,22 @@
 /// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
 /// ```
 pub mod request_validator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RequestValidatorArgs {
         /// Name of the request validator
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the associated Rest API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
         /// Boolean whether to validate request body. Defaults to `false`.
         #[builder(into, default)]
-        pub validate_request_body: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_request_body: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean whether to validate request parameters. Defaults to `false`.
         #[builder(into, default)]
-        pub validate_request_parameters: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_request_parameters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RequestValidatorResult {
@@ -59,14 +59,22 @@ pub mod request_validator {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RequestValidatorArgs) -> RequestValidatorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RequestValidatorArgs,
+    ) -> RequestValidatorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let rest_api_binding = args.rest_api.get_inner();
-        let validate_request_body_binding = args.validate_request_body.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+        let validate_request_body_binding = args
+            .validate_request_body
+            .get_output(context)
+            .get_inner();
         let validate_request_parameters_binding = args
             .validate_request_parameters
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/requestValidator:RequestValidator".into(),
@@ -105,7 +113,7 @@ pub mod request_validator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

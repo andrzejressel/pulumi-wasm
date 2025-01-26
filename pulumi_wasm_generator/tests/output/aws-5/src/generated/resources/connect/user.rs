@@ -178,45 +178,45 @@
 /// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         #[builder(into, default)]
-        pub directory_user_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the hierarchy group for the user.
         #[builder(into, default)]
-        pub hierarchy_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub hierarchy_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that contains information about the identity of the user. Documented below.
         #[builder(into, default)]
-        pub identity_info: pulumi_wasm_rust::Output<
+        pub identity_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::connect::UserIdentityInfo>,
         >,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that contains information about the phone settings for the user. Documented below.
         #[builder(into)]
-        pub phone_config: pulumi_wasm_rust::Output<
+        pub phone_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::connect::UserPhoneConfig,
         >,
         /// The identifier of the routing profile for the user.
         #[builder(into)]
-        pub routing_profile_id: pulumi_wasm_rust::Output<String>,
+        pub routing_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         #[builder(into)]
-        pub security_profile_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_profile_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Tags to apply to the user. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -262,19 +262,35 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let directory_user_id_binding = args.directory_user_id.get_inner();
-        let hierarchy_group_id_binding = args.hierarchy_group_id.get_inner();
-        let identity_info_binding = args.identity_info.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let phone_config_binding = args.phone_config.get_inner();
-        let routing_profile_id_binding = args.routing_profile_id.get_inner();
-        let security_profile_ids_binding = args.security_profile_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let directory_user_id_binding = args
+            .directory_user_id
+            .get_output(context)
+            .get_inner();
+        let hierarchy_group_id_binding = args
+            .hierarchy_group_id
+            .get_output(context)
+            .get_inner();
+        let identity_info_binding = args.identity_info.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let phone_config_binding = args.phone_config.get_output(context).get_inner();
+        let routing_profile_id_binding = args
+            .routing_profile_id
+            .get_output(context)
+            .get_inner();
+        let security_profile_ids_binding = args
+            .security_profile_ids
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/user:User".into(),
             name: name.to_string(),
@@ -363,7 +379,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

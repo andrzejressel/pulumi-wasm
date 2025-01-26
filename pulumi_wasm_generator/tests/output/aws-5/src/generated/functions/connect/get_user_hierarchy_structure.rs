@@ -1,11 +1,11 @@
 pub mod get_user_hierarchy_structure {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetUserHierarchyStructureArgs {
         /// Reference to the hosting Amazon Connect Instance
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetUserHierarchyStructureResult {
@@ -24,11 +24,12 @@ pub mod get_user_hierarchy_structure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetUserHierarchyStructureArgs,
     ) -> GetUserHierarchyStructureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getUserHierarchyStructure:getUserHierarchyStructure"
                 .into(),
@@ -51,7 +52,7 @@ pub mod get_user_hierarchy_structure {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,20 +1,20 @@
 pub mod get_models {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetModelsArgs {
         /// Customization type to filter on. Valid values are `FINE_TUNING`.
         #[builder(into, default)]
-        pub by_customization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub by_customization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
         #[builder(into, default)]
-        pub by_inference_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub by_inference_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
         #[builder(into, default)]
-        pub by_output_modality: pulumi_wasm_rust::Output<Option<String>>,
+        pub by_output_modality: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Model provider to filter on.
         #[builder(into, default)]
-        pub by_provider: pulumi_wasm_rust::Output<Option<String>>,
+        pub by_provider: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetModelsResult {
@@ -33,13 +33,25 @@ pub mod get_models {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetModelsArgs) -> GetModelsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetModelsArgs,
+    ) -> GetModelsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let by_customization_type_binding = args.by_customization_type.get_inner();
-        let by_inference_type_binding = args.by_inference_type.get_inner();
-        let by_output_modality_binding = args.by_output_modality.get_inner();
-        let by_provider_binding = args.by_provider.get_inner();
+        let by_customization_type_binding = args
+            .by_customization_type
+            .get_output(context)
+            .get_inner();
+        let by_inference_type_binding = args
+            .by_inference_type
+            .get_output(context)
+            .get_inner();
+        let by_output_modality_binding = args
+            .by_output_modality
+            .get_output(context)
+            .get_inner();
+        let by_provider_binding = args.by_provider.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrockfoundation/getModels:getModels".into(),
             version: super::super::super::get_version(),
@@ -82,7 +94,7 @@ pub mod get_models {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

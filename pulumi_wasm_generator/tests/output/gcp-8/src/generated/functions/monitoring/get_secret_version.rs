@@ -1,23 +1,23 @@
 pub mod get_secret_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSecretVersionArgs {
         /// If set to 'true', the secret data is
         /// expected to be base64-encoded string.
         #[builder(into, default)]
-        pub is_secret_data_base64: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_secret_data_base64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The project to get the secret version for. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The secret to get the secret version for.
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the secret to get. If it
         /// is not provided, the latest version is retrieved.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSecretVersionResult {
@@ -43,13 +43,19 @@ pub mod get_secret_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSecretVersionArgs) -> GetSecretVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSecretVersionArgs,
+    ) -> GetSecretVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let is_secret_data_base64_binding = args.is_secret_data_base64.get_inner();
-        let project_binding = args.project.get_inner();
-        let secret_binding = args.secret.get_inner();
-        let version_binding = args.version.get_inner();
+        let is_secret_data_base64_binding = args
+            .is_secret_data_base64
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getSecretVersion:getSecretVersion".into(),
             version: super::super::super::get_version(),
@@ -104,7 +110,7 @@ pub mod get_secret_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

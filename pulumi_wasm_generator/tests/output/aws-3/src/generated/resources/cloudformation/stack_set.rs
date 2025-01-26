@@ -86,62 +86,62 @@
 /// $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
 /// ```
 pub mod stack_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackSetArgs {
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         #[builder(into, default)]
-        pub administration_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub administration_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         #[builder(into, default)]
-        pub auto_deployment: pulumi_wasm_rust::Output<
+        pub auto_deployment: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudformation::StackSetAutoDeployment>,
         >,
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         #[builder(into, default)]
-        pub call_as: pulumi_wasm_rust::Output<Option<String>>,
+        pub call_as: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         #[builder(into, default)]
-        pub capabilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub capabilities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of the StackSet.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         #[builder(into, default)]
-        pub execution_role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         #[builder(into, default)]
-        pub managed_execution: pulumi_wasm_rust::Output<
+        pub managed_execution: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudformation::StackSetManagedExecution>,
         >,
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Preferences for how AWS CloudFormation performs a stack set update.
         #[builder(into, default)]
-        pub operation_preferences: pulumi_wasm_rust::Output<
+        pub operation_preferences: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudformation::StackSetOperationPreferences>,
         >,
         /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         #[builder(into, default)]
-        pub permission_model: pulumi_wasm_rust::Output<Option<String>>,
+        pub permission_model: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         #[builder(into, default)]
-        pub template_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         #[builder(into, default)]
-        pub template_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StackSetResult {
@@ -196,23 +196,45 @@ pub mod stack_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StackSetArgs) -> StackSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StackSetArgs,
+    ) -> StackSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let administration_role_arn_binding = args.administration_role_arn.get_inner();
-        let auto_deployment_binding = args.auto_deployment.get_inner();
-        let call_as_binding = args.call_as.get_inner();
-        let capabilities_binding = args.capabilities.get_inner();
-        let description_binding = args.description.get_inner();
-        let execution_role_name_binding = args.execution_role_name.get_inner();
-        let managed_execution_binding = args.managed_execution.get_inner();
-        let name_binding = args.name.get_inner();
-        let operation_preferences_binding = args.operation_preferences.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let permission_model_binding = args.permission_model.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_body_binding = args.template_body.get_inner();
-        let template_url_binding = args.template_url.get_inner();
+        let administration_role_arn_binding = args
+            .administration_role_arn
+            .get_output(context)
+            .get_inner();
+        let auto_deployment_binding = args
+            .auto_deployment
+            .get_output(context)
+            .get_inner();
+        let call_as_binding = args.call_as.get_output(context).get_inner();
+        let capabilities_binding = args.capabilities.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let execution_role_name_binding = args
+            .execution_role_name
+            .get_output(context)
+            .get_inner();
+        let managed_execution_binding = args
+            .managed_execution
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let operation_preferences_binding = args
+            .operation_preferences
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let permission_model_binding = args
+            .permission_model
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_body_binding = args.template_body.get_output(context).get_inner();
+        let template_url_binding = args.template_url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackSet:StackSet".into(),
             name: name.to_string(),
@@ -329,7 +351,7 @@ pub mod stack_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

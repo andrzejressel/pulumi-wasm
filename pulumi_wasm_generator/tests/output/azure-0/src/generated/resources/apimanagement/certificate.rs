@@ -126,37 +126,39 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The base-64 encoded certificate data, which must be a PFX file.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::Output<Option<String>>,
+        pub data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
         ///
         /// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         #[builder(into, default)]
-        pub key_vault_identity_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_identity_client_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         ///
         /// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         #[builder(into, default)]
-        pub key_vault_secret_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_secret_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password used for this certificate.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
@@ -191,18 +193,32 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let data_binding = args.data.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let data_binding = args.data.get_output(context).get_inner();
         let key_vault_identity_client_id_binding = args
             .key_vault_identity_client_id
+            .get_output(context)
             .get_inner();
-        let key_vault_secret_id_binding = args.key_vault_secret_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let key_vault_secret_id_binding = args
+            .key_vault_secret_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/certificate:Certificate".into(),
             name: name.to_string(),
@@ -270,7 +286,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

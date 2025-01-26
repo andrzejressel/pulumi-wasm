@@ -25,7 +25,7 @@
 /// ## Example Usage
 ///
 pub mod service_perimeter_dry_run_ingress_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicePerimeterDryRunIngressPolicyArgs {
@@ -33,7 +33,7 @@ pub mod service_perimeter_dry_run_ingress_policy {
         /// to apply.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ingress_from: pulumi_wasm_rust::Output<
+        pub ingress_from: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::accesscontextmanager::ServicePerimeterDryRunIngressPolicyIngressFrom,
             >,
@@ -42,7 +42,7 @@ pub mod service_perimeter_dry_run_ingress_policy {
         /// this `IngressPolicy` to apply.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ingress_to: pulumi_wasm_rust::Output<
+        pub ingress_to: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::accesscontextmanager::ServicePerimeterDryRunIngressPolicyIngressTo,
             >,
@@ -52,7 +52,7 @@ pub mod service_perimeter_dry_run_ingress_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub perimeter: pulumi_wasm_rust::Output<String>,
+        pub perimeter: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServicePerimeterDryRunIngressPolicyResult {
@@ -83,14 +83,15 @@ pub mod service_perimeter_dry_run_ingress_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicePerimeterDryRunIngressPolicyArgs,
     ) -> ServicePerimeterDryRunIngressPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ingress_from_binding = args.ingress_from.get_inner();
-        let ingress_to_binding = args.ingress_to.get_inner();
-        let perimeter_binding = args.perimeter.get_inner();
+        let ingress_from_binding = args.ingress_from.get_output(context).get_inner();
+        let ingress_to_binding = args.ingress_to.get_output(context).get_inner();
+        let perimeter_binding = args.perimeter.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunIngressPolicy:ServicePerimeterDryRunIngressPolicy"
                 .into(),
@@ -122,7 +123,7 @@ pub mod service_perimeter_dry_run_ingress_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -332,24 +332,24 @@
 /// $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_lifecycle_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketLifecycleConfigurationV2Args {
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of configuration blocks describing the rules managing the replication. See below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::s3::BucketLifecycleConfigurationV2Rule>,
         >,
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         #[builder(into, default)]
-        pub transition_default_minimum_object_size: pulumi_wasm_rust::Output<
+        pub transition_default_minimum_object_size: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
     }
@@ -371,16 +371,21 @@ pub mod bucket_lifecycle_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BucketLifecycleConfigurationV2Args,
     ) -> BucketLifecycleConfigurationV2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let expected_bucket_owner_binding = args.expected_bucket_owner.get_inner();
-        let rules_binding = args.rules.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let expected_bucket_owner_binding = args
+            .expected_bucket_owner
+            .get_output(context)
+            .get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
         let transition_default_minimum_object_size_binding = args
             .transition_default_minimum_object_size
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"
@@ -420,7 +425,7 @@ pub mod bucket_lifecycle_configuration_v_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

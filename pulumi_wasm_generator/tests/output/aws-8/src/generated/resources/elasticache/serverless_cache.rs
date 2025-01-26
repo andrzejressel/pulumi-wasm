@@ -19,60 +19,62 @@
 /// $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
 /// ```
 pub mod serverless_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerlessCacheArgs {
         /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         #[builder(into, default)]
-        pub cache_usage_limits: pulumi_wasm_rust::Output<
+        pub cache_usage_limits: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticache::ServerlessCacheCacheUsageLimits>,
         >,
         /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         #[builder(into, default)]
-        pub daily_snapshot_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub daily_snapshot_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-provided description for the serverless cache. The default is NULL.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of the cache engine that will be used to create the serverless cache.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
         #[builder(into, default)]
-        pub major_engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub major_engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Cluster name which serves as a unique identifier to the serverless cache
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         #[builder(into, default)]
-        pub snapshot_arns_to_restores: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub snapshot_arns_to_restores: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         #[builder(into, default)]
-        pub snapshot_retention_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub snapshot_retention_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticache::ServerlessCacheTimeouts>,
         >,
         /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
         #[builder(into, default)]
-        pub user_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServerlessCacheResult {
@@ -136,25 +138,45 @@ pub mod serverless_cache {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServerlessCacheArgs) -> ServerlessCacheResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServerlessCacheArgs,
+    ) -> ServerlessCacheResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cache_usage_limits_binding = args.cache_usage_limits.get_inner();
-        let daily_snapshot_time_binding = args.daily_snapshot_time.get_inner();
-        let description_binding = args.description.get_inner();
-        let engine_binding = args.engine.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let major_engine_version_binding = args.major_engine_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
+        let cache_usage_limits_binding = args
+            .cache_usage_limits
+            .get_output(context)
+            .get_inner();
+        let daily_snapshot_time_binding = args
+            .daily_snapshot_time
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let major_engine_version_binding = args
+            .major_engine_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
         let snapshot_arns_to_restores_binding = args
             .snapshot_arns_to_restores
+            .get_output(context)
             .get_inner();
-        let snapshot_retention_limit_binding = args.snapshot_retention_limit.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let user_group_id_binding = args.user_group_id.get_inner();
+        let snapshot_retention_limit_binding = args
+            .snapshot_retention_limit
+            .get_output(context)
+            .get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let user_group_id_binding = args.user_group_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/serverlessCache:ServerlessCache".into(),
             name: name.to_string(),
@@ -283,7 +305,7 @@ pub mod serverless_cache {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

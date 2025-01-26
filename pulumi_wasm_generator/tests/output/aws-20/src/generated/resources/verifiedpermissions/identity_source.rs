@@ -107,21 +107,21 @@
 /// $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
 /// ```
 pub mod identity_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentitySourceArgs {
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::verifiedpermissions::IdentitySourceConfiguration>,
         >,
         /// Specifies the ID of the policy store in which you want to store this identity source.
         #[builder(into)]
-        pub policy_store_id: pulumi_wasm_rust::Output<String>,
+        pub policy_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         #[builder(into, default)]
-        pub principal_entity_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub principal_entity_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IdentitySourceResult {
@@ -138,12 +138,22 @@ pub mod identity_source {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IdentitySourceArgs) -> IdentitySourceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IdentitySourceArgs,
+    ) -> IdentitySourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_inner();
-        let policy_store_id_binding = args.policy_store_id.get_inner();
-        let principal_entity_type_binding = args.principal_entity_type.get_inner();
+        let configuration_binding = args.configuration.get_output(context).get_inner();
+        let policy_store_id_binding = args
+            .policy_store_id
+            .get_output(context)
+            .get_inner();
+        let principal_entity_type_binding = args
+            .principal_entity_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedpermissions/identitySource:IdentitySource".into(),
             name: name.to_string(),
@@ -174,7 +184,7 @@ pub mod identity_source {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

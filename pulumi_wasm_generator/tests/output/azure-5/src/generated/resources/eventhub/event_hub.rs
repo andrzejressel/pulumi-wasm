@@ -39,40 +39,40 @@
 /// ```
 ///
 pub mod event_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventHubArgs {
         /// A `capture_description` block as defined below.
         #[builder(into, default)]
-        pub capture_description: pulumi_wasm_rust::Output<
+        pub capture_description: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubCaptureDescription>,
         >,
         /// Specifies the number of days to retain the events for this Event Hub.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         #[builder(into)]
-        pub message_retention: pulumi_wasm_rust::Output<i32>,
+        pub message_retention: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub namespace_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the current number of shards on the Event Hub.
         ///
         /// > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         ///
         /// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         #[builder(into)]
-        pub partition_count: pulumi_wasm_rust::Output<i32>,
+        pub partition_count: pulumi_wasm_rust::InputOrOutput<i32>,
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventHubResult {
@@ -105,17 +105,33 @@ pub mod event_hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventHubArgs) -> EventHubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventHubArgs,
+    ) -> EventHubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capture_description_binding = args.capture_description.get_inner();
-        let message_retention_binding = args.message_retention.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_id_binding = args.namespace_id.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let partition_count_binding = args.partition_count.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let status_binding = args.status.get_inner();
+        let capture_description_binding = args
+            .capture_description
+            .get_output(context)
+            .get_inner();
+        let message_retention_binding = args
+            .message_retention
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let partition_count_binding = args
+            .partition_count
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventHub:EventHub".into(),
             name: name.to_string(),
@@ -184,7 +200,7 @@ pub mod event_hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

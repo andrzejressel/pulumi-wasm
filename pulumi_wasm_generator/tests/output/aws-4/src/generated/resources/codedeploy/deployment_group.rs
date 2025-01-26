@@ -214,69 +214,69 @@
 /// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 /// ```
 pub mod deployment_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentGroupArgs {
         /// Configuration block of alarms associated with the deployment group (documented below).
         #[builder(into, default)]
-        pub alarm_configuration: pulumi_wasm_rust::Output<
+        pub alarm_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupAlarmConfiguration>,
         >,
         /// The name of the application.
         #[builder(into)]
-        pub app_name: pulumi_wasm_rust::Output<String>,
+        pub app_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         #[builder(into, default)]
-        pub auto_rollback_configuration: pulumi_wasm_rust::Output<
+        pub auto_rollback_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::codedeploy::DeploymentGroupAutoRollbackConfiguration,
             >,
         >,
         /// Autoscaling groups associated with the deployment group.
         #[builder(into, default)]
-        pub autoscaling_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub autoscaling_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         #[builder(into, default)]
-        pub blue_green_deployment_config: pulumi_wasm_rust::Output<
+        pub blue_green_deployment_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::codedeploy::DeploymentGroupBlueGreenDeploymentConfig,
             >,
         >,
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         #[builder(into, default)]
-        pub deployment_config_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_config_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the deployment group.
         #[builder(into)]
-        pub deployment_group_name: pulumi_wasm_rust::Output<String>,
+        pub deployment_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         #[builder(into, default)]
-        pub deployment_style: pulumi_wasm_rust::Output<
+        pub deployment_style: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupDeploymentStyle>,
         >,
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         #[builder(into, default)]
-        pub ec2_tag_filters: pulumi_wasm_rust::Output<
+        pub ec2_tag_filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagFilter>>,
         >,
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         #[builder(into, default)]
-        pub ec2_tag_sets: pulumi_wasm_rust::Output<
+        pub ec2_tag_sets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codedeploy::DeploymentGroupEc2TagSet>>,
         >,
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
         #[builder(into, default)]
-        pub ecs_service: pulumi_wasm_rust::Output<
+        pub ecs_service: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupEcsService>,
         >,
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         #[builder(into, default)]
-        pub load_balancer_info: pulumi_wasm_rust::Output<
+        pub load_balancer_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentGroupLoadBalancerInfo>,
         >,
         /// On premise tag filters associated with the group. See the AWS docs for details.
         #[builder(into, default)]
-        pub on_premises_instance_tag_filters: pulumi_wasm_rust::Output<
+        pub on_premises_instance_tag_filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::codedeploy::DeploymentGroupOnPremisesInstanceTagFilter,
@@ -285,21 +285,21 @@ pub mod deployment_group {
         >,
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         #[builder(into, default)]
-        pub outdated_instances_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub outdated_instances_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service role ARN that allows deployments.
         #[builder(into)]
-        pub service_role_arn: pulumi_wasm_rust::Output<String>,
+        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         #[builder(into, default)]
-        pub termination_hook_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub termination_hook_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         #[builder(into, default)]
-        pub trigger_configurations: pulumi_wasm_rust::Output<
+        pub trigger_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::codedeploy::DeploymentGroupTriggerConfiguration>,
             >,
@@ -388,35 +388,73 @@ pub mod deployment_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentGroupArgs) -> DeploymentGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentGroupArgs,
+    ) -> DeploymentGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alarm_configuration_binding = args.alarm_configuration.get_inner();
-        let app_name_binding = args.app_name.get_inner();
+        let alarm_configuration_binding = args
+            .alarm_configuration
+            .get_output(context)
+            .get_inner();
+        let app_name_binding = args.app_name.get_output(context).get_inner();
         let auto_rollback_configuration_binding = args
             .auto_rollback_configuration
+            .get_output(context)
             .get_inner();
-        let autoscaling_groups_binding = args.autoscaling_groups.get_inner();
+        let autoscaling_groups_binding = args
+            .autoscaling_groups
+            .get_output(context)
+            .get_inner();
         let blue_green_deployment_config_binding = args
             .blue_green_deployment_config
+            .get_output(context)
             .get_inner();
-        let deployment_config_name_binding = args.deployment_config_name.get_inner();
-        let deployment_group_name_binding = args.deployment_group_name.get_inner();
-        let deployment_style_binding = args.deployment_style.get_inner();
-        let ec2_tag_filters_binding = args.ec2_tag_filters.get_inner();
-        let ec2_tag_sets_binding = args.ec2_tag_sets.get_inner();
-        let ecs_service_binding = args.ecs_service.get_inner();
-        let load_balancer_info_binding = args.load_balancer_info.get_inner();
+        let deployment_config_name_binding = args
+            .deployment_config_name
+            .get_output(context)
+            .get_inner();
+        let deployment_group_name_binding = args
+            .deployment_group_name
+            .get_output(context)
+            .get_inner();
+        let deployment_style_binding = args
+            .deployment_style
+            .get_output(context)
+            .get_inner();
+        let ec2_tag_filters_binding = args
+            .ec2_tag_filters
+            .get_output(context)
+            .get_inner();
+        let ec2_tag_sets_binding = args.ec2_tag_sets.get_output(context).get_inner();
+        let ecs_service_binding = args.ecs_service.get_output(context).get_inner();
+        let load_balancer_info_binding = args
+            .load_balancer_info
+            .get_output(context)
+            .get_inner();
         let on_premises_instance_tag_filters_binding = args
             .on_premises_instance_tag_filters
+            .get_output(context)
             .get_inner();
         let outdated_instances_strategy_binding = args
             .outdated_instances_strategy
+            .get_output(context)
             .get_inner();
-        let service_role_arn_binding = args.service_role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let termination_hook_enabled_binding = args.termination_hook_enabled.get_inner();
-        let trigger_configurations_binding = args.trigger_configurations.get_inner();
+        let service_role_arn_binding = args
+            .service_role_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let termination_hook_enabled_binding = args
+            .termination_hook_enabled
+            .get_output(context)
+            .get_inner();
+        let trigger_configurations_binding = args
+            .trigger_configurations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentGroup:DeploymentGroup".into(),
             name: name.to_string(),
@@ -564,7 +602,7 @@ pub mod deployment_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

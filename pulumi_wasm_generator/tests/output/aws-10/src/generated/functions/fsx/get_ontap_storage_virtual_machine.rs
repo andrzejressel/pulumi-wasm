@@ -1,20 +1,20 @@
 pub mod get_ontap_storage_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOntapStorageVirtualMachineArgs {
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::super::types::fsx::GetOntapStorageVirtualMachineFilter>,
             >,
         >,
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -64,13 +64,14 @@ pub mod get_ontap_storage_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetOntapStorageVirtualMachineArgs,
     ) -> GetOntapStorageVirtualMachineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine"
                 .into(),
@@ -131,7 +132,7 @@ pub mod get_ontap_storage_virtual_machine {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -53,67 +53,67 @@
 /// $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
 /// ```
 pub mod connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorArgs {
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
         #[builder(into)]
-        pub capacity: pulumi_wasm_rust::Output<
+        pub capacity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorCapacity,
         >,
         /// A map of keys to values that represent the configuration for the connector.
         #[builder(into)]
-        pub connector_configuration: pulumi_wasm_rust::Output<
+        pub connector_configuration: pulumi_wasm_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// A summary description of the connector.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         #[builder(into)]
-        pub kafka_cluster: pulumi_wasm_rust::Output<
+        pub kafka_cluster: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaCluster,
         >,
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         #[builder(into)]
-        pub kafka_cluster_client_authentication: pulumi_wasm_rust::Output<
+        pub kafka_cluster_client_authentication: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaClusterClientAuthentication,
         >,
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         #[builder(into)]
-        pub kafka_cluster_encryption_in_transit: pulumi_wasm_rust::Output<
+        pub kafka_cluster_encryption_in_transit: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaClusterEncryptionInTransit,
         >,
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         #[builder(into)]
-        pub kafkaconnect_version: pulumi_wasm_rust::Output<String>,
+        pub kafkaconnect_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Details about log delivery. See `log_delivery` Block for details.
         #[builder(into, default)]
-        pub log_delivery: pulumi_wasm_rust::Output<
+        pub log_delivery: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mskconnect::ConnectorLogDelivery>,
         >,
         /// The name of the connector.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
         #[builder(into)]
-        pub plugins: pulumi_wasm_rust::Output<
+        pub plugins: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::mskconnect::ConnectorPlugin>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub service_execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         #[builder(into, default)]
-        pub worker_configuration: pulumi_wasm_rust::Output<
+        pub worker_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mskconnect::ConnectorWorkerConfiguration>,
         >,
     }
@@ -178,28 +178,44 @@ pub mod connector {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectorArgs) -> ConnectorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectorArgs,
+    ) -> ConnectorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_inner();
-        let connector_configuration_binding = args.connector_configuration.get_inner();
-        let description_binding = args.description.get_inner();
-        let kafka_cluster_binding = args.kafka_cluster.get_inner();
+        let capacity_binding = args.capacity.get_output(context).get_inner();
+        let connector_configuration_binding = args
+            .connector_configuration
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kafka_cluster_binding = args.kafka_cluster.get_output(context).get_inner();
         let kafka_cluster_client_authentication_binding = args
             .kafka_cluster_client_authentication
+            .get_output(context)
             .get_inner();
         let kafka_cluster_encryption_in_transit_binding = args
             .kafka_cluster_encryption_in_transit
+            .get_output(context)
             .get_inner();
-        let kafkaconnect_version_binding = args.kafkaconnect_version.get_inner();
-        let log_delivery_binding = args.log_delivery.get_inner();
-        let name_binding = args.name.get_inner();
-        let plugins_binding = args.plugins.get_inner();
+        let kafkaconnect_version_binding = args
+            .kafkaconnect_version
+            .get_output(context)
+            .get_inner();
+        let log_delivery_binding = args.log_delivery.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let plugins_binding = args.plugins.get_output(context).get_inner();
         let service_execution_role_arn_binding = args
             .service_execution_role_arn
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let worker_configuration_binding = args.worker_configuration.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let worker_configuration_binding = args
+            .worker_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mskconnect/connector:Connector".into(),
             name: name.to_string(),
@@ -309,7 +325,7 @@ pub mod connector {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

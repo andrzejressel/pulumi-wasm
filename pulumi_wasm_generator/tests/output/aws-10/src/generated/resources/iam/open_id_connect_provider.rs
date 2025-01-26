@@ -49,23 +49,23 @@
 /// $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 /// ```
 pub mod open_id_connect_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderArgs {
         /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         #[builder(into)]
-        pub client_id_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub client_id_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub thumbprint_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub thumbprint_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// URL of the identity provider, corresponding to the `iss` claim.
         #[builder(into)]
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderResult {
@@ -90,15 +90,22 @@ pub mod open_id_connect_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OpenIdConnectProviderArgs,
     ) -> OpenIdConnectProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_id_lists_binding = args.client_id_lists.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let thumbprint_lists_binding = args.thumbprint_lists.get_inner();
-        let url_binding = args.url.get_inner();
+        let client_id_lists_binding = args
+            .client_id_lists
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let thumbprint_lists_binding = args
+            .thumbprint_lists
+            .get_output(context)
+            .get_inner();
+        let url_binding = args.url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/openIdConnectProvider:OpenIdConnectProvider".into(),
             name: name.to_string(),
@@ -142,7 +149,7 @@ pub mod open_id_connect_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

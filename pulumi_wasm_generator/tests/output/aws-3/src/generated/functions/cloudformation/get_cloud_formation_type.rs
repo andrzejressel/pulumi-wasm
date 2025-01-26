@@ -1,20 +1,20 @@
 pub mod get_cloud_formation_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCloudFormationTypeArgs {
         /// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CloudFormation Registry Type. For example, `RESOURCE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CloudFormation Type name. For example, `AWS::EC2::VPC`.
         #[builder(into, default)]
-        pub type_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the CloudFormation Type version.
         #[builder(into, default)]
-        pub version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetCloudFormationTypeResult {
@@ -56,13 +56,16 @@ pub mod get_cloud_formation_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCloudFormationTypeArgs) -> GetCloudFormationTypeResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCloudFormationTypeArgs,
+    ) -> GetCloudFormationTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let type__binding = args.type_.get_inner();
-        let type_name_binding = args.type_name.get_inner();
-        let version_id_binding = args.version_id.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let type_name_binding = args.type_name.get_output(context).get_inner();
+        let version_id_binding = args.version_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudformation/getCloudFormationType:getCloudFormationType"
                 .into(),
@@ -139,7 +142,7 @@ pub mod get_cloud_formation_type {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -107,28 +107,30 @@
 /// ```
 ///
 pub mod medtech_service_fhir_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MedtechServiceFhirDestinationArgs {
         /// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
         #[builder(into)]
-        pub destination_fhir_mapping_json: pulumi_wasm_rust::Output<String>,
+        pub destination_fhir_mapping_json: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         #[builder(into)]
-        pub destination_fhir_service_id: pulumi_wasm_rust::Output<String>,
+        pub destination_fhir_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         #[builder(into)]
-        pub destination_identity_resolution_type: pulumi_wasm_rust::Output<String>,
+        pub destination_identity_resolution_type: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into)]
-        pub medtech_service_id: pulumi_wasm_rust::Output<String>,
+        pub medtech_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MedtechServiceFhirDestinationResult {
@@ -150,6 +152,7 @@ pub mod medtech_service_fhir_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MedtechServiceFhirDestinationArgs,
     ) -> MedtechServiceFhirDestinationResult {
@@ -157,16 +160,22 @@ pub mod medtech_service_fhir_destination {
         use std::collections::HashMap;
         let destination_fhir_mapping_json_binding = args
             .destination_fhir_mapping_json
+            .get_output(context)
             .get_inner();
         let destination_fhir_service_id_binding = args
             .destination_fhir_service_id
+            .get_output(context)
             .get_inner();
         let destination_identity_resolution_type_binding = args
             .destination_identity_resolution_type
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let medtech_service_id_binding = args.medtech_service_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let medtech_service_id_binding = args
+            .medtech_service_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
                 .into(),
@@ -219,7 +228,7 @@ pub mod medtech_service_fhir_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

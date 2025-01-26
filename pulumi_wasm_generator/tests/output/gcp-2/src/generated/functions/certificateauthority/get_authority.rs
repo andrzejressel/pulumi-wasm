@@ -1,5 +1,5 @@
 pub mod get_authority {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorityArgs {
@@ -7,17 +7,17 @@ pub mod get_authority {
         ///
         /// - - -
         #[builder(into, default)]
-        pub certificate_authority_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location the certificate authority exists in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the pool the certificate authority belongs to.
         #[builder(into, default)]
-        pub pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorityResult {
@@ -68,13 +68,19 @@ pub mod get_authority {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAuthorityArgs) -> GetAuthorityResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAuthorityArgs,
+    ) -> GetAuthorityResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_id_binding = args.certificate_authority_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let pool_binding = args.pool.get_inner();
-        let project_binding = args.project.get_inner();
+        let certificate_authority_id_binding = args
+            .certificate_authority_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let pool_binding = args.pool.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:certificateauthority/getAuthority:getAuthority".into(),
             version: super::super::super::get_version(),
@@ -177,7 +183,7 @@ pub mod get_authority {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

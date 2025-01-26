@@ -29,30 +29,30 @@
 /// $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
 /// ```
 pub mod account_public_access_block {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountPublicAccessBlockArgs {
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
         /// * PUT Object calls fail if the request includes a public ACL.
         #[builder(into, default)]
-        pub block_public_acls: pulumi_wasm_rust::Output<Option<bool>>,
+        pub block_public_acls: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
         /// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         #[builder(into, default)]
-        pub block_public_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub block_public_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         /// * Ignore all public ACLs on buckets in this account and any objects that they contain.
         #[builder(into, default)]
-        pub ignore_public_acls: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_public_acls: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         /// * Only the bucket owner and AWS Services can access buckets with public policies.
         #[builder(into, default)]
-        pub restrict_public_buckets: pulumi_wasm_rust::Output<Option<bool>>,
+        pub restrict_public_buckets: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AccountPublicAccessBlockResult {
@@ -77,16 +77,29 @@ pub mod account_public_access_block {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountPublicAccessBlockArgs,
     ) -> AccountPublicAccessBlockResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let block_public_acls_binding = args.block_public_acls.get_inner();
-        let block_public_policy_binding = args.block_public_policy.get_inner();
-        let ignore_public_acls_binding = args.ignore_public_acls.get_inner();
-        let restrict_public_buckets_binding = args.restrict_public_buckets.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let block_public_acls_binding = args
+            .block_public_acls
+            .get_output(context)
+            .get_inner();
+        let block_public_policy_binding = args
+            .block_public_policy
+            .get_output(context)
+            .get_inner();
+        let ignore_public_acls_binding = args
+            .ignore_public_acls
+            .get_output(context)
+            .get_inner();
+        let restrict_public_buckets_binding = args
+            .restrict_public_buckets
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock".into(),
             name: name.to_string(),
@@ -131,7 +144,7 @@ pub mod account_public_access_block {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

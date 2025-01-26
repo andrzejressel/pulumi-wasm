@@ -36,36 +36,36 @@
 /// Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         #[builder(into, default)]
-        pub close_on_deletion: pulumi_wasm_rust::Output<Option<bool>>,
+        pub close_on_deletion: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         #[builder(into, default)]
-        pub create_govcloud: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_govcloud: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         #[builder(into, default)]
-        pub iam_user_access_to_billing: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_user_access_to_billing: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Friendly name for the member account.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         #[builder(into, default)]
-        pub parent_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -108,19 +108,30 @@ pub mod account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountArgs) -> AccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountArgs,
+    ) -> AccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let close_on_deletion_binding = args.close_on_deletion.get_inner();
-        let create_govcloud_binding = args.create_govcloud.get_inner();
-        let email_binding = args.email.get_inner();
+        let close_on_deletion_binding = args
+            .close_on_deletion
+            .get_output(context)
+            .get_inner();
+        let create_govcloud_binding = args
+            .create_govcloud
+            .get_output(context)
+            .get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
         let iam_user_access_to_billing_binding = args
             .iam_user_access_to_billing
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_id_binding = args.parent_id.get_inner();
-        let role_name_binding = args.role_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_id_binding = args.parent_id.get_output(context).get_inner();
+        let role_name_binding = args.role_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:organizations/account:Account".into(),
             name: name.to_string(),
@@ -204,7 +215,7 @@ pub mod account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

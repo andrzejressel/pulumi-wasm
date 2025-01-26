@@ -173,18 +173,18 @@
 /// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
 /// ```
 pub mod instance_logging_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceLoggingConfigurationArgs {
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
         #[builder(into)]
-        pub access_logs: pulumi_wasm_rust::Output<
+        pub access_logs: pulumi_wasm_rust::InputOrOutput<
             super::super::types::verifiedaccess::InstanceLoggingConfigurationAccessLogs,
         >,
         /// The ID of the Verified Access instance.
         #[builder(into)]
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceLoggingConfigurationResult {
@@ -200,14 +200,16 @@ pub mod instance_logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceLoggingConfigurationArgs,
     ) -> InstanceLoggingConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding = args.access_logs.get_inner();
+        let access_logs_binding = args.access_logs.get_output(context).get_inner();
         let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration"
@@ -233,7 +235,7 @@ pub mod instance_logging_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

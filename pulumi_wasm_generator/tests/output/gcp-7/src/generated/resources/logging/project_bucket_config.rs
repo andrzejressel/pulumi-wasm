@@ -136,41 +136,41 @@
 /// ```
 ///
 pub mod project_bucket_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectBucketConfigArgs {
         /// The name of the logging bucket. Logging automatically creates two log buckets: `_Required` and `_Default`.
         #[builder(into)]
-        pub bucket_id: pulumi_wasm_rust::Output<String>,
+        pub bucket_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The CMEK settings of the log bucket. If present, new log entries written to this log bucket are encrypted using the CMEK key provided in this configuration. If a log bucket has CMEK settings, the CMEK settings cannot be disabled later by updating the log bucket. Changing the KMS key is allowed. Structure is documented below.
         #[builder(into, default)]
-        pub cmek_settings: pulumi_wasm_rust::Output<
+        pub cmek_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::logging::ProjectBucketConfigCmekSettings>,
         >,
         /// Describes this bucket.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether or not Log Analytics is enabled. Logs for buckets with Log Analytics enabled can be queried in the **Log Analytics** page using SQL queries. Cannot be disabled once enabled.
         #[builder(into, default)]
-        pub enable_analytics: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_analytics: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of indexed fields and related configuration data. Structure is documented below.
         #[builder(into, default)]
-        pub index_configs: pulumi_wasm_rust::Output<
+        pub index_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::ProjectBucketConfigIndexConfig>>,
         >,
         /// The location of the bucket.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether the bucket is locked. The retention period on a locked bucket cannot be changed. Locked buckets may only be deleted if they are empty.
         #[builder(into, default)]
-        pub locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The parent resource that contains the logging bucket.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct ProjectBucketConfigResult {
@@ -206,20 +206,24 @@ pub mod project_bucket_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProjectBucketConfigArgs,
     ) -> ProjectBucketConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_id_binding = args.bucket_id.get_inner();
-        let cmek_settings_binding = args.cmek_settings.get_inner();
-        let description_binding = args.description.get_inner();
-        let enable_analytics_binding = args.enable_analytics.get_inner();
-        let index_configs_binding = args.index_configs.get_inner();
-        let location_binding = args.location.get_inner();
-        let locked_binding = args.locked.get_inner();
-        let project_binding = args.project.get_inner();
-        let retention_days_binding = args.retention_days.get_inner();
+        let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
+        let cmek_settings_binding = args.cmek_settings.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enable_analytics_binding = args
+            .enable_analytics
+            .get_output(context)
+            .get_inner();
+        let index_configs_binding = args.index_configs.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let locked_binding = args.locked.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let retention_days_binding = args.retention_days.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/projectBucketConfig:ProjectBucketConfig".into(),
             name: name.to_string(),
@@ -298,7 +302,7 @@ pub mod project_bucket_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

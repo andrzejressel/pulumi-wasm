@@ -66,30 +66,30 @@
 /// ```
 ///
 pub mod workspace_extended_auditing_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceExtendedAuditingPolicyArgs {
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         #[builder(into, default)]
-        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The access key to use for the auditing storage account.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is `storage_account_access_key` value the storage's secondary key?
         #[builder(into, default)]
-        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::Output<
+        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceExtendedAuditingPolicyResult {
@@ -113,21 +113,36 @@ pub mod workspace_extended_auditing_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkspaceExtendedAuditingPolicyArgs,
     ) -> WorkspaceExtendedAuditingPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let log_monitoring_enabled_binding = args.log_monitoring_enabled.get_inner();
-        let retention_in_days_binding = args.retention_in_days.get_inner();
+        let log_monitoring_enabled_binding = args
+            .log_monitoring_enabled
+            .get_output(context)
+            .get_inner();
+        let retention_in_days_binding = args
+            .retention_in_days
+            .get_output(context)
+            .get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
         let storage_account_access_key_is_secondary_binding = args
             .storage_account_access_key_is_secondary
+            .get_output(context)
             .get_inner();
-        let storage_endpoint_binding = args.storage_endpoint.get_inner();
-        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
+        let storage_endpoint_binding = args
+            .storage_endpoint
+            .get_output(context)
+            .get_inner();
+        let synapse_workspace_id_binding = args
+            .synapse_workspace_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy"
                 .into(),
@@ -180,7 +195,7 @@ pub mod workspace_extended_auditing_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

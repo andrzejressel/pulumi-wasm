@@ -18,30 +18,30 @@
 /// }
 /// ```
 pub mod bgp_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BgpPeerArgs {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         #[builder(into)]
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         #[builder(into, default)]
-        pub amazon_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub amazon_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         #[builder(into)]
-        pub bgp_asn: pulumi_wasm_rust::Output<i32>,
+        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The authentication key for BGP configuration.
         #[builder(into, default)]
-        pub bgp_auth_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub bgp_auth_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         #[builder(into, default)]
-        pub customer_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BgpPeerResult {
@@ -70,15 +70,25 @@ pub mod bgp_peer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BgpPeerArgs) -> BgpPeerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BgpPeerArgs,
+    ) -> BgpPeerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_inner();
-        let amazon_address_binding = args.amazon_address.get_inner();
-        let bgp_asn_binding = args.bgp_asn.get_inner();
-        let bgp_auth_key_binding = args.bgp_auth_key.get_inner();
-        let customer_address_binding = args.customer_address.get_inner();
-        let virtual_interface_id_binding = args.virtual_interface_id.get_inner();
+        let address_family_binding = args.address_family.get_output(context).get_inner();
+        let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
+        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
+        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context).get_inner();
+        let customer_address_binding = args
+            .customer_address
+            .get_output(context)
+            .get_inner();
+        let virtual_interface_id_binding = args
+            .virtual_interface_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/bgpPeer:BgpPeer".into(),
             name: name.to_string(),
@@ -139,7 +149,7 @@ pub mod bgp_peer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

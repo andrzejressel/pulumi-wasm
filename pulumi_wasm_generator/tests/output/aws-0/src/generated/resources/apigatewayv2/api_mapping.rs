@@ -29,22 +29,22 @@
 /// $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
 /// ```
 pub mod api_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiMappingArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         #[builder(into, default)]
-        pub api_mapping_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_mapping_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         #[builder(into)]
-        pub stage: pulumi_wasm_rust::Output<String>,
+        pub stage: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiMappingResult {
@@ -61,13 +61,20 @@ pub mod api_mapping {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiMappingArgs) -> ApiMappingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiMappingArgs,
+    ) -> ApiMappingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
-        let api_mapping_key_binding = args.api_mapping_key.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let stage_binding = args.stage.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
+        let api_mapping_key_binding = args
+            .api_mapping_key
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let stage_binding = args.stage.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/apiMapping:ApiMapping".into(),
             name: name.to_string(),
@@ -105,7 +112,7 @@ pub mod api_mapping {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

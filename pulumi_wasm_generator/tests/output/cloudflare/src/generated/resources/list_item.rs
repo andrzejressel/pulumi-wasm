@@ -98,31 +98,35 @@
 /// ```
 ///
 pub mod list_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListItemArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Autonomous system number to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub asn: pulumi_wasm_rust::Output<Option<i32>>,
+        pub asn: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// An optional comment for the item.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Hostname to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::Output<Option<super::types::ListItemHostname>>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<
+            Option<super::types::ListItemHostname>,
+        >,
         /// IP address to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list identifier to target for the resource.
         #[builder(into)]
-        pub list_id: pulumi_wasm_rust::Output<String>,
+        pub list_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Redirect configuration to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
         #[builder(into, default)]
-        pub redirect: pulumi_wasm_rust::Output<Option<super::types::ListItemRedirect>>,
+        pub redirect: pulumi_wasm_rust::InputOrOutput<
+            Option<super::types::ListItemRedirect>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ListItemResult {
@@ -145,16 +149,20 @@ pub mod list_item {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListItemArgs) -> ListItemResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListItemArgs,
+    ) -> ListItemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let asn_binding = args.asn.get_inner();
-        let comment_binding = args.comment.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let ip_binding = args.ip.get_inner();
-        let list_id_binding = args.list_id.get_inner();
-        let redirect_binding = args.redirect.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let asn_binding = args.asn.get_output(context).get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let ip_binding = args.ip.get_output(context).get_inner();
+        let list_id_binding = args.list_id.get_output(context).get_inner();
+        let redirect_binding = args.redirect.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/listItem:ListItem".into(),
             name: name.to_string(),
@@ -213,7 +221,7 @@ pub mod list_item {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

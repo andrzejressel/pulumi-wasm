@@ -81,29 +81,29 @@
 /// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
 /// ```
 pub mod link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkArgs {
         /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         #[builder(into)]
-        pub label_template: pulumi_wasm_rust::Output<String>,
+        pub label_template: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         #[builder(into, default)]
-        pub link_configuration: pulumi_wasm_rust::Output<
+        pub link_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::oam::LinkLinkConfiguration>,
         >,
         /// Types of data that the source account shares with the monitoring account.
         #[builder(into)]
-        pub resource_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Identifier of the sink to use to create this link.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub sink_identifier: pulumi_wasm_rust::Output<String>,
+        pub sink_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -141,14 +141,24 @@ pub mod link {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkArgs) -> LinkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkArgs,
+    ) -> LinkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let label_template_binding = args.label_template.get_inner();
-        let link_configuration_binding = args.link_configuration.get_inner();
-        let resource_types_binding = args.resource_types.get_inner();
-        let sink_identifier_binding = args.sink_identifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let label_template_binding = args.label_template.get_output(context).get_inner();
+        let link_configuration_binding = args
+            .link_configuration
+            .get_output(context)
+            .get_inner();
+        let resource_types_binding = args.resource_types.get_output(context).get_inner();
+        let sink_identifier_binding = args
+            .sink_identifier
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:oam/link:Link".into(),
             name: name.to_string(),
@@ -208,7 +218,7 @@ pub mod link {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

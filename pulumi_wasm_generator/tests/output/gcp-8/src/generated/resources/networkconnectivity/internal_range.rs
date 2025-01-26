@@ -182,63 +182,63 @@
 /// ```
 ///
 pub mod internal_range {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InternalRangeArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP range that this internal range defines.
         #[builder(into, default)]
-        pub ip_cidr_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-defined labels.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specification for migration with source and target resource names.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub migration: pulumi_wasm_rust::Output<
+        pub migration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkconnectivity::InternalRangeMigration>,
         >,
         /// The name of the policy based route.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Types of resources that are allowed to overlap with the current internal range.
         /// Each value may be one of: `OVERLAP_ROUTE_RANGE`, `OVERLAP_EXISTING_SUBNET_RANGE`.
         #[builder(into, default)]
-        pub overlaps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub overlaps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The type of peering set for this internal range.
         /// Possible values are: `FOR_SELF`, `FOR_PEER`, `NOT_SHARED`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub peering: pulumi_wasm_rust::Output<String>,
+        pub peering: pulumi_wasm_rust::InputOrOutput<String>,
         /// An alternate to ipCidrRange. Can be set when trying to create a reservation that automatically finds a free range of the given size.
         /// If both ipCidrRange and prefixLength are set, there is an error if the range sizes do not match. Can also be used during updates to change the range size.
         #[builder(into, default)]
-        pub prefix_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub prefix_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Can be set to narrow down or pick a different address space while searching for a free range.
         /// If not set, defaults to the "10.0.0.0/8" address space. This can be used to search in other rfc-1918 address spaces like "172.16.0.0/12" and "192.168.0.0/16" or non-rfc-1918 address spaces used in the VPC.
         #[builder(into, default)]
-        pub target_cidr_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_cidr_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The type of usage set for this InternalRange.
         /// Possible values are: `FOR_VPC`, `EXTERNAL_TO_VPC`, `FOR_MIGRATION`.
         #[builder(into)]
-        pub usage: pulumi_wasm_rust::Output<String>,
+        pub usage: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InternalRangeResult {
@@ -301,21 +301,28 @@ pub mod internal_range {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InternalRangeArgs) -> InternalRangeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InternalRangeArgs,
+    ) -> InternalRangeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let ip_cidr_range_binding = args.ip_cidr_range.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let migration_binding = args.migration.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let overlaps_binding = args.overlaps.get_inner();
-        let peering_binding = args.peering.get_inner();
-        let prefix_length_binding = args.prefix_length.get_inner();
-        let project_binding = args.project.get_inner();
-        let target_cidr_ranges_binding = args.target_cidr_ranges.get_inner();
-        let usage_binding = args.usage.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let migration_binding = args.migration.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let overlaps_binding = args.overlaps.get_output(context).get_inner();
+        let peering_binding = args.peering.get_output(context).get_inner();
+        let prefix_length_binding = args.prefix_length.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let target_cidr_ranges_binding = args
+            .target_cidr_ranges
+            .get_output(context)
+            .get_inner();
+        let usage_binding = args.usage.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/internalRange:InternalRange".into(),
             name: name.to_string(),
@@ -418,7 +425,7 @@ pub mod internal_range {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

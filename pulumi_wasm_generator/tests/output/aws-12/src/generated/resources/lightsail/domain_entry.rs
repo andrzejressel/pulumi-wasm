@@ -33,25 +33,25 @@
 /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
 /// ```
 pub mod domain_entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainEntryArgs {
         /// The name of the Lightsail domain in which to create the entry
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// If the entry should be an alias Defaults to `false`
         #[builder(into, default)]
-        pub is_alias: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_alias: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the entry record
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Target of the domain entry
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of record
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainEntryResult {
@@ -70,14 +70,18 @@ pub mod domain_entry {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainEntryArgs) -> DomainEntryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainEntryArgs,
+    ) -> DomainEntryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let is_alias_binding = args.is_alias.get_inner();
-        let name_binding = args.name.get_inner();
-        let target_binding = args.target.get_inner();
-        let type__binding = args.type_.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let is_alias_binding = args.is_alias.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/domainEntry:DomainEntry".into(),
             name: name.to_string(),
@@ -122,7 +126,7 @@ pub mod domain_entry {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

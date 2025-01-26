@@ -107,43 +107,43 @@
 /// ```
 ///
 pub mod transfer_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransferJobArgs {
         /// Unique description to identify the Transfer Job.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Event-driven transfer options. Event-driven transfers listen to an event stream to transfer updated files. Structure documented below Either `event_stream` or `schedule` must be set.
         #[builder(into, default)]
-        pub event_stream: pulumi_wasm_rust::Output<
+        pub event_stream: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobEventStream>,
         >,
         /// The name of the Transfer Job. This name must start with "transferJobs/" prefix and end with a letter or a number, and should be no more than 128 characters ( `transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For transfers involving PosixFilesystem, this name must start with transferJobs/OPI specifically ( `transferJobs/OPI^[A-Za-z0-9-._~]*[A-Za-z0-9]$` ). For all other transfer types, this name must not start with transferJobs/OPI. Default the provider will assign a random unique name with `transferJobs/{{name}}` format, where `name` is a numeric value.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Notification configuration. This is not supported for transfers involving PosixFilesystem. Structure documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobNotificationConfig>,
         >,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Schedule specification defining when the Transfer Job should be scheduled to start, end and what time to run. Structure documented below. Either `schedule` or `event_stream` must be set.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::TransferJobSchedule>,
         >,
         /// Status of the job. Default: `ENABLED`. **NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.**
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Transfer specification. Structure documented below.
         ///
         /// - - -
         #[builder(into)]
-        pub transfer_spec: pulumi_wasm_rust::Output<
+        pub transfer_spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::storage::TransferJobTransferSpec,
         >,
     }
@@ -187,17 +187,24 @@ pub mod transfer_job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TransferJobArgs) -> TransferJobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TransferJobArgs,
+    ) -> TransferJobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let event_stream_binding = args.event_stream.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_config_binding = args.notification_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let status_binding = args.status.get_inner();
-        let transfer_spec_binding = args.transfer_spec.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let event_stream_binding = args.event_stream.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_config_binding = args
+            .notification_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let transfer_spec_binding = args.transfer_spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/transferJob:TransferJob".into(),
             name: name.to_string(),
@@ -272,7 +279,7 @@ pub mod transfer_job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

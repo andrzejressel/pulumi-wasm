@@ -40,16 +40,16 @@
 /// $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
 /// ```
 pub mod data_catalog_encryption_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataCatalogEncryptionSettingsArgs {
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The security configuration to set. see Data Catalog Encryption Settings.
         #[builder(into)]
-        pub data_catalog_encryption_settings: pulumi_wasm_rust::Output<
+        pub data_catalog_encryption_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::glue::DataCatalogEncryptionSettingsDataCatalogEncryptionSettings,
         >,
     }
@@ -67,14 +67,16 @@ pub mod data_catalog_encryption_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataCatalogEncryptionSettingsArgs,
     ) -> DataCatalogEncryptionSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_inner();
+        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let data_catalog_encryption_settings_binding = args
             .data_catalog_encryption_settings
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings"
@@ -100,7 +102,7 @@ pub mod data_catalog_encryption_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -74,65 +74,69 @@
 /// ```
 ///
 pub mod spark_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SparkPoolArgs {
         /// An `auto_pause` block as defined below.
         #[builder(into, default)]
-        pub auto_pause: pulumi_wasm_rust::Output<
+        pub auto_pause: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolAutoPause>,
         >,
         /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         #[builder(into, default)]
-        pub auto_scale: pulumi_wasm_rust::Output<
+        pub auto_scale: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolAutoScale>,
         >,
         /// The cache size in the Spark Pool.
         #[builder(into, default)]
-        pub cache_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cache_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
         #[builder(into, default)]
-        pub compute_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub compute_isolation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub dynamic_executor_allocation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dynamic_executor_allocation_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         #[builder(into, default)]
-        pub library_requirement: pulumi_wasm_rust::Output<
+        pub library_requirement: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolLibraryRequirement>,
         >,
         #[builder(into, default)]
-        pub max_executors: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_executors: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub min_executors: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_executors: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         #[builder(into, default)]
-        pub node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         #[builder(into)]
-        pub node_size: pulumi_wasm_rust::Output<String>,
+        pub node_size: pulumi_wasm_rust::InputOrOutput<String>,
         /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         #[builder(into)]
-        pub node_size_family: pulumi_wasm_rust::Output<String>,
+        pub node_size_family: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub session_level_packages_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub session_level_packages_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         #[builder(into, default)]
-        pub spark_config: pulumi_wasm_rust::Output<
+        pub spark_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synapse::SparkPoolSparkConfig>,
         >,
         #[builder(into, default)]
-        pub spark_events_folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub spark_events_folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub spark_log_folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub spark_log_folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub spark_version: pulumi_wasm_rust::Output<String>,
+        pub spark_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -181,34 +185,56 @@ pub mod spark_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SparkPoolArgs) -> SparkPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SparkPoolArgs,
+    ) -> SparkPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_pause_binding = args.auto_pause.get_inner();
-        let auto_scale_binding = args.auto_scale.get_inner();
-        let cache_size_binding = args.cache_size.get_inner();
+        let auto_pause_binding = args.auto_pause.get_output(context).get_inner();
+        let auto_scale_binding = args.auto_scale.get_output(context).get_inner();
+        let cache_size_binding = args.cache_size.get_output(context).get_inner();
         let compute_isolation_enabled_binding = args
             .compute_isolation_enabled
+            .get_output(context)
             .get_inner();
         let dynamic_executor_allocation_enabled_binding = args
             .dynamic_executor_allocation_enabled
+            .get_output(context)
             .get_inner();
-        let library_requirement_binding = args.library_requirement.get_inner();
-        let max_executors_binding = args.max_executors.get_inner();
-        let min_executors_binding = args.min_executors.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_count_binding = args.node_count.get_inner();
-        let node_size_binding = args.node_size.get_inner();
-        let node_size_family_binding = args.node_size_family.get_inner();
+        let library_requirement_binding = args
+            .library_requirement
+            .get_output(context)
+            .get_inner();
+        let max_executors_binding = args.max_executors.get_output(context).get_inner();
+        let min_executors_binding = args.min_executors.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_count_binding = args.node_count.get_output(context).get_inner();
+        let node_size_binding = args.node_size.get_output(context).get_inner();
+        let node_size_family_binding = args
+            .node_size_family
+            .get_output(context)
+            .get_inner();
         let session_level_packages_enabled_binding = args
             .session_level_packages_enabled
+            .get_output(context)
             .get_inner();
-        let spark_config_binding = args.spark_config.get_inner();
-        let spark_events_folder_binding = args.spark_events_folder.get_inner();
-        let spark_log_folder_binding = args.spark_log_folder.get_inner();
-        let spark_version_binding = args.spark_version.get_inner();
-        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let spark_config_binding = args.spark_config.get_output(context).get_inner();
+        let spark_events_folder_binding = args
+            .spark_events_folder
+            .get_output(context)
+            .get_inner();
+        let spark_log_folder_binding = args
+            .spark_log_folder
+            .get_output(context)
+            .get_inner();
+        let spark_version_binding = args.spark_version.get_output(context).get_inner();
+        let synapse_workspace_id_binding = args
+            .synapse_workspace_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sparkPool:SparkPool".into(),
             name: name.to_string(),
@@ -351,7 +377,7 @@ pub mod spark_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

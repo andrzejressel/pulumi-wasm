@@ -1,28 +1,28 @@
 pub mod get_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetUserArgs {
         /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
         #[builder(into, default)]
-        pub alternate_identifier: pulumi_wasm_rust::Output<
+        pub alternate_identifier: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::identitystore::GetUserAlternateIdentifier>,
         >,
         /// Configuration block for filtering by a unique attribute of the user. Detailed below.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::identitystore::GetUserFilter>,
         >,
         /// Identity Store ID associated with the Single Sign-On Instance.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifier for a user in the Identity Store.
         ///
         /// > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
         #[builder(into, default)]
-        pub user_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetUserResult {
@@ -79,13 +79,22 @@ pub mod get_user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetUserArgs) -> GetUserResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetUserArgs,
+    ) -> GetUserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alternate_identifier_binding = args.alternate_identifier.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let identity_store_id_binding = args.identity_store_id.get_inner();
-        let user_id_binding = args.user_id.get_inner();
+        let alternate_identifier_binding = args
+            .alternate_identifier
+            .get_output(context)
+            .get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let identity_store_id_binding = args
+            .identity_store_id
+            .get_output(context)
+            .get_inner();
+        let user_id_binding = args.user_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getUser:getUser".into(),
             version: super::super::super::get_version(),
@@ -167,7 +176,7 @@ pub mod get_user {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

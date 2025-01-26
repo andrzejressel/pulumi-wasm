@@ -95,31 +95,31 @@
 /// $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_streaming {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorStreamingArgs {
         /// The retention period, in hours, for the Amazon Kinesis data.
         #[builder(into)]
-        pub data_retention: pulumi_wasm_rust::Output<i32>,
+        pub data_retention: pulumi_wasm_rust::InputOrOutput<i32>,
         /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The media insights configuration. See `media_insights_configuration`.
         #[builder(into, default)]
-        pub media_insights_configuration: pulumi_wasm_rust::Output<
+        pub media_insights_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::chime::VoiceConnectorStreamingMediaInsightsConfiguration,
             >,
         >,
         /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         #[builder(into, default)]
-        pub streaming_notification_targets: pulumi_wasm_rust::Output<
+        pub streaming_notification_targets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorStreamingResult {
@@ -145,20 +145,26 @@ pub mod voice_connector_streaming {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorStreamingArgs,
     ) -> VoiceConnectorStreamingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_retention_binding = args.data_retention.get_inner();
-        let disabled_binding = args.disabled.get_inner();
+        let data_retention_binding = args.data_retention.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
         let media_insights_configuration_binding = args
             .media_insights_configuration
+            .get_output(context)
             .get_inner();
         let streaming_notification_targets_binding = args
             .streaming_notification_targets
+            .get_output(context)
             .get_inner();
-        let voice_connector_id_binding = args.voice_connector_id.get_inner();
+        let voice_connector_id_binding = args
+            .voice_connector_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming".into(),
             name: name.to_string(),
@@ -203,7 +209,7 @@ pub mod voice_connector_streaming {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

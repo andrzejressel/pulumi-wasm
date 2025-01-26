@@ -37,22 +37,22 @@
 /// ```
 ///
 pub mod authenticated_origin_pulls_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthenticatedOriginPullsCertificateArgs {
         /// The public client certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
         /// The private key of the client certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub private_key: pulumi_wasm_rust::Output<String>,
+        pub private_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The form of Authenticated Origin Pulls to upload the certificate to. Available values: `per-zone`, `per-hostname`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthenticatedOriginPullsCertificateResult {
@@ -82,15 +82,16 @@ pub mod authenticated_origin_pulls_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AuthenticatedOriginPullsCertificateArgs,
     ) -> AuthenticatedOriginPullsCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_inner();
-        let private_key_binding = args.private_key.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
+        let private_key_binding = args.private_key.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate"
                 .into(),
@@ -147,7 +148,7 @@ pub mod authenticated_origin_pulls_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

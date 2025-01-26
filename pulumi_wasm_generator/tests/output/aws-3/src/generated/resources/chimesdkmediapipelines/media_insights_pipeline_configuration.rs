@@ -269,33 +269,33 @@
 /// $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
 /// ```
 pub mod media_insights_pipeline_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MediaInsightsPipelineConfigurationArgs {
         /// Collection of processors and sinks to transform media and deliver data.
         #[builder(into)]
-        pub elements: pulumi_wasm_rust::Output<
+        pub elements: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationElement,
             >,
         >,
         /// Configuration name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         #[builder(into, default)]
-        pub real_time_alert_configuration: pulumi_wasm_rust::Output<
+        pub real_time_alert_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationRealTimeAlertConfiguration,
             >,
         >,
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         #[builder(into)]
-        pub resource_access_role_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_access_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of tags for the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -332,18 +332,23 @@ pub mod media_insights_pipeline_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MediaInsightsPipelineConfigurationArgs,
     ) -> MediaInsightsPipelineConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let elements_binding = args.elements.get_inner();
-        let name_binding = args.name.get_inner();
+        let elements_binding = args.elements.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let real_time_alert_configuration_binding = args
             .real_time_alert_configuration
+            .get_output(context)
             .get_inner();
-        let resource_access_role_arn_binding = args.resource_access_role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_access_role_arn_binding = args
+            .resource_access_role_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration"
                 .into(),
@@ -395,7 +400,7 @@ pub mod media_insights_pipeline_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

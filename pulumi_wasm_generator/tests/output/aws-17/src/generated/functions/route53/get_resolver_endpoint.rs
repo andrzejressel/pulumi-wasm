@@ -1,5 +1,5 @@
 pub mod get_resolver_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverEndpointArgs {
@@ -9,12 +9,12 @@ pub mod get_resolver_endpoint {
         ///
         /// In addition to all arguments above, the following attributes are exported:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::route53::GetResolverEndpointFilter>>,
         >,
         /// ID of the Route53 Resolver Endpoint.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetResolverEndpointResult {
@@ -37,11 +37,17 @@ pub mod get_resolver_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetResolverEndpointArgs) -> GetResolverEndpointResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetResolverEndpointArgs,
+    ) -> GetResolverEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let resolver_endpoint_id_binding = args
+            .resolver_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverEndpoint:getResolverEndpoint".into(),
             version: super::super::super::get_version(),
@@ -91,7 +97,7 @@ pub mod get_resolver_endpoint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

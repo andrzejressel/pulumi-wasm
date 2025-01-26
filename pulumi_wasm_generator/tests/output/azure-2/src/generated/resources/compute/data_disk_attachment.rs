@@ -101,28 +101,28 @@
 /// ```
 ///
 pub mod data_disk_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataDiskAttachmentArgs {
         /// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         #[builder(into)]
-        pub caching: pulumi_wasm_rust::Output<String>,
+        pub caching: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub create_option: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_option: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lun: pulumi_wasm_rust::Output<i32>,
+        pub lun: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_disk_id: pulumi_wasm_rust::Output<String>,
+        pub managed_disk_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         #[builder(into, default)]
-        pub write_accelerator_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub write_accelerator_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DataDiskAttachmentResult {
@@ -143,16 +143,27 @@ pub mod data_disk_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataDiskAttachmentArgs) -> DataDiskAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataDiskAttachmentArgs,
+    ) -> DataDiskAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let caching_binding = args.caching.get_inner();
-        let create_option_binding = args.create_option.get_inner();
-        let lun_binding = args.lun.get_inner();
-        let managed_disk_id_binding = args.managed_disk_id.get_inner();
-        let virtual_machine_id_binding = args.virtual_machine_id.get_inner();
+        let caching_binding = args.caching.get_output(context).get_inner();
+        let create_option_binding = args.create_option.get_output(context).get_inner();
+        let lun_binding = args.lun.get_output(context).get_inner();
+        let managed_disk_id_binding = args
+            .managed_disk_id
+            .get_output(context)
+            .get_inner();
+        let virtual_machine_id_binding = args
+            .virtual_machine_id
+            .get_output(context)
+            .get_inner();
         let write_accelerator_enabled_binding = args
             .write_accelerator_enabled
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/dataDiskAttachment:DataDiskAttachment".into(),
@@ -205,7 +216,7 @@ pub mod data_disk_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

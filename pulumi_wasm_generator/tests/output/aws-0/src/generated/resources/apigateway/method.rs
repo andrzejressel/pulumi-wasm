@@ -87,50 +87,50 @@
 /// $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
 /// ```
 pub mod method {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MethodArgs {
         /// Specify if the method requires an API key
         #[builder(into, default)]
-        pub api_key_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub api_key_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         #[builder(into)]
-        pub authorization: pulumi_wasm_rust::Output<String>,
+        pub authorization: pulumi_wasm_rust::InputOrOutput<String>,
         /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         #[builder(into, default)]
-        pub authorization_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorization_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         #[builder(into, default)]
-        pub authorizer_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorizer_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         #[builder(into)]
-        pub http_method: pulumi_wasm_rust::Output<String>,
+        pub http_method: pulumi_wasm_rust::InputOrOutput<String>,
         /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         #[builder(into, default)]
-        pub operation_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub operation_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         #[builder(into, default)]
-        pub request_models: pulumi_wasm_rust::Output<
+        pub request_models: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         #[builder(into, default)]
-        pub request_parameters: pulumi_wasm_rust::Output<
+        pub request_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, bool>>,
         >,
         /// ID of a `aws.apigateway.RequestValidator`
         #[builder(into, default)]
-        pub request_validator_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_validator_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// API resource ID
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the associated REST API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MethodResult {
@@ -168,20 +168,36 @@ pub mod method {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MethodArgs) -> MethodResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MethodArgs,
+    ) -> MethodResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_required_binding = args.api_key_required.get_inner();
-        let authorization_binding = args.authorization.get_inner();
-        let authorization_scopes_binding = args.authorization_scopes.get_inner();
-        let authorizer_id_binding = args.authorizer_id.get_inner();
-        let http_method_binding = args.http_method.get_inner();
-        let operation_name_binding = args.operation_name.get_inner();
-        let request_models_binding = args.request_models.get_inner();
-        let request_parameters_binding = args.request_parameters.get_inner();
-        let request_validator_id_binding = args.request_validator_id.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
-        let rest_api_binding = args.rest_api.get_inner();
+        let api_key_required_binding = args
+            .api_key_required
+            .get_output(context)
+            .get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let authorization_scopes_binding = args
+            .authorization_scopes
+            .get_output(context)
+            .get_inner();
+        let authorizer_id_binding = args.authorizer_id.get_output(context).get_inner();
+        let http_method_binding = args.http_method.get_output(context).get_inner();
+        let operation_name_binding = args.operation_name.get_output(context).get_inner();
+        let request_models_binding = args.request_models.get_output(context).get_inner();
+        let request_parameters_binding = args
+            .request_parameters
+            .get_output(context)
+            .get_inner();
+        let request_validator_id_binding = args
+            .request_validator_id
+            .get_output(context)
+            .get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let rest_api_binding = args.rest_api.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/method:Method".into(),
             name: name.to_string(),
@@ -268,7 +284,7 @@ pub mod method {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

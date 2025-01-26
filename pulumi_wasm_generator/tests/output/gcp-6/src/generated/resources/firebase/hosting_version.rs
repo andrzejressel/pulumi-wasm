@@ -277,14 +277,14 @@
 /// ```
 ///
 pub mod hosting_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingVersionArgs {
         /// The configuration for the behavior of the site. This configuration exists in the `firebase.json` file.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::firebase::HostingVersionConfig>,
         >,
         /// Required. The ID of the site in which to create this Version.
@@ -292,7 +292,7 @@ pub mod hosting_version {
         ///
         /// - - -
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostingVersionResult {
@@ -316,11 +316,15 @@ pub mod hosting_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostingVersionArgs) -> HostingVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostingVersionArgs,
+    ) -> HostingVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_binding = args.config.get_inner();
-        let site_id_binding = args.site_id.get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingVersion:HostingVersion".into(),
             name: name.to_string(),
@@ -350,7 +354,7 @@ pub mod hosting_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

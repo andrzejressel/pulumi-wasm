@@ -87,22 +87,22 @@
 /// ```
 ///
 pub mod backup_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupScheduleArgs {
         /// For a schedule that runs daily.
         #[builder(into, default)]
-        pub daily_recurrence: pulumi_wasm_rust::Output<
+        pub daily_recurrence: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::firestore::BackupScheduleDailyRecurrence>,
         >,
         /// The Firestore database id. Defaults to `"(default)"`.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         /// You can set this to a value up to 14 weeks.
@@ -110,11 +110,11 @@ pub mod backup_schedule {
         ///
         /// - - -
         #[builder(into)]
-        pub retention: pulumi_wasm_rust::Output<String>,
+        pub retention: pulumi_wasm_rust::InputOrOutput<String>,
         /// For a schedule that runs weekly on a specific day.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub weekly_recurrence: pulumi_wasm_rust::Output<
+        pub weekly_recurrence: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::firestore::BackupScheduleWeeklyRecurrence>,
         >,
     }
@@ -149,14 +149,24 @@ pub mod backup_schedule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupScheduleArgs) -> BackupScheduleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupScheduleArgs,
+    ) -> BackupScheduleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_binding = args.daily_recurrence.get_inner();
-        let database_binding = args.database.get_inner();
-        let project_binding = args.project.get_inner();
-        let retention_binding = args.retention.get_inner();
-        let weekly_recurrence_binding = args.weekly_recurrence.get_inner();
+        let daily_recurrence_binding = args
+            .daily_recurrence
+            .get_output(context)
+            .get_inner();
+        let database_binding = args.database.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let retention_binding = args.retention.get_output(context).get_inner();
+        let weekly_recurrence_binding = args
+            .weekly_recurrence
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),
@@ -204,7 +214,7 @@ pub mod backup_schedule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

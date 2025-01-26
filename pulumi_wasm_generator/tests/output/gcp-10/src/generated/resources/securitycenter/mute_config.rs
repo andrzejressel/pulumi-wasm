@@ -43,23 +43,23 @@
 /// ```
 ///
 pub mod mute_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MuteConfigArgs {
         /// A description of the mute config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An expression that defines the filter to apply across create/update
         /// events of findings. While creating a filter string, be mindful of
         /// the scope in which the mute configuration is being created. E.g.,
         /// If a filter contains project = X but is created under the
         /// project = Y scope, it might not match any findings.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
         /// Unique identifier provided by the client within the parent scope.
         #[builder(into)]
-        pub mute_config_id: pulumi_wasm_rust::Output<String>,
+        pub mute_config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource name of the new mute configs's parent. Its format is
         /// "organizations/[organization_id]", "folders/[folder_id]", or
         /// "projects/[project_id]".
@@ -67,7 +67,7 @@ pub mod mute_config {
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MuteConfigResult {
@@ -109,13 +109,17 @@ pub mod mute_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MuteConfigArgs) -> MuteConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MuteConfigArgs,
+    ) -> MuteConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let mute_config_id_binding = args.mute_config_id.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let mute_config_id_binding = args.mute_config_id.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/muteConfig:MuteConfig".into(),
             name: name.to_string(),
@@ -165,7 +169,7 @@ pub mod mute_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

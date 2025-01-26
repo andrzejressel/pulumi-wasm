@@ -49,19 +49,19 @@
 /// ```
 ///
 pub mod api_operation_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiOperationTagArgs {
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
         #[builder(into)]
-        pub api_operation_id: pulumi_wasm_rust::Output<String>,
+        pub api_operation_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name of the API Management API Operation Tag.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiOperationTagResult {
@@ -76,12 +76,19 @@ pub mod api_operation_tag {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiOperationTagArgs) -> ApiOperationTagResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiOperationTagArgs,
+    ) -> ApiOperationTagResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_operation_id_binding = args.api_operation_id.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let api_operation_id_binding = args
+            .api_operation_id
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiOperationTag:ApiOperationTag".into(),
             name: name.to_string(),
@@ -112,7 +119,7 @@ pub mod api_operation_tag {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

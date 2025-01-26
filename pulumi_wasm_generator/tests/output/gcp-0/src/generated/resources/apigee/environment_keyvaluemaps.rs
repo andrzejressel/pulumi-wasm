@@ -105,7 +105,7 @@
 /// ```
 ///
 pub mod environment_keyvaluemaps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsArgs {
@@ -115,10 +115,10 @@ pub mod environment_keyvaluemaps {
         ///
         /// - - -
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. ID of the key value map.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsResult {
@@ -136,13 +136,14 @@ pub mod environment_keyvaluemaps {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentKeyvaluemapsArgs,
     ) -> EnvironmentKeyvaluemapsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let env_id_binding = args.env_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let env_id_binding = args.env_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/environmentKeyvaluemaps:EnvironmentKeyvaluemaps".into(),
             name: name.to_string(),
@@ -166,7 +167,7 @@ pub mod environment_keyvaluemaps {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

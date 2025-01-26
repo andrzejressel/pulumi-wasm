@@ -25,28 +25,28 @@
 /// $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx
 /// ```
 pub mod ingestion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IngestionArgs {
         /// Name of the application.
         /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
         #[builder(into)]
-        pub app: pulumi_wasm_rust::Output<String>,
+        pub app: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Ingestion type. Valid values are `auditLog`.
         #[builder(into)]
-        pub ingestion_type: pulumi_wasm_rust::Output<String>,
+        pub ingestion_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the application tenant.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IngestionResult {
@@ -74,14 +74,18 @@ pub mod ingestion {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IngestionArgs) -> IngestionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IngestionArgs,
+    ) -> IngestionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_binding = args.app.get_inner();
-        let app_bundle_arn_binding = args.app_bundle_arn.get_inner();
-        let ingestion_type_binding = args.ingestion_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let app_binding = args.app.get_output(context).get_inner();
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
+        let ingestion_type_binding = args.ingestion_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/ingestion:Ingestion".into(),
             name: name.to_string(),
@@ -132,7 +136,7 @@ pub mod ingestion {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

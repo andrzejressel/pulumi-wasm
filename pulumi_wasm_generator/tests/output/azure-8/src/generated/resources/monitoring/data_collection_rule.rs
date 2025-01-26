@@ -9,60 +9,60 @@
 /// ```
 ///
 pub mod data_collection_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataCollectionRuleArgs {
         /// The resource ID of the Data Collection Endpoint that this rule can be used with.
         #[builder(into, default)]
-        pub data_collection_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_collection_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `data_flow` blocks as defined below.
         #[builder(into)]
-        pub data_flows: pulumi_wasm_rust::Output<
+        pub data_flows: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::monitoring::DataCollectionRuleDataFlow>,
         >,
         /// A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         #[builder(into, default)]
-        pub data_sources: pulumi_wasm_rust::Output<
+        pub data_sources: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::DataCollectionRuleDataSources>,
         >,
         /// The description of the Data Collection Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `destinations` block as defined below.
         #[builder(into)]
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_wasm_rust::InputOrOutput<
             super::super::types::monitoring::DataCollectionRuleDestinations,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::DataCollectionRuleIdentity>,
         >,
         /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         ///
         /// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `stream_declaration` block as defined below.
         #[builder(into, default)]
-        pub stream_declarations: pulumi_wasm_rust::Output<
+        pub stream_declarations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::monitoring::DataCollectionRuleStreamDeclaration>,
             >,
         >,
         /// A mapping of tags which should be assigned to the Data Collection Rule.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -115,23 +115,34 @@ pub mod data_collection_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataCollectionRuleArgs) -> DataCollectionRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataCollectionRuleArgs,
+    ) -> DataCollectionRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_collection_endpoint_id_binding = args
             .data_collection_endpoint_id
+            .get_output(context)
             .get_inner();
-        let data_flows_binding = args.data_flows.get_inner();
-        let data_sources_binding = args.data_sources.get_inner();
-        let description_binding = args.description.get_inner();
-        let destinations_binding = args.destinations.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let stream_declarations_binding = args.stream_declarations.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let data_flows_binding = args.data_flows.get_output(context).get_inner();
+        let data_sources_binding = args.data_sources.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destinations_binding = args.destinations.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let stream_declarations_binding = args
+            .stream_declarations
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/dataCollectionRule:DataCollectionRule".into(),
             name: name.to_string(),
@@ -228,7 +239,7 @@ pub mod data_collection_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

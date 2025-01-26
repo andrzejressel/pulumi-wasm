@@ -70,62 +70,64 @@
 /// ```
 ///
 pub mod cassandra_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CassandraClusterArgs {
         /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         #[builder(into, default)]
-        pub authentication_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         #[builder(into, default)]
-        pub client_certificate_pems: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub client_certificate_pems: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub default_admin_password: pulumi_wasm_rust::Output<String>,
+        pub default_admin_password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into)]
-        pub delegated_management_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub delegated_management_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         #[builder(into, default)]
-        pub external_gossip_certificate_pems: pulumi_wasm_rust::Output<
+        pub external_gossip_certificate_pems: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
         #[builder(into, default)]
-        pub external_seed_node_ip_addresses: pulumi_wasm_rust::Output<
+        pub external_seed_node_ip_addresses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         ///
         /// > **Note:** To disable this feature, set this property to `0`.
         #[builder(into, default)]
-        pub hours_between_backups: pulumi_wasm_rust::Output<Option<i32>>,
+        pub hours_between_backups: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::CassandraClusterIdentity>,
         >,
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         #[builder(into, default)]
-        pub repair_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub repair_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CassandraClusterResult {
@@ -172,29 +174,51 @@ pub mod cassandra_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CassandraClusterArgs) -> CassandraClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CassandraClusterArgs,
+    ) -> CassandraClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_method_binding = args.authentication_method.get_inner();
-        let client_certificate_pems_binding = args.client_certificate_pems.get_inner();
-        let default_admin_password_binding = args.default_admin_password.get_inner();
+        let authentication_method_binding = args
+            .authentication_method
+            .get_output(context)
+            .get_inner();
+        let client_certificate_pems_binding = args
+            .client_certificate_pems
+            .get_output(context)
+            .get_inner();
+        let default_admin_password_binding = args
+            .default_admin_password
+            .get_output(context)
+            .get_inner();
         let delegated_management_subnet_id_binding = args
             .delegated_management_subnet_id
+            .get_output(context)
             .get_inner();
         let external_gossip_certificate_pems_binding = args
             .external_gossip_certificate_pems
+            .get_output(context)
             .get_inner();
         let external_seed_node_ip_addresses_binding = args
             .external_seed_node_ip_addresses
+            .get_output(context)
             .get_inner();
-        let hours_between_backups_binding = args.hours_between_backups.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let repair_enabled_binding = args.repair_enabled.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_binding = args.version.get_inner();
+        let hours_between_backups_binding = args
+            .hours_between_backups
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let repair_enabled_binding = args.repair_enabled.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraCluster:CassandraCluster".into(),
             name: name.to_string(),
@@ -302,7 +326,7 @@ pub mod cassandra_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

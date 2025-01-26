@@ -38,52 +38,52 @@
 /// $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
 /// ```
 pub mod kx_dataview {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxDataviewArgs {
         /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         #[builder(into)]
-        pub auto_update: pulumi_wasm_rust::Output<bool>,
+        pub auto_update: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * `SINGLE` - Assigns one availability zone per cluster.
         /// * `MULTI` - Assigns all the availability zones per cluster.
         #[builder(into)]
-        pub az_mode: pulumi_wasm_rust::Output<String>,
+        pub az_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier of the changeset of the database that you want to use to ingest data.
         #[builder(into, default)]
-        pub changeset_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub changeset_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the database where you want to create a dataview.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for the dataview.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier for the KX environment.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for the dataview.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
         /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
         /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
         /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         #[builder(into, default)]
-        pub read_write: pulumi_wasm_rust::Output<Option<bool>>,
+        pub read_write: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         #[builder(into, default)]
-        pub segment_configurations: pulumi_wasm_rust::Output<
+        pub segment_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::finspace::KxDataviewSegmentConfiguration>>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -138,20 +138,30 @@ pub mod kx_dataview {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KxDataviewArgs) -> KxDataviewResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KxDataviewArgs,
+    ) -> KxDataviewResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_update_binding = args.auto_update.get_inner();
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let az_mode_binding = args.az_mode.get_inner();
-        let changeset_id_binding = args.changeset_id.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let environment_id_binding = args.environment_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let read_write_binding = args.read_write.get_inner();
-        let segment_configurations_binding = args.segment_configurations.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let auto_update_binding = args.auto_update.get_output(context).get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let az_mode_binding = args.az_mode.get_output(context).get_inner();
+        let changeset_id_binding = args.changeset_id.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let environment_id_binding = args.environment_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let read_write_binding = args.read_write.get_output(context).get_inner();
+        let segment_configurations_binding = args
+            .segment_configurations
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxDataview:KxDataview".into(),
             name: name.to_string(),
@@ -253,7 +263,7 @@ pub mod kx_dataview {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

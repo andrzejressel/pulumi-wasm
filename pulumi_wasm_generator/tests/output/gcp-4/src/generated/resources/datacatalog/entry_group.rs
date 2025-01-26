@@ -55,30 +55,30 @@
 /// ```
 ///
 pub mod entry_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntryGroupArgs {
         /// Entry group description, which can consist of several sentences or paragraphs that describe entry group contents.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A short name to identify the entry group, for example, "analytics data - jan 2011".
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The id of the entry group to create. The id must begin with a letter or underscore,
         /// contain only English letters, numbers and underscores, and be at most 64 characters.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub entry_group_id: pulumi_wasm_rust::Output<String>,
+        pub entry_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// EntryGroup location region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EntryGroupResult {
@@ -104,14 +104,18 @@ pub mod entry_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EntryGroupArgs) -> EntryGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EntryGroupArgs,
+    ) -> EntryGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let entry_group_id_binding = args.entry_group_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let entry_group_id_binding = args.entry_group_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/entryGroup:EntryGroup".into(),
             name: name.to_string(),
@@ -159,7 +163,7 @@ pub mod entry_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,26 +1,26 @@
 pub mod get_region_instance_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupArgs {
         /// The name of the instance group.  One of `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If `self_link` is provided, this value is ignored.  If neither `self_link`
         /// nor `project` are provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region in which the resource belongs.  If `self_link`
         /// is provided, this value is ignored.  If neither `self_link` nor `region` are
         /// provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The link to the instance group.  One of `name` or `self_link` must be provided.
         ///
         /// - - -
         #[builder(into, default)]
-        pub self_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub self_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupResult {
@@ -42,13 +42,16 @@ pub mod get_region_instance_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRegionInstanceGroupArgs) -> GetRegionInstanceGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRegionInstanceGroupArgs,
+    ) -> GetRegionInstanceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let self_link_binding = args.self_link.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let self_link_binding = args.self_link.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionInstanceGroup:getRegionInstanceGroup".into(),
             version: super::super::super::get_version(),
@@ -94,7 +97,7 @@ pub mod get_region_instance_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

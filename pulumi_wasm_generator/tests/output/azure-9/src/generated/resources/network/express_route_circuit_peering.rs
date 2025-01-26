@@ -104,56 +104,58 @@
 /// ```
 ///
 pub mod express_route_circuit_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitPeeringArgs {
         /// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub express_route_circuit_name: pulumi_wasm_rust::Output<String>,
+        pub express_route_circuit_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub ipv4_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv4_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `ipv6` block as defined below.
         #[builder(into, default)]
-        pub ipv6: pulumi_wasm_rust::Output<
+        pub ipv6: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ExpressRouteCircuitPeeringIpv6>,
         >,
         /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         #[builder(into, default)]
-        pub microsoft_peering_config: pulumi_wasm_rust::Output<
+        pub microsoft_peering_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::network::ExpressRouteCircuitPeeringMicrosoftPeeringConfig,
             >,
         >,
         /// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         #[builder(into, default)]
-        pub peer_asn: pulumi_wasm_rust::Output<Option<i32>>,
+        pub peer_asn: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         ///
         /// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         #[builder(into)]
-        pub peering_type: pulumi_wasm_rust::Output<String>,
+        pub peering_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A subnet for the primary link.
         #[builder(into, default)]
-        pub primary_peer_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_peer_address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         ///
         /// > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         #[builder(into, default)]
-        pub route_filter_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub route_filter_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A subnet for the secondary link.
         #[builder(into, default)]
-        pub secondary_peer_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub secondary_peer_address_prefix: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The shared key. Can be a maximum of 25 characters.
         #[builder(into, default)]
-        pub shared_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub shared_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A valid VLAN ID to establish this peering on.
         #[builder(into)]
-        pub vlan_id: pulumi_wasm_rust::Output<i32>,
+        pub vlan_id: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitPeeringResult {
@@ -204,6 +206,7 @@ pub mod express_route_circuit_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExpressRouteCircuitPeeringArgs,
     ) -> ExpressRouteCircuitPeeringResult {
@@ -211,22 +214,34 @@ pub mod express_route_circuit_peering {
         use std::collections::HashMap;
         let express_route_circuit_name_binding = args
             .express_route_circuit_name
+            .get_output(context)
             .get_inner();
-        let ipv4_enabled_binding = args.ipv4_enabled.get_inner();
-        let ipv6_binding = args.ipv6.get_inner();
-        let microsoft_peering_config_binding = args.microsoft_peering_config.get_inner();
-        let peer_asn_binding = args.peer_asn.get_inner();
-        let peering_type_binding = args.peering_type.get_inner();
+        let ipv4_enabled_binding = args.ipv4_enabled.get_output(context).get_inner();
+        let ipv6_binding = args.ipv6.get_output(context).get_inner();
+        let microsoft_peering_config_binding = args
+            .microsoft_peering_config
+            .get_output(context)
+            .get_inner();
+        let peer_asn_binding = args.peer_asn.get_output(context).get_inner();
+        let peering_type_binding = args.peering_type.get_output(context).get_inner();
         let primary_peer_address_prefix_binding = args
             .primary_peer_address_prefix
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let route_filter_id_binding = args.route_filter_id.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let route_filter_id_binding = args
+            .route_filter_id
+            .get_output(context)
+            .get_inner();
         let secondary_peer_address_prefix_binding = args
             .secondary_peer_address_prefix
+            .get_output(context)
             .get_inner();
-        let shared_key_binding = args.shared_key.get_inner();
-        let vlan_id_binding = args.vlan_id.get_inner();
+        let shared_key_binding = args.shared_key.get_output(context).get_inner();
+        let vlan_id_binding = args.vlan_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering"
                 .into(),
@@ -333,7 +348,7 @@ pub mod express_route_circuit_peering {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

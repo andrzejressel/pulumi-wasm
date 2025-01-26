@@ -33,49 +33,49 @@
 /// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
 /// ```
 pub mod primary_contact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrimaryContactArgs {
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The first line of the primary contact address.
         #[builder(into)]
-        pub address_line1: pulumi_wasm_rust::Output<String>,
+        pub address_line1: pulumi_wasm_rust::InputOrOutput<String>,
         /// The second line of the primary contact address, if any.
         #[builder(into, default)]
-        pub address_line2: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_line2: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The third line of the primary contact address, if any.
         #[builder(into, default)]
-        pub address_line3: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_line3: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The city of the primary contact address.
         #[builder(into)]
-        pub city: pulumi_wasm_rust::Output<String>,
+        pub city: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the company associated with the primary contact information, if any.
         #[builder(into, default)]
-        pub company_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub company_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ISO-3166 two-letter country code for the primary contact address.
         #[builder(into)]
-        pub country_code: pulumi_wasm_rust::Output<String>,
+        pub country_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The district or county of the primary contact address, if any.
         #[builder(into, default)]
-        pub district_or_county: pulumi_wasm_rust::Output<Option<String>>,
+        pub district_or_county: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The full name of the primary contact address.
         #[builder(into)]
-        pub full_name: pulumi_wasm_rust::Output<String>,
+        pub full_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
         #[builder(into)]
-        pub phone_number: pulumi_wasm_rust::Output<String>,
+        pub phone_number: pulumi_wasm_rust::InputOrOutput<String>,
         /// The postal code of the primary contact address.
         #[builder(into)]
-        pub postal_code: pulumi_wasm_rust::Output<String>,
+        pub postal_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The state or region of the primary contact address. This field is required in selected countries.
         #[builder(into, default)]
-        pub state_or_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub state_or_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the website associated with the primary contact information, if any.
         #[builder(into, default)]
-        pub website_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrimaryContactResult {
@@ -110,22 +110,32 @@ pub mod primary_contact {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PrimaryContactArgs) -> PrimaryContactResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PrimaryContactArgs,
+    ) -> PrimaryContactResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let address_line1_binding = args.address_line1.get_inner();
-        let address_line2_binding = args.address_line2.get_inner();
-        let address_line3_binding = args.address_line3.get_inner();
-        let city_binding = args.city.get_inner();
-        let company_name_binding = args.company_name.get_inner();
-        let country_code_binding = args.country_code.get_inner();
-        let district_or_county_binding = args.district_or_county.get_inner();
-        let full_name_binding = args.full_name.get_inner();
-        let phone_number_binding = args.phone_number.get_inner();
-        let postal_code_binding = args.postal_code.get_inner();
-        let state_or_region_binding = args.state_or_region.get_inner();
-        let website_url_binding = args.website_url.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let address_line1_binding = args.address_line1.get_output(context).get_inner();
+        let address_line2_binding = args.address_line2.get_output(context).get_inner();
+        let address_line3_binding = args.address_line3.get_output(context).get_inner();
+        let city_binding = args.city.get_output(context).get_inner();
+        let company_name_binding = args.company_name.get_output(context).get_inner();
+        let country_code_binding = args.country_code.get_output(context).get_inner();
+        let district_or_county_binding = args
+            .district_or_county
+            .get_output(context)
+            .get_inner();
+        let full_name_binding = args.full_name.get_output(context).get_inner();
+        let phone_number_binding = args.phone_number.get_output(context).get_inner();
+        let postal_code_binding = args.postal_code.get_output(context).get_inner();
+        let state_or_region_binding = args
+            .state_or_region
+            .get_output(context)
+            .get_inner();
+        let website_url_binding = args.website_url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:account/primaryContact:PrimaryContact".into(),
             name: name.to_string(),
@@ -226,7 +236,7 @@ pub mod primary_contact {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

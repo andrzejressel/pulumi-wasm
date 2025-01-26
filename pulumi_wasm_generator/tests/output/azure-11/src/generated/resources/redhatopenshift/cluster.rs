@@ -133,57 +133,57 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_server_profile: pulumi_wasm_rust::Output<
+        pub api_server_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterApiServerProfile,
         >,
         /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_profile: pulumi_wasm_rust::Output<
+        pub cluster_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterClusterProfile,
         >,
         /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ingress_profile: pulumi_wasm_rust::Output<
+        pub ingress_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterIngressProfile,
         >,
         /// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub main_profile: pulumi_wasm_rust::Output<
+        pub main_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterMainProfile,
         >,
         /// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub network_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterNetworkProfile,
         >,
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `service_principal` block as defined below.
         #[builder(into)]
-        pub service_principal: pulumi_wasm_rust::Output<
+        pub service_principal: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterServicePrincipal,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub worker_profile: pulumi_wasm_rust::Output<
+        pub worker_profile: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redhatopenshift::ClusterWorkerProfile,
         >,
     }
@@ -234,20 +234,42 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_server_profile_binding = args.api_server_profile.get_inner();
-        let cluster_profile_binding = args.cluster_profile.get_inner();
-        let ingress_profile_binding = args.ingress_profile.get_inner();
-        let location_binding = args.location.get_inner();
-        let main_profile_binding = args.main_profile.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_profile_binding = args.network_profile.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_principal_binding = args.service_principal.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let worker_profile_binding = args.worker_profile.get_inner();
+        let api_server_profile_binding = args
+            .api_server_profile
+            .get_output(context)
+            .get_inner();
+        let cluster_profile_binding = args
+            .cluster_profile
+            .get_output(context)
+            .get_inner();
+        let ingress_profile_binding = args
+            .ingress_profile
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let main_profile_binding = args.main_profile.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_profile_binding = args
+            .network_profile
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_principal_binding = args
+            .service_principal
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let worker_profile_binding = args.worker_profile.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redhatopenshift/cluster:Cluster".into(),
             name: name.to_string(),
@@ -337,7 +359,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

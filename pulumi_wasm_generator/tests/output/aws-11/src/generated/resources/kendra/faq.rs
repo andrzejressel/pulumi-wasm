@@ -77,30 +77,32 @@
 /// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
 /// ```
 pub mod faq {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FaqArgs {
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub file_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the index for a FAQ.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name that should be associated with the FAQ.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The S3 location of the FAQ input data. Detailed below.
         #[builder(into)]
-        pub s3_path: pulumi_wasm_rust::Output<super::super::types::kendra::FaqS3Path>,
+        pub s3_path: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::kendra::FaqS3Path,
+        >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -141,17 +143,21 @@ pub mod faq {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FaqArgs) -> FaqResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FaqArgs,
+    ) -> FaqResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let file_format_binding = args.file_format.get_inner();
-        let index_id_binding = args.index_id.get_inner();
-        let language_code_binding = args.language_code.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let s3_path_binding = args.s3_path.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let file_format_binding = args.file_format.get_output(context).get_inner();
+        let index_id_binding = args.index_id.get_output(context).get_inner();
+        let language_code_binding = args.language_code.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let s3_path_binding = args.s3_path.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/faq:Faq".into(),
             name: name.to_string(),
@@ -238,7 +244,7 @@ pub mod faq {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

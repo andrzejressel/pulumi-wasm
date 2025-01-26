@@ -45,27 +45,27 @@
 /// ```
 ///
 pub mod hyper_v_replication_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyArgs {
         /// Specifies the frequency at which to create application consistent recovery points.
         #[builder(into)]
-        pub application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::Output<
+        pub application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::InputOrOutput<
             i32,
         >,
         /// The name of the replication policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The duration in hours for which the recovery points need to be stored.
         #[builder(into)]
-        pub recovery_point_retention_in_hours: pulumi_wasm_rust::Output<i32>,
+        pub recovery_point_retention_in_hours: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The id of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         #[builder(into)]
-        pub replication_interval_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub replication_interval_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyResult {
@@ -87,6 +87,7 @@ pub mod hyper_v_replication_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HyperVReplicationPolicyArgs,
     ) -> HyperVReplicationPolicyResult {
@@ -94,14 +95,20 @@ pub mod hyper_v_replication_policy {
         use std::collections::HashMap;
         let application_consistent_snapshot_frequency_in_hours_binding = args
             .application_consistent_snapshot_frequency_in_hours
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let recovery_point_retention_in_hours_binding = args
             .recovery_point_retention_in_hours
+            .get_output(context)
             .get_inner();
-        let recovery_vault_id_binding = args.recovery_vault_id.get_inner();
+        let recovery_vault_id_binding = args
+            .recovery_vault_id
+            .get_output(context)
+            .get_inner();
         let replication_interval_in_seconds_binding = args
             .replication_interval_in_seconds
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy"
@@ -148,7 +155,7 @@ pub mod hyper_v_replication_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

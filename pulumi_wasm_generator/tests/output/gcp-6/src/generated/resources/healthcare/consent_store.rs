@@ -87,7 +87,7 @@
 /// ```
 ///
 pub mod consent_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConsentStoreArgs {
@@ -97,14 +97,16 @@ pub mod consent_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
         /// Default time to live for consents in this store. Must be at least 24 hours. Updating this field will not affect the expiration time of existing consents.
         /// A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub default_consent_ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_consent_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If true, [consents.patch] [google.cloud.healthcare.v1.consent.UpdateConsent] creates the consent if it does not already exist.
         #[builder(into, default)]
-        pub enable_consent_create_on_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_consent_create_on_update: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// User-supplied key-value pairs used to organize Consent stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: `[\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}`
@@ -117,13 +119,13 @@ pub mod consent_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of this ConsentStore, for example:
         /// "consent1"
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConsentStoreResult {
@@ -169,16 +171,24 @@ pub mod consent_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConsentStoreArgs) -> ConsentStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConsentStoreArgs,
+    ) -> ConsentStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_inner();
-        let default_consent_ttl_binding = args.default_consent_ttl.get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let default_consent_ttl_binding = args
+            .default_consent_ttl
+            .get_output(context)
+            .get_inner();
         let enable_consent_create_on_update_binding = args
             .enable_consent_create_on_update
+            .get_output(context)
             .get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStore:ConsentStore".into(),
             name: name.to_string(),
@@ -229,7 +239,7 @@ pub mod consent_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

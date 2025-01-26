@@ -26,21 +26,21 @@
 /// }
 /// ```
 pub mod ciphertext {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CiphertextArgs {
         /// An optional mapping that makes up the encryption context.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::Output<
+        pub context: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Globally unique key ID for the customer master key.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         #[builder(into)]
-        pub plaintext: pulumi_wasm_rust::Output<String>,
+        pub plaintext: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CiphertextResult {
@@ -59,12 +59,16 @@ pub mod ciphertext {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CiphertextArgs) -> CiphertextResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CiphertextArgs,
+    ) -> CiphertextResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let context_binding = args.context.get_inner();
-        let key_id_binding = args.key_id.get_inner();
-        let plaintext_binding = args.plaintext.get_inner();
+        let context_binding = args.context.get_output(context).get_inner();
+        let key_id_binding = args.key_id.get_output(context).get_inner();
+        let plaintext_binding = args.plaintext.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/ciphertext:Ciphertext".into(),
             name: name.to_string(),
@@ -98,7 +102,7 @@ pub mod ciphertext {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

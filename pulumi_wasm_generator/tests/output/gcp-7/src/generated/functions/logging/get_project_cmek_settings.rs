@@ -1,5 +1,5 @@
 pub mod get_project_cmek_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetProjectCmekSettingsArgs {
@@ -10,10 +10,10 @@ pub mod get_project_cmek_settings {
         /// The Cloud KMS key used by the bucket can be updated by changing the kmsKeyName to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of encryption unless access to that key has been revoked.
         /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetProjectCmekSettingsResult {
@@ -45,11 +45,14 @@ pub mod get_project_cmek_settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetProjectCmekSettingsArgs) -> GetProjectCmekSettingsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetProjectCmekSettingsArgs,
+    ) -> GetProjectCmekSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let project_binding = args.project.get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getProjectCmekSettings:getProjectCmekSettings".into(),
             version: super::super::super::get_version(),
@@ -84,7 +87,7 @@ pub mod get_project_cmek_settings {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

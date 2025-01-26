@@ -35,29 +35,31 @@
 /// $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 /// ```
 pub mod recording_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordingConfigurationArgs {
         /// Object containing destination configuration for where recorded video will be stored.
         #[builder(into)]
-        pub destination_configuration: pulumi_wasm_rust::Output<
+        pub destination_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::ivs::RecordingConfigurationDestinationConfiguration,
         >,
         /// Recording Configuration name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         #[builder(into, default)]
-        pub recording_reconnect_window_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub recording_reconnect_window_seconds: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         #[builder(into, default)]
-        pub thumbnail_configuration: pulumi_wasm_rust::Output<
+        pub thumbnail_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ivs::RecordingConfigurationThumbnailConfiguration,
             >,
@@ -95,6 +97,7 @@ pub mod recording_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RecordingConfigurationArgs,
     ) -> RecordingConfigurationResult {
@@ -102,13 +105,18 @@ pub mod recording_configuration {
         use std::collections::HashMap;
         let destination_configuration_binding = args
             .destination_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let recording_reconnect_window_seconds_binding = args
             .recording_reconnect_window_seconds
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let thumbnail_configuration_binding = args.thumbnail_configuration.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let thumbnail_configuration_binding = args
+            .thumbnail_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivs/recordingConfiguration:RecordingConfiguration".into(),
             name: name.to_string(),
@@ -162,7 +170,7 @@ pub mod recording_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

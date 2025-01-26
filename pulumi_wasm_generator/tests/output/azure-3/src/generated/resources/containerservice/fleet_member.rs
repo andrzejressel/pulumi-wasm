@@ -60,22 +60,22 @@
 /// * Where `{memberName}` is the name of the Member. For example `memberValue`.
 ///
 pub mod fleet_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetMemberArgs {
         /// The group this member belongs to for multi-cluster update management.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into)]
-        pub kubernetes_fleet_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_fleet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FleetMemberResult {
@@ -92,13 +92,23 @@ pub mod fleet_member {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FleetMemberArgs) -> FleetMemberResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FleetMemberArgs,
+    ) -> FleetMemberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
-        let kubernetes_cluster_id_binding = args.kubernetes_cluster_id.get_inner();
-        let kubernetes_fleet_id_binding = args.kubernetes_fleet_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let kubernetes_cluster_id_binding = args
+            .kubernetes_cluster_id
+            .get_output(context)
+            .get_inner();
+        let kubernetes_fleet_id_binding = args
+            .kubernetes_fleet_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fleetMember:FleetMember".into(),
             name: name.to_string(),
@@ -136,7 +146,7 @@ pub mod fleet_member {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

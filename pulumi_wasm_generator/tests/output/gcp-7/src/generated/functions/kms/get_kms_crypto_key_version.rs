@@ -1,15 +1,15 @@
 pub mod get_kms_crypto_key_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKmsCryptoKeyVersionArgs {
         /// The `id` of the Google Cloud Platform CryptoKey to which the key version belongs. This is also the `id` field of the
         /// `gcp.kms.CryptoKey` resource/datasource.
         #[builder(into)]
-        pub crypto_key: pulumi_wasm_rust::Output<String>,
+        pub crypto_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version number for this CryptoKeyVersion. Defaults to `1`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetKmsCryptoKeyVersionResult {
@@ -34,11 +34,14 @@ pub mod get_kms_crypto_key_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKmsCryptoKeyVersionArgs) -> GetKmsCryptoKeyVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKmsCryptoKeyVersionArgs,
+    ) -> GetKmsCryptoKeyVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let crypto_key_binding = args.crypto_key.get_inner();
-        let version_binding = args.version.get_inner();
+        let crypto_key_binding = args.crypto_key.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSCryptoKeyVersion:getKMSCryptoKeyVersion".into(),
             version: super::super::super::get_version(),
@@ -79,7 +82,7 @@ pub mod get_kms_crypto_key_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

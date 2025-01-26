@@ -77,69 +77,69 @@
 /// ```
 ///
 pub mod storage_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StoragePoolArgs {
         /// Specifies the Active Directory policy to be used. Format: `projects/{{project}}/locations/{{location}}/activeDirectories/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
         #[builder(into, default)]
-        pub active_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub active_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
         /// Auto-tiering can be enabled after storage pool creation but it can't be disabled once enabled.
         #[builder(into, default)]
-        pub allow_auto_tiering: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_auto_tiering: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Capacity of the storage pool (in GiB).
         #[builder(into)]
-        pub capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub capacity_gib: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the CMEK policy to be used for volume encryption. Format: `projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}`.
         /// The policy needs to be in the same location as the storage pool.
         #[builder(into, default)]
-        pub kms_config: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_config: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
         /// using security identifiers for NFSv4.1 or principal names for kerberized NFSv4.1.
         #[builder(into, default)]
-        pub ldap_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ldap_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource name of the storage pool. Needs to be unique per location/region.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VPC network name with format: `projects/{{project}}/global/networks/{{network}}`
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the replica zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
         #[builder(into, default)]
-        pub replica_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub replica_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service level of the storage pool.
         /// Possible values are: `PREMIUM`, `EXTREME`, `STANDARD`, `FLEX`.
         #[builder(into)]
-        pub service_level: pulumi_wasm_rust::Output<String>,
+        pub service_level: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the active zone for regional Flex pools. `zone` and `replica_zone` values can be swapped to initiate a
         /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
         /// If you want to create a zonal Flex pool, specify a zone name for `location` and omit `zone`.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StoragePoolResult {
@@ -208,23 +208,33 @@ pub mod storage_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StoragePoolArgs) -> StoragePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StoragePoolArgs,
+    ) -> StoragePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let active_directory_binding = args.active_directory.get_inner();
-        let allow_auto_tiering_binding = args.allow_auto_tiering.get_inner();
-        let capacity_gib_binding = args.capacity_gib.get_inner();
-        let description_binding = args.description.get_inner();
-        let kms_config_binding = args.kms_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let ldap_enabled_binding = args.ldap_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let replica_zone_binding = args.replica_zone.get_inner();
-        let service_level_binding = args.service_level.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let active_directory_binding = args
+            .active_directory
+            .get_output(context)
+            .get_inner();
+        let allow_auto_tiering_binding = args
+            .allow_auto_tiering
+            .get_output(context)
+            .get_inner();
+        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kms_config_binding = args.kms_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let ldap_enabled_binding = args.ldap_enabled.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let replica_zone_binding = args.replica_zone.get_output(context).get_inner();
+        let service_level_binding = args.service_level.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/storagePool:StoragePool".into(),
             name: name.to_string(),
@@ -347,7 +357,7 @@ pub mod storage_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -29,13 +29,13 @@
 /// }
 /// ```
 pub mod organization_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationConfigurationArgs {
         /// Configuration block for auto enabling. See below.
         #[builder(into)]
-        pub auto_enable: pulumi_wasm_rust::Output<
+        pub auto_enable: pulumi_wasm_rust::InputOrOutput<
             super::super::types::inspector2::OrganizationConfigurationAutoEnable,
         >,
     }
@@ -53,12 +53,13 @@ pub mod organization_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationConfigurationArgs,
     ) -> OrganizationConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding = args.auto_enable.get_inner();
+        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector2/organizationConfiguration:OrganizationConfiguration"
                 .into(),
@@ -79,7 +80,7 @@ pub mod organization_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

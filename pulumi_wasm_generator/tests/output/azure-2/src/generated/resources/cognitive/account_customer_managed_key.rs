@@ -135,19 +135,19 @@
 /// ```
 ///
 pub mod account_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountCustomerManagedKeyArgs {
         /// The ID of the Cognitive Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cognitive_account_id: pulumi_wasm_rust::Output<String>,
+        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         #[builder(into, default)]
-        pub identity_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         #[builder(into)]
-        pub key_vault_key_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountCustomerManagedKeyResult {
@@ -163,14 +163,24 @@ pub mod account_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountCustomerManagedKeyArgs,
     ) -> AccountCustomerManagedKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding = args.cognitive_account_id.get_inner();
-        let identity_client_id_binding = args.identity_client_id.get_inner();
-        let key_vault_key_id_binding = args.key_vault_key_id.get_inner();
+        let cognitive_account_id_binding = args
+            .cognitive_account_id
+            .get_output(context)
+            .get_inner();
+        let identity_client_id_binding = args
+            .identity_client_id
+            .get_output(context)
+            .get_inner();
+        let key_vault_key_id_binding = args
+            .key_vault_key_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey"
                 .into(),
@@ -202,7 +212,7 @@ pub mod account_customer_managed_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

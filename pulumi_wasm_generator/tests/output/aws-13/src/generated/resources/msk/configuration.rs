@@ -28,22 +28,22 @@
 /// $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationArgs {
         /// Description of the configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of Apache Kafka versions which can use this configuration.
         #[builder(into, default)]
-        pub kafka_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub kafka_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         #[builder(into)]
-        pub server_properties: pulumi_wasm_rust::Output<String>,
+        pub server_properties: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationResult {
@@ -64,13 +64,20 @@ pub mod configuration {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigurationArgs) -> ConfigurationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigurationArgs,
+    ) -> ConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let kafka_versions_binding = args.kafka_versions.get_inner();
-        let name_binding = args.name.get_inner();
-        let server_properties_binding = args.server_properties.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kafka_versions_binding = args.kafka_versions.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_properties_binding = args
+            .server_properties
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/configuration:Configuration".into(),
             name: name.to_string(),
@@ -114,7 +121,7 @@ pub mod configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

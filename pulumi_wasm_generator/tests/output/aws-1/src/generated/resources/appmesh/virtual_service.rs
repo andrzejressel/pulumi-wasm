@@ -70,27 +70,27 @@
 /// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
 /// ```
 pub mod virtual_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualServiceArgs {
         /// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
         #[builder(into)]
-        pub mesh_name: pulumi_wasm_rust::Output<String>,
+        pub mesh_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         #[builder(into, default)]
-        pub mesh_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub mesh_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name to use for the virtual service. Must be between 1 and 255 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Virtual service specification to apply.
         #[builder(into)]
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appmesh::VirtualServiceSpec,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -127,14 +127,18 @@ pub mod virtual_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualServiceArgs) -> VirtualServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualServiceArgs,
+    ) -> VirtualServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let mesh_name_binding = args.mesh_name.get_inner();
-        let mesh_owner_binding = args.mesh_owner.get_inner();
-        let name_binding = args.name.get_inner();
-        let spec_binding = args.spec.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
+        let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let spec_binding = args.spec.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appmesh/virtualService:VirtualService".into(),
             name: name.to_string(),
@@ -194,7 +198,7 @@ pub mod virtual_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

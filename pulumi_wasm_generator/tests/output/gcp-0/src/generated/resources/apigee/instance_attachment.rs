@@ -28,20 +28,20 @@
 /// ```
 ///
 pub mod instance_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceAttachmentArgs {
         /// The resource ID of the environment.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Apigee instance associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/instances/{{instance_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceAttachmentResult {
@@ -60,11 +60,15 @@ pub mod instance_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceAttachmentArgs) -> InstanceAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceAttachmentArgs,
+    ) -> InstanceAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let environment_binding = args.environment.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/instanceAttachment:InstanceAttachment".into(),
             name: name.to_string(),
@@ -91,7 +95,7 @@ pub mod instance_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

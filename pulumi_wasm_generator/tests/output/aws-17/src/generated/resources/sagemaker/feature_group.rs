@@ -40,47 +40,47 @@
 /// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
 /// ```
 pub mod feature_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FeatureGroupArgs {
         /// A free-form description of a Feature Group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the feature that stores the EventTime of a Record in a Feature Group.
         #[builder(into)]
-        pub event_time_feature_name: pulumi_wasm_rust::Output<String>,
+        pub event_time_feature_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of Feature names and types. See Feature Definition Below.
         #[builder(into)]
-        pub feature_definitions: pulumi_wasm_rust::Output<
+        pub feature_definitions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::sagemaker::FeatureGroupFeatureDefinition>,
         >,
         /// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
         #[builder(into)]
-        pub feature_group_name: pulumi_wasm_rust::Output<String>,
+        pub feature_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Offline Feature Store Configuration. See Offline Store Config Below.
         #[builder(into, default)]
-        pub offline_store_config: pulumi_wasm_rust::Output<
+        pub offline_store_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::FeatureGroupOfflineStoreConfig>,
         >,
         /// The Online Feature Store Configuration. See Online Store Config Below.
         #[builder(into, default)]
-        pub online_store_config: pulumi_wasm_rust::Output<
+        pub online_store_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::FeatureGroupOnlineStoreConfig>,
         >,
         /// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         #[builder(into)]
-        pub record_identifier_feature_name: pulumi_wasm_rust::Output<String>,
+        pub record_identifier_feature_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub throughput_config: pulumi_wasm_rust::Output<
+        pub throughput_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::FeatureGroupThroughputConfig>,
         >,
     }
@@ -126,21 +126,44 @@ pub mod feature_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FeatureGroupArgs) -> FeatureGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FeatureGroupArgs,
+    ) -> FeatureGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let event_time_feature_name_binding = args.event_time_feature_name.get_inner();
-        let feature_definitions_binding = args.feature_definitions.get_inner();
-        let feature_group_name_binding = args.feature_group_name.get_inner();
-        let offline_store_config_binding = args.offline_store_config.get_inner();
-        let online_store_config_binding = args.online_store_config.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let event_time_feature_name_binding = args
+            .event_time_feature_name
+            .get_output(context)
+            .get_inner();
+        let feature_definitions_binding = args
+            .feature_definitions
+            .get_output(context)
+            .get_inner();
+        let feature_group_name_binding = args
+            .feature_group_name
+            .get_output(context)
+            .get_inner();
+        let offline_store_config_binding = args
+            .offline_store_config
+            .get_output(context)
+            .get_inner();
+        let online_store_config_binding = args
+            .online_store_config
+            .get_output(context)
+            .get_inner();
         let record_identifier_feature_name_binding = args
             .record_identifier_feature_name
+            .get_output(context)
             .get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let throughput_config_binding = args.throughput_config.get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let throughput_config_binding = args
+            .throughput_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/featureGroup:FeatureGroup".into(),
             name: name.to_string(),
@@ -226,7 +249,7 @@ pub mod feature_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

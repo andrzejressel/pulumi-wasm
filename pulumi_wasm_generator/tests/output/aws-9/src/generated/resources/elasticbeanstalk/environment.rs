@@ -83,69 +83,69 @@
 /// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
 /// ```
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// Name of the application that contains the version
         /// to be deployed
         #[builder(into)]
-        pub application: pulumi_wasm_rust::Output<String>,
+        pub application: pulumi_wasm_rust::InputOrOutput<String>,
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         #[builder(into, default)]
-        pub cname_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub cname_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Short description of the Environment
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique name for this Environment. This name is used
         /// in the application URL
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         #[builder(into, default)]
-        pub platform_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
         /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         #[builder(into, default)]
-        pub poll_interval: pulumi_wasm_rust::Output<Option<String>>,
+        pub poll_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::elasticbeanstalk::EnvironmentSetting>>,
         >,
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         #[builder(into, default)]
-        pub solution_stack_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub solution_stack_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
         #[builder(into, default)]
-        pub template_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
         #[builder(into, default)]
-        pub wait_for_ready_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub wait_for_ready_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
@@ -227,22 +227,32 @@ pub mod environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentArgs) -> EnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentArgs,
+    ) -> EnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_binding = args.application.get_inner();
-        let cname_prefix_binding = args.cname_prefix.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let platform_arn_binding = args.platform_arn.get_inner();
-        let poll_interval_binding = args.poll_interval.get_inner();
-        let settings_binding = args.settings.get_inner();
-        let solution_stack_name_binding = args.solution_stack_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_name_binding = args.template_name.get_inner();
-        let tier_binding = args.tier.get_inner();
-        let version_binding = args.version.get_inner();
-        let wait_for_ready_timeout_binding = args.wait_for_ready_timeout.get_inner();
+        let application_binding = args.application.get_output(context).get_inner();
+        let cname_prefix_binding = args.cname_prefix.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let platform_arn_binding = args.platform_arn.get_output(context).get_inner();
+        let poll_interval_binding = args.poll_interval.get_output(context).get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
+        let solution_stack_name_binding = args
+            .solution_stack_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_name_binding = args.template_name.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
+        let wait_for_ready_timeout_binding = args
+            .wait_for_ready_timeout
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/environment:Environment".into(),
             name: name.to_string(),
@@ -376,7 +386,7 @@ pub mod environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

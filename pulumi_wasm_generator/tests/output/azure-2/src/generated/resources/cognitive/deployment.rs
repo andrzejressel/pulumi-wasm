@@ -51,33 +51,35 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cognitive_account_id: pulumi_wasm_rust::Output<String>,
+        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether dynamic throttling is enabled.
         #[builder(into, default)]
-        pub dynamic_throttling_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dynamic_throttling_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `model` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub model: pulumi_wasm_rust::Output<
+        pub model: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cognitive::DeploymentModel,
         >,
         /// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of RAI policy.
         #[builder(into, default)]
-        pub rai_policy_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub rai_policy_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::cognitive::DeploymentSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::cognitive::DeploymentSku,
+        >,
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         #[builder(into, default)]
-        pub version_upgrade_option: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_upgrade_option: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
@@ -102,18 +104,32 @@ pub mod deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentArgs) -> DeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentArgs,
+    ) -> DeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding = args.cognitive_account_id.get_inner();
+        let cognitive_account_id_binding = args
+            .cognitive_account_id
+            .get_output(context)
+            .get_inner();
         let dynamic_throttling_enabled_binding = args
             .dynamic_throttling_enabled
+            .get_output(context)
             .get_inner();
-        let model_binding = args.model.get_inner();
-        let name_binding = args.name.get_inner();
-        let rai_policy_name_binding = args.rai_policy_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let version_upgrade_option_binding = args.version_upgrade_option.get_inner();
+        let model_binding = args.model.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rai_policy_name_binding = args
+            .rai_policy_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let version_upgrade_option_binding = args
+            .version_upgrade_option
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cognitive/deployment:Deployment".into(),
             name: name.to_string(),
@@ -172,7 +188,7 @@ pub mod deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -41,16 +41,18 @@
 /// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
 /// ```
 pub mod preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreferencesArgs {
         /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         #[builder(into, default)]
-        pub member_account_discount_visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub member_account_discount_visibility: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         #[builder(into, default)]
-        pub savings_estimation_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub savings_estimation_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PreferencesResult {
@@ -63,13 +65,21 @@ pub mod preferences {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PreferencesArgs) -> PreferencesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PreferencesArgs,
+    ) -> PreferencesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let member_account_discount_visibility_binding = args
             .member_account_discount_visibility
+            .get_output(context)
             .get_inner();
-        let savings_estimation_mode_binding = args.savings_estimation_mode.get_inner();
+        let savings_estimation_mode_binding = args
+            .savings_estimation_mode
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costoptimizationhub/preferences:Preferences".into(),
             name: name.to_string(),
@@ -93,7 +103,7 @@ pub mod preferences {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

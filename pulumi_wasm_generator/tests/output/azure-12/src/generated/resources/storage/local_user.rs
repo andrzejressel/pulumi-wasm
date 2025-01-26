@@ -72,35 +72,35 @@
 /// ```
 ///
 pub mod local_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalUserArgs {
         /// The home directory of the Storage Account Local User.
         #[builder(into, default)]
-        pub home_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub home_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `permission_scope` blocks as defined below.
         #[builder(into, default)]
-        pub permission_scopes: pulumi_wasm_rust::Output<
+        pub permission_scopes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::LocalUserPermissionScope>>,
         >,
         /// One or more `ssh_authorized_key` blocks as defined below.
         #[builder(into, default)]
-        pub ssh_authorized_keys: pulumi_wasm_rust::Output<
+        pub ssh_authorized_keys: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::LocalUserSshAuthorizedKey>>,
         >,
         /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ssh_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssh_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ssh_password_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssh_password_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LocalUserResult {
@@ -131,16 +131,35 @@ pub mod local_user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LocalUserArgs) -> LocalUserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LocalUserArgs,
+    ) -> LocalUserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let home_directory_binding = args.home_directory.get_inner();
-        let name_binding = args.name.get_inner();
-        let permission_scopes_binding = args.permission_scopes.get_inner();
-        let ssh_authorized_keys_binding = args.ssh_authorized_keys.get_inner();
-        let ssh_key_enabled_binding = args.ssh_key_enabled.get_inner();
-        let ssh_password_enabled_binding = args.ssh_password_enabled.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let home_directory_binding = args.home_directory.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let permission_scopes_binding = args
+            .permission_scopes
+            .get_output(context)
+            .get_inner();
+        let ssh_authorized_keys_binding = args
+            .ssh_authorized_keys
+            .get_output(context)
+            .get_inner();
+        let ssh_key_enabled_binding = args
+            .ssh_key_enabled
+            .get_output(context)
+            .get_inner();
+        let ssh_password_enabled_binding = args
+            .ssh_password_enabled
+            .get_output(context)
+            .get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/localUser:LocalUser".into(),
             name: name.to_string(),
@@ -205,7 +224,7 @@ pub mod local_user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -42,21 +42,21 @@
 /// ```
 ///
 pub mod managed_hardware_security_module_role_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleRoleDefinitionArgs {
         /// Specifies a text description about this KeyVault Role Definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub managed_hsm_id: pulumi_wasm_rust::Output<String>,
+        pub managed_hsm_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `permission` blocks as defined below.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::keyvault::ManagedHardwareSecurityModuleRoleDefinitionPermission,
@@ -65,7 +65,7 @@ pub mod managed_hardware_security_module_role_definition {
         >,
         /// Specify a name for this KeyVault Role Definition.
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleRoleDefinitionResult {
@@ -94,16 +94,17 @@ pub mod managed_hardware_security_module_role_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedHardwareSecurityModuleRoleDefinitionArgs,
     ) -> ManagedHardwareSecurityModuleRoleDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let managed_hsm_id_binding = args.managed_hsm_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let role_name_binding = args.role_name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let role_name_binding = args.role_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition"
                 .into(),
@@ -155,7 +156,7 @@ pub mod managed_hardware_security_module_role_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

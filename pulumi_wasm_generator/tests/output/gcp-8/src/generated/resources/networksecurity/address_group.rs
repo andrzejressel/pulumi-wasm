@@ -90,26 +90,26 @@
 /// ```
 ///
 pub mod address_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddressGroupArgs {
         /// Capacity of the Address Group.
         #[builder(into)]
-        pub capacity: pulumi_wasm_rust::Output<i32>,
+        pub capacity: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Free-text description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of items.
         #[builder(into, default)]
-        pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub items: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set of label tags associated with the AddressGroup resource.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the gateway security policy.
@@ -118,21 +118,21 @@ pub mod address_group {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the AddressGroup resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the parent this address group belongs to. Format: organizations/{organization_id} or projects/{project_id}.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of supported purposes of the Address Group.
         /// Each value may be one of: `DEFAULT`, `CLOUD_ARMOR`.
         #[builder(into, default)]
-        pub purposes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub purposes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The type of the Address Group. Possible values are "IPV4" or "IPV6".
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AddressGroupResult {
@@ -188,18 +188,22 @@ pub mod address_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AddressGroupArgs) -> AddressGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AddressGroupArgs,
+    ) -> AddressGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_inner();
-        let description_binding = args.description.get_inner();
-        let items_binding = args.items.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let purposes_binding = args.purposes.get_inner();
-        let type__binding = args.type_.get_inner();
+        let capacity_binding = args.capacity.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let items_binding = args.items.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let purposes_binding = args.purposes.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/addressGroup:AddressGroup".into(),
             name: name.to_string(),
@@ -284,7 +288,7 @@ pub mod address_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

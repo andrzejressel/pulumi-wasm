@@ -206,81 +206,83 @@
 /// $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
 /// ```
 pub mod task_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskDefinitionArgs {
         /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         #[builder(into)]
-        pub container_definitions: pulumi_wasm_rust::Output<String>,
+        pub container_definitions: pulumi_wasm_rust::InputOrOutput<String>,
         /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         #[builder(into, default)]
-        pub cpu: pulumi_wasm_rust::Output<Option<String>>,
+        pub cpu: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         #[builder(into, default)]
-        pub ephemeral_storage: pulumi_wasm_rust::Output<
+        pub ephemeral_storage: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskDefinitionEphemeralStorage>,
         >,
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         #[builder(into, default)]
-        pub execution_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique name for your task definition.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub family: pulumi_wasm_rust::Output<String>,
+        pub family: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block(s) with Inference Accelerators settings. Detailed below.
         #[builder(into, default)]
-        pub inference_accelerators: pulumi_wasm_rust::Output<
+        pub inference_accelerators: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::TaskDefinitionInferenceAccelerator>>,
         >,
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         #[builder(into, default)]
-        pub ipc_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipc_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         #[builder(into, default)]
-        pub memory: pulumi_wasm_rust::Output<Option<String>>,
+        pub memory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         #[builder(into, default)]
-        pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         #[builder(into, default)]
-        pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub pid_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         #[builder(into, default)]
-        pub placement_constraints: pulumi_wasm_rust::Output<
+        pub placement_constraints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::TaskDefinitionPlacementConstraint>>,
         >,
         /// Configuration block for the App Mesh proxy. Detailed below.
         #[builder(into, default)]
-        pub proxy_configuration: pulumi_wasm_rust::Output<
+        pub proxy_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskDefinitionProxyConfiguration>,
         >,
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         #[builder(into, default)]
-        pub requires_compatibilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub requires_compatibilities: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Configuration block for runtime_platform that containers in your task may use.
         #[builder(into, default)]
-        pub runtime_platform: pulumi_wasm_rust::Output<
+        pub runtime_platform: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::TaskDefinitionRuntimePlatform>,
         >,
         /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         #[builder(into, default)]
-        pub task_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub task_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         #[builder(into, default)]
-        pub track_latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub track_latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         #[builder(into, default)]
-        pub volumes: pulumi_wasm_rust::Output<
+        pub volumes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::TaskDefinitionVolume>>,
         >,
     }
@@ -355,28 +357,56 @@ pub mod task_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TaskDefinitionArgs) -> TaskDefinitionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TaskDefinitionArgs,
+    ) -> TaskDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_definitions_binding = args.container_definitions.get_inner();
-        let cpu_binding = args.cpu.get_inner();
-        let ephemeral_storage_binding = args.ephemeral_storage.get_inner();
-        let execution_role_arn_binding = args.execution_role_arn.get_inner();
-        let family_binding = args.family.get_inner();
-        let inference_accelerators_binding = args.inference_accelerators.get_inner();
-        let ipc_mode_binding = args.ipc_mode.get_inner();
-        let memory_binding = args.memory.get_inner();
-        let network_mode_binding = args.network_mode.get_inner();
-        let pid_mode_binding = args.pid_mode.get_inner();
-        let placement_constraints_binding = args.placement_constraints.get_inner();
-        let proxy_configuration_binding = args.proxy_configuration.get_inner();
-        let requires_compatibilities_binding = args.requires_compatibilities.get_inner();
-        let runtime_platform_binding = args.runtime_platform.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let task_role_arn_binding = args.task_role_arn.get_inner();
-        let track_latest_binding = args.track_latest.get_inner();
-        let volumes_binding = args.volumes.get_inner();
+        let container_definitions_binding = args
+            .container_definitions
+            .get_output(context)
+            .get_inner();
+        let cpu_binding = args.cpu.get_output(context).get_inner();
+        let ephemeral_storage_binding = args
+            .ephemeral_storage
+            .get_output(context)
+            .get_inner();
+        let execution_role_arn_binding = args
+            .execution_role_arn
+            .get_output(context)
+            .get_inner();
+        let family_binding = args.family.get_output(context).get_inner();
+        let inference_accelerators_binding = args
+            .inference_accelerators
+            .get_output(context)
+            .get_inner();
+        let ipc_mode_binding = args.ipc_mode.get_output(context).get_inner();
+        let memory_binding = args.memory.get_output(context).get_inner();
+        let network_mode_binding = args.network_mode.get_output(context).get_inner();
+        let pid_mode_binding = args.pid_mode.get_output(context).get_inner();
+        let placement_constraints_binding = args
+            .placement_constraints
+            .get_output(context)
+            .get_inner();
+        let proxy_configuration_binding = args
+            .proxy_configuration
+            .get_output(context)
+            .get_inner();
+        let requires_compatibilities_binding = args
+            .requires_compatibilities
+            .get_output(context)
+            .get_inner();
+        let runtime_platform_binding = args
+            .runtime_platform
+            .get_output(context)
+            .get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let task_role_arn_binding = args.task_role_arn.get_output(context).get_inner();
+        let track_latest_binding = args.track_latest.get_output(context).get_inner();
+        let volumes_binding = args.volumes.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/taskDefinition:TaskDefinition".into(),
             name: name.to_string(),
@@ -531,7 +561,7 @@ pub mod task_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

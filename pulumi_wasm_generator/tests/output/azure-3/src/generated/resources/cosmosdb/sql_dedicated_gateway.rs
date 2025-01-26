@@ -55,19 +55,19 @@
 /// ```
 ///
 pub mod sql_dedicated_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlDedicatedGatewayArgs {
         /// The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cosmosdb_account_id: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         #[builder(into)]
-        pub instance_count: pulumi_wasm_rust::Output<i32>,
+        pub instance_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         #[builder(into)]
-        pub instance_size: pulumi_wasm_rust::Output<String>,
+        pub instance_size: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlDedicatedGatewayResult {
@@ -83,14 +83,18 @@ pub mod sql_dedicated_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SqlDedicatedGatewayArgs,
     ) -> SqlDedicatedGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cosmosdb_account_id_binding = args.cosmosdb_account_id.get_inner();
-        let instance_count_binding = args.instance_count.get_inner();
-        let instance_size_binding = args.instance_size.get_inner();
+        let cosmosdb_account_id_binding = args
+            .cosmosdb_account_id
+            .get_output(context)
+            .get_inner();
+        let instance_count_binding = args.instance_count.get_output(context).get_inner();
+        let instance_size_binding = args.instance_size.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway".into(),
             name: name.to_string(),
@@ -121,7 +125,7 @@ pub mod sql_dedicated_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

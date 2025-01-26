@@ -93,19 +93,19 @@
 /// ```
 ///
 pub mod certificate_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateBindingArgs {
         /// The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub hostname_binding_id: pulumi_wasm_rust::Output<String>,
+        pub hostname_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
         #[builder(into)]
-        pub ssl_state: pulumi_wasm_rust::Output<String>,
+        pub ssl_state: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateBindingResult {
@@ -126,12 +126,19 @@ pub mod certificate_binding {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateBindingArgs) -> CertificateBindingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateBindingArgs,
+    ) -> CertificateBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding = args.certificate_id.get_inner();
-        let hostname_binding_id_binding = args.hostname_binding_id.get_inner();
-        let ssl_state_binding = args.ssl_state.get_inner();
+        let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
+        let hostname_binding_id_binding = args
+            .hostname_binding_id
+            .get_output(context)
+            .get_inner();
+        let ssl_state_binding = args.ssl_state.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/certificateBinding:CertificateBinding".into(),
             name: name.to_string(),
@@ -171,7 +178,7 @@ pub mod certificate_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -22,38 +22,38 @@
 /// ```
 ///
 pub mod posture_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostureDeploymentArgs {
         /// Description of the posture deployment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the resource, eg. global`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The parent of the resource, an organization. Format should be `organizations/{organization_id}`.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the posture deployment.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub posture_deployment_id: pulumi_wasm_rust::Output<String>,
+        pub posture_deployment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Relative name of the posture which needs to be deployed. It should be in the format:
         /// organizations/{organization_id}/locations/{location}/postures/{posture_id}
         #[builder(into)]
-        pub posture_id: pulumi_wasm_rust::Output<String>,
+        pub posture_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Revision_id the posture which needs to be deployed.
         #[builder(into)]
-        pub posture_revision_id: pulumi_wasm_rust::Output<String>,
+        pub posture_revision_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource on which the posture should be deployed. This can be in one of the following formats:
         /// projects/{project_number},
         /// folders/{folder_number},
         /// organizations/{organization_id}
         #[builder(into)]
-        pub target_resource: pulumi_wasm_rust::Output<String>,
+        pub target_resource: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PostureDeploymentResult {
@@ -109,16 +109,29 @@ pub mod posture_deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PostureDeploymentArgs) -> PostureDeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PostureDeploymentArgs,
+    ) -> PostureDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let posture_deployment_id_binding = args.posture_deployment_id.get_inner();
-        let posture_id_binding = args.posture_id.get_inner();
-        let posture_revision_id_binding = args.posture_revision_id.get_inner();
-        let target_resource_binding = args.target_resource.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let posture_deployment_id_binding = args
+            .posture_deployment_id
+            .get_output(context)
+            .get_inner();
+        let posture_id_binding = args.posture_id.get_output(context).get_inner();
+        let posture_revision_id_binding = args
+            .posture_revision_id
+            .get_output(context)
+            .get_inner();
+        let target_resource_binding = args
+            .target_resource
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securityposture/postureDeployment:PostureDeployment".into(),
             name: name.to_string(),
@@ -204,7 +217,7 @@ pub mod posture_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

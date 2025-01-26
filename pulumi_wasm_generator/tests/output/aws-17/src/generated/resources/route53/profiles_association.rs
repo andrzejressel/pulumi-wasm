@@ -34,26 +34,26 @@
 /// $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
 /// ```
 pub mod profiles_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfilesAssociationArgs {
         /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the profile associated with the VPC.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource ID of the VPC the profile to be associated with.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::route53::ProfilesAssociationTimeouts>,
         >,
     }
@@ -88,16 +88,17 @@ pub mod profiles_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProfilesAssociationArgs,
     ) -> ProfilesAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let profile_id_binding = args.profile_id.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let profile_id_binding = args.profile_id.get_output(context).get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/profilesAssociation:ProfilesAssociation".into(),
             name: name.to_string(),
@@ -157,7 +158,7 @@ pub mod profiles_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

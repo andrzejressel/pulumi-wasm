@@ -95,21 +95,21 @@
 /// ```
 ///
 pub mod object_replication {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObjectReplicationArgs {
         /// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         #[builder(into)]
-        pub destination_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub destination_storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `rules` blocks as defined below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::storage::ObjectReplicationRule>,
         >,
         /// The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         #[builder(into)]
-        pub source_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub source_storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ObjectReplicationResult {
@@ -130,15 +130,21 @@ pub mod object_replication {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ObjectReplicationArgs) -> ObjectReplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ObjectReplicationArgs,
+    ) -> ObjectReplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destination_storage_account_id_binding = args
             .destination_storage_account_id
+            .get_output(context)
             .get_inner();
-        let rules_binding = args.rules.get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
         let source_storage_account_id_binding = args
             .source_storage_account_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/objectReplication:ObjectReplication".into(),
@@ -176,7 +182,7 @@ pub mod object_replication {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

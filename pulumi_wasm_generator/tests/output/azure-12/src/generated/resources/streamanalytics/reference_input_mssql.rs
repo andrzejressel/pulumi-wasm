@@ -61,46 +61,46 @@
 /// ```
 ///
 pub mod reference_input_mssql {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReferenceInputMssqlArgs {
         /// The MS SQL database name where the reference data exists.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_wasm_rust::InputOrOutput<String>,
         /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         #[builder(into, default)]
-        pub delta_snapshot_query: pulumi_wasm_rust::Output<Option<String>>,
+        pub delta_snapshot_query: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The query used to retrieve the reference data from the MS SQL database.
         #[builder(into)]
-        pub full_snapshot_query: pulumi_wasm_rust::Output<String>,
+        pub full_snapshot_query: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password to connect to the MS SQL database.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         #[builder(into, default)]
-        pub refresh_interval_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub refresh_interval_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         #[builder(into)]
-        pub refresh_type: pulumi_wasm_rust::Output<String>,
+        pub refresh_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The fully qualified domain name of the MS SQL server.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the table in the Azure SQL database.
         #[builder(into, default)]
-        pub table: pulumi_wasm_rust::Output<Option<String>>,
+        pub table: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The username to connect to the MS SQL database.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReferenceInputMssqlResult {
@@ -134,27 +134,39 @@ pub mod reference_input_mssql {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReferenceInputMssqlArgs,
     ) -> ReferenceInputMssqlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_binding = args.database.get_inner();
-        let delta_snapshot_query_binding = args.delta_snapshot_query.get_inner();
-        let full_snapshot_query_binding = args.full_snapshot_query.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
+        let database_binding = args.database.get_output(context).get_inner();
+        let delta_snapshot_query_binding = args
+            .delta_snapshot_query
+            .get_output(context)
+            .get_inner();
+        let full_snapshot_query_binding = args
+            .full_snapshot_query
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
         let refresh_interval_duration_binding = args
             .refresh_interval_duration
+            .get_output(context)
             .get_inner();
-        let refresh_type_binding = args.refresh_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_binding = args.server.get_inner();
+        let refresh_type_binding = args.refresh_type.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_binding = args.server.get_output(context).get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
-        let table_binding = args.table.get_inner();
-        let username_binding = args.username.get_inner();
+        let table_binding = args.table.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
                 .into(),
@@ -249,7 +261,7 @@ pub mod reference_input_mssql {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

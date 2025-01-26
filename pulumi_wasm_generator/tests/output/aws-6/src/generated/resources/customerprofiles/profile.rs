@@ -27,86 +27,86 @@
 /// $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
 /// ```
 pub mod profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfileArgs {
         /// A unique account number that you have given to the customer.
         #[builder(into, default)]
-        pub account_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Any additional information relevant to the customer’s profile.
         #[builder(into, default)]
-        pub additional_information: pulumi_wasm_rust::Output<Option<String>>,
+        pub additional_information: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::Output<
+        pub address: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileAddress>,
         >,
         /// A key value pair of attributes of a customer profile.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A block that specifies the customer’s billing address. Documented below.
         #[builder(into, default)]
-        pub billing_address: pulumi_wasm_rust::Output<
+        pub billing_address: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileBillingAddress>,
         >,
         /// The customer’s birth date.
         #[builder(into, default)]
-        pub birth_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub birth_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s business email address.
         #[builder(into, default)]
-        pub business_email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the customer’s business.
         #[builder(into, default)]
-        pub business_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s business phone number.
         #[builder(into, default)]
-        pub business_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub business_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The customer’s email address, which has not been specified as a personal or business address.
         #[builder(into, default)]
-        pub email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s first name.
         #[builder(into, default)]
-        pub first_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub first_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The gender with which the customer identifies.
         #[builder(into, default)]
-        pub gender_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub gender_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s home phone number.
         #[builder(into, default)]
-        pub home_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub home_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s last name.
         #[builder(into, default)]
-        pub last_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that specifies the customer’s mailing address. Documented below.
         #[builder(into, default)]
-        pub mailing_address: pulumi_wasm_rust::Output<
+        pub mailing_address: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileMailingAddress>,
         >,
         /// The customer’s middle name.
         #[builder(into, default)]
-        pub middle_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub middle_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s mobile phone number.
         #[builder(into, default)]
-        pub mobile_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub mobile_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of profile used to describe the customer.
         #[builder(into, default)]
-        pub party_type_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub party_type_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s personal email address.
         #[builder(into, default)]
-        pub personal_email_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub personal_email_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
         #[builder(into, default)]
-        pub phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that specifies the customer’s shipping address. Documented below.
         #[builder(into, default)]
-        pub shipping_address: pulumi_wasm_rust::Output<
+        pub shipping_address: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::ProfileShippingAddress>,
         >,
     }
@@ -173,31 +173,65 @@ pub mod profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProfileArgs) -> ProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProfileArgs,
+    ) -> ProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_number_binding = args.account_number.get_inner();
-        let additional_information_binding = args.additional_information.get_inner();
-        let address_binding = args.address.get_inner();
-        let attributes_binding = args.attributes.get_inner();
-        let billing_address_binding = args.billing_address.get_inner();
-        let birth_date_binding = args.birth_date.get_inner();
-        let business_email_address_binding = args.business_email_address.get_inner();
-        let business_name_binding = args.business_name.get_inner();
-        let business_phone_number_binding = args.business_phone_number.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let email_address_binding = args.email_address.get_inner();
-        let first_name_binding = args.first_name.get_inner();
-        let gender_string_binding = args.gender_string.get_inner();
-        let home_phone_number_binding = args.home_phone_number.get_inner();
-        let last_name_binding = args.last_name.get_inner();
-        let mailing_address_binding = args.mailing_address.get_inner();
-        let middle_name_binding = args.middle_name.get_inner();
-        let mobile_phone_number_binding = args.mobile_phone_number.get_inner();
-        let party_type_string_binding = args.party_type_string.get_inner();
-        let personal_email_address_binding = args.personal_email_address.get_inner();
-        let phone_number_binding = args.phone_number.get_inner();
-        let shipping_address_binding = args.shipping_address.get_inner();
+        let account_number_binding = args.account_number.get_output(context).get_inner();
+        let additional_information_binding = args
+            .additional_information
+            .get_output(context)
+            .get_inner();
+        let address_binding = args.address.get_output(context).get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let billing_address_binding = args
+            .billing_address
+            .get_output(context)
+            .get_inner();
+        let birth_date_binding = args.birth_date.get_output(context).get_inner();
+        let business_email_address_binding = args
+            .business_email_address
+            .get_output(context)
+            .get_inner();
+        let business_name_binding = args.business_name.get_output(context).get_inner();
+        let business_phone_number_binding = args
+            .business_phone_number
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let email_address_binding = args.email_address.get_output(context).get_inner();
+        let first_name_binding = args.first_name.get_output(context).get_inner();
+        let gender_string_binding = args.gender_string.get_output(context).get_inner();
+        let home_phone_number_binding = args
+            .home_phone_number
+            .get_output(context)
+            .get_inner();
+        let last_name_binding = args.last_name.get_output(context).get_inner();
+        let mailing_address_binding = args
+            .mailing_address
+            .get_output(context)
+            .get_inner();
+        let middle_name_binding = args.middle_name.get_output(context).get_inner();
+        let mobile_phone_number_binding = args
+            .mobile_phone_number
+            .get_output(context)
+            .get_inner();
+        let party_type_string_binding = args
+            .party_type_string
+            .get_output(context)
+            .get_inner();
+        let personal_email_address_binding = args
+            .personal_email_address
+            .get_output(context)
+            .get_inner();
+        let phone_number_binding = args.phone_number.get_output(context).get_inner();
+        let shipping_address_binding = args
+            .shipping_address
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:customerprofiles/profile:Profile".into(),
             name: name.to_string(),
@@ -361,7 +395,7 @@ pub mod profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

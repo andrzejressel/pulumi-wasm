@@ -38,45 +38,47 @@
 /// $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
 /// ```
 pub mod layer_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LayerVersionArgs {
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         #[builder(into, default)]
-        pub compatible_architectures: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub compatible_architectures: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         #[builder(into, default)]
-        pub compatible_runtimes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub compatible_runtimes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of what your Lambda Layer does.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name for your Lambda Layer
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub layer_name: pulumi_wasm_rust::Output<String>,
+        pub layer_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         #[builder(into, default)]
-        pub license_info: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_info: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         #[builder(into, default)]
-        pub s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         #[builder(into, default)]
-        pub s3_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object version containing the function's deployment package. Conflicts with `filename`.
         #[builder(into, default)]
-        pub s3_object_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_object_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         #[builder(into, default)]
-        pub source_code_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_code_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LayerVersionResult {
@@ -125,20 +127,36 @@ pub mod layer_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LayerVersionArgs) -> LayerVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LayerVersionArgs,
+    ) -> LayerVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let code_binding = args.code.get_inner();
-        let compatible_architectures_binding = args.compatible_architectures.get_inner();
-        let compatible_runtimes_binding = args.compatible_runtimes.get_inner();
-        let description_binding = args.description.get_inner();
-        let layer_name_binding = args.layer_name.get_inner();
-        let license_info_binding = args.license_info.get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_inner();
-        let s3_key_binding = args.s3_key.get_inner();
-        let s3_object_version_binding = args.s3_object_version.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let source_code_hash_binding = args.source_code_hash.get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let compatible_architectures_binding = args
+            .compatible_architectures
+            .get_output(context)
+            .get_inner();
+        let compatible_runtimes_binding = args
+            .compatible_runtimes
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let layer_name_binding = args.layer_name.get_output(context).get_inner();
+        let license_info_binding = args.license_info.get_output(context).get_inner();
+        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
+        let s3_key_binding = args.s3_key.get_output(context).get_inner();
+        let s3_object_version_binding = args
+            .s3_object_version
+            .get_output(context)
+            .get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let source_code_hash_binding = args
+            .source_code_hash
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/layerVersion:LayerVersion".into(),
             name: name.to_string(),
@@ -249,7 +267,7 @@ pub mod layer_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

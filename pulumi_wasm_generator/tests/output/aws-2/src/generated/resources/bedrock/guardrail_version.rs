@@ -28,23 +28,23 @@
 /// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
 /// ```
 pub mod guardrail_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GuardrailVersionArgs {
         /// Description of the Guardrail version.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Guardrail ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub guardrail_arn: pulumi_wasm_rust::Output<String>,
+        pub guardrail_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bedrock::GuardrailVersionTimeouts>,
         >,
     }
@@ -68,13 +68,17 @@ pub mod guardrail_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GuardrailVersionArgs) -> GuardrailVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GuardrailVersionArgs,
+    ) -> GuardrailVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let guardrail_arn_binding = args.guardrail_arn.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let guardrail_arn_binding = args.guardrail_arn.get_output(context).get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/guardrailVersion:GuardrailVersion".into(),
             name: name.to_string(),
@@ -115,7 +119,7 @@ pub mod guardrail_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

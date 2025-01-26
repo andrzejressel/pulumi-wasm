@@ -72,25 +72,25 @@
 /// ```
 ///
 pub mod web_app_hybrid_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAppHybridConnectionArgs {
         /// The hostname of the endpoint.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// The port to use for the endpoint.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub relay_id: pulumi_wasm_rust::Output<String>,
+        pub relay_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
         #[builder(into, default)]
-        pub send_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub send_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Web App for this Hybrid Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub web_app_id: pulumi_wasm_rust::Output<String>,
+        pub web_app_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebAppHybridConnectionResult {
@@ -120,16 +120,17 @@ pub mod web_app_hybrid_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WebAppHybridConnectionArgs,
     ) -> WebAppHybridConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hostname_binding = args.hostname.get_inner();
-        let port_binding = args.port.get_inner();
-        let relay_id_binding = args.relay_id.get_inner();
-        let send_key_name_binding = args.send_key_name.get_inner();
-        let web_app_id_binding = args.web_app_id.get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let relay_id_binding = args.relay_id.get_output(context).get_inner();
+        let send_key_name_binding = args.send_key_name.get_output(context).get_inner();
+        let web_app_id_binding = args.web_app_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/webAppHybridConnection:WebAppHybridConnection"
                 .into(),
@@ -190,7 +191,7 @@ pub mod web_app_hybrid_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

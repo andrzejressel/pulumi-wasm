@@ -149,35 +149,35 @@
 /// ```
 ///
 pub mod function_app_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionAppFunctionArgs {
         /// The config for this Function in JSON format.
         #[builder(into)]
-        pub config_json: pulumi_wasm_rust::Output<String>,
+        pub config_json: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should this function be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `file` block as detailed below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub files: pulumi_wasm_rust::Output<
+        pub files: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::FunctionAppFunctionFile>>,
         >,
         /// The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub function_app_id: pulumi_wasm_rust::Output<String>,
+        pub function_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
         ///
         /// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The test data for the function.
         #[builder(into, default)]
-        pub test_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub test_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionAppFunctionResult {
@@ -219,18 +219,22 @@ pub mod function_app_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FunctionAppFunctionArgs,
     ) -> FunctionAppFunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_json_binding = args.config_json.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let files_binding = args.files.get_inner();
-        let function_app_id_binding = args.function_app_id.get_inner();
-        let language_binding = args.language.get_inner();
-        let name_binding = args.name.get_inner();
-        let test_data_binding = args.test_data.get_inner();
+        let config_json_binding = args.config_json.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let files_binding = args.files.get_output(context).get_inner();
+        let function_app_id_binding = args
+            .function_app_id
+            .get_output(context)
+            .get_inner();
+        let language_binding = args.language.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let test_data_binding = args.test_data.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/functionAppFunction:FunctionAppFunction".into(),
             name: name.to_string(),
@@ -310,7 +314,7 @@ pub mod function_app_function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

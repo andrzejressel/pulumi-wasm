@@ -129,7 +129,7 @@
 /// ```
 ///
 pub mod cx_test_case {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxTestCaseArgs {
@@ -138,22 +138,22 @@ pub mod cx_test_case {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Additional freeform notes about the test case. Limit of 400 characters.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The agent to create the test case for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
         /// Each tag should start with "#" and has a limit of 30 characters
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The conversation turns uttered when the test case was created, in chronological order. These include the canonical set of agent utterances that should occur when the agent is working properly.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub test_case_conversation_turns: pulumi_wasm_rust::Output<
+        pub test_case_conversation_turns: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::diagflow::CxTestCaseTestCaseConversationTurn>,
             >,
@@ -161,7 +161,7 @@ pub mod cx_test_case {
         /// Config for the test case.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub test_config: pulumi_wasm_rust::Output<
+        pub test_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxTestCaseTestConfig>,
         >,
     }
@@ -207,17 +207,22 @@ pub mod cx_test_case {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CxTestCaseArgs) -> CxTestCaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CxTestCaseArgs,
+    ) -> CxTestCaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let notes_binding = args.notes.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let notes_binding = args.notes.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let test_case_conversation_turns_binding = args
             .test_case_conversation_turns
+            .get_output(context)
             .get_inner();
-        let test_config_binding = args.test_config.get_inner();
+        let test_config_binding = args.test_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxTestCase:CxTestCase".into(),
             name: name.to_string(),
@@ -278,7 +283,7 @@ pub mod cx_test_case {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

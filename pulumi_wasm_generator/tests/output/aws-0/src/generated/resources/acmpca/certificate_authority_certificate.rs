@@ -88,19 +88,19 @@
 ///       arguments: {}
 /// ```
 pub mod certificate_authority_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateAuthorityCertificateArgs {
         /// PEM-encoded certificate for the Certificate Authority.
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the Certificate Authority.
         #[builder(into)]
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateAuthorityCertificateResult {
@@ -116,16 +116,21 @@ pub mod certificate_authority_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CertificateAuthorityCertificateArgs,
     ) -> CertificateAuthorityCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
         let certificate_authority_arn_binding = args
             .certificate_authority_arn
+            .get_output(context)
             .get_inner();
-        let certificate_chain_binding = args.certificate_chain.get_inner();
+        let certificate_chain_binding = args
+            .certificate_chain
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate"
                 .into(),
@@ -157,7 +162,7 @@ pub mod certificate_authority_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

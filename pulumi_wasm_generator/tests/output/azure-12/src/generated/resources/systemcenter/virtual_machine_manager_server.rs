@@ -44,39 +44,39 @@
 /// ```
 ///
 pub mod virtual_machine_manager_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMachineManagerServerArgs {
         /// The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The FQDN of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the System Center Virtual Machine Manager Server should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The port on which the System Center Virtual Machine Manager Server is listening. Possible values are between `1` and `65535`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the Resource Group where the System Center Virtual Machine Manager should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the System Center Virtual Machine Manager Server.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The username that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualMachineManagerServerResult {
@@ -106,20 +106,27 @@ pub mod virtual_machine_manager_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VirtualMachineManagerServerArgs,
     ) -> VirtualMachineManagerServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_location_id_binding = args.custom_location_id.get_inner();
-        let fqdn_binding = args.fqdn.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let port_binding = args.port.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let username_binding = args.username.get_inner();
+        let custom_location_id_binding = args
+            .custom_location_id
+            .get_output(context)
+            .get_inner();
+        let fqdn_binding = args.fqdn.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer"
                 .into(),
@@ -193,7 +200,7 @@ pub mod virtual_machine_manager_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

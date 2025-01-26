@@ -29,25 +29,25 @@
 /// $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
 /// ```
 pub mod member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MemberArgs {
         /// AWS account ID for the account.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         #[builder(into, default)]
-        pub disable_email_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_email_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Email address for the account.
         #[builder(into)]
-        pub email_address: pulumi_wasm_rust::Output<String>,
+        pub email_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
         #[builder(into)]
-        pub graph_arn: pulumi_wasm_rust::Output<String>,
+        pub graph_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         #[builder(into, default)]
-        pub message: pulumi_wasm_rust::Output<Option<String>>,
+        pub message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MemberResult {
@@ -77,16 +77,21 @@ pub mod member {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MemberArgs) -> MemberResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MemberArgs,
+    ) -> MemberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
         let disable_email_notification_binding = args
             .disable_email_notification
+            .get_output(context)
             .get_inner();
-        let email_address_binding = args.email_address.get_inner();
-        let graph_arn_binding = args.graph_arn.get_inner();
-        let message_binding = args.message.get_inner();
+        let email_address_binding = args.email_address.get_output(context).get_inner();
+        let graph_arn_binding = args.graph_arn.get_output(context).get_inner();
+        let message_binding = args.message.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:detective/member:Member".into(),
             name: name.to_string(),
@@ -149,7 +154,7 @@ pub mod member {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

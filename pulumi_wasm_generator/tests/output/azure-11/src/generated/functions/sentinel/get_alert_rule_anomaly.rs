@@ -1,5 +1,5 @@
 pub mod get_alert_rule_anomaly {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAlertRuleAnomalyArgs {
@@ -7,13 +7,13 @@ pub mod get_alert_rule_anomaly {
         ///
         /// > **NOTE** One of `name` or `display_name` must be specified.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAlertRuleAnomalyResult {
@@ -75,14 +75,18 @@ pub mod get_alert_rule_anomaly {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAlertRuleAnomalyArgs) -> GetAlertRuleAnomalyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAlertRuleAnomalyArgs,
+    ) -> GetAlertRuleAnomalyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly".into(),
             version: super::super::super::get_version(),
@@ -157,7 +161,7 @@ pub mod get_alert_rule_anomaly {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

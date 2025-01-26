@@ -1,17 +1,17 @@
 pub mod get_security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSecurityPolicyArgs {
         /// The name of the security policy. Provide either this or a `self_link`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The self_link of the security policy. Provide either this or a `name`
         #[builder(into, default)]
-        pub self_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub self_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSecurityPolicyResult {
@@ -46,12 +46,15 @@ pub mod get_security_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSecurityPolicyArgs) -> GetSecurityPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSecurityPolicyArgs,
+    ) -> GetSecurityPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let self_link_binding = args.self_link.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let self_link_binding = args.self_link.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getSecurityPolicy:getSecurityPolicy".into(),
             version: super::super::super::get_version(),
@@ -105,7 +108,7 @@ pub mod get_security_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

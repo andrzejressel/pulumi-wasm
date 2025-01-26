@@ -336,53 +336,53 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// Connection properties specific to Amazon Web Services.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub aws: pulumi_wasm_rust::Output<
+        pub aws: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionAws>,
         >,
         /// Container for connection properties specific to Azure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub azure: pulumi_wasm_rust::Output<
+        pub azure: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionAzure>,
         >,
         /// Container for connection properties for delegation of access to GCP resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_resource: pulumi_wasm_rust::Output<
+        pub cloud_resource: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudResource>,
         >,
         /// Connection properties specific to Cloud Spanner
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_spanner: pulumi_wasm_rust::Output<
+        pub cloud_spanner: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudSpanner>,
         >,
         /// Connection properties specific to the Cloud SQL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_sql: pulumi_wasm_rust::Output<
+        pub cloud_sql: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionCloudSql>,
         >,
         /// Optional connection id that should be assigned to the created connection.
         #[builder(into, default)]
-        pub connection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A descriptive description for the connection
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A descriptive name for the connection
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The Cloud KMS key that is used for encryption.
         /// Example: projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The geographic location where the connection should reside.
         /// Cloud SQL instance must be in the same location as the connection
         /// with following exceptions: Cloud SQL us-central1 maps to BigQuery US, Cloud SQL europe-west1 maps to BigQuery EU.
@@ -391,15 +391,15 @@ pub mod connection {
         /// AWS allowed regions are aws-us-east-1
         /// Azure allowed regions are azure-eastus2
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Container for connection properties to execute stored procedures for Apache Spark. resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark: pulumi_wasm_rust::Output<
+        pub spark: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::ConnectionSpark>,
         >,
     }
@@ -465,21 +465,25 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_binding = args.aws.get_inner();
-        let azure_binding = args.azure.get_inner();
-        let cloud_resource_binding = args.cloud_resource.get_inner();
-        let cloud_spanner_binding = args.cloud_spanner.get_inner();
-        let cloud_sql_binding = args.cloud_sql.get_inner();
-        let connection_id_binding = args.connection_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let spark_binding = args.spark.get_inner();
+        let aws_binding = args.aws.get_output(context).get_inner();
+        let azure_binding = args.azure.get_output(context).get_inner();
+        let cloud_resource_binding = args.cloud_resource.get_output(context).get_inner();
+        let cloud_spanner_binding = args.cloud_spanner.get_output(context).get_inner();
+        let cloud_sql_binding = args.cloud_sql.get_output(context).get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let spark_binding = args.spark.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/connection:Connection".into(),
             name: name.to_string(),
@@ -579,7 +583,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

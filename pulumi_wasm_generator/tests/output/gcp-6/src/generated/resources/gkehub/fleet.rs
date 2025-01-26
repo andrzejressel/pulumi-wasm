@@ -55,24 +55,24 @@
 /// ```
 ///
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// The default cluster configurations to apply across the fleet.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_cluster_config: pulumi_wasm_rust::Output<
+        pub default_cluster_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::FleetDefaultClusterConfig>,
         >,
         /// A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters.
         /// Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FleetResult {
@@ -107,12 +107,19 @@ pub mod fleet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FleetArgs) -> FleetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FleetArgs,
+    ) -> FleetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_cluster_config_binding = args.default_cluster_config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let project_binding = args.project.get_inner();
+        let default_cluster_config_binding = args
+            .default_cluster_config
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/fleet:Fleet".into(),
             name: name.to_string(),
@@ -158,7 +165,7 @@ pub mod fleet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -477,21 +477,21 @@
 /// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
 /// ```
 pub mod index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IndexArgs {
         /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         #[builder(into, default)]
-        pub capacity_units: pulumi_wasm_rust::Output<
+        pub capacity_units: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kendra::IndexCapacityUnits>,
         >,
         /// The description of the Index.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         #[builder(into, default)]
-        pub document_metadata_configuration_updates: pulumi_wasm_rust::Output<
+        pub document_metadata_configuration_updates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::kendra::IndexDocumentMetadataConfigurationUpdate,
@@ -500,35 +500,35 @@ pub mod index {
         >,
         /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Index.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         #[builder(into, default)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kendra::IndexServerSideEncryptionConfiguration>,
         >,
         /// Tags to apply to the Index. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         #[builder(into, default)]
-        pub user_context_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_context_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         #[builder(into, default)]
-        pub user_group_resolution_configuration: pulumi_wasm_rust::Output<
+        pub user_group_resolution_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kendra::IndexUserGroupResolutionConfiguration>,
         >,
         /// A block that specifies the user token configuration. Detailed below.
         #[builder(into, default)]
-        pub user_token_configurations: pulumi_wasm_rust::Output<
+        pub user_token_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kendra::IndexUserTokenConfigurations>,
         >,
     }
@@ -592,27 +592,38 @@ pub mod index {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IndexArgs) -> IndexResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IndexArgs,
+    ) -> IndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_units_binding = args.capacity_units.get_inner();
-        let description_binding = args.description.get_inner();
+        let capacity_units_binding = args.capacity_units.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let document_metadata_configuration_updates_binding = args
             .document_metadata_configuration_updates
+            .get_output(context)
             .get_inner();
-        let edition_binding = args.edition.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
+        let edition_binding = args.edition.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let server_side_encryption_configuration_binding = args
             .server_side_encryption_configuration
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_context_policy_binding = args.user_context_policy.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_context_policy_binding = args
+            .user_context_policy
+            .get_output(context)
+            .get_inner();
         let user_group_resolution_configuration_binding = args
             .user_group_resolution_configuration
+            .get_output(context)
             .get_inner();
         let user_token_configurations_binding = args
             .user_token_configurations
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/index:Index".into(),
@@ -721,7 +732,7 @@ pub mod index {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

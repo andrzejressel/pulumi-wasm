@@ -20,25 +20,25 @@
 /// }
 /// ```
 pub mod hosted_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostedConnectionArgs {
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
         #[builder(into)]
-        pub bandwidth: pulumi_wasm_rust::Output<String>,
+        pub bandwidth: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the interconnect or LAG.
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the connection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the AWS account of the customer for the connection.
         #[builder(into)]
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The dedicated VLAN provisioned to the hosted connection.
         #[builder(into)]
-        pub vlan: pulumi_wasm_rust::Output<i32>,
+        pub vlan: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct HostedConnectionResult {
@@ -77,14 +77,21 @@ pub mod hosted_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostedConnectionArgs) -> HostedConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostedConnectionArgs,
+    ) -> HostedConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bandwidth_binding = args.bandwidth.get_inner();
-        let connection_id_binding = args.connection_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let owner_account_id_binding = args.owner_account_id.get_inner();
-        let vlan_binding = args.vlan.get_inner();
+        let bandwidth_binding = args.bandwidth.get_output(context).get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let owner_account_id_binding = args
+            .owner_account_id
+            .get_output(context)
+            .get_inner();
+        let vlan_binding = args.vlan.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/hostedConnection:HostedConnection".into(),
             name: name.to_string(),
@@ -159,7 +166,7 @@ pub mod hosted_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

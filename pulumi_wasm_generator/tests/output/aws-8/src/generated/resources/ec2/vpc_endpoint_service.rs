@@ -51,34 +51,40 @@
 /// $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
 /// ```
 pub mod vpc_endpoint_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointServiceArgs {
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         #[builder(into)]
-        pub acceptance_required: pulumi_wasm_rust::Output<bool>,
+        pub acceptance_required: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The ARNs of one or more principals allowed to discover the endpoint service.
         #[builder(into, default)]
-        pub allowed_principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_principals: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         #[builder(into, default)]
-        pub gateway_load_balancer_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gateway_load_balancer_arns: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         #[builder(into, default)]
-        pub network_load_balancer_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub network_load_balancer_arns: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The private DNS name for the service.
         #[builder(into, default)]
-        pub private_dns_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_dns_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
         #[builder(into, default)]
-        pub supported_ip_address_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_ip_address_types: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The set of regions from which service consumers can access the service.
         #[builder(into, default)]
-        pub supported_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -129,23 +135,42 @@ pub mod vpc_endpoint_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcEndpointServiceArgs) -> VpcEndpointServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcEndpointServiceArgs,
+    ) -> VpcEndpointServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let acceptance_required_binding = args.acceptance_required.get_inner();
-        let allowed_principals_binding = args.allowed_principals.get_inner();
+        let acceptance_required_binding = args
+            .acceptance_required
+            .get_output(context)
+            .get_inner();
+        let allowed_principals_binding = args
+            .allowed_principals
+            .get_output(context)
+            .get_inner();
         let gateway_load_balancer_arns_binding = args
             .gateway_load_balancer_arns
+            .get_output(context)
             .get_inner();
         let network_load_balancer_arns_binding = args
             .network_load_balancer_arns
+            .get_output(context)
             .get_inner();
-        let private_dns_name_binding = args.private_dns_name.get_inner();
+        let private_dns_name_binding = args
+            .private_dns_name
+            .get_output(context)
+            .get_inner();
         let supported_ip_address_types_binding = args
             .supported_ip_address_types
+            .get_output(context)
             .get_inner();
-        let supported_regions_binding = args.supported_regions.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let supported_regions_binding = args
+            .supported_regions
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointService:VpcEndpointService".into(),
             name: name.to_string(),
@@ -238,7 +263,7 @@ pub mod vpc_endpoint_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -102,19 +102,19 @@
 /// ```
 ///
 pub mod network_interface_nat_rule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInterfaceNatRuleAssociationArgs {
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ip_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub ip_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub nat_rule_id: pulumi_wasm_rust::Output<String>,
+        pub nat_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Network Interface. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkInterfaceNatRuleAssociationResult {
@@ -130,14 +130,21 @@ pub mod network_interface_nat_rule_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkInterfaceNatRuleAssociationArgs,
     ) -> NetworkInterfaceNatRuleAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ip_configuration_name_binding = args.ip_configuration_name.get_inner();
-        let nat_rule_id_binding = args.nat_rule_id.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
+        let ip_configuration_name_binding = args
+            .ip_configuration_name
+            .get_output(context)
+            .get_inner();
+        let nat_rule_id_binding = args.nat_rule_id.get_output(context).get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation"
                 .into(),
@@ -169,7 +176,7 @@ pub mod network_interface_nat_rule_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

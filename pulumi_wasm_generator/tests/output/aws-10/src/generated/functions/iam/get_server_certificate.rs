@@ -1,20 +1,20 @@
 pub mod get_server_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServerCertificateArgs {
         /// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
         #[builder(into, default)]
-        pub latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// exact name of the cert to lookup
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// prefix of cert to filter by
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// prefix of path to filter by
         #[builder(into, default)]
-        pub path_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub path_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetServerCertificateResult {
@@ -41,13 +41,16 @@ pub mod get_server_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetServerCertificateArgs) -> GetServerCertificateResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetServerCertificateArgs,
+    ) -> GetServerCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let latest_binding = args.latest.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let path_prefix_binding = args.path_prefix.get_inner();
+        let latest_binding = args.latest.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let path_prefix_binding = args.path_prefix.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getServerCertificate:getServerCertificate".into(),
             version: super::super::super::get_version(),
@@ -105,7 +108,7 @@ pub mod get_server_certificate {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -28,36 +28,38 @@
 /// $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
 /// ```
 pub mod mlflow_tracking_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MlflowTrackingServerArgs {
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         #[builder(into)]
-        pub artifact_store_uri: pulumi_wasm_rust::Output<String>,
+        pub artifact_store_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
         #[builder(into, default)]
-        pub automatic_model_registration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_model_registration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         #[builder(into, default)]
-        pub mlflow_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub mlflow_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         #[builder(into)]
-        pub tracking_server_name: pulumi_wasm_rust::Output<String>,
+        pub tracking_server_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         #[builder(into, default)]
-        pub tracking_server_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub tracking_server_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         #[builder(into, default)]
-        pub weekly_maintenance_window_start: pulumi_wasm_rust::Output<Option<String>>,
+        pub weekly_maintenance_window_start: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct MlflowTrackingServerResult {
@@ -93,22 +95,34 @@ pub mod mlflow_tracking_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MlflowTrackingServerArgs,
     ) -> MlflowTrackingServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let artifact_store_uri_binding = args.artifact_store_uri.get_inner();
+        let artifact_store_uri_binding = args
+            .artifact_store_uri
+            .get_output(context)
+            .get_inner();
         let automatic_model_registration_binding = args
             .automatic_model_registration
+            .get_output(context)
             .get_inner();
-        let mlflow_version_binding = args.mlflow_version.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tracking_server_name_binding = args.tracking_server_name.get_inner();
-        let tracking_server_size_binding = args.tracking_server_size.get_inner();
+        let mlflow_version_binding = args.mlflow_version.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tracking_server_name_binding = args
+            .tracking_server_name
+            .get_output(context)
+            .get_inner();
+        let tracking_server_size_binding = args
+            .tracking_server_size
+            .get_output(context)
+            .get_inner();
         let weekly_maintenance_window_start_binding = args
             .weekly_maintenance_window_start
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer".into(),
@@ -184,7 +198,7 @@ pub mod mlflow_tracking_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -32,29 +32,29 @@
 /// $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 /// ```
 pub mod nfs_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NfsLocationArgs {
         /// Configuration block containing mount options used by DataSync to access the NFS Server.
         #[builder(into, default)]
-        pub mount_options: pulumi_wasm_rust::Output<
+        pub mount_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::NfsLocationMountOptions>,
         >,
         /// Configuration block containing information for connecting to the NFS File System.
         #[builder(into)]
-        pub on_prem_config: pulumi_wasm_rust::Output<
+        pub on_prem_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datasync::NfsLocationOnPremConfig,
         >,
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         #[builder(into)]
-        pub server_hostname: pulumi_wasm_rust::Output<String>,
+        pub server_hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         #[builder(into)]
-        pub subdirectory: pulumi_wasm_rust::Output<String>,
+        pub subdirectory: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -88,14 +88,21 @@ pub mod nfs_location {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NfsLocationArgs) -> NfsLocationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NfsLocationArgs,
+    ) -> NfsLocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let mount_options_binding = args.mount_options.get_inner();
-        let on_prem_config_binding = args.on_prem_config.get_inner();
-        let server_hostname_binding = args.server_hostname.get_inner();
-        let subdirectory_binding = args.subdirectory.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let mount_options_binding = args.mount_options.get_output(context).get_inner();
+        let on_prem_config_binding = args.on_prem_config.get_output(context).get_inner();
+        let server_hostname_binding = args
+            .server_hostname
+            .get_output(context)
+            .get_inner();
+        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/nfsLocation:NfsLocation".into(),
             name: name.to_string(),
@@ -149,7 +156,7 @@ pub mod nfs_location {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

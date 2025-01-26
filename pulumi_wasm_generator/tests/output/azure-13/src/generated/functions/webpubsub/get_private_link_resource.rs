@@ -1,11 +1,11 @@
 pub mod get_private_link_resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPrivateLinkResourceArgs {
         /// The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
         #[builder(into)]
-        pub web_pubsub_id: pulumi_wasm_rust::Output<String>,
+        pub web_pubsub_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPrivateLinkResourceResult {
@@ -23,10 +23,13 @@ pub mod get_private_link_resource {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPrivateLinkResourceArgs) -> GetPrivateLinkResourceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPrivateLinkResourceArgs,
+    ) -> GetPrivateLinkResourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let web_pubsub_id_binding = args.web_pubsub_id.get_inner();
+        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource"
                 .into(),
@@ -49,7 +52,7 @@ pub mod get_private_link_resource {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

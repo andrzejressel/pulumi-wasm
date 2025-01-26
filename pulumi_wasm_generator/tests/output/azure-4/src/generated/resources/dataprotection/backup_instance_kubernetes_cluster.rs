@@ -205,35 +205,35 @@
 /// ```
 ///
 pub mod backup_instance_kubernetes_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstanceKubernetesClusterArgs {
         /// A `backup_datasource_parameters` block as defined below.
         #[builder(into, default)]
-        pub backup_datasource_parameters: pulumi_wasm_rust::Output<
+        pub backup_datasource_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataprotection::BackupInstanceKubernetesClusterBackupDatasourceParameters,
             >,
         >,
         /// The ID of the Backup Policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub snapshot_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstanceKubernetesClusterResult {
@@ -261,6 +261,7 @@ pub mod backup_instance_kubernetes_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackupInstanceKubernetesClusterArgs,
     ) -> BackupInstanceKubernetesClusterResult {
@@ -268,15 +269,23 @@ pub mod backup_instance_kubernetes_cluster {
         use std::collections::HashMap;
         let backup_datasource_parameters_binding = args
             .backup_datasource_parameters
+            .get_output(context)
             .get_inner();
-        let backup_policy_id_binding = args.backup_policy_id.get_inner();
-        let kubernetes_cluster_id_binding = args.kubernetes_cluster_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let backup_policy_id_binding = args
+            .backup_policy_id
+            .get_output(context)
+            .get_inner();
+        let kubernetes_cluster_id_binding = args
+            .kubernetes_cluster_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let snapshot_resource_group_name_binding = args
             .snapshot_resource_group_name
+            .get_output(context)
             .get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster"
                 .into(),
@@ -336,7 +345,7 @@ pub mod backup_instance_kubernetes_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

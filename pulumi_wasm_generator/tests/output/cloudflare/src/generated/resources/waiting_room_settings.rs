@@ -24,16 +24,16 @@
 /// ```
 ///
 pub mod waiting_room_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WaitingRoomSettingsArgs {
         /// Whether to allow verified search engine crawlers to bypass all waiting rooms on this zone. Defaults to `false`.
         #[builder(into, default)]
-        pub search_engine_crawler_bypass: pulumi_wasm_rust::Output<Option<bool>>,
+        pub search_engine_crawler_bypass: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WaitingRoomSettingsResult {
@@ -47,6 +47,7 @@ pub mod waiting_room_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WaitingRoomSettingsArgs,
     ) -> WaitingRoomSettingsResult {
@@ -54,8 +55,9 @@ pub mod waiting_room_settings {
         use std::collections::HashMap;
         let search_engine_crawler_bypass_binding = args
             .search_engine_crawler_bypass
+            .get_output(context)
             .get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoomSettings:WaitingRoomSettings".into(),
             name: name.to_string(),
@@ -79,7 +81,7 @@ pub mod waiting_room_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

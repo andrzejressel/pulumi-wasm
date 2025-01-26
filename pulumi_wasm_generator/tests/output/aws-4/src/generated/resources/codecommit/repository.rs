@@ -47,25 +47,25 @@
 /// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// The default branch of the repository. The branch specified here needs to exist.
         #[builder(into, default)]
-        pub default_branch: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_branch: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the repository. This needs to be less than 1000 characters
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name for the repository. This needs to be less than 100 characters.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -100,14 +100,21 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_branch_binding = args.default_branch.get_inner();
-        let description_binding = args.description.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let repository_name_binding = args.repository_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let default_branch_binding = args.default_branch.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let repository_name_binding = args
+            .repository_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecommit/repository:Repository".into(),
             name: name.to_string(),
@@ -167,7 +174,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

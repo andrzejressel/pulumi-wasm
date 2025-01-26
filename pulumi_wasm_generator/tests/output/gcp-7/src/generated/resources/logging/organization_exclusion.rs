@@ -32,28 +32,28 @@
 /// ```
 ///
 pub mod organization_exclusion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationExclusionArgs {
         /// A human-readable description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this exclusion rule should be disabled or not. This defaults to
         /// false.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The filter to apply when excluding logs. Only log entries that match the filter are excluded.
         /// See [Advanced Log Filters](https://cloud.google.com/logging/docs/view/advanced-filters) for information on how to
         /// write a filter.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the logging exclusion.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The organization to create the exclusion in.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationExclusionResult {
@@ -76,16 +76,17 @@ pub mod organization_exclusion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationExclusionArgs,
     ) -> OrganizationExclusionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/organizationExclusion:OrganizationExclusion".into(),
             name: name.to_string(),
@@ -130,7 +131,7 @@ pub mod organization_exclusion {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -72,7 +72,7 @@
 /// ```
 ///
 pub mod gdc_application_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GdcApplicationEnvironmentArgs {
@@ -80,42 +80,42 @@ pub mod gdc_application_environment {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The id of the application environment
         #[builder(into, default)]
-        pub application_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_environment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-provided human-readable name to be used in user interfaces.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The labels to associate with this application environment. Labels may be used for filtering and billing tracking.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the application environment
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the namespace in which to create this ApplicationEnvironment. This namespace must already exist in the cluster
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The id of the service instance to which this application environment belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub serviceinstance: pulumi_wasm_rust::Output<String>,
+        pub serviceinstance: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents the SparkApplicationEnvironmentConfig.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_application_environment_config: pulumi_wasm_rust::Output<
+        pub spark_application_environment_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataproc::GdcApplicationEnvironmentSparkApplicationEnvironmentConfig,
             >,
@@ -184,23 +184,29 @@ pub mod gdc_application_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GdcApplicationEnvironmentArgs,
     ) -> GdcApplicationEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
         let application_environment_id_binding = args
             .application_environment_id
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let project_binding = args.project.get_inner();
-        let serviceinstance_binding = args.serviceinstance.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let serviceinstance_binding = args
+            .serviceinstance
+            .get_output(context)
+            .get_inner();
         let spark_application_environment_config_binding = args
             .spark_application_environment_config
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcApplicationEnvironment:GdcApplicationEnvironment"
@@ -296,7 +302,7 @@ pub mod gdc_application_environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod azure_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AzureNodePoolArgs {
@@ -118,50 +118,50 @@ pub mod azure_node_pool {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Autoscaler configuration for this node pool.
         #[builder(into)]
-        pub autoscaling: pulumi_wasm_rust::Output<
+        pub autoscaling: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolAutoscaling,
         >,
         /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
         #[builder(into, default)]
-        pub azure_availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub azure_availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The azureCluster for the resource
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// The node configuration of the node pool.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolConfig,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Management configuration for this node pool.
         #[builder(into, default)]
-        pub management: pulumi_wasm_rust::Output<
+        pub management: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AzureNodePoolManagement>,
         >,
         /// The constraint on the maximum number of pods that can be run simultaneously on a node in the node pool.
         #[builder(into)]
-        pub max_pods_constraint: pulumi_wasm_rust::Output<
+        pub max_pods_constraint: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolMaxPodsConstraint,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARM ID of the subnet where the node pool VMs run. Make sure it's a subnet under the virtual network in the cluster configuration.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AzureNodePoolResult {
@@ -224,21 +224,31 @@ pub mod azure_node_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AzureNodePoolArgs) -> AzureNodePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AzureNodePoolArgs,
+    ) -> AzureNodePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let autoscaling_binding = args.autoscaling.get_inner();
-        let azure_availability_zone_binding = args.azure_availability_zone.get_inner();
-        let cluster_binding = args.cluster.get_inner();
-        let config_binding = args.config.get_inner();
-        let location_binding = args.location.get_inner();
-        let management_binding = args.management.get_inner();
-        let max_pods_constraint_binding = args.max_pods_constraint.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let version_binding = args.version.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let autoscaling_binding = args.autoscaling.get_output(context).get_inner();
+        let azure_availability_zone_binding = args
+            .azure_availability_zone
+            .get_output(context)
+            .get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let management_binding = args.management.get_output(context).get_inner();
+        let max_pods_constraint_binding = args
+            .max_pods_constraint
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/azureNodePool:AzureNodePool".into(),
             name: name.to_string(),
@@ -353,7 +363,7 @@ pub mod azure_node_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -42,42 +42,42 @@
 /// ```
 ///
 pub mod registry_webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryWebhookArgs {
         /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub actions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Custom headers that will be added to the webhook notifications request.
         #[builder(into, default)]
-        pub custom_headers: pulumi_wasm_rust::Output<
+        pub custom_headers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub registry_name: pulumi_wasm_rust::Output<String>,
+        pub registry_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the service URI for the Webhook to post notifications.
         #[builder(into)]
-        pub service_uri: pulumi_wasm_rust::Output<String>,
+        pub service_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -112,19 +112,26 @@ pub mod registry_webhook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistryWebhookArgs) -> RegistryWebhookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistryWebhookArgs,
+    ) -> RegistryWebhookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let custom_headers_binding = args.custom_headers.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let registry_name_binding = args.registry_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let service_uri_binding = args.service_uri.get_inner();
-        let status_binding = args.status.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let registry_name_binding = args.registry_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let service_uri_binding = args.service_uri.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryWebhook:RegistryWebhook".into(),
             name: name.to_string(),
@@ -204,7 +211,7 @@ pub mod registry_webhook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -39,49 +39,49 @@
 /// ```
 ///
 pub mod exadata_infrastructure {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExadataInfrastructureArgs {
         /// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub compute_count: pulumi_wasm_rust::Output<i32>,
+        pub compute_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into, default)]
-        pub customer_contacts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub customer_contacts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into, default)]
-        pub maintenance_windows: pulumi_wasm_rust::Output<
+        pub maintenance_windows: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::oracle::ExadataInfrastructureMaintenanceWindow>,
             >,
         >,
         /// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub shape: pulumi_wasm_rust::Output<String>,
+        pub shape: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub storage_count: pulumi_wasm_rust::Output<i32>,
+        pub storage_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         #[builder(into)]
-        pub zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct ExadataInfrastructureResult {
@@ -117,22 +117,32 @@ pub mod exadata_infrastructure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExadataInfrastructureArgs,
     ) -> ExadataInfrastructureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let compute_count_binding = args.compute_count.get_inner();
-        let customer_contacts_binding = args.customer_contacts.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let maintenance_windows_binding = args.maintenance_windows.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let shape_binding = args.shape.get_inner();
-        let storage_count_binding = args.storage_count.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let compute_count_binding = args.compute_count.get_output(context).get_inner();
+        let customer_contacts_binding = args
+            .customer_contacts
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maintenance_windows_binding = args
+            .maintenance_windows
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let shape_binding = args.shape.get_output(context).get_inner();
+        let storage_count_binding = args.storage_count.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/exadataInfrastructure:ExadataInfrastructure".into(),
             name: name.to_string(),
@@ -219,7 +229,7 @@ pub mod exadata_infrastructure {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

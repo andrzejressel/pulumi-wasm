@@ -70,36 +70,36 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// An optional description of the endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location for the endpoint.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the endpoint in the format projects/{project_id}/locations/{locationId}/endpoints/{endpointId}.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the VPC network that is connected to the IDS endpoint. This can either contain the VPC network name itself (like "src-net") or the full URL to the network (like "projects/{project_id}/global/networks/src-net").
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The minimum alert severity level that is reported by the endpoint.
         /// Possible values are: `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
         #[builder(into)]
-        pub severity: pulumi_wasm_rust::Output<String>,
+        pub severity: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for threat IDs excluded from generating alerts. Limit: 99 IDs.
         #[builder(into, default)]
-        pub threat_exceptions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_exceptions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
@@ -135,16 +135,23 @@ pub mod endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointArgs) -> EndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointArgs,
+    ) -> EndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let severity_binding = args.severity.get_inner();
-        let threat_exceptions_binding = args.threat_exceptions.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let severity_binding = args.severity.get_output(context).get_inner();
+        let threat_exceptions_binding = args
+            .threat_exceptions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudids/endpoint:Endpoint".into(),
             name: name.to_string(),
@@ -215,7 +222,7 @@ pub mod endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

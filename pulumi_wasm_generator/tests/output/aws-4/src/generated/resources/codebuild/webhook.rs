@@ -70,27 +70,27 @@
 /// $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         #[builder(into, default)]
-        pub branch_filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub branch_filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         #[builder(into, default)]
-        pub build_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         #[builder(into, default)]
-        pub filter_groups: pulumi_wasm_rust::Output<
+        pub filter_groups: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::WebhookFilterGroup>>,
         >,
         /// The name of the build project.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         #[builder(into, default)]
-        pub scope_configuration: pulumi_wasm_rust::Output<
+        pub scope_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::WebhookScopeConfiguration>,
         >,
     }
@@ -121,14 +121,21 @@ pub mod webhook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebhookArgs) -> WebhookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebhookArgs,
+    ) -> WebhookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let branch_filter_binding = args.branch_filter.get_inner();
-        let build_type_binding = args.build_type.get_inner();
-        let filter_groups_binding = args.filter_groups.get_inner();
-        let project_name_binding = args.project_name.get_inner();
-        let scope_configuration_binding = args.scope_configuration.get_inner();
+        let branch_filter_binding = args.branch_filter.get_output(context).get_inner();
+        let build_type_binding = args.build_type.get_output(context).get_inner();
+        let filter_groups_binding = args.filter_groups.get_output(context).get_inner();
+        let project_name_binding = args.project_name.get_output(context).get_inner();
+        let scope_configuration_binding = args
+            .scope_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/webhook:Webhook".into(),
             name: name.to_string(),
@@ -182,7 +189,7 @@ pub mod webhook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

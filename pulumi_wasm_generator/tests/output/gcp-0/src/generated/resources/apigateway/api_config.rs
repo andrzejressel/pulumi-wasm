@@ -33,7 +33,7 @@
 /// ```
 ///
 pub mod api_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiConfigArgs {
@@ -42,28 +42,28 @@ pub mod api_config {
         ///
         /// - - -
         #[builder(into)]
-        pub api: pulumi_wasm_rust::Output<String>,
+        pub api: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier to assign to the API Config. Must be unique within scope of the parent resource(api).
         #[builder(into, default)]
-        pub api_config_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_config_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the
         /// specified prefix. If this and api_config_id are unspecified, a random value is chosen for the name.
         #[builder(into, default)]
-        pub api_config_id_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_config_id_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-visible name for the API.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Immutable. Gateway specific configuration.
         /// If not specified, backend authentication will be set to use OIDC authentication using the default compute service account
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gateway_config: pulumi_wasm_rust::Output<
+        pub gateway_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::ApiConfigGatewayConfig>,
         >,
         /// gRPC service definition files. If specified, openapiDocuments must not be included.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub grpc_services: pulumi_wasm_rust::Output<
+        pub grpc_services: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigateway::ApiConfigGrpcService>>,
         >,
         /// Resource labels to represent user-provided metadata.
@@ -71,26 +71,26 @@ pub mod api_config {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Service Configuration files. At least one must be included when using gRPC service definitions. See https://cloud.google.com/endpoints/docs/grpc/grpc-service-config#service_configuration_overview for the expected file contents.
         /// If multiple files are specified, the files are merged with the following rules: * All singular scalar fields are merged using "last one wins" semantics in the order of the files uploaded. * Repeated fields are concatenated. * Singular embedded messages are merged using these rules for nested fields.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub managed_service_configs: pulumi_wasm_rust::Output<
+        pub managed_service_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigateway::ApiConfigManagedServiceConfig>>,
         >,
         /// OpenAPI specification documents. If specified, grpcServices and managedServiceConfigs must not be included.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub openapi_documents: pulumi_wasm_rust::Output<
+        pub openapi_documents: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigateway::ApiConfigOpenapiDocument>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiConfigResult {
@@ -156,19 +156,32 @@ pub mod api_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiConfigArgs) -> ApiConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiConfigArgs,
+    ) -> ApiConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_binding = args.api.get_inner();
-        let api_config_id_binding = args.api_config_id.get_inner();
-        let api_config_id_prefix_binding = args.api_config_id_prefix.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let gateway_config_binding = args.gateway_config.get_inner();
-        let grpc_services_binding = args.grpc_services.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let managed_service_configs_binding = args.managed_service_configs.get_inner();
-        let openapi_documents_binding = args.openapi_documents.get_inner();
-        let project_binding = args.project.get_inner();
+        let api_binding = args.api.get_output(context).get_inner();
+        let api_config_id_binding = args.api_config_id.get_output(context).get_inner();
+        let api_config_id_prefix_binding = args
+            .api_config_id_prefix
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let gateway_config_binding = args.gateway_config.get_output(context).get_inner();
+        let grpc_services_binding = args.grpc_services.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let managed_service_configs_binding = args
+            .managed_service_configs
+            .get_output(context)
+            .get_inner();
+        let openapi_documents_binding = args
+            .openapi_documents
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigateway/apiConfig:ApiConfig".into(),
             name: name.to_string(),
@@ -260,7 +273,7 @@ pub mod api_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

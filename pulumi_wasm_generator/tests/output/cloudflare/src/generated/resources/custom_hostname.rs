@@ -25,33 +25,37 @@
 /// ```
 ///
 pub mod custom_hostname {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomHostnameArgs {
         /// Custom metadata associated with custom hostname. Only supports primitive string values, all other values are accessible via the API directly.
         #[builder(into, default)]
-        pub custom_metadata: pulumi_wasm_rust::Output<
+        pub custom_metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The custom origin server used for certificates.
         #[builder(into, default)]
-        pub custom_origin_server: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_origin_server: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [custom origin SNI](https://developers.cloudflare.com/ssl/ssl-for-saas/hostname-specific-behavior/custom-origin) used for certificates.
         #[builder(into, default)]
-        pub custom_origin_sni: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_origin_sni: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Hostname you intend to request a certificate for. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// SSL properties used when creating the custom hostname.
         #[builder(into, default)]
-        pub ssls: pulumi_wasm_rust::Output<Option<Vec<super::types::CustomHostnameSsl>>>,
+        pub ssls: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::CustomHostnameSsl>>,
+        >,
         /// Whether to wait for a custom hostname SSL sub-object to reach status `pending_validation` during creation. Defaults to `false`.
         #[builder(into, default)]
-        pub wait_for_ssl_pending_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_ssl_pending_validation: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomHostnameResult {
@@ -84,18 +88,32 @@ pub mod custom_hostname {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomHostnameArgs) -> CustomHostnameResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomHostnameArgs,
+    ) -> CustomHostnameResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_metadata_binding = args.custom_metadata.get_inner();
-        let custom_origin_server_binding = args.custom_origin_server.get_inner();
-        let custom_origin_sni_binding = args.custom_origin_sni.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let ssls_binding = args.ssls.get_inner();
+        let custom_metadata_binding = args
+            .custom_metadata
+            .get_output(context)
+            .get_inner();
+        let custom_origin_server_binding = args
+            .custom_origin_server
+            .get_output(context)
+            .get_inner();
+        let custom_origin_sni_binding = args
+            .custom_origin_sni
+            .get_output(context)
+            .get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let ssls_binding = args.ssls.get_output(context).get_inner();
         let wait_for_ssl_pending_validation_binding = args
             .wait_for_ssl_pending_validation
+            .get_output(context)
             .get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customHostname:CustomHostname".into(),
             name: name.to_string(),
@@ -163,7 +181,7 @@ pub mod custom_hostname {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

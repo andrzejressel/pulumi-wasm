@@ -146,14 +146,14 @@
 /// ```
 ///
 pub mod management_folder_security_health_analytics_custom_module {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagementFolderSecurityHealthAnalyticsCustomModuleArgs {
         /// The user specified custom configuration for the module.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub custom_config: pulumi_wasm_rust::Output<
+        pub custom_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::securitycenter::ManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfig,
             >,
@@ -164,20 +164,20 @@ pub mod management_folder_security_health_analytics_custom_module {
         /// 128 characters, start with a lowercase letter, and contain alphanumeric
         /// characters or underscores only.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The enablement state of the custom module.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub enablement_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub enablement_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Numerical ID of the parent folder.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
         /// Location ID of the parent organization. If not provided, 'global' will be used as the default location.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagementFolderSecurityHealthAnalyticsCustomModuleResult {
@@ -223,16 +223,20 @@ pub mod management_folder_security_health_analytics_custom_module {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagementFolderSecurityHealthAnalyticsCustomModuleArgs,
     ) -> ManagementFolderSecurityHealthAnalyticsCustomModuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_config_binding = args.custom_config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enablement_state_binding = args.enablement_state.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let location_binding = args.location.get_inner();
+        let custom_config_binding = args.custom_config.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enablement_state_binding = args
+            .enablement_state
+            .get_output(context)
+            .get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/managementFolderSecurityHealthAnalyticsCustomModule:ManagementFolderSecurityHealthAnalyticsCustomModule"
                 .into(),
@@ -290,7 +294,7 @@ pub mod management_folder_security_health_analytics_custom_module {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,19 +1,19 @@
 pub mod get_prefix_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPrefixListArgs {
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetPrefixListFilter>>,
         >,
         /// Name of the prefix list to select.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the prefix list to select.
         #[builder(into, default)]
-        pub prefix_list_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetPrefixListResult {
@@ -32,12 +32,15 @@ pub mod get_prefix_list {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPrefixListArgs) -> GetPrefixListResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPrefixListArgs,
+    ) -> GetPrefixListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getPrefixList:getPrefixList".into(),
             version: super::super::super::get_version(),
@@ -73,7 +76,7 @@ pub mod get_prefix_list {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -24,28 +24,28 @@
 /// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
 /// ```
 pub mod namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         #[builder(into, default)]
-        pub identity_store: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_store: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the namespace.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::NamespaceTimeouts>,
         >,
     }
@@ -81,14 +81,18 @@ pub mod namespace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NamespaceArgs) -> NamespaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NamespaceArgs,
+    ) -> NamespaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let identity_store_binding = args.identity_store.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let identity_store_binding = args.identity_store.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/namespace:Namespace".into(),
             name: name.to_string(),
@@ -145,7 +149,7 @@ pub mod namespace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

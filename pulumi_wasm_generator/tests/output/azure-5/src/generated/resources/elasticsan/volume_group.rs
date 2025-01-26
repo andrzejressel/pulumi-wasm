@@ -145,39 +145,39 @@
 /// ```
 ///
 pub mod volume_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeGroupArgs {
         /// Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub elastic_san_id: pulumi_wasm_rust::Output<String>,
+        pub elastic_san_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `encryption` block as defined below.
         ///
         /// > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsan::VolumeGroupEncryption>,
         >,
         /// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         #[builder(into, default)]
-        pub encryption_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsan::VolumeGroupIdentity>,
         >,
         /// Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `network_rule` blocks as defined below.
         #[builder(into, default)]
-        pub network_rules: pulumi_wasm_rust::Output<
+        pub network_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::elasticsan::VolumeGroupNetworkRule>>,
         >,
         /// Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
         #[builder(into, default)]
-        pub protocol_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeGroupResult {
@@ -208,16 +208,23 @@ pub mod volume_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeGroupArgs) -> VolumeGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeGroupArgs,
+    ) -> VolumeGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let elastic_san_id_binding = args.elastic_san_id.get_inner();
-        let encryption_binding = args.encryption.get_inner();
-        let encryption_type_binding = args.encryption_type.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_rules_binding = args.network_rules.get_inner();
-        let protocol_type_binding = args.protocol_type.get_inner();
+        let elastic_san_id_binding = args.elastic_san_id.get_output(context).get_inner();
+        let encryption_binding = args.encryption.get_output(context).get_inner();
+        let encryption_type_binding = args
+            .encryption_type
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_rules_binding = args.network_rules.get_output(context).get_inner();
+        let protocol_type_binding = args.protocol_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:elasticsan/volumeGroup:VolumeGroup".into(),
             name: name.to_string(),
@@ -276,7 +283,7 @@ pub mod volume_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

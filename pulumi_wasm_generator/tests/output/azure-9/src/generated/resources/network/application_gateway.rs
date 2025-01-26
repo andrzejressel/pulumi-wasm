@@ -92,13 +92,13 @@
 /// ```
 ///
 pub mod application_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationGatewayArgs {
         /// One or more `authentication_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub authentication_certificates: pulumi_wasm_rust::Output<
+        pub authentication_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayAuthenticationCertificate,
@@ -107,24 +107,24 @@ pub mod application_gateway {
         >,
         /// An `autoscale_configuration` block as defined below.
         #[builder(into, default)]
-        pub autoscale_configuration: pulumi_wasm_rust::Output<
+        pub autoscale_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::network::ApplicationGatewayAutoscaleConfiguration,
             >,
         >,
         /// One or more `backend_address_pool` blocks as defined below.
         #[builder(into)]
-        pub backend_address_pools: pulumi_wasm_rust::Output<
+        pub backend_address_pools: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayBackendAddressPool>,
         >,
         /// One or more `backend_http_settings` blocks as defined below.
         #[builder(into)]
-        pub backend_http_settings: pulumi_wasm_rust::Output<
+        pub backend_http_settings: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayBackendHttpSetting>,
         >,
         /// One or more `custom_error_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub custom_error_configurations: pulumi_wasm_rust::Output<
+        pub custom_error_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayCustomErrorConfiguration,
@@ -133,55 +133,57 @@ pub mod application_gateway {
         >,
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         #[builder(into, default)]
-        pub enable_http2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_http2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is FIPS enabled on the Application Gateway?
         #[builder(into, default)]
-        pub fips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Web Application Firewall Policy.
         #[builder(into, default)]
-        pub firewall_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub firewall_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is the Firewall Policy associated with the Application Gateway?
         #[builder(into, default)]
-        pub force_firewall_policy_association: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_firewall_policy_association: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// One or more `frontend_ip_configuration` blocks as defined below.
         #[builder(into)]
-        pub frontend_ip_configurations: pulumi_wasm_rust::Output<
+        pub frontend_ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayFrontendIpConfiguration>,
         >,
         /// One or more `frontend_port` blocks as defined below.
         #[builder(into)]
-        pub frontend_ports: pulumi_wasm_rust::Output<
+        pub frontend_ports: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayFrontendPort>,
         >,
         /// One or more `gateway_ip_configuration` blocks as defined below.
         #[builder(into)]
-        pub gateway_ip_configurations: pulumi_wasm_rust::Output<
+        pub gateway_ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayGatewayIpConfiguration>,
         >,
         /// A `global` block as defined below.
         #[builder(into, default)]
-        pub global: pulumi_wasm_rust::Output<
+        pub global: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayGlobal>,
         >,
         /// One or more `http_listener` blocks as defined below.
         #[builder(into)]
-        pub http_listeners: pulumi_wasm_rust::Output<
+        pub http_listeners: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayHttpListener>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayIdentity>,
         >,
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `private_link_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub private_link_configurations: pulumi_wasm_rust::Output<
+        pub private_link_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayPrivateLinkConfiguration,
@@ -190,12 +192,12 @@ pub mod application_gateway {
         >,
         /// One or more `probe` blocks as defined below.
         #[builder(into, default)]
-        pub probes: pulumi_wasm_rust::Output<
+        pub probes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayProbe>>,
         >,
         /// One or more `redirect_configuration` blocks as defined below.
         #[builder(into, default)]
-        pub redirect_configurations: pulumi_wasm_rust::Output<
+        pub redirect_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayRedirectConfiguration,
@@ -204,45 +206,45 @@ pub mod application_gateway {
         >,
         /// One or more `request_routing_rule` blocks as defined below.
         #[builder(into)]
-        pub request_routing_rules: pulumi_wasm_rust::Output<
+        pub request_routing_rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::ApplicationGatewayRequestRoutingRule>,
         >,
         /// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         #[builder(into, default)]
-        pub rewrite_rule_sets: pulumi_wasm_rust::Output<
+        pub rewrite_rule_sets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayRewriteRuleSet>>,
         >,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_wasm_rust::InputOrOutput<
             super::super::types::network::ApplicationGatewaySku,
         >,
         /// One or more `ssl_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub ssl_certificates: pulumi_wasm_rust::Output<
+        pub ssl_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewaySslCertificate>>,
         >,
         /// a `ssl_policy` block as defined below.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::Output<
+        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewaySslPolicy>,
         >,
         /// One or more `ssl_profile` blocks as defined below.
         #[builder(into, default)]
-        pub ssl_profiles: pulumi_wasm_rust::Output<
+        pub ssl_profiles: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewaySslProfile>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `trusted_client_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub trusted_client_certificates: pulumi_wasm_rust::Output<
+        pub trusted_client_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedClientCertificate,
@@ -251,7 +253,7 @@ pub mod application_gateway {
         >,
         /// One or more `trusted_root_certificate` blocks as defined below.
         #[builder(into, default)]
-        pub trusted_root_certificates: pulumi_wasm_rust::Output<
+        pub trusted_root_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::ApplicationGatewayTrustedRootCertificate,
@@ -260,19 +262,19 @@ pub mod application_gateway {
         >,
         /// One or more `url_path_map` blocks as defined below.
         #[builder(into, default)]
-        pub url_path_maps: pulumi_wasm_rust::Output<
+        pub url_path_maps: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::ApplicationGatewayUrlPathMap>>,
         >,
         /// A `waf_configuration` block as defined below.
         #[builder(into, default)]
-        pub waf_configuration: pulumi_wasm_rust::Output<
+        pub waf_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ApplicationGatewayWafConfiguration>,
         >,
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         ///
         /// > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationGatewayResult {
@@ -431,58 +433,100 @@ pub mod application_gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationGatewayArgs) -> ApplicationGatewayResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationGatewayArgs,
+    ) -> ApplicationGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authentication_certificates_binding = args
             .authentication_certificates
+            .get_output(context)
             .get_inner();
-        let autoscale_configuration_binding = args.autoscale_configuration.get_inner();
-        let backend_address_pools_binding = args.backend_address_pools.get_inner();
-        let backend_http_settings_binding = args.backend_http_settings.get_inner();
+        let autoscale_configuration_binding = args
+            .autoscale_configuration
+            .get_output(context)
+            .get_inner();
+        let backend_address_pools_binding = args
+            .backend_address_pools
+            .get_output(context)
+            .get_inner();
+        let backend_http_settings_binding = args
+            .backend_http_settings
+            .get_output(context)
+            .get_inner();
         let custom_error_configurations_binding = args
             .custom_error_configurations
+            .get_output(context)
             .get_inner();
-        let enable_http2_binding = args.enable_http2.get_inner();
-        let fips_enabled_binding = args.fips_enabled.get_inner();
-        let firewall_policy_id_binding = args.firewall_policy_id.get_inner();
+        let enable_http2_binding = args.enable_http2.get_output(context).get_inner();
+        let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
+        let firewall_policy_id_binding = args
+            .firewall_policy_id
+            .get_output(context)
+            .get_inner();
         let force_firewall_policy_association_binding = args
             .force_firewall_policy_association
+            .get_output(context)
             .get_inner();
         let frontend_ip_configurations_binding = args
             .frontend_ip_configurations
+            .get_output(context)
             .get_inner();
-        let frontend_ports_binding = args.frontend_ports.get_inner();
+        let frontend_ports_binding = args.frontend_ports.get_output(context).get_inner();
         let gateway_ip_configurations_binding = args
             .gateway_ip_configurations
+            .get_output(context)
             .get_inner();
-        let global_binding = args.global.get_inner();
-        let http_listeners_binding = args.http_listeners.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let global_binding = args.global.get_output(context).get_inner();
+        let http_listeners_binding = args.http_listeners.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let private_link_configurations_binding = args
             .private_link_configurations
+            .get_output(context)
             .get_inner();
-        let probes_binding = args.probes.get_inner();
-        let redirect_configurations_binding = args.redirect_configurations.get_inner();
-        let request_routing_rules_binding = args.request_routing_rules.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let rewrite_rule_sets_binding = args.rewrite_rule_sets.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let ssl_certificates_binding = args.ssl_certificates.get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_inner();
-        let ssl_profiles_binding = args.ssl_profiles.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let probes_binding = args.probes.get_output(context).get_inner();
+        let redirect_configurations_binding = args
+            .redirect_configurations
+            .get_output(context)
+            .get_inner();
+        let request_routing_rules_binding = args
+            .request_routing_rules
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let rewrite_rule_sets_binding = args
+            .rewrite_rule_sets
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let ssl_certificates_binding = args
+            .ssl_certificates
+            .get_output(context)
+            .get_inner();
+        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
+        let ssl_profiles_binding = args.ssl_profiles.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let trusted_client_certificates_binding = args
             .trusted_client_certificates
+            .get_output(context)
             .get_inner();
         let trusted_root_certificates_binding = args
             .trusted_root_certificates
+            .get_output(context)
             .get_inner();
-        let url_path_maps_binding = args.url_path_maps.get_inner();
-        let waf_configuration_binding = args.waf_configuration.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let url_path_maps_binding = args.url_path_maps.get_output(context).get_inner();
+        let waf_configuration_binding = args
+            .waf_configuration
+            .get_output(context)
+            .get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/applicationGateway:ApplicationGateway".into(),
             name: name.to_string(),
@@ -726,7 +770,7 @@ pub mod application_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -72,21 +72,21 @@
 /// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
 /// ```
 pub mod mail_from {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MailFromArgs {
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         #[builder(into, default)]
-        pub behavior_on_mx_failure: pulumi_wasm_rust::Output<Option<String>>,
+        pub behavior_on_mx_failure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Verified domain name or email identity to generate DKIM tokens for.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub mail_from_domain: pulumi_wasm_rust::Output<String>,
+        pub mail_from_domain: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MailFromResult {
@@ -103,12 +103,22 @@ pub mod mail_from {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MailFromArgs) -> MailFromResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MailFromArgs,
+    ) -> MailFromResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let behavior_on_mx_failure_binding = args.behavior_on_mx_failure.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let mail_from_domain_binding = args.mail_from_domain.get_inner();
+        let behavior_on_mx_failure_binding = args
+            .behavior_on_mx_failure
+            .get_output(context)
+            .get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let mail_from_domain_binding = args
+            .mail_from_domain
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/mailFrom:MailFrom".into(),
             name: name.to_string(),
@@ -139,7 +149,7 @@ pub mod mail_from {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

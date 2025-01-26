@@ -43,29 +43,29 @@
 /// ```
 ///
 pub mod policy_fragment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyFragmentArgs {
         /// The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Policy Fragment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         ///
         /// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         #[builder(into, default)]
-        pub format: pulumi_wasm_rust::Output<Option<String>>,
+        pub format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The value of the Policy Fragment.
         ///
         /// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyFragmentResult {
@@ -88,14 +88,21 @@ pub mod policy_fragment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyFragmentArgs) -> PolicyFragmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyFragmentArgs,
+    ) -> PolicyFragmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let format_binding = args.format.get_inner();
-        let name_binding = args.name.get_inner();
-        let value_binding = args.value.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let format_binding = args.format.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/policyFragment:PolicyFragment".into(),
             name: name.to_string(),
@@ -140,7 +147,7 @@ pub mod policy_fragment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -29,16 +29,16 @@
 /// $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
 /// ```
 pub mod resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourcePolicyArgs {
         /// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourcePolicyResult {
@@ -51,11 +51,15 @@ pub mod resource_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResourcePolicyArgs) -> ResourcePolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResourcePolicyArgs,
+    ) -> ResourcePolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_binding = args.policy.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),
@@ -79,7 +83,7 @@ pub mod resource_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

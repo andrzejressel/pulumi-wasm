@@ -83,7 +83,7 @@
 /// ```
 ///
 pub mod workstation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkstationArgs {
@@ -91,22 +91,22 @@ pub mod workstation {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Human-readable name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// 'Client-specified environment variables passed to the workstation container's entrypoint.'
         #[builder(into, default)]
-        pub env: pulumi_wasm_rust::Output<
+        pub env: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the workstation parent resources reside.
@@ -114,20 +114,20 @@ pub mod workstation {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the parent workstation cluster.
         #[builder(into)]
-        pub workstation_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the parent workstation cluster config.
         #[builder(into)]
-        pub workstation_config_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID to use for the workstation.
         #[builder(into)]
-        pub workstation_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkstationResult {
@@ -192,18 +192,28 @@ pub mod workstation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkstationArgs) -> WorkstationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkstationArgs,
+    ) -> WorkstationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let env_binding = args.env.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let workstation_cluster_id_binding = args.workstation_cluster_id.get_inner();
-        let workstation_config_id_binding = args.workstation_config_id.get_inner();
-        let workstation_id_binding = args.workstation_id.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let env_binding = args.env.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let workstation_cluster_id_binding = args
+            .workstation_cluster_id
+            .get_output(context)
+            .get_inner();
+        let workstation_config_id_binding = args
+            .workstation_config_id
+            .get_output(context)
+            .get_inner();
+        let workstation_id_binding = args.workstation_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstation:Workstation".into(),
             name: name.to_string(),
@@ -300,7 +310,7 @@ pub mod workstation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

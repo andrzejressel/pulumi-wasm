@@ -319,7 +319,7 @@
 /// ```
 ///
 pub mod workload_identity_pool_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkloadIdentityPoolProviderArgs {
@@ -329,7 +329,7 @@ pub mod workload_identity_pool_provider {
         /// The expression must output a boolean representing whether to allow the federation.
         /// The following keywords may be referenced in the expressions:
         #[builder(into, default)]
-        pub attribute_condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub attribute_condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maps attributes from authentication credentials issued by an external identity provider
         /// to Google Cloud attributes, such as `subject` and `segment`.
         /// Each key must be a string specifying the Google Cloud IAM attribute to map to.
@@ -382,46 +382,46 @@ pub mod workload_identity_pool_provider {
         /// {"google.subject": "assertion.sub"}
         /// ```
         #[builder(into, default)]
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_mapping: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub aws: pulumi_wasm_rust::Output<
+        pub aws: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderAws>,
         >,
         /// A description for the provider. Cannot exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
         /// However, existing tokens still grant access.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A display name for the provider. Cannot exceed 32 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oidc: pulumi_wasm_rust::Output<
+        pub oidc: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderOidc>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub saml: pulumi_wasm_rust::Output<
+        pub saml: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderSaml>,
         >,
         /// The ID used for the pool, which is the final component of the pool resource name. This
         /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
         #[builder(into)]
-        pub workload_identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub workload_identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID for the provider, which becomes the final component of the resource name. This
         /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
@@ -429,12 +429,12 @@ pub mod workload_identity_pool_provider {
         ///
         /// - - -
         #[builder(into)]
-        pub workload_identity_pool_provider_id: pulumi_wasm_rust::Output<String>,
+        pub workload_identity_pool_provider_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An X.509-type identity provider represents a CA. It is trusted to assert a
         /// client identity if the client has a certificate that chains up to this CA.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub x509: pulumi_wasm_rust::Output<
+        pub x509: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderX509>,
         >,
     }
@@ -559,27 +559,36 @@ pub mod workload_identity_pool_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkloadIdentityPoolProviderArgs,
     ) -> WorkloadIdentityPoolProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attribute_condition_binding = args.attribute_condition.get_inner();
-        let attribute_mapping_binding = args.attribute_mapping.get_inner();
-        let aws_binding = args.aws.get_inner();
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let oidc_binding = args.oidc.get_inner();
-        let project_binding = args.project.get_inner();
-        let saml_binding = args.saml.get_inner();
+        let attribute_condition_binding = args
+            .attribute_condition
+            .get_output(context)
+            .get_inner();
+        let attribute_mapping_binding = args
+            .attribute_mapping
+            .get_output(context)
+            .get_inner();
+        let aws_binding = args.aws.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let oidc_binding = args.oidc.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let saml_binding = args.saml.get_output(context).get_inner();
         let workload_identity_pool_id_binding = args
             .workload_identity_pool_id
+            .get_output(context)
             .get_inner();
         let workload_identity_pool_provider_id_binding = args
             .workload_identity_pool_provider_id
+            .get_output(context)
             .get_inner();
-        let x509_binding = args.x509.get_inner();
+        let x509_binding = args.x509.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workloadIdentityPoolProvider:WorkloadIdentityPoolProvider"
                 .into(),
@@ -680,7 +689,7 @@ pub mod workload_identity_pool_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,17 +1,17 @@
 pub mod get_firewall {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFirewallArgs {
         /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
         #[builder(into, default)]
-        pub dns_proxy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dns_proxy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Azure Firewall.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Azure Firewall exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetFirewallResult {
@@ -56,12 +56,21 @@ pub mod get_firewall {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetFirewallArgs) -> GetFirewallResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetFirewallArgs,
+    ) -> GetFirewallResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dns_proxy_enabled_binding = args.dns_proxy_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let dns_proxy_enabled_binding = args
+            .dns_proxy_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getFirewall:getFirewall".into(),
             version: super::super::super::get_version(),
@@ -127,7 +136,7 @@ pub mod get_firewall {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

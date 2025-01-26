@@ -72,47 +72,47 @@
 /// ```
 ///
 pub mod spring_cloud_gateway_route_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudGatewayRouteConfigArgs {
         /// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `open_api` blocks as defined below.
         #[builder(into, default)]
-        pub open_api: pulumi_wasm_rust::Output<
+        pub open_api: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appplatform::SpringCloudGatewayRouteConfigOpenApi,
             >,
         >,
         /// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         #[builder(into, default)]
-        pub predicates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub predicates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
         ///
         /// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `route` blocks as defined below.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::appplatform::SpringCloudGatewayRouteConfigRoute>,
             >,
         >,
         /// The ID of the Spring Cloud App.
         #[builder(into, default)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         #[builder(into)]
-        pub spring_cloud_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the sso validation be enabled in app level?
         #[builder(into, default)]
-        pub sso_validation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sso_validation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudGatewayRouteConfigResult {
@@ -150,20 +150,30 @@ pub mod spring_cloud_gateway_route_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudGatewayRouteConfigArgs,
     ) -> SpringCloudGatewayRouteConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
-        let open_api_binding = args.open_api.get_inner();
-        let predicates_binding = args.predicates.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let routes_binding = args.routes.get_inner();
-        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_inner();
-        let spring_cloud_gateway_id_binding = args.spring_cloud_gateway_id.get_inner();
-        let sso_validation_enabled_binding = args.sso_validation_enabled.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let open_api_binding = args.open_api.get_output(context).get_inner();
+        let predicates_binding = args.predicates.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let routes_binding = args.routes.get_output(context).get_inner();
+        let spring_cloud_app_id_binding = args
+            .spring_cloud_app_id
+            .get_output(context)
+            .get_inner();
+        let spring_cloud_gateway_id_binding = args
+            .spring_cloud_gateway_id
+            .get_output(context)
+            .get_inner();
+        let sso_validation_enabled_binding = args
+            .sso_validation_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig"
                 .into(),
@@ -237,7 +247,7 @@ pub mod spring_cloud_gateway_route_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

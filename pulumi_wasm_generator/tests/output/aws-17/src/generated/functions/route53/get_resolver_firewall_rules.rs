@@ -1,17 +1,17 @@
 pub mod get_resolver_firewall_rules {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverFirewallRulesArgs {
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         #[builder(into, default)]
-        pub action: pulumi_wasm_rust::Output<Option<String>>,
+        pub action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
         #[builder(into)]
-        pub firewall_rule_group_id: pulumi_wasm_rust::Output<String>,
+        pub firewall_rule_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The setting that determines the processing order of the rules in a rule group.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetResolverFirewallRulesResult {
@@ -31,12 +31,18 @@ pub mod get_resolver_firewall_rules {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetResolverFirewallRulesArgs) -> GetResolverFirewallRulesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetResolverFirewallRulesArgs,
+    ) -> GetResolverFirewallRulesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let firewall_rule_group_id_binding = args.firewall_rule_group_id.get_inner();
-        let priority_binding = args.priority.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let firewall_rule_group_id_binding = args
+            .firewall_rule_group_id
+            .get_output(context)
+            .get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallRules:getResolverFirewallRules"
                 .into(),
@@ -73,7 +79,7 @@ pub mod get_resolver_firewall_rules {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

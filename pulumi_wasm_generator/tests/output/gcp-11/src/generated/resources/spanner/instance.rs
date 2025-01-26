@@ -100,7 +100,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -110,7 +110,7 @@ pub mod instance {
         /// the instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling_config: pulumi_wasm_rust::Output<
+        pub autoscaling_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::spanner::InstanceAutoscalingConfig>,
         >,
         /// The name of the instance's configuration (similar but not
@@ -120,35 +120,37 @@ pub mod instance {
         /// In order to obtain a valid list please consult the
         /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<String>,
+        pub config: pulumi_wasm_rust::InputOrOutput<String>,
         /// Controls the default backup behavior for new databases within the instance.
         /// Note that `AUTOMATIC` is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
         /// if unset or NONE, no default backup schedule will be created for new databases within the instance.
         /// Possible values are: `NONE`, `AUTOMATIC`.
         #[builder(into, default)]
-        pub default_backup_schedule_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_backup_schedule_type: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The descriptive name for this instance as it appears in UIs. Must be
         /// unique per project and between 4 and 30 characters in length.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The edition selected for this instance. Different editions provide different capabilities at different price points.
         /// Possible values are: `EDITION_UNSPECIFIED`, `STANDARD`, `ENTERPRISE`, `ENTERPRISE_PLUS`.
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
         /// This must be set to true if you created a backup manually in the console.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An object containing a list of "key": value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique identifier for the instance, which cannot be changed after
@@ -156,15 +158,15 @@ pub mod instance {
         /// in length.
         /// If not provided, a random string starting with `tf-` will be selected.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub num_nodes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub num_nodes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub processing_units: pulumi_wasm_rust::Output<Option<i32>>,
+        pub processing_units: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -234,22 +236,33 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let autoscaling_config_binding = args.autoscaling_config.get_inner();
-        let config_binding = args.config.get_inner();
+        let autoscaling_config_binding = args
+            .autoscaling_config
+            .get_output(context)
+            .get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
         let default_backup_schedule_type_binding = args
             .default_backup_schedule_type
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let edition_binding = args.edition.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let num_nodes_binding = args.num_nodes.get_inner();
-        let processing_units_binding = args.processing_units.get_inner();
-        let project_binding = args.project.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let edition_binding = args.edition.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let num_nodes_binding = args.num_nodes.get_output(context).get_inner();
+        let processing_units_binding = args
+            .processing_units
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/instance:Instance".into(),
             name: name.to_string(),
@@ -345,7 +358,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

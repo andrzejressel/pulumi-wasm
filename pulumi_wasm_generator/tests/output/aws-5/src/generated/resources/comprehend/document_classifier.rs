@@ -41,48 +41,48 @@
 /// $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 /// ```
 pub mod document_classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentClassifierArgs {
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         #[builder(into)]
-        pub data_access_role_arn: pulumi_wasm_rust::Output<String>,
+        pub data_access_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         #[builder(into)]
-        pub input_data_config: pulumi_wasm_rust::Output<
+        pub input_data_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::comprehend::DocumentClassifierInputDataConfig,
         >,
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The document classification mode.
         /// One of `MULTI_CLASS` or `MULTI_LABEL`.
         /// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS Key used to encrypt trained Document Classifiers.
         /// Can be a KMS Key ID or a KMS Key ARN.
         #[builder(into, default)]
-        pub model_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for the output results of training.
         /// See the `output_data_config` Configuration Block section below.
         #[builder(into, default)]
-        pub output_data_config: pulumi_wasm_rust::Output<
+        pub output_data_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::comprehend::DocumentClassifierOutputDataConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name for the version of the Document Classifier.
@@ -93,21 +93,21 @@ pub mod document_classifier {
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
         #[builder(into, default)]
-        pub version_name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS Key used to encrypt storage volumes during job processing.
         /// Can be a KMS Key ID or a KMS Key ARN.
         #[builder(into, default)]
-        pub volume_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration parameters for VPC to contain Document Classifier resources.
         /// See the `vpc_config` Configuration Block section below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::comprehend::DocumentClassifierVpcConfig>,
         >,
     }
@@ -177,21 +177,43 @@ pub mod document_classifier {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DocumentClassifierArgs) -> DocumentClassifierResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DocumentClassifierArgs,
+    ) -> DocumentClassifierResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_access_role_arn_binding = args.data_access_role_arn.get_inner();
-        let input_data_config_binding = args.input_data_config.get_inner();
-        let language_code_binding = args.language_code.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let model_kms_key_id_binding = args.model_kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let output_data_config_binding = args.output_data_config.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_name_binding = args.version_name.get_inner();
-        let version_name_prefix_binding = args.version_name_prefix.get_inner();
-        let volume_kms_key_id_binding = args.volume_kms_key_id.get_inner();
-        let vpc_config_binding = args.vpc_config.get_inner();
+        let data_access_role_arn_binding = args
+            .data_access_role_arn
+            .get_output(context)
+            .get_inner();
+        let input_data_config_binding = args
+            .input_data_config
+            .get_output(context)
+            .get_inner();
+        let language_code_binding = args.language_code.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let model_kms_key_id_binding = args
+            .model_kms_key_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let output_data_config_binding = args
+            .output_data_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_name_binding = args.version_name.get_output(context).get_inner();
+        let version_name_prefix_binding = args
+            .version_name_prefix
+            .get_output(context)
+            .get_inner();
+        let volume_kms_key_id_binding = args
+            .volume_kms_key_id
+            .get_output(context)
+            .get_inner();
+        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:comprehend/documentClassifier:DocumentClassifier".into(),
             name: name.to_string(),
@@ -291,7 +313,7 @@ pub mod document_classifier {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

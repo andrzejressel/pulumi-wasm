@@ -1,20 +1,20 @@
 pub mod get_tunnel_dest_group_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTunnelDestGroupIamPolicyArgs {
         #[builder(into)]
-        pub dest_group: pulumi_wasm_rust::Output<String>,
+        pub dest_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of the tunnel group. Must be the same as the network resources in the group.
         /// Used to find the parent resource to bind the IAM policy to. If not specified,
         /// the value will be parsed from the identifier of the parent resource. If no region is provided in the parent identifier and no
         /// region is specified, it is taken from the provider configuration.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetTunnelDestGroupIamPolicyResult {
@@ -34,13 +34,14 @@ pub mod get_tunnel_dest_group_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetTunnelDestGroupIamPolicyArgs,
     ) -> GetTunnelDestGroupIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dest_group_binding = args.dest_group.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let dest_group_binding = args.dest_group.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getTunnelDestGroupIamPolicy:getTunnelDestGroupIamPolicy"
                 .into(),
@@ -80,7 +81,7 @@ pub mod get_tunnel_dest_group_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

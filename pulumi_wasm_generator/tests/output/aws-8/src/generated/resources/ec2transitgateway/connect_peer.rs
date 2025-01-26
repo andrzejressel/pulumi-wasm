@@ -33,30 +33,30 @@
 /// $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
 /// ```
 pub mod connect_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectPeerArgs {
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         #[builder(into, default)]
-        pub bgp_asn: pulumi_wasm_rust::Output<Option<String>>,
+        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         #[builder(into)]
-        pub inside_cidr_blocks: pulumi_wasm_rust::Output<Vec<String>>,
+        pub inside_cidr_blocks: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         #[builder(into)]
-        pub peer_address: pulumi_wasm_rust::Output<String>,
+        pub peer_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         #[builder(into, default)]
-        pub transit_gateway_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Transit Gateway Connect
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectPeerResult {
@@ -89,16 +89,27 @@ pub mod connect_peer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectPeerArgs) -> ConnectPeerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectPeerArgs,
+    ) -> ConnectPeerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bgp_asn_binding = args.bgp_asn.get_inner();
-        let inside_cidr_blocks_binding = args.inside_cidr_blocks.get_inner();
-        let peer_address_binding = args.peer_address.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let transit_gateway_address_binding = args.transit_gateway_address.get_inner();
+        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
+        let inside_cidr_blocks_binding = args
+            .inside_cidr_blocks
+            .get_output(context)
+            .get_inner();
+        let peer_address_binding = args.peer_address.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let transit_gateway_address_binding = args
+            .transit_gateway_address
+            .get_output(context)
+            .get_inner();
         let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/connectPeer:ConnectPeer".into(),
@@ -163,7 +174,7 @@ pub mod connect_peer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

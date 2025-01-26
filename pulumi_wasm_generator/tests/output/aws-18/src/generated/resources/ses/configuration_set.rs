@@ -68,29 +68,29 @@
 /// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
 /// ```
 pub mod configuration_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationSetArgs {
         /// Whether messages that use the configuration set are required to use TLS. See below.
         #[builder(into, default)]
-        pub delivery_options: pulumi_wasm_rust::Output<
+        pub delivery_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ses::ConfigurationSetDeliveryOptions>,
         >,
         /// Name of the configuration set.
         ///
         /// The following argument is optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         #[builder(into, default)]
-        pub reputation_metrics_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reputation_metrics_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         #[builder(into, default)]
-        pub sending_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sending_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         #[builder(into, default)]
-        pub tracking_options: pulumi_wasm_rust::Output<
+        pub tracking_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ses::ConfigurationSetTrackingOptions>,
         >,
     }
@@ -121,16 +121,30 @@ pub mod configuration_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigurationSetArgs) -> ConfigurationSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigurationSetArgs,
+    ) -> ConfigurationSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delivery_options_binding = args.delivery_options.get_inner();
-        let name_binding = args.name.get_inner();
+        let delivery_options_binding = args
+            .delivery_options
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let reputation_metrics_enabled_binding = args
             .reputation_metrics_enabled
+            .get_output(context)
             .get_inner();
-        let sending_enabled_binding = args.sending_enabled.get_inner();
-        let tracking_options_binding = args.tracking_options.get_inner();
+        let sending_enabled_binding = args
+            .sending_enabled
+            .get_output(context)
+            .get_inner();
+        let tracking_options_binding = args
+            .tracking_options
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/configurationSet:ConfigurationSet".into(),
             name: name.to_string(),
@@ -181,7 +195,7 @@ pub mod configuration_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

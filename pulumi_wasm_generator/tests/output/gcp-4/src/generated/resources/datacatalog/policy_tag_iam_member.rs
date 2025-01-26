@@ -182,12 +182,12 @@
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
 pub mod policy_tag_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyTagIamMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datacatalog::PolicyTagIamMemberCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -202,15 +202,15 @@ pub mod policy_tag_iam_member {
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
         #[builder(into)]
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_wasm_rust::InputOrOutput<String>,
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub policy_tag: pulumi_wasm_rust::Output<String>,
+        pub policy_tag: pulumi_wasm_rust::InputOrOutput<String>,
         /// The role that should be applied. Only one
         /// `gcp.datacatalog.PolicyTagIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyTagIamMemberResult {
@@ -242,13 +242,17 @@ pub mod policy_tag_iam_member {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyTagIamMemberArgs) -> PolicyTagIamMemberResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyTagIamMemberArgs,
+    ) -> PolicyTagIamMemberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let member_binding = args.member.get_inner();
-        let policy_tag_binding = args.policy_tag.get_inner();
-        let role_binding = args.role.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let member_binding = args.member.get_output(context).get_inner();
+        let policy_tag_binding = args.policy_tag.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTagIamMember:PolicyTagIamMember".into(),
             name: name.to_string(),
@@ -289,7 +293,7 @@ pub mod policy_tag_iam_member {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

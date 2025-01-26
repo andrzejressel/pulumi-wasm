@@ -44,35 +44,35 @@
 /// $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
 /// ```
 pub mod safety_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SafetyRuleArgs {
         /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         #[builder(into, default)]
-        pub asserted_controls: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub asserted_controls: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// ARN of the control panel in which this safety rule will reside.
         #[builder(into)]
-        pub control_panel_arn: pulumi_wasm_rust::Output<String>,
+        pub control_panel_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         #[builder(into, default)]
-        pub gating_controls: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gating_controls: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name describing the safety rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for safety rule criteria. See below.
         #[builder(into)]
-        pub rule_config: pulumi_wasm_rust::Output<
+        pub rule_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::route53recoverycontrol::SafetyRuleRuleConfig,
         >,
         /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         #[builder(into, default)]
-        pub target_controls: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_controls: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub wait_period_ms: pulumi_wasm_rust::Output<i32>,
+        pub wait_period_ms: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct SafetyRuleResult {
@@ -103,16 +103,32 @@ pub mod safety_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SafetyRuleArgs) -> SafetyRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SafetyRuleArgs,
+    ) -> SafetyRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let asserted_controls_binding = args.asserted_controls.get_inner();
-        let control_panel_arn_binding = args.control_panel_arn.get_inner();
-        let gating_controls_binding = args.gating_controls.get_inner();
-        let name_binding = args.name.get_inner();
-        let rule_config_binding = args.rule_config.get_inner();
-        let target_controls_binding = args.target_controls.get_inner();
-        let wait_period_ms_binding = args.wait_period_ms.get_inner();
+        let asserted_controls_binding = args
+            .asserted_controls
+            .get_output(context)
+            .get_inner();
+        let control_panel_arn_binding = args
+            .control_panel_arn
+            .get_output(context)
+            .get_inner();
+        let gating_controls_binding = args
+            .gating_controls
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rule_config_binding = args.rule_config.get_output(context).get_inner();
+        let target_controls_binding = args
+            .target_controls
+            .get_output(context)
+            .get_inner();
+        let wait_period_ms_binding = args.wait_period_ms.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoverycontrol/safetyRule:SafetyRule".into(),
             name: name.to_string(),
@@ -177,7 +193,7 @@ pub mod safety_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

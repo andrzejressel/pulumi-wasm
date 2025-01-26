@@ -62,45 +62,45 @@
 /// ```
 ///
 pub mod alert_processing_rule_action_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertProcessingRuleActionGroupArgs {
         /// Specifies a list of Action Group IDs.
         #[builder(into)]
-        pub add_action_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub add_action_group_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// A `condition` block as defined below.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::monitoring::AlertProcessingRuleActionGroupCondition,
             >,
         >,
         /// Specifies a description for the Alert Processing Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Alert Processing Rule be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `schedule` block as defined below.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::monitoring::AlertProcessingRuleActionGroupSchedule,
             >,
         >,
         /// A list of resource IDs which will be the target of alert processing rule.
         #[builder(into)]
-        pub scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scopes: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// A mapping of tags which should be assigned to the Alert Processing Rule.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -140,20 +140,27 @@ pub mod alert_processing_rule_action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AlertProcessingRuleActionGroupArgs,
     ) -> AlertProcessingRuleActionGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let add_action_group_ids_binding = args.add_action_group_ids.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let scopes_binding = args.scopes.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let add_action_group_ids_binding = args
+            .add_action_group_ids
+            .get_output(context)
+            .get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let scopes_binding = args.scopes.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup"
                 .into(),
@@ -227,7 +234,7 @@ pub mod alert_processing_rule_action_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

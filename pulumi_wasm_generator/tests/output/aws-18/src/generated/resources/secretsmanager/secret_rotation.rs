@@ -40,24 +40,24 @@
 /// $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 /// ```
 pub mod secret_rotation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretRotationArgs {
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         #[builder(into, default)]
-        pub rotate_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rotate_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         #[builder(into, default)]
-        pub rotation_lambda_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub rotation_lambda_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A structure that defines the rotation configuration for this secret. Defined below.
         #[builder(into)]
-        pub rotation_rules: pulumi_wasm_rust::Output<
+        pub rotation_rules: pulumi_wasm_rust::InputOrOutput<
             super::super::types::secretsmanager::SecretRotationRotationRules,
         >,
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         #[builder(into)]
-        pub secret_id: pulumi_wasm_rust::Output<String>,
+        pub secret_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretRotationResult {
@@ -78,13 +78,23 @@ pub mod secret_rotation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecretRotationArgs) -> SecretRotationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecretRotationArgs,
+    ) -> SecretRotationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let rotate_immediately_binding = args.rotate_immediately.get_inner();
-        let rotation_lambda_arn_binding = args.rotation_lambda_arn.get_inner();
-        let rotation_rules_binding = args.rotation_rules.get_inner();
-        let secret_id_binding = args.secret_id.get_inner();
+        let rotate_immediately_binding = args
+            .rotate_immediately
+            .get_output(context)
+            .get_inner();
+        let rotation_lambda_arn_binding = args
+            .rotation_lambda_arn
+            .get_output(context)
+            .get_inner();
+        let rotation_rules_binding = args.rotation_rules.get_output(context).get_inner();
+        let secret_id_binding = args.secret_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretRotation:SecretRotation".into(),
             name: name.to_string(),
@@ -125,7 +135,7 @@ pub mod secret_rotation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

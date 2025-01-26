@@ -24,13 +24,13 @@
 /// $ pulumi import aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes example 123456789012
 /// ```
 pub mod account_suppression_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountSuppressionAttributesArgs {
         /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         #[builder(into)]
-        pub suppressed_reasons: pulumi_wasm_rust::Output<Vec<String>>,
+        pub suppressed_reasons: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountSuppressionAttributesResult {
@@ -42,12 +42,16 @@ pub mod account_suppression_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountSuppressionAttributesArgs,
     ) -> AccountSuppressionAttributesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let suppressed_reasons_binding = args.suppressed_reasons.get_inner();
+        let suppressed_reasons_binding = args
+            .suppressed_reasons
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes"
                 .into(),
@@ -65,7 +69,7 @@ pub mod account_suppression_attributes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

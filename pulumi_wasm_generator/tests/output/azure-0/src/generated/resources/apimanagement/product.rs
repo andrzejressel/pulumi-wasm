@@ -49,44 +49,44 @@
 /// ```
 ///
 pub mod product {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductArgs {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Do subscribers need to be approved prior to being able to use the Product?
         ///
         /// > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         #[builder(into, default)]
-        pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub approval_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A description of this Product, which may include HTML formatting tags.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Display Name for this API Management Product.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is this Product Published?
         #[builder(into)]
-        pub published: pulumi_wasm_rust::Output<bool>,
+        pub published: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
         #[builder(into, default)]
-        pub subscription_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subscription_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of subscriptions a user can have to this Product at the same time.
         ///
         /// > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         #[builder(into, default)]
-        pub subscriptions_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub subscriptions_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         #[builder(into, default)]
-        pub terms: pulumi_wasm_rust::Output<Option<String>>,
+        pub terms: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProductResult {
@@ -119,19 +119,38 @@ pub mod product {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProductArgs) -> ProductResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProductArgs,
+    ) -> ProductResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let approval_required_binding = args.approval_required.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let product_id_binding = args.product_id.get_inner();
-        let published_binding = args.published.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let subscription_required_binding = args.subscription_required.get_inner();
-        let subscriptions_limit_binding = args.subscriptions_limit.get_inner();
-        let terms_binding = args.terms.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let approval_required_binding = args
+            .approval_required
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let product_id_binding = args.product_id.get_output(context).get_inner();
+        let published_binding = args.published.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let subscription_required_binding = args
+            .subscription_required
+            .get_output(context)
+            .get_inner();
+        let subscriptions_limit_binding = args
+            .subscriptions_limit
+            .get_output(context)
+            .get_inner();
+        let terms_binding = args.terms.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/product:Product".into(),
             name: name.to_string(),
@@ -211,7 +230,7 @@ pub mod product {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -93,50 +93,50 @@
 /// ```
 ///
 pub mod certificate_issuance_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateIssuanceConfigArgs {
         /// The CA that issues the workload certificate. It includes the CA address, type, authentication to CA service, etc.
         /// Structure is documented below.
         #[builder(into)]
-        pub certificate_authority_config: pulumi_wasm_rust::Output<
+        pub certificate_authority_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::certificatemanager::CertificateIssuanceConfigCertificateAuthorityConfig,
         >,
         /// One or more paragraphs of text description of a CertificateIssuanceConfig.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key algorithm to use when generating the private key.
         /// Possible values are: `RSA_2048`, `ECDSA_P256`.
         #[builder(into)]
-        pub key_algorithm: pulumi_wasm_rust::Output<String>,
+        pub key_algorithm: pulumi_wasm_rust::InputOrOutput<String>,
         /// 'Set of label tags associated with the CertificateIssuanceConfig resource. An object containing a list of "key": value
         /// pairs. Example: { "name": "wrench", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with 's'.
         /// Example: "1814400s". Valid values are from 21 days (1814400s) to 30 days (2592000s)
         #[builder(into)]
-        pub lifetime: pulumi_wasm_rust::Output<String>,
+        pub lifetime: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Certificate Manager location. If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-defined name of the certificate issuance config.
         /// CertificateIssuanceConfig names must be unique globally.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// It specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate.
         /// Must be a number between 1-99, inclusive.
         /// You must set the rotation window percentage in relation to the certificate lifetime so that certificate renewal occurs at least 7 days after
         /// the certificate has been issued and at least 7 days before it expires.
         #[builder(into)]
-        pub rotation_window_percentage: pulumi_wasm_rust::Output<i32>,
+        pub rotation_window_percentage: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CertificateIssuanceConfigResult {
@@ -194,6 +194,7 @@ pub mod certificate_issuance_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CertificateIssuanceConfigArgs,
     ) -> CertificateIssuanceConfigResult {
@@ -201,16 +202,18 @@ pub mod certificate_issuance_config {
         use std::collections::HashMap;
         let certificate_authority_config_binding = args
             .certificate_authority_config
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let lifetime_binding = args.lifetime.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let lifetime_binding = args.lifetime.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let rotation_window_percentage_binding = args
             .rotation_window_percentage
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/certificateIssuanceConfig:CertificateIssuanceConfig"
@@ -297,7 +300,7 @@ pub mod certificate_issuance_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

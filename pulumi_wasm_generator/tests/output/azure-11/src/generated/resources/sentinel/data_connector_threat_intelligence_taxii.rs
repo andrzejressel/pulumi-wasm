@@ -53,42 +53,42 @@
 /// ```
 ///
 pub mod data_connector_threat_intelligence_taxii {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorThreatIntelligenceTaxiiArgs {
         /// The API root URI of the TAXII server.
         #[builder(into)]
-        pub api_root_url: pulumi_wasm_rust::Output<String>,
+        pub api_root_url: pulumi_wasm_rust::InputOrOutput<String>,
         /// The collection ID of the TAXII server.
         #[builder(into)]
-        pub collection_id: pulumi_wasm_rust::Output<String>,
+        pub collection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         #[builder(into, default)]
-        pub lookback_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub lookback_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password for the TAXII server.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         #[builder(into, default)]
-        pub polling_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub polling_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user name for the TAXII server.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorThreatIntelligenceTaxiiResult {
@@ -120,23 +120,28 @@ pub mod data_connector_threat_intelligence_taxii {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataConnectorThreatIntelligenceTaxiiArgs,
     ) -> DataConnectorThreatIntelligenceTaxiiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_root_url_binding = args.api_root_url.get_inner();
-        let collection_id_binding = args.collection_id.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let api_root_url_binding = args.api_root_url.get_output(context).get_inner();
+        let collection_id_binding = args.collection_id.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let lookback_date_binding = args.lookback_date.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let polling_frequency_binding = args.polling_frequency.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let lookback_date_binding = args.lookback_date.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let polling_frequency_binding = args
+            .polling_frequency
+            .get_output(context)
+            .get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii"
                 .into(),
@@ -217,7 +222,7 @@ pub mod data_connector_threat_intelligence_taxii {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

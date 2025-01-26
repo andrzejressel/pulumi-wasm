@@ -1,12 +1,12 @@
 pub mod get_android_app_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAndroidAppConfigArgs {
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAndroidAppConfigResult {
@@ -20,11 +20,14 @@ pub mod get_android_app_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAndroidAppConfigArgs) -> GetAndroidAppConfigResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAndroidAppConfigArgs,
+    ) -> GetAndroidAppConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let project_binding = args.project.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getAndroidAppConfig:getAndroidAppConfig".into(),
             version: super::super::super::get_version(),
@@ -56,7 +59,7 @@ pub mod get_android_app_config {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

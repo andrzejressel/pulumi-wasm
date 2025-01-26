@@ -1,12 +1,12 @@
 pub mod get_managed_folder_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetManagedFolderIamPolicyArgs {
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub managed_folder: pulumi_wasm_rust::Output<String>,
+        pub managed_folder: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetManagedFolderIamPolicyResult {
@@ -22,12 +22,13 @@ pub mod get_managed_folder_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetManagedFolderIamPolicyArgs,
     ) -> GetManagedFolderIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let managed_folder_binding = args.managed_folder.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let managed_folder_binding = args.managed_folder.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getManagedFolderIamPolicy:getManagedFolderIamPolicy"
                 .into(),
@@ -60,7 +61,7 @@ pub mod get_managed_folder_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -37,19 +37,19 @@
 /// $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
 /// ```
 pub mod snapshot_copy_grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyGrantArgs {
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A friendly name for identifying the grant.
         #[builder(into)]
-        pub snapshot_copy_grant_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_copy_grant_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -74,12 +74,19 @@ pub mod snapshot_copy_grant {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotCopyGrantArgs) -> SnapshotCopyGrantResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotCopyGrantArgs,
+    ) -> SnapshotCopyGrantResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let snapshot_copy_grant_name_binding = args.snapshot_copy_grant_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let snapshot_copy_grant_name_binding = args
+            .snapshot_copy_grant_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant".into(),
             name: name.to_string(),
@@ -116,7 +123,7 @@ pub mod snapshot_copy_grant {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

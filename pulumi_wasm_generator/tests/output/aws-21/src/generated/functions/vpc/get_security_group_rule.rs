@@ -1,16 +1,16 @@
 pub mod get_security_group_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSecurityGroupRuleArgs {
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::vpc::GetSecurityGroupRuleFilter>>,
         >,
         /// ID of the security group rule to select.
         #[builder(into, default)]
-        pub security_group_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_group_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSecurityGroupRuleResult {
@@ -48,11 +48,17 @@ pub mod get_security_group_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSecurityGroupRuleArgs) -> GetSecurityGroupRuleResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSecurityGroupRuleArgs,
+    ) -> GetSecurityGroupRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let security_group_rule_id_binding = args.security_group_rule_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let security_group_rule_id_binding = args
+            .security_group_rule_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:vpc/getSecurityGroupRule:getSecurityGroupRule".into(),
             version: super::super::super::get_version(),
@@ -114,7 +120,7 @@ pub mod get_security_group_rule {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

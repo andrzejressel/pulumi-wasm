@@ -23,22 +23,24 @@
 /// $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
 /// ```
 pub mod cluster_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterSnapshotArgs {
         /// The cluster identifier for which you want a snapshot.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         #[builder(into, default)]
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub manual_snapshot_retention_period: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         #[builder(into)]
-        pub snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -69,15 +71,26 @@ pub mod cluster_snapshot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterSnapshotArgs) -> ClusterSnapshotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterSnapshotArgs,
+    ) -> ClusterSnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
         let manual_snapshot_retention_period_binding = args
             .manual_snapshot_retention_period
+            .get_output(context)
             .get_inner();
-        let snapshot_identifier_binding = args.snapshot_identifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let snapshot_identifier_binding = args
+            .snapshot_identifier
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/clusterSnapshot:ClusterSnapshot".into(),
             name: name.to_string(),
@@ -127,7 +140,7 @@ pub mod cluster_snapshot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

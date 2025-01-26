@@ -345,64 +345,64 @@
 /// The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 ///
 pub mod bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketArgs {
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         #[builder(into, default)]
-        pub acceleration_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub acceleration_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         #[builder(into, default)]
-        pub bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         #[builder(into, default)]
-        pub bucket_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         #[builder(into, default)]
-        pub cors_rules: pulumi_wasm_rust::Output<
+        pub cors_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketCorsRule>>,
         >,
         /// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         #[builder(into, default)]
-        pub grants: pulumi_wasm_rust::Output<
+        pub grants: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketGrant>>,
         >,
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         #[builder(into, default)]
-        pub hosted_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         #[builder(into, default)]
-        pub lifecycle_rules: pulumi_wasm_rust::Output<
+        pub lifecycle_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLifecycleRule>>,
         >,
         /// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         #[builder(into, default)]
-        pub loggings: pulumi_wasm_rust::Output<
+        pub loggings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLogging>>,
         >,
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         ///
         /// > **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         #[builder(into, default)]
-        pub object_lock_configuration: pulumi_wasm_rust::Output<
+        pub object_lock_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketObjectLockConfiguration>,
         >,
         /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         #[builder(into, default)]
-        pub replication_configuration: pulumi_wasm_rust::Output<
+        pub replication_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketReplicationConfiguration>,
         >,
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -410,33 +410,33 @@ pub mod bucket {
         /// the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
         /// developer guide for more information.
         #[builder(into, default)]
-        pub request_payer: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_payer: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         #[builder(into, default)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketServerSideEncryptionConfiguration>,
         >,
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         #[builder(into, default)]
-        pub versioning: pulumi_wasm_rust::Output<
+        pub versioning: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketVersioning>,
         >,
         /// A website object (documented below).
         #[builder(into, default)]
-        pub website: pulumi_wasm_rust::Output<
+        pub website: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketWebsite>,
         >,
         /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         #[builder(into, default)]
-        pub website_domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         #[builder(into, default)]
-        pub website_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketResult {
@@ -522,36 +522,52 @@ pub mod bucket {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketArgs) -> BucketResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketArgs,
+    ) -> BucketResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let acceleration_status_binding = args.acceleration_status.get_inner();
-        let acl_binding = args.acl.get_inner();
-        let arn_binding = args.arn.get_inner();
-        let bucket_binding = args.bucket.get_inner();
-        let bucket_prefix_binding = args.bucket_prefix.get_inner();
-        let cors_rules_binding = args.cors_rules.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let grants_binding = args.grants.get_inner();
-        let hosted_zone_id_binding = args.hosted_zone_id.get_inner();
-        let lifecycle_rules_binding = args.lifecycle_rules.get_inner();
-        let loggings_binding = args.loggings.get_inner();
+        let acceleration_status_binding = args
+            .acceleration_status
+            .get_output(context)
+            .get_inner();
+        let acl_binding = args.acl.get_output(context).get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let bucket_prefix_binding = args.bucket_prefix.get_output(context).get_inner();
+        let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let grants_binding = args.grants.get_output(context).get_inner();
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
+        let lifecycle_rules_binding = args
+            .lifecycle_rules
+            .get_output(context)
+            .get_inner();
+        let loggings_binding = args.loggings.get_output(context).get_inner();
         let object_lock_configuration_binding = args
             .object_lock_configuration
+            .get_output(context)
             .get_inner();
-        let policy_binding = args.policy.get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let replication_configuration_binding = args
             .replication_configuration
+            .get_output(context)
             .get_inner();
-        let request_payer_binding = args.request_payer.get_inner();
+        let request_payer_binding = args.request_payer.get_output(context).get_inner();
         let server_side_encryption_configuration_binding = args
             .server_side_encryption_configuration
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let versioning_binding = args.versioning.get_inner();
-        let website_binding = args.website.get_inner();
-        let website_domain_binding = args.website_domain.get_inner();
-        let website_endpoint_binding = args.website_endpoint.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let versioning_binding = args.versioning.get_output(context).get_inner();
+        let website_binding = args.website.get_output(context).get_inner();
+        let website_domain_binding = args.website_domain.get_output(context).get_inner();
+        let website_endpoint_binding = args
+            .website_endpoint
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucket:Bucket".into(),
             name: name.to_string(),
@@ -720,7 +736,7 @@ pub mod bucket {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

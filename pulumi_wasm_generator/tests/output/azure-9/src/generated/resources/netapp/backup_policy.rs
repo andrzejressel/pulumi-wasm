@@ -44,41 +44,41 @@
 /// ```
 ///
 pub mod backup_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyArgs {
         /// The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         #[builder(into, default)]
-        pub daily_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub daily_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether the Backup Policy is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
         ///
         /// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         #[builder(into, default)]
-        pub monthly_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub monthly_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
         #[builder(into, default)]
-        pub weekly_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weekly_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyResult {
@@ -109,18 +109,34 @@ pub mod backup_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupPolicyArgs) -> BackupPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupPolicyArgs,
+    ) -> BackupPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_inner();
-        let daily_backups_to_keep_binding = args.daily_backups_to_keep.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let monthly_backups_to_keep_binding = args.monthly_backups_to_keep.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let weekly_backups_to_keep_binding = args.weekly_backups_to_keep.get_inner();
+        let account_name_binding = args.account_name.get_output(context).get_inner();
+        let daily_backups_to_keep_binding = args
+            .daily_backups_to_keep
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let monthly_backups_to_keep_binding = args
+            .monthly_backups_to_keep
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let weekly_backups_to_keep_binding = args
+            .weekly_backups_to_keep
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/backupPolicy:BackupPolicy".into(),
             name: name.to_string(),
@@ -193,7 +209,7 @@ pub mod backup_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

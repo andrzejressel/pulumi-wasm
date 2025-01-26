@@ -147,7 +147,7 @@
 /// ```
 ///
 pub mod account_iam_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountIamBindingArgs {
@@ -155,9 +155,9 @@ pub mod account_iam_binding {
         ///
         /// For `gcp.billing.AccountIamMember` or `gcp.billing.AccountIamBinding`:
         #[builder(into)]
-        pub billing_account_id: pulumi_wasm_rust::Output<String>,
+        pub billing_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::billing::AccountIamBindingCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -167,14 +167,14 @@ pub mod account_iam_binding {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub members: pulumi_wasm_rust::Output<Vec<String>>,
+        pub members: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The role that should be applied. Only one
         /// `gcp.billing.AccountIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`. Read more about roles [here](https://cloud.google.com/bigtable/docs/access-control#roles).
         ///
         /// `gcp.billing.AccountIamPolicy` only:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountIamBindingResult {
@@ -205,13 +205,20 @@ pub mod account_iam_binding {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountIamBindingArgs) -> AccountIamBindingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountIamBindingArgs,
+    ) -> AccountIamBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let billing_account_id_binding = args.billing_account_id.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let members_binding = args.members.get_inner();
-        let role_binding = args.role.get_inner();
+        let billing_account_id_binding = args
+            .billing_account_id
+            .get_output(context)
+            .get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let members_binding = args.members.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/accountIamBinding:AccountIamBinding".into(),
             name: name.to_string(),
@@ -252,7 +259,7 @@ pub mod account_iam_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

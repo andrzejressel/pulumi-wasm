@@ -83,43 +83,43 @@
 /// $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 /// ```
 pub mod job_queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobQueueArgs {
         /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         #[builder(into, default)]
-        pub compute_environment_orders: pulumi_wasm_rust::Output<
+        pub compute_environment_orders: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::JobQueueComputeEnvironmentOrder>>,
         >,
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         #[builder(into, default)]
-        pub compute_environments: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub compute_environments: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         #[builder(into, default)]
-        pub job_state_time_limit_actions: pulumi_wasm_rust::Output<
+        pub job_state_time_limit_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::batch::JobQueueJobStateTimeLimitAction>>,
         >,
         /// Specifies the name of the job queue.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of the job queue. Job queues with a higher priority
         /// are evaluated first when associated with the same compute environment.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         #[builder(into, default)]
-        pub scheduling_policy_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub scheduling_policy_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         #[builder(into)]
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::JobQueueTimeouts>,
         >,
     }
@@ -162,22 +162,34 @@ pub mod job_queue {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobQueueArgs) -> JobQueueResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobQueueArgs,
+    ) -> JobQueueResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let compute_environment_orders_binding = args
             .compute_environment_orders
+            .get_output(context)
             .get_inner();
-        let compute_environments_binding = args.compute_environments.get_inner();
+        let compute_environments_binding = args
+            .compute_environments
+            .get_output(context)
+            .get_inner();
         let job_state_time_limit_actions_binding = args
             .job_state_time_limit_actions
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let scheduling_policy_arn_binding = args.scheduling_policy_arn.get_inner();
-        let state_binding = args.state.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let scheduling_policy_arn_binding = args
+            .scheduling_policy_arn
+            .get_output(context)
+            .get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/jobQueue:JobQueue".into(),
             name: name.to_string(),
@@ -256,7 +268,7 @@ pub mod job_queue {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

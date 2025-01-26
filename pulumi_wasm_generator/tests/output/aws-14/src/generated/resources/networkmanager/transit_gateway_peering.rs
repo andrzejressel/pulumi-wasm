@@ -25,21 +25,21 @@
 /// $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
 /// ```
 pub mod transit_gateway_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayPeeringArgs {
         /// The ID of a core network.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the transit gateway for the peering request.
         #[builder(into)]
-        pub transit_gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayPeeringResult {
@@ -75,14 +75,21 @@ pub mod transit_gateway_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TransitGatewayPeeringArgs,
     ) -> TransitGatewayPeeringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args.core_network_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let transit_gateway_arn_binding = args.transit_gateway_arn.get_inner();
+        let core_network_id_binding = args
+            .core_network_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let transit_gateway_arn_binding = args
+            .transit_gateway_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering"
                 .into(),
@@ -138,7 +145,7 @@ pub mod transit_gateway_peering {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

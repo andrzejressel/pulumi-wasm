@@ -30,19 +30,19 @@
 /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
 /// ```
 pub mod service_quota {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceQuotaArgs {
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         #[builder(into)]
-        pub quota_code: pulumi_wasm_rust::Output<String>,
+        pub quota_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         #[builder(into)]
-        pub service_code: pulumi_wasm_rust::Output<String>,
+        pub service_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<f64>,
+        pub value: pulumi_wasm_rust::InputOrOutput<f64>,
     }
     #[allow(dead_code)]
     pub struct ServiceQuotaResult {
@@ -73,12 +73,16 @@ pub mod service_quota {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceQuotaArgs) -> ServiceQuotaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceQuotaArgs,
+    ) -> ServiceQuotaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let quota_code_binding = args.quota_code.get_inner();
-        let service_code_binding = args.service_code.get_inner();
-        let value_binding = args.value.get_inner();
+        let quota_code_binding = args.quota_code.get_output(context).get_inner();
+        let service_code_binding = args.service_code.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicequotas/serviceQuota:ServiceQuota".into(),
             name: name.to_string(),
@@ -133,7 +137,7 @@ pub mod service_quota {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

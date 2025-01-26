@@ -11,66 +11,68 @@
 /// ```
 ///
 pub mod scheduled_query_rules_alert {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduledQueryRulesAlertArgs {
         /// An `action` block as defined below.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<
+        pub action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::monitoring::ScheduledQueryRulesAlertAction,
         >,
         /// List of Resource IDs referred into query.
         #[builder(into, default)]
-        pub authorized_resource_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorized_resource_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
         /// > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         #[builder(into, default)]
-        pub auto_mitigation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_mitigation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the scheduled query rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this scheduled query rule is enabled. Default is `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::Output<i32>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the scheduled query rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Log search query.
         #[builder(into)]
-        pub query: pulumi_wasm_rust::Output<String>,
+        pub query: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         #[builder(into, default)]
-        pub query_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub query_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         #[builder(into, default)]
-        pub severity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub severity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         #[builder(into, default)]
-        pub throttling: pulumi_wasm_rust::Output<Option<i32>>,
+        pub throttling: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
         #[builder(into)]
-        pub time_window: pulumi_wasm_rust::Output<i32>,
+        pub time_window: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A `trigger` block as defined below.
         #[builder(into)]
-        pub trigger: pulumi_wasm_rust::Output<
+        pub trigger: pulumi_wasm_rust::InputOrOutput<
             super::super::types::monitoring::ScheduledQueryRulesAlertTrigger,
         >,
     }
@@ -123,28 +125,38 @@ pub mod scheduled_query_rules_alert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ScheduledQueryRulesAlertArgs,
     ) -> ScheduledQueryRulesAlertResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let authorized_resource_ids_binding = args.authorized_resource_ids.get_inner();
-        let auto_mitigation_enabled_binding = args.auto_mitigation_enabled.get_inner();
-        let data_source_id_binding = args.data_source_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let query_binding = args.query.get_inner();
-        let query_type_binding = args.query_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let severity_binding = args.severity.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let throttling_binding = args.throttling.get_inner();
-        let time_window_binding = args.time_window.get_inner();
-        let trigger_binding = args.trigger.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let authorized_resource_ids_binding = args
+            .authorized_resource_ids
+            .get_output(context)
+            .get_inner();
+        let auto_mitigation_enabled_binding = args
+            .auto_mitigation_enabled
+            .get_output(context)
+            .get_inner();
+        let data_source_id_binding = args.data_source_id.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_binding = args.query.get_output(context).get_inner();
+        let query_type_binding = args.query_type.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let severity_binding = args.severity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let throttling_binding = args.throttling.get_output(context).get_inner();
+        let time_window_binding = args.time_window.get_output(context).get_inner();
+        let trigger_binding = args.trigger.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert"
                 .into(),
@@ -274,7 +286,7 @@ pub mod scheduled_query_rules_alert {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

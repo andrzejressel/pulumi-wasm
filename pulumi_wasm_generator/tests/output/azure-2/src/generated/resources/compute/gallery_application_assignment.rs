@@ -90,25 +90,25 @@
 /// ```
 ///
 pub mod gallery_application_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GalleryApplicationAssignmentArgs {
         /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub configuration_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Gallery Application Version. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_application_version_id: pulumi_wasm_rust::Output<String>,
+        pub gallery_application_version_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         #[builder(into, default)]
-        pub order: pulumi_wasm_rust::Output<Option<i32>>,
+        pub order: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GalleryApplicationAssignmentResult {
@@ -128,18 +128,26 @@ pub mod gallery_application_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GalleryApplicationAssignmentArgs,
     ) -> GalleryApplicationAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_blob_uri_binding = args.configuration_blob_uri.get_inner();
+        let configuration_blob_uri_binding = args
+            .configuration_blob_uri
+            .get_output(context)
+            .get_inner();
         let gallery_application_version_id_binding = args
             .gallery_application_version_id
+            .get_output(context)
             .get_inner();
-        let order_binding = args.order.get_inner();
-        let tag_binding = args.tag.get_inner();
-        let virtual_machine_id_binding = args.virtual_machine_id.get_inner();
+        let order_binding = args.order.get_output(context).get_inner();
+        let tag_binding = args.tag.get_output(context).get_inner();
+        let virtual_machine_id_binding = args
+            .virtual_machine_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
                 .into(),
@@ -185,7 +193,7 @@ pub mod gallery_application_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

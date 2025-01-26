@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod document_ai_processor_default_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiProcessorDefaultVersionArgs {
@@ -52,11 +52,11 @@ pub mod document_ai_processor_default_version {
         ///
         /// - - -
         #[builder(into)]
-        pub processor: pulumi_wasm_rust::Output<String>,
+        pub processor: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version to set. Using `stable` or `rc` will cause the API to return the latest version in that release channel.
         /// Apply `lifecycle.ignore_changes` to the `version` field to suppress this diff.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentAiProcessorDefaultVersionResult {
@@ -74,13 +74,14 @@ pub mod document_ai_processor_default_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DocumentAiProcessorDefaultVersionArgs,
     ) -> DocumentAiProcessorDefaultVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let processor_binding = args.processor.get_inner();
-        let version_binding = args.version.get_inner();
+        let processor_binding = args.processor.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiProcessorDefaultVersion:DocumentAiProcessorDefaultVersion"
                 .into(),
@@ -105,7 +106,7 @@ pub mod document_ai_processor_default_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

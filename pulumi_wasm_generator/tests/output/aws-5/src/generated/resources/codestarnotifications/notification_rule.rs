@@ -51,34 +51,34 @@
 /// $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 /// ```
 pub mod notification_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationRuleArgs {
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         #[builder(into)]
-        pub detail_type: pulumi_wasm_rust::Output<String>,
+        pub detail_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of event types associated with this notification rule.
         /// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         #[builder(into)]
-        pub event_type_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub event_type_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name of notification rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the resource to associate with the notification rule.
         #[builder(into)]
-        pub resource: pulumi_wasm_rust::Output<String>,
+        pub resource: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         #[builder(into, default)]
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::codestarnotifications::NotificationRuleTarget>,
             >,
@@ -118,16 +118,20 @@ pub mod notification_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NotificationRuleArgs) -> NotificationRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NotificationRuleArgs,
+    ) -> NotificationRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let detail_type_binding = args.detail_type.get_inner();
-        let event_type_ids_binding = args.event_type_ids.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_binding = args.resource.get_inner();
-        let status_binding = args.status.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let targets_binding = args.targets.get_inner();
+        let detail_type_binding = args.detail_type.get_output(context).get_inner();
+        let event_type_ids_binding = args.event_type_ids.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_binding = args.resource.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let targets_binding = args.targets.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codestarnotifications/notificationRule:NotificationRule".into(),
             name: name.to_string(),
@@ -192,7 +196,7 @@ pub mod notification_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

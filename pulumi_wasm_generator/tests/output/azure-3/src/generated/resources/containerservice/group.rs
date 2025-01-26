@@ -46,108 +46,108 @@
 /// ```
 ///
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub containers: pulumi_wasm_rust::Output<
+        pub containers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::containerservice::GroupContainer>,
         >,
         /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub diagnostics: pulumi_wasm_rust::Output<
+        pub diagnostics: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupDiagnostics>,
         >,
         /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupDnsConfig>,
         >,
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         ///
         /// > **Note:** DNS label/name is not supported when deploying to virtual networks.
         #[builder(into, default)]
-        pub dns_name_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_name_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         #[builder(into, default)]
-        pub dns_name_label_reuse_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_name_label_reuse_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         #[builder(into, default)]
-        pub exposed_ports: pulumi_wasm_rust::Output<
+        pub exposed_ports: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::GroupExposedPort>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupIdentity>,
         >,
         /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub image_registry_credentials: pulumi_wasm_rust::Output<
+        pub image_registry_credentials: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerservice::GroupImageRegistryCredential>,
             >,
         >,
         /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub init_containers: pulumi_wasm_rust::Output<
+        pub init_containers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::GroupInitContainer>>,
         >,
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
         ///
         /// > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         #[builder(into, default)]
-        pub key_vault_user_assigned_identity_id: pulumi_wasm_rust::Output<
+        pub key_vault_user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub network_profile_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_profile_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         #[builder(into)]
-        pub os_type: pulumi_wasm_rust::Output<String>,
+        pub os_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<String>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub restart_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub restart_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
@@ -235,38 +235,60 @@ pub mod group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupArgs) -> GroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupArgs,
+    ) -> GroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let containers_binding = args.containers.get_inner();
-        let diagnostics_binding = args.diagnostics.get_inner();
-        let dns_config_binding = args.dns_config.get_inner();
-        let dns_name_label_binding = args.dns_name_label.get_inner();
+        let containers_binding = args.containers.get_output(context).get_inner();
+        let diagnostics_binding = args.diagnostics.get_output(context).get_inner();
+        let dns_config_binding = args.dns_config.get_output(context).get_inner();
+        let dns_name_label_binding = args.dns_name_label.get_output(context).get_inner();
         let dns_name_label_reuse_policy_binding = args
             .dns_name_label_reuse_policy
+            .get_output(context)
             .get_inner();
-        let exposed_ports_binding = args.exposed_ports.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let exposed_ports_binding = args.exposed_ports.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let image_registry_credentials_binding = args
             .image_registry_credentials
+            .get_output(context)
             .get_inner();
-        let init_containers_binding = args.init_containers.get_inner();
-        let ip_address_type_binding = args.ip_address_type.get_inner();
-        let key_vault_key_id_binding = args.key_vault_key_id.get_inner();
+        let init_containers_binding = args
+            .init_containers
+            .get_output(context)
+            .get_inner();
+        let ip_address_type_binding = args
+            .ip_address_type
+            .get_output(context)
+            .get_inner();
+        let key_vault_key_id_binding = args
+            .key_vault_key_id
+            .get_output(context)
+            .get_inner();
         let key_vault_user_assigned_identity_id_binding = args
             .key_vault_user_assigned_identity_id
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_profile_id_binding = args.network_profile_id.get_inner();
-        let os_type_binding = args.os_type.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let restart_policy_binding = args.restart_policy.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_profile_id_binding = args
+            .network_profile_id
+            .get_output(context)
+            .get_inner();
+        let os_type_binding = args.os_type.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let restart_policy_binding = args.restart_policy.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/group:Group".into(),
             name: name.to_string(),
@@ -443,7 +465,7 @@ pub mod group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

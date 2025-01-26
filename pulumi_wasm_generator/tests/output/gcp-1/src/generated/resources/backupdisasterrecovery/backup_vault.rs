@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod backup_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupVaultArgs {
@@ -62,33 +62,35 @@ pub mod backup_vault {
         /// Default value is `WITHIN_ORGANIZATION`.
         /// Possible values are: `ACCESS_RESTRICTION_UNSPECIFIED`, `WITHIN_PROJECT`, `WITHIN_ORGANIZATION`, `UNRESTRICTED`, `WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA`.
         #[builder(into, default)]
-        pub access_restriction: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_restriction: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Allow idempotent deletion of backup vault. The request will still succeed in case the backup vault does not exist.
         #[builder(into, default)]
-        pub allow_missing: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_missing: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Optional. User annotations. See https://google.aip.dev/128#annotations
         /// Stores small amounts of arbitrary data.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Required. The default and minimum enforced retention for each backup within the backup vault. The enforced retention for each backup can be extended.
         #[builder(into)]
-        pub backup_minimum_enforced_retention_duration: pulumi_wasm_rust::Output<String>,
+        pub backup_minimum_enforced_retention_duration: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// Required. ID of the requesting object.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub backup_vault_id: pulumi_wasm_rust::Output<String>,
+        pub backup_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. The description of the BackupVault instance (2048 characters or less).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Time after which the BackupVault resource is locked.
         #[builder(into, default)]
-        pub effective_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub effective_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// (Optional, Deprecated)
         /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
         /// * deletion of a backup vault instance containing no backups, but still containing empty datasources.
@@ -96,35 +98,35 @@ pub mod backup_vault {
         ///
         /// > **Warning:** `force_delete` is deprecated and will be removed in a future major release. Use `ignore_inactive_datasources` instead.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If set, allow update to extend the minimum enforced retention for backup vault. This overrides
         /// the restriction against conflicting retention periods. This conflict may occur when the
         /// expiration schedule defined by the associated backup plan is shorter than the minimum
         /// retention set by the backup vault.
         #[builder(into, default)]
-        pub force_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_update: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
         /// * deletion of a backup vault instance that is being referenced by an active backup plan.
         #[builder(into, default)]
-        pub ignore_backup_plan_references: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_backup_plan_references: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
         /// * deletion of a backup vault instance containing no backups, but still containing empty datasources.
         #[builder(into, default)]
-        pub ignore_inactive_datasources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_inactive_datasources: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Optional. Resource labels to represent user provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The GCP location for the backup vault.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackupVaultResult {
@@ -224,29 +226,42 @@ pub mod backup_vault {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupVaultArgs) -> BackupVaultResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupVaultArgs,
+    ) -> BackupVaultResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_restriction_binding = args.access_restriction.get_inner();
-        let allow_missing_binding = args.allow_missing.get_inner();
-        let annotations_binding = args.annotations.get_inner();
+        let access_restriction_binding = args
+            .access_restriction
+            .get_output(context)
+            .get_inner();
+        let allow_missing_binding = args.allow_missing.get_output(context).get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
         let backup_minimum_enforced_retention_duration_binding = args
             .backup_minimum_enforced_retention_duration
+            .get_output(context)
             .get_inner();
-        let backup_vault_id_binding = args.backup_vault_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let effective_time_binding = args.effective_time.get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
-        let force_update_binding = args.force_update.get_inner();
+        let backup_vault_id_binding = args
+            .backup_vault_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let effective_time_binding = args.effective_time.get_output(context).get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let force_update_binding = args.force_update.get_output(context).get_inner();
         let ignore_backup_plan_references_binding = args
             .ignore_backup_plan_references
+            .get_output(context)
             .get_inner();
         let ignore_inactive_datasources_binding = args
             .ignore_inactive_datasources
+            .get_output(context)
             .get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:backupdisasterrecovery/backupVault:BackupVault".into(),
             name: name.to_string(),
@@ -393,7 +408,7 @@ pub mod backup_vault {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

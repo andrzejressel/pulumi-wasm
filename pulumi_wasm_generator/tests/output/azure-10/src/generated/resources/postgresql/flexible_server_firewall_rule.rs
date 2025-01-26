@@ -48,22 +48,22 @@
 /// ```
 ///
 pub mod flexible_server_firewall_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerFirewallRuleArgs {
         /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
         #[builder(into)]
-        pub end_ip_address: pulumi_wasm_rust::Output<String>,
+        pub end_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
         #[builder(into)]
-        pub start_ip_address: pulumi_wasm_rust::Output<String>,
+        pub start_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerFirewallRuleResult {
@@ -81,15 +81,19 @@ pub mod flexible_server_firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FlexibleServerFirewallRuleArgs,
     ) -> FlexibleServerFirewallRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let end_ip_address_binding = args.end_ip_address.get_inner();
-        let name_binding = args.name.get_inner();
-        let server_id_binding = args.server_id.get_inner();
-        let start_ip_address_binding = args.start_ip_address.get_inner();
+        let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_id_binding = args.server_id.get_output(context).get_inner();
+        let start_ip_address_binding = args
+            .start_ip_address
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule"
                 .into(),
@@ -128,7 +132,7 @@ pub mod flexible_server_firewall_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

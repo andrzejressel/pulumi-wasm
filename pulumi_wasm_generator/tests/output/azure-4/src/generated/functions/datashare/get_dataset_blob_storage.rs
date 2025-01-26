@@ -1,14 +1,14 @@
 pub mod get_dataset_blob_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDatasetBlobStorageArgs {
         /// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
         #[builder(into)]
-        pub data_share_id: pulumi_wasm_rust::Output<String>,
+        pub data_share_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of this Data Share Blob Storage Dataset.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDatasetBlobStorageResult {
@@ -36,11 +36,14 @@ pub mod get_dataset_blob_storage {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDatasetBlobStorageArgs) -> GetDatasetBlobStorageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDatasetBlobStorageArgs,
+    ) -> GetDatasetBlobStorageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_share_id_binding = args.data_share_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let data_share_id_binding = args.data_share_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage".into(),
             version: super::super::super::get_version(),
@@ -81,7 +84,7 @@ pub mod get_dataset_blob_storage {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

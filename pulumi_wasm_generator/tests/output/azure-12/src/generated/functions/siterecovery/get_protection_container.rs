@@ -1,20 +1,20 @@
 pub mod get_protection_container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetProtectionContainerArgs {
         /// Specifies the name of the protection container.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the fabric that contains the protection container.
         #[builder(into)]
-        pub recovery_fabric_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_fabric_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Recovery Services Vault that the protection container is associated witth.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which the associated protection container resides.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetProtectionContainerResult {
@@ -29,13 +29,25 @@ pub mod get_protection_container {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetProtectionContainerArgs) -> GetProtectionContainerResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetProtectionContainerArgs,
+    ) -> GetProtectionContainerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let recovery_fabric_name_binding = args.recovery_fabric_name.get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_fabric_name_binding = args
+            .recovery_fabric_name
+            .get_output(context)
+            .get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:siterecovery/getProtectionContainer:getProtectionContainer"
                 .into(),
@@ -76,7 +88,7 @@ pub mod get_protection_container {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_s_quota_infos {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSQuotaInfosArgs {
         /// Parent value of QuotaInfo resources. Listing across different resource containers (such as 'projects/-') is not allowed. Allowed parents are "projects/[project-id / number]" or "folders/[folder-id / number]" or "organizations/[org-id / number].
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the service in which the quotas are defined.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSQuotaInfosResult {
@@ -25,11 +25,14 @@ pub mod get_s_quota_infos {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSQuotaInfosArgs) -> GetSQuotaInfosResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSQuotaInfosArgs,
+    ) -> GetSQuotaInfosResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_inner();
-        let service_binding = args.service.get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudquota/getSQuotaInfos:getSQuotaInfos".into(),
             version: super::super::super::get_version(),
@@ -58,7 +61,7 @@ pub mod get_s_quota_infos {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

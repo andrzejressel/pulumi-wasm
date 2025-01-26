@@ -61,37 +61,37 @@
 /// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
 /// ```
 pub mod listener_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerRuleArgs {
         /// The action for the listener rule.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<
+        pub action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerRuleAction,
         >,
         /// The ID or Amazon Resource Name (ARN) of the listener.
         #[builder(into)]
-        pub listener_identifier: pulumi_wasm_rust::Output<String>,
+        pub listener_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The rule match.
         #[builder(into)]
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_wasm_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerRuleMatch,
         >,
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         #[builder(into)]
-        pub service_identifier: pulumi_wasm_rust::Output<String>,
+        pub service_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -132,16 +132,26 @@ pub mod listener_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListenerRuleArgs) -> ListenerRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListenerRuleArgs,
+    ) -> ListenerRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let listener_identifier_binding = args.listener_identifier.get_inner();
-        let match__binding = args.match_.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let service_identifier_binding = args.service_identifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let listener_identifier_binding = args
+            .listener_identifier
+            .get_output(context)
+            .get_inner();
+        let match__binding = args.match_.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let service_identifier_binding = args
+            .service_identifier
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/listenerRule:ListenerRule".into(),
             name: name.to_string(),
@@ -209,7 +219,7 @@ pub mod listener_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

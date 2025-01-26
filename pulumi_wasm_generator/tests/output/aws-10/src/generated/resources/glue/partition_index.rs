@@ -80,24 +80,24 @@
 /// $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
 /// ```
 pub mod partition_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PartitionIndexArgs {
         /// The catalog ID where the table resides.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for a partition index. See `partition_index` below.
         #[builder(into)]
-        pub partition_index: pulumi_wasm_rust::Output<
+        pub partition_index: pulumi_wasm_rust::InputOrOutput<
             super::super::types::glue::PartitionIndexPartitionIndex,
         >,
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PartitionIndexResult {
@@ -116,13 +116,20 @@ pub mod partition_index {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PartitionIndexArgs) -> PartitionIndexResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PartitionIndexArgs,
+    ) -> PartitionIndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let partition_index_binding = args.partition_index.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let partition_index_binding = args
+            .partition_index
+            .get_output(context)
+            .get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/partitionIndex:PartitionIndex".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod partition_index {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

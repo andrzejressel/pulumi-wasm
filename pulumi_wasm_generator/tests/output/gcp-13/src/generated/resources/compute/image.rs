@@ -136,29 +136,29 @@
 /// ```
 ///
 pub mod image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageArgs {
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Size of the image when restored onto a persistent disk (in GB).
         #[builder(into, default)]
-        pub disk_size_gb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub disk_size_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the image family to which this image belongs. You can
         /// create disks by specifying an image family instead of a specific
         /// image name. The image family always returns its latest image that is
         /// not deprecated. The name of the image family must comply with
         /// RFC1035.
         #[builder(into, default)]
-        pub family: pulumi_wasm_rust::Output<Option<String>>,
+        pub family: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of features to enable on the guest operating system.
         /// Applicable only for bootable images.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub guest_os_features: pulumi_wasm_rust::Output<
+        pub guest_os_features: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ImageGuestOsFeature>>,
         >,
         /// Encrypts the image using a customer-supplied encryption key.
@@ -167,19 +167,19 @@ pub mod image {
         /// disk from the image)
         /// Structure is documented below.
         #[builder(into, default)]
-        pub image_encryption_key: pulumi_wasm_rust::Output<
+        pub image_encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ImageImageEncryptionKey>,
         >,
         /// Labels to apply to this Image.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any applicable license URI.
         #[builder(into, default)]
-        pub licenses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub licenses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and
@@ -191,22 +191,22 @@ pub mod image {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parameters of the raw disk image.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub raw_disk: pulumi_wasm_rust::Output<
+        pub raw_disk: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ImageRawDisk>,
         >,
         /// The source disk to create this image based on.
         /// You must provide either this property or the
         /// rawDisk.source property but not both to create an image.
         #[builder(into, default)]
-        pub source_disk: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_disk: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the source image used to create this image. In order to create an image, you must provide the full or partial
         /// URL of one of the following:
         /// * The selfLink URL
@@ -214,7 +214,7 @@ pub mod image {
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
         #[builder(into, default)]
-        pub source_image: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the source snapshot used to create this image.
         /// In order to create an image, you must provide the full or partial URL of one of the following:
         /// * The selfLink URL
@@ -223,12 +223,12 @@ pub mod image {
         /// * The rawDisk.source URL
         /// * The sourceDisk URL
         #[builder(into, default)]
-        pub source_snapshot: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_snapshot: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cloud Storage bucket storage location of the image
         /// (regional or multi-regional).
         /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
         #[builder(into, default)]
-        pub storage_locations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub storage_locations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ImageResult {
@@ -331,23 +331,39 @@ pub mod image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ImageArgs) -> ImageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ImageArgs,
+    ) -> ImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let disk_size_gb_binding = args.disk_size_gb.get_inner();
-        let family_binding = args.family.get_inner();
-        let guest_os_features_binding = args.guest_os_features.get_inner();
-        let image_encryption_key_binding = args.image_encryption_key.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let licenses_binding = args.licenses.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let raw_disk_binding = args.raw_disk.get_inner();
-        let source_disk_binding = args.source_disk.get_inner();
-        let source_image_binding = args.source_image.get_inner();
-        let source_snapshot_binding = args.source_snapshot.get_inner();
-        let storage_locations_binding = args.storage_locations.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
+        let family_binding = args.family.get_output(context).get_inner();
+        let guest_os_features_binding = args
+            .guest_os_features
+            .get_output(context)
+            .get_inner();
+        let image_encryption_key_binding = args
+            .image_encryption_key
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let licenses_binding = args.licenses.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let raw_disk_binding = args.raw_disk.get_output(context).get_inner();
+        let source_disk_binding = args.source_disk.get_output(context).get_inner();
+        let source_image_binding = args.source_image.get_output(context).get_inner();
+        let source_snapshot_binding = args
+            .source_snapshot
+            .get_output(context)
+            .get_inner();
+        let storage_locations_binding = args
+            .storage_locations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/image:Image".into(),
             name: name.to_string(),
@@ -473,7 +489,7 @@ pub mod image {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

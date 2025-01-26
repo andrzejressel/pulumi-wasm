@@ -1,15 +1,17 @@
-use anyhow::Error;
+use anyhow::Result;
 use pulumi_wasm_providers_random::random_string;
 use pulumi_wasm_providers_random::random_string::RandomStringArgs;
 use pulumi_wasm_rust::Output;
-use pulumi_wasm_rust::ToOutput;
-use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_format, pulumi_main};
+use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_format};
+use pulumi_wasm_rust::{pulumi_main, PulumiContext, ToOutput};
 
-#[pulumi_main]
-fn test_main() -> Result<(), Error> {
-    let length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
+pulumi_main!();
+
+fn pulumi_main(context: &PulumiContext) -> Result<()> {
+    let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
 
     let random_string = random_string::create(
+        context,
         "test",
         RandomStringArgs::builder().length(length).build_struct(),
     );
@@ -23,17 +25,18 @@ fn test_main() -> Result<(), Error> {
     // Optional values are deserialized as None
     let keepers = random_string.keepers.map(|map| format!("Keepers: {map:?}"));
 
-    let val1 = Output::new(&1);
-    let val2 = Output::new(&"abc".to_string());
+    let val1 = Output::new(context, &1);
+    let val2 = Output::new(context, &"abc".to_string());
 
     // Outputs can be reused
     let combined = pulumi_combine!(val1, val2);
     let combined_2 = pulumi_combine!(val1, val2);
 
-    let combined_string = pulumi_format!("Values: {:?}", combined);
-    let combined_2_string = pulumi_format!("Values: {:?}", combined_2);
+    let combined_string = pulumi_format!(&context, "Values: {:?}", combined);
+    let combined_2_string = pulumi_format!(&context, "Values: {:?}", combined_2);
 
     let random_string_2 = random_string::create(
+        context,
         "test_2",
         RandomStringArgs::builder()
             .length(keepers.map(|s| s.len() as i32))

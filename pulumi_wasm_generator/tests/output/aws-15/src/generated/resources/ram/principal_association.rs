@@ -58,16 +58,16 @@
 /// $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
 /// ```
 pub mod principal_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrincipalAssociationArgs {
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the resource share.
         #[builder(into)]
-        pub resource_share_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_share_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrincipalAssociationResult {
@@ -81,13 +81,17 @@ pub mod principal_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PrincipalAssociationArgs,
     ) -> PrincipalAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let principal_binding = args.principal.get_inner();
-        let resource_share_arn_binding = args.resource_share_arn.get_inner();
+        let principal_binding = args.principal.get_output(context).get_inner();
+        let resource_share_arn_binding = args
+            .resource_share_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/principalAssociation:PrincipalAssociation".into(),
             name: name.to_string(),
@@ -111,7 +115,7 @@ pub mod principal_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

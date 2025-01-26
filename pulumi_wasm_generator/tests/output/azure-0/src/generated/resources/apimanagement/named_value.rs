@@ -47,36 +47,36 @@
 /// ```
 ///
 pub mod named_value {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamedValueArgs {
         /// The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name of this API Management Named Value.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Named Value. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
         ///
         /// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         #[builder(into, default)]
-        pub secret: pulumi_wasm_rust::Output<Option<bool>>,
+        pub secret: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of tags to be applied to the API Management Named Value.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The value of this API Management Named Value.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::Output<Option<String>>,
+        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         #[builder(into, default)]
-        pub value_from_key_vault: pulumi_wasm_rust::Output<
+        pub value_from_key_vault: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::NamedValueValueFromKeyVault>,
         >,
     }
@@ -107,17 +107,30 @@ pub mod named_value {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NamedValueArgs) -> NamedValueResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NamedValueArgs,
+    ) -> NamedValueResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let secret_binding = args.secret.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let value_binding = args.value.get_inner();
-        let value_from_key_vault_binding = args.value_from_key_vault.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
+        let value_from_key_vault_binding = args
+            .value_from_key_vault
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/namedValue:NamedValue".into(),
             name: name.to_string(),
@@ -183,7 +196,7 @@ pub mod named_value {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

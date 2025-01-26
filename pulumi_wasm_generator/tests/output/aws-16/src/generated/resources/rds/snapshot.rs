@@ -40,22 +40,22 @@
 /// $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
 /// ```
 pub mod snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotArgs {
         /// The DB Instance Identifier from which to take the snapshot.
         #[builder(into)]
-        pub db_instance_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_instance_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Identifier for the snapshot.
         #[builder(into)]
-        pub db_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         #[builder(into, default)]
-        pub shared_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub shared_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -112,13 +112,26 @@ pub mod snapshot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotArgs) -> SnapshotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotArgs,
+    ) -> SnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding = args.db_instance_identifier.get_inner();
-        let db_snapshot_identifier_binding = args.db_snapshot_identifier.get_inner();
-        let shared_accounts_binding = args.shared_accounts.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let db_instance_identifier_binding = args
+            .db_instance_identifier
+            .get_output(context)
+            .get_inner();
+        let db_snapshot_identifier_binding = args
+            .db_snapshot_identifier
+            .get_output(context)
+            .get_inner();
+        let shared_accounts_binding = args
+            .shared_accounts
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/snapshot:Snapshot".into(),
             name: name.to_string(),
@@ -210,7 +223,7 @@ pub mod snapshot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

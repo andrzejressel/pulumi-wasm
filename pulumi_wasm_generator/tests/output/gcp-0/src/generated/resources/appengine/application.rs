@@ -45,13 +45,13 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The domain to authenticate users with when using App Engine's User API.
         #[builder(into, default)]
-        pub auth_domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub auth_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the Cloud Firestore or Cloud Datastore database associated with this application.
         /// Can be `CLOUD_FIRESTORE` or `CLOUD_DATASTORE_COMPATIBILITY` for new
         /// instances.  To support old instances, the value `CLOUD_DATASTORE` is accepted by the provider, but will be rejected by the API.
@@ -59,29 +59,29 @@ pub mod application {
         /// `gcp.firestore.Database`
         /// resource instead.
         #[builder(into, default)]
-        pub database_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block of optional settings to configure specific App Engine features:
         #[builder(into, default)]
-        pub feature_settings: pulumi_wasm_rust::Output<
+        pub feature_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::ApplicationFeatureSettings>,
         >,
         /// Settings for enabling Cloud Identity Aware Proxy
         #[builder(into, default)]
-        pub iap: pulumi_wasm_rust::Output<
+        pub iap: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::ApplicationIap>,
         >,
         /// The [location](https://cloud.google.com/appengine/docs/locations)
         /// to serve the app from.
         #[builder(into)]
-        pub location_id: pulumi_wasm_rust::Output<String>,
+        pub location_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project ID to create the application under.
         /// ~>**NOTE:** GCP only accepts project ID, not project number. If you are using number,
         /// you may get a "Permission denied" error.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The serving status of the app.
         #[builder(into, default)]
-        pub serving_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub serving_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
@@ -132,16 +132,23 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auth_domain_binding = args.auth_domain.get_inner();
-        let database_type_binding = args.database_type.get_inner();
-        let feature_settings_binding = args.feature_settings.get_inner();
-        let iap_binding = args.iap.get_inner();
-        let location_id_binding = args.location_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let serving_status_binding = args.serving_status.get_inner();
+        let auth_domain_binding = args.auth_domain.get_output(context).get_inner();
+        let database_type_binding = args.database_type.get_output(context).get_inner();
+        let feature_settings_binding = args
+            .feature_settings
+            .get_output(context)
+            .get_inner();
+        let iap_binding = args.iap.get_output(context).get_inner();
+        let location_id_binding = args.location_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let serving_status_binding = args.serving_status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/application:Application".into(),
             name: name.to_string(),
@@ -221,7 +228,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -77,42 +77,44 @@
 /// ```
 ///
 pub mod network_manager_connectivity_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerConnectivityConfigurationArgs {
         /// One or more `applies_to_group` blocks as defined below.
         #[builder(into)]
-        pub applies_to_groups: pulumi_wasm_rust::Output<
+        pub applies_to_groups: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::network::NetworkManagerConnectivityConfigurationAppliesToGroup,
             >,
         >,
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         #[builder(into)]
-        pub connectivity_topology: pulumi_wasm_rust::Output<String>,
+        pub connectivity_topology: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         #[builder(into, default)]
-        pub delete_existing_peering_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_existing_peering_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A description of the Connectivity Configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
         #[builder(into, default)]
-        pub global_mesh_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub global_mesh_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `hub` block as defined below.
         #[builder(into, default)]
-        pub hub: pulumi_wasm_rust::Output<
+        pub hub: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::network::NetworkManagerConnectivityConfigurationHub,
             >,
         >,
         /// Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkManagerConnectivityConfigurationResult {
@@ -146,21 +148,35 @@ pub mod network_manager_connectivity_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkManagerConnectivityConfigurationArgs,
     ) -> NetworkManagerConnectivityConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let applies_to_groups_binding = args.applies_to_groups.get_inner();
-        let connectivity_topology_binding = args.connectivity_topology.get_inner();
+        let applies_to_groups_binding = args
+            .applies_to_groups
+            .get_output(context)
+            .get_inner();
+        let connectivity_topology_binding = args
+            .connectivity_topology
+            .get_output(context)
+            .get_inner();
         let delete_existing_peering_enabled_binding = args
             .delete_existing_peering_enabled
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let global_mesh_enabled_binding = args.global_mesh_enabled.get_inner();
-        let hub_binding = args.hub.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_manager_id_binding = args.network_manager_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let global_mesh_enabled_binding = args
+            .global_mesh_enabled
+            .get_output(context)
+            .get_inner();
+        let hub_binding = args.hub.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_manager_id_binding = args
+            .network_manager_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration"
                 .into(),
@@ -227,7 +243,7 @@ pub mod network_manager_connectivity_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

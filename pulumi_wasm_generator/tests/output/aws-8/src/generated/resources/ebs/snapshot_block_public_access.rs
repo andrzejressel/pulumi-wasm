@@ -22,13 +22,13 @@
 /// $ pulumi import aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess example default
 /// ```
 pub mod snapshot_block_public_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotBlockPublicAccessArgs {
         /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         #[builder(into)]
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotBlockPublicAccessResult {
@@ -40,12 +40,13 @@ pub mod snapshot_block_public_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SnapshotBlockPublicAccessArgs,
     ) -> SnapshotBlockPublicAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let state_binding = args.state.get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess".into(),
             name: name.to_string(),
@@ -62,7 +63,7 @@ pub mod snapshot_block_public_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

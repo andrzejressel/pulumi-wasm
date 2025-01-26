@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentArgs {
@@ -66,32 +66,32 @@ pub mod agent {
         /// * API_VERSION_V2_BETA_1: V2beta1 API.
         /// Possible values are: `API_VERSION_V1`, `API_VERSION_V2`, `API_VERSION_V2_BETA_1`.
         #[builder(into, default)]
-        pub api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URI of the agent's avatar, which are used throughout the Dialogflow console. When an image URL is entered
         /// into this field, the Dialogflow will save the image in the backend. The address of the backend image returned
         /// from the API will be shown in the [avatarUriBackend] field.
         #[builder(into, default)]
-        pub avatar_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub avatar_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// To filter out false positive results and still get variety in matched natural language inputs for your agent,
         /// you can tune the machine learning classification threshold. If the returned score value is less than the threshold
         /// value, then a fallback intent will be triggered or, if there are no fallback intents defined, no intent will be
         /// triggered. The score values range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to 0.0, the
         /// default of 0.3 is used.
         #[builder(into, default)]
-        pub classification_threshold: pulumi_wasm_rust::Output<Option<f64>>,
+        pub classification_threshold: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
         /// for a list of the currently supported language codes. This field cannot be updated after creation.
         #[builder(into)]
-        pub default_language_code: pulumi_wasm_rust::Output<String>,
+        pub default_language_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of this agent.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Determines whether this agent should log conversation queries.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Determines how intents are detected from user queries.
         /// * MATCH_MODE_HYBRID: Best for agents with a small number of examples in intents and/or wide use of templates
         /// syntax and composite entities.
@@ -99,14 +99,16 @@ pub mod agent {
         /// using @sys.any or very large developer entities.
         /// Possible values are: `MATCH_MODE_HYBRID`, `MATCH_MODE_ML_ONLY`.
         #[builder(into, default)]
-        pub match_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub match_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of all languages supported by this agent (except for the defaultLanguageCode).
         #[builder(into, default)]
-        pub supported_language_codes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_language_codes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The agent tier. If not specified, TIER_STANDARD is assumed.
         /// * TIER_STANDARD: Standard tier.
         /// * TIER_ENTERPRISE: Enterprise tier (Essentials).
@@ -114,14 +116,14 @@ pub mod agent {
         /// NOTE: Due to consistency issues, the provider will not read this field from the API. Drift is possible between
         /// the the provider state and Dialogflow if the agent tier is changed outside of the provider.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
         /// Europe/Paris.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub time_zone: pulumi_wasm_rust::Output<String>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AgentResult {
@@ -185,21 +187,34 @@ pub mod agent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AgentArgs) -> AgentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AgentArgs,
+    ) -> AgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_version_binding = args.api_version.get_inner();
-        let avatar_uri_binding = args.avatar_uri.get_inner();
-        let classification_threshold_binding = args.classification_threshold.get_inner();
-        let default_language_code_binding = args.default_language_code.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_logging_binding = args.enable_logging.get_inner();
-        let match_mode_binding = args.match_mode.get_inner();
-        let project_binding = args.project.get_inner();
-        let supported_language_codes_binding = args.supported_language_codes.get_inner();
-        let tier_binding = args.tier.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
+        let api_version_binding = args.api_version.get_output(context).get_inner();
+        let avatar_uri_binding = args.avatar_uri.get_output(context).get_inner();
+        let classification_threshold_binding = args
+            .classification_threshold
+            .get_output(context)
+            .get_inner();
+        let default_language_code_binding = args
+            .default_language_code
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
+        let match_mode_binding = args.match_mode.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let supported_language_codes_binding = args
+            .supported_language_codes
+            .get_output(context)
+            .get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/agent:Agent".into(),
             name: name.to_string(),
@@ -296,7 +311,7 @@ pub mod agent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

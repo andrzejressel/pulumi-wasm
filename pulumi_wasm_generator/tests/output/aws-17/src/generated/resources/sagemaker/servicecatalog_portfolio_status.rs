@@ -24,13 +24,13 @@
 /// $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
 /// ```
 pub mod servicecatalog_portfolio_status {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicecatalogPortfolioStatusArgs {
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServicecatalogPortfolioStatusResult {
@@ -42,12 +42,13 @@ pub mod servicecatalog_portfolio_status {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicecatalogPortfolioStatusArgs,
     ) -> ServicecatalogPortfolioStatusResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let status_binding = args.status.get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus"
                 .into(),
@@ -65,7 +66,7 @@ pub mod servicecatalog_portfolio_status {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

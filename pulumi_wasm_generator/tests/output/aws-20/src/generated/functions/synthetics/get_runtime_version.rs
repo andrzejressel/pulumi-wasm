@@ -1,19 +1,19 @@
 pub mod get_runtime_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRuntimeVersionArgs {
         /// Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
         #[builder(into, default)]
-        pub latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub prefix: pulumi_wasm_rust::Output<String>,
+        pub prefix: pulumi_wasm_rust::InputOrOutput<String>,
         /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRuntimeVersionResult {
@@ -35,12 +35,15 @@ pub mod get_runtime_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRuntimeVersionArgs) -> GetRuntimeVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRuntimeVersionArgs,
+    ) -> GetRuntimeVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let latest_binding = args.latest.get_inner();
-        let prefix_binding = args.prefix.get_inner();
-        let version_binding = args.version.get_inner();
+        let latest_binding = args.latest.get_output(context).get_inner();
+        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:synthetics/getRuntimeVersion:getRuntimeVersion".into(),
             version: super::super::super::get_version(),
@@ -85,7 +88,7 @@ pub mod get_runtime_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,20 +1,20 @@
 pub mod get_engine_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEngineVersionArgs {
         /// DB engine. (Default: `neptune`)
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
         #[builder(into, default)]
-        pub parameter_group_family: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_group_family: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         #[builder(into, default)]
-        pub preferred_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preferred_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetEngineVersionResult {
@@ -43,13 +43,22 @@ pub mod get_engine_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetEngineVersionArgs) -> GetEngineVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetEngineVersionArgs,
+    ) -> GetEngineVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let engine_binding = args.engine.get_inner();
-        let parameter_group_family_binding = args.parameter_group_family.get_inner();
-        let preferred_versions_binding = args.preferred_versions.get_inner();
-        let version_binding = args.version.get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let parameter_group_family_binding = args
+            .parameter_group_family
+            .get_output(context)
+            .get_inner();
+        let preferred_versions_binding = args
+            .preferred_versions
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:neptune/getEngineVersion:getEngineVersion".into(),
             version: super::super::super::get_version(),
@@ -110,7 +119,7 @@ pub mod get_engine_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

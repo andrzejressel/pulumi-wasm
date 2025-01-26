@@ -8,16 +8,16 @@
 /// $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
 /// ```
 pub mod bucket_resource_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketResourceAccessArgs {
         /// The name of the bucket to grant access to.
         #[builder(into)]
-        pub bucket_name: pulumi_wasm_rust::Output<String>,
+        pub bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource to be granted bucket access.
         #[builder(into)]
-        pub resource_name: pulumi_wasm_rust::Output<String>,
+        pub resource_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketResourceAccessResult {
@@ -31,13 +31,14 @@ pub mod bucket_resource_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BucketResourceAccessArgs,
     ) -> BucketResourceAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_inner();
-        let resource_name_binding = args.resource_name.get_inner();
+        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
+        let resource_name_binding = args.resource_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/bucketResourceAccess:BucketResourceAccess".into(),
             name: name.to_string(),
@@ -61,7 +62,7 @@ pub mod bucket_resource_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

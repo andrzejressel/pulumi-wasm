@@ -35,16 +35,16 @@
 /// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
 /// ```
 pub mod bucket_ownership_controls {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketOwnershipControlsArgs {
         /// Name of the bucket that you want to associate this access point with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
         #[builder(into)]
-        pub rule: pulumi_wasm_rust::Output<
+        pub rule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3::BucketOwnershipControlsRule,
         >,
     }
@@ -62,13 +62,14 @@ pub mod bucket_ownership_controls {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BucketOwnershipControlsArgs,
     ) -> BucketOwnershipControlsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let rule_binding = args.rule.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let rule_binding = args.rule.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketOwnershipControls:BucketOwnershipControls".into(),
             name: name.to_string(),
@@ -92,7 +93,7 @@ pub mod bucket_ownership_controls {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

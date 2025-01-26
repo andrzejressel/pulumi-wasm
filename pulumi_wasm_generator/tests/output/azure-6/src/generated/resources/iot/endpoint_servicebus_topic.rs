@@ -65,36 +65,36 @@
 /// ```
 ///
 pub mod endpoint_servicebus_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointServicebusTopicArgs {
         /// Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         #[builder(into, default)]
-        pub authentication_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         #[builder(into, default)]
-        pub connection_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         #[builder(into, default)]
-        pub endpoint_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         #[builder(into, default)]
-        pub entity_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub entity_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
         ///
         /// > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         #[builder(into, default)]
-        pub identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointServicebusTopicResult {
@@ -122,19 +122,29 @@ pub mod endpoint_servicebus_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EndpointServicebusTopicArgs,
     ) -> EndpointServicebusTopicResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args.authentication_type.get_inner();
-        let connection_string_binding = args.connection_string.get_inner();
-        let endpoint_uri_binding = args.endpoint_uri.get_inner();
-        let entity_path_binding = args.entity_path.get_inner();
-        let identity_id_binding = args.identity_id.get_inner();
-        let iothub_id_binding = args.iothub_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let authentication_type_binding = args
+            .authentication_type
+            .get_output(context)
+            .get_inner();
+        let connection_string_binding = args
+            .connection_string
+            .get_output(context)
+            .get_inner();
+        let endpoint_uri_binding = args.endpoint_uri.get_output(context).get_inner();
+        let entity_path_binding = args.entity_path.get_output(context).get_inner();
+        let identity_id_binding = args.identity_id.get_output(context).get_inner();
+        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointServicebusTopic:EndpointServicebusTopic".into(),
             name: name.to_string(),
@@ -200,7 +210,7 @@ pub mod endpoint_servicebus_topic {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -226,43 +226,45 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub custom_network_interface_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_network_interface_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         #[builder(into, default)]
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::privatelink::EndpointIpConfiguration>>,
         >,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `private_dns_zone_group` block as defined below.
         #[builder(into, default)]
-        pub private_dns_zone_group: pulumi_wasm_rust::Output<
+        pub private_dns_zone_group: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::privatelink::EndpointPrivateDnsZoneGroup>,
         >,
         /// A `private_service_connection` block as defined below.
         #[builder(into)]
-        pub private_service_connection: pulumi_wasm_rust::Output<
+        pub private_service_connection: pulumi_wasm_rust::InputOrOutput<
             super::super::types::privatelink::EndpointPrivateServiceConnection,
         >,
         /// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -311,22 +313,37 @@ pub mod endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointArgs) -> EndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointArgs,
+    ) -> EndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_network_interface_name_binding = args
             .custom_network_interface_name
+            .get_output(context)
             .get_inner();
-        let ip_configurations_binding = args.ip_configurations.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_dns_zone_group_binding = args.private_dns_zone_group.get_inner();
+        let ip_configurations_binding = args
+            .ip_configurations
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_dns_zone_group_binding = args
+            .private_dns_zone_group
+            .get_output(context)
+            .get_inner();
         let private_service_connection_binding = args
             .private_service_connection
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatelink/endpoint:Endpoint".into(),
             name: name.to_string(),
@@ -408,7 +425,7 @@ pub mod endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

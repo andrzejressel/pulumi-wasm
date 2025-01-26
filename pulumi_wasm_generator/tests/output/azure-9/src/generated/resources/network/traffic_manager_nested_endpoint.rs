@@ -70,13 +70,13 @@
 /// ```
 ///
 pub mod traffic_manager_nested_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficManagerNestedEndpointArgs {
         /// One or more `custom_header` blocks as defined below.
         #[builder(into, default)]
-        pub custom_headers: pulumi_wasm_rust::Output<
+        pub custom_headers: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::TrafficManagerNestedEndpointCustomHeader,
@@ -85,44 +85,48 @@ pub mod traffic_manager_nested_endpoint {
         >,
         /// Is the endpoint enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         #[builder(into, default)]
-        pub endpoint_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         #[builder(into, default)]
-        pub geo_mappings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub geo_mappings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         ///
         /// ~>**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
         #[builder(into)]
-        pub minimum_child_endpoints: pulumi_wasm_rust::Output<i32>,
+        pub minimum_child_endpoints: pulumi_wasm_rust::InputOrOutput<i32>,
         /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         #[builder(into, default)]
-        pub minimum_required_child_endpoints_ipv4: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_required_child_endpoints_ipv4: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         #[builder(into, default)]
-        pub minimum_required_child_endpoints_ipv6: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_required_child_endpoints_ipv6: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The name of the External Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subnets: pulumi_wasm_rust::Output<
+        pub subnets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::TrafficManagerNestedEndpointSubnet>>,
         >,
         /// The resource id of an Azure resource to target.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct TrafficManagerNestedEndpointResult {
@@ -168,28 +172,40 @@ pub mod traffic_manager_nested_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficManagerNestedEndpointArgs,
     ) -> TrafficManagerNestedEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_headers_binding = args.custom_headers.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let endpoint_location_binding = args.endpoint_location.get_inner();
-        let geo_mappings_binding = args.geo_mappings.get_inner();
-        let minimum_child_endpoints_binding = args.minimum_child_endpoints.get_inner();
+        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let endpoint_location_binding = args
+            .endpoint_location
+            .get_output(context)
+            .get_inner();
+        let geo_mappings_binding = args.geo_mappings.get_output(context).get_inner();
+        let minimum_child_endpoints_binding = args
+            .minimum_child_endpoints
+            .get_output(context)
+            .get_inner();
         let minimum_required_child_endpoints_ipv4_binding = args
             .minimum_required_child_endpoints_ipv4
+            .get_output(context)
             .get_inner();
         let minimum_required_child_endpoints_ipv6_binding = args
             .minimum_required_child_endpoints_ipv6
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let profile_id_binding = args.profile_id.get_inner();
-        let subnets_binding = args.subnets.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
-        let weight_binding = args.weight.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let profile_id_binding = args.profile_id.get_output(context).get_inner();
+        let subnets_binding = args.subnets.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
+        let weight_binding = args.weight.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint"
                 .into(),
@@ -291,7 +307,7 @@ pub mod traffic_manager_nested_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

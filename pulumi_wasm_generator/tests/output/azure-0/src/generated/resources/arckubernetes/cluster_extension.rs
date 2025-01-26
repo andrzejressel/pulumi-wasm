@@ -44,46 +44,46 @@
 /// ```
 ///
 pub mod cluster_extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterExtensionArgs {
         /// Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         #[builder(into, default)]
-        pub configuration_protected_settings: pulumi_wasm_rust::Output<
+        pub configuration_protected_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration settings, as name-value pairs for configuring this extension.
         #[builder(into, default)]
-        pub configuration_settings: pulumi_wasm_rust::Output<
+        pub configuration_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub extension_type: pulumi_wasm_rust::Output<String>,
+        pub extension_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::arckubernetes::ClusterExtensionIdentity,
         >,
         /// Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub release_namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub release_train: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_train: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub target_namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterExtensionResult {
@@ -120,21 +120,35 @@ pub mod cluster_extension {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterExtensionArgs) -> ClusterExtensionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterExtensionArgs,
+    ) -> ClusterExtensionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let configuration_protected_settings_binding = args
             .configuration_protected_settings
+            .get_output(context)
             .get_inner();
-        let configuration_settings_binding = args.configuration_settings.get_inner();
-        let extension_type_binding = args.extension_type.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let name_binding = args.name.get_inner();
-        let release_namespace_binding = args.release_namespace.get_inner();
-        let release_train_binding = args.release_train.get_inner();
-        let target_namespace_binding = args.target_namespace.get_inner();
-        let version_binding = args.version.get_inner();
+        let configuration_settings_binding = args
+            .configuration_settings
+            .get_output(context)
+            .get_inner();
+        let extension_type_binding = args.extension_type.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let release_namespace_binding = args
+            .release_namespace
+            .get_output(context)
+            .get_inner();
+        let release_train_binding = args.release_train.get_output(context).get_inner();
+        let target_namespace_binding = args
+            .target_namespace
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arckubernetes/clusterExtension:ClusterExtension".into(),
             name: name.to_string(),
@@ -217,7 +231,7 @@ pub mod cluster_extension {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

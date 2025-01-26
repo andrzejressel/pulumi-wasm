@@ -43,22 +43,22 @@
 /// You cannot import DynamoDB table items.
 ///
 pub mod table_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableItemArgs {
         /// Hash key to use for lookups and identification of the item
         #[builder(into)]
-        pub hash_key: pulumi_wasm_rust::Output<String>,
+        pub hash_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         #[builder(into)]
-        pub item: pulumi_wasm_rust::Output<String>,
+        pub item: pulumi_wasm_rust::InputOrOutput<String>,
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         #[builder(into, default)]
-        pub range_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub range_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the table to contain the item.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableItemResult {
@@ -75,13 +75,17 @@ pub mod table_item {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableItemArgs) -> TableItemResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableItemArgs,
+    ) -> TableItemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hash_key_binding = args.hash_key.get_inner();
-        let item_binding = args.item.get_inner();
-        let range_key_binding = args.range_key.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let hash_key_binding = args.hash_key.get_output(context).get_inner();
+        let item_binding = args.item.get_output(context).get_inner();
+        let range_key_binding = args.range_key.get_output(context).get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableItem:TableItem".into(),
             name: name.to_string(),
@@ -119,7 +123,7 @@ pub mod table_item {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -25,12 +25,12 @@
 /// $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
 /// ```
 pub mod vpc_ipam_organization_admin_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpamOrganizationAdminAccountArgs {
         #[builder(into)]
-        pub delegated_admin_account_id: pulumi_wasm_rust::Output<String>,
+        pub delegated_admin_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcIpamOrganizationAdminAccountResult {
@@ -49,6 +49,7 @@ pub mod vpc_ipam_organization_admin_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIpamOrganizationAdminAccountArgs,
     ) -> VpcIpamOrganizationAdminAccountResult {
@@ -56,6 +57,7 @@ pub mod vpc_ipam_organization_admin_account {
         use std::collections::HashMap;
         let delegated_admin_account_id_binding = args
             .delegated_admin_account_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount"
@@ -86,7 +88,7 @@ pub mod vpc_ipam_organization_admin_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

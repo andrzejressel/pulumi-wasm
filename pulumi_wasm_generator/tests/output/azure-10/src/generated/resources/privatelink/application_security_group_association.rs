@@ -114,16 +114,16 @@
 /// ```
 ///
 pub mod application_security_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationSecurityGroupAssociationArgs {
         /// The id of application security group to associate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub application_security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of private endpoint to associate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub private_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub private_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationSecurityGroupAssociationResult {
@@ -137,6 +137,7 @@ pub mod application_security_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationSecurityGroupAssociationArgs,
     ) -> ApplicationSecurityGroupAssociationResult {
@@ -144,8 +145,12 @@ pub mod application_security_group_association {
         use std::collections::HashMap;
         let application_security_group_id_binding = args
             .application_security_group_id
+            .get_output(context)
             .get_inner();
-        let private_endpoint_id_binding = args.private_endpoint_id.get_inner();
+        let private_endpoint_id_binding = args
+            .private_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation"
                 .into(),
@@ -170,7 +175,7 @@ pub mod application_security_group_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

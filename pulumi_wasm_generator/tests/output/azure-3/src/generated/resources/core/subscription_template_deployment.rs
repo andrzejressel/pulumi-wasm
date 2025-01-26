@@ -29,33 +29,33 @@
 /// ```
 ///
 pub mod subscription_template_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionTemplateDeploymentArgs {
         /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         #[builder(into, default)]
-        pub debug_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub debug_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
         #[builder(into, default)]
-        pub parameters_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Subscription Template Deployment.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The contents of the ARM Template which should be deployed into this Subscription.
         #[builder(into, default)]
-        pub template_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
         #[builder(into, default)]
-        pub template_spec_version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_spec_version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionTemplateDeploymentResult {
@@ -83,18 +83,28 @@ pub mod subscription_template_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubscriptionTemplateDeploymentArgs,
     ) -> SubscriptionTemplateDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let debug_level_binding = args.debug_level.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_content_binding = args.parameters_content.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_content_binding = args.template_content.get_inner();
-        let template_spec_version_id_binding = args.template_spec_version_id.get_inner();
+        let debug_level_binding = args.debug_level.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_content_binding = args
+            .parameters_content
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_content_binding = args
+            .template_content
+            .get_output(context)
+            .get_inner();
+        let template_spec_version_id_binding = args
+            .template_spec_version_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment"
                 .into(),
@@ -157,7 +167,7 @@ pub mod subscription_template_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

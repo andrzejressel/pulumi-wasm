@@ -29,21 +29,21 @@
 /// $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
 /// ```
 pub mod virtual_mfa_device {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMfaDeviceArgs {
         /// The path for the virtual MFA device.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         #[builder(into)]
-        pub virtual_mfa_device_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_mfa_device_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualMfaDeviceResult {
@@ -74,12 +74,19 @@ pub mod virtual_mfa_device {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualMfaDeviceArgs) -> VirtualMfaDeviceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualMfaDeviceArgs,
+    ) -> VirtualMfaDeviceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let path_binding = args.path.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_mfa_device_name_binding = args.virtual_mfa_device_name.get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_mfa_device_name_binding = args
+            .virtual_mfa_device_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/virtualMfaDevice:VirtualMfaDevice".into(),
             name: name.to_string(),
@@ -128,7 +135,7 @@ pub mod virtual_mfa_device {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

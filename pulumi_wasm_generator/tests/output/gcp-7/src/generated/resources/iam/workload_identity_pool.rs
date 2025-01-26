@@ -71,25 +71,25 @@
 /// ```
 ///
 pub mod workload_identity_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkloadIdentityPoolArgs {
         /// A description of the pool. Cannot exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens, or use
         /// existing tokens to access resources. If the pool is re-enabled, existing tokens grant
         /// access again.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A display name for the pool. Cannot exceed 32 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID to use for the pool, which becomes the final component of the resource name. This
         /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
@@ -97,7 +97,7 @@ pub mod workload_identity_pool {
         ///
         /// - - -
         #[builder(into)]
-        pub workload_identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub workload_identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkloadIdentityPoolResult {
@@ -138,17 +138,19 @@ pub mod workload_identity_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkloadIdentityPoolArgs,
     ) -> WorkloadIdentityPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let project_binding = args.project.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let workload_identity_pool_id_binding = args
             .workload_identity_pool_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workloadIdentityPool:WorkloadIdentityPool".into(),
@@ -200,7 +202,7 @@ pub mod workload_identity_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

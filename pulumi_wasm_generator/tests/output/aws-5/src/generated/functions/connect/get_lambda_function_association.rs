@@ -1,14 +1,14 @@
 pub mod get_lambda_function_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLambdaFunctionAssociationArgs {
         /// ARN of the Lambda Function, omitting any version or alias qualifier.
         #[builder(into)]
-        pub function_arn: pulumi_wasm_rust::Output<String>,
+        pub function_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLambdaFunctionAssociationResult {
@@ -22,12 +22,13 @@ pub mod get_lambda_function_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetLambdaFunctionAssociationArgs,
     ) -> GetLambdaFunctionAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_arn_binding = args.function_arn.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
+        let function_arn_binding = args.function_arn.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation"
                 .into(),
@@ -54,7 +55,7 @@ pub mod get_lambda_function_association {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

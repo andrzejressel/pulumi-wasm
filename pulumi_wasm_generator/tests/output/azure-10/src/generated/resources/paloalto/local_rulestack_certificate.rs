@@ -42,30 +42,30 @@
 /// ```
 ///
 pub mod local_rulestack_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackCertificateArgs {
         /// The comment for Audit purposes.
         #[builder(into, default)]
-        pub audit_comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description for the Certificate.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         #[builder(into, default)]
-        pub key_vault_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Palo Alto Networks Rulestack Certificate.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         ///
         /// > **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
         #[builder(into, default)]
-        pub self_signed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub self_signed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LocalRulestackCertificateResult {
@@ -89,17 +89,21 @@ pub mod local_rulestack_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LocalRulestackCertificateArgs,
     ) -> LocalRulestackCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let audit_comment_binding = args.audit_comment.get_inner();
-        let description_binding = args.description.get_inner();
-        let key_vault_certificate_id_binding = args.key_vault_certificate_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_inner();
-        let self_signed_binding = args.self_signed.get_inner();
+        let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let key_vault_certificate_id_binding = args
+            .key_vault_certificate_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
+        let self_signed_binding = args.self_signed.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate"
                 .into(),
@@ -152,7 +156,7 @@ pub mod local_rulestack_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

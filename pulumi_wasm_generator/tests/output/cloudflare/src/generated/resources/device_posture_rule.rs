@@ -38,37 +38,37 @@
 /// ```
 ///
 pub mod device_posture_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DevicePostureRuleArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Expire posture results after the specified amount of time. Must be in the format `1h` or `30m`. Valid units are `h` and `m`.
         #[builder(into, default)]
-        pub expiration: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required for all rule types except `warp`, `gateway`, and `tanium`.
         #[builder(into, default)]
-        pub inputs: pulumi_wasm_rust::Output<
+        pub inputs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::DevicePostureRuleInput>>,
         >,
         /// The conditions that the client must match to run the rule.
         #[builder(into, default)]
-        pub matches: pulumi_wasm_rust::Output<
+        pub matches: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::DevicePostureRuleMatch>>,
         >,
         /// Name of the device posture rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tells the client when to run the device posture check. Must be in the format `1h` or `30m`. Valid units are `h` and `m`.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `client_certificate_v2`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`, `custom_s2s`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DevicePostureRuleResult {
@@ -94,17 +94,21 @@ pub mod device_posture_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DevicePostureRuleArgs) -> DevicePostureRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DevicePostureRuleArgs,
+    ) -> DevicePostureRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let expiration_binding = args.expiration.get_inner();
-        let inputs_binding = args.inputs.get_inner();
-        let matches_binding = args.matches.get_inner();
-        let name_binding = args.name.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let type__binding = args.type_.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let expiration_binding = args.expiration.get_output(context).get_inner();
+        let inputs_binding = args.inputs.get_output(context).get_inner();
+        let matches_binding = args.matches.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/devicePostureRule:DevicePostureRule".into(),
             name: name.to_string(),
@@ -170,7 +174,7 @@ pub mod device_posture_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

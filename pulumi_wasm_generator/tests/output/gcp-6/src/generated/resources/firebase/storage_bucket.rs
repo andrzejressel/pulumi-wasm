@@ -51,17 +51,17 @@
 /// ```
 ///
 pub mod storage_bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageBucketArgs {
         /// Required. Immutable. The ID of the underlying Google Cloud Storage bucket
         #[builder(into, default)]
-        pub bucket_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StorageBucketResult {
@@ -77,11 +77,15 @@ pub mod storage_bucket {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StorageBucketArgs) -> StorageBucketResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StorageBucketArgs,
+    ) -> StorageBucketResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_id_binding = args.bucket_id.get_inner();
-        let project_binding = args.project.get_inner();
+        let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/storageBucket:StorageBucket".into(),
             name: name.to_string(),
@@ -108,7 +112,7 @@ pub mod storage_bucket {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

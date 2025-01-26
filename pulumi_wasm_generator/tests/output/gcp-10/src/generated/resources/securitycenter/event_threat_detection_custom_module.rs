@@ -54,30 +54,30 @@
 /// ```
 ///
 pub mod event_threat_detection_custom_module {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventThreatDetectionCustomModuleArgs {
         /// Config for the module. For the resident module, its config value is defined at this level.
         /// For the inherited module, its config value is inherited from the ancestor module.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<String>,
+        pub config: pulumi_wasm_rust::InputOrOutput<String>,
         /// The human readable name to be displayed for the module.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The state of enablement for the module at the given level of the hierarchy.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into)]
-        pub enablement_state: pulumi_wasm_rust::Output<String>,
+        pub enablement_state: pulumi_wasm_rust::InputOrOutput<String>,
         /// Numerical ID of the parent organization.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EventThreatDetectionCustomModuleResult {
@@ -111,16 +111,20 @@ pub mod event_threat_detection_custom_module {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EventThreatDetectionCustomModuleArgs,
     ) -> EventThreatDetectionCustomModuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_binding = args.config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enablement_state_binding = args.enablement_state.get_inner();
-        let organization_binding = args.organization.get_inner();
-        let type__binding = args.type_.get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enablement_state_binding = args
+            .enablement_state
+            .get_output(context)
+            .get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/eventThreatDetectionCustomModule:EventThreatDetectionCustomModule"
                 .into(),
@@ -175,7 +179,7 @@ pub mod event_threat_detection_custom_module {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

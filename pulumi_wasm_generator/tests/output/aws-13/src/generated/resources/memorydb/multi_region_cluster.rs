@@ -41,47 +41,49 @@
 /// $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
 /// ```
 pub mod multi_region_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiRegionClusterArgs {
         /// description for the multi-region cluster.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         #[builder(into)]
-        pub multi_region_cluster_name_suffix: pulumi_wasm_rust::Output<String>,
+        pub multi_region_cluster_name_suffix: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the multi-region parameter group to be associated with the cluster.
         #[builder(into, default)]
-        pub multi_region_parameter_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub multi_region_parameter_group_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The node type to be used for the multi-region cluster.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of shards for the multi-region cluster.
         #[builder(into, default)]
-        pub num_shards: pulumi_wasm_rust::Output<Option<i32>>,
+        pub num_shards: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::memorydb::MultiRegionClusterTimeouts>,
         >,
         /// A flag to enable in-transit encryption on the cluster.
         #[builder(into, default)]
-        pub tls_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub update_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub update_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MultiRegionClusterResult {
@@ -125,24 +127,33 @@ pub mod multi_region_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MultiRegionClusterArgs) -> MultiRegionClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MultiRegionClusterArgs,
+    ) -> MultiRegionClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let engine_binding = args.engine.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
         let multi_region_cluster_name_suffix_binding = args
             .multi_region_cluster_name_suffix
+            .get_output(context)
             .get_inner();
         let multi_region_parameter_group_name_binding = args
             .multi_region_parameter_group_name
+            .get_output(context)
             .get_inner();
-        let node_type_binding = args.node_type.get_inner();
-        let num_shards_binding = args.num_shards.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let tls_enabled_binding = args.tls_enabled.get_inner();
-        let update_strategy_binding = args.update_strategy.get_inner();
+        let node_type_binding = args.node_type.get_output(context).get_inner();
+        let num_shards_binding = args.num_shards.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tls_enabled_binding = args.tls_enabled.get_output(context).get_inner();
+        let update_strategy_binding = args
+            .update_strategy
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:memorydb/multiRegionCluster:MultiRegionCluster".into(),
             name: name.to_string(),
@@ -241,7 +252,7 @@ pub mod multi_region_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

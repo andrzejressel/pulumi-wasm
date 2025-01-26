@@ -60,34 +60,34 @@
 /// ```
 ///
 pub mod probe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProbeArgs {
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         #[builder(into, default)]
-        pub interval_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Probe. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         #[builder(into, default)]
-        pub number_of_probes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_probes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         #[builder(into, default)]
-        pub probe_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub probe_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         #[builder(into, default)]
-        pub request_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProbeResult {
@@ -113,17 +113,33 @@ pub mod probe {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProbeArgs) -> ProbeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProbeArgs,
+    ) -> ProbeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let interval_in_seconds_binding = args.interval_in_seconds.get_inner();
-        let loadbalancer_id_binding = args.loadbalancer_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let number_of_probes_binding = args.number_of_probes.get_inner();
-        let port_binding = args.port.get_inner();
-        let probe_threshold_binding = args.probe_threshold.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let request_path_binding = args.request_path.get_inner();
+        let interval_in_seconds_binding = args
+            .interval_in_seconds
+            .get_output(context)
+            .get_inner();
+        let loadbalancer_id_binding = args
+            .loadbalancer_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let number_of_probes_binding = args
+            .number_of_probes
+            .get_output(context)
+            .get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let probe_threshold_binding = args
+            .probe_threshold
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let request_path_binding = args.request_path.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/probe:Probe".into(),
             name: name.to_string(),
@@ -192,7 +208,7 @@ pub mod probe {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

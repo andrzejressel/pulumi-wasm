@@ -34,30 +34,30 @@
 /// $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
 /// ```
 pub mod cloud_formation_stack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudFormationStackArgs {
         /// The ARN of the application from the Serverless Application Repository.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         #[builder(into)]
-        pub capabilities: pulumi_wasm_rust::Output<Vec<String>>,
+        pub capabilities: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of Parameter structures that specify input parameters for the stack.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         #[builder(into, default)]
-        pub semantic_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub semantic_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,17 +91,21 @@ pub mod cloud_formation_stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CloudFormationStackArgs,
     ) -> CloudFormationStackResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_inner();
-        let capabilities_binding = args.capabilities.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let semantic_version_binding = args.semantic_version.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let application_id_binding = args.application_id.get_output(context).get_inner();
+        let capabilities_binding = args.capabilities.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let semantic_version_binding = args
+            .semantic_version
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:serverlessrepository/cloudFormationStack:CloudFormationStack"
                 .into(),
@@ -160,7 +164,7 @@ pub mod cloud_formation_stack {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

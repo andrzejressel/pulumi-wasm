@@ -19,35 +19,35 @@
 /// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
 /// ```
 pub mod connect_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectPeerArgs {
         /// The Connect peer BGP options.
         #[builder(into, default)]
-        pub bgp_options: pulumi_wasm_rust::Output<
+        pub bgp_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkmanager::ConnectPeerBgpOptions>,
         >,
         /// The ID of the connection attachment.
         #[builder(into)]
-        pub connect_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub connect_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A Connect peer core network address.
         #[builder(into, default)]
-        pub core_network_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub core_network_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         #[builder(into, default)]
-        pub inside_cidr_blocks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inside_cidr_blocks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Connect peer address.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub peer_address: pulumi_wasm_rust::Output<String>,
+        pub peer_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
         #[builder(into, default)]
-        pub subnet_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,16 +96,29 @@ pub mod connect_peer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectPeerArgs) -> ConnectPeerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectPeerArgs,
+    ) -> ConnectPeerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bgp_options_binding = args.bgp_options.get_inner();
-        let connect_attachment_id_binding = args.connect_attachment_id.get_inner();
-        let core_network_address_binding = args.core_network_address.get_inner();
-        let inside_cidr_blocks_binding = args.inside_cidr_blocks.get_inner();
-        let peer_address_binding = args.peer_address.get_inner();
-        let subnet_arn_binding = args.subnet_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let bgp_options_binding = args.bgp_options.get_output(context).get_inner();
+        let connect_attachment_id_binding = args
+            .connect_attachment_id
+            .get_output(context)
+            .get_inner();
+        let core_network_address_binding = args
+            .core_network_address
+            .get_output(context)
+            .get_inner();
+        let inside_cidr_blocks_binding = args
+            .inside_cidr_blocks
+            .get_output(context)
+            .get_inner();
+        let peer_address_binding = args.peer_address.get_output(context).get_inner();
+        let subnet_arn_binding = args.subnet_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/connectPeer:ConnectPeer".into(),
             name: name.to_string(),
@@ -188,7 +201,7 @@ pub mod connect_peer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

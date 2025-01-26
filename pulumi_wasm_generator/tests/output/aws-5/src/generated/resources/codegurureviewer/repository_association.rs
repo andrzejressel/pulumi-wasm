@@ -35,13 +35,13 @@
 /// }
 /// ```
 pub mod repository_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryAssociationArgs {
         /// An object describing the KMS key to asssociate. Block is documented below.
         #[builder(into, default)]
-        pub kms_key_details: pulumi_wasm_rust::Output<
+        pub kms_key_details: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::codegurureviewer::RepositoryAssociationKmsKeyDetails,
             >,
@@ -50,11 +50,11 @@ pub mod repository_association {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::Output<
+        pub repository: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codegurureviewer::RepositoryAssociationRepository,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -105,14 +105,18 @@ pub mod repository_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RepositoryAssociationArgs,
     ) -> RepositoryAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let kms_key_details_binding = args.kms_key_details.get_inner();
-        let repository_binding = args.repository.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let kms_key_details_binding = args
+            .kms_key_details
+            .get_output(context)
+            .get_inner();
+        let repository_binding = args.repository.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation"
                 .into(),
@@ -174,7 +178,7 @@ pub mod repository_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

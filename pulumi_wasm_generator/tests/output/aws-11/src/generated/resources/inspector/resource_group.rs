@@ -12,13 +12,15 @@
 ///         Env: bar
 /// ```
 pub mod resource_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceGroupArgs {
         /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         #[builder(into)]
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<
+            std::collections::HashMap<String, String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ResourceGroupResult {
@@ -31,10 +33,14 @@ pub mod resource_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResourceGroupArgs) -> ResourceGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResourceGroupArgs,
+    ) -> ResourceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector/resourceGroup:ResourceGroup".into(),
             name: name.to_string(),
@@ -54,7 +60,7 @@ pub mod resource_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

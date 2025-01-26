@@ -52,7 +52,7 @@
 /// ```
 ///
 pub mod key_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyVaultArgs {
@@ -60,7 +60,7 @@ pub mod key_vault {
         ///
         /// > **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub access_policies: pulumi_wasm_rust::Output<
+        pub access_policies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::KeyVaultAccessPolicy>>,
         >,
         /// One or more `contact` block as defined below.
@@ -69,61 +69,63 @@ pub mod key_vault {
         ///
         /// > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
         #[builder(into, default)]
-        pub contacts: pulumi_wasm_rust::Output<
+        pub contacts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::KeyVaultContact>>,
         >,
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         #[builder(into, default)]
-        pub enable_rbac_authorization: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_rbac_authorization: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         #[builder(into, default)]
-        pub enabled_for_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_deployment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         #[builder(into, default)]
-        pub enabled_for_disk_encryption: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_disk_encryption: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         #[builder(into, default)]
-        pub enabled_for_template_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled_for_template_deployment: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network_acls` block as defined below.
         #[builder(into, default)]
-        pub network_acls: pulumi_wasm_rust::Output<
+        pub network_acls: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyvault::KeyVaultNetworkAcls>,
         >,
         /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is Purge Protection enabled for this Key Vault?
         ///
         /// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         #[builder(into, default)]
-        pub purge_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub purge_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         ///
         /// > **Note:** This field can only be configured one time and cannot be updated.
         ///
         /// <!-- TODO: Remove `contact` and Notes in 4.0 -->
         #[builder(into, default)]
-        pub soft_delete_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub soft_delete_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyVaultResult {
@@ -186,35 +188,56 @@ pub mod key_vault {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyVaultArgs) -> KeyVaultResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyVaultArgs,
+    ) -> KeyVaultResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_policies_binding = args.access_policies.get_inner();
-        let contacts_binding = args.contacts.get_inner();
+        let access_policies_binding = args
+            .access_policies
+            .get_output(context)
+            .get_inner();
+        let contacts_binding = args.contacts.get_output(context).get_inner();
         let enable_rbac_authorization_binding = args
             .enable_rbac_authorization
+            .get_output(context)
             .get_inner();
-        let enabled_for_deployment_binding = args.enabled_for_deployment.get_inner();
+        let enabled_for_deployment_binding = args
+            .enabled_for_deployment
+            .get_output(context)
+            .get_inner();
         let enabled_for_disk_encryption_binding = args
             .enabled_for_disk_encryption
+            .get_output(context)
             .get_inner();
         let enabled_for_template_deployment_binding = args
             .enabled_for_template_deployment
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_acls_binding = args.network_acls.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_acls_binding = args.network_acls.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let purge_protection_enabled_binding = args.purge_protection_enabled.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
+        let purge_protection_enabled_binding = args
+            .purge_protection_enabled
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
         let soft_delete_retention_days_binding = args
             .soft_delete_retention_days
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/keyVault:KeyVault".into(),
             name: name.to_string(),
@@ -339,7 +362,7 @@ pub mod key_vault {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

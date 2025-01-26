@@ -1,17 +1,17 @@
 pub mod get_domain_name {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDomainNameArgs {
         /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         #[builder(into, default)]
-        pub domain_name_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of tags for the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -58,12 +58,15 @@ pub mod get_domain_name {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDomainNameArgs) -> GetDomainNameResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDomainNameArgs,
+    ) -> GetDomainNameResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let domain_name_id_binding = args.domain_name_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let domain_name_id_binding = args.domain_name_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getDomainName:getDomainName".into(),
             version: super::super::super::get_version(),
@@ -135,7 +138,7 @@ pub mod get_domain_name {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

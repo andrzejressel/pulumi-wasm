@@ -1,14 +1,14 @@
 pub mod get_sas {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSasArgs {
         /// The connection string for the Event Hub to which this SAS applies.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
         #[builder(into)]
-        pub expiry: pulumi_wasm_rust::Output<String>,
+        pub expiry: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSasResult {
@@ -23,11 +23,17 @@ pub mod get_sas {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSasArgs) -> GetSasResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSasArgs,
+    ) -> GetSasResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding = args.connection_string.get_inner();
-        let expiry_binding = args.expiry.get_inner();
+        let connection_string_binding = args
+            .connection_string
+            .get_output(context)
+            .get_inner();
+        let expiry_binding = args.expiry.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:eventhub/getSas:getSas".into(),
             version: super::super::super::get_version(),
@@ -56,7 +62,7 @@ pub mod get_sas {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -47,24 +47,24 @@
 ///         name: directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 /// ```
 pub mod macsec_key_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MacsecKeyAssociationArgs {
         /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         #[builder(into, default)]
-        pub cak: pulumi_wasm_rust::Output<Option<String>>,
+        pub cak: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         #[builder(into, default)]
-        pub ckn: pulumi_wasm_rust::Output<Option<String>>,
+        pub ckn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         ///
         /// > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         #[builder(into, default)]
-        pub secret_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub secret_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MacsecKeyAssociationResult {
@@ -88,15 +88,16 @@ pub mod macsec_key_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MacsecKeyAssociationArgs,
     ) -> MacsecKeyAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cak_binding = args.cak.get_inner();
-        let ckn_binding = args.ckn.get_inner();
-        let connection_id_binding = args.connection_id.get_inner();
-        let secret_arn_binding = args.secret_arn.get_inner();
+        let cak_binding = args.cak.get_output(context).get_inner();
+        let ckn_binding = args.ckn.get_output(context).get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation".into(),
             name: name.to_string(),
@@ -140,7 +141,7 @@ pub mod macsec_key_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

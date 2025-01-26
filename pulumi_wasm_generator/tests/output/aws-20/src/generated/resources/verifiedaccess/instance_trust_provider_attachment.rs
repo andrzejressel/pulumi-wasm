@@ -37,16 +37,16 @@
 /// $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
 /// ```
 pub mod instance_trust_provider_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceTrustProviderAttachmentArgs {
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         #[builder(into)]
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Verified Access trust provider.
         #[builder(into)]
-        pub verifiedaccess_trust_provider_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_trust_provider_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceTrustProviderAttachmentResult {
@@ -60,6 +60,7 @@ pub mod instance_trust_provider_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceTrustProviderAttachmentArgs,
     ) -> InstanceTrustProviderAttachmentResult {
@@ -67,9 +68,11 @@ pub mod instance_trust_provider_attachment {
         use std::collections::HashMap;
         let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
+            .get_output(context)
             .get_inner();
         let verifiedaccess_trust_provider_id_binding = args
             .verifiedaccess_trust_provider_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment"
@@ -95,7 +98,7 @@ pub mod instance_trust_provider_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

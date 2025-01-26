@@ -1,20 +1,20 @@
 pub mod get_permission_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPermissionSetArgs {
         /// ARN of the permission set.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the SSO Instance associated with the permission set.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the SSO Permission Set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -39,13 +39,16 @@ pub mod get_permission_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPermissionSetArgs) -> GetPermissionSetResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPermissionSetArgs,
+    ) -> GetPermissionSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let instance_arn_binding = args.instance_arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getPermissionSet:getPermissionSet".into(),
             version: super::super::super::get_version(),
@@ -97,7 +100,7 @@ pub mod get_permission_set {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

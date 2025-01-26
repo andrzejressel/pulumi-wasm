@@ -47,42 +47,44 @@
 /// $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Whether to copy existing tags. Defaults to `false`.
         #[builder(into, default)]
-        pub copy_tags: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Destination region to place snapshot copy.
         #[builder(into, default)]
-        pub destination_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS key ID.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of an option group to associate with the copy of the snapshot.
         #[builder(into, default)]
-        pub option_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub option_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// he URL that contains a Signature Version 4 signed request.
         #[builder(into, default)]
-        pub presigned_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub presigned_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         #[builder(into, default)]
-        pub shared_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub shared_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Snapshot identifier of the source snapshot.
         #[builder(into)]
-        pub source_db_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub source_db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The external custom Availability Zone.
         #[builder(into, default)]
-        pub target_custom_availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_custom_availability_zone: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The Identifier for the snapshot.
         #[builder(into)]
-        pub target_db_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub target_db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
@@ -141,24 +143,40 @@ pub mod snapshot_copy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotCopyArgs) -> SnapshotCopyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotCopyArgs,
+    ) -> SnapshotCopyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let copy_tags_binding = args.copy_tags.get_inner();
-        let destination_region_binding = args.destination_region.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let option_group_name_binding = args.option_group_name.get_inner();
-        let presigned_url_binding = args.presigned_url.get_inner();
-        let shared_accounts_binding = args.shared_accounts.get_inner();
+        let copy_tags_binding = args.copy_tags.get_output(context).get_inner();
+        let destination_region_binding = args
+            .destination_region
+            .get_output(context)
+            .get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let option_group_name_binding = args
+            .option_group_name
+            .get_output(context)
+            .get_inner();
+        let presigned_url_binding = args.presigned_url.get_output(context).get_inner();
+        let shared_accounts_binding = args
+            .shared_accounts
+            .get_output(context)
+            .get_inner();
         let source_db_snapshot_identifier_binding = args
             .source_db_snapshot_identifier
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let target_custom_availability_zone_binding = args
             .target_custom_availability_zone
+            .get_output(context)
             .get_inner();
         let target_db_snapshot_identifier_binding = args
             .target_db_snapshot_identifier
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/snapshotCopy:SnapshotCopy".into(),
@@ -281,7 +299,7 @@ pub mod snapshot_copy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

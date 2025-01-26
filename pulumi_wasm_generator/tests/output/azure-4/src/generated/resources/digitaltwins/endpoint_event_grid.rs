@@ -52,28 +52,30 @@
 /// ```
 ///
 pub mod endpoint_event_grid {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointEventGridArgs {
         /// The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         #[builder(into, default)]
-        pub dead_letter_storage_secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub dead_letter_storage_secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
         #[builder(into)]
-        pub digital_twins_id: pulumi_wasm_rust::Output<String>,
+        pub digital_twins_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The endpoint of the Event Grid Topic.
         #[builder(into)]
-        pub eventgrid_topic_endpoint: pulumi_wasm_rust::Output<String>,
+        pub eventgrid_topic_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// The primary access key of the Event Grid Topic.
         #[builder(into)]
-        pub eventgrid_topic_primary_access_key: pulumi_wasm_rust::Output<String>,
+        pub eventgrid_topic_primary_access_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The secondary access key of the Event Grid Topic.
         #[builder(into)]
-        pub eventgrid_topic_secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub eventgrid_topic_secondary_access_key: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EndpointEventGridResult {
@@ -94,21 +96,34 @@ pub mod endpoint_event_grid {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointEventGridArgs) -> EndpointEventGridResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointEventGridArgs,
+    ) -> EndpointEventGridResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dead_letter_storage_secret_binding = args
             .dead_letter_storage_secret
+            .get_output(context)
             .get_inner();
-        let digital_twins_id_binding = args.digital_twins_id.get_inner();
-        let eventgrid_topic_endpoint_binding = args.eventgrid_topic_endpoint.get_inner();
+        let digital_twins_id_binding = args
+            .digital_twins_id
+            .get_output(context)
+            .get_inner();
+        let eventgrid_topic_endpoint_binding = args
+            .eventgrid_topic_endpoint
+            .get_output(context)
+            .get_inner();
         let eventgrid_topic_primary_access_key_binding = args
             .eventgrid_topic_primary_access_key
+            .get_output(context)
             .get_inner();
         let eventgrid_topic_secondary_access_key_binding = args
             .eventgrid_topic_secondary_access_key
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:digitaltwins/endpointEventGrid:EndpointEventGrid".into(),
             name: name.to_string(),
@@ -160,7 +175,7 @@ pub mod endpoint_event_grid {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

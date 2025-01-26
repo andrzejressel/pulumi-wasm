@@ -39,25 +39,25 @@
 /// ```
 ///
 pub mod creator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CreatorArgs {
         /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub maps_account_id: pulumi_wasm_rust::Output<String>,
+        pub maps_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
         #[builder(into)]
-        pub storage_units: pulumi_wasm_rust::Output<i32>,
+        pub storage_units: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A mapping of tags which should be assigned to the Azure Maps Creator.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -80,14 +80,21 @@ pub mod creator {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CreatorArgs) -> CreatorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CreatorArgs,
+    ) -> CreatorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let maps_account_id_binding = args.maps_account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_units_binding = args.storage_units.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maps_account_id_binding = args
+            .maps_account_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_units_binding = args.storage_units.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maps/creator:Creator".into(),
             name: name.to_string(),
@@ -132,7 +139,7 @@ pub mod creator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

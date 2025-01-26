@@ -119,77 +119,79 @@
 /// $ pulumi import aws:glue/job:Job MyJob MyJob
 /// ```
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// The command of the job. Defined below.
         #[builder(into)]
-        pub command: pulumi_wasm_rust::Output<super::super::types::glue::JobCommand>,
+        pub command: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::glue::JobCommand,
+        >,
         /// The list of connections used for this job.
         #[builder(into, default)]
-        pub connections: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub connections: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         #[builder(into, default)]
-        pub default_arguments: pulumi_wasm_rust::Output<
+        pub default_arguments: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Description of the job.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         #[builder(into, default)]
-        pub execution_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Execution property of the job. Defined below.
         #[builder(into, default)]
-        pub execution_property: pulumi_wasm_rust::Output<
+        pub execution_property: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::JobExecutionProperty>,
         >,
         /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         #[builder(into, default)]
-        pub glue_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub glue_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         #[builder(into, default)]
-        pub job_run_queuing_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub job_run_queuing_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         #[builder(into, default)]
-        pub max_capacity: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_capacity: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The maximum number of times to retry this job if it fails.
         #[builder(into, default)]
-        pub max_retries: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_retries: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name you assign to this job. It must be unique in your account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Non-overridable arguments for this job, specified as name-value pairs.
         #[builder(into, default)]
-        pub non_overridable_arguments: pulumi_wasm_rust::Output<
+        pub non_overridable_arguments: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Notification property of the job. Defined below.
         #[builder(into, default)]
-        pub notification_property: pulumi_wasm_rust::Output<
+        pub notification_property: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::JobNotificationProperty>,
         >,
         /// The number of workers of a defined workerType that are allocated when a job runs.
         #[builder(into, default)]
-        pub number_of_workers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_workers: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ARN of the IAM role associated with this job.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Security Configuration to be associated with the job.
         #[builder(into, default)]
-        pub security_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
         /// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
         /// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
@@ -199,7 +201,7 @@ pub mod job {
         /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
         /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         #[builder(into, default)]
-        pub worker_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub worker_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct JobResult {
@@ -271,31 +273,60 @@ pub mod job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobArgs) -> JobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobArgs,
+    ) -> JobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let command_binding = args.command.get_inner();
-        let connections_binding = args.connections.get_inner();
-        let default_arguments_binding = args.default_arguments.get_inner();
-        let description_binding = args.description.get_inner();
-        let execution_class_binding = args.execution_class.get_inner();
-        let execution_property_binding = args.execution_property.get_inner();
-        let glue_version_binding = args.glue_version.get_inner();
-        let job_run_queuing_enabled_binding = args.job_run_queuing_enabled.get_inner();
-        let maintenance_window_binding = args.maintenance_window.get_inner();
-        let max_capacity_binding = args.max_capacity.get_inner();
-        let max_retries_binding = args.max_retries.get_inner();
-        let name_binding = args.name.get_inner();
+        let command_binding = args.command.get_output(context).get_inner();
+        let connections_binding = args.connections.get_output(context).get_inner();
+        let default_arguments_binding = args
+            .default_arguments
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let execution_class_binding = args
+            .execution_class
+            .get_output(context)
+            .get_inner();
+        let execution_property_binding = args
+            .execution_property
+            .get_output(context)
+            .get_inner();
+        let glue_version_binding = args.glue_version.get_output(context).get_inner();
+        let job_run_queuing_enabled_binding = args
+            .job_run_queuing_enabled
+            .get_output(context)
+            .get_inner();
+        let maintenance_window_binding = args
+            .maintenance_window
+            .get_output(context)
+            .get_inner();
+        let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
+        let max_retries_binding = args.max_retries.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let non_overridable_arguments_binding = args
             .non_overridable_arguments
+            .get_output(context)
             .get_inner();
-        let notification_property_binding = args.notification_property.get_inner();
-        let number_of_workers_binding = args.number_of_workers.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let security_configuration_binding = args.security_configuration.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let worker_type_binding = args.worker_type.get_inner();
+        let notification_property_binding = args
+            .notification_property
+            .get_output(context)
+            .get_inner();
+        let number_of_workers_binding = args
+            .number_of_workers
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let security_configuration_binding = args
+            .security_configuration
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let worker_type_binding = args.worker_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/job:Job".into(),
             name: name.to_string(),
@@ -451,7 +482,7 @@ pub mod job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

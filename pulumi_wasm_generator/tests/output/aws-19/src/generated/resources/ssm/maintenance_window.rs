@@ -27,46 +27,46 @@
 /// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
 /// ```
 pub mod maintenance_window {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowArgs {
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         #[builder(into, default)]
-        pub allow_unassociated_targets: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_unassociated_targets: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         #[builder(into)]
-        pub cutoff: pulumi_wasm_rust::Output<i32>,
+        pub cutoff: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A description for the maintenance window.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The duration of the Maintenance Window in hours.
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether the maintenance window is enabled. Default: `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         #[builder(into, default)]
-        pub end_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::Output<String>,
+        pub schedule: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
         #[builder(into, default)]
-        pub schedule_offset: pulumi_wasm_rust::Output<Option<i32>>,
+        pub schedule_offset: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         #[builder(into, default)]
-        pub schedule_timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule_timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         #[builder(into, default)]
-        pub start_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -107,23 +107,34 @@ pub mod maintenance_window {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MaintenanceWindowArgs) -> MaintenanceWindowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MaintenanceWindowArgs,
+    ) -> MaintenanceWindowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_unassociated_targets_binding = args
             .allow_unassociated_targets
+            .get_output(context)
             .get_inner();
-        let cutoff_binding = args.cutoff.get_inner();
-        let description_binding = args.description.get_inner();
-        let duration_binding = args.duration.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let end_date_binding = args.end_date.get_inner();
-        let name_binding = args.name.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let schedule_offset_binding = args.schedule_offset.get_inner();
-        let schedule_timezone_binding = args.schedule_timezone.get_inner();
-        let start_date_binding = args.start_date.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let cutoff_binding = args.cutoff.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let end_date_binding = args.end_date.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let schedule_offset_binding = args
+            .schedule_offset
+            .get_output(context)
+            .get_inner();
+        let schedule_timezone_binding = args
+            .schedule_timezone
+            .get_output(context)
+            .get_inner();
+        let start_date_binding = args.start_date.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindow:MaintenanceWindow".into(),
             name: name.to_string(),
@@ -220,7 +231,7 @@ pub mod maintenance_window {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -55,30 +55,30 @@
 /// ```
 ///
 pub mod global_network_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalNetworkEndpointArgs {
         /// Fully qualified domain name of network endpoint.
         /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
         #[builder(into, default)]
-        pub fqdn: pulumi_wasm_rust::Output<Option<String>>,
+        pub fqdn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The global network endpoint group this endpoint is part of.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub global_network_endpoint_group: pulumi_wasm_rust::Output<String>,
+        pub global_network_endpoint_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// IPv4 address external endpoint.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Port number of the external endpoint.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GlobalNetworkEndpointResult {
@@ -103,18 +103,20 @@ pub mod global_network_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GlobalNetworkEndpointArgs,
     ) -> GlobalNetworkEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let fqdn_binding = args.fqdn.get_inner();
+        let fqdn_binding = args.fqdn.get_output(context).get_inner();
         let global_network_endpoint_group_binding = args
             .global_network_endpoint_group
+            .get_output(context)
             .get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let port_binding = args.port.get_inner();
-        let project_binding = args.project.get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/globalNetworkEndpoint:GlobalNetworkEndpoint".into(),
             name: name.to_string(),
@@ -159,7 +161,7 @@ pub mod global_network_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

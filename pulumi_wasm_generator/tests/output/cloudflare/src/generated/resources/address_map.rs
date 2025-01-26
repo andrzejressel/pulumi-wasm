@@ -42,28 +42,30 @@
 /// ```
 ///
 pub mod address_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddressMapArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If you have legacy TLS clients which do not send the TLS server name indicator, then you can specify one default SNI on the map.
         #[builder(into, default)]
-        pub default_sni: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sni: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the address map.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the Address Map is enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The set of IPs on the Address Map.
         #[builder(into, default)]
-        pub ips: pulumi_wasm_rust::Output<Option<Vec<super::types::AddressMapIp>>>,
+        pub ips: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::AddressMapIp>>,
+        >,
         /// Zones and Accounts which will be assigned IPs on this Address Map.
         #[builder(into, default)]
-        pub memberships: pulumi_wasm_rust::Output<
+        pub memberships: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AddressMapMembership>>,
         >,
     }
@@ -92,15 +94,19 @@ pub mod address_map {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AddressMapArgs) -> AddressMapResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AddressMapArgs,
+    ) -> AddressMapResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let default_sni_binding = args.default_sni.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let ips_binding = args.ips.get_inner();
-        let memberships_binding = args.memberships.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let default_sni_binding = args.default_sni.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let ips_binding = args.ips.get_output(context).get_inner();
+        let memberships_binding = args.memberships.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/addressMap:AddressMap".into(),
             name: name.to_string(),
@@ -158,7 +164,7 @@ pub mod address_map {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

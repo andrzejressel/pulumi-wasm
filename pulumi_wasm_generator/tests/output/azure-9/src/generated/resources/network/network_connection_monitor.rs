@@ -165,43 +165,45 @@
 /// ```
 ///
 pub mod network_connection_monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkConnectionMonitorArgs {
         /// A `endpoint` block as defined below.
         #[builder(into)]
-        pub endpoints: pulumi_wasm_rust::Output<
+        pub endpoints: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::NetworkConnectionMonitorEndpoint>,
         >,
         /// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Network Watcher. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_watcher_id: pulumi_wasm_rust::Output<String>,
+        pub network_watcher_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the Network Connection Monitor.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         #[builder(into, default)]
-        pub output_workspace_resource_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub output_workspace_resource_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A mapping of tags which should be assigned to the Network Connection Monitor.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `test_configuration` block as defined below.
         #[builder(into)]
-        pub test_configurations: pulumi_wasm_rust::Output<
+        pub test_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::NetworkConnectionMonitorTestConfiguration>,
         >,
         /// A `test_group` block as defined below.
         #[builder(into)]
-        pub test_groups: pulumi_wasm_rust::Output<
+        pub test_groups: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::NetworkConnectionMonitorTestGroup>,
         >,
     }
@@ -239,22 +241,30 @@ pub mod network_connection_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkConnectionMonitorArgs,
     ) -> NetworkConnectionMonitorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoints_binding = args.endpoints.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_watcher_id_binding = args.network_watcher_id.get_inner();
-        let notes_binding = args.notes.get_inner();
+        let endpoints_binding = args.endpoints.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_watcher_id_binding = args
+            .network_watcher_id
+            .get_output(context)
+            .get_inner();
+        let notes_binding = args.notes.get_output(context).get_inner();
         let output_workspace_resource_ids_binding = args
             .output_workspace_resource_ids
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let test_configurations_binding = args.test_configurations.get_inner();
-        let test_groups_binding = args.test_groups.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let test_configurations_binding = args
+            .test_configurations
+            .get_output(context)
+            .get_inner();
+        let test_groups_binding = args.test_groups.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
                 .into(),
@@ -328,7 +338,7 @@ pub mod network_connection_monitor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

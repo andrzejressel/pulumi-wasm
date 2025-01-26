@@ -24,24 +24,24 @@
 /// $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
 /// ```
 pub mod access_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPolicyAssociationArgs {
         /// The configuration block to determine the scope of the access. See `access_scope` Block below.
         #[builder(into)]
-        pub access_scope: pulumi_wasm_rust::Output<
+        pub access_scope: pulumi_wasm_rust::InputOrOutput<
             super::super::types::eks::AccessPolicyAssociationAccessScope,
         >,
         /// Name of the EKS Cluster.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the access policy that you're associating.
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<String>,
+        pub policy_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessPolicyAssociationResult {
@@ -65,15 +65,16 @@ pub mod access_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessPolicyAssociationArgs,
     ) -> AccessPolicyAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_scope_binding = args.access_scope.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let policy_arn_binding = args.policy_arn.get_inner();
-        let principal_arn_binding = args.principal_arn.get_inner();
+        let access_scope_binding = args.access_scope.get_output(context).get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
+        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/accessPolicyAssociation:AccessPolicyAssociation".into(),
             name: name.to_string(),
@@ -117,7 +118,7 @@ pub mod access_policy_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

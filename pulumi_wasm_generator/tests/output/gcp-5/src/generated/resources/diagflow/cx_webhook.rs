@@ -72,47 +72,47 @@
 /// ```
 ///
 pub mod cx_webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxWebhookArgs {
         /// Indicates whether the webhook is disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The human-readable name of the webhook, unique within the agent.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates if automatic spell correction is enabled in detect intent requests.
         #[builder(into, default)]
-        pub enable_spell_correction: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_spell_correction: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Determines whether this agent should log conversation queries.
         #[builder(into, default)]
-        pub enable_stackdriver_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration for a generic web service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub generic_web_service: pulumi_wasm_rust::Output<
+        pub generic_web_service: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxWebhookGenericWebService>,
         >,
         /// The agent to create a webhook for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the SecuritySettings reference for the agent. Format: projects/<Project ID>/locations/<Location ID>/securitySettings/<Security Settings ID>.
         #[builder(into, default)]
-        pub security_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for a Service Directory service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory: pulumi_wasm_rust::Output<
+        pub service_directory: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxWebhookServiceDirectory>,
         >,
         /// Webhook execution timeout.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CxWebhookResult {
@@ -154,20 +154,37 @@ pub mod cx_webhook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CxWebhookArgs) -> CxWebhookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CxWebhookArgs,
+    ) -> CxWebhookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_spell_correction_binding = args.enable_spell_correction.get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_spell_correction_binding = args
+            .enable_spell_correction
+            .get_output(context)
+            .get_inner();
         let enable_stackdriver_logging_binding = args
             .enable_stackdriver_logging
+            .get_output(context)
             .get_inner();
-        let generic_web_service_binding = args.generic_web_service.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let security_settings_binding = args.security_settings.get_inner();
-        let service_directory_binding = args.service_directory.get_inner();
-        let timeout_binding = args.timeout.get_inner();
+        let generic_web_service_binding = args
+            .generic_web_service
+            .get_output(context)
+            .get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let security_settings_binding = args
+            .security_settings
+            .get_output(context)
+            .get_inner();
+        let service_directory_binding = args
+            .service_directory
+            .get_output(context)
+            .get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxWebhook:CxWebhook".into(),
             name: name.to_string(),
@@ -246,7 +263,7 @@ pub mod cx_webhook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

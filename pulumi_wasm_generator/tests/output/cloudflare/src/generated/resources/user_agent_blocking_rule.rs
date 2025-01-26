@@ -47,27 +47,27 @@
 /// ```
 ///
 pub mod user_agent_blocking_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserAgentBlockingRuleArgs {
         /// The configuration object for the current rule.
         #[builder(into)]
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_wasm_rust::InputOrOutput<
             super::types::UserAgentBlockingRuleConfiguration,
         >,
         /// An informative summary of the rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// The action to apply to a matched request. Available values: `block`, `challenge`, `js_challenge`, `managed_challenge`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// When true, indicates that the rule is currently paused.
         #[builder(into)]
-        pub paused: pulumi_wasm_rust::Output<bool>,
+        pub paused: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserAgentBlockingRuleResult {
@@ -89,16 +89,17 @@ pub mod user_agent_blocking_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserAgentBlockingRuleArgs,
     ) -> UserAgentBlockingRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_inner();
-        let description_binding = args.description.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let paused_binding = args.paused.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let configuration_binding = args.configuration.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let paused_binding = args.paused.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/userAgentBlockingRule:UserAgentBlockingRule".into(),
             name: name.to_string(),
@@ -143,7 +144,7 @@ pub mod user_agent_blocking_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

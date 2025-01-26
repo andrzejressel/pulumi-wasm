@@ -45,59 +45,59 @@
 /// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
 /// ```
 pub mod dev_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DevEndpointArgs {
         /// A map of arguments used to configure the endpoint.
         #[builder(into, default)]
-        pub arguments: pulumi_wasm_rust::Output<
+        pub arguments: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         #[builder(into, default)]
-        pub extra_jars_s3_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub extra_jars_s3_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         #[builder(into, default)]
-        pub extra_python_libs_s3_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub extra_python_libs_s3_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         #[builder(into, default)]
-        pub glue_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub glue_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of this endpoint. It must be unique in your account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         #[builder(into, default)]
-        pub number_of_nodes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_nodes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         #[builder(into, default)]
-        pub number_of_workers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_workers: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The public key to be used by this endpoint for authentication.
         #[builder(into, default)]
-        pub public_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of public keys to be used by this endpoint for authentication.
         #[builder(into, default)]
-        pub public_keys: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub public_keys: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The IAM role for this endpoint.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Security Configuration structure to be used with this endpoint.
         #[builder(into, default)]
-        pub security_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Security group IDs for the security groups to be used by this endpoint.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The subnet ID for the new endpoint to use.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         #[builder(into, default)]
-        pub worker_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub worker_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DevEndpointResult {
@@ -162,26 +162,46 @@ pub mod dev_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DevEndpointArgs) -> DevEndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DevEndpointArgs,
+    ) -> DevEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arguments_binding = args.arguments.get_inner();
-        let extra_jars_s3_path_binding = args.extra_jars_s3_path.get_inner();
+        let arguments_binding = args.arguments.get_output(context).get_inner();
+        let extra_jars_s3_path_binding = args
+            .extra_jars_s3_path
+            .get_output(context)
+            .get_inner();
         let extra_python_libs_s3_path_binding = args
             .extra_python_libs_s3_path
+            .get_output(context)
             .get_inner();
-        let glue_version_binding = args.glue_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let number_of_nodes_binding = args.number_of_nodes.get_inner();
-        let number_of_workers_binding = args.number_of_workers.get_inner();
-        let public_key_binding = args.public_key.get_inner();
-        let public_keys_binding = args.public_keys.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let security_configuration_binding = args.security_configuration.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let worker_type_binding = args.worker_type.get_inner();
+        let glue_version_binding = args.glue_version.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let number_of_nodes_binding = args
+            .number_of_nodes
+            .get_output(context)
+            .get_inner();
+        let number_of_workers_binding = args
+            .number_of_workers
+            .get_output(context)
+            .get_inner();
+        let public_key_binding = args.public_key.get_output(context).get_inner();
+        let public_keys_binding = args.public_keys.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let security_configuration_binding = args
+            .security_configuration
+            .get_output(context)
+            .get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let worker_type_binding = args.worker_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/devEndpoint:DevEndpoint".into(),
             name: name.to_string(),
@@ -326,7 +346,7 @@ pub mod dev_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

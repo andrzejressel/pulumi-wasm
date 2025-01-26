@@ -223,44 +223,44 @@
 /// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         #[builder(into, default)]
-        pub adjustment_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub adjustment_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the autoscaling group.
         #[builder(into)]
-        pub autoscaling_group_name: pulumi_wasm_rust::Output<String>,
+        pub autoscaling_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         #[builder(into, default)]
-        pub cooldown: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cooldown: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
         ///
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         #[builder(into, default)]
-        pub estimated_instance_warmup: pulumi_wasm_rust::Output<Option<i32>>,
+        pub estimated_instance_warmup: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         #[builder(into, default)]
-        pub metric_aggregation_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub metric_aggregation_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         ///
         /// The following arguments are only available to "SimpleScaling" type policies:
         #[builder(into, default)]
-        pub min_adjustment_magnitude: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_adjustment_magnitude: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Name of the policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         #[builder(into, default)]
-        pub policy_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         #[builder(into, default)]
-        pub predictive_scaling_configuration: pulumi_wasm_rust::Output<
+        pub predictive_scaling_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::autoscaling::PolicyPredictiveScalingConfiguration,
             >,
@@ -269,7 +269,7 @@ pub mod policy {
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         #[builder(into, default)]
-        pub scaling_adjustment: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scaling_adjustment: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
         ///
@@ -289,7 +289,7 @@ pub mod policy {
         ///
         /// The following fields are available in step adjustments:
         #[builder(into, default)]
-        pub step_adjustments: pulumi_wasm_rust::Output<
+        pub step_adjustments: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::autoscaling::PolicyStepAdjustment>>,
         >,
         /// Target tracking policy. These have the following structure:
@@ -319,7 +319,7 @@ pub mod policy {
         ///
         /// The following fields are available in target tracking configuration:
         #[builder(into, default)]
-        pub target_tracking_configuration: pulumi_wasm_rust::Output<
+        pub target_tracking_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::autoscaling::PolicyTargetTrackingConfiguration>,
         >,
     }
@@ -414,27 +414,52 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let adjustment_type_binding = args.adjustment_type.get_inner();
-        let autoscaling_group_name_binding = args.autoscaling_group_name.get_inner();
-        let cooldown_binding = args.cooldown.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let adjustment_type_binding = args
+            .adjustment_type
+            .get_output(context)
+            .get_inner();
+        let autoscaling_group_name_binding = args
+            .autoscaling_group_name
+            .get_output(context)
+            .get_inner();
+        let cooldown_binding = args.cooldown.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let estimated_instance_warmup_binding = args
             .estimated_instance_warmup
+            .get_output(context)
             .get_inner();
-        let metric_aggregation_type_binding = args.metric_aggregation_type.get_inner();
-        let min_adjustment_magnitude_binding = args.min_adjustment_magnitude.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_type_binding = args.policy_type.get_inner();
+        let metric_aggregation_type_binding = args
+            .metric_aggregation_type
+            .get_output(context)
+            .get_inner();
+        let min_adjustment_magnitude_binding = args
+            .min_adjustment_magnitude
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_type_binding = args.policy_type.get_output(context).get_inner();
         let predictive_scaling_configuration_binding = args
             .predictive_scaling_configuration
+            .get_output(context)
             .get_inner();
-        let scaling_adjustment_binding = args.scaling_adjustment.get_inner();
-        let step_adjustments_binding = args.step_adjustments.get_inner();
+        let scaling_adjustment_binding = args
+            .scaling_adjustment
+            .get_output(context)
+            .get_inner();
+        let step_adjustments_binding = args
+            .step_adjustments
+            .get_output(context)
+            .get_inner();
         let target_tracking_configuration_binding = args
             .target_tracking_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/policy:Policy".into(),
@@ -539,7 +564,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

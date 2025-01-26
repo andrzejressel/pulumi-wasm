@@ -40,19 +40,19 @@
 /// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_accelerate_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketAccelerateConfigurationV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketAccelerateConfigurationV2Result {
@@ -68,14 +68,18 @@ pub mod bucket_accelerate_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BucketAccelerateConfigurationV2Args,
     ) -> BucketAccelerateConfigurationV2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let expected_bucket_owner_binding = args.expected_bucket_owner.get_inner();
-        let status_binding = args.status.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let expected_bucket_owner_binding = args
+            .expected_bucket_owner
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"
                 .into(),
@@ -107,7 +111,7 @@ pub mod bucket_accelerate_configuration_v_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

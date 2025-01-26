@@ -87,28 +87,28 @@
 /// ```
 ///
 pub mod group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupMembershipArgs {
         /// The name of the Group to create this membership in.
         #[builder(into)]
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_wasm_rust::InputOrOutput<String>,
         /// EntityKey of the member.
         #[builder(into, default)]
-        pub member_key: pulumi_wasm_rust::Output<
+        pub member_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudidentity::GroupMembershipMemberKey>,
         >,
         /// EntityKey of the member.
         #[builder(into, default)]
-        pub preferred_member_key: pulumi_wasm_rust::Output<
+        pub preferred_member_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudidentity::GroupMembershipPreferredMemberKey>,
         >,
         /// The MembershipRoles that apply to the Membership.
         /// Must not contain duplicate MembershipRoles with the same name.
         /// Structure is documented below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::cloudidentity::GroupMembershipRole>,
         >,
     }
@@ -143,13 +143,20 @@ pub mod group_membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupMembershipArgs) -> GroupMembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupMembershipArgs,
+    ) -> GroupMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
-        let member_key_binding = args.member_key.get_inner();
-        let preferred_member_key_binding = args.preferred_member_key.get_inner();
-        let roles_binding = args.roles.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let member_key_binding = args.member_key.get_output(context).get_inner();
+        let preferred_member_key_binding = args
+            .preferred_member_key
+            .get_output(context)
+            .get_inner();
+        let roles_binding = args.roles.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudidentity/groupMembership:GroupMembership".into(),
             name: name.to_string(),
@@ -199,7 +206,7 @@ pub mod group_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

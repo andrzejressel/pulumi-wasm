@@ -29,22 +29,22 @@
 /// $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
 /// ```
 pub mod transit_gateway_connect_peer_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayConnectPeerAssociationArgs {
         /// The ID of the device.
         #[builder(into)]
-        pub device_id: pulumi_wasm_rust::Output<String>,
+        pub device_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the link.
         #[builder(into, default)]
-        pub link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the Connect peer.
         #[builder(into)]
-        pub transit_gateway_connect_peer_arn: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_connect_peer_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayConnectPeerAssociationResult {
@@ -62,16 +62,21 @@ pub mod transit_gateway_connect_peer_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TransitGatewayConnectPeerAssociationArgs,
     ) -> TransitGatewayConnectPeerAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let device_id_binding = args.device_id.get_inner();
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let link_id_binding = args.link_id.get_inner();
+        let device_id_binding = args.device_id.get_output(context).get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let link_id_binding = args.link_id.get_output(context).get_inner();
         let transit_gateway_connect_peer_arn_binding = args
             .transit_gateway_connect_peer_arn
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation"
@@ -111,7 +116,7 @@ pub mod transit_gateway_connect_peer_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

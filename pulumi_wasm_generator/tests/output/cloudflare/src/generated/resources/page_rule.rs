@@ -38,25 +38,25 @@
 /// $ pulumi import cloudflare:index/pageRule:PageRule default d41d8cd98f00b204e9800998ecf8427e/ch8374ftwdghsif43
 /// ```
 pub mod page_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PageRuleArgs {
         /// The actions taken by the page rule, options given below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<super::types::PageRuleActions>,
+        pub actions: pulumi_wasm_rust::InputOrOutput<super::types::PageRuleActions>,
         /// The priority of the page rule among others for this target, the higher the number the higher the priority as per [API documentation](https://api.cloudflare.com/#page-rules-for-a-zone-create-page-rule).
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether the page rule is active or disabled.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL pattern to target with the page rule.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_wasm_rust::InputOrOutput<String>,
         /// The DNS zone ID to which the page rule should be added.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PageRuleResult {
@@ -75,14 +75,18 @@ pub mod page_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PageRuleArgs) -> PageRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PageRuleArgs,
+    ) -> PageRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let status_binding = args.status.get_inner();
-        let target_binding = args.target.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pageRule:PageRule".into(),
             name: name.to_string(),
@@ -127,7 +131,7 @@ pub mod page_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

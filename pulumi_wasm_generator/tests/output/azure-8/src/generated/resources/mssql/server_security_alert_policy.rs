@@ -54,39 +54,39 @@
 /// ```
 ///
 pub mod server_security_alert_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerSecurityAlertPolicyArgs {
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         #[builder(into, default)]
-        pub disabled_alerts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_alerts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         #[builder(into, default)]
-        pub email_account_admins: pulumi_wasm_rust::Output<Option<bool>>,
+        pub email_account_admins: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies an array of email addresses to which the alert is sent.
         #[builder(into, default)]
-        pub email_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub email_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
         #[builder(into)]
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         ///
         /// > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServerSecurityAlertPolicyResult {
@@ -116,22 +116,39 @@ pub mod server_security_alert_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServerSecurityAlertPolicyArgs,
     ) -> ServerSecurityAlertPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_alerts_binding = args.disabled_alerts.get_inner();
-        let email_account_admins_binding = args.email_account_admins.get_inner();
-        let email_addresses_binding = args.email_addresses.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_days_binding = args.retention_days.get_inner();
-        let server_name_binding = args.server_name.get_inner();
-        let state_binding = args.state.get_inner();
+        let disabled_alerts_binding = args
+            .disabled_alerts
+            .get_output(context)
+            .get_inner();
+        let email_account_admins_binding = args
+            .email_account_admins
+            .get_output(context)
+            .get_inner();
+        let email_addresses_binding = args
+            .email_addresses
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_days_binding = args.retention_days.get_output(context).get_inner();
+        let server_name_binding = args.server_name.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
-        let storage_endpoint_binding = args.storage_endpoint.get_inner();
+        let storage_endpoint_binding = args
+            .storage_endpoint
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy"
                 .into(),
@@ -205,7 +222,7 @@ pub mod server_security_alert_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

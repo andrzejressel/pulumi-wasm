@@ -242,37 +242,37 @@
 /// ```
 ///
 pub mod managed_zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedZoneArgs {
         /// Cloud logging configuration
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_logging_config: pulumi_wasm_rust::Output<
+        pub cloud_logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneCloudLoggingConfig>,
         >,
         /// A textual description field. Defaults to 'Managed by Pulumi'.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The DNS name of this managed zone, for instance "example.com.".
         #[builder(into)]
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// DNSSEC configuration
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dnssec_config: pulumi_wasm_rust::Output<
+        pub dnssec_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneDnssecConfig>,
         >,
         /// Set this true to delete all records in the zone.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The presence for this field indicates that outbound forwarding is enabled
         /// for this zone. The value of this field contains the set of destinations
         /// to forward to.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub forwarding_config: pulumi_wasm_rust::Output<
+        pub forwarding_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneForwardingConfig>,
         >,
         /// A set of key/value label pairs to assign to this ManagedZone.
@@ -280,7 +280,7 @@ pub mod managed_zone {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User assigned name for this resource.
@@ -288,34 +288,34 @@ pub mod managed_zone {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The presence of this field indicates that DNS Peering is enabled for this
         /// zone. The value of this field contains the network to peer with.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub peering_config: pulumi_wasm_rust::Output<
+        pub peering_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZonePeeringConfig>,
         >,
         /// For privately visible zones, the set of Virtual Private Cloud
         /// resources that the zone is visible from. At least one of `gke_clusters` or `networks` must be specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_visibility_config: pulumi_wasm_rust::Output<
+        pub private_visibility_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZonePrivateVisibilityConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if this is a managed reverse lookup zone. If true, Cloud DNS will resolve reverse
         /// lookup queries using automatically configured records for VPC resources. This only applies
         /// to networks listed under `private_visibility_config`.
         #[builder(into, default)]
-        pub reverse_lookup: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reverse_lookup: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The presence of this field indicates that this zone is backed by Service Directory. The value of this field contains information related to the namespace associated with the zone.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory_config: pulumi_wasm_rust::Output<
+        pub service_directory_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ManagedZoneServiceDirectoryConfig>,
         >,
         /// The zone's visibility: public zones are exposed to the Internet,
@@ -323,7 +323,7 @@ pub mod managed_zone {
         /// Default value is `public`.
         /// Possible values are: `private`, `public`.
         #[builder(into, default)]
-        pub visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub visibility: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedZoneResult {
@@ -413,25 +413,39 @@ pub mod managed_zone {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ManagedZoneArgs) -> ManagedZoneResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ManagedZoneArgs,
+    ) -> ManagedZoneResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloud_logging_config_binding = args.cloud_logging_config.get_inner();
-        let description_binding = args.description.get_inner();
-        let dns_name_binding = args.dns_name.get_inner();
-        let dnssec_config_binding = args.dnssec_config.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let forwarding_config_binding = args.forwarding_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let peering_config_binding = args.peering_config.get_inner();
+        let cloud_logging_config_binding = args
+            .cloud_logging_config
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dns_name_binding = args.dns_name.get_output(context).get_inner();
+        let dnssec_config_binding = args.dnssec_config.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let forwarding_config_binding = args
+            .forwarding_config
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peering_config_binding = args.peering_config.get_output(context).get_inner();
         let private_visibility_config_binding = args
             .private_visibility_config
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let reverse_lookup_binding = args.reverse_lookup.get_inner();
-        let service_directory_config_binding = args.service_directory_config.get_inner();
-        let visibility_binding = args.visibility.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let reverse_lookup_binding = args.reverse_lookup.get_output(context).get_inner();
+        let service_directory_config_binding = args
+            .service_directory_config
+            .get_output(context)
+            .get_inner();
+        let visibility_binding = args.visibility.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/managedZone:ManagedZone".into(),
             name: name.to_string(),
@@ -554,7 +568,7 @@ pub mod managed_zone {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

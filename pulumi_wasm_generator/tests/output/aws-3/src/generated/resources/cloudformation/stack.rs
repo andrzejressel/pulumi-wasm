@@ -36,58 +36,58 @@
 /// $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
 /// ```
 pub mod stack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackArgs {
         /// A list of capabilities.
         /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         #[builder(into, default)]
-        pub capabilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub capabilities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set to true to disable rollback of the stack if stack creation failed.
         /// Conflicts with `on_failure`.
         #[builder(into, default)]
-        pub disable_rollback: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_rollback: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         #[builder(into, default)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Stack name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of SNS topic ARNs to publish stack related events.
         #[builder(into, default)]
-        pub notification_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub notification_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Action to be taken if stack creation fails. This must be
         /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
         #[builder(into, default)]
-        pub on_failure: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_failure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of Parameter structures that specify input parameters for the stack.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Structure containing the stack policy body.
         /// Conflicts w/ `policy_url`.
         #[builder(into, default)]
-        pub policy_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location of a file containing the stack policy.
         /// Conflicts w/ `policy_body`.
         #[builder(into, default)]
-        pub policy_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Structure containing the template body (max size: 51,200 bytes).
         #[builder(into, default)]
-        pub template_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location of a file containing the template body (max size: 460,800 bytes).
         #[builder(into, default)]
-        pub template_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         #[builder(into, default)]
-        pub timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct StackResult {
@@ -137,22 +137,35 @@ pub mod stack {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StackArgs) -> StackResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StackArgs,
+    ) -> StackResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capabilities_binding = args.capabilities.get_inner();
-        let disable_rollback_binding = args.disable_rollback.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_arns_binding = args.notification_arns.get_inner();
-        let on_failure_binding = args.on_failure.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let policy_body_binding = args.policy_body.get_inner();
-        let policy_url_binding = args.policy_url.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_body_binding = args.template_body.get_inner();
-        let template_url_binding = args.template_url.get_inner();
-        let timeout_in_minutes_binding = args.timeout_in_minutes.get_inner();
+        let capabilities_binding = args.capabilities.get_output(context).get_inner();
+        let disable_rollback_binding = args
+            .disable_rollback
+            .get_output(context)
+            .get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_arns_binding = args
+            .notification_arns
+            .get_output(context)
+            .get_inner();
+        let on_failure_binding = args.on_failure.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let policy_body_binding = args.policy_body.get_output(context).get_inner();
+        let policy_url_binding = args.policy_url.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_body_binding = args.template_body.get_output(context).get_inner();
+        let template_url_binding = args.template_url.get_output(context).get_inner();
+        let timeout_in_minutes_binding = args
+            .timeout_in_minutes
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stack:Stack".into(),
             name: name.to_string(),
@@ -259,7 +272,7 @@ pub mod stack {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -550,97 +550,97 @@
 /// $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
 /// ```
 pub mod event_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventTargetArgs {
         /// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub appsync_target: pulumi_wasm_rust::Output<
+        pub appsync_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetAppsyncTarget>,
         >,
         /// The Amazon Resource Name (ARN) of the target.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub batch_target: pulumi_wasm_rust::Output<
+        pub batch_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetBatchTarget>,
         >,
         /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub dead_letter_config: pulumi_wasm_rust::Output<
+        pub dead_letter_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetDeadLetterConfig>,
         >,
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub ecs_target: pulumi_wasm_rust::Output<
+        pub ecs_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetEcsTarget>,
         >,
         /// The name or ARN of the event bus to associate with the rule.
         /// If you omit this, the `default` event bus is used.
         #[builder(into, default)]
-        pub event_bus_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_bus_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Used to delete managed rules created by AWS. Defaults to `false`.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         #[builder(into, default)]
-        pub http_target: pulumi_wasm_rust::Output<
+        pub http_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetHttpTarget>,
         >,
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         #[builder(into, default)]
-        pub input: pulumi_wasm_rust::Output<Option<String>>,
+        pub input: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         #[builder(into, default)]
-        pub input_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         #[builder(into, default)]
-        pub input_transformer: pulumi_wasm_rust::Output<
+        pub input_transformer: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetInputTransformer>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub kinesis_target: pulumi_wasm_rust::Output<
+        pub kinesis_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetKinesisTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub redshift_target: pulumi_wasm_rust::Output<
+        pub redshift_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetRedshiftTarget>,
         >,
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub retry_policy: pulumi_wasm_rust::Output<
+        pub retry_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetRetryPolicy>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the rule you want to add targets to.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub rule: pulumi_wasm_rust::Output<String>,
+        pub rule: pulumi_wasm_rust::InputOrOutput<String>,
         /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         #[builder(into, default)]
-        pub run_command_targets: pulumi_wasm_rust::Output<
+        pub run_command_targets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudwatch::EventTargetRunCommandTarget>>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub sagemaker_pipeline_target: pulumi_wasm_rust::Output<
+        pub sagemaker_pipeline_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetSagemakerPipelineTarget>,
         >,
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         #[builder(into, default)]
-        pub sqs_target: pulumi_wasm_rust::Output<
+        pub sqs_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventTargetSqsTarget>,
         >,
         /// The unique target assignment ID. If missing, will generate a random, unique id.
         #[builder(into, default)]
-        pub target_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventTargetResult {
@@ -716,31 +716,48 @@ pub mod event_target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventTargetArgs) -> EventTargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventTargetArgs,
+    ) -> EventTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let appsync_target_binding = args.appsync_target.get_inner();
-        let arn_binding = args.arn.get_inner();
-        let batch_target_binding = args.batch_target.get_inner();
-        let dead_letter_config_binding = args.dead_letter_config.get_inner();
-        let ecs_target_binding = args.ecs_target.get_inner();
-        let event_bus_name_binding = args.event_bus_name.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let http_target_binding = args.http_target.get_inner();
-        let input_binding = args.input.get_inner();
-        let input_path_binding = args.input_path.get_inner();
-        let input_transformer_binding = args.input_transformer.get_inner();
-        let kinesis_target_binding = args.kinesis_target.get_inner();
-        let redshift_target_binding = args.redshift_target.get_inner();
-        let retry_policy_binding = args.retry_policy.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let rule_binding = args.rule.get_inner();
-        let run_command_targets_binding = args.run_command_targets.get_inner();
+        let appsync_target_binding = args.appsync_target.get_output(context).get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let batch_target_binding = args.batch_target.get_output(context).get_inner();
+        let dead_letter_config_binding = args
+            .dead_letter_config
+            .get_output(context)
+            .get_inner();
+        let ecs_target_binding = args.ecs_target.get_output(context).get_inner();
+        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let http_target_binding = args.http_target.get_output(context).get_inner();
+        let input_binding = args.input.get_output(context).get_inner();
+        let input_path_binding = args.input_path.get_output(context).get_inner();
+        let input_transformer_binding = args
+            .input_transformer
+            .get_output(context)
+            .get_inner();
+        let kinesis_target_binding = args.kinesis_target.get_output(context).get_inner();
+        let redshift_target_binding = args
+            .redshift_target
+            .get_output(context)
+            .get_inner();
+        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let rule_binding = args.rule.get_output(context).get_inner();
+        let run_command_targets_binding = args
+            .run_command_targets
+            .get_output(context)
+            .get_inner();
         let sagemaker_pipeline_target_binding = args
             .sagemaker_pipeline_target
+            .get_output(context)
             .get_inner();
-        let sqs_target_binding = args.sqs_target.get_inner();
-        let target_id_binding = args.target_id.get_inner();
+        let sqs_target_binding = args.sqs_target.get_output(context).get_inner();
+        let target_id_binding = args.target_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventTarget:EventTarget".into(),
             name: name.to_string(),
@@ -890,7 +907,7 @@ pub mod event_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

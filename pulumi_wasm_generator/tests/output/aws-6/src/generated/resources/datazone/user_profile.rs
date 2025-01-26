@@ -28,28 +28,28 @@
 /// $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
 /// ```
 pub mod user_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserProfileArgs {
         /// The domain identifier.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user profile status.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::UserProfileTimeouts>,
         >,
         /// The user identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_identifier: pulumi_wasm_rust::Output<String>,
+        pub user_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user type.
         #[builder(into, default)]
-        pub user_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserProfileResult {
@@ -77,14 +77,24 @@ pub mod user_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserProfileArgs) -> UserProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserProfileArgs,
+    ) -> UserProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_identifier_binding = args.domain_identifier.get_inner();
-        let status_binding = args.status.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let user_identifier_binding = args.user_identifier.get_inner();
-        let user_type_binding = args.user_type.get_inner();
+        let domain_identifier_binding = args
+            .domain_identifier
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let user_identifier_binding = args
+            .user_identifier
+            .get_output(context)
+            .get_inner();
+        let user_type_binding = args.user_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/userProfile:UserProfile".into(),
             name: name.to_string(),
@@ -135,7 +145,7 @@ pub mod user_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

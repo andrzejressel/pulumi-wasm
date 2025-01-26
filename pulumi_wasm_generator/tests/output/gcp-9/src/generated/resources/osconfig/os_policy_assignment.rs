@@ -104,46 +104,46 @@
 /// ```
 ///
 pub mod os_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OsPolicyAssignmentArgs {
         /// OS policy assignment description. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Filter to select VMs. Structure is
         /// documented below.
         #[builder(into)]
-        pub instance_filter: pulumi_wasm_rust::Output<
+        pub instance_filter: pulumi_wasm_rust::InputOrOutput<
             super::super::types::osconfig::OsPolicyAssignmentInstanceFilter,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of OS policies to be applied to the VMs.
         /// Structure is documented below.
         #[builder(into)]
-        pub os_policies: pulumi_wasm_rust::Output<
+        pub os_policies: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::osconfig::OsPolicyAssignmentOsPolicy>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rollout to deploy the OS policy assignment. A rollout
         /// is triggered in the following situations: 1) OSPolicyAssignment is created.
         /// 2) OSPolicyAssignment is updated and the update contains changes to one of
         /// the following fields: - instance_filter - os_policies 3) OSPolicyAssignment
         /// is deleted. Structure is documented below.
         #[builder(into)]
-        pub rollout: pulumi_wasm_rust::Output<
+        pub rollout: pulumi_wasm_rust::InputOrOutput<
             super::super::types::osconfig::OsPolicyAssignmentRollout,
         >,
         /// Set to true to skip awaiting rollout during resource creation and update.
         #[builder(into, default)]
-        pub skip_await_rollout: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_await_rollout: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct OsPolicyAssignmentResult {
@@ -205,17 +205,27 @@ pub mod os_policy_assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OsPolicyAssignmentArgs) -> OsPolicyAssignmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OsPolicyAssignmentArgs,
+    ) -> OsPolicyAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let instance_filter_binding = args.instance_filter.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let os_policies_binding = args.os_policies.get_inner();
-        let project_binding = args.project.get_inner();
-        let rollout_binding = args.rollout.get_inner();
-        let skip_await_rollout_binding = args.skip_await_rollout.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let instance_filter_binding = args
+            .instance_filter
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let os_policies_binding = args.os_policies.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rollout_binding = args.rollout.get_output(context).get_inner();
+        let skip_await_rollout_binding = args
+            .skip_await_rollout
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:osconfig/osPolicyAssignment:OsPolicyAssignment".into(),
             name: name.to_string(),
@@ -305,7 +315,7 @@ pub mod os_policy_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -104,49 +104,49 @@
 /// ```
 ///
 pub mod entry_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntryTypeArgs {
         /// Description of the EntryType.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The entry type id of the entry type.
         #[builder(into, default)]
-        pub entry_type_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub entry_type_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-defined labels for the EntryType.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where entry type will be created in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The platform that Entries of this type belongs to.
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AspectInfo for the entry type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub required_aspects: pulumi_wasm_rust::Output<
+        pub required_aspects: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dataplex::EntryTypeRequiredAspect>>,
         >,
         /// The system that Entries of this type belongs to.
         #[builder(into, default)]
-        pub system: pulumi_wasm_rust::Output<Option<String>>,
+        pub system: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates the class this Entry Type belongs to, for example, TABLE, DATABASE, MODEL.
         #[builder(into, default)]
-        pub type_aliases: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub type_aliases: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct EntryTypeResult {
@@ -201,19 +201,26 @@ pub mod entry_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EntryTypeArgs) -> EntryTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EntryTypeArgs,
+    ) -> EntryTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let entry_type_id_binding = args.entry_type_id.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let platform_binding = args.platform.get_inner();
-        let project_binding = args.project.get_inner();
-        let required_aspects_binding = args.required_aspects.get_inner();
-        let system_binding = args.system.get_inner();
-        let type_aliases_binding = args.type_aliases.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let entry_type_id_binding = args.entry_type_id.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let platform_binding = args.platform.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let required_aspects_binding = args
+            .required_aspects
+            .get_output(context)
+            .get_inner();
+        let system_binding = args.system.get_output(context).get_inner();
+        let type_aliases_binding = args.type_aliases.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/entryType:EntryType".into(),
             name: name.to_string(),
@@ -311,7 +318,7 @@ pub mod entry_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -59,7 +59,7 @@
 /// ```
 ///
 pub mod network_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInterfaceArgs {
@@ -69,48 +69,50 @@ pub mod network_interface {
         ///
         /// > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         #[builder(into, default)]
-        pub accelerated_networking_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub accelerated_networking_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
         ///
         /// > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         #[builder(into, default)]
-        pub auxiliary_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub auxiliary_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
         ///
         /// > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         #[builder(into, default)]
-        pub auxiliary_sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub auxiliary_sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
         ///
         /// > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         #[builder(into, default)]
-        pub internal_dns_name_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub internal_dns_name_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `ip_configuration` blocks as defined below.
         #[builder(into)]
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::NetworkInterfaceIpConfiguration>,
         >,
         /// Should IP Forwarding be enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub ip_forwarding_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ip_forwarding_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Network Interface. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -171,23 +173,40 @@ pub mod network_interface {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkInterfaceArgs) -> NetworkInterfaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkInterfaceArgs,
+    ) -> NetworkInterfaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accelerated_networking_enabled_binding = args
             .accelerated_networking_enabled
+            .get_output(context)
             .get_inner();
-        let auxiliary_mode_binding = args.auxiliary_mode.get_inner();
-        let auxiliary_sku_binding = args.auxiliary_sku.get_inner();
-        let dns_servers_binding = args.dns_servers.get_inner();
-        let edge_zone_binding = args.edge_zone.get_inner();
-        let internal_dns_name_label_binding = args.internal_dns_name_label.get_inner();
-        let ip_configurations_binding = args.ip_configurations.get_inner();
-        let ip_forwarding_enabled_binding = args.ip_forwarding_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let auxiliary_mode_binding = args.auxiliary_mode.get_output(context).get_inner();
+        let auxiliary_sku_binding = args.auxiliary_sku.get_output(context).get_inner();
+        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
+        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
+        let internal_dns_name_label_binding = args
+            .internal_dns_name_label
+            .get_output(context)
+            .get_inner();
+        let ip_configurations_binding = args
+            .ip_configurations
+            .get_output(context)
+            .get_inner();
+        let ip_forwarding_enabled_binding = args
+            .ip_forwarding_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterface:NetworkInterface".into(),
             name: name.to_string(),
@@ -299,7 +318,7 @@ pub mod network_interface {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

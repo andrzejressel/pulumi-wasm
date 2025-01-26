@@ -85,37 +85,37 @@
 /// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
 /// ```
 pub mod event_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventDestinationArgs {
         /// CloudWatch destination for the events
         #[builder(into, default)]
-        pub cloudwatch_destinations: pulumi_wasm_rust::Output<
+        pub cloudwatch_destinations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::EventDestinationCloudwatchDestination>>,
         >,
         /// The name of the configuration set
         #[builder(into)]
-        pub configuration_set_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, the event destination will be enabled
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Send the events to a kinesis firehose destination
         #[builder(into, default)]
-        pub kinesis_destination: pulumi_wasm_rust::Output<
+        pub kinesis_destination: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ses::EventDestinationKinesisDestination>,
         >,
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         #[builder(into)]
-        pub matching_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub matching_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name of the event destination
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Send the events to an SNS Topic destination
         ///
         /// > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         #[builder(into, default)]
-        pub sns_destination: pulumi_wasm_rust::Output<
+        pub sns_destination: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ses::EventDestinationSnsDestination>,
         >,
     }
@@ -150,16 +150,32 @@ pub mod event_destination {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventDestinationArgs) -> EventDestinationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventDestinationArgs,
+    ) -> EventDestinationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_destinations_binding = args.cloudwatch_destinations.get_inner();
-        let configuration_set_name_binding = args.configuration_set_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let kinesis_destination_binding = args.kinesis_destination.get_inner();
-        let matching_types_binding = args.matching_types.get_inner();
-        let name_binding = args.name.get_inner();
-        let sns_destination_binding = args.sns_destination.get_inner();
+        let cloudwatch_destinations_binding = args
+            .cloudwatch_destinations
+            .get_output(context)
+            .get_inner();
+        let configuration_set_name_binding = args
+            .configuration_set_name
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let kinesis_destination_binding = args
+            .kinesis_destination
+            .get_output(context)
+            .get_inner();
+        let matching_types_binding = args.matching_types.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let sns_destination_binding = args
+            .sns_destination
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/eventDestination:EventDestination".into(),
             name: name.to_string(),
@@ -221,7 +237,7 @@ pub mod event_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

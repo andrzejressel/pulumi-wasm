@@ -95,18 +95,18 @@
 /// ```
 ///
 pub mod action_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActionGroupArgs {
         /// One or more `arm_role_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub arm_role_receivers: pulumi_wasm_rust::Output<
+        pub arm_role_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupArmRoleReceiver>>,
         >,
         /// One or more `automation_runbook_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub automation_runbook_receivers: pulumi_wasm_rust::Output<
+        pub automation_runbook_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::monitoring::ActionGroupAutomationRunbookReceiver,
@@ -115,69 +115,69 @@ pub mod action_group {
         >,
         /// One or more `azure_app_push_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub azure_app_push_receivers: pulumi_wasm_rust::Output<
+        pub azure_app_push_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupAzureAppPushReceiver>>,
         >,
         /// One or more `azure_function_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub azure_function_receivers: pulumi_wasm_rust::Output<
+        pub azure_function_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::monitoring::ActionGroupAzureFunctionReceiver>,
             >,
         >,
         /// One or more `email_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub email_receivers: pulumi_wasm_rust::Output<
+        pub email_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupEmailReceiver>>,
         >,
         /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more `event_hub_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub event_hub_receivers: pulumi_wasm_rust::Output<
+        pub event_hub_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupEventHubReceiver>>,
         >,
         /// One or more `itsm_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub itsm_receivers: pulumi_wasm_rust::Output<
+        pub itsm_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupItsmReceiver>>,
         >,
         /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `logic_app_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub logic_app_receivers: pulumi_wasm_rust::Output<
+        pub logic_app_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupLogicAppReceiver>>,
         >,
         /// The name of the Action Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The short name of the action group. This will be used in SMS messages.
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `sms_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub sms_receivers: pulumi_wasm_rust::Output<
+        pub sms_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupSmsReceiver>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `voice_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub voice_receivers: pulumi_wasm_rust::Output<
+        pub voice_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupVoiceReceiver>>,
         >,
         /// One or more `webhook_receiver` blocks as defined below.
         #[builder(into, default)]
-        pub webhook_receivers: pulumi_wasm_rust::Output<
+        pub webhook_receivers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::ActionGroupWebhookReceiver>>,
         >,
     }
@@ -252,28 +252,60 @@ pub mod action_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ActionGroupArgs) -> ActionGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ActionGroupArgs,
+    ) -> ActionGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arm_role_receivers_binding = args.arm_role_receivers.get_inner();
+        let arm_role_receivers_binding = args
+            .arm_role_receivers
+            .get_output(context)
+            .get_inner();
         let automation_runbook_receivers_binding = args
             .automation_runbook_receivers
+            .get_output(context)
             .get_inner();
-        let azure_app_push_receivers_binding = args.azure_app_push_receivers.get_inner();
-        let azure_function_receivers_binding = args.azure_function_receivers.get_inner();
-        let email_receivers_binding = args.email_receivers.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let event_hub_receivers_binding = args.event_hub_receivers.get_inner();
-        let itsm_receivers_binding = args.itsm_receivers.get_inner();
-        let location_binding = args.location.get_inner();
-        let logic_app_receivers_binding = args.logic_app_receivers.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let short_name_binding = args.short_name.get_inner();
-        let sms_receivers_binding = args.sms_receivers.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let voice_receivers_binding = args.voice_receivers.get_inner();
-        let webhook_receivers_binding = args.webhook_receivers.get_inner();
+        let azure_app_push_receivers_binding = args
+            .azure_app_push_receivers
+            .get_output(context)
+            .get_inner();
+        let azure_function_receivers_binding = args
+            .azure_function_receivers
+            .get_output(context)
+            .get_inner();
+        let email_receivers_binding = args
+            .email_receivers
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let event_hub_receivers_binding = args
+            .event_hub_receivers
+            .get_output(context)
+            .get_inner();
+        let itsm_receivers_binding = args.itsm_receivers.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logic_app_receivers_binding = args
+            .logic_app_receivers
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
+        let sms_receivers_binding = args.sms_receivers.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let voice_receivers_binding = args
+            .voice_receivers
+            .get_output(context)
+            .get_inner();
+        let webhook_receivers_binding = args
+            .webhook_receivers
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/actionGroup:ActionGroup".into(),
             name: name.to_string(),
@@ -402,7 +434,7 @@ pub mod action_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

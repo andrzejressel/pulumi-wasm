@@ -52,16 +52,16 @@
 /// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
 /// ```
 pub mod container_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerPolicyArgs {
         /// The name of the container.
         #[builder(into)]
-        pub container_name: pulumi_wasm_rust::Output<String>,
+        pub container_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The contents of the policy.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContainerPolicyResult {
@@ -74,11 +74,15 @@ pub mod container_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContainerPolicyArgs) -> ContainerPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContainerPolicyArgs,
+    ) -> ContainerPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_name_binding = args.container_name.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let container_name_binding = args.container_name.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mediastore/containerPolicy:ContainerPolicy".into(),
             name: name.to_string(),
@@ -102,7 +106,7 @@ pub mod container_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

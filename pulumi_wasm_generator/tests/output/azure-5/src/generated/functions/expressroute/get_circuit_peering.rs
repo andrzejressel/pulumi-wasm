@@ -1,17 +1,17 @@
 pub mod get_circuit_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCircuitPeeringArgs {
         /// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub express_route_circuit_name: pulumi_wasm_rust::Output<String>,
+        pub express_route_circuit_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         #[builder(into)]
-        pub peering_type: pulumi_wasm_rust::Output<String>,
+        pub peering_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetCircuitPeeringResult {
@@ -44,14 +44,21 @@ pub mod get_circuit_peering {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCircuitPeeringArgs) -> GetCircuitPeeringResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCircuitPeeringArgs,
+    ) -> GetCircuitPeeringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let express_route_circuit_name_binding = args
             .express_route_circuit_name
+            .get_output(context)
             .get_inner();
-        let peering_type_binding = args.peering_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let peering_type_binding = args.peering_type.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:expressroute/getCircuitPeering:getCircuitPeering".into(),
             version: super::super::super::get_version(),
@@ -117,7 +124,7 @@ pub mod get_circuit_peering {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

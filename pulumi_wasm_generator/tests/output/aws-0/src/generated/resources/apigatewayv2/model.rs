@@ -30,25 +30,25 @@
 /// $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
 /// ```
 pub mod model {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ModelArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         #[builder(into)]
-        pub content_type: pulumi_wasm_rust::Output<String>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the model. Must be between 1 and 128 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         #[builder(into)]
-        pub schema: pulumi_wasm_rust::Output<String>,
+        pub schema: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ModelResult {
@@ -67,14 +67,18 @@ pub mod model {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ModelArgs) -> ModelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ModelArgs,
+    ) -> ModelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let schema_binding = args.schema.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let schema_binding = args.schema.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/model:Model".into(),
             name: name.to_string(),
@@ -119,7 +123,7 @@ pub mod model {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

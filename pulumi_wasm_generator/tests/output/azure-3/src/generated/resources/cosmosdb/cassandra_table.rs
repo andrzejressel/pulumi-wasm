@@ -85,7 +85,7 @@
 /// ```
 ///
 pub mod cassandra_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CassandraTableArgs {
@@ -93,27 +93,27 @@ pub mod cassandra_table {
         ///
         /// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         #[builder(into, default)]
-        pub analytical_storage_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub analytical_storage_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub autoscale_settings: pulumi_wasm_rust::Output<
+        pub autoscale_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::CassandraTableAutoscaleSettings>,
         >,
         /// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cassandra_keyspace_id: pulumi_wasm_rust::Output<String>,
+        pub cassandra_keyspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         #[builder(into, default)]
-        pub default_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `schema` block as defined below.
         #[builder(into)]
-        pub schema: pulumi_wasm_rust::Output<
+        pub schema: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cosmosdb::CassandraTableSchema,
         >,
         #[builder(into, default)]
-        pub throughput: pulumi_wasm_rust::Output<Option<i32>>,
+        pub throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct CassandraTableResult {
@@ -140,16 +140,29 @@ pub mod cassandra_table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CassandraTableArgs) -> CassandraTableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CassandraTableArgs,
+    ) -> CassandraTableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let analytical_storage_ttl_binding = args.analytical_storage_ttl.get_inner();
-        let autoscale_settings_binding = args.autoscale_settings.get_inner();
-        let cassandra_keyspace_id_binding = args.cassandra_keyspace_id.get_inner();
-        let default_ttl_binding = args.default_ttl.get_inner();
-        let name_binding = args.name.get_inner();
-        let schema_binding = args.schema.get_inner();
-        let throughput_binding = args.throughput.get_inner();
+        let analytical_storage_ttl_binding = args
+            .analytical_storage_ttl
+            .get_output(context)
+            .get_inner();
+        let autoscale_settings_binding = args
+            .autoscale_settings
+            .get_output(context)
+            .get_inner();
+        let cassandra_keyspace_id_binding = args
+            .cassandra_keyspace_id
+            .get_output(context)
+            .get_inner();
+        let default_ttl_binding = args.default_ttl.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let schema_binding = args.schema.get_output(context).get_inner();
+        let throughput_binding = args.throughput.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraTable:CassandraTable".into(),
             name: name.to_string(),
@@ -208,7 +221,7 @@ pub mod cassandra_table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

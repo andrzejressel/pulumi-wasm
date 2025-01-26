@@ -31,37 +31,37 @@
 /// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
 /// ```
 pub mod radius_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RadiusSettingsArgs {
         /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         #[builder(into)]
-        pub authentication_protocol: pulumi_wasm_rust::Output<String>,
+        pub authentication_protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifier of the directory for which you want to manager RADIUS settings.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Display label.
         #[builder(into)]
-        pub display_label: pulumi_wasm_rust::Output<String>,
+        pub display_label: pulumi_wasm_rust::InputOrOutput<String>,
         /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
         #[builder(into)]
-        pub radius_port: pulumi_wasm_rust::Output<i32>,
+        pub radius_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         #[builder(into)]
-        pub radius_retries: pulumi_wasm_rust::Output<i32>,
+        pub radius_retries: pulumi_wasm_rust::InputOrOutput<i32>,
         /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         #[builder(into)]
-        pub radius_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub radius_servers: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         #[builder(into)]
-        pub radius_timeout: pulumi_wasm_rust::Output<i32>,
+        pub radius_timeout: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Required for enabling RADIUS on the directory.
         #[builder(into)]
-        pub shared_secret: pulumi_wasm_rust::Output<String>,
+        pub shared_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// Not currently used.
         #[builder(into, default)]
-        pub use_same_username: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_same_username: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RadiusSettingsResult {
@@ -88,18 +88,28 @@ pub mod radius_settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RadiusSettingsArgs) -> RadiusSettingsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RadiusSettingsArgs,
+    ) -> RadiusSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_protocol_binding = args.authentication_protocol.get_inner();
-        let directory_id_binding = args.directory_id.get_inner();
-        let display_label_binding = args.display_label.get_inner();
-        let radius_port_binding = args.radius_port.get_inner();
-        let radius_retries_binding = args.radius_retries.get_inner();
-        let radius_servers_binding = args.radius_servers.get_inner();
-        let radius_timeout_binding = args.radius_timeout.get_inner();
-        let shared_secret_binding = args.shared_secret.get_inner();
-        let use_same_username_binding = args.use_same_username.get_inner();
+        let authentication_protocol_binding = args
+            .authentication_protocol
+            .get_output(context)
+            .get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let display_label_binding = args.display_label.get_output(context).get_inner();
+        let radius_port_binding = args.radius_port.get_output(context).get_inner();
+        let radius_retries_binding = args.radius_retries.get_output(context).get_inner();
+        let radius_servers_binding = args.radius_servers.get_output(context).get_inner();
+        let radius_timeout_binding = args.radius_timeout.get_output(context).get_inner();
+        let shared_secret_binding = args.shared_secret.get_output(context).get_inner();
+        let use_same_username_binding = args
+            .use_same_username
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/radiusSettings:RadiusSettings".into(),
             name: name.to_string(),
@@ -172,7 +182,7 @@ pub mod radius_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

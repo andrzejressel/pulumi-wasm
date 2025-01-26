@@ -66,22 +66,22 @@
 /// ```
 ///
 pub mod extensions_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExtensionsInstanceArgs {
         /// The current Config of the Extension Instance.
         /// Structure is documented below.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::firebase::ExtensionsInstanceConfig,
         >,
         /// The ID to use for the Extension Instance, which will become the final
         /// component of the instance's name.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ExtensionsInstanceResult {
@@ -130,12 +130,16 @@ pub mod extensions_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExtensionsInstanceArgs) -> ExtensionsInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExtensionsInstanceArgs,
+    ) -> ExtensionsInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_binding = args.config.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let project_binding = args.project.get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/extensionsInstance:ExtensionsInstance".into(),
             name: name.to_string(),
@@ -196,7 +200,7 @@ pub mod extensions_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

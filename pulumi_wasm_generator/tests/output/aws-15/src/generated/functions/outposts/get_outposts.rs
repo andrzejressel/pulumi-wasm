@@ -1,20 +1,20 @@
 pub mod get_outposts {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOutpostsArgs {
         /// Availability Zone name.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Availability Zone identifier.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AWS Account identifier of the Outpost owner.
         #[builder(into, default)]
-        pub owner_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Site identifier.
         #[builder(into, default)]
-        pub site_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetOutpostsResult {
@@ -33,13 +33,22 @@ pub mod get_outposts {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetOutpostsArgs) -> GetOutpostsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetOutpostsArgs,
+    ) -> GetOutpostsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let owner_id_binding = args.owner_id.get_inner();
-        let site_id_binding = args.site_id.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let owner_id_binding = args.owner_id.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutposts:getOutposts".into(),
             version: super::super::super::get_version(),
@@ -85,7 +94,7 @@ pub mod get_outposts {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

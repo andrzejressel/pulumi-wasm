@@ -51,26 +51,26 @@
 /// ```
 ///
 pub mod data_connector_microsoft_threat_intelligence {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftThreatIntelligenceArgs {
         /// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
         #[builder(into)]
-        pub microsoft_emerging_threat_feed_lookback_date: pulumi_wasm_rust::Output<
+        pub microsoft_emerging_threat_feed_lookback_date: pulumi_wasm_rust::InputOrOutput<
             String,
         >,
         /// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftThreatIntelligenceResult {
@@ -92,6 +92,7 @@ pub mod data_connector_microsoft_threat_intelligence {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataConnectorMicrosoftThreatIntelligenceArgs,
     ) -> DataConnectorMicrosoftThreatIntelligenceResult {
@@ -99,12 +100,14 @@ pub mod data_connector_microsoft_threat_intelligence {
         use std::collections::HashMap;
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
         let microsoft_emerging_threat_feed_lookback_date_binding = args
             .microsoft_emerging_threat_feed_lookback_date
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence"
                 .into(),
@@ -143,7 +146,7 @@ pub mod data_connector_microsoft_threat_intelligence {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

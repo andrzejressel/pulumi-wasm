@@ -120,58 +120,60 @@
 /// ```
 ///
 pub mod event_grid_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventGridDataConnectionArgs {
         /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         #[builder(into, default)]
-        pub blob_storage_event_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_storage_event_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         #[builder(into, default)]
-        pub data_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         #[builder(into, default)]
-        pub database_routing_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_routing_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the event grid that is subscribed to the storage account events.
         #[builder(into, default)]
-        pub eventgrid_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventgrid_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         #[builder(into, default)]
-        pub managed_identity_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_identity_resource_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// is the first record of every file ignored? Defaults to `false`.
         #[builder(into, default)]
-        pub skip_first_record: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_first_record: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         #[builder(into, default)]
-        pub table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventGridDataConnectionResult {
@@ -213,31 +215,55 @@ pub mod event_grid_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EventGridDataConnectionArgs,
     ) -> EventGridDataConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let blob_storage_event_type_binding = args.blob_storage_event_type.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let data_format_binding = args.data_format.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let database_routing_type_binding = args.database_routing_type.get_inner();
-        let eventgrid_resource_id_binding = args.eventgrid_resource_id.get_inner();
+        let blob_storage_event_type_binding = args
+            .blob_storage_event_type
+            .get_output(context)
+            .get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let data_format_binding = args.data_format.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let database_routing_type_binding = args
+            .database_routing_type
+            .get_output(context)
+            .get_inner();
+        let eventgrid_resource_id_binding = args
+            .eventgrid_resource_id
+            .get_output(context)
+            .get_inner();
         let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
+            .get_output(context)
             .get_inner();
-        let eventhub_id_binding = args.eventhub_id.get_inner();
-        let location_binding = args.location.get_inner();
+        let eventhub_id_binding = args.eventhub_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let managed_identity_resource_id_binding = args
             .managed_identity_resource_id
+            .get_output(context)
             .get_inner();
-        let mapping_rule_name_binding = args.mapping_rule_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let skip_first_record_binding = args.skip_first_record.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let mapping_rule_name_binding = args
+            .mapping_rule_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let skip_first_record_binding = args
+            .skip_first_record
+            .get_output(context)
+            .get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/eventGridDataConnection:EventGridDataConnection".into(),
             name: name.to_string(),
@@ -359,7 +385,7 @@ pub mod event_grid_data_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

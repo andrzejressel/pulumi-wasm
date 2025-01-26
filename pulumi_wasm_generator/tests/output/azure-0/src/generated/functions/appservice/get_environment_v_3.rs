@@ -1,14 +1,14 @@
 pub mod get_environment_v_3 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEnvironmentV3Args {
         /// The name of this v3 App Service Environment.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the v3 App Service Environment exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetEnvironmentV3Result {
@@ -60,11 +60,17 @@ pub mod get_environment_v_3 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetEnvironmentV3Args) -> GetEnvironmentV3Result {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetEnvironmentV3Args,
+    ) -> GetEnvironmentV3Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appservice/getEnvironmentV3:getEnvironmentV3".into(),
             version: super::super::super::get_version(),
@@ -141,7 +147,7 @@ pub mod get_environment_v_3 {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

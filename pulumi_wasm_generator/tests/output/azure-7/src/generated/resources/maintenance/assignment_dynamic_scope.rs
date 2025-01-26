@@ -11,23 +11,23 @@
 /// ```
 ///
 pub mod assignment_dynamic_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentDynamicScopeArgs {
         /// A `filter` block as defined below.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             super::super::types::maintenance::AssignmentDynamicScopeFilter,
         >,
         /// The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
         #[builder(into)]
-        pub maintenance_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub maintenance_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         ///
         /// > **Note:** The `name` must be unique per subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AssignmentDynamicScopeResult {
@@ -47,16 +47,18 @@ pub mod assignment_dynamic_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AssignmentDynamicScopeArgs,
     ) -> AssignmentDynamicScopeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
         let maintenance_configuration_id_binding = args
             .maintenance_configuration_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope"
                 .into(),
@@ -88,7 +90,7 @@ pub mod assignment_dynamic_scope {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

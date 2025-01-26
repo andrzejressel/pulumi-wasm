@@ -33,16 +33,16 @@
 /// $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
 /// ```
 pub mod vpc_endpoint_subnet_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointSubnetAssociationArgs {
         /// The ID of the subnet to be associated with the VPC endpoint.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC endpoint with which the subnet will be associated.
         #[builder(into)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointSubnetAssociationResult {
@@ -56,13 +56,17 @@ pub mod vpc_endpoint_subnet_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcEndpointSubnetAssociationArgs,
     ) -> VpcEndpointSubnetAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation"
                 .into(),
@@ -87,7 +91,7 @@ pub mod vpc_endpoint_subnet_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

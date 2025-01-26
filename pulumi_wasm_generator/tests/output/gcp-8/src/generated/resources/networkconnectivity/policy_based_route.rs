@@ -100,22 +100,22 @@
 /// ```
 ///
 pub mod policy_based_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyBasedRouteArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The filter to match L4 traffic.
         /// Structure is documented below.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             super::super::types::networkconnectivity::PolicyBasedRouteFilter,
         >,
         /// The interconnect attachments that this policy-based route applies to.
         #[builder(into, default)]
-        pub interconnect_attachment: pulumi_wasm_rust::Output<
+        pub interconnect_attachment: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteInterconnectAttachment,
             >,
@@ -123,31 +123,31 @@ pub mod policy_based_route {
         /// User-defined labels. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the policy based route.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IP address of a global-access-enabled L4 ILB that is the next hop for matching packets.
         #[builder(into, default)]
-        pub next_hop_ilb_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_ilb_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Other routes that will be referenced to determine the next hop of the packet. Possible values: ["DEFAULT_ROUTING"]
         #[builder(into, default)]
-        pub next_hop_other_routes: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_other_routes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching
         /// policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered
         /// priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VM instances to which this policy-based route applies to.
         #[builder(into, default)]
-        pub virtual_machine: pulumi_wasm_rust::Output<
+        pub virtual_machine: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::PolicyBasedRouteVirtualMachine,
             >,
@@ -217,20 +217,36 @@ pub mod policy_based_route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyBasedRouteArgs) -> PolicyBasedRouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyBasedRouteArgs,
+    ) -> PolicyBasedRouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let interconnect_attachment_binding = args.interconnect_attachment.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let next_hop_ilb_ip_binding = args.next_hop_ilb_ip.get_inner();
-        let next_hop_other_routes_binding = args.next_hop_other_routes.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let project_binding = args.project.get_inner();
-        let virtual_machine_binding = args.virtual_machine.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let interconnect_attachment_binding = args
+            .interconnect_attachment
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let next_hop_ilb_ip_binding = args
+            .next_hop_ilb_ip
+            .get_output(context)
+            .get_inner();
+        let next_hop_other_routes_binding = args
+            .next_hop_other_routes
+            .get_output(context)
+            .get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let virtual_machine_binding = args
+            .virtual_machine
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/policyBasedRoute:PolicyBasedRoute".into(),
             name: name.to_string(),
@@ -335,7 +351,7 @@ pub mod policy_based_route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

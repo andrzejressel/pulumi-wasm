@@ -102,37 +102,37 @@
 /// ```
 ///
 pub mod mover_job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverJobDefinitionArgs {
         /// Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
         #[builder(into, default)]
-        pub agent_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
         #[builder(into)]
-        pub copy_mode: pulumi_wasm_rust::Output<String>,
+        pub copy_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a description for this Storage Mover Job Definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_name: pulumi_wasm_rust::Output<String>,
+        pub source_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_sub_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_sub_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_project_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_project_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_name: pulumi_wasm_rust::Output<String>,
+        pub target_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub target_sub_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_sub_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MoverJobDefinitionResult {
@@ -159,18 +159,31 @@ pub mod mover_job_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MoverJobDefinitionArgs) -> MoverJobDefinitionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MoverJobDefinitionArgs,
+    ) -> MoverJobDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let agent_name_binding = args.agent_name.get_inner();
-        let copy_mode_binding = args.copy_mode.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let source_name_binding = args.source_name.get_inner();
-        let source_sub_path_binding = args.source_sub_path.get_inner();
-        let storage_mover_project_id_binding = args.storage_mover_project_id.get_inner();
-        let target_name_binding = args.target_name.get_inner();
-        let target_sub_path_binding = args.target_sub_path.get_inner();
+        let agent_name_binding = args.agent_name.get_output(context).get_inner();
+        let copy_mode_binding = args.copy_mode.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let source_name_binding = args.source_name.get_output(context).get_inner();
+        let source_sub_path_binding = args
+            .source_sub_path
+            .get_output(context)
+            .get_inner();
+        let storage_mover_project_id_binding = args
+            .storage_mover_project_id
+            .get_output(context)
+            .get_inner();
+        let target_name_binding = args.target_name.get_output(context).get_inner();
+        let target_sub_path_binding = args
+            .target_sub_path
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/moverJobDefinition:MoverJobDefinition".into(),
             name: name.to_string(),
@@ -243,7 +256,7 @@ pub mod mover_job_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

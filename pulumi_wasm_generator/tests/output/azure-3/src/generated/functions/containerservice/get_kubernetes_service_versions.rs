@@ -1,17 +1,17 @@
 pub mod get_kubernetes_service_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKubernetesServiceVersionsArgs {
         /// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
         #[builder(into, default)]
-        pub include_preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the location in which to query for versions.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
         #[builder(into, default)]
-        pub version_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetKubernetesServiceVersionsResult {
@@ -32,13 +32,17 @@ pub mod get_kubernetes_service_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetKubernetesServiceVersionsArgs,
     ) -> GetKubernetesServiceVersionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let include_preview_binding = args.include_preview.get_inner();
-        let location_binding = args.location.get_inner();
-        let version_prefix_binding = args.version_prefix.get_inner();
+        let include_preview_binding = args
+            .include_preview
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let version_prefix_binding = args.version_prefix.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions"
                 .into(),
@@ -81,7 +85,7 @@ pub mod get_kubernetes_service_versions {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

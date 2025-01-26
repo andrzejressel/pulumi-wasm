@@ -89,37 +89,37 @@
 /// $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
 /// ```
 pub mod replication_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationInstanceArgs {
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         #[builder(into, default)]
-        pub allocated_storage: pulumi_wasm_rust::Output<Option<i32>>,
+        pub allocated_storage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Indicates that major version upgrades are allowed.
         #[builder(into, default)]
-        pub allow_major_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_major_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The EC2 Availability Zone that the replication instance will be created in.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The engine version number of the replication instance.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         #[builder(into, default)]
-        pub multi_az: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_az: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         #[builder(into, default)]
-        pub network_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         ///
         /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -127,13 +127,15 @@ pub mod replication_instance {
         /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
         /// - Constraints: Minimum 30-minute window.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         #[builder(into)]
-        pub replication_instance_class: pulumi_wasm_rust::Output<String>,
+        pub replication_instance_class: pulumi_wasm_rust::InputOrOutput<String>,
         /// The replication instance identifier. This parameter is stored as a lowercase string.
         ///
         /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
@@ -141,18 +143,18 @@ pub mod replication_instance {
         /// - Cannot end with a hyphen
         /// - Cannot contain two consecutive hyphens.
         #[builder(into)]
-        pub replication_instance_id: pulumi_wasm_rust::Output<String>,
+        pub replication_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A subnet group to associate with the replication instance.
         #[builder(into, default)]
-        pub replication_subnet_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub replication_subnet_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ReplicationInstanceResult {
@@ -216,37 +218,61 @@ pub mod replication_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReplicationInstanceArgs,
     ) -> ReplicationInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding = args.allocated_storage.get_inner();
+        let allocated_storage_binding = args
+            .allocated_storage
+            .get_output(context)
+            .get_inner();
         let allow_major_version_upgrade_binding = args
             .allow_major_version_upgrade
+            .get_output(context)
             .get_inner();
-        let apply_immediately_binding = args.apply_immediately.get_inner();
+        let apply_immediately_binding = args
+            .apply_immediately
+            .get_output(context)
+            .get_inner();
         let auto_minor_version_upgrade_binding = args
             .auto_minor_version_upgrade
+            .get_output(context)
             .get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
-        let multi_az_binding = args.multi_az.get_inner();
-        let network_type_binding = args.network_type.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let multi_az_binding = args.multi_az.get_output(context).get_inner();
+        let network_type_binding = args.network_type.get_output(context).get_inner();
         let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
+            .get_output(context)
             .get_inner();
-        let publicly_accessible_binding = args.publicly_accessible.get_inner();
+        let publicly_accessible_binding = args
+            .publicly_accessible
+            .get_output(context)
+            .get_inner();
         let replication_instance_class_binding = args
             .replication_instance_class
+            .get_output(context)
             .get_inner();
-        let replication_instance_id_binding = args.replication_instance_id.get_inner();
+        let replication_instance_id_binding = args
+            .replication_instance_id
+            .get_output(context)
+            .get_inner();
         let replication_subnet_group_id_binding = args
             .replication_subnet_group_id
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/replicationInstance:ReplicationInstance".into(),
             name: name.to_string(),
@@ -380,7 +406,7 @@ pub mod replication_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

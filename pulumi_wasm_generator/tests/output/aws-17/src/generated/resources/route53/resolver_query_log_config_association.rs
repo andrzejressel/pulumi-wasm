@@ -27,16 +27,16 @@
 /// $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
 /// ```
 pub mod resolver_query_log_config_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigAssociationArgs {
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         #[builder(into)]
-        pub resolver_query_log_config_id: pulumi_wasm_rust::Output<String>,
+        pub resolver_query_log_config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of a VPC that you want this query logging configuration to log queries for.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigAssociationResult {
@@ -50,6 +50,7 @@ pub mod resolver_query_log_config_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverQueryLogConfigAssociationArgs,
     ) -> ResolverQueryLogConfigAssociationResult {
@@ -57,8 +58,9 @@ pub mod resolver_query_log_config_association {
         use std::collections::HashMap;
         let resolver_query_log_config_id_binding = args
             .resolver_query_log_config_id
+            .get_output(context)
             .get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation"
                 .into(),
@@ -83,7 +85,7 @@ pub mod resolver_query_log_config_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

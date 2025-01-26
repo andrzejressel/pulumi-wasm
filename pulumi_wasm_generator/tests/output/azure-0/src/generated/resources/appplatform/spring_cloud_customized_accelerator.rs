@@ -62,36 +62,36 @@
 /// ```
 ///
 pub mod spring_cloud_customized_accelerator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudCustomizedAcceleratorArgs {
         /// Specifies a list of accelerator tags.
         #[builder(into, default)]
-        pub accelerator_tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub accelerator_tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         #[builder(into, default)]
-        pub accelerator_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub accelerator_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the description of the Spring Cloud Customized Accelerator.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the display name of the Spring Cloud Customized Accelerator..
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `git_repository` block as defined below.
         #[builder(into)]
-        pub git_repository: pulumi_wasm_rust::Output<
+        pub git_repository: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appplatform::SpringCloudCustomizedAcceleratorGitRepository,
         >,
         /// Specifies the icon URL of the Spring Cloud Customized Accelerator..
         #[builder(into, default)]
-        pub icon_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         #[builder(into)]
-        pub spring_cloud_accelerator_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_accelerator_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudCustomizedAcceleratorResult {
@@ -119,20 +119,28 @@ pub mod spring_cloud_customized_accelerator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudCustomizedAcceleratorArgs,
     ) -> SpringCloudCustomizedAcceleratorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerator_tags_binding = args.accelerator_tags.get_inner();
-        let accelerator_type_binding = args.accelerator_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let git_repository_binding = args.git_repository.get_inner();
-        let icon_url_binding = args.icon_url.get_inner();
-        let name_binding = args.name.get_inner();
+        let accelerator_tags_binding = args
+            .accelerator_tags
+            .get_output(context)
+            .get_inner();
+        let accelerator_type_binding = args
+            .accelerator_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let git_repository_binding = args.git_repository.get_output(context).get_inner();
+        let icon_url_binding = args.icon_url.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let spring_cloud_accelerator_id_binding = args
             .spring_cloud_accelerator_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator"
@@ -200,7 +208,7 @@ pub mod spring_cloud_customized_accelerator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

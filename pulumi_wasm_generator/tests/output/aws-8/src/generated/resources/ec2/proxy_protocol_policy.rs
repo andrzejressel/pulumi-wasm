@@ -33,18 +33,18 @@
 /// }
 /// ```
 pub mod proxy_protocol_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyProtocolPolicyArgs {
         /// List of instance ports to which the policy
         /// should be applied. This can be specified if the protocol is SSL or TCP.
         #[builder(into)]
-        pub instance_ports: pulumi_wasm_rust::Output<Vec<String>>,
+        pub instance_ports: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The load balancer to which the policy
         /// should be attached.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::Output<String>,
+        pub load_balancer: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProxyProtocolPolicyResult {
@@ -60,13 +60,14 @@ pub mod proxy_protocol_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProxyProtocolPolicyArgs,
     ) -> ProxyProtocolPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_ports_binding = args.instance_ports.get_inner();
-        let load_balancer_binding = args.load_balancer.get_inner();
+        let instance_ports_binding = args.instance_ports.get_output(context).get_inner();
+        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy".into(),
             name: name.to_string(),
@@ -90,7 +91,7 @@ pub mod proxy_protocol_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -47,25 +47,25 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for this Connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
         ///
         /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
@@ -74,7 +74,9 @@ pub mod connection {
         ///
         /// * `AzureServicePrincipal`: parameters `ApplicationId`, `CertificateThumbprint`, `SubscriptionId` and `TenantId`.
         #[builder(into)]
-        pub values: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub values: pulumi_wasm_rust::InputOrOutput<
+            std::collections::HashMap<String, String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
@@ -101,15 +103,25 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args.automation_account_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let type__binding = args.type_.get_inner();
-        let values_binding = args.values.get_inner();
+        let automation_account_name_binding = args
+            .automation_account_name
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let values_binding = args.values.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/connection:Connection".into(),
             name: name.to_string(),
@@ -161,7 +173,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

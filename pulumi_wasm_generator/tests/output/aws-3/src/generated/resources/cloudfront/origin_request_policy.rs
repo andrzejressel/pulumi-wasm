@@ -55,29 +55,29 @@
 /// $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
 /// ```
 pub mod origin_request_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OriginRequestPolicyArgs {
         /// Comment to describe the origin request policy.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         #[builder(into)]
-        pub cookies_config: pulumi_wasm_rust::Output<
+        pub cookies_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyCookiesConfig,
         >,
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         #[builder(into)]
-        pub headers_config: pulumi_wasm_rust::Output<
+        pub headers_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyHeadersConfig,
         >,
         /// Unique name to identify the origin request policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         #[builder(into)]
-        pub query_strings_config: pulumi_wasm_rust::Output<
+        pub query_strings_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::OriginRequestPolicyQueryStringsConfig,
         >,
     }
@@ -107,16 +107,20 @@ pub mod origin_request_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OriginRequestPolicyArgs,
     ) -> OriginRequestPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_inner();
-        let cookies_config_binding = args.cookies_config.get_inner();
-        let headers_config_binding = args.headers_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let query_strings_config_binding = args.query_strings_config.get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let cookies_config_binding = args.cookies_config.get_output(context).get_inner();
+        let headers_config_binding = args.headers_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_strings_config_binding = args
+            .query_strings_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/originRequestPolicy:OriginRequestPolicy".into(),
             name: name.to_string(),
@@ -164,7 +168,7 @@ pub mod origin_request_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

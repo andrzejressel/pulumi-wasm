@@ -1,17 +1,17 @@
 pub mod get_tunnel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTunnelArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, only include deleted tunnels. If false, exclude deleted tunnels. If empty, all tunnels will be included. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub is_deleted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_deleted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the tunnel. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetTunnelResult {
@@ -34,12 +34,15 @@ pub mod get_tunnel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetTunnelArgs) -> GetTunnelResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetTunnelArgs,
+    ) -> GetTunnelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let is_deleted_binding = args.is_deleted.get_inner();
-        let name_binding = args.name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let is_deleted_binding = args.is_deleted.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getTunnel:getTunnel".into(),
             version: super::super::get_version(),
@@ -81,7 +84,7 @@ pub mod get_tunnel {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

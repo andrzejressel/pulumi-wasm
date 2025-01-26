@@ -45,16 +45,16 @@
 /// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 /// ```
 pub mod custom_routing_listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomRoutingListenerArgs {
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
         #[builder(into)]
-        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        pub accelerator_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         #[builder(into)]
-        pub port_ranges: pulumi_wasm_rust::Output<
+        pub port_ranges: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::globalaccelerator::CustomRoutingListenerPortRange>,
         >,
     }
@@ -72,13 +72,17 @@ pub mod custom_routing_listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CustomRoutingListenerArgs,
     ) -> CustomRoutingListenerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerator_arn_binding = args.accelerator_arn.get_inner();
-        let port_ranges_binding = args.port_ranges.get_inner();
+        let accelerator_arn_binding = args
+            .accelerator_arn
+            .get_output(context)
+            .get_inner();
+        let port_ranges_binding = args.port_ranges.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/customRoutingListener:CustomRoutingListener"
                 .into(),
@@ -103,7 +107,7 @@ pub mod custom_routing_listener {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

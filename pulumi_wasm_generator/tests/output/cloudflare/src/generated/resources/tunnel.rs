@@ -27,22 +27,22 @@
 /// ```
 ///
 pub mod tunnel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TunnelArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates if this is a locally or remotely configured tunnel. If `local`, manage the tunnel using a YAML file on the origin machine. If `cloudflare`, manage the tunnel on the Zero Trust dashboard or using tunnel*config, tunnel*route or tunnel*virtual*network resources. Available values: `local`, `cloudflare`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub config_src: pulumi_wasm_rust::Output<Option<String>>,
+        pub config_src: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-friendly name chosen when the tunnel is created. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// 32 or more bytes, encoded as a base64 string. The Create Argo Tunnel endpoint sets this as the tunnel's password. Anyone wishing to run the tunnel needs this password. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TunnelResult {
@@ -63,13 +63,17 @@ pub mod tunnel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TunnelArgs) -> TunnelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TunnelArgs,
+    ) -> TunnelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let config_src_binding = args.config_src.get_inner();
-        let name_binding = args.name.get_inner();
-        let secret_binding = args.secret.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let config_src_binding = args.config_src.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/tunnel:Tunnel".into(),
             name: name.to_string(),
@@ -113,7 +117,7 @@ pub mod tunnel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

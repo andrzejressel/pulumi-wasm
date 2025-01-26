@@ -25,22 +25,22 @@
 /// $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
 /// ```
 pub mod endpoint_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointAuthorizationArgs {
         /// The Amazon Web Services account ID to grant access to.
         #[builder(into)]
-        pub account: pulumi_wasm_rust::Output<String>,
+        pub account: pulumi_wasm_rust::InputOrOutput<String>,
         /// The cluster identifier of the cluster to grant access to.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         #[builder(into, default)]
-        pub vpc_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct EndpointAuthorizationResult {
@@ -66,15 +66,19 @@ pub mod endpoint_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EndpointAuthorizationArgs,
     ) -> EndpointAuthorizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_binding = args.account.get_inner();
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
-        let vpc_ids_binding = args.vpc_ids.get_inner();
+        let account_binding = args.account.get_output(context).get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let vpc_ids_binding = args.vpc_ids.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/endpointAuthorization:EndpointAuthorization".into(),
             name: name.to_string(),
@@ -124,7 +128,7 @@ pub mod endpoint_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

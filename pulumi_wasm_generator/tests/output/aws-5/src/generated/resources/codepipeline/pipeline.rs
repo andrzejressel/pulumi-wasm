@@ -143,47 +143,47 @@
 /// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
 /// ```
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// One or more artifact_store blocks. Artifact stores are documented below.
         #[builder(into)]
-        pub artifact_stores: pulumi_wasm_rust::Output<
+        pub artifact_stores: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::PipelineArtifactStore>,
         >,
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         ///
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         #[builder(into, default)]
-        pub execution_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the pipeline.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         #[builder(into, default)]
-        pub pipeline_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub pipeline_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A stage block. Stages are documented below.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::PipelineStage>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codepipeline::PipelineTrigger>>,
         >,
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codepipeline::PipelineVariable>>,
         >,
     }
@@ -230,18 +230,25 @@ pub mod pipeline {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PipelineArgs) -> PipelineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PipelineArgs,
+    ) -> PipelineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let artifact_stores_binding = args.artifact_stores.get_inner();
-        let execution_mode_binding = args.execution_mode.get_inner();
-        let name_binding = args.name.get_inner();
-        let pipeline_type_binding = args.pipeline_type.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let stages_binding = args.stages.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let triggers_binding = args.triggers.get_inner();
-        let variables_binding = args.variables.get_inner();
+        let artifact_stores_binding = args
+            .artifact_stores
+            .get_output(context)
+            .get_inner();
+        let execution_mode_binding = args.execution_mode.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pipeline_type_binding = args.pipeline_type.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let stages_binding = args.stages.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let variables_binding = args.variables.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codepipeline/pipeline:Pipeline".into(),
             name: name.to_string(),
@@ -320,7 +327,7 @@ pub mod pipeline {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

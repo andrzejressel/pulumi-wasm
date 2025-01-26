@@ -80,23 +80,23 @@
 /// ```
 ///
 pub mod env_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvGroupArgs {
         /// Hostnames of the environment group.
         #[builder(into, default)]
-        pub hostnames: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub hostnames: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The resource ID of the environment group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Apigee Organization associated with the Apigee environment group,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvGroupResult {
@@ -115,12 +115,16 @@ pub mod env_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvGroupArgs) -> EnvGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvGroupArgs,
+    ) -> EnvGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hostnames_binding = args.hostnames.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
+        let hostnames_binding = args.hostnames.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/envGroup:EnvGroup".into(),
             name: name.to_string(),
@@ -151,7 +155,7 @@ pub mod env_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

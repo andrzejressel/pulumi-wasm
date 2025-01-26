@@ -26,7 +26,7 @@
 /// ```
 ///
 pub mod sharedflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedflowArgs {
@@ -34,15 +34,15 @@ pub mod sharedflow {
         ///
         /// - - -
         #[builder(into)]
-        pub config_bundle: pulumi_wasm_rust::Output<String>,
+        pub config_bundle: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub detect_md5hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub detect_md5hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the shared flow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Apigee Organization name associated with the Apigee instance.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedflowResult {
@@ -71,13 +71,17 @@ pub mod sharedflow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SharedflowArgs) -> SharedflowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SharedflowArgs,
+    ) -> SharedflowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_bundle_binding = args.config_bundle.get_inner();
-        let detect_md5hash_binding = args.detect_md5hash.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
+        let config_bundle_binding = args.config_bundle.get_output(context).get_inner();
+        let detect_md5hash_binding = args.detect_md5hash.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/sharedflow:Sharedflow".into(),
             name: name.to_string(),
@@ -127,7 +131,7 @@ pub mod sharedflow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

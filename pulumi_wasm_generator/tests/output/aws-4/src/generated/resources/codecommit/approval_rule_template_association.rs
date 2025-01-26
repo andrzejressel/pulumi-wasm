@@ -27,16 +27,16 @@
 /// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
 /// ```
 pub mod approval_rule_template_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateAssociationArgs {
         /// The name for the approval rule template.
         #[builder(into)]
-        pub approval_rule_template_name: pulumi_wasm_rust::Output<String>,
+        pub approval_rule_template_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the repository that you want to associate with the template.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateAssociationResult {
@@ -50,6 +50,7 @@ pub mod approval_rule_template_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApprovalRuleTemplateAssociationArgs,
     ) -> ApprovalRuleTemplateAssociationResult {
@@ -57,8 +58,12 @@ pub mod approval_rule_template_association {
         use std::collections::HashMap;
         let approval_rule_template_name_binding = args
             .approval_rule_template_name
+            .get_output(context)
             .get_inner();
-        let repository_name_binding = args.repository_name.get_inner();
+        let repository_name_binding = args
+            .repository_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation"
                 .into(),
@@ -83,7 +88,7 @@ pub mod approval_rule_template_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

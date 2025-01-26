@@ -96,7 +96,7 @@
 /// verified owners is to delete the web resource itself.
 ///
 pub mod owner {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OwnerArgs {
@@ -104,11 +104,11 @@ pub mod owner {
         ///
         /// - - -
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of of the web resource to which the owner will be added, in the form `webResource/<resource_id>`,
         /// such as `webResource/https://www.example.com/`
         #[builder(into)]
-        pub web_resource_id: pulumi_wasm_rust::Output<String>,
+        pub web_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OwnerResult {
@@ -124,11 +124,18 @@ pub mod owner {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OwnerArgs) -> OwnerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OwnerArgs,
+    ) -> OwnerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let email_binding = args.email.get_inner();
-        let web_resource_id_binding = args.web_resource_id.get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let web_resource_id_binding = args
+            .web_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:siteverification/owner:Owner".into(),
             name: name.to_string(),
@@ -152,7 +159,7 @@ pub mod owner {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

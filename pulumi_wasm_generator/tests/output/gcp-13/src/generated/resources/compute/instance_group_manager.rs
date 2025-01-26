@@ -129,7 +129,7 @@
 /// ```
 ///
 pub mod instance_group_manager {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupManagerArgs {
@@ -137,13 +137,13 @@ pub mod instance_group_manager {
         /// allInstancesConfig on the group, you must update the group's instances to
         /// apply the configuration.
         #[builder(into, default)]
-        pub all_instances_config: pulumi_wasm_rust::Output<
+        pub all_instances_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceGroupManagerAllInstancesConfig>,
         >,
         /// The autohealing policies for this managed instance
         /// group. You can specify only one value. Structure is documented below. For more information, see the [official documentation](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances#monitoring_groups).
         #[builder(into, default)]
-        pub auto_healing_policies: pulumi_wasm_rust::Output<
+        pub auto_healing_policies: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceGroupManagerAutoHealingPolicies>,
         >,
         /// The base instance name to use for
@@ -153,14 +153,14 @@ pub mod instance_group_manager {
         /// appending a hyphen and a random four-character string to the base instance
         /// name.
         #[builder(into)]
-        pub base_instance_name: pulumi_wasm_rust::Output<String>,
+        pub base_instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional textual description of the instance
         /// group manager.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The instance lifecycle policy for this managed instance group.
         #[builder(into, default)]
-        pub instance_lifecycle_policy: pulumi_wasm_rust::Output<
+        pub instance_lifecycle_policy: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::InstanceGroupManagerInstanceLifecyclePolicy,
             >,
@@ -172,50 +172,52 @@ pub mod instance_group_manager {
         /// response. If `PAGINATED`, pagination is enabled, `maxResults` and `pageToken` query parameters are
         /// respected.
         #[builder(into, default)]
-        pub list_managed_instances_results: pulumi_wasm_rust::Output<Option<String>>,
+        pub list_managed_instances_results: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the instance group manager. Must be 1-63
         /// characters long and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt). Supported characters
         /// include lowercase letters, numbers, and hyphens.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The named port configuration. See the section below
         /// for details on configuration.
         #[builder(into, default)]
-        pub named_ports: pulumi_wasm_rust::Output<
+        pub named_ports: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceGroupManagerNamedPort>>,
         >,
         /// Input only additional params for instance group manager creation. Structure is documented below. For more information, see [API](https://cloud.google.com/compute/docs/reference/rest/beta/instanceGroupManagers/insert).
         ///
         /// - - -
         #[builder(into, default)]
-        pub params: pulumi_wasm_rust::Output<
+        pub params: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceGroupManagerParams>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The standby policy for stopped and suspended instances. Structure is documented below. For more information, see the [official documentation](https://cloud.google.com/compute/docs/instance-groups/suspended-and-stopped-vms-in-mig) and [API](https://cloud.google.com/compute/docs/reference/rest/beta/regionInstanceGroupManagers/patch)
         #[builder(into, default)]
-        pub standby_policy: pulumi_wasm_rust::Output<
+        pub standby_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceGroupManagerStandbyPolicy>,
         >,
         /// Disks created on the instances that will be preserved on instance delete, update, etc. Structure is documented below. For more information see the [official documentation](https://cloud.google.com/compute/docs/instance-groups/configuring-stateful-disks-in-migs).
         #[builder(into, default)]
-        pub stateful_disks: pulumi_wasm_rust::Output<
+        pub stateful_disks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceGroupManagerStatefulDisk>>,
         >,
         /// External network IPs assigned to the instances that will be preserved on instance delete, update, etc. This map is keyed with the network interface name. Structure is documented below.
         #[builder(into, default)]
-        pub stateful_external_ips: pulumi_wasm_rust::Output<
+        pub stateful_external_ips: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::InstanceGroupManagerStatefulExternalIp>,
             >,
         >,
         /// Internal network IPs assigned to the instances that will be preserved on instance delete, update, etc. This map is keyed with the network interface name. Structure is documented below.
         #[builder(into, default)]
-        pub stateful_internal_ips: pulumi_wasm_rust::Output<
+        pub stateful_internal_ips: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::InstanceGroupManagerStatefulInternalIp>,
             >,
@@ -224,46 +226,46 @@ pub mod instance_group_manager {
         /// instances in the group are added. Updating the target pools attribute does
         /// not affect existing instances.
         #[builder(into, default)]
-        pub target_pools: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_pools: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The target number of running instances for this managed instance group. This value should always be explicitly set
         /// unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
         #[builder(into, default)]
-        pub target_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub target_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The target number of stopped instances for this managed instance group.
         #[builder(into, default)]
-        pub target_stopped_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub target_stopped_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The target number of suspended instances for this managed instance group.
         #[builder(into, default)]
-        pub target_suspended_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub target_suspended_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The update policy for this managed instance group. Structure is documented below. For more information, see the [official documentation](https://cloud.google.com/compute/docs/instance-groups/updating-managed-instance-groups) and [API](https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers/patch).
         #[builder(into, default)]
-        pub update_policy: pulumi_wasm_rust::Output<
+        pub update_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceGroupManagerUpdatePolicy>,
         >,
         /// Application versions managed by this instance group. Each
         /// version deals with a specific instance template, allowing canary release scenarios.
         /// Structure is documented below.
         #[builder(into)]
-        pub versions: pulumi_wasm_rust::Output<
+        pub versions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::compute::InstanceGroupManagerVersion>,
         >,
         /// Whether to wait for all instances to be created/updated before
         /// returning. Note that if this is set to true and the operation does not succeed, this provider will
         /// continue trying until it times out.
         #[builder(into, default)]
-        pub wait_for_instances: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_instances: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// When used with `wait_for_instances` it specifies the status to wait for.
         /// When `STABLE` is specified this resource will wait until the instances are stable before returning. When `UPDATED` is
         /// set, it will wait for the version target to be reached and any per instance configs to be effective as well as all
         /// instances to be stable before returning. The possible values are `STABLE` and `UPDATED`
         #[builder(into, default)]
-        pub wait_for_instances_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub wait_for_instances_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone that instances in this group should be created
         /// in.
         ///
         /// - - -
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupManagerResult {
@@ -394,40 +396,68 @@ pub mod instance_group_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceGroupManagerArgs,
     ) -> InstanceGroupManagerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let all_instances_config_binding = args.all_instances_config.get_inner();
-        let auto_healing_policies_binding = args.auto_healing_policies.get_inner();
-        let base_instance_name_binding = args.base_instance_name.get_inner();
-        let description_binding = args.description.get_inner();
+        let all_instances_config_binding = args
+            .all_instances_config
+            .get_output(context)
+            .get_inner();
+        let auto_healing_policies_binding = args
+            .auto_healing_policies
+            .get_output(context)
+            .get_inner();
+        let base_instance_name_binding = args
+            .base_instance_name
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let instance_lifecycle_policy_binding = args
             .instance_lifecycle_policy
+            .get_output(context)
             .get_inner();
         let list_managed_instances_results_binding = args
             .list_managed_instances_results
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let named_ports_binding = args.named_ports.get_inner();
-        let params_binding = args.params.get_inner();
-        let project_binding = args.project.get_inner();
-        let standby_policy_binding = args.standby_policy.get_inner();
-        let stateful_disks_binding = args.stateful_disks.get_inner();
-        let stateful_external_ips_binding = args.stateful_external_ips.get_inner();
-        let stateful_internal_ips_binding = args.stateful_internal_ips.get_inner();
-        let target_pools_binding = args.target_pools.get_inner();
-        let target_size_binding = args.target_size.get_inner();
-        let target_stopped_size_binding = args.target_stopped_size.get_inner();
-        let target_suspended_size_binding = args.target_suspended_size.get_inner();
-        let update_policy_binding = args.update_policy.get_inner();
-        let versions_binding = args.versions.get_inner();
-        let wait_for_instances_binding = args.wait_for_instances.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let named_ports_binding = args.named_ports.get_output(context).get_inner();
+        let params_binding = args.params.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let standby_policy_binding = args.standby_policy.get_output(context).get_inner();
+        let stateful_disks_binding = args.stateful_disks.get_output(context).get_inner();
+        let stateful_external_ips_binding = args
+            .stateful_external_ips
+            .get_output(context)
+            .get_inner();
+        let stateful_internal_ips_binding = args
+            .stateful_internal_ips
+            .get_output(context)
+            .get_inner();
+        let target_pools_binding = args.target_pools.get_output(context).get_inner();
+        let target_size_binding = args.target_size.get_output(context).get_inner();
+        let target_stopped_size_binding = args
+            .target_stopped_size
+            .get_output(context)
+            .get_inner();
+        let target_suspended_size_binding = args
+            .target_suspended_size
+            .get_output(context)
+            .get_inner();
+        let update_policy_binding = args.update_policy.get_output(context).get_inner();
+        let versions_binding = args.versions.get_output(context).get_inner();
+        let wait_for_instances_binding = args
+            .wait_for_instances
+            .get_output(context)
+            .get_inner();
         let wait_for_instances_status_binding = args
             .wait_for_instances_status
+            .get_output(context)
             .get_inner();
-        let zone_binding = args.zone.get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroupManager:InstanceGroupManager".into(),
             name: name.to_string(),
@@ -619,7 +649,7 @@ pub mod instance_group_manager {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

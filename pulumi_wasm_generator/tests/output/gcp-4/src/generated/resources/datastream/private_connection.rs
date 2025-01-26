@@ -57,35 +57,35 @@
 /// ```
 ///
 pub mod private_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateConnectionArgs {
         /// If set to true, will skip validations.
         #[builder(into, default)]
-        pub create_without_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_without_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Labels. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
         /// refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this private connection is located in.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The private connectivity identifier.
         #[builder(into)]
-        pub private_connection_id: pulumi_wasm_rust::Output<String>,
+        pub private_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The VPC Peering configuration is used to create VPC peering
         /// between Datastream and the consumer's VPC.
         /// Structure is documented below.
         #[builder(into)]
-        pub vpc_peering_config: pulumi_wasm_rust::Output<
+        pub vpc_peering_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datastream::PrivateConnectionVpcPeeringConfig,
         >,
     }
@@ -134,18 +134,29 @@ pub mod private_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PrivateConnectionArgs) -> PrivateConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PrivateConnectionArgs,
+    ) -> PrivateConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let create_without_validation_binding = args
             .create_without_validation
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let private_connection_id_binding = args.private_connection_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let vpc_peering_config_binding = args.vpc_peering_config.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let private_connection_id_binding = args
+            .private_connection_id
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let vpc_peering_config_binding = args
+            .vpc_peering_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datastream/privateConnection:PrivateConnection".into(),
             name: name.to_string(),
@@ -219,7 +230,7 @@ pub mod private_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

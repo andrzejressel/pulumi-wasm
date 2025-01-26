@@ -37,24 +37,24 @@
 /// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
 /// ```
 pub mod mount_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MountTargetArgs {
         /// The ID of the file system for which the mount target is intended.
         #[builder(into)]
-        pub file_system_id: pulumi_wasm_rust::Output<String>,
+        pub file_system_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The address (within the address range of the specified subnet) at
         /// which the file system may be mounted via the mount target.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of up to 5 VPC security group IDs (that must
         /// be for the same VPC as subnet specified) in effect for the mount target.
         #[builder(into, default)]
-        pub security_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the subnet to add the mount target in.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MountTargetResult {
@@ -87,13 +87,20 @@ pub mod mount_target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MountTargetArgs) -> MountTargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MountTargetArgs,
+    ) -> MountTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding = args.file_system_id.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let security_groups_binding = args.security_groups.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let security_groups_binding = args
+            .security_groups
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/mountTarget:MountTarget".into(),
             name: name.to_string(),
@@ -152,7 +159,7 @@ pub mod mount_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

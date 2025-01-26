@@ -125,7 +125,7 @@
 /// ```
 ///
 pub mod access_approval_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessApprovalSettingsArgs {
@@ -133,24 +133,24 @@ pub mod access_approval_settings {
         /// Google-managed key should be used for signing. This property will be ignored if set by an ancestor of the resource, and
         /// new non-empty values may not be set.
         #[builder(into, default)]
-        pub active_key_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub active_key_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of Google Cloud Services for which the given resource has Access Approval enrolled.
         /// Access requests for the resource given by name against any of these services contained here will be required
         /// to have explicit approval. Enrollment can only be done on an all or nothing basis.
         /// A maximum of 10 enrolled services will be enforced, to be expanded as the set of supported services is expanded.
         /// Structure is documented below.
         #[builder(into)]
-        pub enrolled_services: pulumi_wasm_rust::Output<
+        pub enrolled_services: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::folder::AccessApprovalSettingsEnrolledService>,
         >,
         /// ID of the folder of the access approval settings.
         #[builder(into)]
-        pub folder_id: pulumi_wasm_rust::Output<String>,
+        pub folder_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of email addresses to which notifications relating to approval requests should be sent. Notifications relating to
         /// a resource will be sent to all emails in the settings of ancestor resources of that resource. A maximum of 50 email
         /// addresses are allowed.
         #[builder(into, default)]
-        pub notification_emails: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub notification_emails: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct AccessApprovalSettingsResult {
@@ -189,15 +189,25 @@ pub mod access_approval_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessApprovalSettingsArgs,
     ) -> AccessApprovalSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let active_key_version_binding = args.active_key_version.get_inner();
-        let enrolled_services_binding = args.enrolled_services.get_inner();
-        let folder_id_binding = args.folder_id.get_inner();
-        let notification_emails_binding = args.notification_emails.get_inner();
+        let active_key_version_binding = args
+            .active_key_version
+            .get_output(context)
+            .get_inner();
+        let enrolled_services_binding = args
+            .enrolled_services
+            .get_output(context)
+            .get_inner();
+        let folder_id_binding = args.folder_id.get_output(context).get_inner();
+        let notification_emails_binding = args
+            .notification_emails
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:folder/accessApprovalSettings:AccessApprovalSettings".into(),
             name: name.to_string(),
@@ -247,7 +257,7 @@ pub mod access_approval_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

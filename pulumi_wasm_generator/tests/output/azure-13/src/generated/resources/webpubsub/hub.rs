@@ -80,34 +80,34 @@
 /// ```
 ///
 pub mod hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HubArgs {
         /// Is anonymous connections are allowed for this hub? Defaults to `false`.
         /// Possible values are `true`, `false`.
         #[builder(into, default)]
-        pub anonymous_connections_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub anonymous_connections_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `event_handler` block as defined below.
         ///
         /// > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
         #[builder(into, default)]
-        pub event_handlers: pulumi_wasm_rust::Output<
+        pub event_handlers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::webpubsub::HubEventHandler>>,
         >,
         /// An `event_listener` block as defined below.
         ///
         /// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         #[builder(into, default)]
-        pub event_listeners: pulumi_wasm_rust::Output<
+        pub event_listeners: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::webpubsub::HubEventListener>>,
         >,
         /// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub web_pubsub_id: pulumi_wasm_rust::Output<String>,
+        pub web_pubsub_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HubResult {
@@ -135,16 +135,24 @@ pub mod hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HubArgs) -> HubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HubArgs,
+    ) -> HubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let anonymous_connections_enabled_binding = args
             .anonymous_connections_enabled
+            .get_output(context)
             .get_inner();
-        let event_handlers_binding = args.event_handlers.get_inner();
-        let event_listeners_binding = args.event_listeners.get_inner();
-        let name_binding = args.name.get_inner();
-        let web_pubsub_id_binding = args.web_pubsub_id.get_inner();
+        let event_handlers_binding = args.event_handlers.get_output(context).get_inner();
+        let event_listeners_binding = args
+            .event_listeners
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:webpubsub/hub:Hub".into(),
             name: name.to_string(),
@@ -189,7 +197,7 @@ pub mod hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

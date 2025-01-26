@@ -77,24 +77,24 @@
 ///         - ${["wu-tang-ssl"].policyName}
 /// ```
 pub mod load_balancer_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerPolicyArgs {
         /// The load balancer on which the policy is defined.
         #[builder(into)]
-        pub load_balancer_name: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Policy attribute to apply to the policy.
         #[builder(into, default)]
-        pub policy_attributes: pulumi_wasm_rust::Output<
+        pub policy_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::elb::LoadBalancerPolicyPolicyAttribute>>,
         >,
         /// The name of the load balancer policy.
         #[builder(into)]
-        pub policy_name: pulumi_wasm_rust::Output<String>,
+        pub policy_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The policy type.
         #[builder(into)]
-        pub policy_type_name: pulumi_wasm_rust::Output<String>,
+        pub policy_type_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerPolicyResult {
@@ -113,13 +113,26 @@ pub mod load_balancer_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LoadBalancerPolicyArgs) -> LoadBalancerPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LoadBalancerPolicyArgs,
+    ) -> LoadBalancerPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let load_balancer_name_binding = args.load_balancer_name.get_inner();
-        let policy_attributes_binding = args.policy_attributes.get_inner();
-        let policy_name_binding = args.policy_name.get_inner();
-        let policy_type_name_binding = args.policy_type_name.get_inner();
+        let load_balancer_name_binding = args
+            .load_balancer_name
+            .get_output(context)
+            .get_inner();
+        let policy_attributes_binding = args
+            .policy_attributes
+            .get_output(context)
+            .get_inner();
+        let policy_name_binding = args.policy_name.get_output(context).get_inner();
+        let policy_type_name_binding = args
+            .policy_type_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerPolicy:LoadBalancerPolicy".into(),
             name: name.to_string(),
@@ -157,7 +170,7 @@ pub mod load_balancer_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -133,32 +133,32 @@
 /// ```
 ///
 pub mod volume_quota_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeQuotaRuleArgs {
         /// The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Quota size in kibibytes.
         #[builder(into)]
-        pub quota_size_in_kib: pulumi_wasm_rust::Output<i32>,
+        pub quota_size_in_kib: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         ///
         /// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         #[builder(into, default)]
-        pub quota_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub quota_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub quota_type: pulumi_wasm_rust::Output<String>,
+        pub quota_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VolumeQuotaRuleResult {
@@ -183,15 +183,22 @@ pub mod volume_quota_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeQuotaRuleArgs) -> VolumeQuotaRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeQuotaRuleArgs,
+    ) -> VolumeQuotaRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let quota_size_in_kib_binding = args.quota_size_in_kib.get_inner();
-        let quota_target_binding = args.quota_target.get_inner();
-        let quota_type_binding = args.quota_type.get_inner();
-        let volume_id_binding = args.volume_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let quota_size_in_kib_binding = args
+            .quota_size_in_kib
+            .get_output(context)
+            .get_inner();
+        let quota_target_binding = args.quota_target.get_output(context).get_inner();
+        let quota_type_binding = args.quota_type.get_output(context).get_inner();
+        let volume_id_binding = args.volume_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeQuotaRule:VolumeQuotaRule".into(),
             name: name.to_string(),
@@ -243,7 +250,7 @@ pub mod volume_quota_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

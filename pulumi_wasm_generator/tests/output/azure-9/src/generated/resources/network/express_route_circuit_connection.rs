@@ -116,30 +116,30 @@
 /// ```
 ///
 pub mod express_route_circuit_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitConnectionArgs {
         /// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         #[builder(into)]
-        pub address_prefix_ipv4: pulumi_wasm_rust::Output<String>,
+        pub address_prefix_ipv4: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IPv6 address space from which to allocate customer addresses for global reach.
         ///
         /// > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         #[builder(into, default)]
-        pub address_prefix_ipv6: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_prefix_ipv6: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The authorization key which is associated with the Express Route Circuit Connection.
         #[builder(into, default)]
-        pub authorization_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
         #[builder(into)]
-        pub peer_peering_id: pulumi_wasm_rust::Output<String>,
+        pub peer_peering_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
         #[builder(into)]
-        pub peering_id: pulumi_wasm_rust::Output<String>,
+        pub peering_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitConnectionResult {
@@ -163,17 +163,30 @@ pub mod express_route_circuit_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExpressRouteCircuitConnectionArgs,
     ) -> ExpressRouteCircuitConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_prefix_ipv4_binding = args.address_prefix_ipv4.get_inner();
-        let address_prefix_ipv6_binding = args.address_prefix_ipv6.get_inner();
-        let authorization_key_binding = args.authorization_key.get_inner();
-        let name_binding = args.name.get_inner();
-        let peer_peering_id_binding = args.peer_peering_id.get_inner();
-        let peering_id_binding = args.peering_id.get_inner();
+        let address_prefix_ipv4_binding = args
+            .address_prefix_ipv4
+            .get_output(context)
+            .get_inner();
+        let address_prefix_ipv6_binding = args
+            .address_prefix_ipv6
+            .get_output(context)
+            .get_inner();
+        let authorization_key_binding = args
+            .authorization_key
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peer_peering_id_binding = args
+            .peer_peering_id
+            .get_output(context)
+            .get_inner();
+        let peering_id_binding = args.peering_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection"
                 .into(),
@@ -226,7 +239,7 @@ pub mod express_route_circuit_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

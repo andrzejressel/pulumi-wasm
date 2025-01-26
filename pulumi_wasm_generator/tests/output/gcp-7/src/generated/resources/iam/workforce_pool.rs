@@ -84,7 +84,7 @@
 /// ```
 ///
 pub mod workforce_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkforcePoolArgs {
@@ -92,40 +92,40 @@ pub mod workforce_pool {
         /// sign-in can be restricted to given set of services or programmatic sign-in can be disabled for pool users.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub access_restrictions: pulumi_wasm_rust::Output<
+        pub access_restrictions: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkforcePoolAccessRestrictions>,
         >,
         /// A user-specified description of the pool. Cannot exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens,
         /// or use existing tokens to access resources. If the pool is re-enabled, existing tokens grant access again.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A user-specified display name of the pool in Google Cloud Console. Cannot exceed 32 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location for the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The resource name of the parent. Format: `organizations/{org-id}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Duration that the Google Cloud access tokens, console sign-in sessions,
         /// and `gcloud` sign-in sessions from this pool are valid.
         /// Must be greater than 15 minutes (900s) and less than 12 hours (43200s).
         /// If `sessionDuration` is not configured, minted credentials have a default duration of one hour (3600s).
         /// A duration in seconds with up to nine fractional digits, ending with '`s`'. Example: "`3.5s`".
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the pool. The ID must be a globally unique string of 6 to 63 lowercase letters,
         /// digits, or hyphens. It must start with a letter, and cannot have a trailing hyphen.
         /// The prefix `gcp-` is reserved for use by Google, and may not be specified.
         #[builder(into)]
-        pub workforce_pool_id: pulumi_wasm_rust::Output<String>,
+        pub workforce_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkforcePoolResult {
@@ -178,17 +178,30 @@ pub mod workforce_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkforcePoolArgs) -> WorkforcePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkforcePoolArgs,
+    ) -> WorkforcePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_restrictions_binding = args.access_restrictions.get_inner();
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let session_duration_binding = args.session_duration.get_inner();
-        let workforce_pool_id_binding = args.workforce_pool_id.get_inner();
+        let access_restrictions_binding = args
+            .access_restrictions
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let session_duration_binding = args
+            .session_duration
+            .get_output(context)
+            .get_inner();
+        let workforce_pool_id_binding = args
+            .workforce_pool_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workforcePool:WorkforcePool".into(),
             name: name.to_string(),
@@ -260,7 +273,7 @@ pub mod workforce_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

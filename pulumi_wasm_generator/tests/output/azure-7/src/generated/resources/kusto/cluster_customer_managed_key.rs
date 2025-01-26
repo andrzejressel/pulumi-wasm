@@ -97,25 +97,25 @@
 /// ```
 ///
 pub mod cluster_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyArgs {
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of Key Vault Key.
         #[builder(into)]
-        pub key_name: pulumi_wasm_rust::Output<String>,
+        pub key_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Key Vault.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of Key Vault Key.
         #[builder(into, default)]
-        pub key_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         #[builder(into, default)]
-        pub user_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterCustomerManagedKeyResult {
@@ -135,16 +135,17 @@ pub mod cluster_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClusterCustomerManagedKeyArgs,
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let key_name_binding = args.key_name.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let key_version_binding = args.key_version.get_inner();
-        let user_identity_binding = args.user_identity.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let key_name_binding = args.key_name.get_output(context).get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let key_version_binding = args.key_version.get_output(context).get_inner();
+        let user_identity_binding = args.user_identity.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),
@@ -190,7 +191,7 @@ pub mod cluster_customer_managed_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -159,14 +159,14 @@
 /// This resource does not support import.
 ///
 pub mod dataset_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetAccessArgs {
         /// Grants all resources of particular types in a particular dataset read access to the current dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authorized_dataset: pulumi_wasm_rust::Output<
+        pub authorized_dataset: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessAuthorizedDataset>,
         >,
         /// A unique ID for this dataset, without the project name. The ID
@@ -176,22 +176,22 @@ pub mod dataset_access {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A domain to grant access to. Any users signed in with the
         /// domain specified will be granted the specified access
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An email address of a Google Group to grant access to.
         #[builder(into, default)]
-        pub group_by_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub group_by_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Some other type of member that appears in the IAM Policy but isn't a user,
         /// group, domain, or special group. For example: `allUsers`
         #[builder(into, default)]
-        pub iam_member: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_member: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Describes the rights granted to the user specified by the other
         /// member of the access object. Basic, predefined, and custom roles are
         /// supported. Predefined roles that have equivalent basic roles are
@@ -199,7 +199,7 @@ pub mod dataset_access {
         /// post-create. See
         /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A routine from a different dataset to grant access to. Queries
         /// executed against that routine will have read access to tables in
         /// this dataset. The role field is not required when this field is
@@ -207,7 +207,7 @@ pub mod dataset_access {
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub routine: pulumi_wasm_rust::Output<
+        pub routine: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessRoutine>,
         >,
         /// A special group to grant access to. Possible values include:
@@ -216,11 +216,11 @@ pub mod dataset_access {
         /// * `projectWriters`: Writers of the enclosing project.
         /// * `allAuthenticatedUsers`: All authenticated BigQuery users.
         #[builder(into, default)]
-        pub special_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub special_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An email address of a user to grant access to. For example:
         /// fred@example.com
         #[builder(into, default)]
-        pub user_by_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_by_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A view from a different dataset to grant access to. Queries
         /// executed against that view will have read access to tables in
         /// this dataset. The role field is not required when this field is
@@ -228,7 +228,7 @@ pub mod dataset_access {
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub view: pulumi_wasm_rust::Output<
+        pub view: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessView>,
         >,
     }
@@ -299,20 +299,27 @@ pub mod dataset_access {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatasetAccessArgs) -> DatasetAccessResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatasetAccessArgs,
+    ) -> DatasetAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorized_dataset_binding = args.authorized_dataset.get_inner();
-        let dataset_id_binding = args.dataset_id.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let group_by_email_binding = args.group_by_email.get_inner();
-        let iam_member_binding = args.iam_member.get_inner();
-        let project_binding = args.project.get_inner();
-        let role_binding = args.role.get_inner();
-        let routine_binding = args.routine.get_inner();
-        let special_group_binding = args.special_group.get_inner();
-        let user_by_email_binding = args.user_by_email.get_inner();
-        let view_binding = args.view.get_inner();
+        let authorized_dataset_binding = args
+            .authorized_dataset
+            .get_output(context)
+            .get_inner();
+        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let group_by_email_binding = args.group_by_email.get_output(context).get_inner();
+        let iam_member_binding = args.iam_member.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let routine_binding = args.routine.get_output(context).get_inner();
+        let special_group_binding = args.special_group.get_output(context).get_inner();
+        let user_by_email_binding = args.user_by_email.get_output(context).get_inner();
+        let view_binding = args.view.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/datasetAccess:DatasetAccess".into(),
             name: name.to_string(),
@@ -402,7 +409,7 @@ pub mod dataset_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

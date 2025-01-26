@@ -38,21 +38,21 @@
 /// $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
 /// ```
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         #[builder(into, default)]
-        pub aws_kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         #[builder(into, default)]
-        pub content_config: pulumi_wasm_rust::Output<
+        pub content_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elastictranscoder::PipelineContentConfig>,
         >,
         /// The permissions for the `content_config` object. (documented below)
         #[builder(into, default)]
-        pub content_config_permissions: pulumi_wasm_rust::Output<
+        pub content_config_permissions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::elastictranscoder::PipelineContentConfigPermission,
@@ -61,24 +61,24 @@ pub mod pipeline {
         >,
         /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         #[builder(into)]
-        pub input_bucket: pulumi_wasm_rust::Output<String>,
+        pub input_bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the pipeline. Maximum 40 characters
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         #[builder(into, default)]
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elastictranscoder::PipelineNotifications>,
         >,
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         #[builder(into, default)]
-        pub output_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub output_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         #[builder(into, default)]
-        pub thumbnail_config: pulumi_wasm_rust::Output<
+        pub thumbnail_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elastictranscoder::PipelineThumbnailConfig>,
         >,
         /// The permissions for the `thumbnail_config` object. (documented below)
@@ -90,7 +90,7 @@ pub mod pipeline {
         /// `thumbnail_config`. If you specify values for `content_config` and
         /// `thumbnail_config`, omit the `output_bucket` object.
         #[builder(into, default)]
-        pub thumbnail_config_permissions: pulumi_wasm_rust::Output<
+        pub thumbnail_config_permissions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::elastictranscoder::PipelineThumbnailConfigPermission,
@@ -152,22 +152,34 @@ pub mod pipeline {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PipelineArgs) -> PipelineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PipelineArgs,
+    ) -> PipelineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_kms_key_arn_binding = args.aws_kms_key_arn.get_inner();
-        let content_config_binding = args.content_config.get_inner();
+        let aws_kms_key_arn_binding = args
+            .aws_kms_key_arn
+            .get_output(context)
+            .get_inner();
+        let content_config_binding = args.content_config.get_output(context).get_inner();
         let content_config_permissions_binding = args
             .content_config_permissions
+            .get_output(context)
             .get_inner();
-        let input_bucket_binding = args.input_bucket.get_inner();
-        let name_binding = args.name.get_inner();
-        let notifications_binding = args.notifications.get_inner();
-        let output_bucket_binding = args.output_bucket.get_inner();
-        let role_binding = args.role.get_inner();
-        let thumbnail_config_binding = args.thumbnail_config.get_inner();
+        let input_bucket_binding = args.input_bucket.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notifications_binding = args.notifications.get_output(context).get_inner();
+        let output_bucket_binding = args.output_bucket.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let thumbnail_config_binding = args
+            .thumbnail_config
+            .get_output(context)
+            .get_inner();
         let thumbnail_config_permissions_binding = args
             .thumbnail_config_permissions
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elastictranscoder/pipeline:Pipeline".into(),
@@ -251,7 +263,7 @@ pub mod pipeline {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

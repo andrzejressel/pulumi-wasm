@@ -26,25 +26,25 @@
 /// $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
 /// ```
 pub mod endpoint_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointAccessArgs {
         /// The cluster identifier of the cluster to access.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Redshift-managed VPC endpoint name.
         #[builder(into)]
-        pub endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         #[builder(into, default)]
-        pub resource_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         #[builder(into)]
-        pub subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub subnet_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct EndpointAccessResult {
@@ -71,14 +71,27 @@ pub mod endpoint_access {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointAccessArgs) -> EndpointAccessResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointAccessArgs,
+    ) -> EndpointAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let endpoint_name_binding = args.endpoint_name.get_inner();
-        let resource_owner_binding = args.resource_owner.get_inner();
-        let subnet_group_name_binding = args.subnet_group_name.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let endpoint_name_binding = args.endpoint_name.get_output(context).get_inner();
+        let resource_owner_binding = args.resource_owner.get_output(context).get_inner();
+        let subnet_group_name_binding = args
+            .subnet_group_name
+            .get_output(context)
+            .get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/endpointAccess:EndpointAccess".into(),
             name: name.to_string(),
@@ -132,7 +145,7 @@ pub mod endpoint_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

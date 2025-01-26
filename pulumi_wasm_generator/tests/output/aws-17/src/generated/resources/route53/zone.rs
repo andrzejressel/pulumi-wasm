@@ -73,30 +73,30 @@
 /// $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
 /// ```
 pub mod zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneArgs {
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         #[builder(into, default)]
-        pub delegation_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub delegation_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// This is the name of the hosted zone.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         #[builder(into, default)]
-        pub vpcs: pulumi_wasm_rust::Output<
+        pub vpcs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::route53::ZoneVpc>>,
         >,
     }
@@ -136,15 +136,22 @@ pub mod zone {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZoneArgs,
+    ) -> ZoneResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_inner();
-        let delegation_set_id_binding = args.delegation_set_id.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpcs_binding = args.vpcs.get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let delegation_set_id_binding = args
+            .delegation_set_id
+            .get_output(context)
+            .get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpcs_binding = args.vpcs.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/zone:Zone".into(),
             name: name.to_string(),
@@ -211,7 +218,7 @@ pub mod zone {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

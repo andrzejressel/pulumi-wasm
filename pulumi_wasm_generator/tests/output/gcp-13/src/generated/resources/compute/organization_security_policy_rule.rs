@@ -66,49 +66,51 @@
 /// ```
 ///
 pub mod organization_security_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationSecurityPolicyRuleArgs {
         /// The Action to perform when the client connection triggers the rule. Can currently be either
         /// "allow", "deny" or "goto_next".
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The direction in which this rule applies. If unspecified an INGRESS rule is created. Possible values: ["INGRESS",
         /// "EGRESS"]
         #[builder(into, default)]
-        pub direction: pulumi_wasm_rust::Output<Option<String>>,
+        pub direction: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Denotes whether to enable logging for a particular rule. If logging is enabled, logs will be exported to the configured
         /// export destination in Stackdriver.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
         #[builder(into)]
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::OrganizationSecurityPolicyRuleMatch,
         >,
         /// The ID of the OrganizationSecurityPolicy this rule applies to.
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If set to true, the specified action is not enforced.
         #[builder(into, default)]
-        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An integer indicating the priority of a rule in the list. The priority must be a value
         /// between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the
         /// highest priority and 2147483647 is the lowest prority.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A list of network resource URLs to which this rule applies. This field allows you to control which network's VMs get
         /// this rule. If this field is left blank, all VMs within the organization will receive the rule.
         #[builder(into, default)]
-        pub target_resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of service accounts indicating the sets of instances that are applied with this rule.
         #[builder(into, default)]
-        pub target_service_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_service_accounts: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct OrganizationSecurityPolicyRuleResult {
@@ -147,21 +149,28 @@ pub mod organization_security_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationSecurityPolicyRuleArgs,
     ) -> OrganizationSecurityPolicyRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let description_binding = args.description.get_inner();
-        let direction_binding = args.direction.get_inner();
-        let enable_logging_binding = args.enable_logging.get_inner();
-        let match__binding = args.match_.get_inner();
-        let policy_id_binding = args.policy_id.get_inner();
-        let preview_binding = args.preview.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let target_resources_binding = args.target_resources.get_inner();
-        let target_service_accounts_binding = args.target_service_accounts.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let direction_binding = args.direction.get_output(context).get_inner();
+        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
+        let match__binding = args.match_.get_output(context).get_inner();
+        let policy_id_binding = args.policy_id.get_output(context).get_inner();
+        let preview_binding = args.preview.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let target_resources_binding = args
+            .target_resources
+            .get_output(context)
+            .get_inner();
+        let target_service_accounts_binding = args
+            .target_service_accounts
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/organizationSecurityPolicyRule:OrganizationSecurityPolicyRule"
                 .into(),
@@ -242,7 +251,7 @@ pub mod organization_security_policy_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

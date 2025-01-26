@@ -56,24 +56,24 @@
 /// $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod analytics_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyticsConfigurationArgs {
         /// Name of the bucket this analytics configuration is associated with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::AnalyticsConfigurationFilter>,
         >,
         /// Unique identifier of the analytics configuration for the bucket.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for the analytics data export (documented below).
         #[builder(into, default)]
-        pub storage_class_analysis: pulumi_wasm_rust::Output<
+        pub storage_class_analysis: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::AnalyticsConfigurationStorageClassAnalysis>,
         >,
     }
@@ -97,15 +97,19 @@ pub mod analytics_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AnalyticsConfigurationArgs,
     ) -> AnalyticsConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_class_analysis_binding = args.storage_class_analysis.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_class_analysis_binding = args
+            .storage_class_analysis
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/analyticsConfiguration:AnalyticsConfiguration".into(),
             name: name.to_string(),
@@ -143,7 +147,7 @@ pub mod analytics_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

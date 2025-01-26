@@ -22,21 +22,21 @@
 /// $ pulumi import aws:iot/billingGroup:BillingGroup example example
 /// ```
 pub mod billing_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BillingGroupArgs {
         /// The name of the Billing Group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Billing Group properties. Defined below.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::BillingGroupProperties>,
         >,
         /// Key-value mapping of resource tags
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -67,12 +67,16 @@ pub mod billing_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BillingGroupArgs) -> BillingGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BillingGroupArgs,
+    ) -> BillingGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let properties_binding = args.properties.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/billingGroup:BillingGroup".into(),
             name: name.to_string(),
@@ -115,7 +119,7 @@ pub mod billing_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

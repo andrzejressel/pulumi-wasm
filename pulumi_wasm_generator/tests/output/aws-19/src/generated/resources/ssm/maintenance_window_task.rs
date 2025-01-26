@@ -121,52 +121,52 @@
 /// $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
 /// ```
 pub mod maintenance_window_task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowTaskArgs {
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         #[builder(into, default)]
-        pub cutoff_behavior: pulumi_wasm_rust::Output<Option<String>>,
+        pub cutoff_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the maintenance window task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum number of targets this task can be run for in parallel.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::Output<Option<String>>,
+        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum number of errors allowed before this task stops being scheduled.
         #[builder(into, default)]
-        pub max_errors: pulumi_wasm_rust::Output<Option<String>>,
+        pub max_errors: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window task.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         #[builder(into, default)]
-        pub service_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         #[builder(into, default)]
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::MaintenanceWindowTaskTarget>>,
         >,
         /// The ARN of the task to execute.
         #[builder(into)]
-        pub task_arn: pulumi_wasm_rust::Output<String>,
+        pub task_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block with parameters for task execution.
         #[builder(into, default)]
-        pub task_invocation_parameters: pulumi_wasm_rust::Output<
+        pub task_invocation_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ssm::MaintenanceWindowTaskTaskInvocationParameters,
             >,
         >,
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         #[builder(into)]
-        pub task_type: pulumi_wasm_rust::Output<String>,
+        pub task_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Id of the maintenance window to register the task with.
         #[builder(into)]
-        pub window_id: pulumi_wasm_rust::Output<String>,
+        pub window_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MaintenanceWindowTaskResult {
@@ -210,25 +210,36 @@ pub mod maintenance_window_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MaintenanceWindowTaskArgs,
     ) -> MaintenanceWindowTaskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cutoff_behavior_binding = args.cutoff_behavior.get_inner();
-        let description_binding = args.description.get_inner();
-        let max_concurrency_binding = args.max_concurrency.get_inner();
-        let max_errors_binding = args.max_errors.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let service_role_arn_binding = args.service_role_arn.get_inner();
-        let targets_binding = args.targets.get_inner();
-        let task_arn_binding = args.task_arn.get_inner();
+        let cutoff_behavior_binding = args
+            .cutoff_behavior
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let max_concurrency_binding = args
+            .max_concurrency
+            .get_output(context)
+            .get_inner();
+        let max_errors_binding = args.max_errors.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let service_role_arn_binding = args
+            .service_role_arn
+            .get_output(context)
+            .get_inner();
+        let targets_binding = args.targets.get_output(context).get_inner();
+        let task_arn_binding = args.task_arn.get_output(context).get_inner();
         let task_invocation_parameters_binding = args
             .task_invocation_parameters
+            .get_output(context)
             .get_inner();
-        let task_type_binding = args.task_type.get_inner();
-        let window_id_binding = args.window_id.get_inner();
+        let task_type_binding = args.task_type.get_output(context).get_inner();
+        let window_id_binding = args.window_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask".into(),
             name: name.to_string(),
@@ -328,7 +339,7 @@ pub mod maintenance_window_task {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -36,21 +36,21 @@
 /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
 /// ```
 pub mod application_access_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationAccessScopeArgs {
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
         #[builder(into, default)]
-        pub authorized_targets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorized_targets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name of the access scope to be associated with the specified targets.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationAccessScopeResult {
@@ -68,14 +68,21 @@ pub mod application_access_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationAccessScopeArgs,
     ) -> ApplicationAccessScopeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args.application_arn.get_inner();
-        let authorized_targets_binding = args.authorized_targets.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let application_arn_binding = args
+            .application_arn
+            .get_output(context)
+            .get_inner();
+        let authorized_targets_binding = args
+            .authorized_targets
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope".into(),
             name: name.to_string(),
@@ -106,7 +113,7 @@ pub mod application_access_scope {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

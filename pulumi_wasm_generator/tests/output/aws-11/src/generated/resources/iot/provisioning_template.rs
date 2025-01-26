@@ -77,38 +77,38 @@
 /// $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
 /// ```
 pub mod provisioning_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProvisioningTemplateArgs {
         /// The description of the fleet provisioning template.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// True to enable the fleet provisioning template, otherwise false.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the fleet provisioning template.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a pre-provisioning hook template. Details below.
         #[builder(into, default)]
-        pub pre_provisioning_hook: pulumi_wasm_rust::Output<
+        pub pre_provisioning_hook: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::ProvisioningTemplatePreProvisioningHook>,
         >,
         /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         #[builder(into)]
-        pub provisioning_role_arn: pulumi_wasm_rust::Output<String>,
+        pub provisioning_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The JSON formatted contents of the fleet provisioning template.
         #[builder(into)]
-        pub template_body: pulumi_wasm_rust::Output<String>,
+        pub template_body: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type you define in a provisioning template.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProvisioningTemplateResult {
@@ -146,19 +146,26 @@ pub mod provisioning_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProvisioningTemplateArgs,
     ) -> ProvisioningTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let pre_provisioning_hook_binding = args.pre_provisioning_hook.get_inner();
-        let provisioning_role_arn_binding = args.provisioning_role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_body_binding = args.template_body.get_inner();
-        let type__binding = args.type_.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pre_provisioning_hook_binding = args
+            .pre_provisioning_hook
+            .get_output(context)
+            .get_inner();
+        let provisioning_role_arn_binding = args
+            .provisioning_role_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_body_binding = args.template_body.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/provisioningTemplate:ProvisioningTemplate".into(),
             name: name.to_string(),
@@ -233,7 +240,7 @@ pub mod provisioning_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

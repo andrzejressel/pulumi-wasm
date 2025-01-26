@@ -26,22 +26,22 @@
 /// ```
 ///
 pub mod workers_secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkersSecretArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Worker secret. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Worker script to associate the secret with. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub script_name: pulumi_wasm_rust::Output<String>,
+        pub script_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The text of the Worker secret. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub secret_text: pulumi_wasm_rust::Output<String>,
+        pub secret_text: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkersSecretResult {
@@ -58,13 +58,17 @@ pub mod workers_secret {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkersSecretArgs) -> WorkersSecretResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkersSecretArgs,
+    ) -> WorkersSecretResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let script_name_binding = args.script_name.get_inner();
-        let secret_text_binding = args.secret_text.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let script_name_binding = args.script_name.get_output(context).get_inner();
+        let secret_text_binding = args.secret_text.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersSecret:WorkersSecret".into(),
             name: name.to_string(),
@@ -102,7 +106,7 @@ pub mod workers_secret {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

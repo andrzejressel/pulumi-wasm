@@ -27,32 +27,32 @@
 /// $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
 /// ```
 pub mod access_entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessEntryArgs {
         /// Name of the EKS Cluster.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         #[builder(into, default)]
-        pub kubernetes_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub kubernetes_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessEntryResult {
@@ -87,15 +87,22 @@ pub mod access_entry {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessEntryArgs) -> AccessEntryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessEntryArgs,
+    ) -> AccessEntryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let kubernetes_groups_binding = args.kubernetes_groups.get_inner();
-        let principal_arn_binding = args.principal_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let kubernetes_groups_binding = args
+            .kubernetes_groups
+            .get_output(context)
+            .get_inner();
+        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/accessEntry:AccessEntry".into(),
             name: name.to_string(),
@@ -159,7 +166,7 @@ pub mod access_entry {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

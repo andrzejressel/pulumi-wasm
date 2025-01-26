@@ -85,49 +85,51 @@
 /// ```
 ///
 pub mod iot_hub_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IotHubDataConnectionArgs {
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub consumer_group: pulumi_wasm_rust::Output<String>,
+        pub consumer_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub data_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         #[builder(into, default)]
-        pub database_routing_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_routing_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         #[builder(into, default)]
-        pub event_system_properties: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub event_system_properties: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub shared_access_policy_name: pulumi_wasm_rust::Output<String>,
+        pub shared_access_policy_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IotHubDataConnectionResult {
@@ -163,26 +165,40 @@ pub mod iot_hub_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IotHubDataConnectionArgs,
     ) -> IotHubDataConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let consumer_group_binding = args.consumer_group.get_inner();
-        let data_format_binding = args.data_format.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let database_routing_type_binding = args.database_routing_type.get_inner();
-        let event_system_properties_binding = args.event_system_properties.get_inner();
-        let iothub_id_binding = args.iothub_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let mapping_rule_name_binding = args.mapping_rule_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let consumer_group_binding = args.consumer_group.get_output(context).get_inner();
+        let data_format_binding = args.data_format.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let database_routing_type_binding = args
+            .database_routing_type
+            .get_output(context)
+            .get_inner();
+        let event_system_properties_binding = args
+            .event_system_properties
+            .get_output(context)
+            .get_inner();
+        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mapping_rule_name_binding = args
+            .mapping_rule_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let shared_access_policy_name_binding = args
             .shared_access_policy_name
+            .get_output(context)
             .get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/iotHubDataConnection:IotHubDataConnection".into(),
             name: name.to_string(),
@@ -283,7 +299,7 @@ pub mod iot_hub_data_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

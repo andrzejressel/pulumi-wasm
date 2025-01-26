@@ -33,7 +33,7 @@
 /// $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod byte_match_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ByteMatchSetArgs {
@@ -41,12 +41,12 @@ pub mod byte_match_set {
         /// with ASCII characters) that you want to search for in web requests,
         /// the location in requests that you want to search, and other settings.
         #[builder(into, default)]
-        pub byte_match_tuples: pulumi_wasm_rust::Output<
+        pub byte_match_tuples: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::ByteMatchSetByteMatchTuple>>,
         >,
         /// The name or description of the Byte Match Set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ByteMatchSetResult {
@@ -63,11 +63,18 @@ pub mod byte_match_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ByteMatchSetArgs) -> ByteMatchSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ByteMatchSetArgs,
+    ) -> ByteMatchSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let byte_match_tuples_binding = args.byte_match_tuples.get_inner();
-        let name_binding = args.name.get_inner();
+        let byte_match_tuples_binding = args
+            .byte_match_tuples
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/byteMatchSet:ByteMatchSet".into(),
             name: name.to_string(),
@@ -91,7 +98,7 @@ pub mod byte_match_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

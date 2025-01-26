@@ -96,84 +96,84 @@
 /// ```
 ///
 pub mod zero_trust_gateway_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewaySettingsArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable the activity log.
         #[builder(into, default)]
-        pub activity_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activity_log_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for antivirus traffic scanning.
         #[builder(into, default)]
-        pub antivirus: pulumi_wasm_rust::Output<
+        pub antivirus: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsAntivirus>,
         >,
         /// Configuration for a custom block page.
         #[builder(into, default)]
-        pub block_page: pulumi_wasm_rust::Output<
+        pub block_page: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsBlockPage>,
         >,
         /// Configuration for body scanning.
         #[builder(into, default)]
-        pub body_scanning: pulumi_wasm_rust::Output<
+        pub body_scanning: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsBodyScanning>,
         >,
         /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::Output<
+        pub certificate: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsCertificate>,
         >,
         /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
         #[builder(into, default)]
-        pub custom_certificate: pulumi_wasm_rust::Output<
+        pub custom_certificate: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsCustomCertificate>,
         >,
         /// Configuration for extended e-mail matching.
         #[builder(into, default)]
-        pub extended_email_matching: pulumi_wasm_rust::Output<
+        pub extended_email_matching: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsExtendedEmailMatching>,
         >,
         /// Configure compliance with Federal Information Processing Standards.
         #[builder(into, default)]
-        pub fips: pulumi_wasm_rust::Output<
+        pub fips: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsFips>,
         >,
         #[builder(into, default)]
-        pub logging: pulumi_wasm_rust::Output<
+        pub logging: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsLogging>,
         >,
         /// Enable non-identity onramp for Browser Isolation. Defaults to `false`.
         #[builder(into, default)]
-        pub non_identity_browser_isolation_enabled: pulumi_wasm_rust::Output<
+        pub non_identity_browser_isolation_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Configuration for DLP Payload Logging.
         #[builder(into, default)]
-        pub payload_log: pulumi_wasm_rust::Output<
+        pub payload_log: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsPayloadLog>,
         >,
         /// Indicator that protocol detection is enabled.
         #[builder(into, default)]
-        pub protocol_detection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub protocol_detection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for specifying which protocols are proxied.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsProxy>,
         >,
         /// Configuration for SSH Session Logging.
         #[builder(into, default)]
-        pub ssh_session_log: pulumi_wasm_rust::Output<
+        pub ssh_session_log: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsSshSessionLog>,
         >,
         /// Indicator that decryption of TLS traffic is enabled.
         #[builder(into, default)]
-        pub tls_decrypt_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_decrypt_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Safely browse websites in Browser Isolation through a URL. Defaults to `false`.
         #[builder(into, default)]
-        pub url_browser_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub url_browser_isolation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewaySettingsResult {
@@ -240,33 +240,52 @@ pub mod zero_trust_gateway_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewaySettingsArgs,
     ) -> ZeroTrustGatewaySettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let activity_log_enabled_binding = args.activity_log_enabled.get_inner();
-        let antivirus_binding = args.antivirus.get_inner();
-        let block_page_binding = args.block_page.get_inner();
-        let body_scanning_binding = args.body_scanning.get_inner();
-        let certificate_binding = args.certificate.get_inner();
-        let custom_certificate_binding = args.custom_certificate.get_inner();
-        let extended_email_matching_binding = args.extended_email_matching.get_inner();
-        let fips_binding = args.fips.get_inner();
-        let logging_binding = args.logging.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let activity_log_enabled_binding = args
+            .activity_log_enabled
+            .get_output(context)
+            .get_inner();
+        let antivirus_binding = args.antivirus.get_output(context).get_inner();
+        let block_page_binding = args.block_page.get_output(context).get_inner();
+        let body_scanning_binding = args.body_scanning.get_output(context).get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
+        let custom_certificate_binding = args
+            .custom_certificate
+            .get_output(context)
+            .get_inner();
+        let extended_email_matching_binding = args
+            .extended_email_matching
+            .get_output(context)
+            .get_inner();
+        let fips_binding = args.fips.get_output(context).get_inner();
+        let logging_binding = args.logging.get_output(context).get_inner();
         let non_identity_browser_isolation_enabled_binding = args
             .non_identity_browser_isolation_enabled
+            .get_output(context)
             .get_inner();
-        let payload_log_binding = args.payload_log.get_inner();
+        let payload_log_binding = args.payload_log.get_output(context).get_inner();
         let protocol_detection_enabled_binding = args
             .protocol_detection_enabled
+            .get_output(context)
             .get_inner();
-        let proxy_binding = args.proxy.get_inner();
-        let ssh_session_log_binding = args.ssh_session_log.get_inner();
-        let tls_decrypt_enabled_binding = args.tls_decrypt_enabled.get_inner();
+        let proxy_binding = args.proxy.get_output(context).get_inner();
+        let ssh_session_log_binding = args
+            .ssh_session_log
+            .get_output(context)
+            .get_inner();
+        let tls_decrypt_enabled_binding = args
+            .tls_decrypt_enabled
+            .get_output(context)
+            .get_inner();
         let url_browser_isolation_enabled_binding = args
             .url_browser_isolation_enabled
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewaySettings:ZeroTrustGatewaySettings"
@@ -397,7 +416,7 @@ pub mod zero_trust_gateway_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

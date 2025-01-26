@@ -83,19 +83,19 @@
 /// $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
 /// ```
 pub mod core_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CoreNetworkArgs {
         /// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         #[builder(into, default)]
-        pub base_policy_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub base_policy_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         #[builder(into, default)]
-        pub base_policy_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub base_policy_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         #[builder(into, default)]
-        pub base_policy_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub base_policy_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         ///
         /// ```json
@@ -123,16 +123,16 @@ pub mod core_network {
         /// }
         /// ```
         #[builder(into, default)]
-        pub create_base_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_base_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Description of the Core Network.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the global network that a core network will be a part of.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -202,16 +202,35 @@ pub mod core_network {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CoreNetworkArgs) -> CoreNetworkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CoreNetworkArgs,
+    ) -> CoreNetworkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let base_policy_document_binding = args.base_policy_document.get_inner();
-        let base_policy_region_binding = args.base_policy_region.get_inner();
-        let base_policy_regions_binding = args.base_policy_regions.get_inner();
-        let create_base_policy_binding = args.create_base_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let base_policy_document_binding = args
+            .base_policy_document
+            .get_output(context)
+            .get_inner();
+        let base_policy_region_binding = args
+            .base_policy_region
+            .get_output(context)
+            .get_inner();
+        let base_policy_regions_binding = args
+            .base_policy_regions
+            .get_output(context)
+            .get_inner();
+        let create_base_policy_binding = args
+            .create_base_policy
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/coreNetwork:CoreNetwork".into(),
             name: name.to_string(),
@@ -288,7 +307,7 @@ pub mod core_network {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

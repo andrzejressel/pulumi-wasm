@@ -25,19 +25,19 @@
 /// }
 /// ```
 pub mod security_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityGroupAssociationArgs {
         /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
         #[builder(into, default)]
-        pub replace_default_association: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_default_association: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the security group to be associated with the VPC endpoint.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC endpoint with which the security group will be associated.
         #[builder(into)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecurityGroupAssociationResult {
@@ -53,6 +53,7 @@ pub mod security_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SecurityGroupAssociationArgs,
     ) -> SecurityGroupAssociationResult {
@@ -60,9 +61,16 @@ pub mod security_group_association {
         use std::collections::HashMap;
         let replace_default_association_binding = args
             .replace_default_association
+            .get_output(context)
             .get_inner();
-        let security_group_id_binding = args.security_group_id.get_inner();
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
+        let security_group_id_binding = args
+            .security_group_id
+            .get_output(context)
+            .get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/securityGroupAssociation:SecurityGroupAssociation".into(),
             name: name.to_string(),
@@ -93,7 +101,7 @@ pub mod security_group_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

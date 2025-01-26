@@ -25,46 +25,48 @@
 /// $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 /// ```
 pub mod firewall {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallArgs {
         /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         #[builder(into, default)]
-        pub delete_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A friendly description of the firewall.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkfirewall::FirewallEncryptionConfiguration>,
         >,
         /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
         #[builder(into)]
-        pub firewall_policy_arn: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         #[builder(into, default)]
-        pub firewall_policy_change_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub firewall_policy_change_protection: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A friendly name of the firewall.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         #[builder(into, default)]
-        pub subnet_change_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subnet_change_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         #[builder(into)]
-        pub subnet_mappings: pulumi_wasm_rust::Output<
+        pub subnet_mappings: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::networkfirewall::FirewallSubnetMapping>,
         >,
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FirewallResult {
@@ -111,21 +113,41 @@ pub mod firewall {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FirewallArgs) -> FirewallResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FirewallArgs,
+    ) -> FirewallResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delete_protection_binding = args.delete_protection.get_inner();
-        let description_binding = args.description.get_inner();
-        let encryption_configuration_binding = args.encryption_configuration.get_inner();
-        let firewall_policy_arn_binding = args.firewall_policy_arn.get_inner();
+        let delete_protection_binding = args
+            .delete_protection
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encryption_configuration_binding = args
+            .encryption_configuration
+            .get_output(context)
+            .get_inner();
+        let firewall_policy_arn_binding = args
+            .firewall_policy_arn
+            .get_output(context)
+            .get_inner();
         let firewall_policy_change_protection_binding = args
             .firewall_policy_change_protection
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let subnet_change_protection_binding = args.subnet_change_protection.get_inner();
-        let subnet_mappings_binding = args.subnet_mappings.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let subnet_change_protection_binding = args
+            .subnet_change_protection
+            .get_output(context)
+            .get_inner();
+        let subnet_mappings_binding = args
+            .subnet_mappings
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/firewall:Firewall".into(),
             name: name.to_string(),
@@ -217,7 +239,7 @@ pub mod firewall {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

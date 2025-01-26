@@ -44,21 +44,21 @@
 /// ```
 ///
 pub mod action_custom {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActionCustomArgs {
         /// Specifies the JSON Blob defining the Body of this Custom Action.
         #[builder(into)]
-        pub body: pulumi_wasm_rust::Output<String>,
+        pub body: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub logic_app_id: pulumi_wasm_rust::Output<String>,
+        pub logic_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ActionCustomResult {
@@ -75,12 +75,16 @@ pub mod action_custom {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ActionCustomArgs) -> ActionCustomResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ActionCustomArgs,
+    ) -> ActionCustomResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let body_binding = args.body.get_inner();
-        let logic_app_id_binding = args.logic_app_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let body_binding = args.body.get_output(context).get_inner();
+        let logic_app_id_binding = args.logic_app_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/actionCustom:ActionCustom".into(),
             name: name.to_string(),
@@ -111,7 +115,7 @@ pub mod action_custom {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

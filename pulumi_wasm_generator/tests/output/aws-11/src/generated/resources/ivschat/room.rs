@@ -24,37 +24,39 @@
 /// $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 /// ```
 pub mod room {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoomArgs {
         /// List of Logging Configuration
         /// ARNs to attach to the room.
         #[builder(into, default)]
-        pub logging_configuration_identifiers: pulumi_wasm_rust::Output<
+        pub logging_configuration_identifiers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Maximum number of characters in a single
         /// message. Messages are expected to be UTF-8 encoded and this limit applies
         /// specifically to rune/code-point count, not number of bytes.
         #[builder(into, default)]
-        pub maximum_message_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_message_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         #[builder(into, default)]
-        pub maximum_message_rate_per_second: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_message_rate_per_second: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Configuration information for optional
         /// review of messages.
         #[builder(into, default)]
-        pub message_review_handler: pulumi_wasm_rust::Output<
+        pub message_review_handler: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ivschat::RoomMessageReviewHandler>,
         >,
         /// Room name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -94,19 +96,31 @@ pub mod room {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoomArgs) -> RoomResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoomArgs,
+    ) -> RoomResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let logging_configuration_identifiers_binding = args
             .logging_configuration_identifiers
+            .get_output(context)
             .get_inner();
-        let maximum_message_length_binding = args.maximum_message_length.get_inner();
+        let maximum_message_length_binding = args
+            .maximum_message_length
+            .get_output(context)
+            .get_inner();
         let maximum_message_rate_per_second_binding = args
             .maximum_message_rate_per_second
+            .get_output(context)
             .get_inner();
-        let message_review_handler_binding = args.message_review_handler.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let message_review_handler_binding = args
+            .message_review_handler
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivschat/room:Room".into(),
             name: name.to_string(),
@@ -164,7 +178,7 @@ pub mod room {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

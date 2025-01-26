@@ -25,19 +25,19 @@
 /// $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
 /// ```
 pub mod vpc_ipam_resource_discovery_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpamResourceDiscoveryAssociationArgs {
         /// The ID of the IPAM to associate.
         #[builder(into)]
-        pub ipam_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Resource Discovery to associate.
         #[builder(into)]
-        pub ipam_resource_discovery_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_resource_discovery_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to add to the IPAM resource discovery association resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -73,16 +73,18 @@ pub mod vpc_ipam_resource_discovery_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIpamResourceDiscoveryAssociationArgs,
     ) -> VpcIpamResourceDiscoveryAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ipam_id_binding = args.ipam_id.get_inner();
+        let ipam_id_binding = args.ipam_id.get_output(context).get_inner();
         let ipam_resource_discovery_id_binding = args
             .ipam_resource_discovery_id
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation"
                 .into(),
@@ -135,7 +137,7 @@ pub mod vpc_ipam_resource_discovery_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

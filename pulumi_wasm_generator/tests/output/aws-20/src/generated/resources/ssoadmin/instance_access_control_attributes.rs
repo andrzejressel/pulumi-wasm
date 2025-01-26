@@ -33,18 +33,18 @@
 /// $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
 /// ```
 pub mod instance_access_control_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceAccessControlAttributesArgs {
         /// See AccessControlAttribute for more details.
         #[builder(into)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::ssoadmin::InstanceAccessControlAttributesAttribute>,
         >,
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceAccessControlAttributesResult {
@@ -62,13 +62,14 @@ pub mod instance_access_control_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceAccessControlAttributesArgs,
     ) -> InstanceAccessControlAttributesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_inner();
-        let instance_arn_binding = args.instance_arn.get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes"
                 .into(),
@@ -99,7 +100,7 @@ pub mod instance_access_control_attributes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

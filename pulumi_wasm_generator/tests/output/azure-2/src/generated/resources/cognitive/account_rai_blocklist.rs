@@ -44,19 +44,19 @@
 /// ```
 ///
 pub mod account_rai_blocklist {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountRaiBlocklistArgs {
         /// The ID of the Cognitive Services Account. Changing this forces a new Cognitive Account Rai Blocklist to be created.
         #[builder(into)]
-        pub cognitive_account_id: pulumi_wasm_rust::Output<String>,
+        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A short description for the Cognitive Account Rai Blocklist.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountRaiBlocklistResult {
@@ -72,14 +72,18 @@ pub mod account_rai_blocklist {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountRaiBlocklistArgs,
     ) -> AccountRaiBlocklistResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding = args.cognitive_account_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
+        let cognitive_account_id_binding = args
+            .cognitive_account_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist".into(),
             name: name.to_string(),
@@ -110,7 +114,7 @@ pub mod account_rai_blocklist {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

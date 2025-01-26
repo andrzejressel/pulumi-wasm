@@ -1,5 +1,5 @@
 pub mod get_dataset_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDatasetIamPolicyArgs {
@@ -8,7 +8,7 @@ pub mod get_dataset_iam_policy {
         /// `{location_name}/{dataset_name}`. In the second form, the provider's
         /// project setting will be used as a fallback.
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDatasetIamPolicyResult {
@@ -24,10 +24,13 @@ pub mod get_dataset_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDatasetIamPolicyArgs) -> GetDatasetIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDatasetIamPolicyArgs,
+    ) -> GetDatasetIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dataset_id_binding = args.dataset_id.get_inner();
+        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getDatasetIamPolicy:getDatasetIamPolicy".into(),
             version: super::super::super::get_version(),
@@ -52,7 +55,7 @@ pub mod get_dataset_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

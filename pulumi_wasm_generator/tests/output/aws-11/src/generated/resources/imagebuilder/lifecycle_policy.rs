@@ -64,40 +64,40 @@
 /// $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
 /// ```
 pub mod lifecycle_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LifecyclePolicyArgs {
         /// description for the lifecycle policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         #[builder(into)]
-        pub execution_role: pulumi_wasm_rust::Output<String>,
+        pub execution_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the lifecycle policy to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block with policy details. Detailed below.
         #[builder(into, default)]
-        pub policy_details: pulumi_wasm_rust::Output<
+        pub policy_details: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::imagebuilder::LifecyclePolicyPolicyDetail>>,
         >,
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub resource_selection: pulumi_wasm_rust::Output<
+        pub resource_selection: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::LifecyclePolicyResourceSelection>,
         >,
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status of the lifecycle policy.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -138,17 +138,24 @@ pub mod lifecycle_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LifecyclePolicyArgs) -> LifecyclePolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LifecyclePolicyArgs,
+    ) -> LifecyclePolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let execution_role_binding = args.execution_role.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_details_binding = args.policy_details.get_inner();
-        let resource_selection_binding = args.resource_selection.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let status_binding = args.status.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let execution_role_binding = args.execution_role.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_details_binding = args.policy_details.get_output(context).get_inner();
+        let resource_selection_binding = args
+            .resource_selection
+            .get_output(context)
+            .get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/lifecyclePolicy:LifecyclePolicy".into(),
             name: name.to_string(),
@@ -220,7 +227,7 @@ pub mod lifecycle_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

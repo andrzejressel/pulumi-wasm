@@ -41,47 +41,47 @@
 /// ```
 ///
 pub mod workbook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkbookArgs {
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::Output<Option<String>>,
+        pub category: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         #[builder(into)]
-        pub data_json: pulumi_wasm_rust::Output<String>,
+        pub data_json: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the description of the workbook.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the user-defined name (display name) of the workbook.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appinsights::WorkbookIdentity>,
         >,
         /// Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         #[builder(into, default)]
-        pub source_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         ///
         /// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         #[builder(into, default)]
-        pub storage_container_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Workbook.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -120,20 +120,30 @@ pub mod workbook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkbookArgs) -> WorkbookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkbookArgs,
+    ) -> WorkbookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let category_binding = args.category.get_inner();
-        let data_json_binding = args.data_json.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let source_id_binding = args.source_id.get_inner();
-        let storage_container_id_binding = args.storage_container_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let data_json_binding = args.data_json.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let source_id_binding = args.source_id.get_output(context).get_inner();
+        let storage_container_id_binding = args
+            .storage_container_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/workbook:Workbook".into(),
             name: name.to_string(),
@@ -220,7 +230,7 @@ pub mod workbook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

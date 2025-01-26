@@ -54,28 +54,28 @@
 /// ```
 ///
 pub mod alert_rule_anomaly_duplicate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleAnomalyDuplicateArgs {
         /// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         #[builder(into)]
-        pub built_in_rule_id: pulumi_wasm_rust::Output<String>,
+        pub built_in_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Display Name of the built-in Anomaly Alert Rule.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the Duplicated Anomaly Alert Rule be enabled?
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of `multi_select_observation` blocks as defined below.
         #[builder(into, default)]
-        pub multi_select_observations: pulumi_wasm_rust::Output<
+        pub multi_select_observations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::AlertRuleAnomalyDuplicateMultiSelectObservation,
@@ -84,7 +84,7 @@ pub mod alert_rule_anomaly_duplicate {
         >,
         /// A list of `prioritized_exclude_observation` blocks as defined below.
         #[builder(into, default)]
-        pub prioritized_exclude_observations: pulumi_wasm_rust::Output<
+        pub prioritized_exclude_observations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::AlertRuleAnomalyDuplicatePrioritizedExcludeObservation,
@@ -93,7 +93,7 @@ pub mod alert_rule_anomaly_duplicate {
         >,
         /// A list of `single_select_observation` blocks as defined below.
         #[builder(into, default)]
-        pub single_select_observations: pulumi_wasm_rust::Output<
+        pub single_select_observations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::AlertRuleAnomalyDuplicateSingleSelectObservation,
@@ -104,7 +104,7 @@ pub mod alert_rule_anomaly_duplicate {
         ///
         /// > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         #[builder(into, default)]
-        pub threshold_observations: pulumi_wasm_rust::Output<
+        pub threshold_observations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::AlertRuleAnomalyDuplicateThresholdObservation,
@@ -179,28 +179,39 @@ pub mod alert_rule_anomaly_duplicate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AlertRuleAnomalyDuplicateArgs,
     ) -> AlertRuleAnomalyDuplicateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let built_in_rule_id_binding = args.built_in_rule_id.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let built_in_rule_id_binding = args
+            .built_in_rule_id
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let mode_binding = args.mode.get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
         let multi_select_observations_binding = args
             .multi_select_observations
+            .get_output(context)
             .get_inner();
         let prioritized_exclude_observations_binding = args
             .prioritized_exclude_observations
+            .get_output(context)
             .get_inner();
         let single_select_observations_binding = args
             .single_select_observations
+            .get_output(context)
             .get_inner();
-        let threshold_observations_binding = args.threshold_observations.get_inner();
+        let threshold_observations_binding = args
+            .threshold_observations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate"
                 .into(),
@@ -304,7 +315,7 @@ pub mod alert_rule_anomaly_duplicate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

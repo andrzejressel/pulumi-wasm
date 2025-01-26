@@ -75,7 +75,7 @@
 /// ```
 ///
 pub mod disk_resource_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskResourcePolicyAttachmentArgs {
@@ -84,18 +84,18 @@ pub mod disk_resource_policy_attachment {
         ///
         /// - - -
         #[builder(into)]
-        pub disk: pulumi_wasm_rust::Output<String>,
+        pub disk: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource policy to be attached to the disk for scheduling snapshot
         /// creation. Do not specify the self link.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the disk resides.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DiskResourcePolicyAttachmentResult {
@@ -118,15 +118,16 @@ pub mod disk_resource_policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DiskResourcePolicyAttachmentArgs,
     ) -> DiskResourcePolicyAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disk_binding = args.disk.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let disk_binding = args.disk.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/diskResourcePolicyAttachment:DiskResourcePolicyAttachment"
                 .into(),
@@ -165,7 +166,7 @@ pub mod disk_resource_policy_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

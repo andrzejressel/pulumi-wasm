@@ -173,7 +173,7 @@
 /// ```
 ///
 pub mod node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodePoolArgs {
@@ -182,47 +182,47 @@ pub mod node_pool {
         ///
         /// - - -
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// Labels associated with this resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Local disk encryption options. This field is only used when enabling CMEK support.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub local_disk_encryption: pulumi_wasm_rust::Output<
+        pub local_disk_encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::NodePoolLocalDiskEncryption>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Only machines matching this filter will be allowed to join the node pool.
         /// The filtering language accepts strings like "name=<name>", and is
         /// documented in more detail in [AIP-160](https://google.aip.dev/160).
         #[builder(into, default)]
-        pub machine_filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub machine_filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the node pool.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for each node in the NodePool
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::NodePoolNodeConfig>,
         >,
         /// The number of nodes in the pool.
         #[builder(into)]
-        pub node_count: pulumi_wasm_rust::Output<i32>,
+        pub node_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: `us-central1-edge-customer-a`.
         #[builder(into)]
-        pub node_location: pulumi_wasm_rust::Output<String>,
+        pub node_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodePoolResult {
@@ -282,19 +282,26 @@ pub mod node_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodePoolArgs) -> NodePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodePoolArgs,
+    ) -> NodePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let local_disk_encryption_binding = args.local_disk_encryption.get_inner();
-        let location_binding = args.location.get_inner();
-        let machine_filter_binding = args.machine_filter.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_config_binding = args.node_config.get_inner();
-        let node_count_binding = args.node_count.get_inner();
-        let node_location_binding = args.node_location.get_inner();
-        let project_binding = args.project.get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let local_disk_encryption_binding = args
+            .local_disk_encryption
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let machine_filter_binding = args.machine_filter.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_config_binding = args.node_config.get_output(context).get_inner();
+        let node_count_binding = args.node_count.get_output(context).get_inner();
+        let node_location_binding = args.node_location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgecontainer/nodePool:NodePool".into(),
             name: name.to_string(),
@@ -389,7 +396,7 @@ pub mod node_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

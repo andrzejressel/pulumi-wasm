@@ -83,47 +83,47 @@
 /// $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
 /// ```
 pub mod analysis {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalysisArgs {
         /// Identifier for the analysis.
         #[builder(into)]
-        pub analysis_id: pulumi_wasm_rust::Output<String>,
+        pub analysis_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Display name for the analysis.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::AnalysisParameters>,
         >,
         /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::AnalysisPermission>>,
         >,
         /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         #[builder(into, default)]
-        pub recovery_window_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub recovery_window_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         #[builder(into, default)]
-        pub source_entity: pulumi_wasm_rust::Output<
+        pub source_entity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::AnalysisSourceEntity>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         #[builder(into, default)]
-        pub theme_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub theme_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AnalysisResult {
@@ -173,18 +173,25 @@ pub mod analysis {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AnalysisArgs) -> AnalysisResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AnalysisArgs,
+    ) -> AnalysisResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let analysis_id_binding = args.analysis_id.get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let recovery_window_in_days_binding = args.recovery_window_in_days.get_inner();
-        let source_entity_binding = args.source_entity.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let theme_arn_binding = args.theme_arn.get_inner();
+        let analysis_id_binding = args.analysis_id.get_output(context).get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let recovery_window_in_days_binding = args
+            .recovery_window_in_days
+            .get_output(context)
+            .get_inner();
+        let source_entity_binding = args.source_entity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let theme_arn_binding = args.theme_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/analysis:Analysis".into(),
             name: name.to_string(),
@@ -275,7 +282,7 @@ pub mod analysis {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

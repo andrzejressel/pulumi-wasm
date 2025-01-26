@@ -51,7 +51,7 @@
 /// $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
 /// ```
 pub mod vpc_endpoint_connection_notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionNotificationArgs {
@@ -59,16 +59,16 @@ pub mod vpc_endpoint_connection_notification {
         ///
         /// > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         #[builder(into)]
-        pub connection_events: pulumi_wasm_rust::Output<Vec<String>>,
+        pub connection_events: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the SNS topic for the notifications.
         #[builder(into)]
-        pub connection_notification_arn: pulumi_wasm_rust::Output<String>,
+        pub connection_notification_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC Endpoint to receive notifications for.
         #[builder(into, default)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the VPC Endpoint Service to receive notifications for.
         #[builder(into, default)]
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_service_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionNotificationResult {
@@ -92,17 +92,28 @@ pub mod vpc_endpoint_connection_notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcEndpointConnectionNotificationArgs,
     ) -> VpcEndpointConnectionNotificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_events_binding = args.connection_events.get_inner();
+        let connection_events_binding = args
+            .connection_events
+            .get_output(context)
+            .get_inner();
         let connection_notification_arn_binding = args
             .connection_notification_arn
+            .get_output(context)
             .get_inner();
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
-        let vpc_endpoint_service_id_binding = args.vpc_endpoint_service_id.get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let vpc_endpoint_service_id_binding = args
+            .vpc_endpoint_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification"
                 .into(),
@@ -147,7 +158,7 @@ pub mod vpc_endpoint_connection_notification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

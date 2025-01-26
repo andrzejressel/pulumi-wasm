@@ -40,35 +40,35 @@
 /// $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
 /// ```
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// Format of the table.
         /// Must be `ICEBERG`.
         #[builder(into)]
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_wasm_rust::InputOrOutput<String>,
         /// A single table bucket maintenance configuration block.
         /// See `maintenance_configuration` below
         #[builder(into, default)]
-        pub maintenance_configuration: pulumi_wasm_rust::Output<
+        pub maintenance_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3tables::TableMaintenanceConfiguration>,
         >,
         /// Name of the table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the namespace for this table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN referencing the Table Bucket that contains this Namespace.
         ///
         /// The following argument is optional:
         #[builder(into)]
-        pub table_bucket_arn: pulumi_wasm_rust::Output<String>,
+        pub table_bucket_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
@@ -118,16 +118,24 @@ pub mod table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableArgs) -> TableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableArgs,
+    ) -> TableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let format_binding = args.format.get_inner();
+        let format_binding = args.format.get_output(context).get_inner();
         let maintenance_configuration_binding = args
             .maintenance_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let table_bucket_arn_binding = args.table_bucket_arn.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let table_bucket_arn_binding = args
+            .table_bucket_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/table:Table".into(),
             name: name.to_string(),
@@ -202,7 +210,7 @@ pub mod table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

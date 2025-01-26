@@ -52,74 +52,78 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         #[builder(into, default)]
-        pub content_types_to_compresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub content_types_to_compresses: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         #[builder(into, default)]
-        pub delivery_rules: pulumi_wasm_rust::Output<
+        pub delivery_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::EndpointDeliveryRule>>,
         >,
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         #[builder(into, default)]
-        pub geo_filters: pulumi_wasm_rust::Output<
+        pub geo_filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::EndpointGeoFilter>>,
         >,
         /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         #[builder(into, default)]
-        pub global_delivery_rule: pulumi_wasm_rust::Output<
+        pub global_delivery_rule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cdn::EndpointGlobalDeliveryRule>,
         >,
         /// Indicates whether compression is to be enabled.
         #[builder(into, default)]
-        pub is_compression_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_compression_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies if http allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub is_http_allowed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_http_allowed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies if https allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub is_https_allowed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_https_allowed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         #[builder(into, default)]
-        pub optimization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub optimization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The host header CDN provider will send along with content requests to origins.
         #[builder(into, default)]
-        pub origin_host_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_host_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The path used at for origin requests.
         #[builder(into, default)]
-        pub origin_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub origins: pulumi_wasm_rust::Output<
+        pub origins: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::cdn::EndpointOrigin>,
         >,
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         ///
         /// > **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         #[builder(into, default)]
-        pub probe_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub probe_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub profile_name: pulumi_wasm_rust::Output<String>,
+        pub profile_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         #[builder(into, default)]
-        pub querystring_caching_behaviour: pulumi_wasm_rust::Output<Option<String>>,
+        pub querystring_caching_behaviour: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -180,31 +184,58 @@ pub mod endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointArgs) -> EndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointArgs,
+    ) -> EndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let content_types_to_compresses_binding = args
             .content_types_to_compresses
+            .get_output(context)
             .get_inner();
-        let delivery_rules_binding = args.delivery_rules.get_inner();
-        let geo_filters_binding = args.geo_filters.get_inner();
-        let global_delivery_rule_binding = args.global_delivery_rule.get_inner();
-        let is_compression_enabled_binding = args.is_compression_enabled.get_inner();
-        let is_http_allowed_binding = args.is_http_allowed.get_inner();
-        let is_https_allowed_binding = args.is_https_allowed.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let optimization_type_binding = args.optimization_type.get_inner();
-        let origin_host_header_binding = args.origin_host_header.get_inner();
-        let origin_path_binding = args.origin_path.get_inner();
-        let origins_binding = args.origins.get_inner();
-        let probe_path_binding = args.probe_path.get_inner();
-        let profile_name_binding = args.profile_name.get_inner();
+        let delivery_rules_binding = args.delivery_rules.get_output(context).get_inner();
+        let geo_filters_binding = args.geo_filters.get_output(context).get_inner();
+        let global_delivery_rule_binding = args
+            .global_delivery_rule
+            .get_output(context)
+            .get_inner();
+        let is_compression_enabled_binding = args
+            .is_compression_enabled
+            .get_output(context)
+            .get_inner();
+        let is_http_allowed_binding = args
+            .is_http_allowed
+            .get_output(context)
+            .get_inner();
+        let is_https_allowed_binding = args
+            .is_https_allowed
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let optimization_type_binding = args
+            .optimization_type
+            .get_output(context)
+            .get_inner();
+        let origin_host_header_binding = args
+            .origin_host_header
+            .get_output(context)
+            .get_inner();
+        let origin_path_binding = args.origin_path.get_output(context).get_inner();
+        let origins_binding = args.origins.get_output(context).get_inner();
+        let probe_path_binding = args.probe_path.get_output(context).get_inner();
+        let profile_name_binding = args.profile_name.get_output(context).get_inner();
         let querystring_caching_behaviour_binding = args
             .querystring_caching_behaviour
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/endpoint:Endpoint".into(),
             name: name.to_string(),
@@ -343,7 +374,7 @@ pub mod endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

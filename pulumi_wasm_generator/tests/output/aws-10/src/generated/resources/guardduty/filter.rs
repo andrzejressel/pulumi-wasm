@@ -45,33 +45,33 @@
 /// $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
 /// ```
 pub mod filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FilterArgs {
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the filter.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of a GuardDuty detector, attached to your account.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         #[builder(into)]
-        pub finding_criteria: pulumi_wasm_rust::Output<
+        pub finding_criteria: pulumi_wasm_rust::InputOrOutput<
             super::super::types::guardduty::FilterFindingCriteria,
         >,
         /// The name of your filter.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         #[builder(into)]
-        pub rank: pulumi_wasm_rust::Output<i32>,
+        pub rank: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,16 +106,23 @@ pub mod filter {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FilterArgs) -> FilterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FilterArgs,
+    ) -> FilterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let description_binding = args.description.get_inner();
-        let detector_id_binding = args.detector_id.get_inner();
-        let finding_criteria_binding = args.finding_criteria.get_inner();
-        let name_binding = args.name.get_inner();
-        let rank_binding = args.rank.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let detector_id_binding = args.detector_id.get_output(context).get_inner();
+        let finding_criteria_binding = args
+            .finding_criteria
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rank_binding = args.rank.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/filter:Filter".into(),
             name: name.to_string(),
@@ -180,7 +187,7 @@ pub mod filter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

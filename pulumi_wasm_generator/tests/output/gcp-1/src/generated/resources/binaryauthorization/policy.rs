@@ -140,14 +140,14 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// A whitelist of image patterns to exclude from admission rules. If an image's name matches a whitelist pattern, the
         /// image's admission requests will always be permitted regardless of your admission rules.
         #[builder(into, default)]
-        pub admission_whitelist_patterns: pulumi_wasm_rust::Output<
+        pub admission_whitelist_patterns: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::binaryauthorization::PolicyAdmissionWhitelistPattern,
@@ -159,7 +159,7 @@ pub mod policy {
         /// denied. There can be at most one admission rule per cluster spec. Identifier format: '{{location}}.{{clusterId}}'. A
         /// location is either a compute zone (e.g. 'us-central1-a') or a region (e.g. 'us-central1').
         #[builder(into, default)]
-        pub cluster_admission_rules: pulumi_wasm_rust::Output<
+        pub cluster_admission_rules: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::binaryauthorization::PolicyClusterAdmissionRule>,
             >,
@@ -168,18 +168,20 @@ pub mod policy {
         /// rule.
         /// Structure is documented below.
         #[builder(into)]
-        pub default_admission_rule: pulumi_wasm_rust::Output<
+        pub default_admission_rule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::binaryauthorization::PolicyDefaultAdmissionRule,
         >,
         /// A descriptive comment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not
         /// covered by the global policy will be subject to the project admission policy. Possible values: ["ENABLE", "DISABLE"]
         #[builder(into, default)]
-        pub global_policy_evaluation_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub global_policy_evaluation_mode: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
@@ -218,19 +220,31 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let admission_whitelist_patterns_binding = args
             .admission_whitelist_patterns
+            .get_output(context)
             .get_inner();
-        let cluster_admission_rules_binding = args.cluster_admission_rules.get_inner();
-        let default_admission_rule_binding = args.default_admission_rule.get_inner();
-        let description_binding = args.description.get_inner();
+        let cluster_admission_rules_binding = args
+            .cluster_admission_rules
+            .get_output(context)
+            .get_inner();
+        let default_admission_rule_binding = args
+            .default_admission_rule
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let global_policy_evaluation_mode_binding = args
             .global_policy_evaluation_mode
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:binaryauthorization/policy:Policy".into(),
             name: name.to_string(),
@@ -282,7 +296,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

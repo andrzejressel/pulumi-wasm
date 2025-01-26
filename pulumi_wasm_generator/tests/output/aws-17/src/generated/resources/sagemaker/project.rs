@@ -31,24 +31,24 @@
 /// $ pulumi import aws:sagemaker/project:Project example example
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// A description for the project.
         #[builder(into, default)]
-        pub project_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub project_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Project.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         #[builder(into)]
-        pub service_catalog_provisioning_details: pulumi_wasm_rust::Output<
+        pub service_catalog_provisioning_details: pulumi_wasm_rust::InputOrOutput<
             super::super::types::sagemaker::ProjectServiceCatalogProvisioningDetails,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -79,15 +79,23 @@ pub mod project {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProjectArgs) -> ProjectResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProjectArgs,
+    ) -> ProjectResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let project_description_binding = args.project_description.get_inner();
-        let project_name_binding = args.project_name.get_inner();
+        let project_description_binding = args
+            .project_description
+            .get_output(context)
+            .get_inner();
+        let project_name_binding = args.project_name.get_output(context).get_inner();
         let service_catalog_provisioning_details_binding = args
             .service_catalog_provisioning_details
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/project:Project".into(),
             name: name.to_string(),
@@ -134,7 +142,7 @@ pub mod project {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -25,22 +25,22 @@
 /// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
 /// ```
 pub mod template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TemplateArgs {
         /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
         #[builder(into)]
-        pub quota_code: pulumi_wasm_rust::Output<String>,
+        pub quota_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS Region to which the template applies.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
         /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
         #[builder(into)]
-        pub service_code: pulumi_wasm_rust::Output<String>,
+        pub service_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The new, increased value for the quota.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<f64>,
+        pub value: pulumi_wasm_rust::InputOrOutput<f64>,
     }
     #[allow(dead_code)]
     pub struct TemplateResult {
@@ -65,13 +65,17 @@ pub mod template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TemplateArgs) -> TemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TemplateArgs,
+    ) -> TemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let quota_code_binding = args.quota_code.get_inner();
-        let region_binding = args.region.get_inner();
-        let service_code_binding = args.service_code.get_inner();
-        let value_binding = args.value.get_inner();
+        let quota_code_binding = args.quota_code.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let service_code_binding = args.service_code.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicequotas/template:Template".into(),
             name: name.to_string(),
@@ -121,7 +125,7 @@ pub mod template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -82,24 +82,24 @@
 /// ```
 ///
 pub mod resolver_virtual_network_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverVirtualNetworkLinkArgs {
         /// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         #[builder(into)]
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::Output<String>,
+        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata attached to the Private DNS Resolver Virtual Network Link.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverVirtualNetworkLinkResult {
@@ -119,6 +119,7 @@ pub mod resolver_virtual_network_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverVirtualNetworkLinkArgs,
     ) -> ResolverVirtualNetworkLinkResult {
@@ -126,10 +127,14 @@ pub mod resolver_virtual_network_link {
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
+            .get_output(context)
             .get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink"
                 .into(),
@@ -168,7 +173,7 @@ pub mod resolver_virtual_network_link {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

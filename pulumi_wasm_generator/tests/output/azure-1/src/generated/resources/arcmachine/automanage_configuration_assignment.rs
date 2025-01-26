@@ -44,18 +44,18 @@
 /// ```
 ///
 pub mod automanage_configuration_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutomanageConfigurationAssignmentArgs {
         /// The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub arc_machine_id: pulumi_wasm_rust::Output<String>,
+        pub arc_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         #[builder(into)]
-        pub configuration_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AutomanageConfigurationAssignmentResult {
@@ -71,13 +71,17 @@ pub mod automanage_configuration_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AutomanageConfigurationAssignmentArgs,
     ) -> AutomanageConfigurationAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arc_machine_id_binding = args.arc_machine_id.get_inner();
-        let configuration_id_binding = args.configuration_id.get_inner();
+        let arc_machine_id_binding = args.arc_machine_id.get_output(context).get_inner();
+        let configuration_id_binding = args
+            .configuration_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
                 .into(),
@@ -102,7 +106,7 @@ pub mod automanage_configuration_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

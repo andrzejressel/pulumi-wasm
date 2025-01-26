@@ -329,94 +329,96 @@
 /// ```
 ///
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         #[builder(into, default)]
-        pub container_registry_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_registry_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of this Machine Learning Workspace.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `encryption` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceEncryption>,
         >,
         /// A `feature_store` block as defined below.
         #[builder(into, default)]
-        pub feature_store: pulumi_wasm_rust::Output<
+        pub feature_store: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceFeatureStore>,
         >,
         /// Display name for this Machine Learning Workspace.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub high_business_impact: pulumi_wasm_rust::Output<Option<bool>>,
+        pub high_business_impact: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::machinelearning::WorkspaceIdentity,
         >,
         /// The compute name for image build of the Machine Learning Workspace.
         #[builder(into, default)]
-        pub image_build_compute_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_build_compute_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `managed_network` block as defined below.
         #[builder(into, default)]
-        pub managed_network: pulumi_wasm_rust::Output<
+        pub managed_network: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceManagedNetwork>,
         >,
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user assigned identity id that represents the workspace identity.
         #[builder(into, default)]
-        pub primary_user_assigned_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_user_assigned_identity: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         ///
         /// > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `serverless_compute` block as defined below.
         #[builder(into, default)]
-        pub serverless_compute: pulumi_wasm_rust::Output<
+        pub serverless_compute: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::WorkspaceServerlessCompute>,
         >,
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         #[builder(into, default)]
-        pub v1_legacy_mode_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub v1_legacy_mode_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
@@ -491,35 +493,68 @@ pub mod workspace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkspaceArgs) -> WorkspaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkspaceArgs,
+    ) -> WorkspaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding = args.application_insights_id.get_inner();
-        let container_registry_id_binding = args.container_registry_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let encryption_binding = args.encryption.get_inner();
-        let feature_store_binding = args.feature_store.get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let high_business_impact_binding = args.high_business_impact.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let image_build_compute_name_binding = args.image_build_compute_name.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let location_binding = args.location.get_inner();
-        let managed_network_binding = args.managed_network.get_inner();
-        let name_binding = args.name.get_inner();
+        let application_insights_id_binding = args
+            .application_insights_id
+            .get_output(context)
+            .get_inner();
+        let container_registry_id_binding = args
+            .container_registry_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encryption_binding = args.encryption.get_output(context).get_inner();
+        let feature_store_binding = args.feature_store.get_output(context).get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let high_business_impact_binding = args
+            .high_business_impact
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let image_build_compute_name_binding = args
+            .image_build_compute_name
+            .get_output(context)
+            .get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_network_binding = args
+            .managed_network
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let primary_user_assigned_identity_binding = args
             .primary_user_assigned_identity
+            .get_output(context)
             .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let serverless_compute_binding = args.serverless_compute.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let v1_legacy_mode_enabled_binding = args.v1_legacy_mode_enabled.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let serverless_compute_binding = args
+            .serverless_compute
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let v1_legacy_mode_enabled_binding = args
+            .v1_legacy_mode_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/workspace:Workspace".into(),
             name: name.to_string(),
@@ -689,7 +724,7 @@ pub mod workspace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

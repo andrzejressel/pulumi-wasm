@@ -94,7 +94,7 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
@@ -102,68 +102,68 @@ pub mod service {
         ///
         /// > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         #[builder(into, default)]
-        pub allowed_ips: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
         ///
         /// > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         #[builder(into, default)]
-        pub authentication_failure_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_failure_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         #[builder(into, default)]
-        pub customer_managed_key_enforcement_enabled: pulumi_wasm_rust::Output<
+        pub customer_managed_key_enforcement_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
         ///
         /// > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         #[builder(into, default)]
-        pub hosting_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub hosting_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::search::ServiceIdentity>,
         >,
         /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
         #[builder(into, default)]
-        pub network_rule_bypass_option: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_rule_bypass_option: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         ///
         /// > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         #[builder(into, default)]
-        pub partition_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub partition_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         #[builder(into, default)]
-        pub replica_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
         ///
         /// > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         #[builder(into, default)]
-        pub semantic_search_sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub semantic_search_sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
         ///
         /// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
         ///
         /// > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a mapping of tags which should be assigned to this Search Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -238,35 +238,53 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_ips_binding = args.allowed_ips.get_inner();
+        let allowed_ips_binding = args.allowed_ips.get_output(context).get_inner();
         let authentication_failure_mode_binding = args
             .authentication_failure_mode
+            .get_output(context)
             .get_inner();
         let customer_managed_key_enforcement_enabled_binding = args
             .customer_managed_key_enforcement_enabled
+            .get_output(context)
             .get_inner();
-        let hosting_mode_binding = args.hosting_mode.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let hosting_mode_binding = args.hosting_mode.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let local_authentication_enabled_binding = args
             .local_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let network_rule_bypass_option_binding = args
             .network_rule_bypass_option
+            .get_output(context)
             .get_inner();
-        let partition_count_binding = args.partition_count.get_inner();
+        let partition_count_binding = args
+            .partition_count
+            .get_output(context)
+            .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let replica_count_binding = args.replica_count.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let semantic_search_sku_binding = args.semantic_search_sku.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let replica_count_binding = args.replica_count.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let semantic_search_sku_binding = args
+            .semantic_search_sku
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:search/service:Service".into(),
             name: name.to_string(),
@@ -400,7 +418,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

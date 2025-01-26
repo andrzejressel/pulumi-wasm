@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod domain_trust {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainTrustArgs {
@@ -64,32 +64,32 @@ pub mod domain_trust {
         ///
         /// - - -
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the trusted side has forest/domain wide access or selective access to an approved set of resources.
         #[builder(into, default)]
-        pub selective_authentication: pulumi_wasm_rust::Output<Option<bool>>,
+        pub selective_authentication: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The target DNS server IP addresses which can resolve the remote domain involved in the trust.
         #[builder(into)]
-        pub target_dns_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub target_dns_ip_addresses: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The fully qualified target domain name which will be in trust with the current domain.
         #[builder(into)]
-        pub target_domain_name: pulumi_wasm_rust::Output<String>,
+        pub target_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The trust direction, which decides if the current domain is trusted, trusting, or both.
         /// Possible values are: `INBOUND`, `OUTBOUND`, `BIDIRECTIONAL`.
         #[builder(into)]
-        pub trust_direction: pulumi_wasm_rust::Output<String>,
+        pub trust_direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// The trust secret used for the handshake with the target domain. This will not be stored.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub trust_handshake_secret: pulumi_wasm_rust::Output<String>,
+        pub trust_handshake_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of trust represented by the trust resource.
         /// Possible values are: `FOREST`, `EXTERNAL`.
         #[builder(into)]
-        pub trust_type: pulumi_wasm_rust::Output<String>,
+        pub trust_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainTrustResult {
@@ -122,17 +122,36 @@ pub mod domain_trust {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainTrustArgs) -> DomainTrustResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainTrustArgs,
+    ) -> DomainTrustResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
-        let project_binding = args.project.get_inner();
-        let selective_authentication_binding = args.selective_authentication.get_inner();
-        let target_dns_ip_addresses_binding = args.target_dns_ip_addresses.get_inner();
-        let target_domain_name_binding = args.target_domain_name.get_inner();
-        let trust_direction_binding = args.trust_direction.get_inner();
-        let trust_handshake_secret_binding = args.trust_handshake_secret.get_inner();
-        let trust_type_binding = args.trust_type.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let selective_authentication_binding = args
+            .selective_authentication
+            .get_output(context)
+            .get_inner();
+        let target_dns_ip_addresses_binding = args
+            .target_dns_ip_addresses
+            .get_output(context)
+            .get_inner();
+        let target_domain_name_binding = args
+            .target_domain_name
+            .get_output(context)
+            .get_inner();
+        let trust_direction_binding = args
+            .trust_direction
+            .get_output(context)
+            .get_inner();
+        let trust_handshake_secret_binding = args
+            .trust_handshake_secret
+            .get_output(context)
+            .get_inner();
+        let trust_type_binding = args.trust_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:activedirectory/domainTrust:DomainTrust".into(),
             name: name.to_string(),
@@ -198,7 +217,7 @@ pub mod domain_trust {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

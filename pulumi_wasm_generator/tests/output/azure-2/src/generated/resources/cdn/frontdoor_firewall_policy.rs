@@ -99,54 +99,56 @@
 /// ```
 ///
 pub mod frontdoor_firewall_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorFirewallPolicyArgs {
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         #[builder(into, default)]
-        pub custom_block_response_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_block_response_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         #[builder(into, default)]
-        pub custom_block_response_status_code: pulumi_wasm_rust::Output<Option<i32>>,
+        pub custom_block_response_status_code: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// One or more `custom_rule` blocks as defined below.
         #[builder(into, default)]
-        pub custom_rules: pulumi_wasm_rust::Output<
+        pub custom_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::FrontdoorFirewallPolicyCustomRule>>,
         >,
         /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more `managed_rule` blocks as defined below.
         #[builder(into, default)]
-        pub managed_rules: pulumi_wasm_rust::Output<
+        pub managed_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cdn::FrontdoorFirewallPolicyManagedRule>>,
         >,
         /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If action type is redirect, this field represents redirect URL for the client.
         #[builder(into, default)]
-        pub redirect_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub redirect_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should policy managed rules inspect the request body content? Defaults to `true`.
         ///
         /// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         #[builder(into, default)]
-        pub request_body_check_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub request_body_check_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Front Door Firewall Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -194,6 +196,7 @@ pub mod frontdoor_firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FrontdoorFirewallPolicyArgs,
     ) -> FrontdoorFirewallPolicyResult {
@@ -201,22 +204,28 @@ pub mod frontdoor_firewall_policy {
         use std::collections::HashMap;
         let custom_block_response_body_binding = args
             .custom_block_response_body
+            .get_output(context)
             .get_inner();
         let custom_block_response_status_code_binding = args
             .custom_block_response_status_code
+            .get_output(context)
             .get_inner();
-        let custom_rules_binding = args.custom_rules.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let managed_rules_binding = args.managed_rules.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let name_binding = args.name.get_inner();
-        let redirect_url_binding = args.redirect_url.get_inner();
+        let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let managed_rules_binding = args.managed_rules.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let redirect_url_binding = args.redirect_url.get_output(context).get_inner();
         let request_body_check_enabled_binding = args
             .request_body_check_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy".into(),
             name: name.to_string(),
@@ -313,7 +322,7 @@ pub mod frontdoor_firewall_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

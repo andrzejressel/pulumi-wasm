@@ -1,5 +1,5 @@
 pub mod get_outpost_instance_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOutpostInstanceTypeArgs {
@@ -7,13 +7,15 @@ pub mod get_outpost_instance_type {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Desired instance type. Conflicts with `preferred_instance_types`.
         #[builder(into, default)]
-        pub instance_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
         #[builder(into, default)]
-        pub preferred_instance_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preferred_instance_types: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct GetOutpostInstanceTypeResult {
@@ -27,12 +29,18 @@ pub mod get_outpost_instance_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetOutpostInstanceTypeArgs) -> GetOutpostInstanceTypeResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetOutpostInstanceTypeArgs,
+    ) -> GetOutpostInstanceTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let preferred_instance_types_binding = args.preferred_instance_types.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let preferred_instance_types_binding = args
+            .preferred_instance_types
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutpostInstanceType:getOutpostInstanceType".into(),
             version: super::super::super::get_version(),
@@ -65,7 +73,7 @@ pub mod get_outpost_instance_type {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

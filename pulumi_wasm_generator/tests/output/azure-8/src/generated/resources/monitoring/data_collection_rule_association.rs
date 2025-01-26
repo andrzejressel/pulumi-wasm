@@ -135,29 +135,29 @@
 /// ```
 ///
 pub mod data_collection_rule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataCollectionRuleAssociationArgs {
         /// The ID of the Data Collection Endpoint which will be associated to the target resource.
         #[builder(into, default)]
-        pub data_collection_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_collection_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Data Collection Rule which will be associated to the target resource.
         ///
         /// > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         #[builder(into, default)]
-        pub data_collection_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_collection_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the Data Collection Rule Association.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         ///
         /// > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataCollectionRuleAssociationResult {
@@ -181,6 +181,7 @@ pub mod data_collection_rule_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataCollectionRuleAssociationArgs,
     ) -> DataCollectionRuleAssociationResult {
@@ -188,11 +189,18 @@ pub mod data_collection_rule_association {
         use std::collections::HashMap;
         let data_collection_endpoint_id_binding = args
             .data_collection_endpoint_id
+            .get_output(context)
             .get_inner();
-        let data_collection_rule_id_binding = args.data_collection_rule_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
+        let data_collection_rule_id_binding = args
+            .data_collection_rule_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation"
                 .into(),
@@ -238,7 +246,7 @@ pub mod data_collection_rule_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

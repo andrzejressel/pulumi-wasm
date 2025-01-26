@@ -45,25 +45,25 @@
 /// ```
 ///
 pub mod data_source_windows_event {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceWindowsEventArgs {
         /// Specifies the name of the Windows Event Log to collect events from.
         #[builder(into)]
-        pub event_log_name: pulumi_wasm_rust::Output<String>,
+        pub event_log_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         #[builder(into)]
-        pub event_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub event_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         #[builder(into)]
-        pub workspace_name: pulumi_wasm_rust::Output<String>,
+        pub workspace_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataSourceWindowsEventResult {
@@ -83,16 +83,20 @@ pub mod data_source_windows_event {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataSourceWindowsEventArgs,
     ) -> DataSourceWindowsEventResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let event_log_name_binding = args.event_log_name.get_inner();
-        let event_types_binding = args.event_types.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let workspace_name_binding = args.workspace_name.get_inner();
+        let event_log_name_binding = args.event_log_name.get_output(context).get_inner();
+        let event_types_binding = args.event_types.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let workspace_name_binding = args.workspace_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent"
                 .into(),
@@ -138,7 +142,7 @@ pub mod data_source_windows_event {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

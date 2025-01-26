@@ -277,16 +277,16 @@
 /// $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 /// ```
 pub mod tls_inspection_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TlsInspectionConfigurationArgs {
         /// Description of the TLS inspection configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Encryption configuration block. Detailed below.
         #[builder(into, default)]
-        pub encryption_configurations: pulumi_wasm_rust::Output<
+        pub encryption_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::networkfirewall::TlsInspectionConfigurationEncryptionConfiguration,
@@ -295,13 +295,13 @@ pub mod tls_inspection_configuration {
         >,
         /// Descriptive name of the TLS inspection configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTimeouts,
             >,
@@ -310,7 +310,7 @@ pub mod tls_inspection_configuration {
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub tls_inspection_configuration: pulumi_wasm_rust::Output<
+        pub tls_inspection_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTlsInspectionConfiguration,
             >,
@@ -373,20 +373,23 @@ pub mod tls_inspection_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TlsInspectionConfigurationArgs,
     ) -> TlsInspectionConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let encryption_configurations_binding = args
             .encryption_configurations
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let tls_inspection_configuration_binding = args
             .tls_inspection_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration"
@@ -461,7 +464,7 @@ pub mod tls_inspection_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

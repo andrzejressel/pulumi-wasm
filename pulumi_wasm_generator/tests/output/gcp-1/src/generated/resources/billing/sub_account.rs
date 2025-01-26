@@ -30,7 +30,7 @@
 /// ```
 ///
 pub mod sub_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubAccountArgs {
@@ -38,14 +38,14 @@ pub mod sub_account {
         /// will be changed to "Destroyed" along with a timestamp.  If set to "" this will not occur.
         /// Default is "".
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the billing account.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the master billing account that the subaccount
         /// will be created under in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
         #[builder(into)]
-        pub master_billing_account: pulumi_wasm_rust::Output<String>,
+        pub master_billing_account: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubAccountResult {
@@ -69,12 +69,22 @@ pub mod sub_account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubAccountArgs) -> SubAccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubAccountArgs,
+    ) -> SubAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let master_billing_account_binding = args.master_billing_account.get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let master_billing_account_binding = args
+            .master_billing_account
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/subAccount:SubAccount".into(),
             name: name.to_string(),
@@ -114,7 +124,7 @@ pub mod sub_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -63,25 +63,25 @@
 /// ```
 ///
 pub mod mover_target_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverTargetEndpointArgs {
         /// Specifies a description for the Storage Mover Target Endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
+        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MoverTargetEndpointResult {
@@ -101,16 +101,26 @@ pub mod mover_target_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MoverTargetEndpointArgs,
     ) -> MoverTargetEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let storage_container_name_binding = args.storage_container_name.get_inner();
-        let storage_mover_id_binding = args.storage_mover_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let storage_container_name_binding = args
+            .storage_container_name
+            .get_output(context)
+            .get_inner();
+        let storage_mover_id_binding = args
+            .storage_mover_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/moverTargetEndpoint:MoverTargetEndpoint".into(),
             name: name.to_string(),
@@ -155,7 +165,7 @@ pub mod mover_target_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

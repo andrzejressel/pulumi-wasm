@@ -140,7 +140,7 @@
 /// ```
 ///
 pub mod workstation_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkstationClusterArgs {
@@ -148,36 +148,36 @@ pub mod workstation_cluster {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Human-readable name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration options for a custom domain.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub domain_config: pulumi_wasm_rust::Output<
+        pub domain_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workstations::WorkstationClusterDomainConfig>,
         >,
         /// Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the workstation cluster should reside.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the VPC network on which the instance can be accessed.
         /// It is specified in the following form: "projects/{projectNumber}/global/networks/{network_id}".
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for private cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_cluster_config: pulumi_wasm_rust::Output<
+        pub private_cluster_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::workstations::WorkstationClusterPrivateClusterConfig,
             >,
@@ -185,17 +185,17 @@ pub mod workstation_cluster {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Compute Engine subnetwork in which instances associated with this cluster will be created.
         /// Must be part of the subnetwork specified for this cluster.
         #[builder(into)]
-        pub subnetwork: pulumi_wasm_rust::Output<String>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID to use for the workstation cluster.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub workstation_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkstationClusterResult {
@@ -278,19 +278,29 @@ pub mod workstation_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkstationClusterArgs) -> WorkstationClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkstationClusterArgs,
+    ) -> WorkstationClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let domain_config_binding = args.domain_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let network_binding = args.network.get_inner();
-        let private_cluster_config_binding = args.private_cluster_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
-        let workstation_cluster_id_binding = args.workstation_cluster_id.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let domain_config_binding = args.domain_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let private_cluster_config_binding = args
+            .private_cluster_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
+        let workstation_cluster_id_binding = args
+            .workstation_cluster_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationCluster:WorkstationCluster".into(),
             name: name.to_string(),
@@ -400,7 +410,7 @@ pub mod workstation_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -68,24 +68,24 @@
 /// $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
 /// ```
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Logging configuration for the workspace. See Logging Configuration below for details.
         #[builder(into, default)]
-        pub logging_configuration: pulumi_wasm_rust::Output<
+        pub logging_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::amp::WorkspaceLoggingConfiguration>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -116,13 +116,20 @@ pub mod workspace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkspaceArgs) -> WorkspaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkspaceArgs,
+    ) -> WorkspaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
-        let logging_configuration_binding = args.logging_configuration.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let logging_configuration_binding = args
+            .logging_configuration
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amp/workspace:Workspace".into(),
             name: name.to_string(),
@@ -169,7 +176,7 @@ pub mod workspace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

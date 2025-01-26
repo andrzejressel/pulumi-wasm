@@ -75,22 +75,22 @@
 /// $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
 /// ```
 pub mod user_pool_ui_customization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoolUICustomizationArgs {
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         #[builder(into, default)]
-        pub client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         #[builder(into, default)]
-        pub css: pulumi_wasm_rust::Output<Option<String>>,
+        pub css: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         #[builder(into, default)]
-        pub image_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user pool ID for the user pool.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPoolUICustomizationResult {
@@ -116,15 +116,16 @@ pub mod user_pool_ui_customization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserPoolUICustomizationArgs,
     ) -> UserPoolUICustomizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_id_binding = args.client_id.get_inner();
-        let css_binding = args.css.get_inner();
-        let image_file_binding = args.image_file.get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let css_binding = args.css.get_output(context).get_inner();
+        let image_file_binding = args.image_file.get_output(context).get_inner();
+        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userPoolUICustomization:UserPoolUICustomization".into(),
             name: name.to_string(),
@@ -174,7 +175,7 @@ pub mod user_pool_ui_customization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

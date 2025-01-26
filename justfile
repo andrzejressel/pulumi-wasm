@@ -93,7 +93,6 @@ publish:
     cargo hack publish -p pulumi_wasm_wit --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_proto --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_common --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_rust_macro --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_rust --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_generator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_build --all-features --no-dev-deps --allow-dirty

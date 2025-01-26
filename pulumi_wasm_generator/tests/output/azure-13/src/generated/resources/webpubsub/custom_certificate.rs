@@ -88,7 +88,7 @@
 /// ```
 ///
 pub mod custom_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomCertificateArgs {
@@ -96,15 +96,15 @@ pub mod custom_certificate {
         ///
         /// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         #[builder(into)]
-        pub custom_certificate_id: pulumi_wasm_rust::Output<String>,
+        pub custom_certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
         ///
         /// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         #[builder(into)]
-        pub web_pubsub_id: pulumi_wasm_rust::Output<String>,
+        pub web_pubsub_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomCertificateResult {
@@ -125,12 +125,19 @@ pub mod custom_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomCertificateArgs) -> CustomCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomCertificateArgs,
+    ) -> CustomCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_certificate_id_binding = args.custom_certificate_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let web_pubsub_id_binding = args.web_pubsub_id.get_inner();
+        let custom_certificate_id_binding = args
+            .custom_certificate_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:webpubsub/customCertificate:CustomCertificate".into(),
             name: name.to_string(),
@@ -164,7 +171,7 @@ pub mod custom_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

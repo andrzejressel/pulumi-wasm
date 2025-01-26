@@ -50,22 +50,22 @@
 /// ```
 ///
 pub mod environment_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentCustomDomainArgs {
         /// The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
         #[builder(into)]
-        pub certificate_blob_base64: pulumi_wasm_rust::Output<String>,
+        pub certificate_blob_base64: pulumi_wasm_rust::InputOrOutput<String>,
         /// The password for the Certificate bundle.
         #[builder(into)]
-        pub certificate_password: pulumi_wasm_rust::Output<String>,
+        pub certificate_password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Custom DNS Suffix for the Container App Environment.
         #[builder(into)]
-        pub dns_suffix: pulumi_wasm_rust::Output<String>,
+        pub dns_suffix: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentCustomDomainResult {
@@ -83,17 +83,25 @@ pub mod environment_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentCustomDomainArgs,
     ) -> EnvironmentCustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_blob_base64_binding = args.certificate_blob_base64.get_inner();
-        let certificate_password_binding = args.certificate_password.get_inner();
+        let certificate_blob_base64_binding = args
+            .certificate_blob_base64
+            .get_output(context)
+            .get_inner();
+        let certificate_password_binding = args
+            .certificate_password
+            .get_output(context)
+            .get_inner();
         let container_app_environment_id_binding = args
             .container_app_environment_id
+            .get_output(context)
             .get_inner();
-        let dns_suffix_binding = args.dns_suffix.get_inner();
+        let dns_suffix_binding = args.dns_suffix.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain"
                 .into(),
@@ -132,7 +140,7 @@ pub mod environment_custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

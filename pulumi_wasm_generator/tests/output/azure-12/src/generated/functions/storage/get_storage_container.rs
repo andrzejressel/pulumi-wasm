@@ -1,24 +1,24 @@
 pub mod get_storage_container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetStorageContainerArgs {
         /// A mapping of MetaData for this Container.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Container.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
         ///
         /// > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
         #[builder(into, default)]
-        pub storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetStorageContainerResult {
@@ -47,13 +47,22 @@ pub mod get_storage_container {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetStorageContainerArgs) -> GetStorageContainerResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetStorageContainerArgs,
+    ) -> GetStorageContainerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getStorageContainer:getStorageContainer".into(),
             version: super::super::super::get_version(),
@@ -111,7 +120,7 @@ pub mod get_storage_container {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

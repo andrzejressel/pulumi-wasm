@@ -67,7 +67,7 @@
 /// ```
 ///
 pub mod v_2_folder_scc_big_query_export {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2FolderSccBigQueryExportArgs {
@@ -78,15 +78,15 @@ pub mod v_2_folder_scc_big_query_export {
         ///
         /// - - -
         #[builder(into)]
-        pub big_query_export_id: pulumi_wasm_rust::Output<String>,
+        pub big_query_export_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The dataset to write findings' updates to.
         /// Its format is "projects/[projectId]/datasets/[bigquery_dataset_id]".
         /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
         #[builder(into, default)]
-        pub dataset: pulumi_wasm_rust::Output<Option<String>>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the notification config (max of 1024 characters).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Expression that defines the filter to apply across create/update
         /// events of findings. The
         /// expression is a list of zero or more restrictions combined via
@@ -107,14 +107,14 @@ pub mod v_2_folder_scc_big_query_export {
         /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
         /// for information on how to write a filter.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The folder where Cloud Security Command Center Big Query Export
         /// Config lives in.
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
         /// The BigQuery export configuration is stored in this location. If not provided, Use global as default.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct V2FolderSccBigQueryExportResult {
@@ -179,17 +179,21 @@ pub mod v_2_folder_scc_big_query_export {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: V2FolderSccBigQueryExportArgs,
     ) -> V2FolderSccBigQueryExportResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let big_query_export_id_binding = args.big_query_export_id.get_inner();
-        let dataset_binding = args.dataset.get_inner();
-        let description_binding = args.description.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let location_binding = args.location.get_inner();
+        let big_query_export_id_binding = args
+            .big_query_export_id
+            .get_output(context)
+            .get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2FolderSccBigQueryExport:V2FolderSccBigQueryExport"
                 .into(),
@@ -257,7 +261,7 @@ pub mod v_2_folder_scc_big_query_export {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

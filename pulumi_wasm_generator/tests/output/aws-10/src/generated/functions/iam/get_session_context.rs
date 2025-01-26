@@ -1,5 +1,5 @@
 pub mod get_session_context {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSessionContextArgs {
@@ -7,7 +7,7 @@ pub mod get_session_context {
         ///
         /// > If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSessionContextResult {
@@ -27,10 +27,13 @@ pub mod get_session_context {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSessionContextArgs) -> GetSessionContextResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSessionContextArgs,
+    ) -> GetSessionContextResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getSessionContext:getSessionContext".into(),
             version: super::super::super::get_version(),
@@ -61,7 +64,7 @@ pub mod get_session_context {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

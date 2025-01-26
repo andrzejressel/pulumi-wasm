@@ -46,7 +46,7 @@
 /// ```
 ///
 pub mod code_repository_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CodeRepositoryIndexArgs {
@@ -55,25 +55,25 @@ pub mod code_repository_index {
         ///
         /// - - -
         #[builder(into)]
-        pub code_repository_index_id: pulumi_wasm_rust::Output<String>,
+        pub code_repository_index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Immutable. Customer-managed encryption key name, in the format
         /// projects/*/locations/*/keyRings/*/cryptoKeys/*.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Labels as key value pairs.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the Code Repository Index, for example `us-central1`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CodeRepositoryIndexResult {
@@ -125,16 +125,20 @@ pub mod code_repository_index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CodeRepositoryIndexArgs,
     ) -> CodeRepositoryIndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let code_repository_index_id_binding = args.code_repository_index_id.get_inner();
-        let kms_key_binding = args.kms_key.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
+        let code_repository_index_id_binding = args
+            .code_repository_index_id
+            .get_output(context)
+            .get_inner();
+        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gemini/codeRepositoryIndex:CodeRepositoryIndex".into(),
             name: name.to_string(),
@@ -197,7 +201,7 @@ pub mod code_repository_index {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

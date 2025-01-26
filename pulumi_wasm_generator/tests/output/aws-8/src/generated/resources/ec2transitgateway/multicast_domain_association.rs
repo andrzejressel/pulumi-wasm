@@ -34,19 +34,19 @@
 /// }
 /// ```
 pub mod multicast_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MulticastDomainAssociationArgs {
         /// The ID of the subnet to associate with the transit gateway multicast domain.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the transit gateway attachment.
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the transit gateway multicast domain.
         #[builder(into)]
-        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MulticastDomainAssociationResult {
@@ -62,17 +62,20 @@ pub mod multicast_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MulticastDomainAssociationArgs,
     ) -> MulticastDomainAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
+            .get_output(context)
             .get_inner();
         let transit_gateway_multicast_domain_id_binding = args
             .transit_gateway_multicast_domain_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation"
@@ -105,7 +108,7 @@ pub mod multicast_domain_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

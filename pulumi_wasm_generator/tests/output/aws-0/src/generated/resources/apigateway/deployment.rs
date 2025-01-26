@@ -22,7 +22,7 @@
 /// The `triggers` argument cannot be imported.
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
@@ -30,32 +30,32 @@ pub mod deployment {
         /// See `canary_settings below.
         /// Has no effect when `stage_name` is not set.
         #[builder(into, default)]
-        pub canary_settings: pulumi_wasm_rust::Output<
+        pub canary_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::DeploymentCanarySettings>,
         >,
         /// Description of the deployment
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// REST API identifier.
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description to set on the stage managed by the `stage_name` argument.
         /// Has no effect when `stage_name` is not set.
         #[builder(into, default)]
-        pub stage_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the stage to create with this deployment.
         /// If the specified stage already exists, it will be updated to point to the new deployment.
         /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         #[builder(into, default)]
-        pub stage_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map to set on the stage managed by the `stage_name` argument.
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -100,16 +100,26 @@ pub mod deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentArgs) -> DeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentArgs,
+    ) -> DeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let canary_settings_binding = args.canary_settings.get_inner();
-        let description_binding = args.description.get_inner();
-        let rest_api_binding = args.rest_api.get_inner();
-        let stage_description_binding = args.stage_description.get_inner();
-        let stage_name_binding = args.stage_name.get_inner();
-        let triggers_binding = args.triggers.get_inner();
-        let variables_binding = args.variables.get_inner();
+        let canary_settings_binding = args
+            .canary_settings
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+        let stage_description_binding = args
+            .stage_description
+            .get_output(context)
+            .get_inner();
+        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let variables_binding = args.variables.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/deployment:Deployment".into(),
             name: name.to_string(),
@@ -177,7 +187,7 @@ pub mod deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

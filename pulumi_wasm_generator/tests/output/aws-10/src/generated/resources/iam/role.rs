@@ -189,7 +189,7 @@
 /// $ pulumi import aws:iam/role:Role developer developer_name
 /// ```
 pub mod role {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleArgs {
@@ -199,39 +199,39 @@ pub mod role {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub assume_role_policy: pulumi_wasm_rust::Output<String>,
+        pub assume_role_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the role.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
         #[builder(into, default)]
-        pub force_detach_policies: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_detach_policies: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
         #[builder(into, default)]
-        pub inline_policies: pulumi_wasm_rust::Output<
+        pub inline_policies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iam::RoleInlinePolicy>>,
         >,
         /// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
         #[builder(into, default)]
-        pub managed_policy_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub managed_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         #[builder(into, default)]
-        pub max_session_duration: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_session_duration: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the policy that is used to set the permissions boundary for the role.
         #[builder(into, default)]
-        pub permissions_boundary: pulumi_wasm_rust::Output<Option<String>>,
+        pub permissions_boundary: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -282,20 +282,42 @@ pub mod role {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoleArgs) -> RoleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoleArgs,
+    ) -> RoleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assume_role_policy_binding = args.assume_role_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let force_detach_policies_binding = args.force_detach_policies.get_inner();
-        let inline_policies_binding = args.inline_policies.get_inner();
-        let managed_policy_arns_binding = args.managed_policy_arns.get_inner();
-        let max_session_duration_binding = args.max_session_duration.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let path_binding = args.path.get_inner();
-        let permissions_boundary_binding = args.permissions_boundary.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let assume_role_policy_binding = args
+            .assume_role_policy
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let force_detach_policies_binding = args
+            .force_detach_policies
+            .get_output(context)
+            .get_inner();
+        let inline_policies_binding = args
+            .inline_policies
+            .get_output(context)
+            .get_inner();
+        let managed_policy_arns_binding = args
+            .managed_policy_arns
+            .get_output(context)
+            .get_inner();
+        let max_session_duration_binding = args
+            .max_session_duration
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let permissions_boundary_binding = args
+            .permissions_boundary
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/role:Role".into(),
             name: name.to_string(),
@@ -394,7 +416,7 @@ pub mod role {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

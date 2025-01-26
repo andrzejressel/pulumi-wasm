@@ -61,21 +61,21 @@
 /// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
 /// ```
 pub mod code_repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CodeRepositoryArgs {
         /// The name of the Code Repository (must be unique).
         #[builder(into)]
-        pub code_repository_name: pulumi_wasm_rust::Output<String>,
+        pub code_repository_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies details about the repository. see Git Config details below.
         #[builder(into)]
-        pub git_config: pulumi_wasm_rust::Output<
+        pub git_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::sagemaker::CodeRepositoryGitConfig,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -102,12 +102,19 @@ pub mod code_repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CodeRepositoryArgs) -> CodeRepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CodeRepositoryArgs,
+    ) -> CodeRepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let code_repository_name_binding = args.code_repository_name.get_inner();
-        let git_config_binding = args.git_config.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let code_repository_name_binding = args
+            .code_repository_name
+            .get_output(context)
+            .get_inner();
+        let git_config_binding = args.git_config.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/codeRepository:CodeRepository".into(),
             name: name.to_string(),
@@ -144,7 +151,7 @@ pub mod code_repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

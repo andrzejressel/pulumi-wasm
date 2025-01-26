@@ -44,7 +44,7 @@
 /// $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
 /// ```
 pub mod api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiArgs {
@@ -52,55 +52,57 @@ pub mod api {
         /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
         /// Applicable for WebSocket APIs.
         #[builder(into, default)]
-        pub api_key_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_key_selection_expression: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         #[builder(into, default)]
-        pub body: pulumi_wasm_rust::Output<Option<String>>,
+        pub body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub cors_configuration: pulumi_wasm_rust::Output<
+        pub cors_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigatewayv2::ApiCorsConfiguration>,
         >,
         /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub credentials_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub credentials_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the API. Must be less than or equal to 1024 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether clients can invoke the API by using the default `execute-api` endpoint.
         /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
         /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         #[builder(into, default)]
-        pub disable_execute_api_endpoint: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_execute_api_endpoint: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub fail_on_warnings: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fail_on_warnings: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the API. Must be less than or equal to 128 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         #[builder(into)]
-        pub protocol_type: pulumi_wasm_rust::Output<String>,
+        pub protocol_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub route_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub route_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         #[builder(into, default)]
-        pub route_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub route_selection_expression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
         /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::Output<Option<String>>,
+        pub target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Version identifier for the API. Must be between 1 and 64 characters in length.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiResult {
@@ -160,29 +162,45 @@ pub mod api {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiArgs) -> ApiResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiArgs,
+    ) -> ApiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_key_selection_expression_binding = args
             .api_key_selection_expression
+            .get_output(context)
             .get_inner();
-        let body_binding = args.body.get_inner();
-        let cors_configuration_binding = args.cors_configuration.get_inner();
-        let credentials_arn_binding = args.credentials_arn.get_inner();
-        let description_binding = args.description.get_inner();
+        let body_binding = args.body.get_output(context).get_inner();
+        let cors_configuration_binding = args
+            .cors_configuration
+            .get_output(context)
+            .get_inner();
+        let credentials_arn_binding = args
+            .credentials_arn
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let disable_execute_api_endpoint_binding = args
             .disable_execute_api_endpoint
+            .get_output(context)
             .get_inner();
-        let fail_on_warnings_binding = args.fail_on_warnings.get_inner();
-        let name_binding = args.name.get_inner();
-        let protocol_type_binding = args.protocol_type.get_inner();
-        let route_key_binding = args.route_key.get_inner();
+        let fail_on_warnings_binding = args
+            .fail_on_warnings
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let protocol_type_binding = args.protocol_type.get_output(context).get_inner();
+        let route_key_binding = args.route_key.get_output(context).get_inner();
         let route_selection_expression_binding = args
             .route_selection_expression
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_binding = args.target.get_inner();
-        let version_binding = args.version.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/api:Api".into(),
             name: name.to_string(),
@@ -302,7 +320,7 @@ pub mod api {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

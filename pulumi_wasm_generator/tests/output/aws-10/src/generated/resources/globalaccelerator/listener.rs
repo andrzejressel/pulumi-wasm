@@ -46,24 +46,24 @@
 /// $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 /// ```
 pub mod listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerArgs {
         /// The Amazon Resource Name (ARN) of your accelerator.
         #[builder(into)]
-        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        pub accelerator_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         #[builder(into, default)]
-        pub client_affinity: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         #[builder(into)]
-        pub port_ranges: pulumi_wasm_rust::Output<
+        pub port_ranges: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::globalaccelerator::ListenerPortRange>,
         >,
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ListenerResult {
@@ -82,13 +82,23 @@ pub mod listener {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListenerArgs) -> ListenerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListenerArgs,
+    ) -> ListenerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerator_arn_binding = args.accelerator_arn.get_inner();
-        let client_affinity_binding = args.client_affinity.get_inner();
-        let port_ranges_binding = args.port_ranges.get_inner();
-        let protocol_binding = args.protocol.get_inner();
+        let accelerator_arn_binding = args
+            .accelerator_arn
+            .get_output(context)
+            .get_inner();
+        let client_affinity_binding = args
+            .client_affinity
+            .get_output(context)
+            .get_inner();
+        let port_ranges_binding = args.port_ranges.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/listener:Listener".into(),
             name: name.to_string(),
@@ -126,7 +136,7 @@ pub mod listener {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

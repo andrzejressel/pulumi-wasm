@@ -62,61 +62,61 @@
 /// ```
 ///
 pub mod trigger_tumbling_window {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerTumblingWindowArgs {
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         #[builder(into, default)]
-        pub activated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
         #[builder(into, default)]
-        pub delay: pulumi_wasm_rust::Output<Option<String>>,
+        pub delay: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description for the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
         #[builder(into)]
-        pub interval: pulumi_wasm_rust::Output<i32>,
+        pub interval: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `pipeline` block as defined below.
         #[builder(into)]
-        pub pipeline: pulumi_wasm_rust::Output<
+        pub pipeline: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datafactory::TriggerTumblingWindowPipeline,
         >,
         /// A `retry` block as defined below.
         #[builder(into, default)]
-        pub retry: pulumi_wasm_rust::Output<
+        pub retry: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datafactory::TriggerTumblingWindowRetry>,
         >,
         /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
         #[builder(into)]
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `trigger_dependency` block as defined below.
         #[builder(into, default)]
-        pub trigger_dependencies: pulumi_wasm_rust::Output<
+        pub trigger_dependencies: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::datafactory::TriggerTumblingWindowTriggerDependency,
@@ -174,26 +174,39 @@ pub mod trigger_tumbling_window {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TriggerTumblingWindowArgs,
     ) -> TriggerTumblingWindowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activated_binding = args.activated.get_inner();
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let delay_binding = args.delay.get_inner();
-        let description_binding = args.description.get_inner();
-        let end_time_binding = args.end_time.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let interval_binding = args.interval.get_inner();
-        let max_concurrency_binding = args.max_concurrency.get_inner();
-        let name_binding = args.name.get_inner();
-        let pipeline_binding = args.pipeline.get_inner();
-        let retry_binding = args.retry.get_inner();
-        let start_time_binding = args.start_time.get_inner();
-        let trigger_dependencies_binding = args.trigger_dependencies.get_inner();
+        let activated_binding = args.activated.get_output(context).get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let delay_binding = args.delay.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let end_time_binding = args.end_time.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let interval_binding = args.interval.get_output(context).get_inner();
+        let max_concurrency_binding = args
+            .max_concurrency
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pipeline_binding = args.pipeline.get_output(context).get_inner();
+        let retry_binding = args.retry.get_output(context).get_inner();
+        let start_time_binding = args.start_time.get_output(context).get_inner();
+        let trigger_dependencies_binding = args
+            .trigger_dependencies
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
                 .into(),
@@ -309,7 +322,7 @@ pub mod trigger_tumbling_window {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

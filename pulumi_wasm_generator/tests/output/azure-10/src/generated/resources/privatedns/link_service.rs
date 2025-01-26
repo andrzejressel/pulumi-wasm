@@ -85,50 +85,52 @@
 /// ```
 ///
 pub mod link_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkServiceArgs {
         /// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         #[builder(into, default)]
-        pub auto_approval_subscription_ids: pulumi_wasm_rust::Output<
+        pub auto_approval_subscription_ids: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Should the Private Link Service support the Proxy Protocol?
         #[builder(into, default)]
-        pub enable_proxy_protocol: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_proxy_protocol: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of FQDNs allowed for the Private Link Service.
         #[builder(into, default)]
-        pub fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub fqdns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::Output<
+        pub load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::InputOrOutput<
             Vec<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
         #[builder(into)]
-        pub nat_ip_configurations: pulumi_wasm_rust::Output<
+        pub nat_ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::privatedns::LinkServiceNatIpConfiguration>,
         >,
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         ///
         /// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         #[builder(into, default)]
-        pub visibility_subscription_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub visibility_subscription_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct LinkServiceResult {
@@ -169,24 +171,40 @@ pub mod link_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkServiceArgs) -> LinkServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkServiceArgs,
+    ) -> LinkServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_approval_subscription_ids_binding = args
             .auto_approval_subscription_ids
+            .get_output(context)
             .get_inner();
-        let enable_proxy_protocol_binding = args.enable_proxy_protocol.get_inner();
-        let fqdns_binding = args.fqdns.get_inner();
+        let enable_proxy_protocol_binding = args
+            .enable_proxy_protocol
+            .get_output(context)
+            .get_inner();
+        let fqdns_binding = args.fqdns.get_output(context).get_inner();
         let load_balancer_frontend_ip_configuration_ids_binding = args
             .load_balancer_frontend_ip_configuration_ids
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let nat_ip_configurations_binding = args.nat_ip_configurations.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let nat_ip_configurations_binding = args
+            .nat_ip_configurations
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let visibility_subscription_ids_binding = args
             .visibility_subscription_ids
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/linkService:LinkService".into(),
@@ -270,7 +288,7 @@ pub mod link_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

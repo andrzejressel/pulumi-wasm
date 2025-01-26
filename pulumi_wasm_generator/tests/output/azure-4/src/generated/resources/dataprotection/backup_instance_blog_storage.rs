@@ -66,32 +66,32 @@
 /// ```
 ///
 pub mod backup_instance_blog_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstanceBlogStorageArgs {
         /// The ID of the Backup Policy.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of the container names of the source Storage Account.
         ///
         /// > **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
         #[builder(into, default)]
-        pub storage_account_container_names: pulumi_wasm_rust::Output<
+        pub storage_account_container_names: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstanceBlogStorageResult {
@@ -117,19 +117,27 @@ pub mod backup_instance_blog_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackupInstanceBlogStorageArgs,
     ) -> BackupInstanceBlogStorageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding = args.backup_policy_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let backup_policy_id_binding = args
+            .backup_policy_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let storage_account_container_names_binding = args
             .storage_account_container_names
+            .get_output(context)
             .get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage"
                 .into(),
@@ -182,7 +190,7 @@ pub mod backup_instance_blog_storage {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -32,34 +32,34 @@
 /// ```
 ///
 pub mod static_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticRouteArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of Cloudflare colocation regions for this static route.
         #[builder(into, default)]
-        pub colo_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub colo_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of Cloudflare colocation names for this static route.
         #[builder(into, default)]
-        pub colo_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub colo_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of the static route.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The nexthop IP address where traffic will be routed to.
         #[builder(into)]
-        pub nexthop: pulumi_wasm_rust::Output<String>,
+        pub nexthop: pulumi_wasm_rust::InputOrOutput<String>,
         /// Your network prefix using CIDR notation.
         #[builder(into)]
-        pub prefix: pulumi_wasm_rust::Output<String>,
+        pub prefix: pulumi_wasm_rust::InputOrOutput<String>,
         /// The priority for the static route.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The optional weight for ECMP routes. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct StaticRouteResult {
@@ -84,17 +84,21 @@ pub mod static_route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StaticRouteArgs) -> StaticRouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StaticRouteArgs,
+    ) -> StaticRouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let colo_names_binding = args.colo_names.get_inner();
-        let colo_regions_binding = args.colo_regions.get_inner();
-        let description_binding = args.description.get_inner();
-        let nexthop_binding = args.nexthop.get_inner();
-        let prefix_binding = args.prefix.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let weight_binding = args.weight.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let colo_names_binding = args.colo_names.get_output(context).get_inner();
+        let colo_regions_binding = args.colo_regions.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let nexthop_binding = args.nexthop.get_output(context).get_inner();
+        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let weight_binding = args.weight.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/staticRoute:StaticRoute".into(),
             name: name.to_string(),
@@ -160,7 +164,7 @@ pub mod static_route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

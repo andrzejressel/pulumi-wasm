@@ -1,17 +1,17 @@
 pub mod get_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetImageArgs {
         /// The family name of the image.
         #[builder(into, default)]
-        pub family: pulumi_wasm_rust::Output<Option<String>>,
+        pub family: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean to indicate either to take to most recent image if your filter
         /// returns more than one image.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// , `family` or `filter` - (Required) The name of a specific image or a family.
         /// Exactly one of `name`, `family` or `filter` must be specified. If `name` is specified, it will fetch
         /// the corresponding image. If `family` is specified, it will return the latest image
@@ -21,12 +21,12 @@ pub mod get_image {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project in which the resource belongs. If it is not
         /// provided, the provider project is used. If you are using a
         /// [public base image][pubimg], be sure to specify the correct Image Project.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetImageResult {
@@ -78,14 +78,17 @@ pub mod get_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetImageArgs) -> GetImageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetImageArgs,
+    ) -> GetImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let family_binding = args.family.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let family_binding = args.family.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getImage:getImage".into(),
             version: super::super::super::get_version(),
@@ -177,7 +180,7 @@ pub mod get_image {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

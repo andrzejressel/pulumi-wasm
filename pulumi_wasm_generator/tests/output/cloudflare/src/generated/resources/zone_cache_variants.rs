@@ -27,46 +27,46 @@
 /// }
 /// ```
 pub mod zone_cache_variants {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneCacheVariantsArgs {
         /// List of strings with the MIME types of all the variants that should be served for avif.
         #[builder(into, default)]
-        pub avifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub avifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for bmp.
         #[builder(into, default)]
-        pub bmps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub bmps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for gif.
         #[builder(into, default)]
-        pub gifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jp2.
         #[builder(into, default)]
-        pub jp2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jp2s: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpeg.
         #[builder(into, default)]
-        pub jpegs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpegs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg2.
         #[builder(into, default)]
-        pub jpg2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpg2s: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg.
         #[builder(into, default)]
-        pub jpgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpgs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for png.
         #[builder(into, default)]
-        pub pngs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub pngs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tiff.
         #[builder(into, default)]
-        pub tiffs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tiffs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tif.
         #[builder(into, default)]
-        pub tifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for webp.
         #[builder(into, default)]
-        pub webps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub webps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneCacheVariantsResult {
@@ -99,21 +99,25 @@ pub mod zone_cache_variants {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZoneCacheVariantsArgs) -> ZoneCacheVariantsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZoneCacheVariantsArgs,
+    ) -> ZoneCacheVariantsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let avifs_binding = args.avifs.get_inner();
-        let bmps_binding = args.bmps.get_inner();
-        let gifs_binding = args.gifs.get_inner();
-        let jp2s_binding = args.jp2s.get_inner();
-        let jpegs_binding = args.jpegs.get_inner();
-        let jpg2s_binding = args.jpg2s.get_inner();
-        let jpgs_binding = args.jpgs.get_inner();
-        let pngs_binding = args.pngs.get_inner();
-        let tiffs_binding = args.tiffs.get_inner();
-        let tifs_binding = args.tifs.get_inner();
-        let webps_binding = args.webps.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let avifs_binding = args.avifs.get_output(context).get_inner();
+        let bmps_binding = args.bmps.get_output(context).get_inner();
+        let gifs_binding = args.gifs.get_output(context).get_inner();
+        let jp2s_binding = args.jp2s.get_output(context).get_inner();
+        let jpegs_binding = args.jpegs.get_output(context).get_inner();
+        let jpg2s_binding = args.jpg2s.get_output(context).get_inner();
+        let jpgs_binding = args.jpgs.get_output(context).get_inner();
+        let pngs_binding = args.pngs.get_output(context).get_inner();
+        let tiffs_binding = args.tiffs.get_output(context).get_inner();
+        let tifs_binding = args.tifs.get_output(context).get_inner();
+        let webps_binding = args.webps.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneCacheVariants:ZoneCacheVariants".into(),
             name: name.to_string(),
@@ -207,7 +211,7 @@ pub mod zone_cache_variants {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

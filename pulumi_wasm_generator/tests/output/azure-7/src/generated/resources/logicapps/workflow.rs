@@ -34,61 +34,65 @@
 /// ```
 ///
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
         /// A `access_control` block as defined below.
         #[builder(into, default)]
-        pub access_control: pulumi_wasm_rust::Output<
+        pub access_control: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::logicapps::WorkflowAccessControl>,
         >,
         /// Is the Logic App Workflow enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::logicapps::WorkflowIdentity>,
         >,
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         #[builder(into, default)]
-        pub integration_service_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_service_environment_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the integration account linked by this Logic App Workflow.
         #[builder(into, default)]
-        pub logic_app_integration_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub logic_app_integration_account_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of Key-Value pairs.
         ///
         /// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
         #[builder(into, default)]
-        pub workflow_parameters: pulumi_wasm_rust::Output<
+        pub workflow_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub workflow_schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub workflow_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WorkflowResult {
@@ -145,26 +149,44 @@ pub mod workflow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkflowArgs) -> WorkflowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkflowArgs,
+    ) -> WorkflowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_control_binding = args.access_control.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let access_control_binding = args.access_control.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let integration_service_environment_id_binding = args
             .integration_service_environment_id
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let logic_app_integration_account_id_binding = args
             .logic_app_integration_account_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workflow_parameters_binding = args.workflow_parameters.get_inner();
-        let workflow_schema_binding = args.workflow_schema.get_inner();
-        let workflow_version_binding = args.workflow_version.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workflow_parameters_binding = args
+            .workflow_parameters
+            .get_output(context)
+            .get_inner();
+        let workflow_schema_binding = args
+            .workflow_schema
+            .get_output(context)
+            .get_inner();
+        let workflow_version_binding = args
+            .workflow_version
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/workflow:Workflow".into(),
             name: name.to_string(),
@@ -280,7 +302,7 @@ pub mod workflow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

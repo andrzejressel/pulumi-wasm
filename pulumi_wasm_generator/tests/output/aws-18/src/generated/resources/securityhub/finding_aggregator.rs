@@ -67,16 +67,16 @@
 /// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
 /// ```
 pub mod finding_aggregator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FindingAggregatorArgs {
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         #[builder(into)]
-        pub linking_mode: pulumi_wasm_rust::Output<String>,
+        pub linking_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         #[builder(into, default)]
-        pub specified_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub specified_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct FindingAggregatorResult {
@@ -89,11 +89,18 @@ pub mod finding_aggregator {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FindingAggregatorArgs) -> FindingAggregatorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FindingAggregatorArgs,
+    ) -> FindingAggregatorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let linking_mode_binding = args.linking_mode.get_inner();
-        let specified_regions_binding = args.specified_regions.get_inner();
+        let linking_mode_binding = args.linking_mode.get_output(context).get_inner();
+        let specified_regions_binding = args
+            .specified_regions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/findingAggregator:FindingAggregator".into(),
             name: name.to_string(),
@@ -117,7 +124,7 @@ pub mod finding_aggregator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

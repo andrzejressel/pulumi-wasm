@@ -1,18 +1,18 @@
 pub mod get_accelerator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAcceleratorArgs {
         /// Full ARN of the Global Accelerator.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name of the Global Accelerator.
         ///
         /// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAcceleratorResult {
@@ -36,12 +36,15 @@ pub mod get_accelerator {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAcceleratorArgs) -> GetAcceleratorResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAcceleratorArgs,
+    ) -> GetAcceleratorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let id_binding = args.id.get_inner();
-        let name_binding = args.name.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:globalaccelerator/getAccelerator:getAccelerator".into(),
             version: super::super::super::get_version(),
@@ -95,7 +98,7 @@ pub mod get_accelerator {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

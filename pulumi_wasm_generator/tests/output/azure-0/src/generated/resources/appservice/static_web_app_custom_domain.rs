@@ -101,18 +101,18 @@
 /// ```
 ///
 pub mod static_web_app_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticWebAppCustomDomainArgs {
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         #[builder(into)]
-        pub static_web_app_id: pulumi_wasm_rust::Output<String>,
+        pub static_web_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub validation_type: pulumi_wasm_rust::Output<String>,
+        pub validation_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StaticWebAppCustomDomainResult {
@@ -129,14 +129,21 @@ pub mod static_web_app_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StaticWebAppCustomDomainArgs,
     ) -> StaticWebAppCustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let static_web_app_id_binding = args.static_web_app_id.get_inner();
-        let validation_type_binding = args.validation_type.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let static_web_app_id_binding = args
+            .static_web_app_id
+            .get_output(context)
+            .get_inner();
+        let validation_type_binding = args
+            .validation_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain"
                 .into(),
@@ -171,7 +178,7 @@ pub mod static_web_app_custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

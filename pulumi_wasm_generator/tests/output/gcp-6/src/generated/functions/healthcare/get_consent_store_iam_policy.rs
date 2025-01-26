@@ -1,16 +1,16 @@
 pub mod get_consent_store_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConsentStoreIamPolicyArgs {
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub consent_store_id: pulumi_wasm_rust::Output<String>,
+        pub consent_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifies the dataset addressed by this request. Must be in the format
         /// 'projects/{project}/locations/{location}/datasets/{dataset}'
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetConsentStoreIamPolicyResult {
@@ -28,11 +28,17 @@ pub mod get_consent_store_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetConsentStoreIamPolicyArgs) -> GetConsentStoreIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetConsentStoreIamPolicyArgs,
+    ) -> GetConsentStoreIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let consent_store_id_binding = args.consent_store_id.get_inner();
-        let dataset_binding = args.dataset.get_inner();
+        let consent_store_id_binding = args
+            .consent_store_id
+            .get_output(context)
+            .get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getConsentStoreIamPolicy:getConsentStoreIamPolicy"
                 .into(),
@@ -65,7 +71,7 @@ pub mod get_consent_store_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

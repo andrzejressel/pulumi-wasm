@@ -29,7 +29,7 @@
 /// $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 /// ```
 pub mod product_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductSubscriptionArgs {
@@ -73,7 +73,7 @@ pub mod product_subscription {
         /// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
         /// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         #[builder(into)]
-        pub product_arn: pulumi_wasm_rust::Output<String>,
+        pub product_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProductSubscriptionResult {
@@ -125,12 +125,13 @@ pub mod product_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProductSubscriptionArgs,
     ) -> ProductSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let product_arn_binding = args.product_arn.get_inner();
+        let product_arn_binding = args.product_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/productSubscription:ProductSubscription".into(),
             name: name.to_string(),
@@ -150,7 +151,7 @@ pub mod product_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

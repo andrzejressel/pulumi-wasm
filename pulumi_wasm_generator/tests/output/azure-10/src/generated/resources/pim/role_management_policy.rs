@@ -101,36 +101,36 @@
 /// ```
 ///
 pub mod role_management_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleManagementPolicyArgs {
         /// An `activation_rules` block as defined below.
         #[builder(into, default)]
-        pub activation_rules: pulumi_wasm_rust::Output<
+        pub activation_rules: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::RoleManagementPolicyActivationRules>,
         >,
         /// An `active_assignment_rules` block as defined below.
         #[builder(into, default)]
-        pub active_assignment_rules: pulumi_wasm_rust::Output<
+        pub active_assignment_rules: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::RoleManagementPolicyActiveAssignmentRules>,
         >,
         /// An `eligible_assignment_rules` block as defined below.
         #[builder(into, default)]
-        pub eligible_assignment_rules: pulumi_wasm_rust::Output<
+        pub eligible_assignment_rules: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::RoleManagementPolicyEligibleAssignmentRules>,
         >,
         /// A `notification_rules` block as defined below.
         #[builder(into, default)]
-        pub notification_rules: pulumi_wasm_rust::Output<
+        pub notification_rules: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::RoleManagementPolicyNotificationRules>,
         >,
         /// The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RoleManagementPolicyResult {
@@ -164,19 +164,33 @@ pub mod role_management_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RoleManagementPolicyArgs,
     ) -> RoleManagementPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activation_rules_binding = args.activation_rules.get_inner();
-        let active_assignment_rules_binding = args.active_assignment_rules.get_inner();
+        let activation_rules_binding = args
+            .activation_rules
+            .get_output(context)
+            .get_inner();
+        let active_assignment_rules_binding = args
+            .active_assignment_rules
+            .get_output(context)
+            .get_inner();
         let eligible_assignment_rules_binding = args
             .eligible_assignment_rules
+            .get_output(context)
             .get_inner();
-        let notification_rules_binding = args.notification_rules.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let notification_rules_binding = args
+            .notification_rules
+            .get_output(context)
+            .get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:pim/roleManagementPolicy:RoleManagementPolicy".into(),
             name: name.to_string(),
@@ -234,7 +248,7 @@ pub mod role_management_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

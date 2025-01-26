@@ -138,137 +138,143 @@
 /// $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
 /// ```
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// Information about the CloudWatch alarms. See below.
         #[builder(into, default)]
-        pub alarms: pulumi_wasm_rust::Output<
+        pub alarms: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceAlarms>,
         >,
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         #[builder(into, default)]
-        pub availability_zone_rebalancing: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_rebalancing: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         #[builder(into, default)]
-        pub capacity_provider_strategies: pulumi_wasm_rust::Output<
+        pub capacity_provider_strategies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ServiceCapacityProviderStrategy>>,
         >,
         /// ARN of an ECS cluster.
         #[builder(into, default)]
-        pub cluster: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for deployment circuit breaker. See below.
         #[builder(into, default)]
-        pub deployment_circuit_breaker: pulumi_wasm_rust::Output<
+        pub deployment_circuit_breaker: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceDeploymentCircuitBreaker>,
         >,
         /// Configuration block for deployment controller configuration. See below.
         #[builder(into, default)]
-        pub deployment_controller: pulumi_wasm_rust::Output<
+        pub deployment_controller: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceDeploymentController>,
         >,
         /// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         #[builder(into, default)]
-        pub deployment_maximum_percent: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deployment_maximum_percent: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         #[builder(into, default)]
-        pub deployment_minimum_healthy_percent: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deployment_minimum_healthy_percent: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         #[builder(into, default)]
-        pub desired_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub desired_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         #[builder(into, default)]
-        pub enable_ecs_managed_tags: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_ecs_managed_tags: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable Amazon ECS Exec for the tasks within the service.
         #[builder(into, default)]
-        pub enable_execute_command: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_execute_command: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         #[builder(into, default)]
-        pub force_new_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_new_deployment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         #[builder(into, default)]
-        pub health_check_grace_period_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub health_check_grace_period_seconds: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         #[builder(into, default)]
-        pub iam_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         #[builder(into, default)]
-        pub launch_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub launch_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for load balancers. See below.
         #[builder(into, default)]
-        pub load_balancers: pulumi_wasm_rust::Output<
+        pub load_balancers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ServiceLoadBalancer>>,
         >,
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         #[builder(into, default)]
-        pub network_configuration: pulumi_wasm_rust::Output<
+        pub network_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceNetworkConfiguration>,
         >,
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         #[builder(into, default)]
-        pub ordered_placement_strategies: pulumi_wasm_rust::Output<
+        pub ordered_placement_strategies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ServiceOrderedPlacementStrategy>>,
         >,
         /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         #[builder(into, default)]
-        pub placement_constraints: pulumi_wasm_rust::Output<
+        pub placement_constraints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ServicePlacementConstraint>>,
         >,
         /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         #[builder(into, default)]
-        pub platform_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         #[builder(into, default)]
-        pub propagate_tags: pulumi_wasm_rust::Output<Option<String>>,
+        pub propagate_tags: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         #[builder(into, default)]
-        pub scheduling_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub scheduling_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         #[builder(into, default)]
-        pub service_connect_configuration: pulumi_wasm_rust::Output<
+        pub service_connect_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceServiceConnectConfiguration>,
         >,
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         #[builder(into, default)]
-        pub service_registries: pulumi_wasm_rust::Output<
+        pub service_registries: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceServiceRegistries>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         #[builder(into, default)]
-        pub task_definition: pulumi_wasm_rust::Output<Option<String>>,
+        pub task_definition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
         #[builder(into, default)]
-        pub volume_configuration: pulumi_wasm_rust::Output<
+        pub volume_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecs::ServiceVolumeConfiguration>,
         >,
         /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         #[builder(into, default)]
-        pub vpc_lattice_configurations: pulumi_wasm_rust::Output<
+        pub vpc_lattice_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ServiceVpcLatticeConfiguration>>,
         >,
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         #[builder(into, default)]
-        pub wait_for_steady_state: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_steady_state: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
@@ -376,59 +382,108 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alarms_binding = args.alarms.get_inner();
+        let alarms_binding = args.alarms.get_output(context).get_inner();
         let availability_zone_rebalancing_binding = args
             .availability_zone_rebalancing
+            .get_output(context)
             .get_inner();
         let capacity_provider_strategies_binding = args
             .capacity_provider_strategies
+            .get_output(context)
             .get_inner();
-        let cluster_binding = args.cluster.get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
         let deployment_circuit_breaker_binding = args
             .deployment_circuit_breaker
+            .get_output(context)
             .get_inner();
-        let deployment_controller_binding = args.deployment_controller.get_inner();
+        let deployment_controller_binding = args
+            .deployment_controller
+            .get_output(context)
+            .get_inner();
         let deployment_maximum_percent_binding = args
             .deployment_maximum_percent
+            .get_output(context)
             .get_inner();
         let deployment_minimum_healthy_percent_binding = args
             .deployment_minimum_healthy_percent
+            .get_output(context)
             .get_inner();
-        let desired_count_binding = args.desired_count.get_inner();
-        let enable_ecs_managed_tags_binding = args.enable_ecs_managed_tags.get_inner();
-        let enable_execute_command_binding = args.enable_execute_command.get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
-        let force_new_deployment_binding = args.force_new_deployment.get_inner();
+        let desired_count_binding = args.desired_count.get_output(context).get_inner();
+        let enable_ecs_managed_tags_binding = args
+            .enable_ecs_managed_tags
+            .get_output(context)
+            .get_inner();
+        let enable_execute_command_binding = args
+            .enable_execute_command
+            .get_output(context)
+            .get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let force_new_deployment_binding = args
+            .force_new_deployment
+            .get_output(context)
+            .get_inner();
         let health_check_grace_period_seconds_binding = args
             .health_check_grace_period_seconds
+            .get_output(context)
             .get_inner();
-        let iam_role_binding = args.iam_role.get_inner();
-        let launch_type_binding = args.launch_type.get_inner();
-        let load_balancers_binding = args.load_balancers.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_configuration_binding = args.network_configuration.get_inner();
+        let iam_role_binding = args.iam_role.get_output(context).get_inner();
+        let launch_type_binding = args.launch_type.get_output(context).get_inner();
+        let load_balancers_binding = args.load_balancers.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_configuration_binding = args
+            .network_configuration
+            .get_output(context)
+            .get_inner();
         let ordered_placement_strategies_binding = args
             .ordered_placement_strategies
+            .get_output(context)
             .get_inner();
-        let placement_constraints_binding = args.placement_constraints.get_inner();
-        let platform_version_binding = args.platform_version.get_inner();
-        let propagate_tags_binding = args.propagate_tags.get_inner();
-        let scheduling_strategy_binding = args.scheduling_strategy.get_inner();
+        let placement_constraints_binding = args
+            .placement_constraints
+            .get_output(context)
+            .get_inner();
+        let platform_version_binding = args
+            .platform_version
+            .get_output(context)
+            .get_inner();
+        let propagate_tags_binding = args.propagate_tags.get_output(context).get_inner();
+        let scheduling_strategy_binding = args
+            .scheduling_strategy
+            .get_output(context)
+            .get_inner();
         let service_connect_configuration_binding = args
             .service_connect_configuration
+            .get_output(context)
             .get_inner();
-        let service_registries_binding = args.service_registries.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let task_definition_binding = args.task_definition.get_inner();
-        let triggers_binding = args.triggers.get_inner();
-        let volume_configuration_binding = args.volume_configuration.get_inner();
+        let service_registries_binding = args
+            .service_registries
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let task_definition_binding = args
+            .task_definition
+            .get_output(context)
+            .get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let volume_configuration_binding = args
+            .volume_configuration
+            .get_output(context)
+            .get_inner();
         let vpc_lattice_configurations_binding = args
             .vpc_lattice_configurations
+            .get_output(context)
             .get_inner();
-        let wait_for_steady_state_binding = args.wait_for_steady_state.get_inner();
+        let wait_for_steady_state_binding = args
+            .wait_for_steady_state
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/service:Service".into(),
             name: name.to_string(),
@@ -665,7 +720,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

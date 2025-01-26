@@ -31,49 +31,49 @@
 /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 ///
 pub mod component {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComponentArgs {
         /// Change description of the component.
         #[builder(into, default)]
-        pub change_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub change_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::Output<Option<String>>,
+        pub data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the component.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the component.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Platform of the component.
         #[builder(into)]
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set of Operating Systems (OS) supported by the component.
         #[builder(into, default)]
-        pub supported_os_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_os_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         ///
         /// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         #[builder(into, default)]
-        pub uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Version of the component.
         ///
         /// The following attributes are optional:
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ComponentResult {
@@ -124,20 +124,30 @@ pub mod component {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ComponentArgs) -> ComponentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ComponentArgs,
+    ) -> ComponentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let change_description_binding = args.change_description.get_inner();
-        let data_binding = args.data.get_inner();
-        let description_binding = args.description.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let platform_binding = args.platform.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let supported_os_versions_binding = args.supported_os_versions.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let uri_binding = args.uri.get_inner();
-        let version_binding = args.version.get_inner();
+        let change_description_binding = args
+            .change_description
+            .get_output(context)
+            .get_inner();
+        let data_binding = args.data.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let platform_binding = args.platform.get_output(context).get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let supported_os_versions_binding = args
+            .supported_os_versions
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let uri_binding = args.uri.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/component:Component".into(),
             name: name.to_string(),
@@ -242,7 +252,7 @@ pub mod component {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

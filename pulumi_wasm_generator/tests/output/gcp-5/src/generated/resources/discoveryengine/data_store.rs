@@ -102,33 +102,33 @@
 /// ```
 ///
 pub mod data_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataStoreArgs {
         /// The content config of the data store.
         /// Possible values are: `NO_CONTENT`, `CONTENT_REQUIRED`, `PUBLIC_WEBSITE`.
         #[builder(into)]
-        pub content_config: pulumi_wasm_rust::Output<String>,
+        pub content_config: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, an advanced data store for site search will be created. If the
         /// data store is not configured as site search (GENERIC vertical and
         /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
         #[builder(into, default)]
-        pub create_advanced_site_search: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_advanced_site_search: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The unique id of the data store.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        pub data_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name of the data store. This field must be a UTF-8 encoded
         /// string with a length limit of 128 characters.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for Document understanding and enrichment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub document_processing_config: pulumi_wasm_rust::Output<
+        pub document_processing_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::discoveryengine::DataStoreDocumentProcessingConfig,
             >,
@@ -136,15 +136,15 @@ pub mod data_store {
         /// The industry vertical that the data store registers.
         /// Possible values are: `GENERIC`, `MEDIA`, `HEALTHCARE_FHIR`.
         #[builder(into)]
-        pub industry_vertical: pulumi_wasm_rust::Output<String>,
+        pub industry_vertical: pulumi_wasm_rust::InputOrOutput<String>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean flag indicating whether to skip the default schema creation for
         /// the data store. Only enable this flag if you are certain that the default
         /// schema is incompatible with your use case.
@@ -153,11 +153,11 @@ pub mod data_store {
         /// This flag cannot be specified if `data_store.starting_schema` is
         /// specified.
         #[builder(into, default)]
-        pub skip_default_schema_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_default_schema_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The solutions that the data store enrolls.
         /// Each value may be one of: `SOLUTION_TYPE_RECOMMENDATION`, `SOLUTION_TYPE_SEARCH`, `SOLUTION_TYPE_CHAT`, `SOLUTION_TYPE_GENERATIVE_CHAT`.
         #[builder(into, default)]
-        pub solution_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub solution_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct DataStoreResult {
@@ -217,25 +217,35 @@ pub mod data_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataStoreArgs) -> DataStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataStoreArgs,
+    ) -> DataStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_config_binding = args.content_config.get_inner();
+        let content_config_binding = args.content_config.get_output(context).get_inner();
         let create_advanced_site_search_binding = args
             .create_advanced_site_search
+            .get_output(context)
             .get_inner();
-        let data_store_id_binding = args.data_store_id.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let document_processing_config_binding = args
             .document_processing_config
+            .get_output(context)
             .get_inner();
-        let industry_vertical_binding = args.industry_vertical.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
+        let industry_vertical_binding = args
+            .industry_vertical
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let skip_default_schema_creation_binding = args
             .skip_default_schema_creation
+            .get_output(context)
             .get_inner();
-        let solution_types_binding = args.solution_types.get_inner();
+        let solution_types_binding = args.solution_types.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/dataStore:DataStore".into(),
             name: name.to_string(),
@@ -324,7 +334,7 @@ pub mod data_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

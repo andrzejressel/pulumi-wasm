@@ -1,5 +1,5 @@
 pub mod get_query_log_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetQueryLogConfigArgs {
@@ -9,20 +9,22 @@ pub mod get_query_log_config {
         ///
         /// In addition to all arguments above, the following attributes are exported:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::route53::GetQueryLogConfigFilter>>,
         >,
         /// The name of the query logging configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the Route53 Resolver Query Logging Configuration.
         #[builder(into, default)]
-        pub resolver_query_log_config_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_query_log_config_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Map of tags to assign to the service.
         ///
         /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -45,15 +47,19 @@ pub mod get_query_log_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetQueryLogConfigArgs) -> GetQueryLogConfigResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetQueryLogConfigArgs,
+    ) -> GetQueryLogConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let resolver_query_log_config_id_binding = args
             .resolver_query_log_config_id
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getQueryLogConfig:getQueryLogConfig".into(),
             version: super::super::super::get_version(),
@@ -105,7 +111,7 @@ pub mod get_query_log_config {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

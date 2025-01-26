@@ -154,34 +154,34 @@
 /// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
 /// ```
 pub mod listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerArgs {
         /// Default action block for the default listener rule. Default action blocks are defined below.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::Output<
+        pub default_action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerDefaultAction,
         >,
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         #[builder(into, default)]
-        pub service_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         #[builder(into, default)]
-        pub service_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -221,16 +221,23 @@ pub mod listener {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListenerArgs) -> ListenerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListenerArgs,
+    ) -> ListenerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_action_binding = args.default_action.get_inner();
-        let name_binding = args.name.get_inner();
-        let port_binding = args.port.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let service_arn_binding = args.service_arn.get_inner();
-        let service_identifier_binding = args.service_identifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let default_action_binding = args.default_action.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let service_arn_binding = args.service_arn.get_output(context).get_inner();
+        let service_identifier_binding = args
+            .service_identifier
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/listener:Listener".into(),
             name: name.to_string(),
@@ -304,7 +311,7 @@ pub mod listener {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -44,46 +44,46 @@
 /// ```
 ///
 pub mod virtual_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualHubArgs {
         /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         #[builder(into, default)]
-        pub address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         #[builder(into, default)]
-        pub hub_routing_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub hub_routing_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Virtual Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `route` blocks as defined below.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::VirtualHubRoute>>,
         >,
         /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the Virtual Hub.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         #[builder(into, default)]
-        pub virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::Output<
+        pub virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub virtual_wan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_wan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualHubResult {
@@ -124,21 +124,32 @@ pub mod virtual_hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualHubArgs) -> VirtualHubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualHubArgs,
+    ) -> VirtualHubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_prefix_binding = args.address_prefix.get_inner();
-        let hub_routing_preference_binding = args.hub_routing_preference.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let routes_binding = args.routes.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let address_prefix_binding = args.address_prefix.get_output(context).get_inner();
+        let hub_routing_preference_binding = args
+            .hub_routing_preference
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let routes_binding = args.routes.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let virtual_router_auto_scale_min_capacity_binding = args
             .virtual_router_auto_scale_min_capacity
+            .get_output(context)
             .get_inner();
-        let virtual_wan_id_binding = args.virtual_wan_id.get_inner();
+        let virtual_wan_id_binding = args.virtual_wan_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHub:VirtualHub".into(),
             name: name.to_string(),
@@ -227,7 +238,7 @@ pub mod virtual_hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

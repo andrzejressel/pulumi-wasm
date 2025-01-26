@@ -160,51 +160,51 @@
 /// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
 /// ```
 pub mod trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerArgs {
         /// List of actions initiated by this trigger when it fires. See Actions Below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::glue::TriggerAction>,
         >,
         /// A description of the new trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Start the trigger. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         #[builder(into, default)]
-        pub event_batching_conditions: pulumi_wasm_rust::Output<
+        pub event_batching_conditions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::TriggerEventBatchingCondition>>,
         >,
         /// The name of the trigger.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         #[builder(into, default)]
-        pub predicate: pulumi_wasm_rust::Output<
+        pub predicate: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::TriggerPredicate>,
         >,
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         #[builder(into, default)]
-        pub start_on_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_on_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         #[builder(into, default)]
-        pub workflow_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TriggerResult {
@@ -251,22 +251,30 @@ pub mod trigger {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TriggerArgs) -> TriggerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TriggerArgs,
+    ) -> TriggerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let event_batching_conditions_binding = args
             .event_batching_conditions
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let predicate_binding = args.predicate.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let start_on_creation_binding = args.start_on_creation.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let workflow_name_binding = args.workflow_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let predicate_binding = args.predicate.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let start_on_creation_binding = args
+            .start_on_creation
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let workflow_name_binding = args.workflow_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/trigger:Trigger".into(),
             name: name.to_string(),
@@ -362,7 +370,7 @@ pub mod trigger {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -12,39 +12,39 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The application definition ID to deploy.
         #[builder(into, default)]
-        pub application_definition_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub managed_resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_values: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One `plan` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::managedapplication::ApplicationPlan>,
         >,
         /// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -79,22 +79,34 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_definition_id_binding = args
             .application_definition_id
+            .get_output(context)
             .get_inner();
-        let kind_binding = args.kind.get_inner();
-        let location_binding = args.location.get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let managed_resource_group_name_binding = args
             .managed_resource_group_name
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let parameter_values_binding = args.parameter_values.get_inner();
-        let plan_binding = args.plan.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameter_values_binding = args
+            .parameter_values
+            .get_output(context)
+            .get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managedapplication/application:Application".into(),
             name: name.to_string(),
@@ -170,7 +182,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

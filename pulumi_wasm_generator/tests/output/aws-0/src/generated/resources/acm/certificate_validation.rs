@@ -40,16 +40,18 @@
 /// }
 /// ```
 pub mod certificate_validation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateValidationArgs {
         /// ARN of the certificate that is being validated.
         #[builder(into)]
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         #[builder(into, default)]
-        pub validation_record_fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub validation_record_fqdns: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct CertificateValidationResult {
@@ -63,13 +65,20 @@ pub mod certificate_validation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CertificateValidationArgs,
     ) -> CertificateValidationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args.certificate_arn.get_inner();
-        let validation_record_fqdns_binding = args.validation_record_fqdns.get_inner();
+        let certificate_arn_binding = args
+            .certificate_arn
+            .get_output(context)
+            .get_inner();
+        let validation_record_fqdns_binding = args
+            .validation_record_fqdns
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acm/certificateValidation:CertificateValidation".into(),
             name: name.to_string(),
@@ -93,7 +102,7 @@ pub mod certificate_validation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

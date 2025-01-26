@@ -346,7 +346,7 @@
 /// $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
 /// ```
 pub mod bucket_notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketNotificationArgs {
@@ -354,23 +354,23 @@ pub mod bucket_notification {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         #[builder(into, default)]
-        pub eventbridge: pulumi_wasm_rust::Output<Option<bool>>,
+        pub eventbridge: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Used to configure notifications to a Lambda Function. See below.
         #[builder(into, default)]
-        pub lambda_functions: pulumi_wasm_rust::Output<
+        pub lambda_functions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketNotificationLambdaFunction>>,
         >,
         /// Notification configuration to SQS Queue. See below.
         #[builder(into, default)]
-        pub queues: pulumi_wasm_rust::Output<
+        pub queues: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketNotificationQueue>>,
         >,
         /// Notification configuration to SNS Topic. See below.
         #[builder(into, default)]
-        pub topics: pulumi_wasm_rust::Output<
+        pub topics: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketNotificationTopic>>,
         >,
     }
@@ -399,14 +399,21 @@ pub mod bucket_notification {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketNotificationArgs) -> BucketNotificationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketNotificationArgs,
+    ) -> BucketNotificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let eventbridge_binding = args.eventbridge.get_inner();
-        let lambda_functions_binding = args.lambda_functions.get_inner();
-        let queues_binding = args.queues.get_inner();
-        let topics_binding = args.topics.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let eventbridge_binding = args.eventbridge.get_output(context).get_inner();
+        let lambda_functions_binding = args
+            .lambda_functions
+            .get_output(context)
+            .get_inner();
+        let queues_binding = args.queues.get_output(context).get_inner();
+        let topics_binding = args.topics.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketNotification:BucketNotification".into(),
             name: name.to_string(),
@@ -451,7 +458,7 @@ pub mod bucket_notification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

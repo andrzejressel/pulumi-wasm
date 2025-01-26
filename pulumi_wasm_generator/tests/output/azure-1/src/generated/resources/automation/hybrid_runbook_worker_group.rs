@@ -43,22 +43,22 @@
 /// ```
 ///
 pub mod hybrid_runbook_worker_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerGroupArgs {
         /// The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of resource type `azure.automation.Credential` to use for hybrid worker.
         #[builder(into, default)]
-        pub credential_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub credential_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerGroupResult {
@@ -76,15 +76,25 @@ pub mod hybrid_runbook_worker_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HybridRunbookWorkerGroupArgs,
     ) -> HybridRunbookWorkerGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args.automation_account_name.get_inner();
-        let credential_name_binding = args.credential_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let automation_account_name_binding = args
+            .automation_account_name
+            .get_output(context)
+            .get_inner();
+        let credential_name_binding = args
+            .credential_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup"
                 .into(),
@@ -123,7 +133,7 @@ pub mod hybrid_runbook_worker_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

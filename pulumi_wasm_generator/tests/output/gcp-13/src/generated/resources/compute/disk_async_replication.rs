@@ -30,18 +30,18 @@
 ///         disk: ${["secondary-disk"].id}
 /// ```
 pub mod disk_async_replication {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskAsyncReplicationArgs {
         /// The primary disk (source of replication).
         #[builder(into)]
-        pub primary_disk: pulumi_wasm_rust::Output<String>,
+        pub primary_disk: pulumi_wasm_rust::InputOrOutput<String>,
         /// The secondary disk (target of replication). You can specify only one value. Structure is documented below.
         ///
         /// The `secondary_disk` block includes:
         #[builder(into)]
-        pub secondary_disk: pulumi_wasm_rust::Output<
+        pub secondary_disk: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::DiskAsyncReplicationSecondaryDisk,
         >,
     }
@@ -61,13 +61,14 @@ pub mod disk_async_replication {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DiskAsyncReplicationArgs,
     ) -> DiskAsyncReplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let primary_disk_binding = args.primary_disk.get_inner();
-        let secondary_disk_binding = args.secondary_disk.get_inner();
+        let primary_disk_binding = args.primary_disk.get_output(context).get_inner();
+        let secondary_disk_binding = args.secondary_disk.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/diskAsyncReplication:DiskAsyncReplication".into(),
             name: name.to_string(),
@@ -91,7 +92,7 @@ pub mod disk_async_replication {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

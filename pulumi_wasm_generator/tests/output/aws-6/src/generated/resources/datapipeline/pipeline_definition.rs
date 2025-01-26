@@ -56,32 +56,32 @@
 /// $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
 /// ```
 pub mod pipeline_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineDefinitionArgs {
         /// Configuration block for the parameter objects used in the pipeline definition. See below
         #[builder(into, default)]
-        pub parameter_objects: pulumi_wasm_rust::Output<
+        pub parameter_objects: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterObject>,
             >,
         >,
         /// Configuration block for the parameter values used in the pipeline definition. See below
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::Output<
+        pub parameter_values: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datapipeline::PipelineDefinitionParameterValue>,
             >,
         >,
         /// ID of the pipeline.
         #[builder(into)]
-        pub pipeline_id: pulumi_wasm_rust::Output<String>,
+        pub pipeline_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for the objects that define the pipeline. See below
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub pipeline_objects: pulumi_wasm_rust::Output<
+        pub pipeline_objects: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::datapipeline::PipelineDefinitionPipelineObject>,
         >,
     }
@@ -112,13 +112,26 @@ pub mod pipeline_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PipelineDefinitionArgs) -> PipelineDefinitionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PipelineDefinitionArgs,
+    ) -> PipelineDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let parameter_objects_binding = args.parameter_objects.get_inner();
-        let parameter_values_binding = args.parameter_values.get_inner();
-        let pipeline_id_binding = args.pipeline_id.get_inner();
-        let pipeline_objects_binding = args.pipeline_objects.get_inner();
+        let parameter_objects_binding = args
+            .parameter_objects
+            .get_output(context)
+            .get_inner();
+        let parameter_values_binding = args
+            .parameter_values
+            .get_output(context)
+            .get_inner();
+        let pipeline_id_binding = args.pipeline_id.get_output(context).get_inner();
+        let pipeline_objects_binding = args
+            .pipeline_objects
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datapipeline/pipelineDefinition:PipelineDefinition".into(),
             name: name.to_string(),
@@ -156,7 +169,7 @@ pub mod pipeline_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

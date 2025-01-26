@@ -64,25 +64,25 @@
 /// ```
 ///
 pub mod folder_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderSettingsArgs {
         /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
         #[builder(into, default)]
-        pub disable_default_sink: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_default_sink: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The folder for which to retrieve settings.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource name for the configured Cloud KMS key.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
         #[builder(into, default)]
-        pub storage_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FolderSettingsResult {
@@ -108,13 +108,23 @@ pub mod folder_settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FolderSettingsArgs) -> FolderSettingsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FolderSettingsArgs,
+    ) -> FolderSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disable_default_sink_binding = args.disable_default_sink.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let storage_location_binding = args.storage_location.get_inner();
+        let disable_default_sink_binding = args
+            .disable_default_sink
+            .get_output(context)
+            .get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let storage_location_binding = args
+            .storage_location
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/folderSettings:FolderSettings".into(),
             name: name.to_string(),
@@ -161,7 +171,7 @@ pub mod folder_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

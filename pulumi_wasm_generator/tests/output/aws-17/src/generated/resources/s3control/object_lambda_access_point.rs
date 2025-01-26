@@ -48,21 +48,21 @@
 /// $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
 /// ```
 pub mod object_lambda_access_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointArgs {
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         #[builder(into)]
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3control::ObjectLambdaAccessPointConfiguration,
         >,
         /// The name for this Object Lambda Access Point.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointResult {
@@ -84,14 +84,15 @@ pub mod object_lambda_access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ObjectLambdaAccessPointArgs,
     ) -> ObjectLambdaAccessPointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let configuration_binding = args.configuration.get_inner();
-        let name_binding = args.name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let configuration_binding = args.configuration.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint"
                 .into(),
@@ -129,7 +130,7 @@ pub mod object_lambda_access_point {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

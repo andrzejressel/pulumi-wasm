@@ -14,13 +14,13 @@
 ///       enabled: 'true'
 /// ```
 pub mod organizations_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationsAccessArgs {
         /// Whether to enable AWS Organizations access.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct OrganizationsAccessResult {
@@ -32,12 +32,13 @@ pub mod organizations_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationsAccessArgs,
     ) -> OrganizationsAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/organizationsAccess:OrganizationsAccess".into(),
             name: name.to_string(),
@@ -54,7 +55,7 @@ pub mod organizations_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

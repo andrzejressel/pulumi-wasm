@@ -27,27 +27,29 @@
 /// $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Identifier of the source cluster.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS Region to copy snapshots to.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub destination_region: pulumi_wasm_rust::Output<String>,
+        pub destination_region: pulumi_wasm_rust::InputOrOutput<String>,
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         #[builder(into, default)]
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub manual_snapshot_retention_period: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         #[builder(into, default)]
-        pub snapshot_copy_grant_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_copy_grant_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
@@ -68,16 +70,33 @@ pub mod snapshot_copy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotCopyArgs) -> SnapshotCopyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotCopyArgs,
+    ) -> SnapshotCopyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let destination_region_binding = args.destination_region.get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let destination_region_binding = args
+            .destination_region
+            .get_output(context)
+            .get_inner();
         let manual_snapshot_retention_period_binding = args
             .manual_snapshot_retention_period
+            .get_output(context)
             .get_inner();
-        let retention_period_binding = args.retention_period.get_inner();
-        let snapshot_copy_grant_name_binding = args.snapshot_copy_grant_name.get_inner();
+        let retention_period_binding = args
+            .retention_period
+            .get_output(context)
+            .get_inner();
+        let snapshot_copy_grant_name_binding = args
+            .snapshot_copy_grant_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/snapshotCopy:SnapshotCopy".into(),
             name: name.to_string(),
@@ -122,7 +141,7 @@ pub mod snapshot_copy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

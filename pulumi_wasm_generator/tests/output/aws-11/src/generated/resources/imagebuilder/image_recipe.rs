@@ -33,50 +33,50 @@
 /// $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 /// ```
 pub mod image_recipe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageRecipeArgs {
         /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
         #[builder(into, default)]
-        pub block_device_mappings: pulumi_wasm_rust::Output<
+        pub block_device_mappings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::imagebuilder::ImageRecipeBlockDeviceMapping>>,
         >,
         /// Ordered configuration block(s) with components for the image recipe. Detailed below.
         #[builder(into)]
-        pub components: pulumi_wasm_rust::Output<
+        pub components: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::imagebuilder::ImageRecipeComponent>,
         >,
         /// Description of the image recipe.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the image recipe.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         #[builder(into)]
-        pub parent_image: pulumi_wasm_rust::Output<String>,
+        pub parent_image: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         #[builder(into, default)]
-        pub systems_manager_agent: pulumi_wasm_rust::Output<
+        pub systems_manager_agent: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::ImageRecipeSystemsManagerAgent>,
         >,
         /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         #[builder(into, default)]
-        pub user_data_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_data_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         ///
         /// The following attributes are optional:
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The working directory to be used during build and test workflows.
         #[builder(into, default)]
-        pub working_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub working_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ImageRecipeResult {
@@ -127,19 +127,35 @@ pub mod image_recipe {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ImageRecipeArgs) -> ImageRecipeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ImageRecipeArgs,
+    ) -> ImageRecipeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let block_device_mappings_binding = args.block_device_mappings.get_inner();
-        let components_binding = args.components.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_image_binding = args.parent_image.get_inner();
-        let systems_manager_agent_binding = args.systems_manager_agent.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_data_base64_binding = args.user_data_base64.get_inner();
-        let version_binding = args.version.get_inner();
-        let working_directory_binding = args.working_directory.get_inner();
+        let block_device_mappings_binding = args
+            .block_device_mappings
+            .get_output(context)
+            .get_inner();
+        let components_binding = args.components.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_image_binding = args.parent_image.get_output(context).get_inner();
+        let systems_manager_agent_binding = args
+            .systems_manager_agent
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_data_base64_binding = args
+            .user_data_base64
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
+        let working_directory_binding = args
+            .working_directory
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/imageRecipe:ImageRecipe".into(),
             name: name.to_string(),
@@ -234,7 +250,7 @@ pub mod image_recipe {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

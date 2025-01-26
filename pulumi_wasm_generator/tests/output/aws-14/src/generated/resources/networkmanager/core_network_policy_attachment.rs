@@ -61,16 +61,16 @@
 /// $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
 /// ```
 pub mod core_network_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CoreNetworkPolicyAttachmentArgs {
         /// The ID of the core network that a policy will be attached to and made `LIVE`.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CoreNetworkPolicyAttachmentResult {
@@ -86,13 +86,20 @@ pub mod core_network_policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CoreNetworkPolicyAttachmentArgs,
     ) -> CoreNetworkPolicyAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args.core_network_id.get_inner();
-        let policy_document_binding = args.policy_document.get_inner();
+        let core_network_id_binding = args
+            .core_network_id
+            .get_output(context)
+            .get_inner();
+        let policy_document_binding = args
+            .policy_document
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment"
                 .into(),
@@ -120,7 +127,7 @@ pub mod core_network_policy_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -89,30 +89,30 @@
 /// ```
 ///
 pub mod eligible_role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EligibleRoleAssignmentArgs {
         /// The justification of the role assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub justification: pulumi_wasm_rust::Output<Option<String>>,
+        pub justification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `schedule` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::EligibleRoleAssignmentSchedule>,
         >,
         /// The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ticket: pulumi_wasm_rust::Output<
+        pub ticket: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pim::EligibleRoleAssignmentTicket>,
         >,
     }
@@ -142,17 +142,21 @@ pub mod eligible_role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EligibleRoleAssignmentArgs,
     ) -> EligibleRoleAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let justification_binding = args.justification.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let ticket_binding = args.ticket.get_inner();
+        let justification_binding = args.justification.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let ticket_binding = args.ticket.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment".into(),
             name: name.to_string(),
@@ -207,7 +211,7 @@ pub mod eligible_role_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

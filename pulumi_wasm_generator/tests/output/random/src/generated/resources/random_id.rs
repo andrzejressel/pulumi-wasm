@@ -51,21 +51,21 @@
 ///
 ///
 pub mod random_id {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomIdArgs {
         /// The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
         #[builder(into)]
-        pub byte_length: pulumi_wasm_rust::Output<i32>,
+        pub byte_length: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Arbitrary string to prefix the output value with. This string is supplied as-is, meaning it is not guaranteed to be URL-safe or base64 encoded.
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RandomIdResult {
@@ -90,12 +90,16 @@ pub mod random_id {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RandomIdArgs) -> RandomIdResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RandomIdArgs,
+    ) -> RandomIdResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let byte_length_binding = args.byte_length.get_inner();
-        let keepers_binding = args.keepers.get_inner();
-        let prefix_binding = args.prefix.get_inner();
+        let byte_length_binding = args.byte_length.get_output(context).get_inner();
+        let keepers_binding = args.keepers.get_output(context).get_inner();
+        let prefix_binding = args.prefix.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
             name: name.to_string(),
@@ -138,7 +142,7 @@ pub mod random_id {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

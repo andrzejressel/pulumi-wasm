@@ -67,26 +67,26 @@
 /// ```
 ///
 pub mod network_firewall_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkFirewallPolicyAssociationArgs {
         /// The target that the firewall policy is attached to.
         #[builder(into)]
-        pub attachment_target: pulumi_wasm_rust::Output<String>,
+        pub attachment_target: pulumi_wasm_rust::InputOrOutput<String>,
         /// The firewall policy of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub firewall_policy: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for an association.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkFirewallPolicyAssociationResult {
@@ -110,15 +110,22 @@ pub mod network_firewall_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkFirewallPolicyAssociationArgs,
     ) -> NetworkFirewallPolicyAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attachment_target_binding = args.attachment_target.get_inner();
-        let firewall_policy_binding = args.firewall_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let attachment_target_binding = args
+            .attachment_target
+            .get_output(context)
+            .get_inner();
+        let firewall_policy_binding = args
+            .firewall_policy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkFirewallPolicyAssociation:NetworkFirewallPolicyAssociation"
                 .into(),
@@ -160,7 +167,7 @@ pub mod network_firewall_policy_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

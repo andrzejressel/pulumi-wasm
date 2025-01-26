@@ -30,19 +30,19 @@
 /// $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
 /// ```
 pub mod website_certificate_authority_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebsiteCertificateAuthorityAssociationArgs {
         /// The root certificate of the Certificate Authority.
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
         /// The certificate name to display.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the fleet.
         #[builder(into)]
-        pub fleet_arn: pulumi_wasm_rust::Output<String>,
+        pub fleet_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebsiteCertificateAuthorityAssociationResult {
@@ -60,14 +60,15 @@ pub mod website_certificate_authority_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WebsiteCertificateAuthorityAssociationArgs,
     ) -> WebsiteCertificateAuthorityAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let fleet_arn_binding = args.fleet_arn.get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let fleet_arn_binding = args.fleet_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation"
                 .into(),
@@ -102,7 +103,7 @@ pub mod website_certificate_authority_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

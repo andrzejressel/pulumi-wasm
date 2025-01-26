@@ -225,34 +225,34 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// The App Engine integration mode to use for this database.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub app_engine_integration_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_engine_integration_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CMEK (Customer Managed Encryption Key) configuration for a Firestore
         /// database. If not present, the database is secured by the default Google
         /// encryption key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cmek_config: pulumi_wasm_rust::Output<
+        pub cmek_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::firestore::DatabaseCmekConfig>,
         >,
         /// The concurrency control mode to use for this database.
         /// Possible values are: `OPTIMISTIC`, `PESSIMISTIC`, `OPTIMISTIC_WITH_ENTITY_GROUPS`.
         #[builder(into, default)]
-        pub concurrency_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub concurrency_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub delete_protection_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub delete_protection_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the database. Available locations are listed at
         /// https://cloud.google.com/firestore/docs/locations.
         #[builder(into)]
-        pub location_id: pulumi_wasm_rust::Output<String>,
+        pub location_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID to use for the database, which will become the final
         /// component of the database's resource name. This value should be 4-63
         /// characters. Valid characters are /[a-z][0-9]-/ with first character
@@ -260,7 +260,7 @@ pub mod database {
         /// UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
         /// "(default)" database id is also valid.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable the PITR feature on this database.
         /// If `POINT_IN_TIME_RECOVERY_ENABLED` is selected, reads are supported on selected versions of the data from within the past 7 days.
         /// versionRetentionPeriod and earliestVersionTime can be used to determine the supported versions. These include reads against any timestamp within the past hour
@@ -269,11 +269,13 @@ pub mod database {
         /// Default value is `POINT_IN_TIME_RECOVERY_DISABLED`.
         /// Possible values are: `POINT_IN_TIME_RECOVERY_ENABLED`, `POINT_IN_TIME_RECOVERY_DISABLED`.
         #[builder(into, default)]
-        pub point_in_time_recovery_enablement: pulumi_wasm_rust::Output<Option<String>>,
+        pub point_in_time_recovery_enablement: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the database.
         /// See https://cloud.google.com/datastore/docs/firestore-or-datastore
         /// for information about how to choose.
@@ -282,7 +284,7 @@ pub mod database {
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
@@ -359,23 +361,38 @@ pub mod database {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatabaseArgs) -> DatabaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatabaseArgs,
+    ) -> DatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_engine_integration_mode_binding = args
             .app_engine_integration_mode
+            .get_output(context)
             .get_inner();
-        let cmek_config_binding = args.cmek_config.get_inner();
-        let concurrency_mode_binding = args.concurrency_mode.get_inner();
-        let delete_protection_state_binding = args.delete_protection_state.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let location_id_binding = args.location_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let cmek_config_binding = args.cmek_config.get_output(context).get_inner();
+        let concurrency_mode_binding = args
+            .concurrency_mode
+            .get_output(context)
+            .get_inner();
+        let delete_protection_state_binding = args
+            .delete_protection_state
+            .get_output(context)
+            .get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let location_id_binding = args.location_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let point_in_time_recovery_enablement_binding = args
             .point_in_time_recovery_enablement
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let type__binding = args.type_.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/database:Database".into(),
             name: name.to_string(),
@@ -476,7 +493,7 @@ pub mod database {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -53,39 +53,39 @@
 /// ```
 ///
 pub mod stream_input_iot_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamInputIotHubArgs {
         /// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
         #[builder(into)]
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
         #[builder(into)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name or the URI of the IoT Hub.
         #[builder(into)]
-        pub iothub_namespace: pulumi_wasm_rust::Output<String>,
+        pub iothub_namespace: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `serialization` block as defined below.
         #[builder(into)]
-        pub serialization: pulumi_wasm_rust::Output<
+        pub serialization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::streamanalytics::StreamInputIotHubSerialization,
         >,
         /// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub shared_access_policy_key: pulumi_wasm_rust::Output<String>,
+        pub shared_access_policy_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         #[builder(into)]
-        pub shared_access_policy_name: pulumi_wasm_rust::Output<String>,
+        pub shared_access_policy_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StreamInputIotHubResult {
@@ -114,23 +114,39 @@ pub mod stream_input_iot_hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StreamInputIotHubArgs) -> StreamInputIotHubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StreamInputIotHubArgs,
+    ) -> StreamInputIotHubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding = args.endpoint.get_inner();
+        let endpoint_binding = args.endpoint.get_output(context).get_inner();
         let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
+            .get_output(context)
             .get_inner();
-        let iothub_namespace_binding = args.iothub_namespace.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let serialization_binding = args.serialization.get_inner();
-        let shared_access_policy_key_binding = args.shared_access_policy_key.get_inner();
+        let iothub_namespace_binding = args
+            .iothub_namespace
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let serialization_binding = args.serialization.get_output(context).get_inner();
+        let shared_access_policy_key_binding = args
+            .shared_access_policy_key
+            .get_output(context)
+            .get_inner();
         let shared_access_policy_name_binding = args
             .shared_access_policy_name
+            .get_output(context)
             .get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/streamInputIotHub:StreamInputIotHub".into(),
@@ -204,7 +220,7 @@ pub mod stream_input_iot_hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

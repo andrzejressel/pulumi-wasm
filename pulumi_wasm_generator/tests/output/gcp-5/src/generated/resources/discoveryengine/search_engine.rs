@@ -70,41 +70,41 @@
 /// ```
 ///
 pub mod search_engine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SearchEngineArgs {
         /// The collection ID.
         #[builder(into)]
-        pub collection_id: pulumi_wasm_rust::Output<String>,
+        pub collection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Common config spec that specifies the metadata of the engine.
         #[builder(into, default)]
-        pub common_config: pulumi_wasm_rust::Output<
+        pub common_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::discoveryengine::SearchEngineCommonConfig>,
         >,
         /// The data stores associated with this engine. For SOLUTION_TYPE_SEARCH type of engines, they can only associate with at most one data store.
         #[builder(into)]
-        pub data_store_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub data_store_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Unique ID to use for Search Engine App.
         #[builder(into)]
-        pub engine_id: pulumi_wasm_rust::Output<String>,
+        pub engine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore:
         /// If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine.
         /// Default value: "GENERIC" Possible values: ["GENERIC", "MEDIA", "HEALTHCARE_FHIR"]
         #[builder(into, default)]
-        pub industry_vertical: pulumi_wasm_rust::Output<Option<String>>,
+        pub industry_vertical: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configurations for a Search Engine.
         /// Structure is documented below.
         #[builder(into)]
-        pub search_engine_config: pulumi_wasm_rust::Output<
+        pub search_engine_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::discoveryengine::SearchEngineSearchEngineConfig,
         >,
     }
@@ -148,18 +148,28 @@ pub mod search_engine {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SearchEngineArgs) -> SearchEngineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SearchEngineArgs,
+    ) -> SearchEngineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let collection_id_binding = args.collection_id.get_inner();
-        let common_config_binding = args.common_config.get_inner();
-        let data_store_ids_binding = args.data_store_ids.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let engine_id_binding = args.engine_id.get_inner();
-        let industry_vertical_binding = args.industry_vertical.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let search_engine_config_binding = args.search_engine_config.get_inner();
+        let collection_id_binding = args.collection_id.get_output(context).get_inner();
+        let common_config_binding = args.common_config.get_output(context).get_inner();
+        let data_store_ids_binding = args.data_store_ids.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let engine_id_binding = args.engine_id.get_output(context).get_inner();
+        let industry_vertical_binding = args
+            .industry_vertical
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let search_engine_config_binding = args
+            .search_engine_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/searchEngine:SearchEngine".into(),
             name: name.to_string(),
@@ -241,7 +251,7 @@ pub mod search_engine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

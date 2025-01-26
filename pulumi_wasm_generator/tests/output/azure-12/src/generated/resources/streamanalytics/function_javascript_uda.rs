@@ -51,29 +51,29 @@
 /// ```
 ///
 pub mod function_javascript_uda {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionJavascriptUdaArgs {
         /// One or more `input` blocks as defined below.
         #[builder(into)]
-        pub inputs: pulumi_wasm_rust::Output<
+        pub inputs: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::streamanalytics::FunctionJavascriptUdaInput>,
         >,
         /// The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `output` block as defined below.
         #[builder(into)]
-        pub output: pulumi_wasm_rust::Output<
+        pub output: pulumi_wasm_rust::InputOrOutput<
             super::super::types::streamanalytics::FunctionJavascriptUdaOutput,
         >,
         /// The JavaScript of this UDA Function.
         #[builder(into)]
-        pub script: pulumi_wasm_rust::Output<String>,
+        pub script: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_id: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FunctionJavascriptUdaResult {
@@ -97,16 +97,20 @@ pub mod function_javascript_uda {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FunctionJavascriptUdaArgs,
     ) -> FunctionJavascriptUdaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let inputs_binding = args.inputs.get_inner();
-        let name_binding = args.name.get_inner();
-        let output_binding = args.output.get_inner();
-        let script_binding = args.script.get_inner();
-        let stream_analytics_job_id_binding = args.stream_analytics_job_id.get_inner();
+        let inputs_binding = args.inputs.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let output_binding = args.output.get_output(context).get_inner();
+        let script_binding = args.script.get_output(context).get_inner();
+        let stream_analytics_job_id_binding = args
+            .stream_analytics_job_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda"
                 .into(),
@@ -152,7 +156,7 @@ pub mod function_javascript_uda {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

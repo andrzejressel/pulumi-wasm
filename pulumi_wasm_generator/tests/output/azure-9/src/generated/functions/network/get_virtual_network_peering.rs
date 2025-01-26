@@ -1,14 +1,14 @@
 pub mod get_virtual_network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVirtualNetworkPeeringArgs {
         /// The name of this virtual network peering.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of the virtual network.
         #[builder(into)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVirtualNetworkPeeringResult {
@@ -35,11 +35,17 @@ pub mod get_virtual_network_peering {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVirtualNetworkPeeringArgs) -> GetVirtualNetworkPeeringResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVirtualNetworkPeeringArgs,
+    ) -> GetVirtualNetworkPeeringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering"
                 .into(),
@@ -87,7 +93,7 @@ pub mod get_virtual_network_peering {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

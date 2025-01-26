@@ -41,30 +41,30 @@
 /// ```
 ///
 pub mod network_slice {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSliceArgs {
         /// A description for this Mobile Network Slice.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         #[builder(into)]
-        pub single_network_slice_selection_assistance_information: pulumi_wasm_rust::Output<
+        pub single_network_slice_selection_assistance_information: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mobile::NetworkSliceSingleNetworkSliceSelectionAssistanceInformation,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Slice.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,17 +91,25 @@ pub mod network_slice {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkSliceArgs) -> NetworkSliceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkSliceArgs,
+    ) -> NetworkSliceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let mobile_network_id_binding = args.mobile_network_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mobile_network_id_binding = args
+            .mobile_network_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let single_network_slice_selection_assistance_information_binding = args
             .single_network_slice_selection_assistance_information
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkSlice:NetworkSlice".into(),
             name: name.to_string(),
@@ -153,7 +161,7 @@ pub mod network_slice {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

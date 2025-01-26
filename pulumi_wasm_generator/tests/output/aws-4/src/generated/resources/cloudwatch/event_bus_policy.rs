@@ -126,17 +126,17 @@
 /// $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
 /// ```
 pub mod event_bus_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventBusPolicyArgs {
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         #[builder(into, default)]
-        pub event_bus_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_bus_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The text of the policy.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EventBusPolicyResult {
@@ -150,11 +150,15 @@ pub mod event_bus_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventBusPolicyArgs) -> EventBusPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventBusPolicyArgs,
+    ) -> EventBusPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let event_bus_name_binding = args.event_bus_name.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventBusPolicy:EventBusPolicy".into(),
             name: name.to_string(),
@@ -178,7 +182,7 @@ pub mod event_bus_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

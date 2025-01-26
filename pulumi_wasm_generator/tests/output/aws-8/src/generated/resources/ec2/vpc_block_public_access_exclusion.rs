@@ -59,7 +59,7 @@
 /// $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
 /// ```
 pub mod vpc_block_public_access_exclusion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcBlockPublicAccessExclusionArgs {
@@ -67,22 +67,22 @@ pub mod vpc_block_public_access_exclusion {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub internet_gateway_exclusion_mode: pulumi_wasm_rust::Output<String>,
+        pub internet_gateway_exclusion_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcBlockPublicAccessExclusionTimeouts>,
         >,
         /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcBlockPublicAccessExclusionResult {
@@ -113,6 +113,7 @@ pub mod vpc_block_public_access_exclusion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcBlockPublicAccessExclusionArgs,
     ) -> VpcBlockPublicAccessExclusionResult {
@@ -120,11 +121,12 @@ pub mod vpc_block_public_access_exclusion {
         use std::collections::HashMap;
         let internet_gateway_exclusion_mode_binding = args
             .internet_gateway_exclusion_mode
+            .get_output(context)
             .get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion"
                 .into(),
@@ -176,7 +178,7 @@ pub mod vpc_block_public_access_exclusion {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

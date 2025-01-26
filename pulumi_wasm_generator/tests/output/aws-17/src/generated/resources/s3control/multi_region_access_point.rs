@@ -48,16 +48,16 @@
 /// $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
 /// ```
 pub mod multi_region_access_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiRegionAccessPointArgs {
         /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
         #[builder(into)]
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3control::MultiRegionAccessPointDetails,
         >,
     }
@@ -83,13 +83,14 @@ pub mod multi_region_access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MultiRegionAccessPointArgs,
     ) -> MultiRegionAccessPointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let details_binding = args.details.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let details_binding = args.details.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint".into(),
             name: name.to_string(),
@@ -125,7 +126,7 @@ pub mod multi_region_access_point {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

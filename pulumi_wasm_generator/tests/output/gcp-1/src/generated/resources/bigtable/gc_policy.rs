@@ -131,51 +131,51 @@
 /// This resource does not support import.
 ///
 pub mod gc_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GCPolicyArgs {
         /// The name of the column family.
         #[builder(into)]
-        pub column_family: pulumi_wasm_rust::Output<String>,
+        pub column_family: pulumi_wasm_rust::InputOrOutput<String>,
         /// The deletion policy for the GC policy.
         /// Setting ABANDON allows the resource to be abandoned rather than deleted. This is useful for GC policy as it cannot be deleted in a replicated instance.
         ///
         /// Possible values are: `ABANDON`.
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Serialized JSON object to represent a more complex GC policy. Conflicts with `mode`, `max_age` and `max_version`. Conflicts with `mode`, `max_age` and `max_version`.
         #[builder(into, default)]
-        pub gc_rules: pulumi_wasm_rust::Output<Option<String>>,
+        pub gc_rules: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boolean for whether to allow ignoring warnings when updating the gc policy.
         /// Setting this to `true` allows relaxing the gc policy for replicated clusters by up to 90 days, but keep in mind this may increase how long clusters are inconsistent. Make sure
         /// you understand the risks listed at https://cloud.google.com/bigtable/docs/garbage-collection#increasing before setting this option.
         ///
         /// -----
         #[builder(into, default)]
-        pub ignore_warnings: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_warnings: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Bigtable instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// GC policy that applies to all cells older than the given age.
         #[builder(into, default)]
-        pub max_age: pulumi_wasm_rust::Output<
+        pub max_age: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigtable::GcPolicyMaxAge>,
         >,
         /// GC policy that applies to all versions of a cell except for the most recent.
         #[builder(into, default)]
-        pub max_versions: pulumi_wasm_rust::Output<
+        pub max_versions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bigtable::GcPolicyMaxVersion>>,
         >,
         /// If multiple policies are set, you should choose between `UNION` OR `INTERSECTION`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the table.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GCPolicyResult {
@@ -215,19 +215,29 @@ pub mod gc_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GCPolicyArgs) -> GCPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GCPolicyArgs,
+    ) -> GCPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let column_family_binding = args.column_family.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let gc_rules_binding = args.gc_rules.get_inner();
-        let ignore_warnings_binding = args.ignore_warnings.get_inner();
-        let instance_name_binding = args.instance_name.get_inner();
-        let max_age_binding = args.max_age.get_inner();
-        let max_versions_binding = args.max_versions.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let project_binding = args.project.get_inner();
-        let table_binding = args.table.get_inner();
+        let column_family_binding = args.column_family.get_output(context).get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let gc_rules_binding = args.gc_rules.get_output(context).get_inner();
+        let ignore_warnings_binding = args
+            .ignore_warnings
+            .get_output(context)
+            .get_inner();
+        let instance_name_binding = args.instance_name.get_output(context).get_inner();
+        let max_age_binding = args.max_age.get_output(context).get_inner();
+        let max_versions_binding = args.max_versions.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let table_binding = args.table.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigtable/gCPolicy:GCPolicy".into(),
             name: name.to_string(),
@@ -307,7 +317,7 @@ pub mod gc_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

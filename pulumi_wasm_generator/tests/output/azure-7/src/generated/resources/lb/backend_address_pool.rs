@@ -59,29 +59,29 @@
 /// ```
 ///
 pub mod backend_address_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendAddressPoolArgs {
         /// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
         #[builder(into, default)]
-        pub synchronous_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub synchronous_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `tunnel_interface` blocks as defined below.
         #[builder(into, default)]
-        pub tunnel_interfaces: pulumi_wasm_rust::Output<
+        pub tunnel_interfaces: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::lb::BackendAddressPoolTunnelInterface>>,
         >,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendAddressPoolResult {
@@ -112,14 +112,30 @@ pub mod backend_address_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackendAddressPoolArgs) -> BackendAddressPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackendAddressPoolArgs,
+    ) -> BackendAddressPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding = args.loadbalancer_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let synchronous_mode_binding = args.synchronous_mode.get_inner();
-        let tunnel_interfaces_binding = args.tunnel_interfaces.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let loadbalancer_id_binding = args
+            .loadbalancer_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let synchronous_mode_binding = args
+            .synchronous_mode
+            .get_output(context)
+            .get_inner();
+        let tunnel_interfaces_binding = args
+            .tunnel_interfaces
+            .get_output(context)
+            .get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPool:BackendAddressPool".into(),
             name: name.to_string(),
@@ -176,7 +192,7 @@ pub mod backend_address_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

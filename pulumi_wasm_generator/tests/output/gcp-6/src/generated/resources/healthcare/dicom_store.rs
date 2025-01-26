@@ -98,7 +98,7 @@
 /// ```
 ///
 pub mod dicom_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DicomStoreArgs {
@@ -108,7 +108,7 @@ pub mod dicom_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
         /// User-supplied key-value pairs used to organize DICOM stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
@@ -121,24 +121,24 @@ pub mod dicom_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the DicomStore.
         /// ** Changing this property may recreate the Dicom store (removing all data) **
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::DicomStoreNotificationConfig>,
         >,
         /// To enable streaming to BigQuery, configure the streamConfigs object in your DICOM store.
         /// streamConfigs is an array, so you can specify multiple BigQuery destinations. You can stream metadata from a single DICOM store to up to five BigQuery tables in a BigQuery dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub stream_configs: pulumi_wasm_rust::Output<
+        pub stream_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::DicomStoreStreamConfig>>,
         >,
     }
@@ -194,14 +194,21 @@ pub mod dicom_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DicomStoreArgs) -> DicomStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DicomStoreArgs,
+    ) -> DicomStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_config_binding = args.notification_config.get_inner();
-        let stream_configs_binding = args.stream_configs.get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_config_binding = args
+            .notification_config
+            .get_output(context)
+            .get_inner();
+        let stream_configs_binding = args.stream_configs.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dicomStore:DicomStore".into(),
             name: name.to_string(),
@@ -255,7 +262,7 @@ pub mod dicom_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

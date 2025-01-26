@@ -91,36 +91,36 @@
 /// ```
 ///
 pub mod project_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectPoolArgs {
         /// The name of the Dev Center Dev Box Definition.
         #[builder(into)]
-        pub dev_box_definition_name: pulumi_wasm_rust::Output<String>,
+        pub dev_box_definition_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
         #[builder(into)]
-        pub dev_center_attached_network_name: pulumi_wasm_rust::Output<String>,
+        pub dev_center_attached_network_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_project_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_project_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         #[builder(into)]
-        pub local_administrator_enabled: pulumi_wasm_rust::Output<bool>,
+        pub local_administrator_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         #[builder(into, default)]
-        pub stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::Output<
+        pub stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A mapping of tags which should be assigned to the Dev Center Project Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -151,23 +151,36 @@ pub mod project_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProjectPoolArgs) -> ProjectPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProjectPoolArgs,
+    ) -> ProjectPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dev_box_definition_name_binding = args.dev_box_definition_name.get_inner();
+        let dev_box_definition_name_binding = args
+            .dev_box_definition_name
+            .get_output(context)
+            .get_inner();
         let dev_center_attached_network_name_binding = args
             .dev_center_attached_network_name
+            .get_output(context)
             .get_inner();
-        let dev_center_project_id_binding = args.dev_center_project_id.get_inner();
+        let dev_center_project_id_binding = args
+            .dev_center_project_id
+            .get_output(context)
+            .get_inner();
         let local_administrator_enabled_binding = args
             .local_administrator_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let stop_on_disconnect_grace_period_minutes_binding = args
             .stop_on_disconnect_grace_period_minutes
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/projectPool:ProjectPool".into(),
             name: name.to_string(),
@@ -233,7 +246,7 @@ pub mod project_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

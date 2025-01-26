@@ -72,70 +72,70 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// An `auto_scale_profile` block as defined below.
         #[builder(into, default)]
-        pub auto_scale_profiles: pulumi_wasm_rust::Output<
+        pub auto_scale_profiles: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentAutoScaleProfile>>,
         >,
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         #[builder(into, default)]
-        pub automatic_upgrade_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub automatic_upgrade_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         ///
         /// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Should the metrics be exported to Azure Monitor?
         #[builder(into, default)]
-        pub diagnose_support_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub diagnose_support_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specify the preferred support contact email address for receiving alerts and notifications.
         #[builder(into, default)]
-        pub email: pulumi_wasm_rust::Output<Option<String>>,
+        pub email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub frontend_privates: pulumi_wasm_rust::Output<
+        pub frontend_privates: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentFrontendPrivate>>,
         >,
         /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub frontend_public: pulumi_wasm_rust::Output<
+        pub frontend_public: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::nginx::DeploymentFrontendPublic>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::nginx::DeploymentIdentity>,
         >,
         /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `logging_storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub logging_storage_accounts: pulumi_wasm_rust::Output<
+        pub logging_storage_accounts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentLoggingStorageAccount>>,
         >,
         #[builder(into, default)]
-        pub managed_resource_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_resource_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentNetworkInterface>>,
         >,
         /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the NGINX Deployment.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -196,27 +196,56 @@ pub mod deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentArgs) -> DeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentArgs,
+    ) -> DeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_scale_profiles_binding = args.auto_scale_profiles.get_inner();
+        let auto_scale_profiles_binding = args
+            .auto_scale_profiles
+            .get_output(context)
+            .get_inner();
         let automatic_upgrade_channel_binding = args
             .automatic_upgrade_channel
+            .get_output(context)
             .get_inner();
-        let capacity_binding = args.capacity.get_inner();
-        let diagnose_support_enabled_binding = args.diagnose_support_enabled.get_inner();
-        let email_binding = args.email.get_inner();
-        let frontend_privates_binding = args.frontend_privates.get_inner();
-        let frontend_public_binding = args.frontend_public.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let logging_storage_accounts_binding = args.logging_storage_accounts.get_inner();
-        let managed_resource_group_binding = args.managed_resource_group.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_interfaces_binding = args.network_interfaces.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let capacity_binding = args.capacity.get_output(context).get_inner();
+        let diagnose_support_enabled_binding = args
+            .diagnose_support_enabled
+            .get_output(context)
+            .get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let frontend_privates_binding = args
+            .frontend_privates
+            .get_output(context)
+            .get_inner();
+        let frontend_public_binding = args
+            .frontend_public
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logging_storage_accounts_binding = args
+            .logging_storage_accounts
+            .get_output(context)
+            .get_inner();
+        let managed_resource_group_binding = args
+            .managed_resource_group
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_interfaces_binding = args
+            .network_interfaces
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:nginx/deployment:Deployment".into(),
             name: name.to_string(),
@@ -344,7 +373,7 @@ pub mod deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -87,52 +87,52 @@
 /// $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
 /// ```
 pub mod ml_transform {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MLTransformArgs {
         /// Description of the ML Transform.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         #[builder(into, default)]
-        pub glue_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub glue_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         #[builder(into)]
-        pub input_record_tables: pulumi_wasm_rust::Output<
+        pub input_record_tables: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::glue::MlTransformInputRecordTable>,
         >,
         /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         #[builder(into, default)]
-        pub max_capacity: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_capacity: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The maximum number of times to retry this ML Transform if it fails.
         #[builder(into, default)]
-        pub max_retries: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_retries: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name you assign to this ML Transform. It must be unique in your account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         #[builder(into, default)]
-        pub number_of_workers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_workers: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         #[builder(into)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             super::super::types::glue::MlTransformParameters,
         >,
         /// The ARN of the IAM role associated with this ML Transform.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         #[builder(into, default)]
-        pub worker_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub worker_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MLTransformResult {
@@ -183,21 +183,31 @@ pub mod ml_transform {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MLTransformArgs) -> MLTransformResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MLTransformArgs,
+    ) -> MLTransformResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let glue_version_binding = args.glue_version.get_inner();
-        let input_record_tables_binding = args.input_record_tables.get_inner();
-        let max_capacity_binding = args.max_capacity.get_inner();
-        let max_retries_binding = args.max_retries.get_inner();
-        let name_binding = args.name.get_inner();
-        let number_of_workers_binding = args.number_of_workers.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let worker_type_binding = args.worker_type.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let glue_version_binding = args.glue_version.get_output(context).get_inner();
+        let input_record_tables_binding = args
+            .input_record_tables
+            .get_output(context)
+            .get_inner();
+        let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
+        let max_retries_binding = args.max_retries.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let number_of_workers_binding = args
+            .number_of_workers
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let worker_type_binding = args.worker_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/mLTransform:MLTransform".into(),
             name: name.to_string(),
@@ -303,7 +313,7 @@ pub mod ml_transform {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

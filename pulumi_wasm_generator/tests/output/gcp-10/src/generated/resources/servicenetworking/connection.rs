@@ -63,28 +63,28 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of VPC network connected with service producers using VPC peering.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// Named IP address range(s) of PEERING type reserved for
         /// this service provider. Note that invoking this method with a different range when connection
         /// is already established will not reallocate already provisioned service producer subnetworks.
         #[builder(into)]
-        pub reserved_peering_ranges: pulumi_wasm_rust::Output<Vec<String>>,
+        pub reserved_peering_ranges: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Provider peering service that is managing peering connectivity for a
         /// service provider organization. For Google services that support this functionality it is
         /// 'servicenetworking.googleapis.com'.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// When set to true, enforce an update of the reserved peering ranges on the existing service networking connection in case of a new connection creation failure.
         #[builder(into, default)]
-        pub update_on_creation_fail: pulumi_wasm_rust::Output<Option<bool>>,
+        pub update_on_creation_fail: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
@@ -108,14 +108,27 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let network_binding = args.network.get_inner();
-        let reserved_peering_ranges_binding = args.reserved_peering_ranges.get_inner();
-        let service_binding = args.service.get_inner();
-        let update_on_creation_fail_binding = args.update_on_creation_fail.get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let reserved_peering_ranges_binding = args
+            .reserved_peering_ranges
+            .get_output(context)
+            .get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let update_on_creation_fail_binding = args
+            .update_on_creation_fail
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicenetworking/connection:Connection".into(),
             name: name.to_string(),
@@ -163,7 +176,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

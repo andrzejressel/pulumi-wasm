@@ -41,7 +41,7 @@
 /// ```
 ///
 pub mod taxonomy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaxonomyArgs {
@@ -49,12 +49,12 @@ pub mod taxonomy {
         /// defaults to an empty list.
         /// Each value may be one of: `POLICY_TYPE_UNSPECIFIED`, `FINE_GRAINED_ACCESS_CONTROL`.
         #[builder(into, default)]
-        pub activated_policy_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub activated_policy_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of this taxonomy. It must: contain only unicode characters,
         /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
         /// long when encoded in UTF-8. If not set, defaults to an empty description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User defined name of this taxonomy.
         /// The taxonomy display name must be unique within an organization.
         /// It must: contain only unicode letters, numbers, underscores, dashes
@@ -64,14 +64,14 @@ pub mod taxonomy {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Taxonomy location region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TaxonomyResult {
@@ -105,14 +105,21 @@ pub mod taxonomy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TaxonomyArgs) -> TaxonomyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TaxonomyArgs,
+    ) -> TaxonomyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activated_policy_types_binding = args.activated_policy_types.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let activated_policy_types_binding = args
+            .activated_policy_types
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/taxonomy:Taxonomy".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod taxonomy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -164,78 +164,80 @@
 /// App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 ///
 pub mod app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppArgs {
         /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         #[builder(into, default)]
-        pub access_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         #[builder(into, default)]
-        pub auto_branch_creation_config: pulumi_wasm_rust::Output<
+        pub auto_branch_creation_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::amplify::AppAutoBranchCreationConfig>,
         >,
         /// Automated branch creation glob patterns for an Amplify app.
         #[builder(into, default)]
-        pub auto_branch_creation_patterns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub auto_branch_creation_patterns: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Credentials for basic authorization for an Amplify app.
         #[builder(into, default)]
-        pub basic_auth_credentials: pulumi_wasm_rust::Output<Option<String>>,
+        pub basic_auth_credentials: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         #[builder(into, default)]
-        pub build_spec: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_spec: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cache configuration for the Amplify app. See `cache_config` Block for details.
         #[builder(into, default)]
-        pub cache_config: pulumi_wasm_rust::Output<
+        pub cache_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::amplify::AppCacheConfig>,
         >,
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         #[builder(into, default)]
-        pub custom_headers: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_headers: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         #[builder(into, default)]
-        pub custom_rules: pulumi_wasm_rust::Output<
+        pub custom_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::amplify::AppCustomRule>>,
         >,
         /// Description for an Amplify app.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enables automated branch creation for an Amplify app.
         #[builder(into, default)]
-        pub enable_auto_branch_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_auto_branch_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         #[builder(into, default)]
-        pub enable_basic_auth: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_basic_auth: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables auto-building of branches for the Amplify App.
         #[builder(into, default)]
-        pub enable_branch_auto_build: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_branch_auto_build: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         #[builder(into, default)]
-        pub enable_branch_auto_deletion: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_branch_auto_deletion: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Environment variables map for an Amplify app.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// AWS Identity and Access Management (IAM) service role for an Amplify app.
         #[builder(into, default)]
-        pub iam_service_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_service_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name for an Amplify app.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         #[builder(into, default)]
-        pub oauth_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub oauth_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Repository for an Amplify app.
         #[builder(into, default)]
-        pub repository: pulumi_wasm_rust::Output<Option<String>>,
+        pub repository: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -308,37 +310,60 @@ pub mod app {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AppArgs) -> AppResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AppArgs,
+    ) -> AppResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_token_binding = args.access_token.get_inner();
+        let access_token_binding = args.access_token.get_output(context).get_inner();
         let auto_branch_creation_config_binding = args
             .auto_branch_creation_config
+            .get_output(context)
             .get_inner();
         let auto_branch_creation_patterns_binding = args
             .auto_branch_creation_patterns
+            .get_output(context)
             .get_inner();
-        let basic_auth_credentials_binding = args.basic_auth_credentials.get_inner();
-        let build_spec_binding = args.build_spec.get_inner();
-        let cache_config_binding = args.cache_config.get_inner();
-        let custom_headers_binding = args.custom_headers.get_inner();
-        let custom_rules_binding = args.custom_rules.get_inner();
-        let description_binding = args.description.get_inner();
+        let basic_auth_credentials_binding = args
+            .basic_auth_credentials
+            .get_output(context)
+            .get_inner();
+        let build_spec_binding = args.build_spec.get_output(context).get_inner();
+        let cache_config_binding = args.cache_config.get_output(context).get_inner();
+        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
+        let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let enable_auto_branch_creation_binding = args
             .enable_auto_branch_creation
+            .get_output(context)
             .get_inner();
-        let enable_basic_auth_binding = args.enable_basic_auth.get_inner();
-        let enable_branch_auto_build_binding = args.enable_branch_auto_build.get_inner();
+        let enable_basic_auth_binding = args
+            .enable_basic_auth
+            .get_output(context)
+            .get_inner();
+        let enable_branch_auto_build_binding = args
+            .enable_branch_auto_build
+            .get_output(context)
+            .get_inner();
         let enable_branch_auto_deletion_binding = args
             .enable_branch_auto_deletion
+            .get_output(context)
             .get_inner();
-        let environment_variables_binding = args.environment_variables.get_inner();
-        let iam_service_role_arn_binding = args.iam_service_role_arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let oauth_token_binding = args.oauth_token.get_inner();
-        let platform_binding = args.platform.get_inner();
-        let repository_binding = args.repository.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let environment_variables_binding = args
+            .environment_variables
+            .get_output(context)
+            .get_inner();
+        let iam_service_role_arn_binding = args
+            .iam_service_role_arn
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let oauth_token_binding = args.oauth_token.get_output(context).get_inner();
+        let platform_binding = args.platform.get_output(context).get_inner();
+        let repository_binding = args.repository.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/app:App".into(),
             name: name.to_string(),
@@ -500,7 +525,7 @@ pub mod app {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

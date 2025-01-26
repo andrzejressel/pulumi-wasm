@@ -12,98 +12,98 @@
 /// ```
 ///
 pub mod cloud_vm_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudVmClusterArgs {
         /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub backup_subnet_cidr: pulumi_wasm_rust::Output<Option<String>>,
+        pub backup_subnet_cidr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub cloud_exadata_infrastructure_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_exadata_infrastructure_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub cluster_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub cpu_core_count: pulumi_wasm_rust::Output<i32>,
+        pub cpu_core_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub data_collection_options: pulumi_wasm_rust::Output<
+        pub data_collection_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::oracle::CloudVmClusterDataCollectionOptions>,
         >,
         /// The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         #[builder(into, default)]
-        pub data_storage_percentage: pulumi_wasm_rust::Output<Option<i32>>,
+        pub data_storage_percentage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub data_storage_size_in_tbs: pulumi_wasm_rust::Output<Option<f64>>,
+        pub data_storage_size_in_tbs: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub db_node_storage_size_in_gbs: pulumi_wasm_rust::Output<Option<i32>>,
+        pub db_node_storage_size_in_gbs: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub db_servers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub db_servers: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub gi_version: pulumi_wasm_rust::Output<String>,
+        pub gi_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub license_model: pulumi_wasm_rust::Output<String>,
+        pub license_model: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub local_backup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_backup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub memory_size_in_gbs: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory_size_in_gbs: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub scan_listener_port_tcp: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scan_listener_port_tcp: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub scan_listener_port_tcp_ssl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scan_listener_port_tcp_ssl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub sparse_diskgroup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sparse_diskgroup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub ssh_public_keys: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ssh_public_keys: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Cloud VM Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CloudVmClusterResult {
@@ -176,43 +176,83 @@ pub mod cloud_vm_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CloudVmClusterArgs) -> CloudVmClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CloudVmClusterArgs,
+    ) -> CloudVmClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding = args.backup_subnet_cidr.get_inner();
+        let backup_subnet_cidr_binding = args
+            .backup_subnet_cidr
+            .get_output(context)
+            .get_inner();
         let cloud_exadata_infrastructure_id_binding = args
             .cloud_exadata_infrastructure_id
+            .get_output(context)
             .get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let cpu_core_count_binding = args.cpu_core_count.get_inner();
-        let data_collection_options_binding = args.data_collection_options.get_inner();
-        let data_storage_percentage_binding = args.data_storage_percentage.get_inner();
-        let data_storage_size_in_tbs_binding = args.data_storage_size_in_tbs.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let cpu_core_count_binding = args.cpu_core_count.get_output(context).get_inner();
+        let data_collection_options_binding = args
+            .data_collection_options
+            .get_output(context)
+            .get_inner();
+        let data_storage_percentage_binding = args
+            .data_storage_percentage
+            .get_output(context)
+            .get_inner();
+        let data_storage_size_in_tbs_binding = args
+            .data_storage_size_in_tbs
+            .get_output(context)
+            .get_inner();
         let db_node_storage_size_in_gbs_binding = args
             .db_node_storage_size_in_gbs
+            .get_output(context)
             .get_inner();
-        let db_servers_binding = args.db_servers.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let gi_version_binding = args.gi_version.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let license_model_binding = args.license_model.get_inner();
-        let local_backup_enabled_binding = args.local_backup_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let memory_size_in_gbs_binding = args.memory_size_in_gbs.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let scan_listener_port_tcp_binding = args.scan_listener_port_tcp.get_inner();
+        let db_servers_binding = args.db_servers.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let gi_version_binding = args.gi_version.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let license_model_binding = args.license_model.get_output(context).get_inner();
+        let local_backup_enabled_binding = args
+            .local_backup_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let memory_size_in_gbs_binding = args
+            .memory_size_in_gbs
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let scan_listener_port_tcp_binding = args
+            .scan_listener_port_tcp
+            .get_output(context)
+            .get_inner();
         let scan_listener_port_tcp_ssl_binding = args
             .scan_listener_port_tcp_ssl
+            .get_output(context)
             .get_inner();
-        let sparse_diskgroup_enabled_binding = args.sparse_diskgroup_enabled.get_inner();
-        let ssh_public_keys_binding = args.ssh_public_keys.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let sparse_diskgroup_enabled_binding = args
+            .sparse_diskgroup_enabled
+            .get_output(context)
+            .get_inner();
+        let ssh_public_keys_binding = args
+            .ssh_public_keys
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),
@@ -424,7 +464,7 @@ pub mod cloud_vm_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

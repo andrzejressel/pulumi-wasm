@@ -74,81 +74,83 @@
 /// ```
 ///
 pub mod load_balancer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerArgs {
         /// Controls features that modify the routing of requests to pools and origins in response to dynamic conditions, such as during the interval between active health monitoring requests.
         #[builder(into, default)]
-        pub adaptive_routings: pulumi_wasm_rust::Output<
+        pub adaptive_routings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerAdaptiveRouting>>,
         >,
         /// A set containing mappings of country codes to a list of pool IDs (ordered by their failover priority) for the given country.
         #[builder(into, default)]
-        pub country_pools: pulumi_wasm_rust::Output<
+        pub country_pools: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerCountryPool>>,
         >,
         /// A list of pool IDs ordered by their failover priority. Used whenever `pop_pools`/`country_pools`/`region_pools` are not defined.
         #[builder(into)]
-        pub default_pool_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub default_pool_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Free text description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enable or disable the load balancer. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The pool ID to use when all other pools are detected as unhealthy.
         #[builder(into)]
-        pub fallback_pool_id: pulumi_wasm_rust::Output<String>,
+        pub fallback_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Controls location-based steering for non-proxied requests.
         #[builder(into, default)]
-        pub location_strategies: pulumi_wasm_rust::Output<
+        pub location_strategies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerLocationStrategy>>,
         >,
         /// The DNS hostname to associate with your load balancer. If this hostname already exists as a DNS record in Cloudflare's DNS, the load balancer will take precedence and the DNS record will not be used.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A set containing mappings of Cloudflare Point-of-Presence (PoP) identifiers to a list of pool IDs (ordered by their failover priority) for the PoP (datacenter). This feature is only available to enterprise customers.
         #[builder(into, default)]
-        pub pop_pools: pulumi_wasm_rust::Output<
+        pub pop_pools: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerPopPool>>,
         >,
         /// Whether the hostname gets Cloudflare's origin protection. Defaults to `false`. Conflicts with `ttl`.
         #[builder(into, default)]
-        pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxied: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configures pool weights. When `steering_policy="random"`, a random pool is selected with probability proportional to pool weights. When `steering_policy="least_outstanding_requests"`, pool weights are used to scale each pool's outstanding requests. When `steering_policy="least_connections"`, pool weights are used to scale each pool's open connections.
         #[builder(into, default)]
-        pub random_steerings: pulumi_wasm_rust::Output<
+        pub random_steerings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerRandomSteering>>,
         >,
         /// A set containing mappings of region codes to a list of pool IDs (ordered by their failover priority) for the given region.
         #[builder(into, default)]
-        pub region_pools: pulumi_wasm_rust::Output<
+        pub region_pools: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerRegionPool>>,
         >,
         /// A list of rules for this load balancer to execute.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::Output<Option<Vec<super::types::LoadBalancerRule>>>,
+        pub rules: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::LoadBalancerRule>>,
+        >,
         /// Specifies the type of session affinity the load balancer should use unless specified as `none` or `""` (default). With value `cookie`, on the first request to a proxied load balancer, a cookie is generated, encoding information of which origin the request will be forwarded to. Subsequent requests, by the same client to the same load balancer, will be sent to the origin server the cookie encodes, for the duration of the cookie and as long as the origin server remains healthy. If the cookie has expired or the origin server is unhealthy then a new origin server is calculated and used. Value `ip_cookie` behaves the same as `cookie` except the initial origin selection is stable and based on the client's IP address. Available values: `""`, `none`, `cookie`, `ip_cookie`, `header`. Defaults to `none`.
         #[builder(into, default)]
-        pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configure attributes for session affinity.
         #[builder(into, default)]
-        pub session_affinity_attributes: pulumi_wasm_rust::Output<
+        pub session_affinity_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerSessionAffinityAttribute>>,
         >,
         /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
         #[builder(into, default)]
-        pub session_affinity_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub session_affinity_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The method the load balancer uses to determine the route to your origin. Value `off` uses `default_pool_ids`. Value `geo` uses `pop_pools`/`country_pools`/`region_pools`. For non-proxied requests, the `country` for `country_pools` is determined by `location_strategy`. Value `random` selects a pool randomly. Value `dynamic_latency` uses round trip time to select the closest pool in `default_pool_ids` (requires pool health checks). Value `proximity` uses the pools' latitude and longitude to select the closest pool using the Cloudflare PoP location for proxied requests or the location determined by `location_strategy` for non-proxied requests. Value `least_outstanding_requests` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of outstanding requests. Pools with more pending requests are weighted proportionately less relative to others. Value `least_connections` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of open connections. Pools with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections. Value `""` maps to `geo` if you use `pop_pools`/`country_pools`/`region_pools` otherwise `off`. Available values: `off`, `geo`, `dynamic_latency`, `random`, `proximity`, `least_outstanding_requests`, `least_connections`, `""` Defaults to `""`.
         #[builder(into, default)]
-        pub steering_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub steering_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time to live (TTL) of the DNS entry for the IP address returned by this load balancer. This cannot be set for proxied load balancers. Defaults to `30`. Conflicts with `proxied`.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The zone ID to add the load balancer to. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerResult {
@@ -213,30 +215,59 @@ pub mod load_balancer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LoadBalancerArgs) -> LoadBalancerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LoadBalancerArgs,
+    ) -> LoadBalancerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let adaptive_routings_binding = args.adaptive_routings.get_inner();
-        let country_pools_binding = args.country_pools.get_inner();
-        let default_pool_ids_binding = args.default_pool_ids.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let fallback_pool_id_binding = args.fallback_pool_id.get_inner();
-        let location_strategies_binding = args.location_strategies.get_inner();
-        let name_binding = args.name.get_inner();
-        let pop_pools_binding = args.pop_pools.get_inner();
-        let proxied_binding = args.proxied.get_inner();
-        let random_steerings_binding = args.random_steerings.get_inner();
-        let region_pools_binding = args.region_pools.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let session_affinity_binding = args.session_affinity.get_inner();
+        let adaptive_routings_binding = args
+            .adaptive_routings
+            .get_output(context)
+            .get_inner();
+        let country_pools_binding = args.country_pools.get_output(context).get_inner();
+        let default_pool_ids_binding = args
+            .default_pool_ids
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let fallback_pool_id_binding = args
+            .fallback_pool_id
+            .get_output(context)
+            .get_inner();
+        let location_strategies_binding = args
+            .location_strategies
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pop_pools_binding = args.pop_pools.get_output(context).get_inner();
+        let proxied_binding = args.proxied.get_output(context).get_inner();
+        let random_steerings_binding = args
+            .random_steerings
+            .get_output(context)
+            .get_inner();
+        let region_pools_binding = args.region_pools.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let session_affinity_binding = args
+            .session_affinity
+            .get_output(context)
+            .get_inner();
         let session_affinity_attributes_binding = args
             .session_affinity_attributes
+            .get_output(context)
             .get_inner();
-        let session_affinity_ttl_binding = args.session_affinity_ttl.get_inner();
-        let steering_policy_binding = args.steering_policy.get_inner();
-        let ttl_binding = args.ttl.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let session_affinity_ttl_binding = args
+            .session_affinity_ttl
+            .get_output(context)
+            .get_inner();
+        let steering_policy_binding = args
+            .steering_policy
+            .get_output(context)
+            .get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),
@@ -385,7 +416,7 @@ pub mod load_balancer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

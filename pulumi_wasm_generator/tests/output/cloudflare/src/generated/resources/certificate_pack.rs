@@ -11,42 +11,42 @@
 /// certificate entirely instead.
 ///
 pub mod certificate_pack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificatePackArgs {
         /// Which certificate authority to issue the certificate pack. Available values: `digicert`, `lets_encrypt`, `google`, `ssl_com`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificate_authority: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether or not to include Cloudflare branding. This will add `sni.cloudflaressl.com` as the Common Name if set to `true`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub cloudflare_branding: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cloudflare_branding: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of hostnames to provision the certificate pack for. The zone name must be included as a host. Note: If using Let's Encrypt, you cannot use individual subdomains and only a wildcard for subdomain is available. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hosts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub hosts: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Certificate pack configuration type. Available values: `advanced`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub validation_errors: pulumi_wasm_rust::Output<
+        pub validation_errors: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::CertificatePackValidationError>>,
         >,
         /// Which validation method to use in order to prove domain ownership. Available values: `txt`, `http`, `email`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub validation_method: pulumi_wasm_rust::Output<String>,
+        pub validation_method: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub validation_records: pulumi_wasm_rust::Output<
+        pub validation_records: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::CertificatePackValidationRecord>>,
         >,
         /// How long the certificate is valid for. Note: If using Let's Encrypt, this value can only be 90 days. Available values: `14`, `30`, `90`, `365`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub validity_days: pulumi_wasm_rust::Output<i32>,
+        pub validity_days: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether or not to wait for a certificate pack to reach status `active` during creation. Defaults to `false`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub wait_for_active_status: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_active_status: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificatePackResult {
@@ -77,19 +77,41 @@ pub mod certificate_pack {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificatePackArgs) -> CertificatePackResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificatePackArgs,
+    ) -> CertificatePackResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_binding = args.certificate_authority.get_inner();
-        let cloudflare_branding_binding = args.cloudflare_branding.get_inner();
-        let hosts_binding = args.hosts.get_inner();
-        let type__binding = args.type_.get_inner();
-        let validation_errors_binding = args.validation_errors.get_inner();
-        let validation_method_binding = args.validation_method.get_inner();
-        let validation_records_binding = args.validation_records.get_inner();
-        let validity_days_binding = args.validity_days.get_inner();
-        let wait_for_active_status_binding = args.wait_for_active_status.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let certificate_authority_binding = args
+            .certificate_authority
+            .get_output(context)
+            .get_inner();
+        let cloudflare_branding_binding = args
+            .cloudflare_branding
+            .get_output(context)
+            .get_inner();
+        let hosts_binding = args.hosts.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let validation_errors_binding = args
+            .validation_errors
+            .get_output(context)
+            .get_inner();
+        let validation_method_binding = args
+            .validation_method
+            .get_output(context)
+            .get_inner();
+        let validation_records_binding = args
+            .validation_records
+            .get_output(context)
+            .get_inner();
+        let validity_days_binding = args.validity_days.get_output(context).get_inner();
+        let wait_for_active_status_binding = args
+            .wait_for_active_status
+            .get_output(context)
+            .get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/certificatePack:CertificatePack".into(),
             name: name.to_string(),
@@ -169,7 +191,7 @@ pub mod certificate_pack {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

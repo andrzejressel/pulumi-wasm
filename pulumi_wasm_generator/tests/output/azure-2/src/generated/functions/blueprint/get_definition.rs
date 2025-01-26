@@ -1,14 +1,14 @@
 pub mod get_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDefinitionArgs {
         /// The name of the Blueprint.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
         #[builder(into)]
-        pub scope_id: pulumi_wasm_rust::Output<String>,
+        pub scope_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDefinitionResult {
@@ -33,11 +33,14 @@ pub mod get_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDefinitionArgs) -> GetDefinitionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDefinitionArgs,
+    ) -> GetDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let scope_id_binding = args.scope_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scope_id_binding = args.scope_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:blueprint/getDefinition:getDefinition".into(),
             version: super::super::super::get_version(),
@@ -81,7 +84,7 @@ pub mod get_definition {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

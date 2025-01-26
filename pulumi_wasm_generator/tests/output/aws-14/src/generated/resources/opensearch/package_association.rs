@@ -44,16 +44,16 @@
 /// }
 /// ```
 pub mod package_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PackageAssociationArgs {
         /// Name of the domain to associate the package with.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Internal ID of the package to associate with a domain.
         #[builder(into)]
-        pub package_id: pulumi_wasm_rust::Output<String>,
+        pub package_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PackageAssociationResult {
@@ -67,11 +67,15 @@ pub mod package_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PackageAssociationArgs) -> PackageAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PackageAssociationArgs,
+    ) -> PackageAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let package_id_binding = args.package_id.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let package_id_binding = args.package_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/packageAssociation:PackageAssociation".into(),
             name: name.to_string(),
@@ -98,7 +102,7 @@ pub mod package_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

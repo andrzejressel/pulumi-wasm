@@ -47,38 +47,38 @@
 /// ```
 ///
 pub mod api_version_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiVersionSetArgs {
         /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of API Version Set.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of this API Version Set.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Header which should be read from Inbound Requests which defines the API Version.
         ///
         /// > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         #[builder(into, default)]
-        pub version_header_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_header_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Query String which should be read from Inbound Requests which defines the API Version.
         ///
         /// > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         #[builder(into, default)]
-        pub version_query_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_query_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         #[builder(into)]
-        pub versioning_scheme: pulumi_wasm_rust::Output<String>,
+        pub versioning_scheme: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiVersionSetResult {
@@ -107,17 +107,36 @@ pub mod api_version_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiVersionSetArgs) -> ApiVersionSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiVersionSetArgs,
+    ) -> ApiVersionSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let version_header_name_binding = args.version_header_name.get_inner();
-        let version_query_name_binding = args.version_query_name.get_inner();
-        let versioning_scheme_binding = args.versioning_scheme.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let version_header_name_binding = args
+            .version_header_name
+            .get_output(context)
+            .get_inner();
+        let version_query_name_binding = args
+            .version_query_name
+            .get_output(context)
+            .get_inner();
+        let versioning_scheme_binding = args
+            .versioning_scheme
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiVersionSet:ApiVersionSet".into(),
             name: name.to_string(),
@@ -183,7 +202,7 @@ pub mod api_version_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

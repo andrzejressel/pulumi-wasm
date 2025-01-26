@@ -59,7 +59,7 @@
 /// ```
 ///
 pub mod service_azure_bot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceAzureBotArgs {
@@ -67,69 +67,71 @@ pub mod service_azure_bot {
         ///
         /// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
         #[builder(into, default)]
-        pub cmk_key_vault_key_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub cmk_key_vault_key_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Application Insights API Key to associate with this Azure Bot Service.
         #[builder(into, default)]
-        pub developer_app_insights_api_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub developer_app_insights_api_key: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         #[builder(into, default)]
-        pub developer_app_insights_application_id: pulumi_wasm_rust::Output<
+        pub developer_app_insights_application_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Application Insight Key to associate with this Azure Bot Service.
         #[builder(into, default)]
-        pub developer_app_insights_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub developer_app_insights_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Bot Service endpoint.
         #[builder(into, default)]
-        pub endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         #[builder(into, default)]
-        pub icon_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is local authentication enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of LUIS App IDs to associate with this Azure Bot Service.
         #[builder(into, default)]
-        pub luis_app_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub luis_app_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The LUIS key to associate with this Azure Bot Service.
         #[builder(into, default)]
-        pub luis_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub luis_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub microsoft_app_id: pulumi_wasm_rust::Output<String>,
+        pub microsoft_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub microsoft_app_msi_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub microsoft_app_msi_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub microsoft_app_tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub microsoft_app_tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub microsoft_app_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub microsoft_app_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         #[builder(into, default)]
-        pub streaming_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub streaming_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags which should be assigned to this Azure Bot Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -188,42 +190,70 @@ pub mod service_azure_bot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceAzureBotArgs) -> ServiceAzureBotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceAzureBotArgs,
+    ) -> ServiceAzureBotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cmk_key_vault_key_url_binding = args.cmk_key_vault_key_url.get_inner();
+        let cmk_key_vault_key_url_binding = args
+            .cmk_key_vault_key_url
+            .get_output(context)
+            .get_inner();
         let developer_app_insights_api_key_binding = args
             .developer_app_insights_api_key
+            .get_output(context)
             .get_inner();
         let developer_app_insights_application_id_binding = args
             .developer_app_insights_application_id
+            .get_output(context)
             .get_inner();
         let developer_app_insights_key_binding = args
             .developer_app_insights_key
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let endpoint_binding = args.endpoint.get_inner();
-        let icon_url_binding = args.icon_url.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let endpoint_binding = args.endpoint.get_output(context).get_inner();
+        let icon_url_binding = args.icon_url.get_output(context).get_inner();
         let local_authentication_enabled_binding = args
             .local_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let luis_app_ids_binding = args.luis_app_ids.get_inner();
-        let luis_key_binding = args.luis_key.get_inner();
-        let microsoft_app_id_binding = args.microsoft_app_id.get_inner();
-        let microsoft_app_msi_id_binding = args.microsoft_app_msi_id.get_inner();
-        let microsoft_app_tenant_id_binding = args.microsoft_app_tenant_id.get_inner();
-        let microsoft_app_type_binding = args.microsoft_app_type.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let luis_app_ids_binding = args.luis_app_ids.get_output(context).get_inner();
+        let luis_key_binding = args.luis_key.get_output(context).get_inner();
+        let microsoft_app_id_binding = args
+            .microsoft_app_id
+            .get_output(context)
+            .get_inner();
+        let microsoft_app_msi_id_binding = args
+            .microsoft_app_msi_id
+            .get_output(context)
+            .get_inner();
+        let microsoft_app_tenant_id_binding = args
+            .microsoft_app_tenant_id
+            .get_output(context)
+            .get_inner();
+        let microsoft_app_type_binding = args
+            .microsoft_app_type
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
         let streaming_endpoint_enabled_binding = args
             .streaming_endpoint_enabled
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/serviceAzureBot:ServiceAzureBot".into(),
             name: name.to_string(),
@@ -380,7 +410,7 @@ pub mod service_azure_bot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

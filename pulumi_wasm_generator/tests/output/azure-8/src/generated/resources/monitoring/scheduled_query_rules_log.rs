@@ -79,39 +79,41 @@
 /// ```
 ///
 pub mod scheduled_query_rules_log {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduledQueryRulesLogArgs {
         /// A list of IDs of Resources referred into query.
         #[builder(into, default)]
-        pub authorized_resource_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorized_resource_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A `criteria` block as defined below.
         #[builder(into)]
-        pub criteria: pulumi_wasm_rust::Output<
+        pub criteria: pulumi_wasm_rust::InputOrOutput<
             super::super::types::monitoring::ScheduledQueryRulesLogCriteria,
         >,
         /// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the scheduled query rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this scheduled query rule is enabled. Default is `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the scheduled query rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -145,20 +147,27 @@ pub mod scheduled_query_rules_log {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ScheduledQueryRulesLogArgs,
     ) -> ScheduledQueryRulesLogResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorized_resource_ids_binding = args.authorized_resource_ids.get_inner();
-        let criteria_binding = args.criteria.get_inner();
-        let data_source_id_binding = args.data_source_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let authorized_resource_ids_binding = args
+            .authorized_resource_ids
+            .get_output(context)
+            .get_inner();
+        let criteria_binding = args.criteria.get_output(context).get_inner();
+        let data_source_id_binding = args.data_source_id.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog"
                 .into(),
@@ -232,7 +241,7 @@ pub mod scheduled_query_rules_log {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

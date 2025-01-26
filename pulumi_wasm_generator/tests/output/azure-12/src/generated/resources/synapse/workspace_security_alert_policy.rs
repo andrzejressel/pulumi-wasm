@@ -76,34 +76,34 @@
 /// ```
 ///
 pub mod workspace_security_alert_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceSecurityAlertPolicyArgs {
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         #[builder(into, default)]
-        pub disabled_alerts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_alerts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         #[builder(into, default)]
-        pub email_account_admins_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub email_account_admins_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies an array of email addresses to which the alert is sent.
         #[builder(into, default)]
-        pub email_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub email_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
         #[builder(into)]
-        pub policy_state: pulumi_wasm_rust::Output<String>,
+        pub policy_state: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the identifier key of the Threat Detection audit storage account.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceSecurityAlertPolicyResult {
@@ -129,23 +129,38 @@ pub mod workspace_security_alert_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkspaceSecurityAlertPolicyArgs,
     ) -> WorkspaceSecurityAlertPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_alerts_binding = args.disabled_alerts.get_inner();
+        let disabled_alerts_binding = args
+            .disabled_alerts
+            .get_output(context)
+            .get_inner();
         let email_account_admins_enabled_binding = args
             .email_account_admins_enabled
+            .get_output(context)
             .get_inner();
-        let email_addresses_binding = args.email_addresses.get_inner();
-        let policy_state_binding = args.policy_state.get_inner();
-        let retention_days_binding = args.retention_days.get_inner();
+        let email_addresses_binding = args
+            .email_addresses
+            .get_output(context)
+            .get_inner();
+        let policy_state_binding = args.policy_state.get_output(context).get_inner();
+        let retention_days_binding = args.retention_days.get_output(context).get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
-        let storage_endpoint_binding = args.storage_endpoint.get_inner();
-        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
+        let storage_endpoint_binding = args
+            .storage_endpoint
+            .get_output(context)
+            .get_inner();
+        let synapse_workspace_id_binding = args
+            .synapse_workspace_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy"
                 .into(),
@@ -212,7 +227,7 @@ pub mod workspace_security_alert_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

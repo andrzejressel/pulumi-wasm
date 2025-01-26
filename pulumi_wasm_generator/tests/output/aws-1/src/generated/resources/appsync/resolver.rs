@@ -109,57 +109,57 @@
 /// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
 /// ```
 pub mod resolver {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverArgs {
         /// API ID for the GraphQL API.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Caching Config. See Caching Config.
         #[builder(into, default)]
-        pub caching_config: pulumi_wasm_rust::Output<
+        pub caching_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverCachingConfig>,
         >,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Data source name.
         #[builder(into, default)]
-        pub data_source: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Field name from the schema defined in the GraphQL API.
         #[builder(into)]
-        pub field: pulumi_wasm_rust::Output<String>,
+        pub field: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         #[builder(into, default)]
-        pub max_batch_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_batch_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The caching configuration for the resolver. See Pipeline Config.
         #[builder(into, default)]
-        pub pipeline_config: pulumi_wasm_rust::Output<
+        pub pipeline_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverPipelineConfig>,
         >,
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         #[builder(into, default)]
-        pub request_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         #[builder(into, default)]
-        pub response_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub response_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::Output<
+        pub runtime: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See Sync Config.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::ResolverSyncConfig>,
         >,
         /// Type name from the schema defined in the GraphQL API.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverResult {
@@ -204,22 +204,35 @@ pub mod resolver {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResolverArgs) -> ResolverResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResolverArgs,
+    ) -> ResolverResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
-        let caching_config_binding = args.caching_config.get_inner();
-        let code_binding = args.code.get_inner();
-        let data_source_binding = args.data_source.get_inner();
-        let field_binding = args.field.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let max_batch_size_binding = args.max_batch_size.get_inner();
-        let pipeline_config_binding = args.pipeline_config.get_inner();
-        let request_template_binding = args.request_template.get_inner();
-        let response_template_binding = args.response_template.get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let sync_config_binding = args.sync_config.get_inner();
-        let type__binding = args.type_.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
+        let caching_config_binding = args.caching_config.get_output(context).get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let data_source_binding = args.data_source.get_output(context).get_inner();
+        let field_binding = args.field.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let max_batch_size_binding = args.max_batch_size.get_output(context).get_inner();
+        let pipeline_config_binding = args
+            .pipeline_config
+            .get_output(context)
+            .get_inner();
+        let request_template_binding = args
+            .request_template
+            .get_output(context)
+            .get_inner();
+        let response_template_binding = args
+            .response_template
+            .get_output(context)
+            .get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let sync_config_binding = args.sync_config.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/resolver:Resolver".into(),
             name: name.to_string(),
@@ -323,7 +336,7 @@ pub mod resolver {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

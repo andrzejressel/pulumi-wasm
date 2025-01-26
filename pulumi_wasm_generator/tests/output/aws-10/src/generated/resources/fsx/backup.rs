@@ -108,21 +108,21 @@
 /// $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
 /// ```
 pub mod backup {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupArgs {
         /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         #[builder(into, default)]
-        pub file_system_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_system_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
         #[builder(into, default)]
-        pub volume_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackupResult {
@@ -151,12 +151,16 @@ pub mod backup {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupArgs) -> BackupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupArgs,
+    ) -> BackupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding = args.file_system_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let volume_id_binding = args.volume_id.get_inner();
+        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let volume_id_binding = args.volume_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/backup:Backup".into(),
             name: name.to_string(),
@@ -202,7 +206,7 @@ pub mod backup {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

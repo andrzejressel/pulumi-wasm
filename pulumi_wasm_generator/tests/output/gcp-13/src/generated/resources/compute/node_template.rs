@@ -126,7 +126,7 @@
 /// ```
 ///
 pub mod node_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeTemplateArgs {
@@ -134,59 +134,59 @@ pub mod node_template {
         /// node template
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accelerators: pulumi_wasm_rust::Output<
+        pub accelerators: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NodeTemplateAccelerator>>,
         >,
         /// CPU overcommit.
         /// Default value is `NONE`.
         /// Possible values are: `ENABLED`, `NONE`.
         #[builder(into, default)]
-        pub cpu_overcommit_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cpu_overcommit_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional textual description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of the type, size and count of disks attached to the
         /// node template
         /// Structure is documented below.
         #[builder(into, default)]
-        pub disks: pulumi_wasm_rust::Output<
+        pub disks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NodeTemplateDisk>>,
         >,
         /// Name of the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels to use for node affinity, which will be used in
         /// instance scheduling.
         #[builder(into, default)]
-        pub node_affinity_labels: pulumi_wasm_rust::Output<
+        pub node_affinity_labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Node type to use for nodes group that are created from this template.
         /// Only one of nodeTypeFlexibility and nodeType can be specified.
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Flexible properties for the desired node type. Node groups that
         /// use this node template will create nodes of a type that matches
         /// these properties. Only one of nodeTypeFlexibility and nodeType can
         /// be specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_type_flexibility: pulumi_wasm_rust::Output<
+        pub node_type_flexibility: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::NodeTemplateNodeTypeFlexibility>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Region where nodes using the node template will be created.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The server binding policy for nodes using this template. Determines
         /// where the nodes should restart following a maintenance event.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub server_binding: pulumi_wasm_rust::Output<
+        pub server_binding: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::NodeTemplateServerBinding>,
         >,
     }
@@ -249,20 +249,33 @@ pub mod node_template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodeTemplateArgs) -> NodeTemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodeTemplateArgs,
+    ) -> NodeTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerators_binding = args.accelerators.get_inner();
-        let cpu_overcommit_type_binding = args.cpu_overcommit_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let disks_binding = args.disks.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_affinity_labels_binding = args.node_affinity_labels.get_inner();
-        let node_type_binding = args.node_type.get_inner();
-        let node_type_flexibility_binding = args.node_type_flexibility.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let server_binding_binding = args.server_binding.get_inner();
+        let accelerators_binding = args.accelerators.get_output(context).get_inner();
+        let cpu_overcommit_type_binding = args
+            .cpu_overcommit_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disks_binding = args.disks.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_affinity_labels_binding = args
+            .node_affinity_labels
+            .get_output(context)
+            .get_inner();
+        let node_type_binding = args.node_type.get_output(context).get_inner();
+        let node_type_flexibility_binding = args
+            .node_type_flexibility
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let server_binding_binding = args.server_binding.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/nodeTemplate:NodeTemplate".into(),
             name: name.to_string(),
@@ -355,7 +368,7 @@ pub mod node_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -259,7 +259,7 @@
 /// no diff isn't sufficient to know that your config could reproduce the imported resource.
 ///
 pub mod database_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseInstanceArgs {
@@ -267,7 +267,7 @@ pub mod database_instance {
         /// resource creation, this provider will attempt to clone another instance as indicated in the context. The
         /// configuration is detailed below.
         #[builder(into, default)]
-        pub clone: pulumi_wasm_rust::Output<
+        pub clone: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceClone>,
         >,
         /// The MySQL, PostgreSQL or
@@ -280,11 +280,11 @@ pub mod database_instance {
         /// [Database Version Policies](https://cloud.google.com/sql/docs/db-versions)
         /// includes an up-to-date reference of supported versions.
         #[builder(into)]
-        pub database_version: pulumi_wasm_rust::Output<String>,
+        pub database_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` command that deletes the instance will fail. Defaults to `true`.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The full path to the encryption key used for the CMEK disk encryption.  Setting
         /// up disk encryption currently requires manual steps outside of this provider.
         /// The provided key must be in the same region as the SQL instance.  In order
@@ -294,58 +294,58 @@ pub mod database_instance {
         /// That service account needs the `Cloud KMS > Cloud KMS CryptoKey Encrypter/Decrypter` role on your
         /// key - please see [this step](https://cloud.google.com/sql/docs/mysql/configure-cmek#grantkey).
         #[builder(into, default)]
-        pub encryption_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the instance. The supported values are `SQL_INSTANCE_TYPE_UNSPECIFIED`, `CLOUD_SQL_INSTANCE`, `ON_PREMISES_INSTANCE` and `READ_REPLICA_INSTANCE`.
         #[builder(into, default)]
-        pub instance_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The current software version on the instance. This attribute can not be set during creation. Refer to `available_maintenance_versions` attribute to see what `maintenance_version` are available for upgrade. When this attribute gets updated, it will cause an instance restart. Setting a `maintenance_version` value that is older than the current one on the instance will be ignored.
         #[builder(into, default)]
-        pub maintenance_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the existing instance that will
         /// act as the master in the replication setup. Note, this requires the master to
         /// have `binary_log_enabled` set, as well as existing backups.
         #[builder(into, default)]
-        pub master_instance_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub master_instance_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the instance. If the name is left
         /// blank, the provider will randomly generate one when the instance is first
         /// created. This is done because after a name is used, it cannot be reused for
         /// up to [one week](https://cloud.google.com/sql/docs/delete-instance).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region the instance will sit in. If a region is not provided in the resource definition,
         /// the provider region will be used instead.
         ///
         /// - - -
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration for replication. The
         /// configuration is detailed below.
         #[builder(into, default)]
-        pub replica_configuration: pulumi_wasm_rust::Output<
+        pub replica_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceReplicaConfiguration>,
         >,
         /// List of replica names. Can be updated.
         #[builder(into, default)]
-        pub replica_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub replica_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The context needed to restore the database to a backup run. This field will
         /// cause the provider to trigger the database to restore from the backup run indicated. The configuration is detailed below.
         /// **NOTE:** Restoring from a backup is an imperative action and not recommended via this provider. Adding or modifying this
         /// block during resource creation/update will trigger the restore action after the resource is created/updated.
         #[builder(into, default)]
-        pub restore_backup_context: pulumi_wasm_rust::Output<
+        pub restore_backup_context: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceRestoreBackupContext>,
         >,
         /// Initial root password. Can be updated. Required for MS SQL Server.
         #[builder(into, default)]
-        pub root_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The settings to use for the database. The
         /// configuration is detailed below. Required if `clone` is not set.
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceSettings>,
         >,
     }
@@ -452,24 +452,49 @@ pub mod database_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatabaseInstanceArgs) -> DatabaseInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatabaseInstanceArgs,
+    ) -> DatabaseInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let clone_binding = args.clone.get_inner();
-        let database_version_binding = args.database_version.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let encryption_key_name_binding = args.encryption_key_name.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let maintenance_version_binding = args.maintenance_version.get_inner();
-        let master_instance_name_binding = args.master_instance_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let replica_configuration_binding = args.replica_configuration.get_inner();
-        let replica_names_binding = args.replica_names.get_inner();
-        let restore_backup_context_binding = args.restore_backup_context.get_inner();
-        let root_password_binding = args.root_password.get_inner();
-        let settings_binding = args.settings.get_inner();
+        let clone_binding = args.clone.get_output(context).get_inner();
+        let database_version_binding = args
+            .database_version
+            .get_output(context)
+            .get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let encryption_key_name_binding = args
+            .encryption_key_name
+            .get_output(context)
+            .get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let maintenance_version_binding = args
+            .maintenance_version
+            .get_output(context)
+            .get_inner();
+        let master_instance_name_binding = args
+            .master_instance_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let replica_configuration_binding = args
+            .replica_configuration
+            .get_output(context)
+            .get_inner();
+        let replica_names_binding = args.replica_names.get_output(context).get_inner();
+        let restore_backup_context_binding = args
+            .restore_backup_context
+            .get_output(context)
+            .get_inner();
+        let root_password_binding = args.root_password.get_output(context).get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sql/databaseInstance:DatabaseInstance".into(),
             name: name.to_string(),
@@ -617,7 +642,7 @@ pub mod database_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

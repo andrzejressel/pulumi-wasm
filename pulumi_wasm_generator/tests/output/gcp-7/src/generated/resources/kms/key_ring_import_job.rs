@@ -30,7 +30,7 @@
 /// ```
 ///
 pub mod key_ring_import_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyRingImportJobArgs {
@@ -39,20 +39,20 @@ pub mod key_ring_import_job {
         ///
         /// - - -
         #[builder(into)]
-        pub import_job_id: pulumi_wasm_rust::Output<String>,
+        pub import_job_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The wrapping method to be used for incoming key material.
         /// Possible values are: `RSA_OAEP_3072_SHA1_AES_256`, `RSA_OAEP_4096_SHA1_AES_256`.
         #[builder(into)]
-        pub import_method: pulumi_wasm_rust::Output<String>,
+        pub import_method: pulumi_wasm_rust::InputOrOutput<String>,
         /// The KeyRing that this import job belongs to.
         /// Format: `'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}'`.
         #[builder(into)]
-        pub key_ring: pulumi_wasm_rust::Output<String>,
+        pub key_ring: pulumi_wasm_rust::InputOrOutput<String>,
         /// The protection level of the ImportJob. This must match the protectionLevel of the
         /// versionTemplate on the CryptoKey you attempt to import into.
         /// Possible values are: `SOFTWARE`, `HSM`, `EXTERNAL`.
         #[builder(into)]
-        pub protection_level: pulumi_wasm_rust::Output<String>,
+        pub protection_level: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyRingImportJobResult {
@@ -95,13 +95,20 @@ pub mod key_ring_import_job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyRingImportJobArgs) -> KeyRingImportJobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyRingImportJobArgs,
+    ) -> KeyRingImportJobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let import_job_id_binding = args.import_job_id.get_inner();
-        let import_method_binding = args.import_method.get_inner();
-        let key_ring_binding = args.key_ring.get_inner();
-        let protection_level_binding = args.protection_level.get_inner();
+        let import_job_id_binding = args.import_job_id.get_output(context).get_inner();
+        let import_method_binding = args.import_method.get_output(context).get_inner();
+        let key_ring_binding = args.key_ring.get_output(context).get_inner();
+        let protection_level_binding = args
+            .protection_level
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/keyRingImportJob:KeyRingImportJob".into(),
             name: name.to_string(),
@@ -154,7 +161,7 @@ pub mod key_ring_import_job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

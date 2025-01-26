@@ -79,46 +79,46 @@
 /// ```
 ///
 pub mod asset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssetArgs {
         /// The zone for the resource
         #[builder(into)]
-        pub dataplex_zone: pulumi_wasm_rust::Output<String>,
+        pub dataplex_zone: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Description of the asset.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Specification of the discovery feature applied to data referenced by this asset. When this spec is left unset, the asset will use the spec set on the parent zone.
         #[builder(into)]
-        pub discovery_spec: pulumi_wasm_rust::Output<
+        pub discovery_spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataplex::AssetDiscoverySpec,
         >,
         /// Optional. User friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. User defined labels for the asset. **Note**: This field is non-authoritative, and will only manage the labels
         /// present in your configuration. Please refer to the field `effective_labels` for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The lake for the resource
         #[builder(into)]
-        pub lake: pulumi_wasm_rust::Output<String>,
+        pub lake: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the asset.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. Specification of the resource that is referenced by this asset.
         #[builder(into)]
-        pub resource_spec: pulumi_wasm_rust::Output<
+        pub resource_spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataplex::AssetResourceSpec,
         >,
     }
@@ -185,19 +185,23 @@ pub mod asset {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssetArgs) -> AssetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssetArgs,
+    ) -> AssetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dataplex_zone_binding = args.dataplex_zone.get_inner();
-        let description_binding = args.description.get_inner();
-        let discovery_spec_binding = args.discovery_spec.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let lake_binding = args.lake.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let resource_spec_binding = args.resource_spec.get_inner();
+        let dataplex_zone_binding = args.dataplex_zone.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let discovery_spec_binding = args.discovery_spec.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let lake_binding = args.lake.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let resource_spec_binding = args.resource_spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/asset:Asset".into(),
             name: name.to_string(),
@@ -304,7 +308,7 @@ pub mod asset {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -132,35 +132,35 @@
 /// $ pulumi import aws:rds/exportTask:ExportTask example example
 /// ```
 pub mod export_task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExportTaskArgs {
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         #[builder(into, default)]
-        pub export_onlies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub export_onlies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Unique identifier for the snapshot export task.
         #[builder(into)]
-        pub export_task_identifier: pulumi_wasm_rust::Output<String>,
+        pub export_task_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         #[builder(into)]
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Amazon S3 bucket to export the snapshot to.
         #[builder(into)]
-        pub s3_bucket_name: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         #[builder(into, default)]
-        pub s3_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the snapshot to export.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub source_arn: pulumi_wasm_rust::Output<String>,
+        pub source_arn: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rds::ExportTaskTimeouts>,
         >,
     }
@@ -206,17 +206,24 @@ pub mod export_task {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExportTaskArgs) -> ExportTaskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExportTaskArgs,
+    ) -> ExportTaskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let export_onlies_binding = args.export_onlies.get_inner();
-        let export_task_identifier_binding = args.export_task_identifier.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let s3_bucket_name_binding = args.s3_bucket_name.get_inner();
-        let s3_prefix_binding = args.s3_prefix.get_inner();
-        let source_arn_binding = args.source_arn.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let export_onlies_binding = args.export_onlies.get_output(context).get_inner();
+        let export_task_identifier_binding = args
+            .export_task_identifier
+            .get_output(context)
+            .get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context).get_inner();
+        let s3_prefix_binding = args.s3_prefix.get_output(context).get_inner();
+        let source_arn_binding = args.source_arn.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/exportTask:ExportTask".into(),
             name: name.to_string(),
@@ -306,7 +313,7 @@ pub mod export_task {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

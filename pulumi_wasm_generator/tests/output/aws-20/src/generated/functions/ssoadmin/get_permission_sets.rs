@@ -1,11 +1,11 @@
 pub mod get_permission_sets {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPermissionSetsArgs {
         /// ARN of the SSO Instance associated with the permission set.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPermissionSetsResult {
@@ -18,10 +18,13 @@ pub mod get_permission_sets {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPermissionSetsArgs) -> GetPermissionSetsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPermissionSetsArgs,
+    ) -> GetPermissionSetsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_arn_binding = args.instance_arn.get_inner();
+        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getPermissionSets:getPermissionSets".into(),
             version: super::super::super::get_version(),
@@ -43,7 +46,7 @@ pub mod get_permission_sets {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

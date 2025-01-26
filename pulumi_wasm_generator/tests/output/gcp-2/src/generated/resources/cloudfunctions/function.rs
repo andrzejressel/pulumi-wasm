@@ -114,44 +114,44 @@
 /// ```
 ///
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
         /// Memory (in MB), available to the function. Default value is `256`. Possible values include `128`, `256`, `512`, `1024`, etc.
         #[builder(into, default)]
-        pub available_memory_mb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub available_memory_mb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A set of key/value environment variable pairs available during build time.
         #[builder(into, default)]
-        pub build_environment_variables: pulumi_wasm_rust::Output<
+        pub build_environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If provided, the self-provided service account to use to build the function. The format of this field is `projects/{project}/serviceAccounts/{serviceAccountEmail}`
         #[builder(into, default)]
-        pub build_service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Cloud Build Custom Worker Pool that should be used to build the function.
         #[builder(into, default)]
-        pub build_worker_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_worker_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the function.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Docker Registry to use for storing the function's Docker images. Allowed values are ARTIFACT_REGISTRY (default) and CONTAINER_REGISTRY.
         #[builder(into, default)]
-        pub docker_registry: pulumi_wasm_rust::Output<Option<String>>,
+        pub docker_registry: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-managed repository created in Artifact Registry to which the function's Docker image will be pushed after it is built by Cloud Build. May optionally be encrypted with a customer-managed encryption key (CMEK). If unspecified and `docker_registry` is not explicitly set to `CONTAINER_REGISTRY`, GCF will create and use a default Artifact Registry repository named 'gcf-artifacts' in the region.
         #[builder(into, default)]
-        pub docker_repository: pulumi_wasm_rust::Output<Option<String>>,
+        pub docker_repository: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the function that will be executed when the Google Cloud Function is triggered.
         #[builder(into, default)]
-        pub entry_point: pulumi_wasm_rust::Output<Option<String>>,
+        pub entry_point: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of key/value environment variable pairs to assign to the function.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A source that fires events in response to a condition in another service. Structure is documented below. Cannot be used with `trigger_http`.
         #[builder(into, default)]
-        pub event_trigger: pulumi_wasm_rust::Output<
+        pub event_trigger: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudfunctions::FunctionEventTrigger>,
         >,
         /// The security level for the function. The following options are available:
@@ -159,49 +159,51 @@ pub mod function {
         /// * `SECURE_ALWAYS` Requests for a URL that match this handler that do not use HTTPS are automatically redirected to the HTTPS URL with the same path. Query parameters are reserved for the redirect.
         /// * `SECURE_OPTIONAL` Both HTTP and HTTPS requests with URLs that match the handler succeed without redirects. The application can examine the request to determine which protocol was used and respond accordingly.
         #[builder(into, default)]
-        pub https_trigger_security_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub https_trigger_security_level: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// URL which triggers function execution. Returned only if `trigger_http` is used.
         #[builder(into, default)]
-        pub https_trigger_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub https_trigger_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// String value that controls what traffic can reach the function. Allowed values are `ALLOW_ALL`, `ALLOW_INTERNAL_AND_GCLB` and `ALLOW_INTERNAL_ONLY`. Check [ingress documentation](https://cloud.google.com/functions/docs/networking/network-settings#ingress_settings) to see the impact of each settings value. Changes to this field will recreate the cloud function.
         #[builder(into, default)]
-        pub ingress_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub ingress_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
         /// If specified, you must also provide an artifact registry repository using the `docker_repository` field that was created with the same KMS crypto key. Before deploying, please complete all pre-requisites described in https://cloud.google.com/functions/docs/securing/cmek#granting_service_accounts_access_to_the_key
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to the function. Label keys must follow the requirements at https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The limit on the maximum number of function instances that may coexist at a given time.
         #[builder(into, default)]
-        pub max_instances: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_instances: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The limit on the minimum number of function instances that may coexist at a given time.
         #[builder(into, default)]
-        pub min_instances: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_instances: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A user-defined name of the function. Function names must be unique globally.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Project of the function. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Region of function. If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The runtime in which the function is going to run.
         /// Eg. `"nodejs16"`, `"python39"`, `"dotnet3"`, `"go116"`, `"java11"`, `"ruby30"`, `"php74"`, etc. Check the [official doc](https://cloud.google.com/functions/docs/concepts/exec#runtimes) for the up-to-date list.
         ///
         /// - - -
         #[builder(into)]
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<String>,
         /// Secret environment variables configuration. Structure is documented below.
         #[builder(into, default)]
-        pub secret_environment_variables: pulumi_wasm_rust::Output<
+        pub secret_environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::cloudfunctions::FunctionSecretEnvironmentVariable,
@@ -210,36 +212,38 @@ pub mod function {
         >,
         /// Secret volumes configuration. Structure is documented below.
         #[builder(into, default)]
-        pub secret_volumes: pulumi_wasm_rust::Output<
+        pub secret_volumes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudfunctions::FunctionSecretVolume>>,
         >,
         /// If provided, the self-provided service account to run the function with.
         #[builder(into, default)]
-        pub service_account_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The GCS bucket containing the zip archive which contains the function.
         #[builder(into, default)]
-        pub source_archive_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_archive_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The source archive object (file) in archive bucket.
         #[builder(into, default)]
-        pub source_archive_object: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_archive_object: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Represents parameters related to source repository where a function is hosted.
         /// Cannot be set alongside `source_archive_bucket` or `source_archive_object`. Structure is documented below. It must match the pattern `projects/{project}/locations/{location}/repositories/{repository}`.*
         #[builder(into, default)]
-        pub source_repository: pulumi_wasm_rust::Output<
+        pub source_repository: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudfunctions::FunctionSourceRepository>,
         >,
         /// Timeout (in seconds) for the function. Default value is 60 seconds. Cannot be more than 540 seconds.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Boolean variable. Any HTTP request (of a supported type) to the endpoint will trigger function execution. Supported HTTP request types are: POST, PUT, GET, DELETE, and OPTIONS. Endpoint is returned as `https_trigger_url`. Cannot be used with `event_trigger`.
         #[builder(into, default)]
-        pub trigger_http: pulumi_wasm_rust::Output<Option<bool>>,
+        pub trigger_http: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is `projects/*/locations/*/connectors/*`.
         #[builder(into, default)]
-        pub vpc_connector: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_connector: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are `ALL_TRAFFIC` and `PRIVATE_RANGES_ONLY`. Defaults to `PRIVATE_RANGES_ONLY`. If unset, this field preserves the previously set value.
         #[builder(into, default)]
-        pub vpc_connector_egress_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_connector_egress_settings: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct FunctionResult {
@@ -352,47 +356,91 @@ pub mod function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionArgs) -> FunctionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionArgs,
+    ) -> FunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let available_memory_mb_binding = args.available_memory_mb.get_inner();
+        let available_memory_mb_binding = args
+            .available_memory_mb
+            .get_output(context)
+            .get_inner();
         let build_environment_variables_binding = args
             .build_environment_variables
+            .get_output(context)
             .get_inner();
-        let build_service_account_binding = args.build_service_account.get_inner();
-        let build_worker_pool_binding = args.build_worker_pool.get_inner();
-        let description_binding = args.description.get_inner();
-        let docker_registry_binding = args.docker_registry.get_inner();
-        let docker_repository_binding = args.docker_repository.get_inner();
-        let entry_point_binding = args.entry_point.get_inner();
-        let environment_variables_binding = args.environment_variables.get_inner();
-        let event_trigger_binding = args.event_trigger.get_inner();
+        let build_service_account_binding = args
+            .build_service_account
+            .get_output(context)
+            .get_inner();
+        let build_worker_pool_binding = args
+            .build_worker_pool
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let docker_registry_binding = args
+            .docker_registry
+            .get_output(context)
+            .get_inner();
+        let docker_repository_binding = args
+            .docker_repository
+            .get_output(context)
+            .get_inner();
+        let entry_point_binding = args.entry_point.get_output(context).get_inner();
+        let environment_variables_binding = args
+            .environment_variables
+            .get_output(context)
+            .get_inner();
+        let event_trigger_binding = args.event_trigger.get_output(context).get_inner();
         let https_trigger_security_level_binding = args
             .https_trigger_security_level
+            .get_output(context)
             .get_inner();
-        let https_trigger_url_binding = args.https_trigger_url.get_inner();
-        let ingress_settings_binding = args.ingress_settings.get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let max_instances_binding = args.max_instances.get_inner();
-        let min_instances_binding = args.min_instances.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let runtime_binding = args.runtime.get_inner();
+        let https_trigger_url_binding = args
+            .https_trigger_url
+            .get_output(context)
+            .get_inner();
+        let ingress_settings_binding = args
+            .ingress_settings
+            .get_output(context)
+            .get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let max_instances_binding = args.max_instances.get_output(context).get_inner();
+        let min_instances_binding = args.min_instances.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
         let secret_environment_variables_binding = args
             .secret_environment_variables
+            .get_output(context)
             .get_inner();
-        let secret_volumes_binding = args.secret_volumes.get_inner();
-        let service_account_email_binding = args.service_account_email.get_inner();
-        let source_archive_bucket_binding = args.source_archive_bucket.get_inner();
-        let source_archive_object_binding = args.source_archive_object.get_inner();
-        let source_repository_binding = args.source_repository.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let trigger_http_binding = args.trigger_http.get_inner();
-        let vpc_connector_binding = args.vpc_connector.get_inner();
+        let secret_volumes_binding = args.secret_volumes.get_output(context).get_inner();
+        let service_account_email_binding = args
+            .service_account_email
+            .get_output(context)
+            .get_inner();
+        let source_archive_bucket_binding = args
+            .source_archive_bucket
+            .get_output(context)
+            .get_inner();
+        let source_archive_object_binding = args
+            .source_archive_object
+            .get_output(context)
+            .get_inner();
+        let source_repository_binding = args
+            .source_repository
+            .get_output(context)
+            .get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let trigger_http_binding = args.trigger_http.get_output(context).get_inner();
+        let vpc_connector_binding = args.vpc_connector.get_output(context).get_inner();
         let vpc_connector_egress_settings_binding = args
             .vpc_connector_egress_settings
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudfunctions/function:Function".into(),
@@ -632,7 +680,7 @@ pub mod function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

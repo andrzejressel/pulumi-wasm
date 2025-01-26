@@ -71,65 +71,65 @@
 /// ```
 ///
 pub mod firewall {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallArgs {
         /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         #[builder(into, default)]
-        pub dns_proxy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dns_proxy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Firewall Policy applied to this Firewall.
         #[builder(into, default)]
-        pub firewall_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub firewall_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `ip_configuration` block as documented below.
         #[builder(into, default)]
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::FirewallIpConfiguration>>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub management_ip_configuration: pulumi_wasm_rust::Output<
+        pub management_ip_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::FirewallManagementIpConfiguration>,
         >,
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         #[builder(into, default)]
-        pub private_ip_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub private_ip_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         #[builder(into)]
-        pub sku_tier: pulumi_wasm_rust::Output<String>,
+        pub sku_tier: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         #[builder(into, default)]
-        pub threat_intel_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub threat_intel_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `virtual_hub` block as documented below.
         #[builder(into, default)]
-        pub virtual_hub: pulumi_wasm_rust::Output<
+        pub virtual_hub: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::FirewallVirtualHub>,
         >,
         /// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         ///
         /// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct FirewallResult {
@@ -178,26 +178,49 @@ pub mod firewall {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FirewallArgs) -> FirewallResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FirewallArgs,
+    ) -> FirewallResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dns_proxy_enabled_binding = args.dns_proxy_enabled.get_inner();
-        let dns_servers_binding = args.dns_servers.get_inner();
-        let firewall_policy_id_binding = args.firewall_policy_id.get_inner();
-        let ip_configurations_binding = args.ip_configurations.get_inner();
-        let location_binding = args.location.get_inner();
+        let dns_proxy_enabled_binding = args
+            .dns_proxy_enabled
+            .get_output(context)
+            .get_inner();
+        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
+        let firewall_policy_id_binding = args
+            .firewall_policy_id
+            .get_output(context)
+            .get_inner();
+        let ip_configurations_binding = args
+            .ip_configurations
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let management_ip_configuration_binding = args
             .management_ip_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let private_ip_ranges_binding = args.private_ip_ranges.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let sku_tier_binding = args.sku_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let threat_intel_mode_binding = args.threat_intel_mode.get_inner();
-        let virtual_hub_binding = args.virtual_hub.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_ip_ranges_binding = args
+            .private_ip_ranges
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let threat_intel_mode_binding = args
+            .threat_intel_mode
+            .get_output(context)
+            .get_inner();
+        let virtual_hub_binding = args.virtual_hub.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewall:Firewall".into(),
             name: name.to_string(),
@@ -312,7 +335,7 @@ pub mod firewall {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -159,7 +159,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -167,7 +167,7 @@ pub mod instance {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// 'Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -178,77 +178,77 @@ pub mod instance {
         /// can have regional availability (nodes are present in 2 or more zones in a region).'
         /// Possible values are: `AVAILABILITY_TYPE_UNSPECIFIED`, `ZONAL`, `REGIONAL`.
         #[builder(into, default)]
-        pub availability_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Client connection specific configurations.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client_connection_config: pulumi_wasm_rust::Output<
+        pub client_connection_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceClientConnectionConfig>,
         >,
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
         #[builder(into, default)]
-        pub database_flags: pulumi_wasm_rust::Output<
+        pub database_flags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User-settable and human-readable display name for the Instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
         #[builder(into, default)]
-        pub gce_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub gce_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the alloydb instance.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// User-defined labels for the alloydb instance.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configurations for the machines that host the underlying database engine.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub machine_config: pulumi_wasm_rust::Output<
+        pub machine_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceMachineConfig>,
         >,
         /// Instance level network configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceNetworkConfig>,
         >,
         /// Configuration for enhanced query insights.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub observability_config: pulumi_wasm_rust::Output<
+        pub observability_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceObservabilityConfig>,
         >,
         /// Configuration for Private Service Connect (PSC) for the instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_instance_config: pulumi_wasm_rust::Output<
+        pub psc_instance_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstancePscInstanceConfig>,
         >,
         /// Configuration for query insights.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub query_insights_config: pulumi_wasm_rust::Output<
+        pub query_insights_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceQueryInsightsConfig>,
         >,
         /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub read_pool_config: pulumi_wasm_rust::Output<
+        pub read_pool_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::InstanceReadPoolConfig>,
         >,
     }
@@ -365,25 +365,47 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let availability_type_binding = args.availability_type.get_inner();
-        let client_connection_config_binding = args.client_connection_config.get_inner();
-        let cluster_binding = args.cluster.get_inner();
-        let database_flags_binding = args.database_flags.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let gce_zone_binding = args.gce_zone.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let machine_config_binding = args.machine_config.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let observability_config_binding = args.observability_config.get_inner();
-        let psc_instance_config_binding = args.psc_instance_config.get_inner();
-        let query_insights_config_binding = args.query_insights_config.get_inner();
-        let read_pool_config_binding = args.read_pool_config.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let availability_type_binding = args
+            .availability_type
+            .get_output(context)
+            .get_inner();
+        let client_connection_config_binding = args
+            .client_connection_config
+            .get_output(context)
+            .get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
+        let database_flags_binding = args.database_flags.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let gce_zone_binding = args.gce_zone.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let machine_config_binding = args.machine_config.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let observability_config_binding = args
+            .observability_config
+            .get_output(context)
+            .get_inner();
+        let psc_instance_config_binding = args
+            .psc_instance_config
+            .get_output(context)
+            .get_inner();
+        let query_insights_config_binding = args
+            .query_insights_config
+            .get_output(context)
+            .get_inner();
+        let read_pool_config_binding = args
+            .read_pool_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/instance:Instance".into(),
             name: name.to_string(),
@@ -541,7 +563,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

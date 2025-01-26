@@ -97,52 +97,52 @@
 /// ```
 ///
 pub mod gallery_application_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GalleryApplicationVersionArgs {
         /// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub config_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub config_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Gallery Application reports health. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_health_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_health_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The end of life date in RFC3339 format of the Gallery Application Version.
         #[builder(into, default)]
-        pub end_of_life_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_of_life_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         #[builder(into, default)]
-        pub exclude_from_latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_from_latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Gallery Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_application_id: pulumi_wasm_rust::Output<String>,
+        pub gallery_application_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `manage_action` block as defined below.
         #[builder(into)]
-        pub manage_action: pulumi_wasm_rust::Output<
+        pub manage_action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::GalleryApplicationVersionManageAction,
         >,
         /// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub package_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `source` block as defined below.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::GalleryApplicationVersionSource,
         >,
         /// A mapping of tags to assign to the Gallery Application Version.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `target_region` blocks as defined below.
         #[builder(into)]
-        pub target_regions: pulumi_wasm_rust::Output<
+        pub target_regions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::compute::GalleryApplicationVersionTargetRegion>,
         >,
     }
@@ -186,23 +186,36 @@ pub mod gallery_application_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GalleryApplicationVersionArgs,
     ) -> GalleryApplicationVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_file_binding = args.config_file.get_inner();
-        let enable_health_check_binding = args.enable_health_check.get_inner();
-        let end_of_life_date_binding = args.end_of_life_date.get_inner();
-        let exclude_from_latest_binding = args.exclude_from_latest.get_inner();
-        let gallery_application_id_binding = args.gallery_application_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let manage_action_binding = args.manage_action.get_inner();
-        let name_binding = args.name.get_inner();
-        let package_file_binding = args.package_file.get_inner();
-        let source_binding = args.source.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_regions_binding = args.target_regions.get_inner();
+        let config_file_binding = args.config_file.get_output(context).get_inner();
+        let enable_health_check_binding = args
+            .enable_health_check
+            .get_output(context)
+            .get_inner();
+        let end_of_life_date_binding = args
+            .end_of_life_date
+            .get_output(context)
+            .get_inner();
+        let exclude_from_latest_binding = args
+            .exclude_from_latest
+            .get_output(context)
+            .get_inner();
+        let gallery_application_id_binding = args
+            .gallery_application_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let manage_action_binding = args.manage_action.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let package_file_binding = args.package_file.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_regions_binding = args.target_regions.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationVersion:GalleryApplicationVersion"
                 .into(),
@@ -297,7 +310,7 @@ pub mod gallery_application_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

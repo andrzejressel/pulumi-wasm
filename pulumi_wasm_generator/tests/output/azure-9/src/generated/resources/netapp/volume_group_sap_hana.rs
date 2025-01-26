@@ -210,31 +210,31 @@
 /// ```
 ///
 pub mod volume_group_sap_hana {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeGroupSapHanaArgs {
         /// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into)]
-        pub application_identifier: pulumi_wasm_rust::Output<String>,
+        pub application_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into)]
-        pub group_description: pulumi_wasm_rust::Output<String>,
+        pub group_description: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `volume` blocks as defined below.
         #[builder(into)]
-        pub volumes: pulumi_wasm_rust::Output<
+        pub volumes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::netapp::VolumeGroupSapHanaVolume>,
         >,
     }
@@ -261,16 +261,29 @@ pub mod volume_group_sap_hana {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeGroupSapHanaArgs) -> VolumeGroupSapHanaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeGroupSapHanaArgs,
+    ) -> VolumeGroupSapHanaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_inner();
-        let application_identifier_binding = args.application_identifier.get_inner();
-        let group_description_binding = args.group_description.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let volumes_binding = args.volumes.get_inner();
+        let account_name_binding = args.account_name.get_output(context).get_inner();
+        let application_identifier_binding = args
+            .application_identifier
+            .get_output(context)
+            .get_inner();
+        let group_description_binding = args
+            .group_description
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let volumes_binding = args.volumes.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana".into(),
             name: name.to_string(),
@@ -329,7 +342,7 @@ pub mod volume_group_sap_hana {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

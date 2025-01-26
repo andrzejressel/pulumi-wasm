@@ -245,7 +245,7 @@
 /// ```
 ///
 pub mod slo {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SloArgs {
@@ -257,25 +257,25 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub basic_sli: pulumi_wasm_rust::Output<
+        pub basic_sli: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloBasicSli>,
         >,
         /// A calendar period, semantically "since the start of the current
         /// <calendarPeriod>".
         /// Possible values are: `DAY`, `WEEK`, `FORTNIGHT`, `MONTH`.
         #[builder(into, default)]
-        pub calendar_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub calendar_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name used for UI elements listing this SLO.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The fraction of service that must be good in order for this objective
         /// to be met. 0 < goal <= 0.999
         #[builder(into)]
-        pub goal: pulumi_wasm_rust::Output<f64>,
+        pub goal: pulumi_wasm_rust::InputOrOutput<f64>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A request-based SLI defines a SLI for which atomic units of
         /// service are counted directly.
         /// A SLI describes a good service.
@@ -285,29 +285,29 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub request_based_sli: pulumi_wasm_rust::Output<
+        pub request_based_sli: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloRequestBasedSli>,
         >,
         /// A rolling time period, semantically "in the past X days".
         /// Must be between 1 to 30 days, inclusive.
         #[builder(into, default)]
-        pub rolling_period_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub rolling_period_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// ID of the service to which this SLO belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
         #[builder(into, default)]
-        pub slo_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub slo_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field is intended to be used for organizing and identifying the AlertPolicy
         /// objects.The field can contain up to 64 entries. Each key and value is limited
         /// to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values
         /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
         /// must begin with a letter.
         #[builder(into, default)]
-        pub user_labels: pulumi_wasm_rust::Output<
+        pub user_labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A windows-based SLI defines the criteria for time windows.
@@ -320,7 +320,7 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub windows_based_sli: pulumi_wasm_rust::Output<
+        pub windows_based_sli: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloWindowsBasedSli>,
         >,
     }
@@ -397,20 +397,36 @@ pub mod slo {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SloArgs) -> SloResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SloArgs,
+    ) -> SloResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let basic_sli_binding = args.basic_sli.get_inner();
-        let calendar_period_binding = args.calendar_period.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let goal_binding = args.goal.get_inner();
-        let project_binding = args.project.get_inner();
-        let request_based_sli_binding = args.request_based_sli.get_inner();
-        let rolling_period_days_binding = args.rolling_period_days.get_inner();
-        let service_binding = args.service.get_inner();
-        let slo_id_binding = args.slo_id.get_inner();
-        let user_labels_binding = args.user_labels.get_inner();
-        let windows_based_sli_binding = args.windows_based_sli.get_inner();
+        let basic_sli_binding = args.basic_sli.get_output(context).get_inner();
+        let calendar_period_binding = args
+            .calendar_period
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let goal_binding = args.goal.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let request_based_sli_binding = args
+            .request_based_sli
+            .get_output(context)
+            .get_inner();
+        let rolling_period_days_binding = args
+            .rolling_period_days
+            .get_output(context)
+            .get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let slo_id_binding = args.slo_id.get_output(context).get_inner();
+        let user_labels_binding = args.user_labels.get_output(context).get_inner();
+        let windows_based_sli_binding = args
+            .windows_based_sli
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/slo:Slo".into(),
             name: name.to_string(),
@@ -500,7 +516,7 @@ pub mod slo {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

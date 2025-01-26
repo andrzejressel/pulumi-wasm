@@ -45,16 +45,16 @@
 /// ```
 ///
 pub mod outbound_firewall_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutboundFirewallRuleArgs {
         /// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutboundFirewallRuleResult {
@@ -68,13 +68,14 @@ pub mod outbound_firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OutboundFirewallRuleArgs,
     ) -> OutboundFirewallRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let server_id_binding = args.server_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_id_binding = args.server_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/outboundFirewallRule:OutboundFirewallRule".into(),
             name: name.to_string(),
@@ -98,7 +99,7 @@ pub mod outbound_firewall_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

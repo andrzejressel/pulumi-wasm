@@ -49,50 +49,52 @@
 /// ```
 ///
 pub mod network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkArgs {
         /// Enable manual container attachment to the network.
         #[builder(into, default)]
-        pub attachable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub attachable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Requests daemon to check for networks with same name.
         #[builder(into, default)]
-        pub check_duplicate: pulumi_wasm_rust::Output<Option<bool>>,
+        pub check_duplicate: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
         #[builder(into, default)]
-        pub driver: pulumi_wasm_rust::Output<Option<String>>,
+        pub driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Create swarm routing-mesh network. Defaults to `false`.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ingress: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the network is internal.
         #[builder(into, default)]
-        pub internal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The IPAM configuration options
         #[builder(into, default)]
-        pub ipam_configs: pulumi_wasm_rust::Output<
+        pub ipam_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::NetworkIpamConfig>>,
         >,
         /// Driver used by the custom IP scheme of the network. Defaults to `default`
         #[builder(into, default)]
-        pub ipam_driver: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipam_driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
         #[builder(into, default)]
-        pub ipam_options: pulumi_wasm_rust::Output<
+        pub ipam_options: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enable IPv6 networking. Defaults to `false`.
         #[builder(into, default)]
-        pub ipv6: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv6: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User-defined key/value metadata
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<super::types::NetworkLabel>>>,
+        pub labels: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::NetworkLabel>>,
+        >,
         /// The name of the Docker network.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -131,21 +133,28 @@ pub mod network {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkArgs) -> NetworkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkArgs,
+    ) -> NetworkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attachable_binding = args.attachable.get_inner();
-        let check_duplicate_binding = args.check_duplicate.get_inner();
-        let driver_binding = args.driver.get_inner();
-        let ingress_binding = args.ingress.get_inner();
-        let internal_binding = args.internal.get_inner();
-        let ipam_configs_binding = args.ipam_configs.get_inner();
-        let ipam_driver_binding = args.ipam_driver.get_inner();
-        let ipam_options_binding = args.ipam_options.get_inner();
-        let ipv6_binding = args.ipv6.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let options_binding = args.options.get_inner();
+        let attachable_binding = args.attachable.get_output(context).get_inner();
+        let check_duplicate_binding = args
+            .check_duplicate
+            .get_output(context)
+            .get_inner();
+        let driver_binding = args.driver.get_output(context).get_inner();
+        let ingress_binding = args.ingress.get_output(context).get_inner();
+        let internal_binding = args.internal.get_output(context).get_inner();
+        let ipam_configs_binding = args.ipam_configs.get_output(context).get_inner();
+        let ipam_driver_binding = args.ipam_driver.get_output(context).get_inner();
+        let ipam_options_binding = args.ipam_options.get_output(context).get_inner();
+        let ipv6_binding = args.ipv6.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let options_binding = args.options.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),
             name: name.to_string(),
@@ -242,7 +251,7 @@ pub mod network {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,5 +1,5 @@
 pub mod get_router_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouterConfigurationArgs {
@@ -22,10 +22,10 @@ pub mod get_router_configuration {
         /// }
         /// ```
         #[builder(into)]
-        pub router_type_identifier: pulumi_wasm_rust::Output<String>,
+        pub router_type_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the Direct Connect Virtual Interface
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRouterConfigurationResult {
@@ -46,11 +46,20 @@ pub mod get_router_configuration {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRouterConfigurationArgs) -> GetRouterConfigurationResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRouterConfigurationArgs,
+    ) -> GetRouterConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let router_type_identifier_binding = args.router_type_identifier.get_inner();
-        let virtual_interface_id_binding = args.virtual_interface_id.get_inner();
+        let router_type_identifier_binding = args
+            .router_type_identifier
+            .get_output(context)
+            .get_inner();
+        let virtual_interface_id_binding = args
+            .virtual_interface_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:directconnect/getRouterConfiguration:getRouterConfiguration"
                 .into(),
@@ -86,7 +95,7 @@ pub mod get_router_configuration {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

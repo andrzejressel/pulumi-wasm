@@ -35,16 +35,16 @@
 /// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
 /// ```
 pub mod lb_certificate_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbCertificateAttachmentArgs {
         /// The name of your SSL/TLS certificate.
         #[builder(into)]
-        pub certificate_name: pulumi_wasm_rust::Output<String>,
+        pub certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
         #[builder(into)]
-        pub lb_name: pulumi_wasm_rust::Output<String>,
+        pub lb_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LbCertificateAttachmentResult {
@@ -58,13 +58,17 @@ pub mod lb_certificate_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LbCertificateAttachmentArgs,
     ) -> LbCertificateAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_name_binding = args.certificate_name.get_inner();
-        let lb_name_binding = args.lb_name.get_inner();
+        let certificate_name_binding = args
+            .certificate_name
+            .get_output(context)
+            .get_inner();
+        let lb_name_binding = args.lb_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment"
                 .into(),
@@ -89,7 +93,7 @@ pub mod lb_certificate_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

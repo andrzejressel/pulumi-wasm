@@ -48,26 +48,26 @@
 /// ```
 ///
 pub mod subscription_pricing {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionPricingArgs {
         /// One or more `extension` blocks as defined below.
         #[builder(into, default)]
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::securitycenter::SubscriptionPricingExtension>,
             >,
         >,
         /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
         #[builder(into, default)]
-        pub subplan: pulumi_wasm_rust::Output<Option<String>>,
+        pub subplan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionPricingResult {
@@ -89,15 +89,16 @@ pub mod subscription_pricing {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubscriptionPricingArgs,
     ) -> SubscriptionPricingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let extensions_binding = args.extensions.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let subplan_binding = args.subplan.get_inner();
-        let tier_binding = args.tier.get_inner();
+        let extensions_binding = args.extensions.get_output(context).get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let subplan_binding = args.subplan.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/subscriptionPricing:SubscriptionPricing".into(),
             name: name.to_string(),
@@ -135,7 +136,7 @@ pub mod subscription_pricing {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

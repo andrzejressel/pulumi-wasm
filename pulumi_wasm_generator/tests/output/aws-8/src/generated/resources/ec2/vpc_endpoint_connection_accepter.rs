@@ -44,16 +44,16 @@
 /// $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
 /// ```
 pub mod vpc_endpoint_connection_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionAccepterArgs {
         /// AWS VPC Endpoint ID.
         #[builder(into)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS VPC Endpoint Service ID.
         #[builder(into)]
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointConnectionAccepterResult {
@@ -69,13 +69,20 @@ pub mod vpc_endpoint_connection_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcEndpointConnectionAccepterArgs,
     ) -> VpcEndpointConnectionAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
-        let vpc_endpoint_service_id_binding = args.vpc_endpoint_service_id.get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let vpc_endpoint_service_id_binding = args
+            .vpc_endpoint_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter"
                 .into(),
@@ -103,7 +110,7 @@ pub mod vpc_endpoint_connection_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

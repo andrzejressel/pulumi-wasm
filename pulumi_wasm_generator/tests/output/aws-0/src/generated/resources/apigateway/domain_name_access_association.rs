@@ -26,22 +26,22 @@
 /// $ pulumi import aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
 /// ```
 pub mod domain_name_access_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainNameAccessAssociationArgs {
         /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         #[builder(into)]
-        pub access_association_source: pulumi_wasm_rust::Output<String>,
+        pub access_association_source: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the domain name access association source. Valid values are `VPCE`.
         #[builder(into)]
-        pub access_association_source_type: pulumi_wasm_rust::Output<String>,
+        pub access_association_source_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the domain name.
         #[builder(into)]
-        pub domain_name_arn: pulumi_wasm_rust::Output<String>,
+        pub domain_name_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -69,6 +69,7 @@ pub mod domain_name_access_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DomainNameAccessAssociationArgs,
     ) -> DomainNameAccessAssociationResult {
@@ -76,12 +77,17 @@ pub mod domain_name_access_association {
         use std::collections::HashMap;
         let access_association_source_binding = args
             .access_association_source
+            .get_output(context)
             .get_inner();
         let access_association_source_type_binding = args
             .access_association_source_type
+            .get_output(context)
             .get_inner();
-        let domain_name_arn_binding = args.domain_name_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let domain_name_arn_binding = args
+            .domain_name_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation"
                 .into(),
@@ -126,7 +132,7 @@ pub mod domain_name_access_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

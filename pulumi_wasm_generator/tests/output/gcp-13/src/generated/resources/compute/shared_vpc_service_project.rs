@@ -42,19 +42,19 @@
 /// ```
 ///
 pub mod shared_vpc_service_project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedVPCServiceProjectArgs {
         /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource to be abandoned rather than deleted. Possible values are: "ABANDON".
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of a host project to associate.
         #[builder(into)]
-        pub host_project: pulumi_wasm_rust::Output<String>,
+        pub host_project: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project that will serve as a Shared VPC service project.
         #[builder(into)]
-        pub service_project: pulumi_wasm_rust::Output<String>,
+        pub service_project: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedVPCServiceProjectResult {
@@ -70,14 +70,21 @@ pub mod shared_vpc_service_project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SharedVPCServiceProjectArgs,
     ) -> SharedVPCServiceProjectResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let host_project_binding = args.host_project.get_inner();
-        let service_project_binding = args.service_project.get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let host_project_binding = args.host_project.get_output(context).get_inner();
+        let service_project_binding = args
+            .service_project
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/sharedVPCServiceProject:SharedVPCServiceProject".into(),
             name: name.to_string(),
@@ -108,7 +115,7 @@ pub mod shared_vpc_service_project {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

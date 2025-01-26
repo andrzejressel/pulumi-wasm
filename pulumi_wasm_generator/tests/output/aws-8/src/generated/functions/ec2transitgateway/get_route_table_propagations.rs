@@ -1,5 +1,5 @@
 pub mod get_route_table_propagations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouteTablePropagationsArgs {
@@ -8,7 +8,7 @@ pub mod get_route_table_propagations {
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::ec2transitgateway::GetRouteTablePropagationsFilter,
@@ -19,7 +19,7 @@ pub mod get_route_table_propagations {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRouteTablePropagationsResult {
@@ -41,13 +41,15 @@ pub mod get_route_table_propagations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetRouteTablePropagationsArgs,
     ) -> GetRouteTablePropagationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
         let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations"
@@ -78,7 +80,7 @@ pub mod get_route_table_propagations {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

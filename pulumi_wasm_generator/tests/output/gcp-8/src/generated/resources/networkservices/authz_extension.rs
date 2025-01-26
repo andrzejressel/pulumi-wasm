@@ -75,70 +75,70 @@
 /// ```
 ///
 pub mod authz_extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthzExtensionArgs {
         /// The :authority header in the gRPC request sent from Envoy to the extension service.
         #[builder(into)]
-        pub authority: pulumi_wasm_rust::Output<String>,
+        pub authority: pulumi_wasm_rust::InputOrOutput<String>,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Determines how the proxy behaves if the call to the extension fails or times out.
         /// When set to TRUE, request or response processing continues without error. Any subsequent extensions in the extension chain are also executed. When set to FALSE or the default setting of FALSE is used, one of the following happens:
         /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
         /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
         #[builder(into, default)]
-        pub fail_open: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fail_open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of the HTTP headers to forward to the extension (from the client). If omitted, all headers are sent. Each element is a string indicating the header name.
         #[builder(into, default)]
-        pub forward_headers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub forward_headers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set of labels associated with the AuthzExtension resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
         /// For more information, refer to [Backend services overview](https://cloud.google.com/load-balancing/docs/backend-service).
         /// Possible values are: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`.
         #[builder(into)]
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<String>,
+        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metadata provided here is included as part of the metadata_context (of type google.protobuf.Struct) in the ProcessingRequest message sent to the extension server. The metadata is available under the namespace com.google.authz_extension.<resourceName>. The following variables are supported in the metadata Struct:
         /// {forwarding_rule_id} - substituted with the forwarding rule's fully qualified resource name.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier. Name of the AuthzExtension resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The reference to the service that runs the extension.
         /// To configure a callout extension, service must be a fully-qualified reference to a [backend service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the format:
         /// https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService} or https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the timeout for each individual message on the stream. The timeout must be between 10-10000 milliseconds.
         #[builder(into)]
-        pub timeout: pulumi_wasm_rust::Output<String>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<String>,
         /// The format of communication supported by the callout extension.
         /// Default value is `EXT_PROC_GRPC`.
         /// Possible values are: `WIRE_FORMAT_UNSPECIFIED`, `EXT_PROC_GRPC`.
         #[builder(into, default)]
-        pub wire_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub wire_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthzExtensionResult {
@@ -207,22 +207,32 @@ pub mod authz_extension {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthzExtensionArgs) -> AuthzExtensionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthzExtensionArgs,
+    ) -> AuthzExtensionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authority_binding = args.authority.get_inner();
-        let description_binding = args.description.get_inner();
-        let fail_open_binding = args.fail_open.get_inner();
-        let forward_headers_binding = args.forward_headers.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let load_balancing_scheme_binding = args.load_balancing_scheme.get_inner();
-        let location_binding = args.location.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_binding = args.service.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let wire_format_binding = args.wire_format.get_inner();
+        let authority_binding = args.authority.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let fail_open_binding = args.fail_open.get_output(context).get_inner();
+        let forward_headers_binding = args
+            .forward_headers
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let load_balancing_scheme_binding = args
+            .load_balancing_scheme
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let wire_format_binding = args.wire_format.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/authzExtension:AuthzExtension".into(),
             name: name.to_string(),
@@ -335,7 +345,7 @@ pub mod authz_extension {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

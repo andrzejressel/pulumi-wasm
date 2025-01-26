@@ -1,18 +1,18 @@
 pub mod rubber_tree {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RubberTreeArgs {
         #[builder(into, default)]
-        pub container: pulumi_wasm_rust::Output<
+        pub container: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::Container>,
         >,
         #[builder(into)]
-        pub diameter: pulumi_wasm_rust::Output<
+        pub diameter: pulumi_wasm_rust::InputOrOutput<
             super::super::super::types::tree::v1::Diameter,
         >,
         #[builder(into, default)]
-        pub farm: pulumi_wasm_rust::Output<
+        pub farm: pulumi_wasm_rust::InputOrOutput<
             Option<
                 pulumi_wasm_rust::OneOf2<
                     super::super::super::types::tree::v1::Farm,
@@ -21,11 +21,11 @@ pub mod rubber_tree {
             >,
         >,
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<
+        pub size: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::tree::v1::TreeSize>,
         >,
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<
+        pub type_: pulumi_wasm_rust::InputOrOutput<
             super::super::super::types::tree::v1::RubberTreeVariety,
         >,
     }
@@ -56,14 +56,18 @@ pub mod rubber_tree {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RubberTreeArgs) -> RubberTreeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RubberTreeArgs,
+    ) -> RubberTreeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_binding = args.container.get_inner();
-        let diameter_binding = args.diameter.get_inner();
-        let farm_binding = args.farm.get_inner();
-        let size_binding = args.size.get_inner();
-        let type__binding = args.type_.get_inner();
+        let container_binding = args.container.get_output(context).get_inner();
+        let diameter_binding = args.diameter.get_output(context).get_inner();
+        let farm_binding = args.farm.get_output(context).get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "plant:tree/v1:RubberTree".into(),
             name: name.to_string(),
@@ -108,7 +112,7 @@ pub mod rubber_tree {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

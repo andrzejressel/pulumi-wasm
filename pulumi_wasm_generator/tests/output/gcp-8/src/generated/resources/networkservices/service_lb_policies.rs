@@ -71,51 +71,51 @@
 /// ```
 ///
 pub mod service_lb_policies {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceLbPoliciesArgs {
         /// Option to specify if an unhealthy MIG/NEG should be considered for global load balancing and traffic routing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub auto_capacity_drain: pulumi_wasm_rust::Output<
+        pub auto_capacity_drain: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkservices::ServiceLbPoliciesAutoCapacityDrain,
             >,
         >,
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to specify health based failover behavior. This is not related to Network load balancer FailoverPolicy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub failover_config: pulumi_wasm_rust::Output<
+        pub failover_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkservices::ServiceLbPoliciesFailoverConfig>,
         >,
         /// Set of label tags associated with the ServiceLbPolicy resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of load balancing algorithm to be used. The default behavior is WATERFALL_BY_REGION.
         /// Possible values are: `SPRAY_TO_REGION`, `SPRAY_TO_WORLD`, `WATERFALL_BY_REGION`, `WATERFALL_BY_ZONE`.
         #[builder(into, default)]
-        pub load_balancing_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the service lb policy.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the ServiceLbPolicy resource. It matches pattern `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ServiceLbPoliciesResult {
@@ -170,17 +170,30 @@ pub mod service_lb_policies {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceLbPoliciesArgs) -> ServiceLbPoliciesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceLbPoliciesArgs,
+    ) -> ServiceLbPoliciesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_capacity_drain_binding = args.auto_capacity_drain.get_inner();
-        let description_binding = args.description.get_inner();
-        let failover_config_binding = args.failover_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let load_balancing_algorithm_binding = args.load_balancing_algorithm.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let auto_capacity_drain_binding = args
+            .auto_capacity_drain
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let failover_config_binding = args
+            .failover_config
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let load_balancing_algorithm_binding = args
+            .load_balancing_algorithm
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/serviceLbPolicies:ServiceLbPolicies".into(),
             name: name.to_string(),
@@ -258,7 +271,7 @@ pub mod service_lb_policies {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

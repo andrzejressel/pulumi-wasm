@@ -54,46 +54,46 @@
 /// ```
 ///
 pub mod spring_cloud_app_dynamics_application_performance_monitoring {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs {
         /// Specifies the account access key used to authenticate with the Controller.
         #[builder(into)]
-        pub agent_account_access_key: pulumi_wasm_rust::Output<String>,
+        pub agent_account_access_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the account name of the App Dynamics account.
         #[builder(into)]
-        pub agent_account_name: pulumi_wasm_rust::Output<String>,
+        pub agent_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the logical business application that this JVM node belongs to.
         #[builder(into, default)]
-        pub agent_application_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_application_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the node. Where JVMs are dynamically created.
         #[builder(into, default)]
-        pub agent_node_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_node_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the tier that this JVM node belongs to.
         #[builder(into, default)]
-        pub agent_tier_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_tier_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
         #[builder(into, default)]
-        pub agent_unique_host_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_unique_host_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the hostname or the IP address of the AppDynamics Controller.
         #[builder(into)]
-        pub controller_host_name: pulumi_wasm_rust::Output<String>,
+        pub controller_host_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
         #[builder(into, default)]
-        pub controller_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub controller_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
         #[builder(into, default)]
-        pub controller_ssl_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub controller_ssl_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         #[builder(into, default)]
-        pub globally_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub globally_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
@@ -127,23 +127,57 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let agent_account_access_key_binding = args.agent_account_access_key.get_inner();
-        let agent_account_name_binding = args.agent_account_name.get_inner();
-        let agent_application_name_binding = args.agent_application_name.get_inner();
-        let agent_node_name_binding = args.agent_node_name.get_inner();
-        let agent_tier_name_binding = args.agent_tier_name.get_inner();
-        let agent_unique_host_id_binding = args.agent_unique_host_id.get_inner();
-        let controller_host_name_binding = args.controller_host_name.get_inner();
-        let controller_port_binding = args.controller_port.get_inner();
-        let controller_ssl_enabled_binding = args.controller_ssl_enabled.get_inner();
-        let globally_enabled_binding = args.globally_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let spring_cloud_service_id_binding = args.spring_cloud_service_id.get_inner();
+        let agent_account_access_key_binding = args
+            .agent_account_access_key
+            .get_output(context)
+            .get_inner();
+        let agent_account_name_binding = args
+            .agent_account_name
+            .get_output(context)
+            .get_inner();
+        let agent_application_name_binding = args
+            .agent_application_name
+            .get_output(context)
+            .get_inner();
+        let agent_node_name_binding = args
+            .agent_node_name
+            .get_output(context)
+            .get_inner();
+        let agent_tier_name_binding = args
+            .agent_tier_name
+            .get_output(context)
+            .get_inner();
+        let agent_unique_host_id_binding = args
+            .agent_unique_host_id
+            .get_output(context)
+            .get_inner();
+        let controller_host_name_binding = args
+            .controller_host_name
+            .get_output(context)
+            .get_inner();
+        let controller_port_binding = args
+            .controller_port
+            .get_output(context)
+            .get_inner();
+        let controller_ssl_enabled_binding = args
+            .controller_ssl_enabled
+            .get_output(context)
+            .get_inner();
+        let globally_enabled_binding = args
+            .globally_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let spring_cloud_service_id_binding = args
+            .spring_cloud_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring"
                 .into(),
@@ -238,7 +272,7 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -43,59 +43,61 @@
 /// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         #[builder(into, default)]
-        pub delete_all_policy_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_all_policy_resources: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         #[builder(into, default)]
-        pub delete_unused_fm_managed_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_unused_fm_managed_resources: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The description of the AWS Network Firewall firewall policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of lists of accounts and OU's to exclude from the policy.
         #[builder(into, default)]
-        pub exclude_map: pulumi_wasm_rust::Output<
+        pub exclude_map: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::fms::PolicyExcludeMap>,
         >,
         /// A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         #[builder(into)]
-        pub exclude_resource_tags: pulumi_wasm_rust::Output<bool>,
+        pub exclude_resource_tags: pulumi_wasm_rust::InputOrOutput<bool>,
         /// A map of lists of accounts and OU's to include in the policy.
         #[builder(into, default)]
-        pub include_map: pulumi_wasm_rust::Output<
+        pub include_map: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::fms::PolicyIncludeMap>,
         >,
         /// The friendly name of the AWS Firewall Manager Policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         #[builder(into, default)]
-        pub remediation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remediation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub resource_set_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resource_set_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         #[builder(into, default)]
-        pub resource_type_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resource_type_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The objects to include in Security Service Policy Data. Documented below.
         #[builder(into)]
-        pub security_service_policy_data: pulumi_wasm_rust::Output<
+        pub security_service_policy_data: pulumi_wasm_rust::InputOrOutput<
             super::super::types::fms::PolicySecurityServicePolicyData,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -150,29 +152,48 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let delete_all_policy_resources_binding = args
             .delete_all_policy_resources
+            .get_output(context)
             .get_inner();
         let delete_unused_fm_managed_resources_binding = args
             .delete_unused_fm_managed_resources
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let exclude_map_binding = args.exclude_map.get_inner();
-        let exclude_resource_tags_binding = args.exclude_resource_tags.get_inner();
-        let include_map_binding = args.include_map.get_inner();
-        let name_binding = args.name.get_inner();
-        let remediation_enabled_binding = args.remediation_enabled.get_inner();
-        let resource_set_ids_binding = args.resource_set_ids.get_inner();
-        let resource_tags_binding = args.resource_tags.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let resource_type_lists_binding = args.resource_type_lists.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let exclude_map_binding = args.exclude_map.get_output(context).get_inner();
+        let exclude_resource_tags_binding = args
+            .exclude_resource_tags
+            .get_output(context)
+            .get_inner();
+        let include_map_binding = args.include_map.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let remediation_enabled_binding = args
+            .remediation_enabled
+            .get_output(context)
+            .get_inner();
+        let resource_set_ids_binding = args
+            .resource_set_ids
+            .get_output(context)
+            .get_inner();
+        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let resource_type_lists_binding = args
+            .resource_type_lists
+            .get_output(context)
+            .get_inner();
         let security_service_policy_data_binding = args
             .security_service_policy_data
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fms/policy:Policy".into(),
             name: name.to_string(),
@@ -289,7 +310,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

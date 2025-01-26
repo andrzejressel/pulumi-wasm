@@ -39,24 +39,24 @@
 /// $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
 /// ```
 pub mod profiles_resource_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfilesResourceAssociationArgs {
         /// Name of the Profile Resource Association.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the profile associated with the VPC.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource ID of the resource to be associated with the profile.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource properties for the resource to be associated with the profile.
         #[builder(into, default)]
-        pub resource_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::route53::ProfilesResourceAssociationTimeouts>,
         >,
     }
@@ -86,16 +86,20 @@ pub mod profiles_resource_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProfilesResourceAssociationArgs,
     ) -> ProfilesResourceAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let profile_id_binding = args.profile_id.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
-        let resource_properties_binding = args.resource_properties.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let profile_id_binding = args.profile_id.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let resource_properties_binding = args
+            .resource_properties
+            .get_output(context)
+            .get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation"
                 .into(),
@@ -153,7 +157,7 @@ pub mod profiles_resource_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

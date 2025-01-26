@@ -162,30 +162,30 @@
 /// ```
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of database roles this database user has.
         #[builder(into, default)]
-        pub database_roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub database_roles: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Password for this database user.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The database role name of the user.
         #[builder(into)]
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of this user.
         /// Possible values are: `ALLOYDB_BUILT_IN`, `ALLOYDB_IAM_USER`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub user_type: pulumi_wasm_rust::Output<String>,
+        pub user_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
@@ -211,14 +211,18 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_inner();
-        let database_roles_binding = args.database_roles.get_inner();
-        let password_binding = args.password.get_inner();
-        let user_id_binding = args.user_id.get_inner();
-        let user_type_binding = args.user_type.get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
+        let database_roles_binding = args.database_roles.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let user_id_binding = args.user_id.get_output(context).get_inner();
+        let user_type_binding = args.user_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/user:User".into(),
             name: name.to_string(),
@@ -266,7 +270,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

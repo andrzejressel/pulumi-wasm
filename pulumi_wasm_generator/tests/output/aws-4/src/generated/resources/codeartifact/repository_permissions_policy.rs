@@ -53,25 +53,25 @@
 /// $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 /// ```
 pub mod repository_permissions_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryPermissionsPolicyArgs {
         /// The name of the domain on which to set the resource policy.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// The account number of the AWS account that owns the domain.
         #[builder(into, default)]
-        pub domain_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         #[builder(into, default)]
-        pub policy_revision: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_revision: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the repository to set the resource policy on.
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::Output<String>,
+        pub repository: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RepositoryPermissionsPolicyResult {
@@ -93,16 +93,23 @@ pub mod repository_permissions_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RepositoryPermissionsPolicyArgs,
     ) -> RepositoryPermissionsPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
-        let domain_owner_binding = args.domain_owner.get_inner();
-        let policy_document_binding = args.policy_document.get_inner();
-        let policy_revision_binding = args.policy_revision.get_inner();
-        let repository_binding = args.repository.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
+        let policy_document_binding = args
+            .policy_document
+            .get_output(context)
+            .get_inner();
+        let policy_revision_binding = args
+            .policy_revision
+            .get_output(context)
+            .get_inner();
+        let repository_binding = args.repository.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy"
                 .into(),
@@ -151,7 +158,7 @@ pub mod repository_permissions_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

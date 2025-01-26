@@ -62,43 +62,45 @@
 /// ```
 ///
 pub mod enterprise_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnterpriseDatabaseArgs {
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         #[builder(into, default)]
-        pub client_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         #[builder(into, default)]
-        pub clustering_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub clustering_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         #[builder(into, default)]
-        pub eviction_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub eviction_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         #[builder(into, default)]
-        pub linked_database_group_nickname: pulumi_wasm_rust::Output<Option<String>>,
+        pub linked_database_group_nickname: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A list of database resources to link with this database with a maximum of 5.
         ///
         /// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
         #[builder(into, default)]
-        pub linked_database_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub linked_database_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         #[builder(into, default)]
-        pub modules: pulumi_wasm_rust::Output<
+        pub modules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::redis::EnterpriseDatabaseModule>>,
         >,
         /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct EnterpriseDatabaseResult {
@@ -135,20 +137,37 @@ pub mod enterprise_database {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnterpriseDatabaseArgs) -> EnterpriseDatabaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnterpriseDatabaseArgs,
+    ) -> EnterpriseDatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_protocol_binding = args.client_protocol.get_inner();
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let clustering_policy_binding = args.clustering_policy.get_inner();
-        let eviction_policy_binding = args.eviction_policy.get_inner();
+        let client_protocol_binding = args
+            .client_protocol
+            .get_output(context)
+            .get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let clustering_policy_binding = args
+            .clustering_policy
+            .get_output(context)
+            .get_inner();
+        let eviction_policy_binding = args
+            .eviction_policy
+            .get_output(context)
+            .get_inner();
         let linked_database_group_nickname_binding = args
             .linked_database_group_nickname
+            .get_output(context)
             .get_inner();
-        let linked_database_ids_binding = args.linked_database_ids.get_inner();
-        let modules_binding = args.modules.get_inner();
-        let name_binding = args.name.get_inner();
-        let port_binding = args.port.get_inner();
+        let linked_database_ids_binding = args
+            .linked_database_ids
+            .get_output(context)
+            .get_inner();
+        let modules_binding = args.modules.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/enterpriseDatabase:EnterpriseDatabase".into(),
             name: name.to_string(),
@@ -227,7 +246,7 @@ pub mod enterprise_database {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

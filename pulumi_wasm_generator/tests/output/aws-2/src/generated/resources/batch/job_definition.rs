@@ -214,64 +214,64 @@
 /// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 /// ```
 pub mod job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobDefinitionArgs {
         /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub container_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         #[builder(into, default)]
-        pub deregister_on_new_revision: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deregister_on_new_revision: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub ecs_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub ecs_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         #[builder(into, default)]
-        pub eks_properties: pulumi_wasm_rust::Output<
+        pub eks_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionEksProperties>,
         >,
         /// Name of the job definition.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         #[builder(into, default)]
-        pub node_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameter substitution placeholders to set in the job definition.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         #[builder(into, default)]
-        pub platform_capabilities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub platform_capabilities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         #[builder(into, default)]
-        pub propagate_tags: pulumi_wasm_rust::Output<Option<bool>>,
+        pub propagate_tags: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         #[builder(into, default)]
-        pub retry_strategy: pulumi_wasm_rust::Output<
+        pub retry_strategy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionRetryStrategy>,
         >,
         /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         #[builder(into, default)]
-        pub scheduling_priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scheduling_priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<
+        pub timeout: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::JobDefinitionTimeout>,
         >,
         /// Type of job definition. Must be `container` or `multinode`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct JobDefinitionResult {
@@ -330,25 +330,42 @@ pub mod job_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobDefinitionArgs) -> JobDefinitionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobDefinitionArgs,
+    ) -> JobDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_properties_binding = args.container_properties.get_inner();
+        let container_properties_binding = args
+            .container_properties
+            .get_output(context)
+            .get_inner();
         let deregister_on_new_revision_binding = args
             .deregister_on_new_revision
+            .get_output(context)
             .get_inner();
-        let ecs_properties_binding = args.ecs_properties.get_inner();
-        let eks_properties_binding = args.eks_properties.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_properties_binding = args.node_properties.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let platform_capabilities_binding = args.platform_capabilities.get_inner();
-        let propagate_tags_binding = args.propagate_tags.get_inner();
-        let retry_strategy_binding = args.retry_strategy.get_inner();
-        let scheduling_priority_binding = args.scheduling_priority.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let type__binding = args.type_.get_inner();
+        let ecs_properties_binding = args.ecs_properties.get_output(context).get_inner();
+        let eks_properties_binding = args.eks_properties.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_properties_binding = args
+            .node_properties
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let platform_capabilities_binding = args
+            .platform_capabilities
+            .get_output(context)
+            .get_inner();
+        let propagate_tags_binding = args.propagate_tags.get_output(context).get_inner();
+        let retry_strategy_binding = args.retry_strategy.get_output(context).get_inner();
+        let scheduling_priority_binding = args
+            .scheduling_priority
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/jobDefinition:JobDefinition".into(),
             name: name.to_string(),
@@ -468,7 +485,7 @@ pub mod job_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

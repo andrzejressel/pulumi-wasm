@@ -1,23 +1,23 @@
 pub mod get_dev_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDevEnvironmentArgs {
         /// The user-specified alias for the Dev Environment.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The system-generated unique ID of the user who created the Dev Environment.
         #[builder(into, default)]
-        pub creator_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub creator_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the project in the space.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The source repository that contains the branch to clone into the Dev Environment.
         #[builder(into, default)]
-        pub repositories: pulumi_wasm_rust::Output<
+        pub repositories: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::codecatalyst::GetDevEnvironmentRepository,
@@ -26,9 +26,9 @@ pub mod get_dev_environment {
         >,
         /// The name of the space.
         #[builder(into)]
-        pub space_name: pulumi_wasm_rust::Output<String>,
+        pub space_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -77,16 +77,19 @@ pub mod get_dev_environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDevEnvironmentArgs) -> GetDevEnvironmentResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDevEnvironmentArgs,
+    ) -> GetDevEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let creator_id_binding = args.creator_id.get_inner();
-        let env_id_binding = args.env_id.get_inner();
-        let project_name_binding = args.project_name.get_inner();
-        let repositories_binding = args.repositories.get_inner();
-        let space_name_binding = args.space_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let creator_id_binding = args.creator_id.get_output(context).get_inner();
+        let env_id_binding = args.env_id.get_output(context).get_inner();
+        let project_name_binding = args.project_name.get_output(context).get_inner();
+        let repositories_binding = args.repositories.get_output(context).get_inner();
+        let space_name_binding = args.space_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codecatalyst/getDevEnvironment:getDevEnvironment".into(),
             version: super::super::super::get_version(),
@@ -168,7 +171,7 @@ pub mod get_dev_environment {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -307,7 +307,7 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
@@ -315,13 +315,13 @@ pub mod service {
         /// be set to 'true' while 'template.metadata.name' is also set. (For legacy support, if 'template.metadata.name' is unset
         /// in state while this field is set to false, the revision name will still autogenerate.)
         #[builder(into, default)]
-        pub autogenerate_revision_name: pulumi_wasm_rust::Output<Option<bool>>,
+        pub autogenerate_revision_name: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The location of the cloud run instance. eg us-central1
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata associated with this Service, including name, namespace, labels, and annotations.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudrun::ServiceMetadata>,
         >,
         /// Name must be unique within a Google Cloud project and region.
@@ -329,9 +329,9 @@ pub mod service {
         /// for creation idempotence and configuration definition. Cannot be updated.
         /// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// template holds the latest specification for the Revision to be stamped out. The template references the container image,
         /// and may also include labels and annotations that should be attached to the Revision. To correlate a Revision, and/or to
         /// force a Revision to be created when the spec doesn't otherwise change, a nonce label may be provided in the template
@@ -339,7 +339,7 @@ pub mod service {
         /// https://github.com/knative/serving/blob/main/docs/client-conventions.md#associate-modifications-with-revisions Cloud Run
         /// does not currently support referencing a build that is responsible for materializing the container image from source.
         #[builder(into, default)]
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudrun::ServiceTemplate>,
         >,
         /// (Output)
@@ -347,7 +347,7 @@ pub mod service {
         /// and Configurations
         /// Structure is documented below.
         #[builder(into, default)]
-        pub traffics: pulumi_wasm_rust::Output<
+        pub traffics: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudrun::ServiceTraffic>>,
         >,
     }
@@ -395,18 +395,23 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let autogenerate_revision_name_binding = args
             .autogenerate_revision_name
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let template_binding = args.template.get_inner();
-        let traffics_binding = args.traffics.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let template_binding = args.template.get_output(context).get_inner();
+        let traffics_binding = args.traffics.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudrun/service:Service".into(),
             name: name.to_string(),
@@ -468,7 +473,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

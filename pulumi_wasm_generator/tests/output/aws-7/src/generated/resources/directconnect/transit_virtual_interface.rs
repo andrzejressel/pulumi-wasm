@@ -30,49 +30,49 @@
 /// $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
 /// ```
 pub mod transit_virtual_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitVirtualInterfaceArgs {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         #[builder(into)]
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         #[builder(into, default)]
-        pub amazon_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub amazon_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         #[builder(into)]
-        pub bgp_asn: pulumi_wasm_rust::Output<i32>,
+        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The authentication key for BGP configuration.
         #[builder(into, default)]
-        pub bgp_auth_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub bgp_auth_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         #[builder(into, default)]
-        pub customer_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
         /// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         #[builder(into, default)]
-        pub mtu: pulumi_wasm_rust::Output<Option<i32>>,
+        pub mtu: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name for the virtual interface.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to enable or disable SiteLink.
         #[builder(into, default)]
-        pub sitelink_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sitelink_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VLAN ID.
         #[builder(into)]
-        pub vlan: pulumi_wasm_rust::Output<i32>,
+        pub vlan: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct TransitVirtualInterfaceResult {
@@ -120,23 +120,30 @@ pub mod transit_virtual_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TransitVirtualInterfaceArgs,
     ) -> TransitVirtualInterfaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_inner();
-        let amazon_address_binding = args.amazon_address.get_inner();
-        let bgp_asn_binding = args.bgp_asn.get_inner();
-        let bgp_auth_key_binding = args.bgp_auth_key.get_inner();
-        let connection_id_binding = args.connection_id.get_inner();
-        let customer_address_binding = args.customer_address.get_inner();
-        let dx_gateway_id_binding = args.dx_gateway_id.get_inner();
-        let mtu_binding = args.mtu.get_inner();
-        let name_binding = args.name.get_inner();
-        let sitelink_enabled_binding = args.sitelink_enabled.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vlan_binding = args.vlan.get_inner();
+        let address_family_binding = args.address_family.get_output(context).get_inner();
+        let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
+        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
+        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context).get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let customer_address_binding = args
+            .customer_address
+            .get_output(context)
+            .get_inner();
+        let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
+        let mtu_binding = args.mtu.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let sitelink_enabled_binding = args
+            .sitelink_enabled
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vlan_binding = args.vlan.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/transitVirtualInterface:TransitVirtualInterface"
                 .into(),
@@ -246,7 +253,7 @@ pub mod transit_virtual_interface {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

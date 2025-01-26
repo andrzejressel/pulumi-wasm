@@ -37,24 +37,24 @@
 /// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
 /// ```
 pub mod user_stack_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserStackAssociationArgs {
         /// Authentication type for the user.
         #[builder(into)]
-        pub authentication_type: pulumi_wasm_rust::Output<String>,
+        pub authentication_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         #[builder(into, default)]
-        pub send_email_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_email_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the stack that is associated with the user.
         #[builder(into)]
-        pub stack_name: pulumi_wasm_rust::Output<String>,
+        pub stack_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Email address of the user who is associated with the stack.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserStackAssociationResult {
@@ -74,15 +74,22 @@ pub mod user_stack_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserStackAssociationArgs,
     ) -> UserStackAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args.authentication_type.get_inner();
-        let send_email_notification_binding = args.send_email_notification.get_inner();
-        let stack_name_binding = args.stack_name.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let authentication_type_binding = args
+            .authentication_type
+            .get_output(context)
+            .get_inner();
+        let send_email_notification_binding = args
+            .send_email_notification
+            .get_output(context)
+            .get_inner();
+        let stack_name_binding = args.stack_name.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/userStackAssociation:UserStackAssociation".into(),
             name: name.to_string(),
@@ -120,7 +127,7 @@ pub mod user_stack_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

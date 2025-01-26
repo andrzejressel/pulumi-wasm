@@ -54,7 +54,7 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
@@ -63,19 +63,19 @@ pub mod service {
         /// up to 2000 characters, spread across all key-value pairs.
         /// Metadata that goes beyond any these limits will be rejected.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name of the namespace this service will belong to.
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Resource ID must be 1-63 characters long, including digits,
         /// lowercase letters or the hyphen character.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
@@ -102,12 +102,16 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let service_id_binding = args.service_id.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let service_id_binding = args.service_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicedirectory/service:Service".into(),
             name: name.to_string(),
@@ -141,7 +145,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

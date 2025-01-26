@@ -29,19 +29,19 @@
 /// $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
 /// ```
 pub mod approval_rule_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateArgs {
         /// The content of the approval rule template. Maximum of 3000 characters.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the approval rule template. Maximum of 1000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name for the approval rule template. Maximum of 100 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateResult {
@@ -67,14 +67,15 @@ pub mod approval_rule_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApprovalRuleTemplateArgs,
     ) -> ApprovalRuleTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate".into(),
             name: name.to_string(),
@@ -120,7 +121,7 @@ pub mod approval_rule_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

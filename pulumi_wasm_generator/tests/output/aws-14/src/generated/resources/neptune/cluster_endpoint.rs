@@ -26,28 +26,28 @@
 /// $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
 /// ```
 pub mod cluster_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterEndpointArgs {
         /// The identifier of the endpoint.
         #[builder(into)]
-        pub cluster_endpoint_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_endpoint_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The DB cluster identifier of the DB cluster associated with the endpoint.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         #[builder(into)]
-        pub endpoint_type: pulumi_wasm_rust::Output<String>,
+        pub endpoint_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
         #[builder(into, default)]
-        pub excluded_members: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_members: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of DB instance identifiers that are part of the custom endpoint group.
         #[builder(into, default)]
-        pub static_members: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub static_members: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -80,17 +80,28 @@ pub mod cluster_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterEndpointArgs) -> ClusterEndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterEndpointArgs,
+    ) -> ClusterEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cluster_endpoint_identifier_binding = args
             .cluster_endpoint_identifier
+            .get_output(context)
             .get_inner();
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_inner();
-        let excluded_members_binding = args.excluded_members.get_inner();
-        let static_members_binding = args.static_members.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
+        let excluded_members_binding = args
+            .excluded_members
+            .get_output(context)
+            .get_inner();
+        let static_members_binding = args.static_members.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:neptune/clusterEndpoint:ClusterEndpoint".into(),
             name: name.to_string(),
@@ -151,7 +162,7 @@ pub mod cluster_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

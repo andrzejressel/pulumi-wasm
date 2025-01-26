@@ -44,36 +44,36 @@
 /// ```
 ///
 pub mod registry_agent_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryAgentPoolArgs {
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into)]
-        pub container_registry_name: pulumi_wasm_rust::Output<String>,
+        pub container_registry_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// VMSS instance count. Defaults to `1`.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegistryAgentPoolResult {
@@ -100,18 +100,29 @@ pub mod registry_agent_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistryAgentPoolArgs) -> RegistryAgentPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistryAgentPoolArgs,
+    ) -> RegistryAgentPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_registry_name_binding = args.container_registry_name.get_inner();
-        let instance_count_binding = args.instance_count.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tier_binding = args.tier.get_inner();
+        let container_registry_name_binding = args
+            .container_registry_name
+            .get_output(context)
+            .get_inner();
+        let instance_count_binding = args.instance_count.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
         let virtual_network_subnet_id_binding = args
             .virtual_network_subnet_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryAgentPool:RegistryAgentPool".into(),
@@ -178,7 +189,7 @@ pub mod registry_agent_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

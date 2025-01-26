@@ -79,31 +79,31 @@
 /// $ pulumi import aws:sagemaker/workforce:Workforce example example
 /// ```
 pub mod workforce {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkforceArgs {
         /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         #[builder(into, default)]
-        pub cognito_config: pulumi_wasm_rust::Output<
+        pub cognito_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::WorkforceCognitoConfig>,
         >,
         /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         #[builder(into, default)]
-        pub oidc_config: pulumi_wasm_rust::Output<
+        pub oidc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::WorkforceOidcConfig>,
         >,
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         #[builder(into, default)]
-        pub source_ip_config: pulumi_wasm_rust::Output<
+        pub source_ip_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::WorkforceSourceIpConfig>,
         >,
         /// The name of the Workforce (must be unique).
         #[builder(into)]
-        pub workforce_name: pulumi_wasm_rust::Output<String>,
+        pub workforce_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// configure a workforce using VPC. see Workforce VPC Config details below.
         #[builder(into, default)]
-        pub workforce_vpc_config: pulumi_wasm_rust::Output<
+        pub workforce_vpc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::WorkforceWorkforceVpcConfig>,
         >,
     }
@@ -136,14 +136,24 @@ pub mod workforce {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkforceArgs) -> WorkforceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkforceArgs,
+    ) -> WorkforceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cognito_config_binding = args.cognito_config.get_inner();
-        let oidc_config_binding = args.oidc_config.get_inner();
-        let source_ip_config_binding = args.source_ip_config.get_inner();
-        let workforce_name_binding = args.workforce_name.get_inner();
-        let workforce_vpc_config_binding = args.workforce_vpc_config.get_inner();
+        let cognito_config_binding = args.cognito_config.get_output(context).get_inner();
+        let oidc_config_binding = args.oidc_config.get_output(context).get_inner();
+        let source_ip_config_binding = args
+            .source_ip_config
+            .get_output(context)
+            .get_inner();
+        let workforce_name_binding = args.workforce_name.get_output(context).get_inner();
+        let workforce_vpc_config_binding = args
+            .workforce_vpc_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/workforce:Workforce".into(),
             name: name.to_string(),
@@ -194,7 +204,7 @@ pub mod workforce {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

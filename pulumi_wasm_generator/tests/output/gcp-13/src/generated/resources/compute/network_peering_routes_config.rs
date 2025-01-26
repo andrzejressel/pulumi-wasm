@@ -155,29 +155,29 @@
 /// ```
 ///
 pub mod network_peering_routes_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringRoutesConfigArgs {
         /// Whether to export the custom routes to the peer network.
         #[builder(into)]
-        pub export_custom_routes: pulumi_wasm_rust::Output<bool>,
+        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Whether to import the custom routes to the peer network.
         #[builder(into)]
-        pub import_custom_routes: pulumi_wasm_rust::Output<bool>,
+        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The name of the primary network for the peering.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the peering.
         #[builder(into)]
-        pub peering: pulumi_wasm_rust::Output<String>,
+        pub peering: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringRoutesConfigResult {
@@ -201,16 +201,23 @@ pub mod network_peering_routes_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkPeeringRoutesConfigArgs,
     ) -> NetworkPeeringRoutesConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let export_custom_routes_binding = args.export_custom_routes.get_inner();
-        let import_custom_routes_binding = args.import_custom_routes.get_inner();
-        let network_binding = args.network.get_inner();
-        let peering_binding = args.peering.get_inner();
-        let project_binding = args.project.get_inner();
+        let export_custom_routes_binding = args
+            .export_custom_routes
+            .get_output(context)
+            .get_inner();
+        let import_custom_routes_binding = args
+            .import_custom_routes
+            .get_output(context)
+            .get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let peering_binding = args.peering.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkPeeringRoutesConfig:NetworkPeeringRoutesConfig"
                 .into(),
@@ -256,7 +263,7 @@ pub mod network_peering_routes_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

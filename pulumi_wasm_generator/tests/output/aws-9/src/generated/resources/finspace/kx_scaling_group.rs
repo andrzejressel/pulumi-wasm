@@ -29,27 +29,27 @@
 /// $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
 /// ```
 pub mod kx_scaling_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxScalingGroupArgs {
         /// The availability zone identifiers for the requested regions.
         #[builder(into)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<String>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for the kdb environment, where you want to create the scaling group.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub host_type: pulumi_wasm_rust::Output<String>,
+        pub host_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Unique name for the scaling group that you want to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -98,14 +98,21 @@ pub mod kx_scaling_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KxScalingGroupArgs) -> KxScalingGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KxScalingGroupArgs,
+    ) -> KxScalingGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let environment_id_binding = args.environment_id.get_inner();
-        let host_type_binding = args.host_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let environment_id_binding = args.environment_id.get_output(context).get_inner();
+        let host_type_binding = args.host_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxScalingGroup:KxScalingGroup".into(),
             name: name.to_string(),
@@ -171,7 +178,7 @@ pub mod kx_scaling_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

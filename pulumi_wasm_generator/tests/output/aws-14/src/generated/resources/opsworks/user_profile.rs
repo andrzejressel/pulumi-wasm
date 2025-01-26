@@ -17,22 +17,22 @@
 /// }
 /// ```
 pub mod user_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserProfileArgs {
         /// Whether users can specify their own SSH public key through the My Settings page
         #[builder(into, default)]
-        pub allow_self_management: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_self_management: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The users public key
         #[builder(into, default)]
-        pub ssh_public_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssh_public_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ssh username, with witch this user wants to log in
         #[builder(into)]
-        pub ssh_username: pulumi_wasm_rust::Output<String>,
+        pub ssh_username: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user's IAM ARN
         #[builder(into)]
-        pub user_arn: pulumi_wasm_rust::Output<String>,
+        pub user_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserProfileResult {
@@ -49,13 +49,20 @@ pub mod user_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserProfileArgs) -> UserProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserProfileArgs,
+    ) -> UserProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_self_management_binding = args.allow_self_management.get_inner();
-        let ssh_public_key_binding = args.ssh_public_key.get_inner();
-        let ssh_username_binding = args.ssh_username.get_inner();
-        let user_arn_binding = args.user_arn.get_inner();
+        let allow_self_management_binding = args
+            .allow_self_management
+            .get_output(context)
+            .get_inner();
+        let ssh_public_key_binding = args.ssh_public_key.get_output(context).get_inner();
+        let ssh_username_binding = args.ssh_username.get_output(context).get_inner();
+        let user_arn_binding = args.user_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/userProfile:UserProfile".into(),
             name: name.to_string(),
@@ -93,7 +100,7 @@ pub mod user_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

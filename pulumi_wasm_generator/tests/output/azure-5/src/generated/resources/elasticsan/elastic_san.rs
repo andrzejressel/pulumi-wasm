@@ -37,7 +37,7 @@
 /// ```
 ///
 pub mod elastic_san {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticSanArgs {
@@ -45,36 +45,36 @@ pub mod elastic_san {
         ///
         /// > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         #[builder(into)]
-        pub base_size_in_tib: pulumi_wasm_rust::Output<i32>,
+        pub base_size_in_tib: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
         ///
         /// > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         #[builder(into, default)]
-        pub extended_size_in_tib: pulumi_wasm_rust::Output<Option<i32>>,
+        pub extended_size_in_tib: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_wasm_rust::InputOrOutput<
             super::super::types::elasticsan::ElasticSanSku,
         >,
         /// A mapping of tags which should be assigned to the Elastic SAN resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ElasticSanResult {
@@ -119,17 +119,30 @@ pub mod elastic_san {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ElasticSanArgs) -> ElasticSanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ElasticSanArgs,
+    ) -> ElasticSanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let base_size_in_tib_binding = args.base_size_in_tib.get_inner();
-        let extended_size_in_tib_binding = args.extended_size_in_tib.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let base_size_in_tib_binding = args
+            .base_size_in_tib
+            .get_output(context)
+            .get_inner();
+        let extended_size_in_tib_binding = args
+            .extended_size_in_tib
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:elasticsan/elasticSan:ElasticSan".into(),
             name: name.to_string(),
@@ -210,7 +223,7 @@ pub mod elastic_san {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

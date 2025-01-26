@@ -102,50 +102,50 @@
 /// ```
 ///
 pub mod gateway_security_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewaySecurityPolicyRuleArgs {
         /// CEL expression for matching on L7/application level criteria.
         #[builder(into, default)]
-        pub application_matcher: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_matcher: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Profile which tells what the primitive action should be. Possible values are: * ALLOW * DENY.
         /// Possible values are: `BASIC_PROFILE_UNSPECIFIED`, `ALLOW`, `DENY`.
         #[builder(into)]
-        pub basic_profile: pulumi_wasm_rust::Output<String>,
+        pub basic_profile: pulumi_wasm_rust::InputOrOutput<String>,
         /// Free-text description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the rule is enforced.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The name of the gatewat security policy this rule belongs to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub gateway_security_policy: pulumi_wasm_rust::Output<String>,
+        pub gateway_security_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the gateway security policy.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
         /// rule should match the pattern: (^a-z?$).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Priority of the rule. Lower number corresponds to higher precedence.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CEL expression for matching on session criteria.
         #[builder(into)]
-        pub session_matcher: pulumi_wasm_rust::Output<String>,
+        pub session_matcher: pulumi_wasm_rust::InputOrOutput<String>,
         /// Flag to enable TLS inspection of traffic matching on. Can only be true if the
         /// parent GatewaySecurityPolicy references a TLSInspectionConfig.
         #[builder(into, default)]
-        pub tls_inspection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_inspection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewaySecurityPolicyRuleResult {
@@ -194,22 +194,35 @@ pub mod gateway_security_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GatewaySecurityPolicyRuleArgs,
     ) -> GatewaySecurityPolicyRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_matcher_binding = args.application_matcher.get_inner();
-        let basic_profile_binding = args.basic_profile.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let gateway_security_policy_binding = args.gateway_security_policy.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let project_binding = args.project.get_inner();
-        let session_matcher_binding = args.session_matcher.get_inner();
-        let tls_inspection_enabled_binding = args.tls_inspection_enabled.get_inner();
+        let application_matcher_binding = args
+            .application_matcher
+            .get_output(context)
+            .get_inner();
+        let basic_profile_binding = args.basic_profile.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let gateway_security_policy_binding = args
+            .gateway_security_policy
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let session_matcher_binding = args
+            .session_matcher
+            .get_output(context)
+            .get_inner();
+        let tls_inspection_enabled_binding = args
+            .tls_inspection_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/gatewaySecurityPolicyRule:GatewaySecurityPolicyRule"
                 .into(),
@@ -306,7 +319,7 @@ pub mod gateway_security_policy_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -48,25 +48,25 @@
 /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
 /// ```
 pub mod multiplex_program {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiplexProgramArgs {
         /// Multiplex ID.
         #[builder(into)]
-        pub multiplex_id: pulumi_wasm_rust::Output<String>,
+        pub multiplex_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// MultiplexProgram settings. See Multiplex Program Settings for more details.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub multiplex_program_settings: pulumi_wasm_rust::Output<
+        pub multiplex_program_settings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::medialive::MultiplexProgramMultiplexProgramSettings,
             >,
         >,
         /// Unique program name.
         #[builder(into)]
-        pub program_name: pulumi_wasm_rust::Output<String>,
+        pub program_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MultiplexProgramResult {
@@ -87,14 +87,19 @@ pub mod multiplex_program {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MultiplexProgramArgs) -> MultiplexProgramResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MultiplexProgramArgs,
+    ) -> MultiplexProgramResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let multiplex_id_binding = args.multiplex_id.get_inner();
+        let multiplex_id_binding = args.multiplex_id.get_output(context).get_inner();
         let multiplex_program_settings_binding = args
             .multiplex_program_settings
+            .get_output(context)
             .get_inner();
-        let program_name_binding = args.program_name.get_inner();
+        let program_name_binding = args.program_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/multiplexProgram:MultiplexProgram".into(),
             name: name.to_string(),
@@ -125,7 +130,7 @@ pub mod multiplex_program {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

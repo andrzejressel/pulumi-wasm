@@ -65,7 +65,7 @@
 /// ```
 ///
 pub mod projects_policy_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectsPolicyBindingArgs {
@@ -73,7 +73,7 @@ pub mod projects_policy_binding {
         /// limitations **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Represents a textual expression in the Common Expression Language (CEL) syntax. CEL is a C-like expression language. The
@@ -87,32 +87,32 @@ pub mod projects_policy_binding {
         /// functions that may be referenced within an expression are determined by the service that evaluates it. See the service
         /// documentation for additional information.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::ProjectsPolicyBindingCondition>,
         >,
         /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the Policy Binding
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Policy Binding ID.
         #[builder(into)]
-        pub policy_binding_id: pulumi_wasm_rust::Output<String>,
+        pub policy_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The kind of the policy to attach in this binding. This field must be one of the following: - Left empty (will
         /// be automatically set to the policy kind) - The input policy kind Possible values: POLICY_KIND_UNSPECIFIED
         /// PRINCIPAL_ACCESS_BOUNDARY ACCESS
         #[builder(into, default)]
-        pub policy_kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Target is the full resource name of the resource to which the policy will be bound. Immutable once set.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_wasm_rust::InputOrOutput<
             super::super::types::iam::ProjectsPolicyBindingTarget,
         >,
     }
@@ -176,20 +176,24 @@ pub mod projects_policy_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProjectsPolicyBindingArgs,
     ) -> ProjectsPolicyBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let policy_binding_id_binding = args.policy_binding_id.get_inner();
-        let policy_kind_binding = args.policy_kind.get_inner();
-        let project_binding = args.project.get_inner();
-        let target_binding = args.target.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let policy_binding_id_binding = args
+            .policy_binding_id
+            .get_output(context)
+            .get_inner();
+        let policy_kind_binding = args.policy_kind.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/projectsPolicyBinding:ProjectsPolicyBinding".into(),
             name: name.to_string(),
@@ -283,7 +287,7 @@ pub mod projects_policy_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

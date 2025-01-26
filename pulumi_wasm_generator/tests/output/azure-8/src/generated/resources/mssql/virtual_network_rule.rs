@@ -64,7 +64,7 @@
 /// ```
 ///
 pub mod virtual_network_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkRuleArgs {
@@ -72,16 +72,18 @@ pub mod virtual_network_rule {
         ///
         /// > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         #[builder(into, default)]
-        pub ignore_missing_vnet_service_endpoint: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_missing_vnet_service_endpoint: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the subnet from which the SQL server will accept communications.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkRuleResult {
@@ -100,15 +102,20 @@ pub mod virtual_network_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualNetworkRuleArgs) -> VirtualNetworkRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualNetworkRuleArgs,
+    ) -> VirtualNetworkRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ignore_missing_vnet_service_endpoint_binding = args
             .ignore_missing_vnet_service_endpoint
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let server_id_binding = args.server_id.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_id_binding = args.server_id.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualNetworkRule:VirtualNetworkRule".into(),
             name: name.to_string(),
@@ -146,7 +153,7 @@ pub mod virtual_network_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

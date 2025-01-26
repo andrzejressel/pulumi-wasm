@@ -144,54 +144,54 @@
 /// ```
 ///
 pub mod flexible_app_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleAppVersionArgs {
         /// Serving configuration for Google Cloud Endpoints.
         #[builder(into, default)]
-        pub api_config: pulumi_wasm_rust::Output<
+        pub api_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionApiConfig>,
         >,
         /// Automatic scaling is based on request rate, response latencies, and other application metrics.
         #[builder(into, default)]
-        pub automatic_scaling: pulumi_wasm_rust::Output<
+        pub automatic_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionAutomaticScaling>,
         >,
         /// Metadata settings that are supplied to this version to enable beta runtime features.
         #[builder(into, default)]
-        pub beta_settings: pulumi_wasm_rust::Output<
+        pub beta_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Duration that static files should be cached by web proxies and browsers. Only applicable if the corresponding
         /// StaticFilesHandler does not specify its own expiration time.
         #[builder(into, default)]
-        pub default_expiration: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_expiration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set to 'true', the service will be deleted if it is the last version.
         #[builder(into, default)]
-        pub delete_service_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_service_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Code and application artifacts that make up this version.
         #[builder(into, default)]
-        pub deployment: pulumi_wasm_rust::Output<
+        pub deployment: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionDeployment>,
         >,
         /// Code and application artifacts that make up this version.
         #[builder(into, default)]
-        pub endpoints_api_service: pulumi_wasm_rust::Output<
+        pub endpoints_api_service: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionEndpointsApiService>,
         >,
         /// The entrypoint for the application.
         #[builder(into, default)]
-        pub entrypoint: pulumi_wasm_rust::Output<
+        pub entrypoint: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionEntrypoint>,
         >,
         #[builder(into, default)]
-        pub env_variables: pulumi_wasm_rust::Output<
+        pub env_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Runtime settings for App Engine flexible environment.
         #[builder(into, default)]
-        pub flexible_runtime_settings: pulumi_wasm_rust::Output<
+        pub flexible_runtime_settings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appengine::FlexibleAppVersionFlexibleRuntimeSettings,
             >,
@@ -199,7 +199,7 @@ pub mod flexible_app_version {
         /// An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the
         /// request and other request handlers are not attempted.
         #[builder(into, default)]
-        pub handlers: pulumi_wasm_rust::Output<
+        pub handlers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appengine::FlexibleAppVersionHandler>>,
         >,
         /// A list of the types of messages that this application is able to receive. Possible values: ["INBOUND_SERVICE_MAIL",
@@ -207,79 +207,81 @@ pub mod flexible_app_version {
         /// "INBOUND_SERVICE_XMPP_SUBSCRIBE", "INBOUND_SERVICE_XMPP_PRESENCE", "INBOUND_SERVICE_CHANNEL_PRESENCE",
         /// "INBOUND_SERVICE_WARMUP"]
         #[builder(into, default)]
-        pub inbound_services: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inbound_services: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Instance class that is used to run this version. Valid values are AutomaticScaling: F1, F2, F4, F4_1G ManualScaling: B1,
         /// B2, B4, B8, B4_1G Defaults to F1 for AutomaticScaling and B1 for ManualScaling.
         #[builder(into, default)]
-        pub instance_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Health checking configuration for VM instances. Unhealthy instances are killed and replaced with new instances.
         /// Structure is documented below.
         #[builder(into)]
-        pub liveness_check: pulumi_wasm_rust::Output<
+        pub liveness_check: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appengine::FlexibleAppVersionLivenessCheck,
         >,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub manual_scaling: pulumi_wasm_rust::Output<
+        pub manual_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionManualScaling>,
         >,
         /// Extra network settings
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<
+        pub network: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionNetwork>,
         >,
         /// Files that match this pattern will not be built into this version. Only applicable for Go runtimes.
         #[builder(into, default)]
-        pub nobuild_files_regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub nobuild_files_regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set to 'true', the application version will not be deleted.
         #[builder(into, default)]
-        pub noop_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub noop_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configures readiness health checking for instances. Unhealthy instances are not put into the backend traffic rotation.
         /// Structure is documented below.
         #[builder(into)]
-        pub readiness_check: pulumi_wasm_rust::Output<
+        pub readiness_check: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appengine::FlexibleAppVersionReadinessCheck,
         >,
         /// Machine resources for a version.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionResources>,
         >,
         /// Desired runtime. Example python27.
         #[builder(into)]
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at
         /// 'https://cloud.google.com/appengine/docs/standard/<language>/config/appref'\ Substitute '<language>' with 'python',
         /// 'java', 'php', 'ruby', 'go' or 'nodejs'.
         #[builder(into, default)]
-        pub runtime_api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The channel of the runtime to use. Only available for some runtimes.
         #[builder(into, default)]
-        pub runtime_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The path or name of the app's main executable.
         #[builder(into, default)]
-        pub runtime_main_executable_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_main_executable_path: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// AppEngine service resource. Can contain numbers, letters, and hyphens.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default
         /// if this field is neither provided in app.yaml file nor through CLI flag.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.
         /// Default value: "SERVING" Possible values: ["SERVING", "STOPPED"]
         #[builder(into, default)]
-        pub serving_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub serving_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Relative name of the version within the service. For example, 'v1'. Version names can contain only lowercase letters,
         /// numbers, or hyphens. Reserved names,"default", "latest", and any name with the prefix "ah-".
         #[builder(into, default)]
-        pub version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enables VPC connectivity for standard apps.
         #[builder(into, default)]
-        pub vpc_access_connector: pulumi_wasm_rust::Output<
+        pub vpc_access_connector: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::FlexibleAppVersionVpcAccessConnector>,
         >,
     }
@@ -396,45 +398,85 @@ pub mod flexible_app_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FlexibleAppVersionArgs) -> FlexibleAppVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FlexibleAppVersionArgs,
+    ) -> FlexibleAppVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_config_binding = args.api_config.get_inner();
-        let automatic_scaling_binding = args.automatic_scaling.get_inner();
-        let beta_settings_binding = args.beta_settings.get_inner();
-        let default_expiration_binding = args.default_expiration.get_inner();
+        let api_config_binding = args.api_config.get_output(context).get_inner();
+        let automatic_scaling_binding = args
+            .automatic_scaling
+            .get_output(context)
+            .get_inner();
+        let beta_settings_binding = args.beta_settings.get_output(context).get_inner();
+        let default_expiration_binding = args
+            .default_expiration
+            .get_output(context)
+            .get_inner();
         let delete_service_on_destroy_binding = args
             .delete_service_on_destroy
+            .get_output(context)
             .get_inner();
-        let deployment_binding = args.deployment.get_inner();
-        let endpoints_api_service_binding = args.endpoints_api_service.get_inner();
-        let entrypoint_binding = args.entrypoint.get_inner();
-        let env_variables_binding = args.env_variables.get_inner();
+        let deployment_binding = args.deployment.get_output(context).get_inner();
+        let endpoints_api_service_binding = args
+            .endpoints_api_service
+            .get_output(context)
+            .get_inner();
+        let entrypoint_binding = args.entrypoint.get_output(context).get_inner();
+        let env_variables_binding = args.env_variables.get_output(context).get_inner();
         let flexible_runtime_settings_binding = args
             .flexible_runtime_settings
+            .get_output(context)
             .get_inner();
-        let handlers_binding = args.handlers.get_inner();
-        let inbound_services_binding = args.inbound_services.get_inner();
-        let instance_class_binding = args.instance_class.get_inner();
-        let liveness_check_binding = args.liveness_check.get_inner();
-        let manual_scaling_binding = args.manual_scaling.get_inner();
-        let network_binding = args.network.get_inner();
-        let nobuild_files_regex_binding = args.nobuild_files_regex.get_inner();
-        let noop_on_destroy_binding = args.noop_on_destroy.get_inner();
-        let project_binding = args.project.get_inner();
-        let readiness_check_binding = args.readiness_check.get_inner();
-        let resources_binding = args.resources.get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let runtime_api_version_binding = args.runtime_api_version.get_inner();
-        let runtime_channel_binding = args.runtime_channel.get_inner();
+        let handlers_binding = args.handlers.get_output(context).get_inner();
+        let inbound_services_binding = args
+            .inbound_services
+            .get_output(context)
+            .get_inner();
+        let instance_class_binding = args.instance_class.get_output(context).get_inner();
+        let liveness_check_binding = args.liveness_check.get_output(context).get_inner();
+        let manual_scaling_binding = args.manual_scaling.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let nobuild_files_regex_binding = args
+            .nobuild_files_regex
+            .get_output(context)
+            .get_inner();
+        let noop_on_destroy_binding = args
+            .noop_on_destroy
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let readiness_check_binding = args
+            .readiness_check
+            .get_output(context)
+            .get_inner();
+        let resources_binding = args.resources.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let runtime_api_version_binding = args
+            .runtime_api_version
+            .get_output(context)
+            .get_inner();
+        let runtime_channel_binding = args
+            .runtime_channel
+            .get_output(context)
+            .get_inner();
         let runtime_main_executable_path_binding = args
             .runtime_main_executable_path
+            .get_output(context)
             .get_inner();
-        let service_binding = args.service.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let serving_status_binding = args.serving_status.get_inner();
-        let version_id_binding = args.version_id.get_inner();
-        let vpc_access_connector_binding = args.vpc_access_connector.get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let serving_status_binding = args.serving_status.get_output(context).get_inner();
+        let version_id_binding = args.version_id.get_output(context).get_inner();
+        let vpc_access_connector_binding = args
+            .vpc_access_connector
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/flexibleAppVersion:FlexibleAppVersion".into(),
             name: name.to_string(),
@@ -657,7 +699,7 @@ pub mod flexible_app_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

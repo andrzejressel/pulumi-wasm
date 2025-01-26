@@ -9,16 +9,16 @@
 /// $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
 /// ```
 pub mod topic_rule_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicRuleDestinationArgs {
         /// Whether or not to enable the destination. Default: `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         #[builder(into)]
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::iot::TopicRuleDestinationVpcConfiguration,
         >,
     }
@@ -38,13 +38,17 @@ pub mod topic_rule_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TopicRuleDestinationArgs,
     ) -> TopicRuleDestinationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
-        let vpc_configuration_binding = args.vpc_configuration.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let vpc_configuration_binding = args
+            .vpc_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/topicRuleDestination:TopicRuleDestination".into(),
             name: name.to_string(),
@@ -71,7 +75,7 @@ pub mod topic_rule_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

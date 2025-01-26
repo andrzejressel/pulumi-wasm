@@ -1,11 +1,11 @@
 pub mod get_local_gateway_virtual_interface_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLocalGatewayVirtualInterfaceGroupArgs {
         /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::ec2::GetLocalGatewayVirtualInterfaceGroupFilter,
@@ -14,13 +14,13 @@ pub mod get_local_gateway_virtual_interface_group {
         >,
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of EC2 Local Gateway.
         #[builder(into, default)]
-        pub local_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub local_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -44,14 +44,18 @@ pub mod get_local_gateway_virtual_interface_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetLocalGatewayVirtualInterfaceGroupArgs,
     ) -> GetLocalGatewayVirtualInterfaceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let local_gateway_id_binding = args.local_gateway_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let local_gateway_id_binding = args
+            .local_gateway_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup"
                 .into(),
@@ -92,7 +96,7 @@ pub mod get_local_gateway_virtual_interface_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

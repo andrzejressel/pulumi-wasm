@@ -63,16 +63,16 @@
 /// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
 /// ```
 pub mod resource_data_sync {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceDataSyncArgs {
         /// Name for the configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon S3 configuration details for the sync.
         #[builder(into)]
-        pub s3_destination: pulumi_wasm_rust::Output<
+        pub s3_destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::ssm::ResourceDataSyncS3Destination,
         >,
     }
@@ -89,11 +89,15 @@ pub mod resource_data_sync {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResourceDataSyncArgs) -> ResourceDataSyncResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResourceDataSyncArgs,
+    ) -> ResourceDataSyncResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let s3_destination_binding = args.s3_destination.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let s3_destination_binding = args.s3_destination.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/resourceDataSync:ResourceDataSync".into(),
             name: name.to_string(),
@@ -117,7 +121,7 @@ pub mod resource_data_sync {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

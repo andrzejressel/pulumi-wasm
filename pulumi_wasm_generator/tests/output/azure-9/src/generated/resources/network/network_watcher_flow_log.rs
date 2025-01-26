@@ -73,51 +73,51 @@
 /// ```
 ///
 pub mod network_watcher_flow_log {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkWatcherFlowLogArgs {
         /// Should Network Flow Logging be Enabled?
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub network_security_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_security_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_watcher_name: pulumi_wasm_rust::Output<String>,
+        pub network_watcher_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `retention_policy` block as documented below.
         #[builder(into)]
-        pub retention_policy: pulumi_wasm_rust::Output<
+        pub retention_policy: pulumi_wasm_rust::InputOrOutput<
             super::super::types::network::NetworkWatcherFlowLogRetentionPolicy,
         >,
         /// The ID of the Storage Account where flow logs are stored.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Network Watcher Flow Log.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub target_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `traffic_analytics` block as documented below.
         #[builder(into, default)]
-        pub traffic_analytics: pulumi_wasm_rust::Output<
+        pub traffic_analytics: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::NetworkWatcherFlowLogTrafficAnalytics>,
         >,
         /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct NetworkWatcherFlowLogResult {
@@ -156,25 +156,45 @@ pub mod network_watcher_flow_log {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkWatcherFlowLogArgs,
     ) -> NetworkWatcherFlowLogResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let network_security_group_id_binding = args
             .network_security_group_id
+            .get_output(context)
             .get_inner();
-        let network_watcher_name_binding = args.network_watcher_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_policy_binding = args.retention_policy.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
-        let traffic_analytics_binding = args.traffic_analytics.get_inner();
-        let version_binding = args.version.get_inner();
+        let network_watcher_name_binding = args
+            .network_watcher_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_policy_binding = args
+            .retention_policy
+            .get_output(context)
+            .get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
+        let traffic_analytics_binding = args
+            .traffic_analytics
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog".into(),
             name: name.to_string(),
@@ -268,7 +288,7 @@ pub mod network_watcher_flow_log {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

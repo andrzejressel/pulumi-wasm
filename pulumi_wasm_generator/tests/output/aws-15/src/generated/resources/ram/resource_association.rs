@@ -27,16 +27,16 @@
 /// $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
 /// ```
 pub mod resource_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceAssociationArgs {
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the RAM Resource Share.
         #[builder(into)]
-        pub resource_share_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_share_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceAssociationResult {
@@ -50,13 +50,17 @@ pub mod resource_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourceAssociationArgs,
     ) -> ResourceAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let resource_arn_binding = args.resource_arn.get_inner();
-        let resource_share_arn_binding = args.resource_share_arn.get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let resource_share_arn_binding = args
+            .resource_share_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/resourceAssociation:ResourceAssociation".into(),
             name: name.to_string(),
@@ -80,7 +84,7 @@ pub mod resource_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

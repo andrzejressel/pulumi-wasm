@@ -34,24 +34,24 @@
 /// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
 /// ```
 pub mod reserved_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservedInstanceArgs {
         /// Number of instances to reserve. Default value is `1`.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub offering_id: pulumi_wasm_rust::Output<String>,
+        pub offering_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Customer-specified identifier to track this reservation.
         #[builder(into, default)]
-        pub reservation_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub reservation_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,13 +106,17 @@ pub mod reserved_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ReservedInstanceArgs) -> ReservedInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ReservedInstanceArgs,
+    ) -> ReservedInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_count_binding = args.instance_count.get_inner();
-        let offering_id_binding = args.offering_id.get_inner();
-        let reservation_id_binding = args.reservation_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let instance_count_binding = args.instance_count.get_output(context).get_inner();
+        let offering_id_binding = args.offering_id.get_output(context).get_inner();
+        let reservation_id_binding = args.reservation_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/reservedInstance:ReservedInstance".into(),
             name: name.to_string(),
@@ -192,7 +196,7 @@ pub mod reserved_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

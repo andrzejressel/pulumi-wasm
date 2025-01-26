@@ -44,25 +44,25 @@
 /// ```
 ///
 pub mod access_mutual_tls_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessMutualTlsCertificateArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The hostnames that will be prompted for this certificate.
         #[builder(into, default)]
-        pub associated_hostnames: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub associated_hostnames: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Root CA for your certificates.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the certificate.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessMutualTlsCertificateResult {
@@ -83,16 +83,20 @@ pub mod access_mutual_tls_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessMutualTlsCertificateArgs,
     ) -> AccessMutualTlsCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let associated_hostnames_binding = args.associated_hostnames.get_inner();
-        let certificate_binding = args.certificate.get_inner();
-        let name_binding = args.name.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let associated_hostnames_binding = args
+            .associated_hostnames
+            .get_output(context)
+            .get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate"
                 .into(),
@@ -141,7 +145,7 @@ pub mod access_mutual_tls_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

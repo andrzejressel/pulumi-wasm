@@ -23,13 +23,13 @@
 /// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
 /// ```
 pub mod retention_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RetentionConfigurationArgs {
         /// The number of days AWS Config stores historical information.
         #[builder(into)]
-        pub retention_period_in_days: pulumi_wasm_rust::Output<i32>,
+        pub retention_period_in_days: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct RetentionConfigurationResult {
@@ -43,12 +43,16 @@ pub mod retention_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RetentionConfigurationArgs,
     ) -> RetentionConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let retention_period_in_days_binding = args.retention_period_in_days.get_inner();
+        let retention_period_in_days_binding = args
+            .retention_period_in_days
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/retentionConfiguration:RetentionConfiguration".into(),
             name: name.to_string(),
@@ -68,7 +72,7 @@ pub mod retention_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

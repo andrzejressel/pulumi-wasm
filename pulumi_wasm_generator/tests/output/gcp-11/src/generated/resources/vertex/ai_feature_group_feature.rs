@@ -104,39 +104,39 @@
 /// ```
 ///
 pub mod ai_feature_group_feature {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureGroupFeatureArgs {
         /// The description of the FeatureGroup.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Feature Group.
         #[builder(into)]
-        pub feature_group: pulumi_wasm_rust::Output<String>,
+        pub feature_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The labels with user-defined metadata to organize your FeatureGroup.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name of the Feature Group Feature.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region for the resource. It should be the same as the feature group's region.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the BigQuery Table/View column hosting data for this version. If no value is provided, will use featureId.
         #[builder(into, default)]
-        pub version_column_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_column_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AiFeatureGroupFeatureResult {
@@ -181,18 +181,22 @@ pub mod ai_feature_group_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AiFeatureGroupFeatureArgs,
     ) -> AiFeatureGroupFeatureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let feature_group_binding = args.feature_group.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let version_column_name_binding = args.version_column_name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let feature_group_binding = args.feature_group.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let version_column_name_binding = args
+            .version_column_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureGroupFeature:AiFeatureGroupFeature".into(),
             name: name.to_string(),
@@ -263,7 +267,7 @@ pub mod ai_feature_group_feature {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

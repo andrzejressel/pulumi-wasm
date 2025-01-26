@@ -63,7 +63,7 @@
 /// ```
 ///
 pub mod service_perimeter_resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicePerimeterResourceArgs {
@@ -72,12 +72,12 @@ pub mod service_perimeter_resource {
         ///
         /// - - -
         #[builder(into)]
-        pub perimeter_name: pulumi_wasm_rust::Output<String>,
+        pub perimeter_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A GCP resource that is inside of the service perimeter.
         /// Currently only projects are allowed.
         /// Format: projects/{project_number}
         #[builder(into)]
-        pub resource: pulumi_wasm_rust::Output<String>,
+        pub resource: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServicePerimeterResourceResult {
@@ -96,13 +96,14 @@ pub mod service_perimeter_resource {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicePerimeterResourceArgs,
     ) -> ServicePerimeterResourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let perimeter_name_binding = args.perimeter_name.get_inner();
-        let resource_binding = args.resource.get_inner();
+        let perimeter_name_binding = args.perimeter_name.get_output(context).get_inner();
+        let resource_binding = args.resource.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterResource:ServicePerimeterResource"
                 .into(),
@@ -127,7 +128,7 @@ pub mod service_perimeter_resource {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

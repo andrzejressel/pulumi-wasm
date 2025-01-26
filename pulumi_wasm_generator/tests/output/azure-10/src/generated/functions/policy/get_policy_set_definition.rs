@@ -1,5 +1,5 @@
 pub mod get_policy_set_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPolicySetDefinitionArgs {
@@ -7,13 +7,13 @@ pub mod get_policy_set_definition {
         ///
         /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Only retrieve Policy Set Definitions from this Management Group.
         #[builder(into, default)]
-        pub management_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub management_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetPolicySetDefinitionResult {
@@ -51,12 +51,18 @@ pub mod get_policy_set_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPolicySetDefinitionArgs) -> GetPolicySetDefinitionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPolicySetDefinitionArgs,
+    ) -> GetPolicySetDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let management_group_name_binding = args.management_group_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let management_group_name_binding = args
+            .management_group_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:policy/getPolicySetDefinition:getPolicySetDefinition".into(),
             version: super::super::super::get_version(),
@@ -110,7 +116,7 @@ pub mod get_policy_set_definition {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

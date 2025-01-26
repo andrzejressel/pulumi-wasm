@@ -122,48 +122,48 @@
 /// ```
 ///
 pub mod standard_app_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardAppVersionArgs {
         /// Allows App Engine second generation runtimes to access the legacy bundled services.
         #[builder(into, default)]
-        pub app_engine_apis: pulumi_wasm_rust::Output<Option<bool>>,
+        pub app_engine_apis: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Automatic scaling is based on request rate, response latencies, and other application metrics.
         #[builder(into, default)]
-        pub automatic_scaling: pulumi_wasm_rust::Output<
+        pub automatic_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionAutomaticScaling>,
         >,
         /// Basic scaling creates instances when your application receives requests. Each instance will be shut down when the
         /// application becomes idle. Basic scaling is ideal for work that is intermittent or driven by user activity.
         #[builder(into, default)]
-        pub basic_scaling: pulumi_wasm_rust::Output<
+        pub basic_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionBasicScaling>,
         >,
         /// If set to 'true', the service will be deleted if it is the last version.
         #[builder(into, default)]
-        pub delete_service_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_service_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Code and application artifacts that make up this version.
         /// Structure is documented below.
         #[builder(into)]
-        pub deployment: pulumi_wasm_rust::Output<
+        pub deployment: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appengine::StandardAppVersionDeployment,
         >,
         /// The entrypoint for the application.
         /// Structure is documented below.
         #[builder(into)]
-        pub entrypoint: pulumi_wasm_rust::Output<
+        pub entrypoint: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appengine::StandardAppVersionEntrypoint,
         >,
         /// Environment variables available to the application.
         #[builder(into, default)]
-        pub env_variables: pulumi_wasm_rust::Output<
+        pub env_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the
         /// request and other request handlers are not attempted.
         #[builder(into, default)]
-        pub handlers: pulumi_wasm_rust::Output<
+        pub handlers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appengine::StandardAppVersionHandler>>,
         >,
         /// A list of the types of messages that this application is able to receive. Possible values: ["INBOUND_SERVICE_MAIL",
@@ -171,53 +171,53 @@ pub mod standard_app_version {
         /// "INBOUND_SERVICE_XMPP_SUBSCRIBE", "INBOUND_SERVICE_XMPP_PRESENCE", "INBOUND_SERVICE_CHANNEL_PRESENCE",
         /// "INBOUND_SERVICE_WARMUP"]
         #[builder(into, default)]
-        pub inbound_services: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inbound_services: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Instance class that is used to run this version. Valid values are AutomaticScaling: F1, F2, F4, F4_1G BasicScaling or
         /// ManualScaling: B1, B2, B4, B4_1G, B8 Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If
         /// no scaling is specified, AutomaticScaling is chosen.
         #[builder(into, default)]
-        pub instance_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for third-party Python runtime libraries that are required by the application.
         #[builder(into, default)]
-        pub libraries: pulumi_wasm_rust::Output<
+        pub libraries: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appengine::StandardAppVersionLibrary>>,
         >,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub manual_scaling: pulumi_wasm_rust::Output<
+        pub manual_scaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionManualScaling>,
         >,
         /// If set to 'true', the application version will not be deleted.
         #[builder(into, default)]
-        pub noop_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub noop_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Desired runtime. Example python27.
         #[builder(into)]
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at
         /// 'https://cloud.google.com/appengine/docs/standard/<language>/config/appref'\ Substitute '<language>' with 'python',
         /// 'java', 'php', 'ruby', 'go' or 'nodejs'.
         #[builder(into, default)]
-        pub runtime_api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AppEngine service resource
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default
         /// if this field is neither provided in app.yaml file nor through CLI flag.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether multiple requests can be dispatched to this version at once.
         #[builder(into, default)]
-        pub threadsafe: pulumi_wasm_rust::Output<Option<bool>>,
+        pub threadsafe: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Relative name of the version within the service. For example, 'v1'. Version names can contain only lowercase letters,
         /// numbers, or hyphens. Reserved names,"default", "latest", and any name with the prefix "ah-".
         #[builder(into, default)]
-        pub version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enables VPC connectivity for standard apps.
         #[builder(into, default)]
-        pub vpc_access_connector: pulumi_wasm_rust::Output<
+        pub vpc_access_connector: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionVpcAccessConnector>,
         >,
     }
@@ -303,32 +303,58 @@ pub mod standard_app_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StandardAppVersionArgs) -> StandardAppVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StandardAppVersionArgs,
+    ) -> StandardAppVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_engine_apis_binding = args.app_engine_apis.get_inner();
-        let automatic_scaling_binding = args.automatic_scaling.get_inner();
-        let basic_scaling_binding = args.basic_scaling.get_inner();
+        let app_engine_apis_binding = args
+            .app_engine_apis
+            .get_output(context)
+            .get_inner();
+        let automatic_scaling_binding = args
+            .automatic_scaling
+            .get_output(context)
+            .get_inner();
+        let basic_scaling_binding = args.basic_scaling.get_output(context).get_inner();
         let delete_service_on_destroy_binding = args
             .delete_service_on_destroy
+            .get_output(context)
             .get_inner();
-        let deployment_binding = args.deployment.get_inner();
-        let entrypoint_binding = args.entrypoint.get_inner();
-        let env_variables_binding = args.env_variables.get_inner();
-        let handlers_binding = args.handlers.get_inner();
-        let inbound_services_binding = args.inbound_services.get_inner();
-        let instance_class_binding = args.instance_class.get_inner();
-        let libraries_binding = args.libraries.get_inner();
-        let manual_scaling_binding = args.manual_scaling.get_inner();
-        let noop_on_destroy_binding = args.noop_on_destroy.get_inner();
-        let project_binding = args.project.get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let runtime_api_version_binding = args.runtime_api_version.get_inner();
-        let service_binding = args.service.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let threadsafe_binding = args.threadsafe.get_inner();
-        let version_id_binding = args.version_id.get_inner();
-        let vpc_access_connector_binding = args.vpc_access_connector.get_inner();
+        let deployment_binding = args.deployment.get_output(context).get_inner();
+        let entrypoint_binding = args.entrypoint.get_output(context).get_inner();
+        let env_variables_binding = args.env_variables.get_output(context).get_inner();
+        let handlers_binding = args.handlers.get_output(context).get_inner();
+        let inbound_services_binding = args
+            .inbound_services
+            .get_output(context)
+            .get_inner();
+        let instance_class_binding = args.instance_class.get_output(context).get_inner();
+        let libraries_binding = args.libraries.get_output(context).get_inner();
+        let manual_scaling_binding = args.manual_scaling.get_output(context).get_inner();
+        let noop_on_destroy_binding = args
+            .noop_on_destroy
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let runtime_api_version_binding = args
+            .runtime_api_version
+            .get_output(context)
+            .get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let threadsafe_binding = args.threadsafe.get_output(context).get_inner();
+        let version_id_binding = args.version_id.get_output(context).get_inner();
+        let vpc_access_connector_binding = args
+            .vpc_access_connector
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/standardAppVersion:StandardAppVersion".into(),
             name: name.to_string(),
@@ -488,7 +514,7 @@ pub mod standard_app_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

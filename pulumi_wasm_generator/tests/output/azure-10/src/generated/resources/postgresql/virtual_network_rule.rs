@@ -72,13 +72,15 @@
 /// ```
 ///
 pub mod virtual_network_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkRuleArgs {
         /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         #[builder(into, default)]
-        pub ignore_missing_vnet_service_endpoint: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_missing_vnet_service_endpoint: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
@@ -87,16 +89,16 @@ pub mod virtual_network_rule {
         /// 2. Cannot start with a number or hyphen
         /// 3. Cannot end with a hyphen
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the subnet that the PostgreSQL server will be connected to.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkRuleResult {
@@ -121,16 +123,24 @@ pub mod virtual_network_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualNetworkRuleArgs) -> VirtualNetworkRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualNetworkRuleArgs,
+    ) -> VirtualNetworkRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ignore_missing_vnet_service_endpoint_binding = args
             .ignore_missing_vnet_service_endpoint
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_name_binding = args.server_name.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_name_binding = args.server_name.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/virtualNetworkRule:VirtualNetworkRule".into(),
             name: name.to_string(),
@@ -175,7 +185,7 @@ pub mod virtual_network_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

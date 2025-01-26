@@ -73,14 +73,14 @@
 /// ```
 ///
 pub mod lite_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LiteSubscriptionArgs {
         /// The settings for this subscription's message delivery.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub delivery_config: pulumi_wasm_rust::Output<
+        pub delivery_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::LiteSubscriptionDeliveryConfig>,
         >,
         /// Name of the subscription.
@@ -88,20 +88,20 @@ pub mod lite_subscription {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of the pubsub lite topic.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to a Topic resource.
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone of the pubsub lite topic.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LiteSubscriptionResult {
@@ -129,15 +129,22 @@ pub mod lite_subscription {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LiteSubscriptionArgs) -> LiteSubscriptionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LiteSubscriptionArgs,
+    ) -> LiteSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delivery_config_binding = args.delivery_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let topic_binding = args.topic.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let delivery_config_binding = args
+            .delivery_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let topic_binding = args.topic.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/liteSubscription:LiteSubscription".into(),
             name: name.to_string(),
@@ -189,7 +196,7 @@ pub mod lite_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

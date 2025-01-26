@@ -63,19 +63,19 @@
 /// ```
 ///
 pub mod tunnel_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TunnelConfigArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for Tunnel Configuration.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<super::types::TunnelConfigConfig>,
+        pub config: pulumi_wasm_rust::InputOrOutput<super::types::TunnelConfigConfig>,
         /// Identifier of the Tunnel to target for this configuration.
         #[builder(into)]
-        pub tunnel_id: pulumi_wasm_rust::Output<String>,
+        pub tunnel_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TunnelConfigResult {
@@ -90,12 +90,16 @@ pub mod tunnel_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TunnelConfigArgs) -> TunnelConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TunnelConfigArgs,
+    ) -> TunnelConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let config_binding = args.config.get_inner();
-        let tunnel_id_binding = args.tunnel_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let tunnel_id_binding = args.tunnel_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/tunnelConfig:TunnelConfig".into(),
             name: name.to_string(),
@@ -126,7 +130,7 @@ pub mod tunnel_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -61,27 +61,27 @@
 /// ```
 ///
 pub mod virtual_hub_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualHubConnectionArgs {
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         #[builder(into, default)]
-        pub internet_security_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_security_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `routing` block as defined below.
         #[builder(into, default)]
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::VirtualHubConnectionRouting>,
         >,
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualHubConnectionResult {
@@ -103,6 +103,7 @@ pub mod virtual_hub_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VirtualHubConnectionArgs,
     ) -> VirtualHubConnectionResult {
@@ -110,13 +111,15 @@ pub mod virtual_hub_connection {
         use std::collections::HashMap;
         let internet_security_enabled_binding = args
             .internet_security_enabled
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let remote_virtual_network_id_binding = args
             .remote_virtual_network_id
+            .get_output(context)
             .get_inner();
-        let routing_binding = args.routing.get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_inner();
+        let routing_binding = args.routing.get_output(context).get_inner();
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHubConnection:VirtualHubConnection".into(),
             name: name.to_string(),
@@ -161,7 +164,7 @@ pub mod virtual_hub_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

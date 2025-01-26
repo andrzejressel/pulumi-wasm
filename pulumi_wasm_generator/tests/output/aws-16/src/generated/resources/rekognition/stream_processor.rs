@@ -172,62 +172,62 @@
 /// $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
 /// ```
 pub mod stream_processor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamProcessorArgs {
         /// See `data_sharing_preference`.
         #[builder(into, default)]
-        pub data_sharing_preference: pulumi_wasm_rust::Output<
+        pub data_sharing_preference: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::rekognition::StreamProcessorDataSharingPreference,
             >,
         >,
         /// Input video stream. See `input`.
         #[builder(into, default)]
-        pub input: pulumi_wasm_rust::Output<
+        pub input: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorInput>,
         >,
         /// Optional parameter for label detection stream processors.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Stream Processor.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         #[builder(into, default)]
-        pub notification_channel: pulumi_wasm_rust::Output<
+        pub notification_channel: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorNotificationChannel>,
         >,
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         #[builder(into, default)]
-        pub output: pulumi_wasm_rust::Output<
+        pub output: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorOutput>,
         >,
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         #[builder(into, default)]
-        pub regions_of_interests: pulumi_wasm_rust::Output<
+        pub regions_of_interests: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::rekognition::StreamProcessorRegionsOfInterest>,
             >,
         >,
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorSettings>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorTimeouts>,
         >,
     }
@@ -287,20 +287,33 @@ pub mod stream_processor {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StreamProcessorArgs) -> StreamProcessorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StreamProcessorArgs,
+    ) -> StreamProcessorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_sharing_preference_binding = args.data_sharing_preference.get_inner();
-        let input_binding = args.input.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_channel_binding = args.notification_channel.get_inner();
-        let output_binding = args.output.get_inner();
-        let regions_of_interests_binding = args.regions_of_interests.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let settings_binding = args.settings.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let data_sharing_preference_binding = args
+            .data_sharing_preference
+            .get_output(context)
+            .get_inner();
+        let input_binding = args.input.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_channel_binding = args
+            .notification_channel
+            .get_output(context)
+            .get_inner();
+        let output_binding = args.output.get_output(context).get_inner();
+        let regions_of_interests_binding = args
+            .regions_of_interests
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rekognition/streamProcessor:StreamProcessor".into(),
             name: name.to_string(),
@@ -393,7 +406,7 @@ pub mod stream_processor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()
