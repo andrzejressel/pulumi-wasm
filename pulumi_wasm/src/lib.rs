@@ -27,8 +27,8 @@ mod bindings;
 
 mod pulumi_connector_impl;
 
-pub(crate) struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
-pub(crate) struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);
+struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
+struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);
 
 struct LocalPulumiEngine(Rc<RefCell<Engine>>, bool);
 

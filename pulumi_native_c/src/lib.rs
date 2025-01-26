@@ -1,15 +1,29 @@
+use std::cell::RefCell;
 use std::collections::HashMap;
 use std::ffi::{c_char, CStr};
+use std::rc::Rc;
 use pulumi_wasm_core::{Engine, OutputId};
-use pulumi_wasm_core::model::FieldName;
+
+pub struct CustomOutputId {
+    output_id: OutputId,
+    engine: Rc<RefCell<Engine>>,
+}
+pub struct CustomRegisterOutputId{
+    output_id: OutputId,
+    engine: Rc<RefCell<Engine>>,
+}
 
 pub struct PulumiEngine {
-    engine: Engine,
+    engine: Rc<RefCell<Engine>>,
     outputs: Vec<*mut Output>,
     in_preview: bool,
 }
 
 pub struct Output {
+    native: pulumi_wasm_core::OutputId
+}
+
+pub struct RegisterOutput {
     native: pulumi_wasm_core::OutputId
 }
 
@@ -124,12 +138,10 @@ pub extern "C" fn register(pulumi_engine: *mut PulumiEngine, request: *const Reg
         });
     }
 
-    let (output_id, _) = pulumi_engine.engine.create_register_resource_node(
+    let output_id = pulumi_engine.engine.create_register_resource_node(
         type_,
         name,
         inputs,
-        todo!(),
-        pulumi_engine.in_preview,
         version,
     );
 
