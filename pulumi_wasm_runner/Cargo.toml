@@ -8,12 +8,10 @@ repository.workspace = true
 
 [dependencies]
 prost.workspace = true
-tonic = { workspace = true, default-features = true }
 log.workspace = true
 wasmtime.workspace = true
 wasmtime-wasi.workspace = true
 anyhow.workspace = true
-futures.workspace = true
 tokio.workspace = true
 log4rs.workspace = true
 clap.workspace = true
@@ -23,6 +21,7 @@ pulumi_wasm_runner_component_creator.workspace = true
 wasmparser.workspace = true
 serde.workspace = true
 serde_json.workspace = true
+pulumi_wasm_grpc_connection.workspace = true
 
 [dev-dependencies]
 wat.workspace = true

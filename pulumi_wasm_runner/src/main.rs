@@ -14,7 +14,6 @@ use std::io::Write;
 use std::path::PathBuf;
 mod model;
 mod pulumi;
-mod pulumi_state;
 mod version_finder;
 
 #[derive(Parser, Debug)]
@@ -109,9 +108,7 @@ async fn main() -> Result<(), Error> {
                 pulumi_project,
             )
             .await?;
-            log::info!("Creating root stack");
-            pulumi.create_root_stack().await?;
-            log::info!("Created root stack. Invoking main");
+            log::info!("Invoking main");
             pulumi.start(pulumi_preview).await?;
         }
         Command::Plugins {

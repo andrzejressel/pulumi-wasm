@@ -24,6 +24,7 @@ members = [
     "pulumi_wasm_core",
     "pulumi_wasm_build",
     "pulumi_wasm_generator",
+    "pulumi_wasm_grpc_connection",
     "pulumi_wasm_proto",
     "pulumi_wasm_runner",
     "pulumi_wasm_runner_component_creator",
@@ -50,6 +51,7 @@ pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docke
 pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
 pulumi_wasm_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
+pulumi_wasm_grpc_connection = { version = "=0.0.0-DEV", path = "pulumi_wasm_grpc_connection", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
@@ -68,7 +70,7 @@ wasmtime-wasi = "29.0.0"
 async-trait = "0.1.80"
 log = { version = "0.4.21", features = ["kv"] }
 log4rs = "1.3.0"
-tokio = { version = "1.37.0", features = ["sync", "macros", "io-util", "rt", "time", "fs"] }
+tokio = { version = "1.37.0", features = ["sync", "macros", "io-util", "rt", "time", "fs", "rt-multi-thread"] }
 clap = { version = "4.5.4", features = ["derive"] }
 regex = "1.10.4"
 syn = { version = "2.0.60", features = ["full"] }
