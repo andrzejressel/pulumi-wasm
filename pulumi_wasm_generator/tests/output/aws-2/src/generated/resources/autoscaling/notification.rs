@@ -98,33 +98,17 @@ pub mod notification {
                     value: &topic_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationResult {
             group_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupNames").unwrap(),
+                o.extract_field("groupNames"),
             ),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicArn").unwrap(),
+                o.extract_field("topicArn"),
             ),
         }
     }

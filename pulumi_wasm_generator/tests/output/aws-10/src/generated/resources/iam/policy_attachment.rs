@@ -143,46 +143,16 @@ pub mod policy_attachment {
                     value: &users_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groups".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "roles".into(),
-                },
-                register_interface::ResultField {
-                    name: "users".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyAttachmentResult {
-            groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groups").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyArn").unwrap(),
+                o.extract_field("policyArn"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roles").unwrap(),
-            ),
-            users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("users").unwrap(),
-            ),
+            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
+            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

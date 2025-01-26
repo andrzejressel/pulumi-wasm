@@ -427,117 +427,53 @@ pub mod budget {
                     value: &time_unit_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAdjustData".into(),
-                },
-                register_interface::ResultField {
-                    name: "budgetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "costFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "costTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "limitAmount".into(),
-                },
-                register_interface::ResultField {
-                    name: "limitUnit".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "plannedLimits".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePeriodEnd".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePeriodStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeUnit".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BudgetResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_adjust_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAdjustData").unwrap(),
+                o.extract_field("autoAdjustData"),
             ),
             budget_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("budgetType").unwrap(),
+                o.extract_field("budgetType"),
             ),
             cost_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("costFilters").unwrap(),
+                o.extract_field("costFilters"),
             ),
             cost_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("costTypes").unwrap(),
+                o.extract_field("costTypes"),
             ),
             limit_amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("limitAmount").unwrap(),
+                o.extract_field("limitAmount"),
             ),
             limit_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("limitUnit").unwrap(),
+                o.extract_field("limitUnit"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             planned_limits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plannedLimits").unwrap(),
+                o.extract_field("plannedLimits"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             time_period_end: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePeriodEnd").unwrap(),
+                o.extract_field("timePeriodEnd"),
             ),
             time_period_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePeriodStart").unwrap(),
+                o.extract_field("timePeriodStart"),
             ),
             time_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeUnit").unwrap(),
+                o.extract_field("timeUnit"),
             ),
         }
     }

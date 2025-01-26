@@ -189,81 +189,39 @@ pub mod mongo_collection {
                     value: &throughput_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "analyticalStorageTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscaleSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTtlSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "indices".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemIndexes".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughput".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MongoCollectionResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             analytical_storage_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticalStorageTtl").unwrap(),
+                o.extract_field("analyticalStorageTtl"),
             ),
             autoscale_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscaleSettings").unwrap(),
+                o.extract_field("autoscaleSettings"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             default_ttl_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTtlSeconds").unwrap(),
+                o.extract_field("defaultTtlSeconds"),
             ),
             indices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indices").unwrap(),
+                o.extract_field("indices"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             shard_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardKey").unwrap(),
+                o.extract_field("shardKey"),
             ),
             system_indexes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemIndexes").unwrap(),
+                o.extract_field("systemIndexes"),
             ),
             throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughput").unwrap(),
+                o.extract_field("throughput"),
             ),
         }
     }

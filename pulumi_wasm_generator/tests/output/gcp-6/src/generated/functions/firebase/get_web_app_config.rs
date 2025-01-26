@@ -67,73 +67,34 @@ pub mod get_web_app_config {
                     value: &web_app_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "authDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "measurementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "messagingSenderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "webAppId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWebAppConfigResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             auth_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authDomain").unwrap(),
+                o.extract_field("authDomain"),
             ),
             database_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseUrl").unwrap(),
+                o.extract_field("databaseUrl"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationId").unwrap(),
+                o.extract_field("locationId"),
             ),
             measurement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("measurementId").unwrap(),
+                o.extract_field("measurementId"),
             ),
             messaging_sender_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messagingSenderId").unwrap(),
+                o.extract_field("messagingSenderId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             storage_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageBucket").unwrap(),
+                o.extract_field("storageBucket"),
             ),
             web_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webAppId").unwrap(),
+                o.extract_field("webAppId"),
             ),
         }
     }

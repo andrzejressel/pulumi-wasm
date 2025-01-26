@@ -40,31 +40,13 @@ pub mod get_groups {
                     value: &identity_store_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groups".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityStoreId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGroupsResult {
-            groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groups").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityStoreId").unwrap(),
+                o.extract_field("identityStoreId"),
             ),
         }
     }

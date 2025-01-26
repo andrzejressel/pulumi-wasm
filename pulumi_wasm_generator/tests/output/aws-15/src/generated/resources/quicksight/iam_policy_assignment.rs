@@ -134,57 +134,29 @@ pub mod iam_policy_assignment {
                     value: &policy_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "assignmentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "assignmentStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IamPolicyAssignmentResult {
             assignment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignmentId").unwrap(),
+                o.extract_field("assignmentId"),
             ),
             assignment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignmentName").unwrap(),
+                o.extract_field("assignmentName"),
             ),
             assignment_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignmentStatus").unwrap(),
+                o.extract_field("assignmentStatus"),
             ),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyArn").unwrap(),
+                o.extract_field("policyArn"),
             ),
         }
     }

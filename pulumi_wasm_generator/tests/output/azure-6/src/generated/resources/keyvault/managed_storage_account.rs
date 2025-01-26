@@ -258,58 +258,26 @@ pub mod managed_storage_account {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "regenerateKeyAutomatically".into(),
-                },
-                register_interface::ResultField {
-                    name: "regenerationPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedStorageAccountResult {
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             regenerate_key_automatically: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regenerateKeyAutomatically").unwrap(),
+                o.extract_field("regenerateKeyAutomatically"),
             ),
             regeneration_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regenerationPeriod").unwrap(),
+                o.extract_field("regenerationPeriod"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountKey").unwrap(),
+                o.extract_field("storageAccountKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

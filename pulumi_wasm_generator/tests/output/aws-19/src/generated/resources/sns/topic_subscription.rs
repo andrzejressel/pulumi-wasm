@@ -347,112 +347,53 @@ pub mod topic_subscription {
                     value: &topic_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "confirmationTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "confirmationWasAuthenticated".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointAutoConfirms".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterPolicyScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "pendingConfirmation".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "rawMessageDelivery".into(),
-                },
-                register_interface::ResultField {
-                    name: "redrivePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "replayPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "topic".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicSubscriptionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             confirmation_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confirmationTimeoutInMinutes").unwrap(),
+                o.extract_field("confirmationTimeoutInMinutes"),
             ),
             confirmation_was_authenticated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confirmationWasAuthenticated").unwrap(),
+                o.extract_field("confirmationWasAuthenticated"),
             ),
             delivery_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryPolicy").unwrap(),
+                o.extract_field("deliveryPolicy"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             endpoint_auto_confirms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointAutoConfirms").unwrap(),
+                o.extract_field("endpointAutoConfirms"),
             ),
             filter_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterPolicy").unwrap(),
+                o.extract_field("filterPolicy"),
             ),
             filter_policy_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterPolicyScope").unwrap(),
+                o.extract_field("filterPolicyScope"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             pending_confirmation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pendingConfirmation").unwrap(),
+                o.extract_field("pendingConfirmation"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             raw_message_delivery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rawMessageDelivery").unwrap(),
+                o.extract_field("rawMessageDelivery"),
             ),
             redrive_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redrivePolicy").unwrap(),
+                o.extract_field("redrivePolicy"),
             ),
             replay_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replayPolicy").unwrap(),
+                o.extract_field("replayPolicy"),
             ),
             subscription_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionRoleArn").unwrap(),
+                o.extract_field("subscriptionRoleArn"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topic").unwrap(),
-            ),
+            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

@@ -39,43 +39,19 @@ pub mod get_workspaces {
                     value: &alias_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliasPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "aliases".into(),
-                },
-                register_interface::ResultField {
-                    name: "arns".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWorkspacesResult {
             alias_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliasPrefix").unwrap(),
+                o.extract_field("aliasPrefix"),
             ),
             aliases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliases").unwrap(),
+                o.extract_field("aliases"),
             ),
-            arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arns").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             workspace_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceIds").unwrap(),
+                o.extract_field("workspaceIds"),
             ),
         }
     }

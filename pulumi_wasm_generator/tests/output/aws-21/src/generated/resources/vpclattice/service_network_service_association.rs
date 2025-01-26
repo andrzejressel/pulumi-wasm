@@ -113,69 +113,29 @@ pub mod service_network_service_association {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsEntries".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceNetworkIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceNetworkServiceAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             custom_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainName").unwrap(),
+                o.extract_field("customDomainName"),
             ),
             dns_entries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsEntries").unwrap(),
+                o.extract_field("dnsEntries"),
             ),
             service_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceIdentifier").unwrap(),
+                o.extract_field("serviceIdentifier"),
             ),
             service_network_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceNetworkIdentifier").unwrap(),
+                o.extract_field("serviceNetworkIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

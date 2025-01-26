@@ -62,61 +62,28 @@ pub mod get_backend_address_pool {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundNatRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundRules".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBackendAddressPoolResult {
             backend_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddresses").unwrap(),
+                o.extract_field("backendAddresses"),
             ),
             backend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendIpConfigurations").unwrap(),
+                o.extract_field("backendIpConfigurations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inbound_nat_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundNatRules").unwrap(),
+                o.extract_field("inboundNatRules"),
             ),
             load_balancing_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingRules").unwrap(),
+                o.extract_field("loadBalancingRules"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundRules").unwrap(),
+                o.extract_field("outboundRules"),
             ),
         }
     }

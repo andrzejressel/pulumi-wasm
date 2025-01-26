@@ -207,130 +207,60 @@ pub mod cluster_snapshot_copy {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbClusterSnapshotArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "presignedUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDbClusterSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetDbClusterSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterSnapshotCopyResult {
             allocated_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorage").unwrap(),
+                o.extract_field("allocatedStorage"),
             ),
             copy_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTags").unwrap(),
+                o.extract_field("copyTags"),
             ),
             db_cluster_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterSnapshotArn").unwrap(),
+                o.extract_field("dbClusterSnapshotArn"),
             ),
             destination_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationRegion").unwrap(),
+                o.extract_field("destinationRegion"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
             presigned_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("presignedUrl").unwrap(),
+                o.extract_field("presignedUrl"),
             ),
             shared_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccounts").unwrap(),
+                o.extract_field("sharedAccounts"),
             ),
             snapshot_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotType").unwrap(),
+                o.extract_field("snapshotType"),
             ),
             source_db_cluster_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDbClusterSnapshotIdentifier").unwrap(),
+                o.extract_field("sourceDbClusterSnapshotIdentifier"),
             ),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEncrypted").unwrap(),
+                o.extract_field("storageEncrypted"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_db_cluster_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetDbClusterSnapshotIdentifier").unwrap(),
+                o.extract_field("targetDbClusterSnapshotIdentifier"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -102,44 +102,20 @@ pub mod suppression {
                     value: &ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recommendationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "suppressionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SuppressionResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recommendation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recommendationId").unwrap(),
+                o.extract_field("recommendationId"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             suppression_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressionId").unwrap(),
+                o.extract_field("suppressionId"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ttl").unwrap()),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

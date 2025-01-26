@@ -159,93 +159,41 @@ pub mod deployment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentStrategyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationProfileId").unwrap(),
+                o.extract_field("configurationProfileId"),
             ),
             configuration_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationVersion").unwrap(),
+                o.extract_field("configurationVersion"),
             ),
             deployment_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentNumber").unwrap(),
+                o.extract_field("deploymentNumber"),
             ),
             deployment_strategy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentStrategyId").unwrap(),
+                o.extract_field("deploymentStrategyId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             kms_key_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyIdentifier").unwrap(),
+                o.extract_field("kmsKeyIdentifier"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

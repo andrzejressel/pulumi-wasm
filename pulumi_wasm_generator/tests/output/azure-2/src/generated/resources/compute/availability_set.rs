@@ -160,64 +160,29 @@ pub mod availability_set {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managed".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformFaultDomainCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformUpdateDomainCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "proximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AvailabilitySetResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managed").unwrap(),
+                o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_fault_domain_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformFaultDomainCount").unwrap(),
+                o.extract_field("platformFaultDomainCount"),
             ),
             platform_update_domain_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformUpdateDomainCount").unwrap(),
+                o.extract_field("platformUpdateDomainCount"),
             ),
             proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proximityPlacementGroupId").unwrap(),
+                o.extract_field("proximityPlacementGroupId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

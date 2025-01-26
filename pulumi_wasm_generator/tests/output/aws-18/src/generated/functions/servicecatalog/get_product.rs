@@ -81,104 +81,40 @@ pub mod get_product {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributor".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasDefaultPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProductResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             distributor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributor").unwrap(),
+                o.extract_field("distributor"),
             ),
             has_default_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasDefaultPath").unwrap(),
+                o.extract_field("hasDefaultPath"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             support_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportDescription").unwrap(),
+                o.extract_field("supportDescription"),
             ),
             support_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportEmail").unwrap(),
+                o.extract_field("supportEmail"),
             ),
             support_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportUrl").unwrap(),
+                o.extract_field("supportUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -61,85 +61,38 @@ pub mod get_snapshot {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSnapshotResult {
             creation_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationOption").unwrap(),
+                o.extract_field("creationOption"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
             encryption_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSettings").unwrap(),
+                o.extract_field("encryptionSettings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             source_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceUri").unwrap(),
+                o.extract_field("sourceUri"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             time_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeCreated").unwrap(),
+                o.extract_field("timeCreated"),
             ),
             trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchEnabled").unwrap(),
+                o.extract_field("trustedLaunchEnabled"),
             ),
         }
     }

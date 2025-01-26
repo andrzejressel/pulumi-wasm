@@ -102,45 +102,21 @@ pub mod registry_image {
                     value: &triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "insecureSkipVerify".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepRemotely".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha256Digest".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryImageResult {
             insecure_skip_verify: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insecureSkipVerify").unwrap(),
+                o.extract_field("insecureSkipVerify"),
             ),
             keep_remotely: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepRemotely").unwrap(),
+                o.extract_field("keepRemotely"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sha256_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha256Digest").unwrap(),
+                o.extract_field("sha256Digest"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

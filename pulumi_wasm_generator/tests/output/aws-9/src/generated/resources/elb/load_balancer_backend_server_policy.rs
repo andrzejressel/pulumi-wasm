@@ -109,33 +109,17 @@ pub mod load_balancer_backend_server_policy {
                     value: &policy_names_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instancePort".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyNames".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoadBalancerBackendServerPolicyResult {
             instance_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePort").unwrap(),
+                o.extract_field("instancePort"),
             ),
             load_balancer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerName").unwrap(),
+                o.extract_field("loadBalancerName"),
             ),
             policy_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyNames").unwrap(),
+                o.extract_field("policyNames"),
             ),
         }
     }

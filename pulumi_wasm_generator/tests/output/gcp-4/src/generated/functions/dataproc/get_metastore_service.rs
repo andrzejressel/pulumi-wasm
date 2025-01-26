@@ -105,174 +105,76 @@ pub mod get_metastore_service {
                     value: &service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "artifactGcsUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "hiveMetastoreConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindows".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataIntegrations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduledBackups".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "telemetryConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMetastoreServiceResult {
             artifact_gcs_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactGcsUri").unwrap(),
+                o.extract_field("artifactGcsUri"),
             ),
             database_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseType").unwrap(),
+                o.extract_field("databaseType"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfigs").unwrap(),
+                o.extract_field("encryptionConfigs"),
             ),
             endpoint_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUri").unwrap(),
+                o.extract_field("endpointUri"),
             ),
             hive_metastore_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hiveMetastoreConfigs").unwrap(),
+                o.extract_field("hiveMetastoreConfigs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindows").unwrap(),
+                o.extract_field("maintenanceWindows"),
             ),
             metadata_integrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataIntegrations").unwrap(),
+                o.extract_field("metadataIntegrations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             network_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfigs").unwrap(),
+                o.extract_field("networkConfigs"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             release_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseChannel").unwrap(),
+                o.extract_field("releaseChannel"),
             ),
             scaling_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingConfigs").unwrap(),
+                o.extract_field("scalingConfigs"),
             ),
             scheduled_backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduledBackups").unwrap(),
+                o.extract_field("scheduledBackups"),
             ),
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateMessage").unwrap(),
+                o.extract_field("stateMessage"),
             ),
             telemetry_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("telemetryConfigs").unwrap(),
+                o.extract_field("telemetryConfigs"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

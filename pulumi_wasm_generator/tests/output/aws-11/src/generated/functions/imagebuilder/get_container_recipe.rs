@@ -85,121 +85,52 @@ pub mod get_container_recipe {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "components".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerfileTemplateData".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRepositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "workingDirectory".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetContainerRecipeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             components: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("components").unwrap(),
+                o.extract_field("components"),
             ),
             container_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerType").unwrap(),
+                o.extract_field("containerType"),
             ),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dockerfile_template_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerfileTemplateData").unwrap(),
+                o.extract_field("dockerfileTemplateData"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceConfigurations").unwrap(),
+                o.extract_field("instanceConfigurations"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             parent_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentImage").unwrap(),
+                o.extract_field("parentImage"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRepositories").unwrap(),
+                o.extract_field("targetRepositories"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             working_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workingDirectory").unwrap(),
+                o.extract_field("workingDirectory"),
             ),
         }
     }

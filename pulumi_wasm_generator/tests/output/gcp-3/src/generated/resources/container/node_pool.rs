@@ -438,136 +438,65 @@ pub mod node_pool {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialNodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceGroupUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceGroupUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "management".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxPodsPerNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "operation".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "queuedProvisioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradeSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NodePoolResult {
             autoscaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscaling").unwrap(),
+                o.extract_field("autoscaling"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             initial_node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialNodeCount").unwrap(),
+                o.extract_field("initialNodeCount"),
             ),
             instance_group_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceGroupUrls").unwrap(),
+                o.extract_field("instanceGroupUrls"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_instance_group_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceGroupUrls").unwrap(),
+                o.extract_field("managedInstanceGroupUrls"),
             ),
             management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("management").unwrap(),
+                o.extract_field("management"),
             ),
             max_pods_per_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxPodsPerNode").unwrap(),
+                o.extract_field("maxPodsPerNode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             node_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfig").unwrap(),
+                o.extract_field("nodeConfig"),
             ),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             node_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeLocations").unwrap(),
+                o.extract_field("nodeLocations"),
             ),
             operation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operation").unwrap(),
+                o.extract_field("operation"),
             ),
             placement_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementPolicy").unwrap(),
+                o.extract_field("placementPolicy"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             queued_provisioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queuedProvisioning").unwrap(),
+                o.extract_field("queuedProvisioning"),
             ),
             upgrade_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradeSettings").unwrap(),
+                o.extract_field("upgradeSettings"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

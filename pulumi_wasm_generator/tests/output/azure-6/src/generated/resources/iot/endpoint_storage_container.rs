@@ -228,87 +228,42 @@ pub mod endpoint_storage_container {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchFrequencyInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "encoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileNameFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxChunkSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointStorageContainerResult {
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             batch_frequency_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchFrequencyInSeconds").unwrap(),
+                o.extract_field("batchFrequencyInSeconds"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encoding").unwrap(),
+                o.extract_field("encoding"),
             ),
             endpoint_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUri").unwrap(),
+                o.extract_field("endpointUri"),
             ),
             file_name_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileNameFormat").unwrap(),
+                o.extract_field("fileNameFormat"),
             ),
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
             max_chunk_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxChunkSizeInBytes").unwrap(),
+                o.extract_field("maxChunkSizeInBytes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

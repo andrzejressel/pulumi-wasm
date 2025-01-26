@@ -873,129 +873,57 @@ pub mod repository {
                     value: &virtual_repository_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cleanupPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "cleanupPolicyDryRun".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "format".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mavenConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteRepositoryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRepositoryConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryResult {
             cleanup_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cleanupPolicies").unwrap(),
+                o.extract_field("cleanupPolicies"),
             ),
             cleanup_policy_dry_run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cleanupPolicyDryRun").unwrap(),
+                o.extract_field("cleanupPolicyDryRun"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             docker_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerConfig").unwrap(),
+                o.extract_field("dockerConfig"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("format").unwrap(),
-            ),
+            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maven_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mavenConfig").unwrap(),
+                o.extract_field("mavenConfig"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             remote_repository_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteRepositoryConfig").unwrap(),
+                o.extract_field("remoteRepositoryConfig"),
             ),
             repository_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryId").unwrap(),
+                o.extract_field("repositoryId"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             virtual_repository_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRepositoryConfig").unwrap(),
+                o.extract_field("virtualRepositoryConfig"),
             ),
         }
     }

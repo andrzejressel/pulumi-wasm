@@ -81,39 +81,20 @@ pub mod vpc_block_public_access_options {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetGatewayBlockMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcBlockPublicAccessOptionsResult {
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             aws_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsRegion").unwrap(),
+                o.extract_field("awsRegion"),
             ),
             internet_gateway_block_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetGatewayBlockMode").unwrap(),
+                o.extract_field("internetGatewayBlockMode"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

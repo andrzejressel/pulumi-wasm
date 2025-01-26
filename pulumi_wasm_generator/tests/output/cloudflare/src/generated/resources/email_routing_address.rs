@@ -77,51 +77,22 @@ pub mod email_routing_address {
                     value: &email_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "created".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "modified".into(),
-                },
-                register_interface::ResultField {
-                    name: "tag".into(),
-                },
-                register_interface::ResultField {
-                    name: "verified".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EmailRoutingAddressResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("created").unwrap(),
+                o.extract_field("created"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modified").unwrap(),
+                o.extract_field("modified"),
             ),
-            tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tag").unwrap(),
-            ),
+            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
             verified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verified").unwrap(),
+                o.extract_field("verified"),
             ),
         }
     }

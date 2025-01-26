@@ -125,39 +125,18 @@ pub mod eventhub_namespace_disaster_recovery_config {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventhubNamespaceDisasterRecoveryConfigResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             partner_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerNamespaceId").unwrap(),
+                o.extract_field("partnerNamespaceId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

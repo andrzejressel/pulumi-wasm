@@ -142,45 +142,21 @@ pub mod integration_account_partner {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "businessIdentities".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationAccountPartnerResult {
             business_identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("businessIdentities").unwrap(),
+                o.extract_field("businessIdentities"),
             ),
             integration_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationAccountName").unwrap(),
+                o.extract_field("integrationAccountName"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

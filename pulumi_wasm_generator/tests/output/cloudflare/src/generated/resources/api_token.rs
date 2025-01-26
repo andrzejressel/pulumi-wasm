@@ -88,70 +88,30 @@ pub mod api_token {
                     value: &policies_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBefore".into(),
-                },
-                register_interface::ResultField {
-                    name: "policies".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiTokenResult {
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
             issued_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuedOn").unwrap(),
+                o.extract_field("issuedOn"),
             ),
             modified_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedOn").unwrap(),
+                o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBefore").unwrap(),
+                o.extract_field("notBefore"),
             ),
             policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policies").unwrap(),
+                o.extract_field("policies"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

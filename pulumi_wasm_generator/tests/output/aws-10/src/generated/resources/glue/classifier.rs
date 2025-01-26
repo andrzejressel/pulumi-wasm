@@ -198,45 +198,21 @@ pub mod classifier {
                     value: &xml_classifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "csvClassifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "grokClassifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "jsonClassifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "xmlClassifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClassifierResult {
             csv_classifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csvClassifier").unwrap(),
+                o.extract_field("csvClassifier"),
             ),
             grok_classifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grokClassifier").unwrap(),
+                o.extract_field("grokClassifier"),
             ),
             json_classifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jsonClassifier").unwrap(),
+                o.extract_field("jsonClassifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             xml_classifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xmlClassifier").unwrap(),
+                o.extract_field("xmlClassifier"),
             ),
         }
     }

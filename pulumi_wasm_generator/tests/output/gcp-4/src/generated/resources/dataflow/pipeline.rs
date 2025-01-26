@@ -274,93 +274,39 @@ pub mod pipeline {
                     value: &workload_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulerServiceAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "workload".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             job_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobCount").unwrap(),
+                o.extract_field("jobCount"),
             ),
             last_update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdateTime").unwrap(),
+                o.extract_field("lastUpdateTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipeline_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineSources").unwrap(),
+                o.extract_field("pipelineSources"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             schedule_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleInfo").unwrap(),
+                o.extract_field("scheduleInfo"),
             ),
             scheduler_service_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulerServiceAccountEmail").unwrap(),
+                o.extract_field("schedulerServiceAccountEmail"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             workload: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workload").unwrap(),
+                o.extract_field("workload"),
             ),
         }
     }

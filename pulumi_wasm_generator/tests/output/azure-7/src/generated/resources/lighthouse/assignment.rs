@@ -83,34 +83,14 @@ pub mod assignment {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "lighthouseDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentResult {
             lighthouse_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lighthouseDefinitionId").unwrap(),
+                o.extract_field("lighthouseDefinitionId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

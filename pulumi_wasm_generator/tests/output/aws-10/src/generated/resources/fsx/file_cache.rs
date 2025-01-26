@@ -232,124 +232,57 @@ pub mod file_cache {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToDataRepositoryAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataRepositoryAssociationIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataRepositoryAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileCacheId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileCacheType".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileCacheTypeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lustreConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FileCacheResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             copy_tags_to_data_repository_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToDataRepositoryAssociations").unwrap(),
+                o.extract_field("copyTagsToDataRepositoryAssociations"),
             ),
             data_repository_association_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataRepositoryAssociationIds").unwrap(),
+                o.extract_field("dataRepositoryAssociationIds"),
             ),
             data_repository_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataRepositoryAssociations").unwrap(),
+                o.extract_field("dataRepositoryAssociations"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             file_cache_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileCacheId").unwrap(),
+                o.extract_field("fileCacheId"),
             ),
             file_cache_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileCacheType").unwrap(),
+                o.extract_field("fileCacheType"),
             ),
             file_cache_type_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileCacheTypeVersion").unwrap(),
+                o.extract_field("fileCacheTypeVersion"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             lustre_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lustreConfigurations").unwrap(),
+                o.extract_field("lustreConfigurations"),
             ),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             storage_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacity").unwrap(),
+                o.extract_field("storageCapacity"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -86,27 +86,12 @@ pub mod default_object_acl {
                     value: &role_entities_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleEntities".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultObjectACLResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             role_entities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleEntities").unwrap(),
+                o.extract_field("roleEntities"),
             ),
         }
     }

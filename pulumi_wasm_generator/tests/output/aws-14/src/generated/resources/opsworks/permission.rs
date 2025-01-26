@@ -95,45 +95,21 @@ pub mod permission {
                     value: &user_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowSsh".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowSudo".into(),
-                },
-                register_interface::ResultField {
-                    name: "level".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionResult {
             allow_ssh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowSsh").unwrap(),
+                o.extract_field("allowSsh"),
             ),
             allow_sudo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowSudo").unwrap(),
+                o.extract_field("allowSudo"),
             ),
-            level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("level").unwrap(),
-            ),
+            level: pulumi_wasm_rust::__private::into_domain(o.extract_field("level")),
             stack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackId").unwrap(),
+                o.extract_field("stackId"),
             ),
             user_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userArn").unwrap(),
+                o.extract_field("userArn"),
             ),
         }
     }

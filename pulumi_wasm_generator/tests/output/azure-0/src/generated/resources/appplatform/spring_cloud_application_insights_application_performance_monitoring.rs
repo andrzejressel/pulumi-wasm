@@ -180,63 +180,30 @@ pub mod spring_cloud_application_insights_application_performance_monitoring {
                     value: &spring_cloud_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "globallyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingRequestsPerSecond".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             globally_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globallyEnabled").unwrap(),
+                o.extract_field("globallyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleInstance").unwrap(),
+                o.extract_field("roleInstance"),
             ),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
             sampling_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingPercentage").unwrap(),
+                o.extract_field("samplingPercentage"),
             ),
             sampling_requests_per_second: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingRequestsPerSecond").unwrap(),
+                o.extract_field("samplingRequestsPerSecond"),
             ),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
         }
     }

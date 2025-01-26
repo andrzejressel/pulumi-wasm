@@ -387,166 +387,72 @@ pub mod group {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containers".into(),
-                },
-                register_interface::ResultField {
-                    name: "diagnostics".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsNameLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsNameLabelReusePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "exposedPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageRegistryCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "initContainers".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultUserAssignedIdentityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restartPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
             containers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containers").unwrap(),
+                o.extract_field("containers"),
             ),
             diagnostics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diagnostics").unwrap(),
+                o.extract_field("diagnostics"),
             ),
             dns_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsConfig").unwrap(),
+                o.extract_field("dnsConfig"),
             ),
             dns_name_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsNameLabel").unwrap(),
+                o.extract_field("dnsNameLabel"),
             ),
             dns_name_label_reuse_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsNameLabelReusePolicy").unwrap(),
+                o.extract_field("dnsNameLabelReusePolicy"),
             ),
             exposed_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exposedPorts").unwrap(),
+                o.extract_field("exposedPorts"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             image_registry_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageRegistryCredentials").unwrap(),
+                o.extract_field("imageRegistryCredentials"),
             ),
             init_containers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initContainers").unwrap(),
+                o.extract_field("initContainers"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             key_vault_user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultUserAssignedIdentityId").unwrap(),
+                o.extract_field("keyVaultUserAssignedIdentityId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfileId").unwrap(),
+                o.extract_field("networkProfileId"),
             ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restart_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restartPolicy").unwrap(),
+                o.extract_field("restartPolicy"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

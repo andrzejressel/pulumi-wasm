@@ -78,56 +78,22 @@ pub mod get_coip_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCoipPoolResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayRouteTableId").unwrap(),
+                o.extract_field("localGatewayRouteTableId"),
             ),
             pool_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolCidrs").unwrap(),
+                o.extract_field("poolCidrs"),
             ),
-            pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolId").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            pool_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("poolId")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -101,51 +101,24 @@ pub mod ingestion {
                     value: &ingestion_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestionType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IngestionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             data_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSetId").unwrap(),
+                o.extract_field("dataSetId"),
             ),
             ingestion_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestionId").unwrap(),
+                o.extract_field("ingestionId"),
             ),
             ingestion_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestionStatus").unwrap(),
+                o.extract_field("ingestionStatus"),
             ),
             ingestion_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestionType").unwrap(),
+                o.extract_field("ingestionType"),
             ),
         }
     }

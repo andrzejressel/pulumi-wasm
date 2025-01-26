@@ -206,63 +206,28 @@ pub mod scheduled_action {
                     value: &target_action_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enable".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetAction".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduledActionResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            enable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enable").unwrap(),
-            ),
+            enable: pulumi_wasm_rust::__private::into_domain(o.extract_field("enable")),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             iam_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRole").unwrap(),
+                o.extract_field("iamRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             target_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetAction").unwrap(),
+                o.extract_field("targetAction"),
             ),
         }
     }

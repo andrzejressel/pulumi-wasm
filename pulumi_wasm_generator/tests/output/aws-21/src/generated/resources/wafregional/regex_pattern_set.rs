@@ -73,27 +73,12 @@ pub mod regex_pattern_set {
                     value: &regex_pattern_strings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "regexPatternStrings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegexPatternSetResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             regex_pattern_strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regexPatternStrings").unwrap(),
+                o.extract_field("regexPatternStrings"),
             ),
         }
     }

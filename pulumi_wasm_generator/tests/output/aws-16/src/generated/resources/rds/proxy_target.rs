@@ -153,76 +153,35 @@ pub mod proxy_target {
                     value: &target_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dbClusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbInstanceIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbProxyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "rdsResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackedClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProxyTargetResult {
             db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterIdentifier").unwrap(),
+                o.extract_field("dbClusterIdentifier"),
             ),
             db_instance_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbInstanceIdentifier").unwrap(),
+                o.extract_field("dbInstanceIdentifier"),
             ),
             db_proxy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbProxyName").unwrap(),
+                o.extract_field("dbProxyName"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             rds_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rdsResourceId").unwrap(),
+                o.extract_field("rdsResourceId"),
             ),
             target_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetArn").unwrap(),
+                o.extract_field("targetArn"),
             ),
             target_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetGroupName").unwrap(),
+                o.extract_field("targetGroupName"),
             ),
             tracked_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackedClusterId").unwrap(),
+                o.extract_field("trackedClusterId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

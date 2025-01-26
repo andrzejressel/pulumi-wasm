@@ -295,130 +295,58 @@ pub mod waiting_room {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "cookieSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "customPageHtml".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTemplateLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableSessionRenewal".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledOriginCommands".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "jsonResponseEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "newUsersPerMinute".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueingMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueingStatusCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "suspended".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalActiveUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WaitingRoomResult {
             additional_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalRoutes").unwrap(),
+                o.extract_field("additionalRoutes"),
             ),
             cookie_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cookieSuffix").unwrap(),
+                o.extract_field("cookieSuffix"),
             ),
             custom_page_html: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customPageHtml").unwrap(),
+                o.extract_field("customPageHtml"),
             ),
             default_template_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTemplateLanguage").unwrap(),
+                o.extract_field("defaultTemplateLanguage"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_session_renewal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableSessionRenewal").unwrap(),
+                o.extract_field("disableSessionRenewal"),
             ),
             enabled_origin_commands: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledOriginCommands").unwrap(),
+                o.extract_field("enabledOriginCommands"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             json_response_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jsonResponseEnabled").unwrap(),
+                o.extract_field("jsonResponseEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             new_users_per_minute: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("newUsersPerMinute").unwrap(),
+                o.extract_field("newUsersPerMinute"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             queue_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueAll").unwrap(),
+                o.extract_field("queueAll"),
             ),
             queueing_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueingMethod").unwrap(),
+                o.extract_field("queueingMethod"),
             ),
             queueing_status_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueingStatusCode").unwrap(),
+                o.extract_field("queueingStatusCode"),
             ),
             session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionDuration").unwrap(),
+                o.extract_field("sessionDuration"),
             ),
             suspended: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suspended").unwrap(),
+                o.extract_field("suspended"),
             ),
             total_active_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalActiveUsers").unwrap(),
+                o.extract_field("totalActiveUsers"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

@@ -63,68 +63,26 @@ pub mod get_variables {
                     value: &automation_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bools".into(),
-                },
-                register_interface::ResultField {
-                    name: "datetimes".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypteds".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ints".into(),
-                },
-                register_interface::ResultField {
-                    name: "nulls".into(),
-                },
-                register_interface::ResultField {
-                    name: "objects".into(),
-                },
-                register_interface::ResultField {
-                    name: "strings".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVariablesResult {
             automation_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountId").unwrap(),
+                o.extract_field("automationAccountId"),
             ),
-            bools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bools").unwrap(),
-            ),
+            bools: pulumi_wasm_rust::__private::into_domain(o.extract_field("bools")),
             datetimes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datetimes").unwrap(),
+                o.extract_field("datetimes"),
             ),
             encrypteds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypteds").unwrap(),
+                o.extract_field("encrypteds"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ints").unwrap(),
-            ),
-            nulls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nulls").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ints: pulumi_wasm_rust::__private::into_domain(o.extract_field("ints")),
+            nulls: pulumi_wasm_rust::__private::into_domain(o.extract_field("nulls")),
             objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objects").unwrap(),
+                o.extract_field("objects"),
             ),
-            strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("strings").unwrap(),
-            ),
+            strings: pulumi_wasm_rust::__private::into_domain(o.extract_field("strings")),
         }
     }
 }

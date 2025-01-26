@@ -95,34 +95,16 @@ pub mod access_point_policy {
                     value: &policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasPublicAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessPointPolicyResult {
             access_point_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPointArn").unwrap(),
+                o.extract_field("accessPointArn"),
             ),
             has_public_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasPublicAccessPolicy").unwrap(),
+                o.extract_field("hasPublicAccessPolicy"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
         }
     }
 }

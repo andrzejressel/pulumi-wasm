@@ -230,81 +230,37 @@ pub mod security_scan_config {
                     value: &user_agent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "blacklistPatterns".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportToSecurityCommandCenter".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxQps".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "startingUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetPlatforms".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAgent".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecurityScanConfigResult {
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             blacklist_patterns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blacklistPatterns").unwrap(),
+                o.extract_field("blacklistPatterns"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             export_to_security_command_center: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportToSecurityCommandCenter").unwrap(),
+                o.extract_field("exportToSecurityCommandCenter"),
             ),
-            max_qps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxQps").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            max_qps: pulumi_wasm_rust::__private::into_domain(o.extract_field("maxQps")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             starting_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startingUrls").unwrap(),
+                o.extract_field("startingUrls"),
             ),
             target_platforms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetPlatforms").unwrap(),
+                o.extract_field("targetPlatforms"),
             ),
             user_agent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAgent").unwrap(),
+                o.extract_field("userAgent"),
             ),
         }
     }

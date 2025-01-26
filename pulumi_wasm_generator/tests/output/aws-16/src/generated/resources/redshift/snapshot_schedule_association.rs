@@ -93,27 +93,14 @@ pub mod snapshot_schedule_association {
                     value: &schedule_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotScheduleAssociationResult {
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             schedule_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleIdentifier").unwrap(),
+                o.extract_field("scheduleIdentifier"),
             ),
         }
     }

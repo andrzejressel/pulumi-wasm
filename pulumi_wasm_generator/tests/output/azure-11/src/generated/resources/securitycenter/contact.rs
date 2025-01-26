@@ -112,46 +112,18 @@ pub mod contact {
                     value: &phone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alertNotifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "alertsToAdmins".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "phone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactResult {
             alert_notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertNotifications").unwrap(),
+                o.extract_field("alertNotifications"),
             ),
             alerts_to_admins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertsToAdmins").unwrap(),
+                o.extract_field("alertsToAdmins"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            phone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phone").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            phone: pulumi_wasm_rust::__private::into_domain(o.extract_field("phone")),
         }
     }
 }

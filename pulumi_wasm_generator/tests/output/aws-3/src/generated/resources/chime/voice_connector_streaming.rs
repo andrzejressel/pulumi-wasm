@@ -191,45 +191,23 @@ pub mod voice_connector_streaming {
                     value: &voice_connector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataRetention".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "mediaInsightsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingNotificationTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceConnectorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VoiceConnectorStreamingResult {
             data_retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataRetention").unwrap(),
+                o.extract_field("dataRetention"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             media_insights_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mediaInsightsConfiguration").unwrap(),
+                o.extract_field("mediaInsightsConfiguration"),
             ),
             streaming_notification_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingNotificationTargets").unwrap(),
+                o.extract_field("streamingNotificationTargets"),
             ),
             voice_connector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceConnectorId").unwrap(),
+                o.extract_field("voiceConnectorId"),
             ),
         }
     }

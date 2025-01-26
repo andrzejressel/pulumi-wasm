@@ -300,123 +300,58 @@ pub mod linked_service_azure_blob_storage {
                     value: &use_managed_identity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStringInsecure".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationRuntimeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSasToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipalKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipalLinkedKeyVaultKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageKind".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "useManagedIdentity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LinkedServiceAzureBlobStorageResult {
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             connection_string_insecure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStringInsecure").unwrap(),
+                o.extract_field("connectionStringInsecure"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationRuntimeName").unwrap(),
+                o.extract_field("integrationRuntimeName"),
             ),
             key_vault_sas_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSasToken").unwrap(),
+                o.extract_field("keyVaultSasToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
-            sas_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasUri").unwrap(),
-            ),
+            sas_uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("sasUri")),
             service_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpoint").unwrap(),
+                o.extract_field("serviceEndpoint"),
             ),
             service_principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipalId").unwrap(),
+                o.extract_field("servicePrincipalId"),
             ),
             service_principal_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipalKey").unwrap(),
+                o.extract_field("servicePrincipalKey"),
             ),
             service_principal_linked_key_vault_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipalLinkedKeyVaultKey").unwrap(),
+                o.extract_field("servicePrincipalLinkedKeyVaultKey"),
             ),
             storage_kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageKind").unwrap(),
+                o.extract_field("storageKind"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
             use_managed_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useManagedIdentity").unwrap(),
+                o.extract_field("useManagedIdentity"),
             ),
         }
     }

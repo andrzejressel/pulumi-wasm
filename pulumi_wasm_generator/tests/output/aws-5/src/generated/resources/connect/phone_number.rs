@@ -164,76 +164,31 @@ pub mod phone_number {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "countryCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PhoneNumberResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             country_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("countryCode").unwrap(),
+                o.extract_field("countryCode"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetArn").unwrap(),
+                o.extract_field("targetArn"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

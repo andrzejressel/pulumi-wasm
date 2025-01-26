@@ -49,73 +49,32 @@ pub mod get_namespace {
                     value: &namespace_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultIamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoles".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNamespaceResult {
             admin_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsername").unwrap(),
+                o.extract_field("adminUsername"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            db_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbName").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            db_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbName")),
             default_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultIamRoleArn").unwrap(),
+                o.extract_field("defaultIamRoleArn"),
             ),
             iam_roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoles").unwrap(),
+                o.extract_field("iamRoles"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             log_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logExports").unwrap(),
+                o.extract_field("logExports"),
             ),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
         }
     }

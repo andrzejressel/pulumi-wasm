@@ -43,55 +43,23 @@ pub mod get_configuration {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverProperties".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kafka_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaVersions").unwrap(),
+                o.extract_field("kafkaVersions"),
             ),
             latest_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestRevision").unwrap(),
+                o.extract_field("latestRevision"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             server_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverProperties").unwrap(),
+                o.extract_field("serverProperties"),
             ),
         }
     }

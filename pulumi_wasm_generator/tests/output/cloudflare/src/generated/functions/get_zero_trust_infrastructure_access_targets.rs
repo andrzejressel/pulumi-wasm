@@ -114,73 +114,32 @@ pub mod get_zero_trust_infrastructure_access_targets {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnameContains".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetZeroTrustInfrastructureAccessTargetsResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             created_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAfter").unwrap(),
+                o.extract_field("createdAfter"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             hostname_contains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnameContains").unwrap(),
+                o.extract_field("hostnameContains"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4").unwrap(),
-            ),
-            ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ipv4: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipv4")),
+            ipv6: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipv6")),
             modified_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedAfter").unwrap(),
+                o.extract_field("modifiedAfter"),
             ),
             targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
+                o.extract_field("targets"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

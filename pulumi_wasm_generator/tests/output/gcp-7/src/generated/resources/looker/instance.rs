@@ -574,171 +574,82 @@ pub mod instance {
                     value: &user_metadata_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "denyMaintenancePeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "egressPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "fipsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressPrivateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "lookerUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "lookerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oauthConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformEdition".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "userMetadata".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             admin_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminSettings").unwrap(),
+                o.extract_field("adminSettings"),
             ),
             consumer_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerNetwork").unwrap(),
+                o.extract_field("consumerNetwork"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             custom_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomain").unwrap(),
+                o.extract_field("customDomain"),
             ),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             deny_maintenance_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("denyMaintenancePeriod").unwrap(),
+                o.extract_field("denyMaintenancePeriod"),
             ),
             egress_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressPublicIp").unwrap(),
+                o.extract_field("egressPublicIp"),
             ),
             encryption_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfig").unwrap(),
+                o.extract_field("encryptionConfig"),
             ),
             fips_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fipsEnabled").unwrap(),
+                o.extract_field("fipsEnabled"),
             ),
             ingress_private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressPrivateIp").unwrap(),
+                o.extract_field("ingressPrivateIp"),
             ),
             ingress_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressPublicIp").unwrap(),
+                o.extract_field("ingressPublicIp"),
             ),
             looker_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lookerUri").unwrap(),
+                o.extract_field("lookerUri"),
             ),
             looker_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lookerVersion").unwrap(),
+                o.extract_field("lookerVersion"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             oauth_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oauthConfig").unwrap(),
+                o.extract_field("oauthConfig"),
             ),
             platform_edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformEdition").unwrap(),
+                o.extract_field("platformEdition"),
             ),
             private_ip_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpEnabled").unwrap(),
+                o.extract_field("privateIpEnabled"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConfig").unwrap(),
+                o.extract_field("pscConfig"),
             ),
             psc_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscEnabled").unwrap(),
+                o.extract_field("pscEnabled"),
             ),
             public_ip_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpEnabled").unwrap(),
+                o.extract_field("publicIpEnabled"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             reserved_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedRange").unwrap(),
+                o.extract_field("reservedRange"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             user_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userMetadata").unwrap(),
+                o.extract_field("userMetadata"),
             ),
         }
     }

@@ -232,75 +232,34 @@ pub mod point_to_point_vpn_gateway {
                     value: &vpn_server_configuration_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingPreferenceInternetEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "scaleUnit".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnServerConfigurationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PointToPointVpnGatewayResult {
             connection_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionConfigurations").unwrap(),
+                o.extract_field("connectionConfigurations"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             routing_preference_internet_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingPreferenceInternetEnabled").unwrap(),
+                o.extract_field("routingPreferenceInternetEnabled"),
             ),
             scale_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scaleUnit").unwrap(),
+                o.extract_field("scaleUnit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
             vpn_server_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnServerConfigurationId").unwrap(),
+                o.extract_field("vpnServerConfigurationId"),
             ),
         }
     }

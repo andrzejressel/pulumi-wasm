@@ -130,176 +130,80 @@ pub mod get_pool {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScales".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "fixedScales".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "interNodeCommunication".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxTasksPerNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "mounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeAgentSkuId".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePlacements".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDiskPlacement".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTasks".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageImageReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskSchedulingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "windows".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPoolResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             auto_scales: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScales").unwrap(),
+                o.extract_field("autoScales"),
             ),
             certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificates").unwrap(),
+                o.extract_field("certificates"),
             ),
             container_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerConfigurations").unwrap(),
+                o.extract_field("containerConfigurations"),
             ),
             data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDisks").unwrap(),
+                o.extract_field("dataDisks"),
             ),
             disk_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptions").unwrap(),
+                o.extract_field("diskEncryptions"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensions").unwrap(),
+                o.extract_field("extensions"),
             ),
             fixed_scales: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fixedScales").unwrap(),
+                o.extract_field("fixedScales"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inter_node_communication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interNodeCommunication").unwrap(),
+                o.extract_field("interNodeCommunication"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             max_tasks_per_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxTasksPerNode").unwrap(),
+                o.extract_field("maxTasksPerNode"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            mounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mounts").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mounts: pulumi_wasm_rust::__private::into_domain(o.extract_field("mounts")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfigurations").unwrap(),
+                o.extract_field("networkConfigurations"),
             ),
             node_agent_sku_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeAgentSkuId").unwrap(),
+                o.extract_field("nodeAgentSkuId"),
             ),
             node_placements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePlacements").unwrap(),
+                o.extract_field("nodePlacements"),
             ),
             os_disk_placement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDiskPlacement").unwrap(),
+                o.extract_field("osDiskPlacement"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             start_tasks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTasks").unwrap(),
+                o.extract_field("startTasks"),
             ),
             storage_image_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageImageReferences").unwrap(),
+                o.extract_field("storageImageReferences"),
             ),
             task_scheduling_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskSchedulingPolicies").unwrap(),
+                o.extract_field("taskSchedulingPolicies"),
             ),
             user_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAccounts").unwrap(),
+                o.extract_field("userAccounts"),
             ),
-            vm_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmSize").unwrap(),
-            ),
-            windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windows").unwrap(),
-            ),
+            vm_size: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmSize")),
+            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
         }
     }
 }

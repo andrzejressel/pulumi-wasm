@@ -167,81 +167,37 @@ pub mod vpc_peering_connection_accepter {
                     value: &vpc_peering_connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "accepter".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAccept".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerOwnerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerVpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "requester".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcPeeringConnectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcPeeringConnectionAccepterResult {
             accept_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptStatus").unwrap(),
+                o.extract_field("acceptStatus"),
             ),
             accepter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accepter").unwrap(),
+                o.extract_field("accepter"),
             ),
             auto_accept: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAccept").unwrap(),
+                o.extract_field("autoAccept"),
             ),
             peer_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerOwnerId").unwrap(),
+                o.extract_field("peerOwnerId"),
             ),
             peer_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerRegion").unwrap(),
+                o.extract_field("peerRegion"),
             ),
             peer_vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerVpcId").unwrap(),
+                o.extract_field("peerVpcId"),
             ),
             requester: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requester").unwrap(),
+                o.extract_field("requester"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpc_peering_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcPeeringConnectionId").unwrap(),
+                o.extract_field("vpcPeeringConnectionId"),
             ),
         }
     }

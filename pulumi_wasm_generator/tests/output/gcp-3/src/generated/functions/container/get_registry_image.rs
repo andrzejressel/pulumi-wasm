@@ -71,54 +71,20 @@ pub mod get_registry_image {
                     value: &tag_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "digest".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "tag".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegistryImageResult {
-            digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digest").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            digest: pulumi_wasm_rust::__private::into_domain(o.extract_field("digest")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageUrl").unwrap(),
+                o.extract_field("imageUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            tag: pulumi_wasm_rust::__private::into_domain(hashmap.remove("tag").unwrap()),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
         }
     }
 }

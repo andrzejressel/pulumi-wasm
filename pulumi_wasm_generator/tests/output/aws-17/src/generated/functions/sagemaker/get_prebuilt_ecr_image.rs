@@ -67,55 +67,25 @@ pub mod get_prebuilt_ecr_image {
                     value: &repository_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPrebuiltEcrImageResult {
             dns_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSuffix").unwrap(),
+                o.extract_field("dnsSuffix"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTag").unwrap(),
+                o.extract_field("imageTag"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             registry_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryPath").unwrap(),
+                o.extract_field("registryPath"),
             ),
             repository_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryName").unwrap(),
+                o.extract_field("repositoryName"),
             ),
         }
     }

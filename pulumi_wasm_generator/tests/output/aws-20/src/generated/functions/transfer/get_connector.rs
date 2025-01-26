@@ -53,72 +53,31 @@ pub mod get_connector {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "as2Configs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceManagedEgressIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "sftpConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConnectorResult {
             access_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessRole").unwrap(),
+                o.extract_field("accessRole"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             as2_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("as2Configs").unwrap(),
+                o.extract_field("as2Configs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             logging_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingRole").unwrap(),
+                o.extract_field("loggingRole"),
             ),
             security_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPolicyName").unwrap(),
+                o.extract_field("securityPolicyName"),
             ),
             service_managed_egress_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceManagedEgressIpAddresses").unwrap(),
+                o.extract_field("serviceManagedEgressIpAddresses"),
             ),
             sftp_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sftpConfigs").unwrap(),
+                o.extract_field("sftpConfigs"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

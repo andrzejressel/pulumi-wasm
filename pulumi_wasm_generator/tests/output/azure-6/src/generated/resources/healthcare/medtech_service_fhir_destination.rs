@@ -207,52 +207,25 @@ pub mod medtech_service_fhir_destination {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationFhirMappingJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationFhirServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationIdentityResolutionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "medtechServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MedtechServiceFhirDestinationResult {
             destination_fhir_mapping_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationFhirMappingJson").unwrap(),
+                o.extract_field("destinationFhirMappingJson"),
             ),
             destination_fhir_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationFhirServiceId").unwrap(),
+                o.extract_field("destinationFhirServiceId"),
             ),
             destination_identity_resolution_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationIdentityResolutionType").unwrap(),
+                o.extract_field("destinationIdentityResolutionType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             medtech_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("medtechServiceId").unwrap(),
+                o.extract_field("medtechServiceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

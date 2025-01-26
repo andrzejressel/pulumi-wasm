@@ -218,105 +218,45 @@ pub mod stage {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLogSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoDeploy".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "invokeUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StageResult {
             access_log_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLogSettings").unwrap(),
+                o.extract_field("accessLogSettings"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_deploy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoDeploy").unwrap(),
+                o.extract_field("autoDeploy"),
             ),
             client_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateId").unwrap(),
+                o.extract_field("clientCertificateId"),
             ),
             default_route_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteSettings").unwrap(),
+                o.extract_field("defaultRouteSettings"),
             ),
             deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentId").unwrap(),
+                o.extract_field("deploymentId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
             invoke_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invokeUrl").unwrap(),
+                o.extract_field("invokeUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             route_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeSettings").unwrap(),
+                o.extract_field("routeSettings"),
             ),
             stage_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageVariables").unwrap(),
+                o.extract_field("stageVariables"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -264,40 +264,13 @@ pub mod bucket_replication_config {
                     value: &token_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "token".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketReplicationConfigResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
-            token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("token").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

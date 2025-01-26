@@ -184,69 +184,33 @@ pub mod subscription_policy_remediation {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "failurePercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parallelDeployments".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyAssignmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceDiscoveryMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionPolicyRemediationResult {
             failure_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failurePercentage").unwrap(),
+                o.extract_field("failurePercentage"),
             ),
             location_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationFilters").unwrap(),
+                o.extract_field("locationFilters"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parallel_deployments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parallelDeployments").unwrap(),
+                o.extract_field("parallelDeployments"),
             ),
             policy_assignment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyAssignmentId").unwrap(),
+                o.extract_field("policyAssignmentId"),
             ),
             policy_definition_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionReferenceId").unwrap(),
+                o.extract_field("policyDefinitionReferenceId"),
             ),
             resource_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceCount").unwrap(),
+                o.extract_field("resourceCount"),
             ),
             resource_discovery_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceDiscoveryMode").unwrap(),
+                o.extract_field("resourceDiscoveryMode"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
         }
     }

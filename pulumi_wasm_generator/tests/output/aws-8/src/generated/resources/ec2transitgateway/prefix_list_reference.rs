@@ -131,45 +131,23 @@ pub mod prefix_list_reference {
                     value: &transit_gateway_route_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blackhole".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixListOwnerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayRouteTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrefixListReferenceResult {
             blackhole: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blackhole").unwrap(),
+                o.extract_field("blackhole"),
             ),
             prefix_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixListId").unwrap(),
+                o.extract_field("prefixListId"),
             ),
             prefix_list_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixListOwnerId").unwrap(),
+                o.extract_field("prefixListOwnerId"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayRouteTableId").unwrap(),
+                o.extract_field("transitGatewayRouteTableId"),
             ),
         }
     }

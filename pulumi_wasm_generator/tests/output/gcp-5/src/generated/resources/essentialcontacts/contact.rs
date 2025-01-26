@@ -126,46 +126,18 @@ pub mod contact {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationCategorySubscriptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactResult {
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             language_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageTag").unwrap(),
+                o.extract_field("languageTag"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_category_subscriptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationCategorySubscriptions").unwrap(),
+                o.extract_field("notificationCategorySubscriptions"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
         }
     }
 }

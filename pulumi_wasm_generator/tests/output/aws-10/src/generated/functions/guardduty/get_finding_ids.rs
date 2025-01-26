@@ -36,38 +36,19 @@ pub mod get_finding_ids {
                     value: &detector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "detectorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "findingIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasFindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFindingIdsResult {
             detector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectorId").unwrap(),
+                o.extract_field("detectorId"),
             ),
             finding_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("findingIds").unwrap(),
+                o.extract_field("findingIds"),
             ),
             has_findings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasFindings").unwrap(),
+                o.extract_field("hasFindings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

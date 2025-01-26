@@ -37,38 +37,13 @@ pub mod get_user_pools {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arns".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ids".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUserPoolsResult {
-            arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arns").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ids").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

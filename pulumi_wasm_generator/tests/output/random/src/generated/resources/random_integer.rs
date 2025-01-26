@@ -106,46 +106,16 @@ pub mod random_integer {
                     value: &seed_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "max".into(),
-                },
-                register_interface::ResultField {
-                    name: "min".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-                register_interface::ResultField {
-                    name: "seed".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomIntegerResult {
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            max: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("max").unwrap(),
-            ),
-            min: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("min").unwrap(),
-            ),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
-            seed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("seed").unwrap(),
-            ),
+            max: pulumi_wasm_rust::__private::into_domain(o.extract_field("max")),
+            min: pulumi_wasm_rust::__private::into_domain(o.extract_field("min")),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
+            seed: pulumi_wasm_rust::__private::into_domain(o.extract_field("seed")),
         }
     }
 }

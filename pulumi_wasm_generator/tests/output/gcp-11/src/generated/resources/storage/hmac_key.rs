@@ -138,58 +138,24 @@ pub mod hmac_key {
                     value: &state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "updated".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HmacKeyResult {
             access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessId").unwrap(),
+                o.extract_field("accessId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
             service_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountEmail").unwrap(),
+                o.extract_field("serviceAccountEmail"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             time_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeCreated").unwrap(),
+                o.extract_field("timeCreated"),
             ),
-            updated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updated").unwrap(),
-            ),
+            updated: pulumi_wasm_rust::__private::into_domain(o.extract_field("updated")),
         }
     }
 }

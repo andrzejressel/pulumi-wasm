@@ -377,81 +377,37 @@ pub mod security_policy_rule {
                     value: &security_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "headerAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "preconfiguredWafConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "preview".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "rateLimitOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecurityPolicyRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             header_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headerAction").unwrap(),
+                o.extract_field("headerAction"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
             preconfigured_waf_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preconfiguredWafConfig").unwrap(),
+                o.extract_field("preconfiguredWafConfig"),
             ),
             preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preview").unwrap(),
+                o.extract_field("preview"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             rate_limit_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rateLimitOptions").unwrap(),
+                o.extract_field("rateLimitOptions"),
             ),
             redirect_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectOptions").unwrap(),
+                o.extract_field("redirectOptions"),
             ),
             security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPolicy").unwrap(),
+                o.extract_field("securityPolicy"),
             ),
         }
     }

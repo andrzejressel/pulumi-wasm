@@ -63,104 +63,46 @@ pub mod get_static_web_app {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "basicAuths".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationFileChangesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "previewEnvironmentsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetStaticWebAppResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKey").unwrap(),
-            ),
+            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
             app_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSettings").unwrap(),
+                o.extract_field("appSettings"),
             ),
             basic_auths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicAuths").unwrap(),
+                o.extract_field("basicAuths"),
             ),
             configuration_file_changes_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationFileChangesEnabled").unwrap(),
+                o.extract_field("configurationFileChangesEnabled"),
             ),
             default_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostName").unwrap(),
+                o.extract_field("defaultHostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preview_environments_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("previewEnvironmentsEnabled").unwrap(),
+                o.extract_field("previewEnvironmentsEnabled"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuSize").unwrap(),
+                o.extract_field("skuSize"),
             ),
             sku_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuTier").unwrap(),
+                o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -512,177 +512,79 @@ pub mod project {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "artifacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "badgeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "badgeUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildBatchConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "cache".into(),
-                },
-                register_interface::ResultField {
-                    name: "concurrentBuildLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "logsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectVisibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicProjectAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "queuedTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceAccessRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryArtifacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondarySourceVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondarySources".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             artifacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifacts").unwrap(),
+                o.extract_field("artifacts"),
             ),
             badge_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("badgeEnabled").unwrap(),
+                o.extract_field("badgeEnabled"),
             ),
             badge_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("badgeUrl").unwrap(),
+                o.extract_field("badgeUrl"),
             ),
             build_batch_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildBatchConfig").unwrap(),
+                o.extract_field("buildBatchConfig"),
             ),
             build_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildTimeout").unwrap(),
+                o.extract_field("buildTimeout"),
             ),
-            cache: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cache").unwrap(),
-            ),
+            cache: pulumi_wasm_rust::__private::into_domain(o.extract_field("cache")),
             concurrent_build_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("concurrentBuildLimit").unwrap(),
+                o.extract_field("concurrentBuildLimit"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKey").unwrap(),
+                o.extract_field("encryptionKey"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
             file_system_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemLocations").unwrap(),
+                o.extract_field("fileSystemLocations"),
             ),
             logs_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logsConfig").unwrap(),
+                o.extract_field("logsConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectVisibility").unwrap(),
+                o.extract_field("projectVisibility"),
             ),
             public_project_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicProjectAlias").unwrap(),
+                o.extract_field("publicProjectAlias"),
             ),
             queued_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queuedTimeout").unwrap(),
+                o.extract_field("queuedTimeout"),
             ),
             resource_access_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceAccessRole").unwrap(),
+                o.extract_field("resourceAccessRole"),
             ),
             secondary_artifacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryArtifacts").unwrap(),
+                o.extract_field("secondaryArtifacts"),
             ),
             secondary_source_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondarySourceVersions").unwrap(),
+                o.extract_field("secondarySourceVersions"),
             ),
             secondary_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondarySources").unwrap(),
+                o.extract_field("secondarySources"),
             ),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             source_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVersion").unwrap(),
+                o.extract_field("sourceVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

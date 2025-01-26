@@ -48,44 +48,18 @@ pub mod get_apple_app_config {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configFileContents".into(),
-                },
-                register_interface::ResultField {
-                    name: "configFilename".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAppleAppConfigResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
             config_file_contents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configFileContents").unwrap(),
+                o.extract_field("configFileContents"),
             ),
             config_filename: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configFilename").unwrap(),
+                o.extract_field("configFilename"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

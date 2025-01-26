@@ -238,45 +238,19 @@ pub mod key_handle {
                     value: &resource_type_selector_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypeSelector".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyHandleResult {
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             resource_type_selector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypeSelector").unwrap(),
+                o.extract_field("resourceTypeSelector"),
             ),
         }
     }

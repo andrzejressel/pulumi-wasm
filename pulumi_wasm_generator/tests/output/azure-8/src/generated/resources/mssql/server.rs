@@ -376,118 +376,54 @@ pub mod server {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorLoginPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureadAdministrator".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullyQualifiedDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundNetworkRestrictionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryUserAssignedIdentityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorableDroppedDatabaseIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             administrator_login_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLoginPassword").unwrap(),
+                o.extract_field("administratorLoginPassword"),
             ),
             azuread_administrator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureadAdministrator").unwrap(),
+                o.extract_field("azureadAdministrator"),
             ),
             connection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionPolicy").unwrap(),
+                o.extract_field("connectionPolicy"),
             ),
             fully_qualified_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullyQualifiedDomainName").unwrap(),
+                o.extract_field("fullyQualifiedDomainName"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumTlsVersion").unwrap(),
+                o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_network_restriction_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundNetworkRestrictionEnabled").unwrap(),
+                o.extract_field("outboundNetworkRestrictionEnabled"),
             ),
             primary_user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryUserAssignedIdentityId").unwrap(),
+                o.extract_field("primaryUserAssignedIdentityId"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restorable_dropped_database_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorableDroppedDatabaseIds").unwrap(),
+                o.extract_field("restorableDroppedDatabaseIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionKeyVaultKeyId").unwrap(),
+                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

@@ -110,33 +110,17 @@ pub mod policy {
                     value: &xml_link_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "xmlContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "xmlLink".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
             xml_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xmlContent").unwrap(),
+                o.extract_field("xmlContent"),
             ),
             xml_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xmlLink").unwrap(),
+                o.extract_field("xmlLink"),
             ),
         }
     }

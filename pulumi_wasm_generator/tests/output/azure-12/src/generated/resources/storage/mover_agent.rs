@@ -129,45 +129,21 @@ pub mod mover_agent {
                     value: &storage_mover_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arcVirtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arcVirtualMachineUuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMoverId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MoverAgentResult {
             arc_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arcVirtualMachineId").unwrap(),
+                o.extract_field("arcVirtualMachineId"),
             ),
             arc_virtual_machine_uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arcVirtualMachineUuid").unwrap(),
+                o.extract_field("arcVirtualMachineUuid"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             storage_mover_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMoverId").unwrap(),
+                o.extract_field("storageMoverId"),
             ),
         }
     }

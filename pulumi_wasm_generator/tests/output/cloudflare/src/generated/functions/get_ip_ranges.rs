@@ -25,49 +25,24 @@ pub mod get_ip_ranges {
             token: "cloudflare:index/getIpRanges:getIpRanges".into(),
             version: super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "chinaIpv4CidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "chinaIpv6CidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4CidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlocks".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIpRangesResult {
             china_ipv4_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chinaIpv4CidrBlocks").unwrap(),
+                o.extract_field("chinaIpv4CidrBlocks"),
             ),
             china_ipv6_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chinaIpv6CidrBlocks").unwrap(),
+                o.extract_field("chinaIpv6CidrBlocks"),
             ),
             cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocks").unwrap(),
+                o.extract_field("cidrBlocks"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv4_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4CidrBlocks").unwrap(),
+                o.extract_field("ipv4CidrBlocks"),
             ),
             ipv6_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlocks").unwrap(),
+                o.extract_field("ipv6CidrBlocks"),
             ),
         }
     }

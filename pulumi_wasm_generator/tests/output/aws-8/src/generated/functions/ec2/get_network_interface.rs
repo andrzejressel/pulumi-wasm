@@ -93,134 +93,61 @@ pub mod get_network_interface {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associations".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "interfaceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "macAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkInterfaceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associations").unwrap(),
+                o.extract_field("associations"),
             ),
             attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachments").unwrap(),
+                o.extract_field("attachments"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             interface_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interfaceType").unwrap(),
+                o.extract_field("interfaceType"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
             mac_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macAddress").unwrap(),
+                o.extract_field("macAddress"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             private_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsName").unwrap(),
+                o.extract_field("privateDnsName"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             private_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIps").unwrap(),
+                o.extract_field("privateIps"),
             ),
             requester_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterId").unwrap(),
+                o.extract_field("requesterId"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

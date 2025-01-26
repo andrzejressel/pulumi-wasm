@@ -164,57 +164,23 @@ pub mod deployment {
                     value: &version_upgrade_option_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cognitiveAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamicThrottlingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "model".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "raiPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionUpgradeOption".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitiveAccountId").unwrap(),
+                o.extract_field("cognitiveAccountId"),
             ),
             dynamic_throttling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamicThrottlingEnabled").unwrap(),
+                o.extract_field("dynamicThrottlingEnabled"),
             ),
-            model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("model").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            model: pulumi_wasm_rust::__private::into_domain(o.extract_field("model")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rai_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("raiPolicyName").unwrap(),
+                o.extract_field("raiPolicyName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             version_upgrade_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionUpgradeOption").unwrap(),
+                o.extract_field("versionUpgradeOption"),
             ),
         }
     }

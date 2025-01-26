@@ -271,63 +271,30 @@ pub mod access_level_condition {
                     value: &vpc_network_sources_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "devicePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipSubnetworks".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "negate".into(),
-                },
-                register_interface::ResultField {
-                    name: "regions".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiredAccessLevels".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcNetworkSources".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessLevelConditionResult {
             access_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLevel").unwrap(),
+                o.extract_field("accessLevel"),
             ),
             device_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devicePolicy").unwrap(),
+                o.extract_field("devicePolicy"),
             ),
             ip_subnetworks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipSubnetworks").unwrap(),
+                o.extract_field("ipSubnetworks"),
             ),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
-            negate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("negate").unwrap(),
-            ),
+            negate: pulumi_wasm_rust::__private::into_domain(o.extract_field("negate")),
             regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regions").unwrap(),
+                o.extract_field("regions"),
             ),
             required_access_levels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiredAccessLevels").unwrap(),
+                o.extract_field("requiredAccessLevels"),
             ),
             vpc_network_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcNetworkSources").unwrap(),
+                o.extract_field("vpcNetworkSources"),
             ),
         }
     }

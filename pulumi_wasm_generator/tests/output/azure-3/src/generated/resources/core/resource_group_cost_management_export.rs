@@ -182,63 +182,28 @@ pub mod resource_group_cost_management_export {
                     value: &resource_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportDataOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportDataStorageLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurrencePeriodEndDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurrencePeriodStartDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurrenceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceGroupCostManagementExportResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
             export_data_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportDataOptions").unwrap(),
+                o.extract_field("exportDataOptions"),
             ),
             export_data_storage_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportDataStorageLocation").unwrap(),
+                o.extract_field("exportDataStorageLocation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recurrence_period_end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurrencePeriodEndDate").unwrap(),
+                o.extract_field("recurrencePeriodEndDate"),
             ),
             recurrence_period_start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurrencePeriodStartDate").unwrap(),
+                o.extract_field("recurrencePeriodStartDate"),
             ),
             recurrence_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurrenceType").unwrap(),
+                o.extract_field("recurrenceType"),
             ),
             resource_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupId").unwrap(),
+                o.extract_field("resourceGroupId"),
             ),
         }
     }

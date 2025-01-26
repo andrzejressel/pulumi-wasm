@@ -49,43 +49,19 @@ pub mod get_project_service_account {
                     value: &user_project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "member".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "userProject".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProjectServiceAccountResult {
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            member: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("member").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             user_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userProject").unwrap(),
+                o.extract_field("userProject"),
             ),
         }
     }

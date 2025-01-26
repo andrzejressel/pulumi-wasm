@@ -58,32 +58,16 @@ pub mod get_agent_agent_versions {
                     value: &agent_version_summaries_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersionSummaries".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAgentAgentVersionsResult {
             agent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentId").unwrap(),
+                o.extract_field("agentId"),
             ),
             agent_version_summaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersionSummaries").unwrap(),
+                o.extract_field("agentVersionSummaries"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

@@ -353,106 +353,40 @@ pub mod analytics_application {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchLoggingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdateTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "referenceDataSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "startApplication".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnalyticsApplicationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloudwatch_logging_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchLoggingOptions").unwrap(),
+                o.extract_field("cloudwatchLoggingOptions"),
             ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             create_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTimestamp").unwrap(),
+                o.extract_field("createTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            inputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputs").unwrap(),
-            ),
+            inputs: pulumi_wasm_rust::__private::into_domain(o.extract_field("inputs")),
             last_update_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdateTimestamp").unwrap(),
+                o.extract_field("lastUpdateTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
             reference_data_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referenceDataSources").unwrap(),
+                o.extract_field("referenceDataSources"),
             ),
             start_application: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startApplication").unwrap(),
+                o.extract_field("startApplication"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

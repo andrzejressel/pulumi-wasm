@@ -107,33 +107,13 @@ pub mod table {
                     value: &storage_account_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acls".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
-            acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acls").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            acls: pulumi_wasm_rust::__private::into_domain(o.extract_field("acls")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
         }
     }

@@ -57,61 +57,26 @@ pub mod get_public_ipv_4_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkBorderGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolAddressRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalAddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalAvailableAddressCount".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPublicIpv4PoolResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             network_border_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkBorderGroup").unwrap(),
+                o.extract_field("networkBorderGroup"),
             ),
             pool_address_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolAddressRanges").unwrap(),
+                o.extract_field("poolAddressRanges"),
             ),
-            pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolId").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            pool_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("poolId")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             total_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalAddressCount").unwrap(),
+                o.extract_field("totalAddressCount"),
             ),
             total_available_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalAvailableAddressCount").unwrap(),
+                o.extract_field("totalAvailableAddressCount"),
             ),
         }
     }

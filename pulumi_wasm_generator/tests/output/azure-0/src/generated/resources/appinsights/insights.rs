@@ -300,123 +300,56 @@ pub mod insights {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyDataCapInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyDataCapNotificationsDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableIpMasking".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceCustomerStorageForProfiler".into(),
-                },
-                register_interface::ResultField {
-                    name: "instrumentationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetIngestionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetQueryEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InsightsResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
             application_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationType").unwrap(),
+                o.extract_field("applicationType"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             daily_data_cap_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyDataCapInGb").unwrap(),
+                o.extract_field("dailyDataCapInGb"),
             ),
             daily_data_cap_notifications_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyDataCapNotificationsDisabled").unwrap(),
+                o.extract_field("dailyDataCapNotificationsDisabled"),
             ),
             disable_ip_masking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableIpMasking").unwrap(),
+                o.extract_field("disableIpMasking"),
             ),
             force_customer_storage_for_profiler: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceCustomerStorageForProfiler").unwrap(),
+                o.extract_field("forceCustomerStorageForProfiler"),
             ),
             instrumentation_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instrumentationKey").unwrap(),
+                o.extract_field("instrumentationKey"),
             ),
             internet_ingestion_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetIngestionEnabled").unwrap(),
+                o.extract_field("internetIngestionEnabled"),
             ),
             internet_query_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetQueryEnabled").unwrap(),
+                o.extract_field("internetQueryEnabled"),
             ),
             local_authentication_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationDisabled").unwrap(),
+                o.extract_field("localAuthenticationDisabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
             sampling_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingPercentage").unwrap(),
+                o.extract_field("samplingPercentage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

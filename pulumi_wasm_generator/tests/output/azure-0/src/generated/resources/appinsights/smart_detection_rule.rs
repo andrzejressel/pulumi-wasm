@@ -135,45 +135,21 @@ pub mod smart_detection_rule {
                     value: &send_emails_to_subscription_owners_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalEmailRecipients".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationInsightsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendEmailsToSubscriptionOwners".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SmartDetectionRuleResult {
             additional_email_recipients: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalEmailRecipients").unwrap(),
+                o.extract_field("additionalEmailRecipients"),
             ),
             application_insights_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationInsightsId").unwrap(),
+                o.extract_field("applicationInsightsId"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             send_emails_to_subscription_owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendEmailsToSubscriptionOwners").unwrap(),
+                o.extract_field("sendEmailsToSubscriptionOwners"),
             ),
         }
     }

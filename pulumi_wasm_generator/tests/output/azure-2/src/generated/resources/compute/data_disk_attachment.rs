@@ -195,51 +195,24 @@ pub mod data_disk_attachment {
                     value: &write_accelerator_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "caching".into(),
-                },
-                register_interface::ResultField {
-                    name: "createOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "lun".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeAcceleratorEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataDiskAttachmentResult {
             caching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caching").unwrap(),
+                o.extract_field("caching"),
             ),
             create_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createOption").unwrap(),
+                o.extract_field("createOption"),
             ),
-            lun: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lun").unwrap(),
-            ),
+            lun: pulumi_wasm_rust::__private::into_domain(o.extract_field("lun")),
             managed_disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskId").unwrap(),
+                o.extract_field("managedDiskId"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
             write_accelerator_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeAcceleratorEnabled").unwrap(),
+                o.extract_field("writeAcceleratorEnabled"),
             ),
         }
     }

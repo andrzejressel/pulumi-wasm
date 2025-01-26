@@ -431,112 +431,49 @@ pub mod edge_cache_origin {
                     value: &timeout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsV4Authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "failoverOrigin".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxAttempts".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "originAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "originOverrideAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "originRedirect".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryConditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EdgeCacheOriginResult {
             aws_v4_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsV4Authentication").unwrap(),
+                o.extract_field("awsV4Authentication"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             failover_origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failoverOrigin").unwrap(),
+                o.extract_field("failoverOrigin"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             max_attempts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxAttempts").unwrap(),
+                o.extract_field("maxAttempts"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             origin_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originAddress").unwrap(),
+                o.extract_field("originAddress"),
             ),
             origin_override_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originOverrideAction").unwrap(),
+                o.extract_field("originOverrideAction"),
             ),
             origin_redirect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originRedirect").unwrap(),
+                o.extract_field("originRedirect"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             retry_conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryConditions").unwrap(),
+                o.extract_field("retryConditions"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
-            ),
+            timeout: pulumi_wasm_rust::__private::into_domain(o.extract_field("timeout")),
         }
     }
 }

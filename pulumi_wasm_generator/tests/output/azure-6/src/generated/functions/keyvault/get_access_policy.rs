@@ -41,43 +41,19 @@ pub mod get_access_policy {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificatePermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretPermissions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccessPolicyResult {
             certificate_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePermissions").unwrap(),
+                o.extract_field("certificatePermissions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPermissions").unwrap(),
+                o.extract_field("keyPermissions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             secret_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretPermissions").unwrap(),
+                o.extract_field("secretPermissions"),
             ),
         }
     }

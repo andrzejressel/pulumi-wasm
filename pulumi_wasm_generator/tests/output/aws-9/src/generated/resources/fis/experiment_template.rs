@@ -197,70 +197,32 @@ pub mod experiment_template {
                     value: &targets_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "experimentOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopConditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExperimentTemplateResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             experiment_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("experimentOptions").unwrap(),
+                o.extract_field("experimentOptions"),
             ),
             log_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfiguration").unwrap(),
+                o.extract_field("logConfiguration"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             stop_conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopConditions").unwrap(),
+                o.extract_field("stopConditions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
-            ),
+            targets: pulumi_wasm_rust::__private::into_domain(o.extract_field("targets")),
         }
     }
 }

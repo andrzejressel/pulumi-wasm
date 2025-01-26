@@ -227,63 +227,32 @@ pub mod customer_managed_key {
                     value: &user_assigned_identity_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "federatedIdentityClientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAssignedIdentityId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomerManagedKeyResult {
             federated_identity_client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("federatedIdentityClientId").unwrap(),
+                o.extract_field("federatedIdentityClientId"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
             key_vault_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultUri").unwrap(),
+                o.extract_field("keyVaultUri"),
             ),
             key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVersion").unwrap(),
+                o.extract_field("keyVersion"),
             ),
             managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmKeyId").unwrap(),
+                o.extract_field("managedHsmKeyId"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAssignedIdentityId").unwrap(),
+                o.extract_field("userAssignedIdentityId"),
             ),
         }
     }

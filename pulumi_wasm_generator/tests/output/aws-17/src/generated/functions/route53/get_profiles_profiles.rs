@@ -21,25 +21,12 @@ pub mod get_profiles_profiles {
             token: "aws:route53/getProfilesProfiles:getProfilesProfiles".into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "profiles".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProfilesProfilesResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profiles").unwrap(),
+                o.extract_field("profiles"),
             ),
         }
     }

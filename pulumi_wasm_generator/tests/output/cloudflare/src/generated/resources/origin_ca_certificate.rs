@@ -121,57 +121,27 @@ pub mod origin_ca_certificate {
                     value: &requested_validity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "csr".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnames".into(),
-                },
-                register_interface::ResultField {
-                    name: "minDaysForRenewal".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestType".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestedValidity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OriginCaCertificateResult {
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
-            csr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csr").unwrap(),
-            ),
+            csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("csr")),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
             hostnames: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnames").unwrap(),
+                o.extract_field("hostnames"),
             ),
             min_days_for_renewal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minDaysForRenewal").unwrap(),
+                o.extract_field("minDaysForRenewal"),
             ),
             request_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestType").unwrap(),
+                o.extract_field("requestType"),
             ),
             requested_validity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestedValidity").unwrap(),
+                o.extract_field("requestedValidity"),
             ),
         }
     }

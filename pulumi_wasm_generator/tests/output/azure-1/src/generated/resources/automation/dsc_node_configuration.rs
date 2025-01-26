@@ -131,45 +131,21 @@ pub mod dsc_node_configuration {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentEmbedded".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DscNodeConfigurationResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
             configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationName").unwrap(),
+                o.extract_field("configurationName"),
             ),
             content_embedded: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentEmbedded").unwrap(),
+                o.extract_field("contentEmbedded"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

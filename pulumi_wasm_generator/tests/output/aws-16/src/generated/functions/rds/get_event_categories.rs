@@ -35,31 +35,15 @@ pub mod get_event_categories {
                     value: &source_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "eventCategories".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEventCategoriesResult {
             event_categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventCategories").unwrap(),
+                o.extract_field("eventCategories"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceType").unwrap(),
+                o.extract_field("sourceType"),
             ),
         }
     }

@@ -203,74 +203,31 @@ pub mod share {
                     value: &storage_account_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "acls".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "quota".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ShareResult {
             access_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessTier").unwrap(),
+                o.extract_field("accessTier"),
             ),
-            acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acls").unwrap(),
-            ),
+            acls: pulumi_wasm_rust::__private::into_domain(o.extract_field("acls")),
             enabled_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledProtocol").unwrap(),
+                o.extract_field("enabledProtocol"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            quota: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quota").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
             resource_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceManagerId").unwrap(),
+                o.extract_field("resourceManagerId"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

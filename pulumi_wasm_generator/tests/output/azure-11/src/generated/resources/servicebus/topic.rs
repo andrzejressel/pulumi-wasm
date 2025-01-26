@@ -234,105 +234,49 @@ pub mod topic {
                     value: &support_ordering_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoDeleteOnIdle".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchedOperationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultMessageTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "duplicateDetectionHistoryTimeWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxMessageSizeInKilobytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSizeInMegabytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitioningEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiresDuplicateDetection".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportOrdering".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicResult {
             auto_delete_on_idle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoDeleteOnIdle").unwrap(),
+                o.extract_field("autoDeleteOnIdle"),
             ),
             batched_operations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchedOperationsEnabled").unwrap(),
+                o.extract_field("batchedOperationsEnabled"),
             ),
             default_message_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultMessageTtl").unwrap(),
+                o.extract_field("defaultMessageTtl"),
             ),
             duplicate_detection_history_time_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duplicateDetectionHistoryTimeWindow").unwrap(),
+                o.extract_field("duplicateDetectionHistoryTimeWindow"),
             ),
             express_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressEnabled").unwrap(),
+                o.extract_field("expressEnabled"),
             ),
             max_message_size_in_kilobytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxMessageSizeInKilobytes").unwrap(),
+                o.extract_field("maxMessageSizeInKilobytes"),
             ),
             max_size_in_megabytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSizeInMegabytes").unwrap(),
+                o.extract_field("maxSizeInMegabytes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             partitioning_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitioningEnabled").unwrap(),
+                o.extract_field("partitioningEnabled"),
             ),
             requires_duplicate_detection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiresDuplicateDetection").unwrap(),
+                o.extract_field("requiresDuplicateDetection"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             support_ordering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportOrdering").unwrap(),
+                o.extract_field("supportOrdering"),
             ),
         }
     }

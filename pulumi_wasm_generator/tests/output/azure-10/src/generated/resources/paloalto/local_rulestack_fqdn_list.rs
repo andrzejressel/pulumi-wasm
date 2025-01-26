@@ -120,45 +120,21 @@ pub mod local_rulestack_fqdn_list {
                     value: &rulestack_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditComment".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullyQualifiedDomainNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulestackId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalRulestackFqdnListResult {
             audit_comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditComment").unwrap(),
+                o.extract_field("auditComment"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             fully_qualified_domain_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullyQualifiedDomainNames").unwrap(),
+                o.extract_field("fullyQualifiedDomainNames"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rulestack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulestackId").unwrap(),
+                o.extract_field("rulestackId"),
             ),
         }
     }

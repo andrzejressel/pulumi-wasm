@@ -334,111 +334,54 @@ pub mod event_grid_data_connection {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobStorageEventType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseRoutingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventgridResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubConsumerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedIdentityResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mappingRuleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFirstRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventGridDataConnectionResult {
             blob_storage_event_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobStorageEventType").unwrap(),
+                o.extract_field("blobStorageEventType"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             data_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFormat").unwrap(),
+                o.extract_field("dataFormat"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             database_routing_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseRoutingType").unwrap(),
+                o.extract_field("databaseRoutingType"),
             ),
             eventgrid_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventgridResourceId").unwrap(),
+                o.extract_field("eventgridResourceId"),
             ),
             eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubConsumerGroupName").unwrap(),
+                o.extract_field("eventhubConsumerGroupName"),
             ),
             eventhub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubId").unwrap(),
+                o.extract_field("eventhubId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_identity_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedIdentityResourceId").unwrap(),
+                o.extract_field("managedIdentityResourceId"),
             ),
             mapping_rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mappingRuleName").unwrap(),
+                o.extract_field("mappingRuleName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             skip_first_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFirstRecord").unwrap(),
+                o.extract_field("skipFirstRecord"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

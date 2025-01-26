@@ -91,39 +91,18 @@ pub mod worker_secret {
                     value: &secret_text_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretText".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkerSecretResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             script_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptName").unwrap(),
+                o.extract_field("scriptName"),
             ),
             secret_text: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretText").unwrap(),
+                o.extract_field("secretText"),
             ),
         }
     }

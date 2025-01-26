@@ -164,62 +164,25 @@ pub mod action_http {
                     value: &uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "headers".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queries".into(),
-                },
-                register_interface::ResultField {
-                    name: "runAfters".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ActionHttpResult {
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headers").unwrap(),
+                o.extract_field("headers"),
             ),
             logic_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicAppId").unwrap(),
+                o.extract_field("logicAppId"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             queries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queries").unwrap(),
+                o.extract_field("queries"),
             ),
             run_afters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runAfters").unwrap(),
+                o.extract_field("runAfters"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

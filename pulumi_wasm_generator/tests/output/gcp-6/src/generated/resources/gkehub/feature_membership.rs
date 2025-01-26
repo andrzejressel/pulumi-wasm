@@ -502,64 +502,29 @@ pub mod feature_membership {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configmanagement".into(),
-                },
-                register_interface::ResultField {
-                    name: "feature".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "membership".into(),
-                },
-                register_interface::ResultField {
-                    name: "membershipLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "mesh".into(),
-                },
-                register_interface::ResultField {
-                    name: "policycontroller".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FeatureMembershipResult {
             configmanagement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configmanagement").unwrap(),
+                o.extract_field("configmanagement"),
             ),
             feature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("feature").unwrap(),
+                o.extract_field("feature"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             membership: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("membership").unwrap(),
+                o.extract_field("membership"),
             ),
             membership_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("membershipLocation").unwrap(),
+                o.extract_field("membershipLocation"),
             ),
-            mesh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mesh").unwrap(),
-            ),
+            mesh: pulumi_wasm_rust::__private::into_domain(o.extract_field("mesh")),
             policycontroller: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policycontroller").unwrap(),
+                o.extract_field("policycontroller"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

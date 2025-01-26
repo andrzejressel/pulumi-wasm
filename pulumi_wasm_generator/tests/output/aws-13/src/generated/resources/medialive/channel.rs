@@ -305,110 +305,49 @@ pub mod channel {
                     value: &vpc_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdiInputSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "channelClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "channelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "encoderSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputAttachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "logLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenance".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpc".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cdi_input_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdiInputSpecification").unwrap(),
+                o.extract_field("cdiInputSpecification"),
             ),
             channel_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("channelClass").unwrap(),
+                o.extract_field("channelClass"),
             ),
             channel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("channelId").unwrap(),
+                o.extract_field("channelId"),
             ),
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
             encoder_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encoderSettings").unwrap(),
+                o.extract_field("encoderSettings"),
             ),
             input_attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputAttachments").unwrap(),
+                o.extract_field("inputAttachments"),
             ),
             input_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputSpecification").unwrap(),
+                o.extract_field("inputSpecification"),
             ),
             log_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logLevel").unwrap(),
+                o.extract_field("logLevel"),
             ),
             maintenance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenance").unwrap(),
+                o.extract_field("maintenance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             start_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startChannel").unwrap(),
+                o.extract_field("startChannel"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(hashmap.remove("vpc").unwrap()),
+            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
         }
     }
 }

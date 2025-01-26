@@ -252,87 +252,38 @@ pub mod data_quality_job_definition {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataQualityAppSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataQualityBaselineConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataQualityJobInput".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataQualityJobOutputConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stoppingCondition".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataQualityJobDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             data_quality_app_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataQualityAppSpecification").unwrap(),
+                o.extract_field("dataQualityAppSpecification"),
             ),
             data_quality_baseline_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataQualityBaselineConfig").unwrap(),
+                o.extract_field("dataQualityBaselineConfig"),
             ),
             data_quality_job_input: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataQualityJobInput").unwrap(),
+                o.extract_field("dataQualityJobInput"),
             ),
             data_quality_job_output_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataQualityJobOutputConfig").unwrap(),
+                o.extract_field("dataQualityJobOutputConfig"),
             ),
             job_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobResources").unwrap(),
+                o.extract_field("jobResources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             stopping_condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stoppingCondition").unwrap(),
+                o.extract_field("stoppingCondition"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

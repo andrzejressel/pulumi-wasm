@@ -71,44 +71,18 @@ pub mod get_voices {
                     value: &voices_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeAdditionalLanguageCodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "voices".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVoicesResult {
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_additional_language_codes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeAdditionalLanguageCodes").unwrap(),
+                o.extract_field("includeAdditionalLanguageCodes"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            voices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voices").unwrap(),
-            ),
+            voices: pulumi_wasm_rust::__private::into_domain(o.extract_field("voices")),
         }
     }
 }

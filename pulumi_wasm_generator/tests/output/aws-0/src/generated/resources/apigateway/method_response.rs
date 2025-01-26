@@ -229,51 +229,26 @@ pub mod method_response {
                     value: &status_code_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "httpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseModels".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusCode".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MethodResponseResult {
             http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpMethod").unwrap(),
+                o.extract_field("httpMethod"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             response_models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseModels").unwrap(),
+                o.extract_field("responseModels"),
             ),
             response_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseParameters").unwrap(),
+                o.extract_field("responseParameters"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             status_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusCode").unwrap(),
+                o.extract_field("statusCode"),
             ),
         }
     }

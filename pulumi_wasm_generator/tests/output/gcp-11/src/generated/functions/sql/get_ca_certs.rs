@@ -48,44 +48,18 @@ pub mod get_ca_certs {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "certs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCaCertsResult {
             active_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeVersion").unwrap(),
+                o.extract_field("activeVersion"),
             ),
-            certs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certs").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            certs: pulumi_wasm_rust::__private::into_domain(o.extract_field("certs")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

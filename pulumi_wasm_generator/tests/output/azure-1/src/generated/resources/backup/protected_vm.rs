@@ -176,57 +176,29 @@ pub mod protected_vm {
                     value: &source_vm_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeDiskLuns".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeDiskLuns".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionState".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVmId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProtectedVMResult {
             backup_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPolicyId").unwrap(),
+                o.extract_field("backupPolicyId"),
             ),
             exclude_disk_luns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeDiskLuns").unwrap(),
+                o.extract_field("excludeDiskLuns"),
             ),
             include_disk_luns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeDiskLuns").unwrap(),
+                o.extract_field("includeDiskLuns"),
             ),
             protection_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionState").unwrap(),
+                o.extract_field("protectionState"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_vm_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVmId").unwrap(),
+                o.extract_field("sourceVmId"),
             ),
         }
     }

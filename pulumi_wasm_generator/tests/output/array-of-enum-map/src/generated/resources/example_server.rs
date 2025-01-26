@@ -50,21 +50,11 @@ pub mod example_server {
                     value: &map_array_enum_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "mapArrayEnum".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExampleServerResult {
             map_array_enum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mapArrayEnum").unwrap(),
+                o.extract_field("mapArrayEnum"),
             ),
         }
     }

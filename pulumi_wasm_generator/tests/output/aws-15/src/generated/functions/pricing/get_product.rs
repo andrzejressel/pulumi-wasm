@@ -48,37 +48,16 @@ pub mod get_product {
                     value: &service_code_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceCode".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProductResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
             service_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceCode").unwrap(),
+                o.extract_field("serviceCode"),
             ),
         }
     }

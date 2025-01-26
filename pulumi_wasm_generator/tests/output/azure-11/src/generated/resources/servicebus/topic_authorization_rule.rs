@@ -137,81 +137,33 @@ pub mod topic_authorization_rule {
                     value: &topic_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "listen".into(),
-                },
-                register_interface::ResultField {
-                    name: "manage".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "send".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicAuthorizationRuleResult {
-            listen: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listen").unwrap(),
-            ),
-            manage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manage").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            listen: pulumi_wasm_rust::__private::into_domain(o.extract_field("listen")),
+            manage: pulumi_wasm_rust::__private::into_domain(o.extract_field("manage")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionStringAlias").unwrap(),
+                o.extract_field("primaryConnectionStringAlias"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionStringAlias").unwrap(),
+                o.extract_field("secondaryConnectionStringAlias"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
-            send: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("send").unwrap(),
-            ),
+            send: pulumi_wasm_rust::__private::into_domain(o.extract_field("send")),
             topic_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicId").unwrap(),
+                o.extract_field("topicId"),
             ),
         }
     }

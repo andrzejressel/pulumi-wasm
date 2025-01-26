@@ -417,165 +417,73 @@ pub mod vpn_tunnel {
                     value: &vpn_gateway_interface_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "detailedStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ikeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "localTrafficSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerExternalGateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerExternalGatewayInterface".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerGcpGateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteTrafficSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedSecretHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetVpnGateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGatewayInterface".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VPNTunnelResult {
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             detailed_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detailedStatus").unwrap(),
+                o.extract_field("detailedStatus"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             ike_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ikeVersion").unwrap(),
+                o.extract_field("ikeVersion"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             local_traffic_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localTrafficSelectors").unwrap(),
+                o.extract_field("localTrafficSelectors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_external_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerExternalGateway").unwrap(),
+                o.extract_field("peerExternalGateway"),
             ),
             peer_external_gateway_interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerExternalGatewayInterface").unwrap(),
+                o.extract_field("peerExternalGatewayInterface"),
             ),
             peer_gcp_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerGcpGateway").unwrap(),
+                o.extract_field("peerGcpGateway"),
             ),
-            peer_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIp").unwrap(),
-            ),
+            peer_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("peerIp")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             remote_traffic_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteTrafficSelectors").unwrap(),
+                o.extract_field("remoteTrafficSelectors"),
             ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             shared_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedSecret").unwrap(),
+                o.extract_field("sharedSecret"),
             ),
             shared_secret_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedSecretHash").unwrap(),
+                o.extract_field("sharedSecretHash"),
             ),
             target_vpn_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetVpnGateway").unwrap(),
+                o.extract_field("targetVpnGateway"),
             ),
             tunnel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelId").unwrap(),
+                o.extract_field("tunnelId"),
             ),
             vpn_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGateway").unwrap(),
+                o.extract_field("vpnGateway"),
             ),
             vpn_gateway_interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGatewayInterface").unwrap(),
+                o.extract_field("vpnGatewayInterface"),
             ),
         }
     }

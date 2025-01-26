@@ -251,105 +251,47 @@ pub mod stack {
                     value: &user_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "embedHostDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "feedbackUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConnectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingExperienceSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackResult {
             access_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessEndpoints").unwrap(),
+                o.extract_field("accessEndpoints"),
             ),
             application_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSettings").unwrap(),
+                o.extract_field("applicationSettings"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             embed_host_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("embedHostDomains").unwrap(),
+                o.extract_field("embedHostDomains"),
             ),
             feedback_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("feedbackUrl").unwrap(),
+                o.extract_field("feedbackUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redirect_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectUrl").unwrap(),
+                o.extract_field("redirectUrl"),
             ),
             storage_connectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConnectors").unwrap(),
+                o.extract_field("storageConnectors"),
             ),
             streaming_experience_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingExperienceSettings").unwrap(),
+                o.extract_field("streamingExperienceSettings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userSettings").unwrap(),
+                o.extract_field("userSettings"),
             ),
         }
     }

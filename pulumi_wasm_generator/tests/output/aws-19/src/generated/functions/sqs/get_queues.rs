@@ -38,31 +38,15 @@ pub mod get_queues {
                     value: &queue_name_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueNamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueUrls".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetQueuesResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             queue_name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueNamePrefix").unwrap(),
+                o.extract_field("queueNamePrefix"),
             ),
             queue_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueUrls").unwrap(),
+                o.extract_field("queueUrls"),
             ),
         }
     }

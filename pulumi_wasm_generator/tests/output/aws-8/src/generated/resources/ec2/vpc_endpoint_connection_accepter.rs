@@ -98,33 +98,17 @@ pub mod vpc_endpoint_connection_accepter {
                     value: &vpc_endpoint_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "vpcEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointState".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcEndpointConnectionAccepterResult {
             vpc_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointId").unwrap(),
+                o.extract_field("vpcEndpointId"),
             ),
             vpc_endpoint_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointServiceId").unwrap(),
+                o.extract_field("vpcEndpointServiceId"),
             ),
             vpc_endpoint_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointState").unwrap(),
+                o.extract_field("vpcEndpointState"),
             ),
         }
     }

@@ -157,51 +157,26 @@ pub mod certificate_binding {
                     value: &ssl_state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnameBindingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslState".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateBindingResult {
             app_service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceName").unwrap(),
+                o.extract_field("appServiceName"),
             ),
             certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateId").unwrap(),
+                o.extract_field("certificateId"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             hostname_binding_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnameBindingId").unwrap(),
+                o.extract_field("hostnameBindingId"),
             ),
             ssl_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslState").unwrap(),
+                o.extract_field("sslState"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

@@ -247,88 +247,41 @@ pub mod route {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiKeyRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestModels".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeResponseSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             api_key_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeyRequired").unwrap(),
+                o.extract_field("apiKeyRequired"),
             ),
             authorization_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationScopes").unwrap(),
+                o.extract_field("authorizationScopes"),
             ),
             authorization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationType").unwrap(),
+                o.extract_field("authorizationType"),
             ),
             authorizer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerId").unwrap(),
+                o.extract_field("authorizerId"),
             ),
             model_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelSelectionExpression").unwrap(),
+                o.extract_field("modelSelectionExpression"),
             ),
             operation_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationName").unwrap(),
+                o.extract_field("operationName"),
             ),
             request_models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestModels").unwrap(),
+                o.extract_field("requestModels"),
             ),
             request_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestParameters").unwrap(),
+                o.extract_field("requestParameters"),
             ),
             route_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeKey").unwrap(),
+                o.extract_field("routeKey"),
             ),
             route_response_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeResponseSelectionExpression").unwrap(),
+                o.extract_field("routeResponseSelectionExpression"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
         }
     }
 }

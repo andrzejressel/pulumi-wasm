@@ -277,105 +277,49 @@ pub mod shared_image_version {
                     value: &target_regions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionOfReplicatedLocationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "endOfLifeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeFromLatest".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedImageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDiskSnapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRegions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedImageVersionResult {
             blob_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobUri").unwrap(),
+                o.extract_field("blobUri"),
             ),
             deletion_of_replicated_locations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionOfReplicatedLocationsEnabled").unwrap(),
+                o.extract_field("deletionOfReplicatedLocationsEnabled"),
             ),
             end_of_life_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endOfLifeDate").unwrap(),
+                o.extract_field("endOfLifeDate"),
             ),
             exclude_from_latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeFromLatest").unwrap(),
+                o.extract_field("excludeFromLatest"),
             ),
             gallery_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryName").unwrap(),
+                o.extract_field("galleryName"),
             ),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedImageId").unwrap(),
+                o.extract_field("managedImageId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             os_disk_snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDiskSnapshotId").unwrap(),
+                o.extract_field("osDiskSnapshotId"),
             ),
             replication_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationMode").unwrap(),
+                o.extract_field("replicationMode"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRegions").unwrap(),
+                o.extract_field("targetRegions"),
             ),
         }
     }

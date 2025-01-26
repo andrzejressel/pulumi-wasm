@@ -463,178 +463,78 @@ pub mod v_2_vm {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "acceleratorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "health".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "multisliceNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "queuedResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shieldedInstanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "symptoms".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         V2VmResult {
             accelerator_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorConfig").unwrap(),
+                o.extract_field("acceleratorConfig"),
             ),
             accelerator_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorType").unwrap(),
+                o.extract_field("acceleratorType"),
             ),
             api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiVersion").unwrap(),
+                o.extract_field("apiVersion"),
             ),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDisks").unwrap(),
+                o.extract_field("dataDisks"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            health: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("health").unwrap(),
-            ),
+            health: pulumi_wasm_rust::__private::into_domain(o.extract_field("health")),
             health_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthDescription").unwrap(),
+                o.extract_field("healthDescription"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
             multislice_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multisliceNode").unwrap(),
+                o.extract_field("multisliceNode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             network_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfigs").unwrap(),
+                o.extract_field("networkConfigs"),
             ),
             network_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkEndpoints").unwrap(),
+                o.extract_field("networkEndpoints"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             queued_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queuedResource").unwrap(),
+                o.extract_field("queuedResource"),
             ),
             runtime_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeVersion").unwrap(),
+                o.extract_field("runtimeVersion"),
             ),
             scheduling_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingConfig").unwrap(),
+                o.extract_field("schedulingConfig"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             shielded_instance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shieldedInstanceConfig").unwrap(),
+                o.extract_field("shieldedInstanceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             symptoms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("symptoms").unwrap(),
+                o.extract_field("symptoms"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

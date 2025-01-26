@@ -63,68 +63,30 @@ pub mod get_access_point {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "posixUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootDirectories".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccessPointResult {
             access_point_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPointId").unwrap(),
+                o.extract_field("accessPointId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             file_system_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemArn").unwrap(),
+                o.extract_field("fileSystemArn"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             posix_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("posixUsers").unwrap(),
+                o.extract_field("posixUsers"),
             ),
             root_directories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootDirectories").unwrap(),
+                o.extract_field("rootDirectories"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

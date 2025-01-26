@@ -105,45 +105,21 @@ pub mod permission {
                     value: &source_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorityArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceAccount".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorityArn").unwrap(),
+                o.extract_field("certificateAuthorityArn"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             source_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceAccount").unwrap(),
+                o.extract_field("sourceAccount"),
             ),
         }
     }

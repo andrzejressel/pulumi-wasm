@@ -62,37 +62,18 @@ pub mod get_iam_policy {
                     value: &bindings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "bindings".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIamPolicyResult {
             audit_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditConfigs").unwrap(),
+                o.extract_field("auditConfigs"),
             ),
             bindings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bindings").unwrap(),
+                o.extract_field("bindings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
         }
     }

@@ -37,31 +37,15 @@ pub mod get_adbs_character_sets {
                     value: &location_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "characterSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAdbsCharacterSetsResult {
             character_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("characterSets").unwrap(),
+                o.extract_field("characterSets"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
         }
     }

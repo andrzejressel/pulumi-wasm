@@ -170,100 +170,43 @@ pub mod key_signing_key {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "digestAlgorithmMnemonic".into(),
-                },
-                register_interface::ResultField {
-                    name: "digestAlgorithmType".into(),
-                },
-                register_interface::ResultField {
-                    name: "digestValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnskeyRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "dsRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "flag".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyManagementServiceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingAlgorithmMnemonic".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingAlgorithmType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeySigningKeyResult {
             digest_algorithm_mnemonic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digestAlgorithmMnemonic").unwrap(),
+                o.extract_field("digestAlgorithmMnemonic"),
             ),
             digest_algorithm_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digestAlgorithmType").unwrap(),
+                o.extract_field("digestAlgorithmType"),
             ),
             digest_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digestValue").unwrap(),
+                o.extract_field("digestValue"),
             ),
             dnskey_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnskeyRecord").unwrap(),
+                o.extract_field("dnskeyRecord"),
             ),
             ds_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dsRecord").unwrap(),
+                o.extract_field("dsRecord"),
             ),
-            flag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flag").unwrap(),
-            ),
+            flag: pulumi_wasm_rust::__private::into_domain(o.extract_field("flag")),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
             key_management_service_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyManagementServiceArn").unwrap(),
+                o.extract_field("keyManagementServiceArn"),
             ),
-            key_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyTag").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            key_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyTag")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
             signing_algorithm_mnemonic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingAlgorithmMnemonic").unwrap(),
+                o.extract_field("signingAlgorithmMnemonic"),
             ),
             signing_algorithm_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingAlgorithmType").unwrap(),
+                o.extract_field("signingAlgorithmType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

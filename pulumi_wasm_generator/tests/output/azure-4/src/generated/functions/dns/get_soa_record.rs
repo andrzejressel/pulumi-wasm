@@ -75,97 +75,38 @@ pub mod get_soa_record {
                     value: &zone_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "serialNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSoaRecordResult {
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostName").unwrap(),
+                o.extract_field("hostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             minimum_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumTtl").unwrap(),
+                o.extract_field("minimumTtl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             refresh_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshTime").unwrap(),
+                o.extract_field("refreshTime"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retry_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryTime").unwrap(),
+                o.extract_field("retryTime"),
             ),
             serial_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serialNumber").unwrap(),
+                o.extract_field("serialNumber"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
             zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneName").unwrap(),
+                o.extract_field("zoneName"),
             ),
         }
     }

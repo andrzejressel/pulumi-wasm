@@ -90,33 +90,15 @@ pub mod managed_prefix_list_entry {
                     value: &prefix_list_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixListId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedPrefixListEntryResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             prefix_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixListId").unwrap(),
+                o.extract_field("prefixListId"),
             ),
         }
     }

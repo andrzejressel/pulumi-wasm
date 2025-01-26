@@ -510,81 +510,37 @@ pub mod cx_flow {
                     value: &transition_routes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHandlers".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefaultStartFlow".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nluSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitionRouteGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitionRoutes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxFlowResult {
             advanced_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedSettings").unwrap(),
+                o.extract_field("advancedSettings"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             event_handlers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHandlers").unwrap(),
+                o.extract_field("eventHandlers"),
             ),
             is_default_start_flow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefaultStartFlow").unwrap(),
+                o.extract_field("isDefaultStartFlow"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nlu_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nluSettings").unwrap(),
+                o.extract_field("nluSettings"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             transition_route_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitionRouteGroups").unwrap(),
+                o.extract_field("transitionRouteGroups"),
             ),
             transition_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitionRoutes").unwrap(),
+                o.extract_field("transitionRoutes"),
             ),
         }
     }

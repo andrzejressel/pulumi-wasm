@@ -187,224 +187,102 @@ pub mod get_application_gateway {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscaleConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendAddressPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendHttpSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "customErrorConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "fipsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceFirewallPolicyAssociation".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "globals".into(),
-                },
-                register_interface::ResultField {
-                    name: "http2Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpListeners".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "probes".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirectConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestRoutingRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "rewriteRuleSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "skus".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedClientCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedRootCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlPathMaps".into(),
-                },
-                register_interface::ResultField {
-                    name: "wafConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApplicationGatewayResult {
             authentication_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationCertificates").unwrap(),
+                o.extract_field("authenticationCertificates"),
             ),
             autoscale_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscaleConfigurations").unwrap(),
+                o.extract_field("autoscaleConfigurations"),
             ),
             backend_address_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPools").unwrap(),
+                o.extract_field("backendAddressPools"),
             ),
             backend_http_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendHttpSettings").unwrap(),
+                o.extract_field("backendHttpSettings"),
             ),
             custom_error_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customErrorConfigurations").unwrap(),
+                o.extract_field("customErrorConfigurations"),
             ),
             fips_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fipsEnabled").unwrap(),
+                o.extract_field("fipsEnabled"),
             ),
             firewall_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyId").unwrap(),
+                o.extract_field("firewallPolicyId"),
             ),
             force_firewall_policy_association: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceFirewallPolicyAssociation").unwrap(),
+                o.extract_field("forceFirewallPolicyAssociation"),
             ),
             frontend_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurations").unwrap(),
+                o.extract_field("frontendIpConfigurations"),
             ),
             frontend_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPorts").unwrap(),
+                o.extract_field("frontendPorts"),
             ),
             gateway_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayIpConfigurations").unwrap(),
+                o.extract_field("gatewayIpConfigurations"),
             ),
             globals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globals").unwrap(),
+                o.extract_field("globals"),
             ),
             http2_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("http2Enabled").unwrap(),
+                o.extract_field("http2Enabled"),
             ),
             http_listeners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpListeners").unwrap(),
+                o.extract_field("httpListeners"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_endpoint_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointConnections").unwrap(),
+                o.extract_field("privateEndpointConnections"),
             ),
             private_link_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkConfigurations").unwrap(),
+                o.extract_field("privateLinkConfigurations"),
             ),
-            probes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("probes").unwrap(),
-            ),
+            probes: pulumi_wasm_rust::__private::into_domain(o.extract_field("probes")),
             redirect_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirectConfigurations").unwrap(),
+                o.extract_field("redirectConfigurations"),
             ),
             request_routing_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestRoutingRules").unwrap(),
+                o.extract_field("requestRoutingRules"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             rewrite_rule_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rewriteRuleSets").unwrap(),
+                o.extract_field("rewriteRuleSets"),
             ),
-            skus: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skus").unwrap(),
-            ),
+            skus: pulumi_wasm_rust::__private::into_domain(o.extract_field("skus")),
             ssl_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslCertificates").unwrap(),
+                o.extract_field("sslCertificates"),
             ),
             ssl_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslPolicies").unwrap(),
+                o.extract_field("sslPolicies"),
             ),
             ssl_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslProfiles").unwrap(),
+                o.extract_field("sslProfiles"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trusted_client_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedClientCertificates").unwrap(),
+                o.extract_field("trustedClientCertificates"),
             ),
             trusted_root_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedRootCertificates").unwrap(),
+                o.extract_field("trustedRootCertificates"),
             ),
             url_path_maps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlPathMaps").unwrap(),
+                o.extract_field("urlPathMaps"),
             ),
             waf_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wafConfigurations").unwrap(),
+                o.extract_field("wafConfigurations"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

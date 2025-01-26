@@ -88,70 +88,28 @@ pub mod delegated_administrator {
                     value: &service_principal_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegationEnabledDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "joinedMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "joinedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DelegatedAdministratorResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             delegation_enabled_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegationEnabledDate").unwrap(),
+                o.extract_field("delegationEnabledDate"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             joined_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("joinedMethod").unwrap(),
+                o.extract_field("joinedMethod"),
             ),
             joined_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("joinedTimestamp").unwrap(),
+                o.extract_field("joinedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             service_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipal").unwrap(),
+                o.extract_field("servicePrincipal"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

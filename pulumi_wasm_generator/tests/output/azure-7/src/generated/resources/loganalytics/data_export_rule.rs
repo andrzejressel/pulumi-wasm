@@ -153,57 +153,27 @@ pub mod data_export_rule {
                     value: &workspace_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataExportRuleResult {
             destination_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationResourceId").unwrap(),
+                o.extract_field("destinationResourceId"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             export_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportRuleId").unwrap(),
+                o.extract_field("exportRuleId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             table_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableNames").unwrap(),
+                o.extract_field("tableNames"),
             ),
             workspace_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceResourceId").unwrap(),
+                o.extract_field("workspaceResourceId"),
             ),
         }
     }

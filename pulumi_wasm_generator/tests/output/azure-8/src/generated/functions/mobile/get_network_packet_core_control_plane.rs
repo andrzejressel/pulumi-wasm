@@ -85,121 +85,54 @@ pub mod get_network_packet_core_control_plane {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "controlPlaneAccessIpv4Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneAccessIpv4Gateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneAccessIpv4Subnet".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneAccessName".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkTechnology".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "interoperabilitySettingsJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "localDiagnosticsAccesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platforms".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "softwareVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEquipmentMtuInBytes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkPacketCoreControlPlaneResult {
             control_plane_access_ipv4_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneAccessIpv4Address").unwrap(),
+                o.extract_field("controlPlaneAccessIpv4Address"),
             ),
             control_plane_access_ipv4_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneAccessIpv4Gateway").unwrap(),
+                o.extract_field("controlPlaneAccessIpv4Gateway"),
             ),
             control_plane_access_ipv4_subnet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneAccessIpv4Subnet").unwrap(),
+                o.extract_field("controlPlaneAccessIpv4Subnet"),
             ),
             control_plane_access_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneAccessName").unwrap(),
+                o.extract_field("controlPlaneAccessName"),
             ),
             core_network_technology: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkTechnology").unwrap(),
+                o.extract_field("coreNetworkTechnology"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             interoperability_settings_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interoperabilitySettingsJson").unwrap(),
+                o.extract_field("interoperabilitySettingsJson"),
             ),
             local_diagnostics_accesses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localDiagnosticsAccesses").unwrap(),
+                o.extract_field("localDiagnosticsAccesses"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platforms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platforms").unwrap(),
+                o.extract_field("platforms"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             site_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteIds").unwrap(),
+                o.extract_field("siteIds"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             software_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softwareVersion").unwrap(),
+                o.extract_field("softwareVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_equipment_mtu_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEquipmentMtuInBytes").unwrap(),
+                o.extract_field("userEquipmentMtuInBytes"),
             ),
         }
     }

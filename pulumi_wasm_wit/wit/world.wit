@@ -5,7 +5,6 @@ world pulumi-wasm {
     export register-interface;
     export stack-interface;
     export pulumi-engine;
-    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
 
     import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
@@ -25,7 +24,6 @@ world logger {
 
 world runner {
     export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
@@ -44,6 +42,10 @@ interface output-interface {
         map: func(function-name: string) -> output;
     }
     combine: func(outputs: list<borrow<output>>) -> output;
+
+    resource register-output {
+        extract-field: func(field-name: string) -> output;
+    }
 }
 
 interface stack-interface {
@@ -65,20 +67,11 @@ interface stack-interface {
 
 interface register-interface {
     use pulumi-engine.{engine};
-    use output-interface.{output};
+    use output-interface.{output, register-output};
 
     record object-field {
         name: string,
         value: borrow<output>
-    }
-
-    record result-field {
-        name: string
-    }
-
-    record register-resource-result-field {
-        name: string,
-        output: output
     }
 
     record register-resource-request {
@@ -86,30 +79,15 @@ interface register-interface {
         name: string,
         version: string,
         object: list<object-field>,
-        results: list<result-field>
     }
 
-    record register-resource-result {
-        fields: list<register-resource-result-field>
-    }
-
-    register: func(engine: borrow<engine>, request: register-resource-request) -> register-resource-result;
-
-    record resource-invoke-result-field {
-        name: string,
-        output: output
-    }
+    register: func(engine: borrow<engine>, request: register-resource-request) -> register-output;
 
     record resource-invoke-request {
         token: string,
         version: string,
         object: list<object-field>,
-        results: list<result-field>
     }
 
-    record resource-invoke-result {
-        fields: list<resource-invoke-result-field>
-    }
-
-    invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> resource-invoke-result;
+    invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> register-output;
 }

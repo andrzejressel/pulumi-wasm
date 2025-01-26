@@ -183,75 +183,32 @@ pub mod subscription_cost_management_view {
                     value: &timeframe_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accumulated".into(),
-                },
-                register_interface::ResultField {
-                    name: "chartType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kpis".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pivots".into(),
-                },
-                register_interface::ResultField {
-                    name: "reportType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeframe".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionCostManagementViewResult {
             accumulated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accumulated").unwrap(),
+                o.extract_field("accumulated"),
             ),
             chart_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chartType").unwrap(),
+                o.extract_field("chartType"),
             ),
             dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataset").unwrap(),
+                o.extract_field("dataset"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            kpis: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kpis").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            pivots: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pivots").unwrap(),
-            ),
+            kpis: pulumi_wasm_rust::__private::into_domain(o.extract_field("kpis")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            pivots: pulumi_wasm_rust::__private::into_domain(o.extract_field("pivots")),
             report_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reportType").unwrap(),
+                o.extract_field("reportType"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
             timeframe: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeframe").unwrap(),
+                o.extract_field("timeframe"),
             ),
         }
     }

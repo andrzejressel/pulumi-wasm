@@ -187,68 +187,30 @@ pub mod spring_cloud_api_portal {
                     value: &sso_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiTryOutEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnlyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sso".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudApiPortalResult {
             api_try_out_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiTryOutEnabled").unwrap(),
+                o.extract_field("apiTryOutEnabled"),
             ),
             gateway_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayIds").unwrap(),
+                o.extract_field("gatewayIds"),
             ),
             https_only_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnlyEnabled").unwrap(),
+                o.extract_field("httpsOnlyEnabled"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
-            sso: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sso").unwrap(),
-            ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            sso: pulumi_wasm_rust::__private::into_domain(o.extract_field("sso")),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

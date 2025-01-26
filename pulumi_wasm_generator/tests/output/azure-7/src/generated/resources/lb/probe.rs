@@ -178,69 +178,31 @@ pub mod probe {
                     value: &request_path_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "intervalInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfProbes".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "probeThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestPath".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProbeResult {
             interval_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("intervalInSeconds").unwrap(),
+                o.extract_field("intervalInSeconds"),
             ),
             load_balancer_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerRules").unwrap(),
+                o.extract_field("loadBalancerRules"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_probes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfProbes").unwrap(),
+                o.extract_field("numberOfProbes"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             probe_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("probeThreshold").unwrap(),
+                o.extract_field("probeThreshold"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             request_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestPath").unwrap(),
+                o.extract_field("requestPath"),
             ),
         }
     }

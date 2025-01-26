@@ -296,111 +296,52 @@ pub mod branch_rule {
                     value: &require_pull_request_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowStaleReviews".into(),
-                },
-                register_interface::ResultField {
-                    name: "branchRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "includePattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumApprovalsCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumReviewsCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireCommentsResolved".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireLinearHistory".into(),
-                },
-                register_interface::ResultField {
-                    name: "requirePullRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BranchRuleResult {
             allow_stale_reviews: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowStaleReviews").unwrap(),
+                o.extract_field("allowStaleReviews"),
             ),
             branch_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branchRuleId").unwrap(),
+                o.extract_field("branchRuleId"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             include_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includePattern").unwrap(),
+                o.extract_field("includePattern"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             minimum_approvals_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumApprovalsCount").unwrap(),
+                o.extract_field("minimumApprovalsCount"),
             ),
             minimum_reviews_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumReviewsCount").unwrap(),
+                o.extract_field("minimumReviewsCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             repository_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryId").unwrap(),
+                o.extract_field("repositoryId"),
             ),
             require_comments_resolved: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireCommentsResolved").unwrap(),
+                o.extract_field("requireCommentsResolved"),
             ),
             require_linear_history: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireLinearHistory").unwrap(),
+                o.extract_field("requireLinearHistory"),
             ),
             require_pull_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requirePullRequest").unwrap(),
+                o.extract_field("requirePullRequest"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

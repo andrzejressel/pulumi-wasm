@@ -84,86 +84,35 @@ pub mod get_outpost {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedHardwareType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOutpostResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lifecycle_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleStatus").unwrap(),
+                o.extract_field("lifecycleStatus"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             site_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteArn").unwrap(),
+                o.extract_field("siteArn"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
             supported_hardware_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedHardwareType").unwrap(),
+                o.extract_field("supportedHardwareType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

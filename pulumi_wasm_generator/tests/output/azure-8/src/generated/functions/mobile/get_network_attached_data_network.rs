@@ -75,91 +75,43 @@ pub mod get_network_attached_data_network {
                     value: &mobile_network_packet_core_data_plane_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkDataNetworkName".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkPacketCoreDataPlaneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAddressPortTranslations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEquipmentAddressPoolPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEquipmentStaticAddressPoolPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPlaneAccessIpv4Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPlaneAccessIpv4Gateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPlaneAccessIpv4Subnet".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPlaneAccessName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkAttachedDataNetworkResult {
             dns_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsAddresses").unwrap(),
+                o.extract_field("dnsAddresses"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mobile_network_data_network_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkDataNetworkName").unwrap(),
+                o.extract_field("mobileNetworkDataNetworkName"),
             ),
             mobile_network_packet_core_data_plane_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkPacketCoreDataPlaneId").unwrap(),
+                o.extract_field("mobileNetworkPacketCoreDataPlaneId"),
             ),
             network_address_port_translations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAddressPortTranslations").unwrap(),
+                o.extract_field("networkAddressPortTranslations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_equipment_address_pool_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEquipmentAddressPoolPrefixes").unwrap(),
+                o.extract_field("userEquipmentAddressPoolPrefixes"),
             ),
             user_equipment_static_address_pool_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEquipmentStaticAddressPoolPrefixes").unwrap(),
+                o.extract_field("userEquipmentStaticAddressPoolPrefixes"),
             ),
             user_plane_access_ipv4_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPlaneAccessIpv4Address").unwrap(),
+                o.extract_field("userPlaneAccessIpv4Address"),
             ),
             user_plane_access_ipv4_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPlaneAccessIpv4Gateway").unwrap(),
+                o.extract_field("userPlaneAccessIpv4Gateway"),
             ),
             user_plane_access_ipv4_subnet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPlaneAccessIpv4Subnet").unwrap(),
+                o.extract_field("userPlaneAccessIpv4Subnet"),
             ),
             user_plane_access_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPlaneAccessName").unwrap(),
+                o.extract_field("userPlaneAccessName"),
             ),
         }
     }

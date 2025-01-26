@@ -85,39 +85,18 @@ pub mod instance_access_control_attributes {
                     value: &instance_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceAccessControlAttributesResult {
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
         }
     }

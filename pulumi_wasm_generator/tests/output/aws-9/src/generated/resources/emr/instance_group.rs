@@ -193,82 +193,38 @@ pub mod instance_group {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "bidPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationsJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "runningInstanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceGroupResult {
             autoscaling_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingPolicy").unwrap(),
+                o.extract_field("autoscalingPolicy"),
             ),
             bid_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bidPrice").unwrap(),
+                o.extract_field("bidPrice"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             configurations_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationsJson").unwrap(),
+                o.extract_field("configurationsJson"),
             ),
             ebs_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsConfigs").unwrap(),
+                o.extract_field("ebsConfigs"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             running_instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runningInstanceCount").unwrap(),
+                o.extract_field("runningInstanceCount"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

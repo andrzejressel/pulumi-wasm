@@ -298,123 +298,52 @@ pub mod state_machine {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "definition".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "publish".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateMachineVersionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tracingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDescription".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StateMachineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("definition").unwrap(),
+                o.extract_field("definition"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
             logging_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfiguration").unwrap(),
+                o.extract_field("loggingConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             publish: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publish").unwrap(),
+                o.extract_field("publish"),
             ),
             revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionId").unwrap(),
+                o.extract_field("revisionId"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             state_machine_version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateMachineVersionArn").unwrap(),
+                o.extract_field("stateMachineVersionArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tracing_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tracingConfiguration").unwrap(),
+                o.extract_field("tracingConfiguration"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             version_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDescription").unwrap(),
+                o.extract_field("versionDescription"),
             ),
         }
     }

@@ -57,44 +57,20 @@ pub mod get_addon_version {
                     value: &most_recent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAddonVersionResult {
             addon_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonName").unwrap(),
+                o.extract_field("addonName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kubernetes_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesVersion").unwrap(),
+                o.extract_field("kubernetesVersion"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

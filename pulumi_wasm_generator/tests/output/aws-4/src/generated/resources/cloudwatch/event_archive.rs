@@ -133,51 +133,22 @@ pub mod event_archive {
                     value: &retention_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventSourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventArchiveResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             event_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventPattern").unwrap(),
+                o.extract_field("eventPattern"),
             ),
             event_source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSourceArn").unwrap(),
+                o.extract_field("eventSourceArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDays").unwrap(),
+                o.extract_field("retentionDays"),
             ),
         }
     }

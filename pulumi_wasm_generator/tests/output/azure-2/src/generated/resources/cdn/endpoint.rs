@@ -314,130 +314,60 @@ pub mod endpoint {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contentTypesToCompresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalDeliveryRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "isCompressionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "isHttpAllowed".into(),
-                },
-                register_interface::ResultField {
-                    name: "isHttpsAllowed".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "optimizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "originHostHeader".into(),
-                },
-                register_interface::ResultField {
-                    name: "originPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "origins".into(),
-                },
-                register_interface::ResultField {
-                    name: "probePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "querystringCachingBehaviour".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
             content_types_to_compresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentTypesToCompresses").unwrap(),
+                o.extract_field("contentTypesToCompresses"),
             ),
             delivery_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryRules").unwrap(),
+                o.extract_field("deliveryRules"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             geo_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoFilters").unwrap(),
+                o.extract_field("geoFilters"),
             ),
             global_delivery_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalDeliveryRule").unwrap(),
+                o.extract_field("globalDeliveryRule"),
             ),
             is_compression_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isCompressionEnabled").unwrap(),
+                o.extract_field("isCompressionEnabled"),
             ),
             is_http_allowed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isHttpAllowed").unwrap(),
+                o.extract_field("isHttpAllowed"),
             ),
             is_https_allowed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isHttpsAllowed").unwrap(),
+                o.extract_field("isHttpsAllowed"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             optimization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optimizationType").unwrap(),
+                o.extract_field("optimizationType"),
             ),
             origin_host_header: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originHostHeader").unwrap(),
+                o.extract_field("originHostHeader"),
             ),
             origin_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originPath").unwrap(),
+                o.extract_field("originPath"),
             ),
             origins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origins").unwrap(),
+                o.extract_field("origins"),
             ),
             probe_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("probePath").unwrap(),
+                o.extract_field("probePath"),
             ),
             profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileName").unwrap(),
+                o.extract_field("profileName"),
             ),
             querystring_caching_behaviour: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("querystringCachingBehaviour").unwrap(),
+                o.extract_field("querystringCachingBehaviour"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

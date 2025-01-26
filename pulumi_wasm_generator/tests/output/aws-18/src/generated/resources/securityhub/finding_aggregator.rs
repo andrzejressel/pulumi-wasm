@@ -115,27 +115,14 @@ pub mod finding_aggregator {
                     value: &specified_regions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "linkingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "specifiedRegions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FindingAggregatorResult {
             linking_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkingMode").unwrap(),
+                o.extract_field("linkingMode"),
             ),
             specified_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("specifiedRegions").unwrap(),
+                o.extract_field("specifiedRegions"),
             ),
         }
     }

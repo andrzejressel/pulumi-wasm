@@ -99,40 +99,17 @@ pub mod lication_load_balancer_frontend {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationLoadBalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullyQualifiedDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LicationLoadBalancerFrontendResult {
             application_load_balancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationLoadBalancerId").unwrap(),
+                o.extract_field("applicationLoadBalancerId"),
             ),
             fully_qualified_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullyQualifiedDomainName").unwrap(),
+                o.extract_field("fullyQualifiedDomainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

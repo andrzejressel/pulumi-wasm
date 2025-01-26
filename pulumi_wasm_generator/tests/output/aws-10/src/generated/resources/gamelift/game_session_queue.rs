@@ -161,69 +161,29 @@ pub mod game_session_queue {
                     value: &timeout_in_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customEventData".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "playerLatencyPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutInSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GameSessionQueueResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             custom_event_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customEventData").unwrap(),
+                o.extract_field("customEventData"),
             ),
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTarget").unwrap(),
+                o.extract_field("notificationTarget"),
             ),
             player_latency_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("playerLatencyPolicies").unwrap(),
+                o.extract_field("playerLatencyPolicies"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutInSeconds").unwrap(),
+                o.extract_field("timeoutInSeconds"),
             ),
         }
     }

@@ -113,57 +113,27 @@ pub mod zone_settings_override {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "initialSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialSettingsReadAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "readonlySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneSettingsOverrideResult {
             initial_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialSettings").unwrap(),
+                o.extract_field("initialSettings"),
             ),
             initial_settings_read_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialSettingsReadAt").unwrap(),
+                o.extract_field("initialSettingsReadAt"),
             ),
             readonly_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readonlySettings").unwrap(),
+                o.extract_field("readonlySettings"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
             zone_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneStatus").unwrap(),
+                o.extract_field("zoneStatus"),
             ),
             zone_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneType").unwrap(),
+                o.extract_field("zoneType"),
             ),
         }
     }

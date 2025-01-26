@@ -428,99 +428,46 @@ pub mod ai_index_endpoint_deployed_index {
                     value: &reserved_ip_ranges_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automaticResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployedIndexAuthConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployedIndexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAccessLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "index".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexSyncTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedIpRanges".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiIndexEndpointDeployedIndexResult {
             automatic_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticResources").unwrap(),
+                o.extract_field("automaticResources"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dedicated_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedResources").unwrap(),
+                o.extract_field("dedicatedResources"),
             ),
             deployed_index_auth_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployedIndexAuthConfig").unwrap(),
+                o.extract_field("deployedIndexAuthConfig"),
             ),
             deployed_index_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployedIndexId").unwrap(),
+                o.extract_field("deployedIndexId"),
             ),
             deployment_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentGroup").unwrap(),
+                o.extract_field("deploymentGroup"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_access_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAccessLogging").unwrap(),
+                o.extract_field("enableAccessLogging"),
             ),
-            index: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("index").unwrap(),
-            ),
+            index: pulumi_wasm_rust::__private::into_domain(o.extract_field("index")),
             index_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexEndpoint").unwrap(),
+                o.extract_field("indexEndpoint"),
             ),
             index_sync_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexSyncTime").unwrap(),
+                o.extract_field("indexSyncTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpoints").unwrap(),
+                o.extract_field("privateEndpoints"),
             ),
             reserved_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedIpRanges").unwrap(),
+                o.extract_field("reservedIpRanges"),
             ),
         }
     }

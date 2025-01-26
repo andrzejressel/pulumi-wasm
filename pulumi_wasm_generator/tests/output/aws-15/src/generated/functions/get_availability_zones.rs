@@ -88,67 +88,29 @@ pub mod get_availability_zones {
                     value: &state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allAvailabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeZoneIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAvailabilityZonesResult {
             all_availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allAvailabilityZones").unwrap(),
+                o.extract_field("allAvailabilityZones"),
             ),
             exclude_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeNames").unwrap(),
+                o.extract_field("excludeNames"),
             ),
             exclude_zone_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeZoneIds").unwrap(),
+                o.extract_field("excludeZoneIds"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             group_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupNames").unwrap(),
+                o.extract_field("groupNames"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             zone_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneIds").unwrap(),
+                o.extract_field("zoneIds"),
             ),
         }
     }

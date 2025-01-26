@@ -332,63 +332,30 @@ pub mod queue {
                     value: &stackdriver_logging_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appEngineRoutingOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "rateLimits".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackdriverLoggingConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         QueueResult {
             app_engine_routing_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appEngineRoutingOverride").unwrap(),
+                o.extract_field("appEngineRoutingOverride"),
             ),
             http_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpTarget").unwrap(),
+                o.extract_field("httpTarget"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             rate_limits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rateLimits").unwrap(),
+                o.extract_field("rateLimits"),
             ),
             retry_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryConfig").unwrap(),
+                o.extract_field("retryConfig"),
             ),
             stackdriver_logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackdriverLoggingConfig").unwrap(),
+                o.extract_field("stackdriverLoggingConfig"),
             ),
         }
     }

@@ -124,69 +124,35 @@ pub mod partition {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastAccessedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastAnalyzedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageDescriptor".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PartitionResult {
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             last_accessed_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastAccessedTime").unwrap(),
+                o.extract_field("lastAccessedTime"),
             ),
             last_analyzed_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastAnalyzedTime").unwrap(),
+                o.extract_field("lastAnalyzedTime"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             partition_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionValues").unwrap(),
+                o.extract_field("partitionValues"),
             ),
             storage_descriptor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageDescriptor").unwrap(),
+                o.extract_field("storageDescriptor"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

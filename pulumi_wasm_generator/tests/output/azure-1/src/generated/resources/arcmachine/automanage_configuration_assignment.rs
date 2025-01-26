@@ -97,27 +97,14 @@ pub mod automanage_configuration_assignment {
                     value: &configuration_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arcMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutomanageConfigurationAssignmentResult {
             arc_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arcMachineId").unwrap(),
+                o.extract_field("arcMachineId"),
             ),
             configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationId").unwrap(),
+                o.extract_field("configurationId"),
             ),
         }
     }

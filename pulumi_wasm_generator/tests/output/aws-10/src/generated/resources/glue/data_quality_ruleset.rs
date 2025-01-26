@@ -176,75 +176,32 @@ pub mod data_quality_ruleset {
                     value: &target_table_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recommendationRunId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleset".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetTable".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataQualityRulesetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             last_modified_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedOn").unwrap(),
+                o.extract_field("lastModifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recommendation_run_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recommendationRunId").unwrap(),
+                o.extract_field("recommendationRunId"),
             ),
             ruleset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleset").unwrap(),
+                o.extract_field("ruleset"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetTable").unwrap(),
+                o.extract_field("targetTable"),
             ),
         }
     }

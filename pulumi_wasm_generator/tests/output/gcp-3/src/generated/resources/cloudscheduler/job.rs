@@ -429,93 +429,39 @@ pub mod job {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appEngineHttpTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "attemptDeadline".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "paused".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pubsubTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             app_engine_http_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appEngineHttpTarget").unwrap(),
+                o.extract_field("appEngineHttpTarget"),
             ),
             attempt_deadline: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attemptDeadline").unwrap(),
+                o.extract_field("attemptDeadline"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             http_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpTarget").unwrap(),
+                o.extract_field("httpTarget"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            paused: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("paused").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            paused: pulumi_wasm_rust::__private::into_domain(o.extract_field("paused")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pubsub_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pubsubTarget").unwrap(),
+                o.extract_field("pubsubTarget"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             retry_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryConfig").unwrap(),
+                o.extract_field("retryConfig"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

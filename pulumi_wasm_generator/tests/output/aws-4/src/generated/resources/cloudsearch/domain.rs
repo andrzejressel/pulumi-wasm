@@ -142,69 +142,31 @@ pub mod domain {
                     value: &scaling_parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentServiceEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexFields".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAz".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "searchServiceEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             document_service_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentServiceEndpoint").unwrap(),
+                o.extract_field("documentServiceEndpoint"),
             ),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             endpoint_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointOptions").unwrap(),
+                o.extract_field("endpointOptions"),
             ),
             index_fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexFields").unwrap(),
+                o.extract_field("indexFields"),
             ),
             multi_az: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAz").unwrap(),
+                o.extract_field("multiAz"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             scaling_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingParameters").unwrap(),
+                o.extract_field("scalingParameters"),
             ),
             search_service_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("searchServiceEndpoint").unwrap(),
+                o.extract_field("searchServiceEndpoint"),
             ),
         }
     }

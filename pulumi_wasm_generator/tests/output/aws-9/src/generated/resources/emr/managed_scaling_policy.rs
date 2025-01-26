@@ -97,27 +97,14 @@ pub mod managed_scaling_policy {
                     value: &compute_limits_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeLimits".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedScalingPolicyResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             compute_limits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeLimits").unwrap(),
+                o.extract_field("computeLimits"),
             ),
         }
     }

@@ -201,57 +201,27 @@ pub mod global_vm_shutdown_schedule {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dailyRecurrenceTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlobalVMShutdownScheduleResult {
             daily_recurrence_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyRecurrenceTime").unwrap(),
+                o.extract_field("dailyRecurrenceTime"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             notification_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationSettings").unwrap(),
+                o.extract_field("notificationSettings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timezone").unwrap(),
+                o.extract_field("timezone"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

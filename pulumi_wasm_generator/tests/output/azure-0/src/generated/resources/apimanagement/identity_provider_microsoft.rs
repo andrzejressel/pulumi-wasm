@@ -118,39 +118,20 @@ pub mod identity_provider_microsoft {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityProviderMicrosoftResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

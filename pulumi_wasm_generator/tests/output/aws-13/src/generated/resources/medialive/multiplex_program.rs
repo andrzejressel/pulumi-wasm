@@ -118,33 +118,17 @@ pub mod multiplex_program {
                     value: &program_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "multiplexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiplexProgramSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "programName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MultiplexProgramResult {
             multiplex_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiplexId").unwrap(),
+                o.extract_field("multiplexId"),
             ),
             multiplex_program_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiplexProgramSettings").unwrap(),
+                o.extract_field("multiplexProgramSettings"),
             ),
             program_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("programName").unwrap(),
+                o.extract_field("programName"),
             ),
         }
     }

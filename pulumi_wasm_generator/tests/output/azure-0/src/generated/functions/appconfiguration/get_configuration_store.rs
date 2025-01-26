@@ -105,128 +105,58 @@ pub mod get_configuration_store {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "encryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryReadKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWriteKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "purgeProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicas".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryReadKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWriteKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "softDeleteRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationStoreResult {
             encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptions").unwrap(),
+                o.extract_field("encryptions"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_read_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryReadKeys").unwrap(),
+                o.extract_field("primaryReadKeys"),
             ),
             primary_write_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWriteKeys").unwrap(),
+                o.extract_field("primaryWriteKeys"),
             ),
             public_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccess").unwrap(),
+                o.extract_field("publicNetworkAccess"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             purge_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purgeProtectionEnabled").unwrap(),
+                o.extract_field("purgeProtectionEnabled"),
             ),
             replicas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicas").unwrap(),
+                o.extract_field("replicas"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_read_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryReadKeys").unwrap(),
+                o.extract_field("secondaryReadKeys"),
             ),
             secondary_write_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWriteKeys").unwrap(),
+                o.extract_field("secondaryWriteKeys"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             soft_delete_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softDeleteRetentionDays").unwrap(),
+                o.extract_field("softDeleteRetentionDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

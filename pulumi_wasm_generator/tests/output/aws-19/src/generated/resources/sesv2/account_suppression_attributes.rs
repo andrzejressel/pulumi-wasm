@@ -63,21 +63,11 @@ pub mod account_suppression_attributes {
                     value: &suppressed_reasons_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "suppressedReasons".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountSuppressionAttributesResult {
             suppressed_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressedReasons").unwrap(),
+                o.extract_field("suppressedReasons"),
             ),
         }
     }

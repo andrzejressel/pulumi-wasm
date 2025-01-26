@@ -161,63 +161,26 @@ pub mod spacecraft {
                     value: &two_line_elements_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "links".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "noradId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "titleLine".into(),
-                },
-                register_interface::ResultField {
-                    name: "twoLineElements".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpacecraftResult {
-            links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("links").unwrap(),
-            ),
+            links: pulumi_wasm_rust::__private::into_domain(o.extract_field("links")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             norad_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noradId").unwrap(),
+                o.extract_field("noradId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             title_line: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("titleLine").unwrap(),
+                o.extract_field("titleLine"),
             ),
             two_line_elements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("twoLineElements").unwrap(),
+                o.extract_field("twoLineElements"),
             ),
         }
     }

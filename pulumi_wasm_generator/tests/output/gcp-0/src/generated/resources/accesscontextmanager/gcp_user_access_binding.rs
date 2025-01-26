@@ -136,39 +136,18 @@ pub mod gcp_user_access_binding {
                     value: &organization_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLevels".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GcpUserAccessBindingResult {
             access_levels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLevels").unwrap(),
+                o.extract_field("accessLevels"),
             ),
             group_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupKey").unwrap(),
+                o.extract_field("groupKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
         }
     }

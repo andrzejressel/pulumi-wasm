@@ -91,27 +91,12 @@ pub mod queue_policy {
                     value: &queue_url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         QueuePolicyResult {
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             queue_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueUrl").unwrap(),
+                o.extract_field("queueUrl"),
             ),
         }
     }

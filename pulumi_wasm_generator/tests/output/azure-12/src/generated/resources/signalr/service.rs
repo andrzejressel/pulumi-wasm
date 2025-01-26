@@ -349,177 +349,81 @@ pub mod service {
                     value: &upstream_endpoints_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aadAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectivityLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cors".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpRequestLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "liveTrace".into(),
-                },
-                register_interface::ResultField {
-                    name: "liveTraceEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "messagingLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverlessConnectionTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsClientCertEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "upstreamEndpoints".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
             aad_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aadAuthEnabled").unwrap(),
+                o.extract_field("aadAuthEnabled"),
             ),
             connectivity_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectivityLogsEnabled").unwrap(),
+                o.extract_field("connectivityLogsEnabled"),
             ),
-            cors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cors").unwrap(),
-            ),
+            cors: pulumi_wasm_rust::__private::into_domain(o.extract_field("cors")),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             http_request_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpRequestLogsEnabled").unwrap(),
+                o.extract_field("httpRequestLogsEnabled"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             live_trace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("liveTrace").unwrap(),
+                o.extract_field("liveTrace"),
             ),
             live_trace_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("liveTraceEnabled").unwrap(),
+                o.extract_field("liveTraceEnabled"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             messaging_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messagingLogsEnabled").unwrap(),
+                o.extract_field("messagingLogsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             public_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicPort").unwrap(),
+                o.extract_field("publicPort"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             server_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverPort").unwrap(),
+                o.extract_field("serverPort"),
             ),
             serverless_connection_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverlessConnectionTimeoutInSeconds").unwrap(),
+                o.extract_field("serverlessConnectionTimeoutInSeconds"),
             ),
             service_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceMode").unwrap(),
+                o.extract_field("serviceMode"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tls_client_cert_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsClientCertEnabled").unwrap(),
+                o.extract_field("tlsClientCertEnabled"),
             ),
             upstream_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upstreamEndpoints").unwrap(),
+                o.extract_field("upstreamEndpoints"),
             ),
         }
     }

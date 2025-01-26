@@ -241,105 +241,47 @@ pub mod receipt_rule {
                     value: &workmail_actions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addHeaderActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "after".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bounceActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recipients".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "scanEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "workmailActions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReceiptRuleResult {
             add_header_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addHeaderActions").unwrap(),
+                o.extract_field("addHeaderActions"),
             ),
-            after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("after").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            after: pulumi_wasm_rust::__private::into_domain(o.extract_field("after")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bounce_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bounceActions").unwrap(),
+                o.extract_field("bounceActions"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             lambda_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaActions").unwrap(),
+                o.extract_field("lambdaActions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recipients: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recipients").unwrap(),
+                o.extract_field("recipients"),
             ),
             rule_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleSetName").unwrap(),
+                o.extract_field("ruleSetName"),
             ),
             s3_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Actions").unwrap(),
+                o.extract_field("s3Actions"),
             ),
             scan_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scanEnabled").unwrap(),
+                o.extract_field("scanEnabled"),
             ),
             sns_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsActions").unwrap(),
+                o.extract_field("snsActions"),
             ),
             stop_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopActions").unwrap(),
+                o.extract_field("stopActions"),
             ),
             tls_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsPolicy").unwrap(),
+                o.extract_field("tlsPolicy"),
             ),
             workmail_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workmailActions").unwrap(),
+                o.extract_field("workmailActions"),
             ),
         }
     }

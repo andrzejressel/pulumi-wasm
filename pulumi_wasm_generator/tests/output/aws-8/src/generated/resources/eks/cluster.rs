@@ -566,177 +566,81 @@ pub mod cluster {
                     value: &zonal_shift_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapSelfManagedAddons".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorities".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthority".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAddonsToRemoves".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledClusterLogTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesNetworkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteNetworkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "zonalShiftConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             access_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessConfig").unwrap(),
+                o.extract_field("accessConfig"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bootstrap_self_managed_addons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapSelfManagedAddons").unwrap(),
+                o.extract_field("bootstrapSelfManagedAddons"),
             ),
             certificate_authorities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorities").unwrap(),
+                o.extract_field("certificateAuthorities"),
             ),
             certificate_authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthority").unwrap(),
+                o.extract_field("certificateAuthority"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             compute_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeConfig").unwrap(),
+                o.extract_field("computeConfig"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             default_addons_to_removes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAddonsToRemoves").unwrap(),
+                o.extract_field("defaultAddonsToRemoves"),
             ),
             enabled_cluster_log_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledClusterLogTypes").unwrap(),
+                o.extract_field("enabledClusterLogTypes"),
             ),
             encryption_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfig").unwrap(),
+                o.extract_field("encryptionConfig"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             kubernetes_network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesNetworkConfig").unwrap(),
+                o.extract_field("kubernetesNetworkConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outpost_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostConfig").unwrap(),
+                o.extract_field("outpostConfig"),
             ),
             platform_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformVersion").unwrap(),
+                o.extract_field("platformVersion"),
             ),
             remote_network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteNetworkConfig").unwrap(),
+                o.extract_field("remoteNetworkConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             storage_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConfig").unwrap(),
+                o.extract_field("storageConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             upgrade_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradePolicy").unwrap(),
+                o.extract_field("upgradePolicy"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
             zonal_shift_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zonalShiftConfig").unwrap(),
+                o.extract_field("zonalShiftConfig"),
             ),
         }
     }

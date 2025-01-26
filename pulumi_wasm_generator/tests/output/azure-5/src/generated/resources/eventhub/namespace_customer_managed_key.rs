@@ -304,39 +304,20 @@ pub mod namespace_customer_managed_key {
                     value: &user_assigned_identity_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "eventhubNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "userAssignedIdentityId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceCustomerManagedKeyResult {
             eventhub_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubNamespaceId").unwrap(),
+                o.extract_field("eventhubNamespaceId"),
             ),
             infrastructure_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureEncryptionEnabled").unwrap(),
+                o.extract_field("infrastructureEncryptionEnabled"),
             ),
             key_vault_key_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyIds").unwrap(),
+                o.extract_field("keyVaultKeyIds"),
             ),
             user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userAssignedIdentityId").unwrap(),
+                o.extract_field("userAssignedIdentityId"),
             ),
         }
     }

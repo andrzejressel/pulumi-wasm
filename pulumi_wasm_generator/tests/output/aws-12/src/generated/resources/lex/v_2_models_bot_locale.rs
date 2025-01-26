@@ -172,63 +172,28 @@ pub mod v_2_models_bot_locale {
                     value: &voice_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botId".into(),
-                },
-                register_interface::ResultField {
-                    name: "botVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "localeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "nLuIntentConfidenceThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         V2modelsBotLocaleResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botId").unwrap(),
-            ),
+            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
             bot_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botVersion").unwrap(),
+                o.extract_field("botVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             locale_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localeId").unwrap(),
+                o.extract_field("localeId"),
             ),
             n_lu_intent_confidence_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nLuIntentConfidenceThreshold").unwrap(),
+                o.extract_field("nLuIntentConfidenceThreshold"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             voice_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceSettings").unwrap(),
+                o.extract_field("voiceSettings"),
             ),
         }
     }

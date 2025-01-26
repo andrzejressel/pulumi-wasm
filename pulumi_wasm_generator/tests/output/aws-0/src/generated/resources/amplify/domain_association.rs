@@ -158,63 +158,28 @@ pub mod domain_association {
                     value: &wait_for_verification_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateVerificationDnsRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAutoSubDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "subDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForVerification".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainAssociationResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateSettings").unwrap(),
+                o.extract_field("certificateSettings"),
             ),
             certificate_verification_dns_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateVerificationDnsRecord").unwrap(),
+                o.extract_field("certificateVerificationDnsRecord"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             enable_auto_sub_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAutoSubDomain").unwrap(),
+                o.extract_field("enableAutoSubDomain"),
             ),
             sub_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subDomains").unwrap(),
+                o.extract_field("subDomains"),
             ),
             wait_for_verification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForVerification").unwrap(),
+                o.extract_field("waitForVerification"),
             ),
         }
     }

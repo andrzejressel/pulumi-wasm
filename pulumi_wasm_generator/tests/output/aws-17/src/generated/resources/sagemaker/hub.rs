@@ -135,63 +135,28 @@ pub mod hub {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubSearchKeywords".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3StorageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HubResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             hub_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubDescription").unwrap(),
+                o.extract_field("hubDescription"),
             ),
             hub_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubDisplayName").unwrap(),
+                o.extract_field("hubDisplayName"),
             ),
             hub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubName").unwrap(),
+                o.extract_field("hubName"),
             ),
             hub_search_keywords: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubSearchKeywords").unwrap(),
+                o.extract_field("hubSearchKeywords"),
             ),
             s3_storage_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3StorageConfig").unwrap(),
+                o.extract_field("s3StorageConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -123,69 +123,31 @@ pub mod replicator {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInfoList".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicatorName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceExecutionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicatorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             current_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentVersion").unwrap(),
+                o.extract_field("currentVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             kafka_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaClusters").unwrap(),
+                o.extract_field("kafkaClusters"),
             ),
             replication_info_list: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInfoList").unwrap(),
+                o.extract_field("replicationInfoList"),
             ),
             replicator_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicatorName").unwrap(),
+                o.extract_field("replicatorName"),
             ),
             service_execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceExecutionRoleArn").unwrap(),
+                o.extract_field("serviceExecutionRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -102,39 +102,20 @@ pub mod directory_config {
                     value: &service_account_credentials_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnitDistinguishedNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountCredentials".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DirectoryConfigResult {
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             directory_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryName").unwrap(),
+                o.extract_field("directoryName"),
             ),
             organizational_unit_distinguished_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnitDistinguishedNames").unwrap(),
+                o.extract_field("organizationalUnitDistinguishedNames"),
             ),
             service_account_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountCredentials").unwrap(),
+                o.extract_field("serviceAccountCredentials"),
             ),
         }
     }

@@ -175,45 +175,19 @@ pub mod gallery_application_assignment {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationBlobUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryApplicationVersionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "order".into(),
-                },
-                register_interface::ResultField {
-                    name: "tag".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GalleryApplicationAssignmentResult {
             configuration_blob_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationBlobUri").unwrap(),
+                o.extract_field("configurationBlobUri"),
             ),
             gallery_application_version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryApplicationVersionId").unwrap(),
+                o.extract_field("galleryApplicationVersionId"),
             ),
-            order: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("order").unwrap(),
-            ),
-            tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tag").unwrap(),
-            ),
+            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
+            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

@@ -464,262 +464,124 @@ pub mod volume {
                     value: &unix_permissions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "coldTierSizeGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasReplication".into(),
-                },
-                register_interface::ResultField {
-                    name: "kerberosEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "largeCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ldapEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "multipleEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "psaRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictedActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "storagePool".into(),
-                },
-                register_interface::ResultField {
-                    name: "tieringPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "unixPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "usedGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeResult {
             active_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectory").unwrap(),
+                o.extract_field("activeDirectory"),
             ),
             backup_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupConfig").unwrap(),
+                o.extract_field("backupConfig"),
             ),
             capacity_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityGib").unwrap(),
+                o.extract_field("capacityGib"),
             ),
             cold_tier_size_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coldTierSizeGib").unwrap(),
+                o.extract_field("coldTierSizeGib"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
             export_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportPolicy").unwrap(),
+                o.extract_field("exportPolicy"),
             ),
             has_replication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasReplication").unwrap(),
+                o.extract_field("hasReplication"),
             ),
             kerberos_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kerberosEnabled").unwrap(),
+                o.extract_field("kerberosEnabled"),
             ),
             kms_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsConfig").unwrap(),
+                o.extract_field("kmsConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             large_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("largeCapacity").unwrap(),
+                o.extract_field("largeCapacity"),
             ),
             ldap_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ldapEnabled").unwrap(),
+                o.extract_field("ldapEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mount_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountOptions").unwrap(),
+                o.extract_field("mountOptions"),
             ),
             multiple_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multipleEndpoints").unwrap(),
+                o.extract_field("multipleEndpoints"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             psa_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("psaRange").unwrap(),
+                o.extract_field("psaRange"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             replica_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaZone").unwrap(),
+                o.extract_field("replicaZone"),
             ),
             restore_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreParameters").unwrap(),
+                o.extract_field("restoreParameters"),
             ),
             restricted_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictedActions").unwrap(),
+                o.extract_field("restrictedActions"),
             ),
             security_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityStyle").unwrap(),
+                o.extract_field("securityStyle"),
             ),
             service_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLevel").unwrap(),
+                o.extract_field("serviceLevel"),
             ),
             share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareName").unwrap(),
+                o.extract_field("shareName"),
             ),
             smb_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbSettings").unwrap(),
+                o.extract_field("smbSettings"),
             ),
             snapshot_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotDirectory").unwrap(),
+                o.extract_field("snapshotDirectory"),
             ),
             snapshot_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotPolicy").unwrap(),
+                o.extract_field("snapshotPolicy"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateDetails").unwrap(),
+                o.extract_field("stateDetails"),
             ),
             storage_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storagePool").unwrap(),
+                o.extract_field("storagePool"),
             ),
             tiering_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tieringPolicy").unwrap(),
+                o.extract_field("tieringPolicy"),
             ),
             unix_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unixPermissions").unwrap(),
+                o.extract_field("unixPermissions"),
             ),
             used_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usedGib").unwrap(),
+                o.extract_field("usedGib"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

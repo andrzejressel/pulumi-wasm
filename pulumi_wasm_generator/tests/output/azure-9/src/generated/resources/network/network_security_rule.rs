@@ -309,123 +309,58 @@ pub mod network_security_rule {
                     value: &source_port_ranges_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "access".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationAddressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationAddressPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationApplicationSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPortRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPortRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSecurityGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceAddressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceAddressPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceApplicationSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePortRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePortRanges".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkSecurityRuleResult {
-            access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("access").unwrap(),
-            ),
+            access: pulumi_wasm_rust::__private::into_domain(o.extract_field("access")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationAddressPrefix").unwrap(),
+                o.extract_field("destinationAddressPrefix"),
             ),
             destination_address_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationAddressPrefixes").unwrap(),
+                o.extract_field("destinationAddressPrefixes"),
             ),
             destination_application_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationApplicationSecurityGroupIds").unwrap(),
+                o.extract_field("destinationApplicationSecurityGroupIds"),
             ),
             destination_port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPortRange").unwrap(),
+                o.extract_field("destinationPortRange"),
             ),
             destination_port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPortRanges").unwrap(),
+                o.extract_field("destinationPortRanges"),
             ),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_security_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSecurityGroupName").unwrap(),
+                o.extract_field("networkSecurityGroupName"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceAddressPrefix").unwrap(),
+                o.extract_field("sourceAddressPrefix"),
             ),
             source_address_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceAddressPrefixes").unwrap(),
+                o.extract_field("sourceAddressPrefixes"),
             ),
             source_application_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceApplicationSecurityGroupIds").unwrap(),
+                o.extract_field("sourceApplicationSecurityGroupIds"),
             ),
             source_port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePortRange").unwrap(),
+                o.extract_field("sourcePortRange"),
             ),
             source_port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePortRanges").unwrap(),
+                o.extract_field("sourcePortRanges"),
             ),
         }
     }

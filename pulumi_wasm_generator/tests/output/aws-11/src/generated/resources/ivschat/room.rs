@@ -151,63 +151,26 @@ pub mod room {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfigurationIdentifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumMessageLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumMessageRatePerSecond".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageReviewHandler".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoomResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             logging_configuration_identifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfigurationIdentifiers").unwrap(),
+                o.extract_field("loggingConfigurationIdentifiers"),
             ),
             maximum_message_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumMessageLength").unwrap(),
+                o.extract_field("maximumMessageLength"),
             ),
             maximum_message_rate_per_second: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumMessageRatePerSecond").unwrap(),
+                o.extract_field("maximumMessageRatePerSecond"),
             ),
             message_review_handler: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageReviewHandler").unwrap(),
+                o.extract_field("messageReviewHandler"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

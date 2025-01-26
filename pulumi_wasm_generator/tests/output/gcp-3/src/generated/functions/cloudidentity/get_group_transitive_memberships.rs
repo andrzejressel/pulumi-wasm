@@ -38,31 +38,13 @@ pub mod get_group_transitive_memberships {
                     value: &group_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberships".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGroupTransitiveMembershipsResult {
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             memberships: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberships").unwrap(),
+                o.extract_field("memberships"),
             ),
         }
     }

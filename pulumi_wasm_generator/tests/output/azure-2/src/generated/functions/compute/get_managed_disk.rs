@@ -78,128 +78,56 @@ pub mod get_managed_disk {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskAccessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskIopsReadWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskMbpsReadWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetManagedDiskResult {
             create_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createOption").unwrap(),
+                o.extract_field("createOption"),
             ),
             disk_access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskAccessId").unwrap(),
+                o.extract_field("diskAccessId"),
             ),
             disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionSetId").unwrap(),
+                o.extract_field("diskEncryptionSetId"),
             ),
             disk_iops_read_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskIopsReadWrite").unwrap(),
+                o.extract_field("diskIopsReadWrite"),
             ),
             disk_mbps_read_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskMbpsReadWrite").unwrap(),
+                o.extract_field("diskMbpsReadWrite"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
             encryption_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSettings").unwrap(),
+                o.extract_field("encryptionSettings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageReferenceId").unwrap(),
+                o.extract_field("imageReferenceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAccessPolicy").unwrap(),
+                o.extract_field("networkAccessPolicy"),
             ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             source_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceUri").unwrap(),
+                o.extract_field("sourceUri"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

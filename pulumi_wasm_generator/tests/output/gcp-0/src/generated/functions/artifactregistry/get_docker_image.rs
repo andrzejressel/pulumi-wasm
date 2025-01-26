@@ -82,91 +82,41 @@ pub mod get_docker_image {
                     value: &repository_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "buildTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mediaType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "uploadTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDockerImageResult {
             build_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildTime").unwrap(),
+                o.extract_field("buildTime"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
             image_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageSizeBytes").unwrap(),
+                o.extract_field("imageSizeBytes"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             media_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mediaType").unwrap(),
+                o.extract_field("mediaType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             repository_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryId").unwrap(),
+                o.extract_field("repositoryId"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             upload_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uploadTime").unwrap(),
+                o.extract_field("uploadTime"),
             ),
         }
     }

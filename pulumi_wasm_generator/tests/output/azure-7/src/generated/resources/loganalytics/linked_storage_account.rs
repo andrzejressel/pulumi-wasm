@@ -131,39 +131,20 @@ pub mod linked_storage_account {
                     value: &workspace_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataSourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LinkedStorageAccountResult {
             data_source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceType").unwrap(),
+                o.extract_field("dataSourceType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_account_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountIds").unwrap(),
+                o.extract_field("storageAccountIds"),
             ),
             workspace_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceResourceId").unwrap(),
+                o.extract_field("workspaceResourceId"),
             ),
         }
     }

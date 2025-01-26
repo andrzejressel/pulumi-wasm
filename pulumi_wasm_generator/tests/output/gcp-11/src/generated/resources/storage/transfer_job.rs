@@ -243,81 +243,37 @@ pub mod transfer_job {
                     value: &transfer_spec_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventStream".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModificationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "transferSpec".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TransferJobResult {
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             deletion_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionTime").unwrap(),
+                o.extract_field("deletionTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             event_stream: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventStream").unwrap(),
+                o.extract_field("eventStream"),
             ),
             last_modification_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModificationTime").unwrap(),
+                o.extract_field("lastModificationTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationConfig").unwrap(),
+                o.extract_field("notificationConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             transfer_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transferSpec").unwrap(),
+                o.extract_field("transferSpec"),
             ),
         }
     }

@@ -104,63 +104,28 @@ pub mod sharedflow {
                     value: &org_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configBundle".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectMd5hash".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestRevisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "md5hash".into(),
-                },
-                register_interface::ResultField {
-                    name: "metaDatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedflowResult {
             config_bundle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configBundle").unwrap(),
+                o.extract_field("configBundle"),
             ),
             detect_md5hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectMd5hash").unwrap(),
+                o.extract_field("detectMd5hash"),
             ),
             latest_revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestRevisionId").unwrap(),
+                o.extract_field("latestRevisionId"),
             ),
             md5hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("md5hash").unwrap(),
+                o.extract_field("md5hash"),
             ),
             meta_datas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metaDatas").unwrap(),
+                o.extract_field("metaDatas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             revisions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisions").unwrap(),
+                o.extract_field("revisions"),
             ),
         }
     }

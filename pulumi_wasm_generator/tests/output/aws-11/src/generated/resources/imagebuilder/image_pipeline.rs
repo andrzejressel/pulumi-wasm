@@ -244,141 +244,63 @@ pub mod image_pipeline {
                     value: &workflows_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateLastRun".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateNextRun".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateUpdated".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributionConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedImageMetadataEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageScanningConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTestsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflows".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImagePipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             container_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRecipeArn").unwrap(),
+                o.extract_field("containerRecipeArn"),
             ),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             date_last_run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateLastRun").unwrap(),
+                o.extract_field("dateLastRun"),
             ),
             date_next_run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateNextRun").unwrap(),
+                o.extract_field("dateNextRun"),
             ),
             date_updated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateUpdated").unwrap(),
+                o.extract_field("dateUpdated"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             distribution_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionConfigurationArn").unwrap(),
+                o.extract_field("distributionConfigurationArn"),
             ),
             enhanced_image_metadata_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedImageMetadataEnabled").unwrap(),
+                o.extract_field("enhancedImageMetadataEnabled"),
             ),
             execution_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRole").unwrap(),
+                o.extract_field("executionRole"),
             ),
             image_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageRecipeArn").unwrap(),
+                o.extract_field("imageRecipeArn"),
             ),
             image_scanning_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageScanningConfiguration").unwrap(),
+                o.extract_field("imageScanningConfiguration"),
             ),
             image_tests_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTestsConfiguration").unwrap(),
+                o.extract_field("imageTestsConfiguration"),
             ),
             infrastructure_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureConfigurationArn").unwrap(),
+                o.extract_field("infrastructureConfigurationArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             workflows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflows").unwrap(),
+                o.extract_field("workflows"),
             ),
         }
     }

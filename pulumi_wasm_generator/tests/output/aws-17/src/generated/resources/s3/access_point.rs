@@ -204,93 +204,37 @@ pub mod access_point {
                     value: &vpc_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasPublicAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkOrigin".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicAccessBlockConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessPointResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             bucket_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketAccountId").unwrap(),
+                o.extract_field("bucketAccountId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             has_public_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasPublicAccessPolicy").unwrap(),
+                o.extract_field("hasPublicAccessPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkOrigin").unwrap(),
+                o.extract_field("networkOrigin"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             public_access_block_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicAccessBlockConfiguration").unwrap(),
+                o.extract_field("publicAccessBlockConfiguration"),
             ),
             vpc_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfiguration").unwrap(),
+                o.extract_field("vpcConfiguration"),
             ),
         }
     }

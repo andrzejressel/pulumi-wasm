@@ -287,135 +287,60 @@ pub mod task_set {
                     value: &wait_until_stable_timeout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityProviderStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchType".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancers".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "scale".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRegistries".into(),
-                },
-                register_interface::ResultField {
-                    name: "stabilityStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitUntilStable".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitUntilStableTimeout".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TaskSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityProviderStrategies").unwrap(),
+                o.extract_field("capacityProviderStrategies"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             external_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalId").unwrap(),
+                o.extract_field("externalId"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             launch_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchType").unwrap(),
+                o.extract_field("launchType"),
             ),
             load_balancers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancers").unwrap(),
+                o.extract_field("loadBalancers"),
             ),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             platform_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformVersion").unwrap(),
+                o.extract_field("platformVersion"),
             ),
-            scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scale").unwrap(),
-            ),
+            scale: pulumi_wasm_rust::__private::into_domain(o.extract_field("scale")),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             service_registries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRegistries").unwrap(),
+                o.extract_field("serviceRegistries"),
             ),
             stability_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stabilityStatus").unwrap(),
+                o.extract_field("stabilityStatus"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             task_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskDefinition").unwrap(),
+                o.extract_field("taskDefinition"),
             ),
             task_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskSetId").unwrap(),
+                o.extract_field("taskSetId"),
             ),
             wait_until_stable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitUntilStable").unwrap(),
+                o.extract_field("waitUntilStable"),
             ),
             wait_until_stable_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitUntilStableTimeout").unwrap(),
+                o.extract_field("waitUntilStableTimeout"),
             ),
         }
     }

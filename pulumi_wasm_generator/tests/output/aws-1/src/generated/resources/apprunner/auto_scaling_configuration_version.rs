@@ -123,87 +123,36 @@ pub mod auto_scaling_configuration_version {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingConfigurationRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasAssociatedService".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "latest".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxConcurrency".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "minSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutoScalingConfigurationVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_scaling_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingConfigurationName").unwrap(),
+                o.extract_field("autoScalingConfigurationName"),
             ),
             auto_scaling_configuration_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingConfigurationRevision").unwrap(),
+                o.extract_field("autoScalingConfigurationRevision"),
             ),
             has_associated_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasAssociatedService").unwrap(),
+                o.extract_field("hasAssociatedService"),
             ),
             is_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefault").unwrap(),
+                o.extract_field("isDefault"),
             ),
-            latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latest").unwrap(),
-            ),
+            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
             max_concurrency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxConcurrency").unwrap(),
+                o.extract_field("maxConcurrency"),
             ),
             max_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSize").unwrap(),
+                o.extract_field("maxSize"),
             ),
             min_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minSize").unwrap(),
+                o.extract_field("minSize"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

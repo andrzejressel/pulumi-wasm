@@ -159,39 +159,20 @@ pub mod instance_automated_backups_replication {
                     value: &source_db_instance_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "preSignedUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDbInstanceArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceAutomatedBackupsReplicationResult {
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             pre_signed_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preSignedUrl").unwrap(),
+                o.extract_field("preSignedUrl"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
             source_db_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDbInstanceArn").unwrap(),
+                o.extract_field("sourceDbInstanceArn"),
             ),
         }
     }

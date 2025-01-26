@@ -428,124 +428,55 @@ pub mod job_definition {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arnPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "deregisterOnNewRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecsProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "eksProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformCapabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "propagateTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingPriority".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             arn_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arnPrefix").unwrap(),
+                o.extract_field("arnPrefix"),
             ),
             container_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerProperties").unwrap(),
+                o.extract_field("containerProperties"),
             ),
             deregister_on_new_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deregisterOnNewRevision").unwrap(),
+                o.extract_field("deregisterOnNewRevision"),
             ),
             ecs_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecsProperties").unwrap(),
+                o.extract_field("ecsProperties"),
             ),
             eks_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eksProperties").unwrap(),
+                o.extract_field("eksProperties"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeProperties").unwrap(),
+                o.extract_field("nodeProperties"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             platform_capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformCapabilities").unwrap(),
+                o.extract_field("platformCapabilities"),
             ),
             propagate_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propagateTags").unwrap(),
+                o.extract_field("propagateTags"),
             ),
             retry_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryStrategy").unwrap(),
+                o.extract_field("retryStrategy"),
             ),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
             scheduling_priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingPriority").unwrap(),
+                o.extract_field("schedulingPriority"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

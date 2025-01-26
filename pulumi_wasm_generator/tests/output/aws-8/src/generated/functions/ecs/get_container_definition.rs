@@ -65,79 +65,33 @@ pub mod get_container_definition {
                     value: &task_definition_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpu".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableNetworking".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "image".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageDigest".into(),
-                },
-                register_interface::ResultField {
-                    name: "memory".into(),
-                },
-                register_interface::ResultField {
-                    name: "memoryReservation".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskDefinition".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetContainerDefinitionResult {
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
-            cpu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpu").unwrap(),
-            ),
+            cpu: pulumi_wasm_rust::__private::into_domain(o.extract_field("cpu")),
             disable_networking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableNetworking").unwrap(),
+                o.extract_field("disableNetworking"),
             ),
             docker_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerLabels").unwrap(),
+                o.extract_field("dockerLabels"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("image").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            image: pulumi_wasm_rust::__private::into_domain(o.extract_field("image")),
             image_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageDigest").unwrap(),
+                o.extract_field("imageDigest"),
             ),
-            memory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memory").unwrap(),
-            ),
+            memory: pulumi_wasm_rust::__private::into_domain(o.extract_field("memory")),
             memory_reservation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memoryReservation").unwrap(),
+                o.extract_field("memoryReservation"),
             ),
             task_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskDefinition").unwrap(),
+                o.extract_field("taskDefinition"),
             ),
         }
     }

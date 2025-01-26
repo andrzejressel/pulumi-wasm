@@ -208,63 +208,24 @@ pub mod web_acl {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAclResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             default_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAction").unwrap(),
+                o.extract_field("defaultAction"),
             ),
             logging_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfiguration").unwrap(),
+                o.extract_field("loggingConfiguration"),
             ),
             metric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricName").unwrap(),
+                o.extract_field("metricName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

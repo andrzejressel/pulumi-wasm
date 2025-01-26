@@ -62,49 +62,24 @@ pub mod get_spot_price {
                     value: &instance_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotPriceTimestamp".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSpotPriceResult {
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             spot_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotPrice").unwrap(),
+                o.extract_field("spotPrice"),
             ),
             spot_price_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotPriceTimestamp").unwrap(),
+                o.extract_field("spotPriceTimestamp"),
             ),
         }
     }

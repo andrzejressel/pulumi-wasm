@@ -275,52 +275,25 @@ pub mod policy {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "admissionWhitelistPatterns".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterAdmissionRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAdmissionRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalPolicyEvaluationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
             admission_whitelist_patterns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("admissionWhitelistPatterns").unwrap(),
+                o.extract_field("admissionWhitelistPatterns"),
             ),
             cluster_admission_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterAdmissionRules").unwrap(),
+                o.extract_field("clusterAdmissionRules"),
             ),
             default_admission_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAdmissionRule").unwrap(),
+                o.extract_field("defaultAdmissionRule"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             global_policy_evaluation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalPolicyEvaluationMode").unwrap(),
+                o.extract_field("globalPolicyEvaluationMode"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

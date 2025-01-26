@@ -122,63 +122,26 @@ pub mod placement_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "spreadLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "strategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PlacementGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionCount").unwrap(),
+                o.extract_field("partitionCount"),
             ),
             placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroupId").unwrap(),
+                o.extract_field("placementGroupId"),
             ),
             spread_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spreadLevel").unwrap(),
+                o.extract_field("spreadLevel"),
             ),
             strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("strategy").unwrap(),
+                o.extract_field("strategy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -35,7 +35,6 @@ pub mod module_test {
                     value: &val_binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::register(context.get_inner(), &request);
     }

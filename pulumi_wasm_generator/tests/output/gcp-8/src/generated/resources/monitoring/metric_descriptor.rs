@@ -293,87 +293,36 @@ pub mod metric_descriptor {
                     value: &value_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchStage".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricKind".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoredResourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "unit".into(),
-                },
-                register_interface::ResultField {
-                    name: "valueType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricDescriptorResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             launch_stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchStage").unwrap(),
+                o.extract_field("launchStage"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
             metric_kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricKind").unwrap(),
+                o.extract_field("metricKind"),
             ),
             monitored_resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoredResourceTypes").unwrap(),
+                o.extract_field("monitoredResourceTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unit").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            unit: pulumi_wasm_rust::__private::into_domain(o.extract_field("unit")),
             value_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("valueType").unwrap(),
+                o.extract_field("valueType"),
             ),
         }
     }

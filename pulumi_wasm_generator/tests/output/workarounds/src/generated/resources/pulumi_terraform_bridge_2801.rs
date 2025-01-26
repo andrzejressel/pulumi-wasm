@@ -31,7 +31,6 @@ pub mod pulumi_terraform_bridge_2801 {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::register(context.get_inner(), &request);
     }

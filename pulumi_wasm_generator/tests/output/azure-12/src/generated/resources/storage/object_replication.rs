@@ -164,45 +164,21 @@ pub mod object_replication {
                     value: &source_storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationObjectReplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceObjectReplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceStorageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ObjectReplicationResult {
             destination_object_replication_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationObjectReplicationId").unwrap(),
+                o.extract_field("destinationObjectReplicationId"),
             ),
             destination_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationStorageAccountId").unwrap(),
+                o.extract_field("destinationStorageAccountId"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             source_object_replication_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceObjectReplicationId").unwrap(),
+                o.extract_field("sourceObjectReplicationId"),
             ),
             source_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceStorageAccountId").unwrap(),
+                o.extract_field("sourceStorageAccountId"),
             ),
         }
     }

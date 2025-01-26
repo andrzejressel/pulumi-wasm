@@ -63,79 +63,33 @@ pub mod get_virtual_network {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressSpaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "guid".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vnetPeerings".into(),
-                },
-                register_interface::ResultField {
-                    name: "vnetPeeringsAddresses".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualNetworkResult {
             address_spaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressSpaces").unwrap(),
+                o.extract_field("addressSpaces"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
-            guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guid").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            guid: pulumi_wasm_rust::__private::into_domain(o.extract_field("guid")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vnet_peerings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vnetPeerings").unwrap(),
+                o.extract_field("vnetPeerings"),
             ),
             vnet_peerings_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vnetPeeringsAddresses").unwrap(),
+                o.extract_field("vnetPeeringsAddresses"),
             ),
         }
     }

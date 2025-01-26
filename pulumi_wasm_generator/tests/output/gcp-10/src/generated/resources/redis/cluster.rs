@@ -674,159 +674,70 @@ pub mod cluster {
                     value: &zone_distribution_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "crossClusterReplicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "discoveryEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenancePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceSchedules".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistenceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "preciseSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "sizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneDistributionConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             authorization_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationMode").unwrap(),
+                o.extract_field("authorizationMode"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             cross_cluster_replication_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crossClusterReplicationConfig").unwrap(),
+                o.extract_field("crossClusterReplicationConfig"),
             ),
             deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtectionEnabled").unwrap(),
+                o.extract_field("deletionProtectionEnabled"),
             ),
             discovery_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discoveryEndpoints").unwrap(),
+                o.extract_field("discoveryEndpoints"),
             ),
             maintenance_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenancePolicy").unwrap(),
+                o.extract_field("maintenancePolicy"),
             ),
             maintenance_schedules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceSchedules").unwrap(),
+                o.extract_field("maintenanceSchedules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             persistence_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistenceConfig").unwrap(),
+                o.extract_field("persistenceConfig"),
             ),
             precise_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preciseSizeGb").unwrap(),
+                o.extract_field("preciseSizeGb"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConfigs").unwrap(),
+                o.extract_field("pscConfigs"),
             ),
             psc_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConnections").unwrap(),
+                o.extract_field("pscConnections"),
             ),
             redis_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisConfigs").unwrap(),
+                o.extract_field("redisConfigs"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCount").unwrap(),
+                o.extract_field("replicaCount"),
             ),
             shard_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCount").unwrap(),
+                o.extract_field("shardCount"),
             ),
-            size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sizeGb").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            size_gb: pulumi_wasm_rust::__private::into_domain(o.extract_field("sizeGb")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateInfos").unwrap(),
+                o.extract_field("stateInfos"),
             ),
             transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionMode").unwrap(),
+                o.extract_field("transitEncryptionMode"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             zone_distribution_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneDistributionConfig").unwrap(),
+                o.extract_field("zoneDistributionConfig"),
             ),
         }
     }

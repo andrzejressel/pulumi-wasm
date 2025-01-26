@@ -115,34 +115,16 @@ pub mod core_network_policy_attachment {
                     value: &policy_document_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "coreNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CoreNetworkPolicyAttachmentResult {
             core_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkId").unwrap(),
+                o.extract_field("coreNetworkId"),
             ),
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

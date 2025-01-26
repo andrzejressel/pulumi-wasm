@@ -273,69 +273,31 @@ pub mod flow_definition {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "flowDefinitionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "humanLoopActivationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "humanLoopConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "humanLoopRequestSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlowDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             flow_definition_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flowDefinitionName").unwrap(),
+                o.extract_field("flowDefinitionName"),
             ),
             human_loop_activation_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("humanLoopActivationConfig").unwrap(),
+                o.extract_field("humanLoopActivationConfig"),
             ),
             human_loop_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("humanLoopConfig").unwrap(),
+                o.extract_field("humanLoopConfig"),
             ),
             human_loop_request_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("humanLoopRequestSource").unwrap(),
+                o.extract_field("humanLoopRequestSource"),
             ),
             output_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputConfig").unwrap(),
+                o.extract_field("outputConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

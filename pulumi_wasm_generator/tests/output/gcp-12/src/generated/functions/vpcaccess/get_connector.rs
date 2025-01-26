@@ -68,104 +68,44 @@ pub mod get_connector {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectedProjects".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipCidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "minInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "minThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConnectorResult {
             connected_projects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectedProjects").unwrap(),
+                o.extract_field("connectedProjects"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipCidrRange").unwrap(),
+                o.extract_field("ipCidrRange"),
             ),
             machine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineType").unwrap(),
+                o.extract_field("machineType"),
             ),
             max_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxInstances").unwrap(),
+                o.extract_field("maxInstances"),
             ),
             max_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxThroughput").unwrap(),
+                o.extract_field("maxThroughput"),
             ),
             min_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minInstances").unwrap(),
+                o.extract_field("minInstances"),
             ),
             min_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minThroughput").unwrap(),
+                o.extract_field("minThroughput"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            subnets: pulumi_wasm_rust::__private::into_domain(o.extract_field("subnets")),
         }
     }
 }

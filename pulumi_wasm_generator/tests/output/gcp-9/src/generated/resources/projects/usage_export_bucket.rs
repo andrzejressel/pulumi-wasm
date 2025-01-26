@@ -139,34 +139,14 @@ pub mod usage_export_bucket {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UsageExportBucketResult {
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

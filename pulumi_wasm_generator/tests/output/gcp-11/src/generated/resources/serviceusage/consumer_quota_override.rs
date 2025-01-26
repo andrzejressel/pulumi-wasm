@@ -253,64 +253,23 @@ pub mod consumer_quota_override {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dimensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "force".into(),
-                },
-                register_interface::ResultField {
-                    name: "limit".into(),
-                },
-                register_interface::ResultField {
-                    name: "metric".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrideValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConsumerQuotaOverrideResult {
             dimensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dimensions").unwrap(),
+                o.extract_field("dimensions"),
             ),
-            force: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("force").unwrap(),
-            ),
-            limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("limit").unwrap(),
-            ),
-            metric: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metric").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            force: pulumi_wasm_rust::__private::into_domain(o.extract_field("force")),
+            limit: pulumi_wasm_rust::__private::into_domain(o.extract_field("limit")),
+            metric: pulumi_wasm_rust::__private::into_domain(o.extract_field("metric")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             override_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrideValue").unwrap(),
+                o.extract_field("overrideValue"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

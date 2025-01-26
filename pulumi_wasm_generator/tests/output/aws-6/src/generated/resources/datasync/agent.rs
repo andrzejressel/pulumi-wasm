@@ -188,75 +188,32 @@ pub mod agent {
                     value: &vpc_endpoint_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentResult {
             activation_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activationKey").unwrap(),
+                o.extract_field("activationKey"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_link_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkEndpoint").unwrap(),
+                o.extract_field("privateLinkEndpoint"),
             ),
             security_group_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupArns").unwrap(),
+                o.extract_field("securityGroupArns"),
             ),
             subnet_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetArns").unwrap(),
+                o.extract_field("subnetArns"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointId").unwrap(),
+                o.extract_field("vpcEndpointId"),
             ),
         }
     }

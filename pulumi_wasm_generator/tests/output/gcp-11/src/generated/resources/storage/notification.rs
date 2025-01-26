@@ -180,64 +180,29 @@ pub mod notification {
                     value: &topic_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "customAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectNamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "payloadFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "topic".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             custom_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customAttributes").unwrap(),
+                o.extract_field("customAttributes"),
             ),
             event_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTypes").unwrap(),
+                o.extract_field("eventTypes"),
             ),
             notification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationId").unwrap(),
+                o.extract_field("notificationId"),
             ),
             object_name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectNamePrefix").unwrap(),
+                o.extract_field("objectNamePrefix"),
             ),
             payload_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("payloadFormat").unwrap(),
+                o.extract_field("payloadFormat"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topic").unwrap(),
-            ),
+            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

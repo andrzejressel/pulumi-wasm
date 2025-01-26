@@ -71,73 +71,34 @@ pub mod get_network {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalIpv6Range".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "numericId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetworksSelfLinks".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             gateway_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayIpv4").unwrap(),
+                o.extract_field("gatewayIpv4"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             internal_ipv6_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalIpv6Range").unwrap(),
+                o.extract_field("internalIpv6Range"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfile").unwrap(),
+                o.extract_field("networkProfile"),
             ),
             numeric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numericId").unwrap(),
+                o.extract_field("numericId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             subnetworks_self_links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetworksSelfLinks").unwrap(),
+                o.extract_field("subnetworksSelfLinks"),
             ),
         }
     }

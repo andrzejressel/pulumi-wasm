@@ -325,118 +325,52 @@ pub mod service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainConfigurationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "filteredSyncEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialReplicaSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secureLdap".into(),
-                },
-                register_interface::ResultField {
-                    name: "security".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
             deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentId").unwrap(),
+                o.extract_field("deploymentId"),
             ),
             domain_configuration_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainConfigurationType").unwrap(),
+                o.extract_field("domainConfigurationType"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             filtered_sync_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filteredSyncEnabled").unwrap(),
+                o.extract_field("filteredSyncEnabled"),
             ),
             initial_replica_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialReplicaSet").unwrap(),
+                o.extract_field("initialReplicaSet"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             secure_ldap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secureLdap").unwrap(),
+                o.extract_field("secureLdap"),
             ),
             security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("security").unwrap(),
+                o.extract_field("security"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             sync_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncOwner").unwrap(),
+                o.extract_field("syncOwner"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

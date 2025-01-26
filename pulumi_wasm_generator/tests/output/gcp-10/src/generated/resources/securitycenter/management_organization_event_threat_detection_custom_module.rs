@@ -163,69 +163,29 @@ pub mod management_organization_event_threat_detection_custom_module {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablementState".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastEditor".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organization".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagementOrganizationEventThreatDetectionCustomModuleResult {
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enablement_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablementState").unwrap(),
+                o.extract_field("enablementState"),
             ),
             last_editor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastEditor").unwrap(),
+                o.extract_field("lastEditor"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organization").unwrap(),
+                o.extract_field("organization"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

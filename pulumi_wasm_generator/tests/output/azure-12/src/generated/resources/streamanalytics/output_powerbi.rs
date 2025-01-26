@@ -151,63 +151,28 @@ pub mod output_powerbi {
                     value: &token_user_principal_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "table".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenUserDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenUserPrincipalName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutputPowerbiResult {
             dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataset").unwrap(),
+                o.extract_field("dataset"),
             ),
             group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupId").unwrap(),
+                o.extract_field("groupId"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             stream_analytics_job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobId").unwrap(),
+                o.extract_field("streamAnalyticsJobId"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("table").unwrap(),
-            ),
+            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
             token_user_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenUserDisplayName").unwrap(),
+                o.extract_field("tokenUserDisplayName"),
             ),
             token_user_principal_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenUserPrincipalName").unwrap(),
+                o.extract_field("tokenUserPrincipalName"),
             ),
         }
     }

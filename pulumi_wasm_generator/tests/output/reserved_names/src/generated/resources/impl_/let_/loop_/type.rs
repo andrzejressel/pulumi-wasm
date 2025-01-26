@@ -30,7 +30,6 @@ pub mod type_ {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::register(context.get_inner(), &request);
     }

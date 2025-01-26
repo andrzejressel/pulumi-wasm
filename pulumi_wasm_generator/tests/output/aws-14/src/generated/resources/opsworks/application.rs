@@ -275,118 +275,56 @@ pub mod application {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoBundleOnDeploy".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsFlowRubySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentRoot".into(),
-                },
-                register_interface::ResultField {
-                    name: "domains".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSsl".into(),
-                },
-                register_interface::ResultField {
-                    name: "environments".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "railsEnv".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
             app_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSources").unwrap(),
+                o.extract_field("appSources"),
             ),
             auto_bundle_on_deploy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoBundleOnDeploy").unwrap(),
+                o.extract_field("autoBundleOnDeploy"),
             ),
             aws_flow_ruby_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsFlowRubySettings").unwrap(),
+                o.extract_field("awsFlowRubySettings"),
             ),
             data_source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceArn").unwrap(),
+                o.extract_field("dataSourceArn"),
             ),
             data_source_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceDatabaseName").unwrap(),
+                o.extract_field("dataSourceDatabaseName"),
             ),
             data_source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceType").unwrap(),
+                o.extract_field("dataSourceType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             document_root: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentRoot").unwrap(),
+                o.extract_field("documentRoot"),
             ),
             domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domains").unwrap(),
+                o.extract_field("domains"),
             ),
             enable_ssl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSsl").unwrap(),
+                o.extract_field("enableSsl"),
             ),
             environments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environments").unwrap(),
+                o.extract_field("environments"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rails_env: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("railsEnv").unwrap(),
+                o.extract_field("railsEnv"),
             ),
             short_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortName").unwrap(),
+                o.extract_field("shortName"),
             ),
             ssl_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslConfigurations").unwrap(),
+                o.extract_field("sslConfigurations"),
             ),
             stack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackId").unwrap(),
+                o.extract_field("stackId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

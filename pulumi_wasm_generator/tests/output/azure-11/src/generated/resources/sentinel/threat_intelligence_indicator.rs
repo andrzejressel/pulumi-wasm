@@ -354,183 +354,86 @@ pub mod threat_intelligence_indicator {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "confidence".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defanged".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "extension".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalLastUpdatedTimeUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "granularMarkings".into(),
-                },
-                register_interface::ResultField {
-                    name: "guid".into(),
-                },
-                register_interface::ResultField {
-                    name: "indicatorTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "killChainPhases".into(),
-                },
-                register_interface::ResultField {
-                    name: "language".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTimeUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectMarkingRefs".into(),
-                },
-                register_interface::ResultField {
-                    name: "parsedPatterns".into(),
-                },
-                register_interface::ResultField {
-                    name: "pattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "patternType".into(),
-                },
-                register_interface::ResultField {
-                    name: "patternVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "revoked".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "validateFromUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "validateUntilUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ThreatIntelligenceIndicatorResult {
             confidence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidence").unwrap(),
+                o.extract_field("confidence"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             defanged: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defanged").unwrap(),
+                o.extract_field("defanged"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             extension: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extension").unwrap(),
+                o.extract_field("extension"),
             ),
             external_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalId").unwrap(),
+                o.extract_field("externalId"),
             ),
             external_last_updated_time_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalLastUpdatedTimeUtc").unwrap(),
+                o.extract_field("externalLastUpdatedTimeUtc"),
             ),
             external_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalReferences").unwrap(),
+                o.extract_field("externalReferences"),
             ),
             granular_markings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("granularMarkings").unwrap(),
+                o.extract_field("granularMarkings"),
             ),
-            guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guid").unwrap(),
-            ),
+            guid: pulumi_wasm_rust::__private::into_domain(o.extract_field("guid")),
             indicator_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indicatorTypes").unwrap(),
+                o.extract_field("indicatorTypes"),
             ),
             kill_chain_phases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("killChainPhases").unwrap(),
+                o.extract_field("killChainPhases"),
             ),
             language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("language").unwrap(),
+                o.extract_field("language"),
             ),
             last_updated_time_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTimeUtc").unwrap(),
+                o.extract_field("lastUpdatedTimeUtc"),
             ),
             object_marking_refs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectMarkingRefs").unwrap(),
+                o.extract_field("objectMarkingRefs"),
             ),
             parsed_patterns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parsedPatterns").unwrap(),
+                o.extract_field("parsedPatterns"),
             ),
             pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pattern").unwrap(),
+                o.extract_field("pattern"),
             ),
             pattern_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patternType").unwrap(),
+                o.extract_field("patternType"),
             ),
             pattern_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patternVersion").unwrap(),
+                o.extract_field("patternVersion"),
             ),
             revoked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revoked").unwrap(),
+                o.extract_field("revoked"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threat_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatTypes").unwrap(),
+                o.extract_field("threatTypes"),
             ),
             validate_from_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validateFromUtc").unwrap(),
+                o.extract_field("validateFromUtc"),
             ),
             validate_until_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validateUntilUtc").unwrap(),
+                o.extract_field("validateUntilUtc"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

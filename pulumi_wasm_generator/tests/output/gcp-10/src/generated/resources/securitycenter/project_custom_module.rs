@@ -227,63 +227,30 @@ pub mod project_custom_module {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ancestorModule".into(),
-                },
-                register_interface::ResultField {
-                    name: "customConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablementState".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastEditor".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectCustomModuleResult {
             ancestor_module: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ancestorModule").unwrap(),
+                o.extract_field("ancestorModule"),
             ),
             custom_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customConfig").unwrap(),
+                o.extract_field("customConfig"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enablement_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablementState").unwrap(),
+                o.extract_field("enablementState"),
             ),
             last_editor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastEditor").unwrap(),
+                o.extract_field("lastEditor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

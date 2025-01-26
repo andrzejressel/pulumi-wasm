@@ -193,82 +193,34 @@ pub mod exadata_infrastructure {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "computeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerContacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindows".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shape".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExadataInfrastructureResult {
             compute_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeCount").unwrap(),
+                o.extract_field("computeCount"),
             ),
             customer_contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerContacts").unwrap(),
+                o.extract_field("customerContacts"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindows").unwrap(),
+                o.extract_field("maintenanceWindows"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            shape: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shape").unwrap(),
-            ),
+            shape: pulumi_wasm_rust::__private::into_domain(o.extract_field("shape")),
             storage_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCount").unwrap(),
+                o.extract_field("storageCount"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

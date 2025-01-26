@@ -106,27 +106,14 @@ pub mod indexing_configuration {
                     value: &thing_indexing_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "thingGroupIndexingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "thingIndexingConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IndexingConfigurationResult {
             thing_group_indexing_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thingGroupIndexingConfiguration").unwrap(),
+                o.extract_field("thingGroupIndexingConfiguration"),
             ),
             thing_indexing_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thingIndexingConfiguration").unwrap(),
+                o.extract_field("thingIndexingConfiguration"),
             ),
         }
     }

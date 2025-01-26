@@ -476,183 +476,84 @@ pub mod instance {
                     value: &read_pool_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientConnectionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseFlags".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "gceZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "observabilityConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundPublicIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscInstanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryInsightsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "readPoolConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             availability_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityType").unwrap(),
+                o.extract_field("availabilityType"),
             ),
             client_connection_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientConnectionConfig").unwrap(),
+                o.extract_field("clientConnectionConfig"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             database_flags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseFlags").unwrap(),
+                o.extract_field("databaseFlags"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             gce_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gceZone").unwrap(),
+                o.extract_field("gceZone"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             machine_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineConfig").unwrap(),
+                o.extract_field("machineConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             observability_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("observabilityConfig").unwrap(),
+                o.extract_field("observabilityConfig"),
             ),
             outbound_public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundPublicIpAddresses").unwrap(),
+                o.extract_field("outboundPublicIpAddresses"),
             ),
             psc_instance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscInstanceConfig").unwrap(),
+                o.extract_field("pscInstanceConfig"),
             ),
             public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddress").unwrap(),
+                o.extract_field("publicIpAddress"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             query_insights_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryInsightsConfig").unwrap(),
+                o.extract_field("queryInsightsConfig"),
             ),
             read_pool_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readPoolConfig").unwrap(),
+                o.extract_field("readPoolConfig"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

@@ -271,87 +271,38 @@ pub mod gallery_application_version {
                     value: &target_regions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configFile".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableHealthCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "endOfLifeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeFromLatest".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "manageAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageFile".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRegions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GalleryApplicationVersionResult {
             config_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configFile").unwrap(),
+                o.extract_field("configFile"),
             ),
             enable_health_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableHealthCheck").unwrap(),
+                o.extract_field("enableHealthCheck"),
             ),
             end_of_life_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endOfLifeDate").unwrap(),
+                o.extract_field("endOfLifeDate"),
             ),
             exclude_from_latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeFromLatest").unwrap(),
+                o.extract_field("excludeFromLatest"),
             ),
             gallery_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryApplicationId").unwrap(),
+                o.extract_field("galleryApplicationId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             manage_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manageAction").unwrap(),
+                o.extract_field("manageAction"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             package_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageFile").unwrap(),
+                o.extract_field("packageFile"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRegions").unwrap(),
+                o.extract_field("targetRegions"),
             ),
         }
     }

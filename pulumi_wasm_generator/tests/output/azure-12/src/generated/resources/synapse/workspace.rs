@@ -473,142 +473,68 @@ pub mod workspace {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureDevopsRepo".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureadAuthenticationOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectivityEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataExfiltrationProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "githubRepo".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkingAllowedForAadTenantIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedVirtualNetworkEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "purviewId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlAdministratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlAdministratorLoginPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlIdentityControlEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageDataLakeGen2FilesystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceResult {
             azure_devops_repo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureDevopsRepo").unwrap(),
+                o.extract_field("azureDevopsRepo"),
             ),
             azuread_authentication_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureadAuthenticationOnly").unwrap(),
+                o.extract_field("azureadAuthenticationOnly"),
             ),
             compute_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeSubnetId").unwrap(),
+                o.extract_field("computeSubnetId"),
             ),
             connectivity_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectivityEndpoints").unwrap(),
+                o.extract_field("connectivityEndpoints"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             data_exfiltration_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataExfiltrationProtectionEnabled").unwrap(),
+                o.extract_field("dataExfiltrationProtectionEnabled"),
             ),
             github_repo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("githubRepo").unwrap(),
+                o.extract_field("githubRepo"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             linking_allowed_for_aad_tenant_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkingAllowedForAadTenantIds").unwrap(),
+                o.extract_field("linkingAllowedForAadTenantIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupName").unwrap(),
+                o.extract_field("managedResourceGroupName"),
             ),
             managed_virtual_network_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedVirtualNetworkEnabled").unwrap(),
+                o.extract_field("managedVirtualNetworkEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             purview_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purviewId").unwrap(),
+                o.extract_field("purviewId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sql_administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlAdministratorLogin").unwrap(),
+                o.extract_field("sqlAdministratorLogin"),
             ),
             sql_administrator_login_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlAdministratorLoginPassword").unwrap(),
+                o.extract_field("sqlAdministratorLoginPassword"),
             ),
             sql_identity_control_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlIdentityControlEnabled").unwrap(),
+                o.extract_field("sqlIdentityControlEnabled"),
             ),
             storage_data_lake_gen2_filesystem_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageDataLakeGen2FilesystemId").unwrap(),
+                o.extract_field("storageDataLakeGen2FilesystemId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

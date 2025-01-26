@@ -347,153 +347,69 @@ pub mod certificate {
                     value: &validation_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorityArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateChain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainValidationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "earlyRenewalDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "notAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBefore".into(),
-                },
-                register_interface::ResultField {
-                    name: "options".into(),
-                },
-                register_interface::ResultField {
-                    name: "pendingRenewal".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "renewalEligibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "renewalSummaries".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectAlternativeNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationEmails".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorityArn").unwrap(),
+                o.extract_field("certificateAuthorityArn"),
             ),
             certificate_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBody").unwrap(),
+                o.extract_field("certificateBody"),
             ),
             certificate_chain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateChain").unwrap(),
+                o.extract_field("certificateChain"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_validation_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainValidationOptions").unwrap(),
+                o.extract_field("domainValidationOptions"),
             ),
             early_renewal_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("earlyRenewalDuration").unwrap(),
+                o.extract_field("earlyRenewalDuration"),
             ),
             key_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyAlgorithm").unwrap(),
+                o.extract_field("keyAlgorithm"),
             ),
             not_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notAfter").unwrap(),
+                o.extract_field("notAfter"),
             ),
             not_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBefore").unwrap(),
+                o.extract_field("notBefore"),
             ),
             options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("options").unwrap(),
+                o.extract_field("options"),
             ),
             pending_renewal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pendingRenewal").unwrap(),
+                o.extract_field("pendingRenewal"),
             ),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
             renewal_eligibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("renewalEligibility").unwrap(),
+                o.extract_field("renewalEligibility"),
             ),
             renewal_summaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("renewalSummaries").unwrap(),
+                o.extract_field("renewalSummaries"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subject_alternative_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectAlternativeNames").unwrap(),
+                o.extract_field("subjectAlternativeNames"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             validation_emails: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationEmails").unwrap(),
+                o.extract_field("validationEmails"),
             ),
             validation_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationMethod").unwrap(),
+                o.extract_field("validationMethod"),
             ),
             validation_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationOptions").unwrap(),
+                o.extract_field("validationOptions"),
             ),
         }
     }

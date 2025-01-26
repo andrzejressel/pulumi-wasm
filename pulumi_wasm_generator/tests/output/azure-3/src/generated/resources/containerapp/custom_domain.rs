@@ -221,46 +221,22 @@ pub mod custom_domain {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateBindingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentManagedCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDomainResult {
             certificate_binding_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBindingType").unwrap(),
+                o.extract_field("certificateBindingType"),
             ),
             container_app_environment_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentCertificateId").unwrap(),
+                o.extract_field("containerAppEnvironmentCertificateId"),
             ),
             container_app_environment_managed_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentManagedCertificateId").unwrap(),
+                o.extract_field("containerAppEnvironmentManagedCertificateId"),
             ),
             container_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppId").unwrap(),
+                o.extract_field("containerAppId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

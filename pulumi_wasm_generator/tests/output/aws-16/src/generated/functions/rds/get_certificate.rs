@@ -57,67 +57,31 @@ pub mod get_certificate {
                     value: &latest_valid_till_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateType".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOverrideValidTill".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestValidTill".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "validFrom".into(),
-                },
-                register_interface::ResultField {
-                    name: "validTill".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateType").unwrap(),
+                o.extract_field("certificateType"),
             ),
             customer_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOverride").unwrap(),
+                o.extract_field("customerOverride"),
             ),
             customer_override_valid_till: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOverrideValidTill").unwrap(),
+                o.extract_field("customerOverrideValidTill"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             latest_valid_till: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestValidTill").unwrap(),
+                o.extract_field("latestValidTill"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
             valid_from: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validFrom").unwrap(),
+                o.extract_field("validFrom"),
             ),
             valid_till: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validTill").unwrap(),
+                o.extract_field("validTill"),
             ),
         }
     }

@@ -166,92 +166,44 @@ pub mod get_principal_policy_simulation {
                     value: &resource_policy_json_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalPoliciesJsons".into(),
-                },
-                register_interface::ResultField {
-                    name: "allAllowed".into(),
-                },
-                register_interface::ResultField {
-                    name: "callerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "contexts".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionsBoundaryPoliciesJsons".into(),
-                },
-                register_interface::ResultField {
-                    name: "policySourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceHandlingOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwnerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourcePolicyJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "results".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPrincipalPolicySimulationResult {
             action_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionNames").unwrap(),
+                o.extract_field("actionNames"),
             ),
             additional_policies_jsons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalPoliciesJsons").unwrap(),
+                o.extract_field("additionalPoliciesJsons"),
             ),
             all_allowed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allAllowed").unwrap(),
+                o.extract_field("allAllowed"),
             ),
             caller_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerArn").unwrap(),
+                o.extract_field("callerArn"),
             ),
             contexts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contexts").unwrap(),
+                o.extract_field("contexts"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             permissions_boundary_policies_jsons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionsBoundaryPoliciesJsons").unwrap(),
+                o.extract_field("permissionsBoundaryPoliciesJsons"),
             ),
             policy_source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policySourceArn").unwrap(),
+                o.extract_field("policySourceArn"),
             ),
             resource_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArns").unwrap(),
+                o.extract_field("resourceArns"),
             ),
             resource_handling_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceHandlingOption").unwrap(),
+                o.extract_field("resourceHandlingOption"),
             ),
             resource_owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwnerAccountId").unwrap(),
+                o.extract_field("resourceOwnerAccountId"),
             ),
             resource_policy_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourcePolicyJson").unwrap(),
+                o.extract_field("resourcePolicyJson"),
             ),
-            results: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("results").unwrap(),
-            ),
+            results: pulumi_wasm_rust::__private::into_domain(o.extract_field("results")),
         }
     }
 }

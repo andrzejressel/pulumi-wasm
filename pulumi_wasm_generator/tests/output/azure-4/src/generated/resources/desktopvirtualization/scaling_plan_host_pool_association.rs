@@ -150,33 +150,17 @@ pub mod scaling_plan_host_pool_association {
                     value: &scaling_plan_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingPlanId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScalingPlanHostPoolAssociationResult {
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             host_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostPoolId").unwrap(),
+                o.extract_field("hostPoolId"),
             ),
             scaling_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingPlanId").unwrap(),
+                o.extract_field("scalingPlanId"),
             ),
         }
     }

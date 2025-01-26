@@ -61,79 +61,37 @@ pub mod get_certificate {
                     value: &nginx_deployment_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateVirtualPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSecretCreationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSecretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSecretVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVirtualPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nginxDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha1Thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateResult {
             certificate_virtual_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateVirtualPath").unwrap(),
+                o.extract_field("certificateVirtualPath"),
             ),
             error_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorCode").unwrap(),
+                o.extract_field("errorCode"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_secret_creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSecretCreationDate").unwrap(),
+                o.extract_field("keyVaultSecretCreationDate"),
             ),
             key_vault_secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSecretId").unwrap(),
+                o.extract_field("keyVaultSecretId"),
             ),
             key_vault_secret_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSecretVersion").unwrap(),
+                o.extract_field("keyVaultSecretVersion"),
             ),
             key_virtual_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVirtualPath").unwrap(),
+                o.extract_field("keyVirtualPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nginx_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nginxDeploymentId").unwrap(),
+                o.extract_field("nginxDeploymentId"),
             ),
             sha1_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha1Thumbprint").unwrap(),
+                o.extract_field("sha1Thumbprint"),
             ),
         }
     }

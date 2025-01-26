@@ -106,46 +106,20 @@ pub mod model {
                     value: &schema_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ModelResult {
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
         }
     }
 }

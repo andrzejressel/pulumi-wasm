@@ -85,45 +85,19 @@ pub mod shared_directory_accepter {
                     value: &shared_directory_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "method".into(),
-                },
-                register_interface::ResultField {
-                    name: "notes".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerDirectoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedDirectoryId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedDirectoryAccepterResult {
-            method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("method").unwrap(),
-            ),
-            notes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notes").unwrap(),
-            ),
+            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
+            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             owner_directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerDirectoryId").unwrap(),
+                o.extract_field("ownerDirectoryId"),
             ),
             shared_directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedDirectoryId").unwrap(),
+                o.extract_field("sharedDirectoryId"),
             ),
         }
     }

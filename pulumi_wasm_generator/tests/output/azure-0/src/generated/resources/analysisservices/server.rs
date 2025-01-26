@@ -188,82 +188,36 @@ pub mod server {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupBlobContainerUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4FirewallRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "powerBiServiceEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "querypoolConnectionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverFullName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerResult {
             admin_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsers").unwrap(),
+                o.extract_field("adminUsers"),
             ),
             backup_blob_container_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupBlobContainerUri").unwrap(),
+                o.extract_field("backupBlobContainerUri"),
             ),
             ipv4_firewall_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4FirewallRules").unwrap(),
+                o.extract_field("ipv4FirewallRules"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             power_bi_service_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("powerBiServiceEnabled").unwrap(),
+                o.extract_field("powerBiServiceEnabled"),
             ),
             querypool_connection_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("querypoolConnectionMode").unwrap(),
+                o.extract_field("querypoolConnectionMode"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             server_full_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverFullName").unwrap(),
+                o.extract_field("serverFullName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

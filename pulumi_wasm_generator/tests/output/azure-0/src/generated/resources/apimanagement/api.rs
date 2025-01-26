@@ -375,165 +375,77 @@ pub mod api {
                     value: &version_set_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiType".into(),
-                },
-                register_interface::ResultField {
-                    name: "contact".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "import".into(),
-                },
-                register_interface::ResultField {
-                    name: "isCurrent".into(),
-                },
-                register_interface::ResultField {
-                    name: "isOnline".into(),
-                },
-                register_interface::ResultField {
-                    name: "license".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oauth2Authorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "openidAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceApiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionKeyParameterNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "termsOfServiceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionSetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             api_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiType").unwrap(),
+                o.extract_field("apiType"),
             ),
             contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contact").unwrap(),
+                o.extract_field("contact"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            import: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("import").unwrap(),
-            ),
+            import: pulumi_wasm_rust::__private::into_domain(o.extract_field("import")),
             is_current: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isCurrent").unwrap(),
+                o.extract_field("isCurrent"),
             ),
             is_online: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isOnline").unwrap(),
+                o.extract_field("isOnline"),
             ),
             license: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("license").unwrap(),
+                o.extract_field("license"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             oauth2_authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oauth2Authorization").unwrap(),
+                o.extract_field("oauth2Authorization"),
             ),
             openid_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openidAuthentication").unwrap(),
+                o.extract_field("openidAuthentication"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
             revision_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionDescription").unwrap(),
+                o.extract_field("revisionDescription"),
             ),
             service_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceUrl").unwrap(),
+                o.extract_field("serviceUrl"),
             ),
             source_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceApiId").unwrap(),
+                o.extract_field("sourceApiId"),
             ),
             subscription_key_parameter_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionKeyParameterNames").unwrap(),
+                o.extract_field("subscriptionKeyParameterNames"),
             ),
             subscription_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionRequired").unwrap(),
+                o.extract_field("subscriptionRequired"),
             ),
             terms_of_service_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("termsOfServiceUrl").unwrap(),
+                o.extract_field("termsOfServiceUrl"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             version_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDescription").unwrap(),
+                o.extract_field("versionDescription"),
             ),
             version_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionSetId").unwrap(),
+                o.extract_field("versionSetId"),
             ),
         }
     }

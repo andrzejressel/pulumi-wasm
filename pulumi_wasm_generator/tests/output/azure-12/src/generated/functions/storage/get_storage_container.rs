@@ -84,79 +84,37 @@ pub mod get_storage_container {
                     value: &storage_account_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerAccessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultEncryptionScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionScopeOverrideEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasImmutabilityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasLegalHold".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetStorageContainerResult {
             container_access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAccessType").unwrap(),
+                o.extract_field("containerAccessType"),
             ),
             default_encryption_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultEncryptionScope").unwrap(),
+                o.extract_field("defaultEncryptionScope"),
             ),
             encryption_scope_override_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionScopeOverrideEnabled").unwrap(),
+                o.extract_field("encryptionScopeOverrideEnabled"),
             ),
             has_immutability_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasImmutabilityPolicy").unwrap(),
+                o.extract_field("hasImmutabilityPolicy"),
             ),
             has_legal_hold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasLegalHold").unwrap(),
+                o.extract_field("hasLegalHold"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceManagerId").unwrap(),
+                o.extract_field("resourceManagerId"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
         }
     }

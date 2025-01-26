@@ -189,75 +189,36 @@ pub mod data_connector_threat_intelligence_taxii {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiRootUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "collectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lookbackDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "pollingFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataConnectorThreatIntelligenceTaxiiResult {
             api_root_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiRootUrl").unwrap(),
+                o.extract_field("apiRootUrl"),
             ),
             collection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collectionId").unwrap(),
+                o.extract_field("collectionId"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
             lookback_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lookbackDate").unwrap(),
+                o.extract_field("lookbackDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             polling_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pollingFrequency").unwrap(),
+                o.extract_field("pollingFrequency"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

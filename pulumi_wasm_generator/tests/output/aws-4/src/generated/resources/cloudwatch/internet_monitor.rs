@@ -165,75 +165,32 @@ pub mod internet_monitor {
                     value: &traffic_percentage_to_monitor_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthEventsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetMeasurementsLogDelivery".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCityNetworksToMonitor".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficPercentageToMonitor".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InternetMonitorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             health_events_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthEventsConfig").unwrap(),
+                o.extract_field("healthEventsConfig"),
             ),
             internet_measurements_log_delivery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetMeasurementsLogDelivery").unwrap(),
+                o.extract_field("internetMeasurementsLogDelivery"),
             ),
             max_city_networks_to_monitor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCityNetworksToMonitor").unwrap(),
+                o.extract_field("maxCityNetworksToMonitor"),
             ),
             monitor_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorName").unwrap(),
+                o.extract_field("monitorName"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             traffic_percentage_to_monitor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficPercentageToMonitor").unwrap(),
+                o.extract_field("trafficPercentageToMonitor"),
             ),
         }
     }

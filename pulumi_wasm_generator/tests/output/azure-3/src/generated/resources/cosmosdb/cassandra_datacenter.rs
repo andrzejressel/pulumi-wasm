@@ -257,93 +257,45 @@ pub mod cassandra_datacenter {
                     value: &sku_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZonesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupStorageCustomerKeyUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "base64EncodedYamlFragment".into(),
-                },
-                register_interface::ResultField {
-                    name: "cassandraClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedManagementSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskCustomerKeyUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "seedNodeIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CassandraDatacenterResult {
             availability_zones_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZonesEnabled").unwrap(),
+                o.extract_field("availabilityZonesEnabled"),
             ),
             backup_storage_customer_key_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupStorageCustomerKeyUri").unwrap(),
+                o.extract_field("backupStorageCustomerKeyUri"),
             ),
             base64_encoded_yaml_fragment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("base64EncodedYamlFragment").unwrap(),
+                o.extract_field("base64EncodedYamlFragment"),
             ),
             cassandra_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cassandraClusterId").unwrap(),
+                o.extract_field("cassandraClusterId"),
             ),
             delegated_management_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedManagementSubnetId").unwrap(),
+                o.extract_field("delegatedManagementSubnetId"),
             ),
             disk_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskCount").unwrap(),
+                o.extract_field("diskCount"),
             ),
             disk_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSku").unwrap(),
+                o.extract_field("diskSku"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_disk_customer_key_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskCustomerKeyUri").unwrap(),
+                o.extract_field("managedDiskCustomerKeyUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             seed_node_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("seedNodeIpAddresses").unwrap(),
+                o.extract_field("seedNodeIpAddresses"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
         }
     }

@@ -63,56 +63,24 @@ pub mod get_backup {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "backups".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBackupResult {
             backup_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultId").unwrap(),
+                o.extract_field("backupVaultId"),
             ),
             backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backups").unwrap(),
+                o.extract_field("backups"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

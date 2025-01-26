@@ -59,80 +59,34 @@ pub mod get_folder {
                     value: &lookup_organization_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleState".into(),
-                },
-                register_interface::ResultField {
-                    name: "lookupOrganization".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organization".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFolderResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             folder_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderId").unwrap(),
+                o.extract_field("folderId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lifecycle_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleState").unwrap(),
+                o.extract_field("lifecycleState"),
             ),
             lookup_organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lookupOrganization").unwrap(),
+                o.extract_field("lookupOrganization"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organization").unwrap(),
+                o.extract_field("organization"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
         }
     }
 }

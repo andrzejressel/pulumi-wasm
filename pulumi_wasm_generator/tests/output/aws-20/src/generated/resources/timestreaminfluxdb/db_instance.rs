@@ -416,147 +416,66 @@ pub mod db_instance {
                     value: &vpc_subnet_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbInstanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbParameterGroupIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbStorageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "influxAuthParametersSecretArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDeliveryConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organization".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAvailabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSubnetIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DbInstanceResult {
             allocated_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorage").unwrap(),
+                o.extract_field("allocatedStorage"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             db_instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbInstanceType").unwrap(),
+                o.extract_field("dbInstanceType"),
             ),
             db_parameter_group_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbParameterGroupIdentifier").unwrap(),
+                o.extract_field("dbParameterGroupIdentifier"),
             ),
             db_storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbStorageType").unwrap(),
+                o.extract_field("dbStorageType"),
             ),
             deployment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentType").unwrap(),
+                o.extract_field("deploymentType"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             influx_auth_parameters_secret_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("influxAuthParametersSecretArn").unwrap(),
+                o.extract_field("influxAuthParametersSecretArn"),
             ),
             log_delivery_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDeliveryConfiguration").unwrap(),
+                o.extract_field("logDeliveryConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organization").unwrap(),
+                o.extract_field("organization"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             secondary_availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAvailabilityZone").unwrap(),
+                o.extract_field("secondaryAvailabilityZone"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
             vpc_subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSubnetIds").unwrap(),
+                o.extract_field("vpcSubnetIds"),
             ),
         }
     }

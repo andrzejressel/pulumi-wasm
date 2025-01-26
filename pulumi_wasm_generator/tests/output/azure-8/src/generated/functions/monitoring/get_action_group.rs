@@ -100,109 +100,52 @@ pub mod get_action_group {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "armRoleReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "automationRunbookReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureAppPushReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureFunctionReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "itsmReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicAppReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortName".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceReceivers".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhookReceivers".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetActionGroupResult {
             arm_role_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("armRoleReceivers").unwrap(),
+                o.extract_field("armRoleReceivers"),
             ),
             automation_runbook_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationRunbookReceivers").unwrap(),
+                o.extract_field("automationRunbookReceivers"),
             ),
             azure_app_push_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureAppPushReceivers").unwrap(),
+                o.extract_field("azureAppPushReceivers"),
             ),
             azure_function_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureFunctionReceivers").unwrap(),
+                o.extract_field("azureFunctionReceivers"),
             ),
             email_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailReceivers").unwrap(),
+                o.extract_field("emailReceivers"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             event_hub_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubReceivers").unwrap(),
+                o.extract_field("eventHubReceivers"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             itsm_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("itsmReceivers").unwrap(),
+                o.extract_field("itsmReceivers"),
             ),
             logic_app_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicAppReceivers").unwrap(),
+                o.extract_field("logicAppReceivers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             short_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortName").unwrap(),
+                o.extract_field("shortName"),
             ),
             sms_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsReceivers").unwrap(),
+                o.extract_field("smsReceivers"),
             ),
             voice_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceReceivers").unwrap(),
+                o.extract_field("voiceReceivers"),
             ),
             webhook_receivers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhookReceivers").unwrap(),
+                o.extract_field("webhookReceivers"),
             ),
         }
     }

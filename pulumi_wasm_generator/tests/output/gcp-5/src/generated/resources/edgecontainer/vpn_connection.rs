@@ -258,105 +258,45 @@ pub mod vpn_connection {
                     value: &vpc_project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "details".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableHighAvailability".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "natGatewayIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpc".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcProject".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnConnectionResult {
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("details").unwrap(),
+                o.extract_field("details"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_high_availability: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableHighAvailability").unwrap(),
+                o.extract_field("enableHighAvailability"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nat_gateway_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natGatewayIp").unwrap(),
+                o.extract_field("natGatewayIp"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpc").unwrap(),
-            ),
+            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
             vpc_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcProject").unwrap(),
+                o.extract_field("vpcProject"),
             ),
         }
     }

@@ -99,169 +99,76 @@ pub mod get_trigger {
                     value: &trigger_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approvalConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "bitbucketServerTriggerConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "builds".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "filename".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "gitFileSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "githubs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoredFiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeBuildLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "includedFiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pubsubConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryEventConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceToBuilds".into(),
-                },
-                register_interface::ResultField {
-                    name: "substitutions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhookConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTriggerResult {
             approval_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalConfigs").unwrap(),
+                o.extract_field("approvalConfigs"),
             ),
             bitbucket_server_trigger_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bitbucketServerTriggerConfigs").unwrap(),
+                o.extract_field("bitbucketServerTriggerConfigs"),
             ),
-            builds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("builds").unwrap(),
-            ),
+            builds: pulumi_wasm_rust::__private::into_domain(o.extract_field("builds")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             filename: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filename").unwrap(),
+                o.extract_field("filename"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             git_file_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gitFileSources").unwrap(),
+                o.extract_field("gitFileSources"),
             ),
             githubs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("githubs").unwrap(),
+                o.extract_field("githubs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ignored_files: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoredFiles").unwrap(),
+                o.extract_field("ignoredFiles"),
             ),
             include_build_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeBuildLogs").unwrap(),
+                o.extract_field("includeBuildLogs"),
             ),
             included_files: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includedFiles").unwrap(),
+                o.extract_field("includedFiles"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pubsub_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pubsubConfigs").unwrap(),
+                o.extract_field("pubsubConfigs"),
             ),
             repository_event_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryEventConfigs").unwrap(),
+                o.extract_field("repositoryEventConfigs"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             source_to_builds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceToBuilds").unwrap(),
+                o.extract_field("sourceToBuilds"),
             ),
             substitutions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("substitutions").unwrap(),
+                o.extract_field("substitutions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trigger_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerId").unwrap(),
+                o.extract_field("triggerId"),
             ),
             trigger_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerTemplates").unwrap(),
+                o.extract_field("triggerTemplates"),
             ),
             webhook_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhookConfigs").unwrap(),
+                o.extract_field("webhookConfigs"),
             ),
         }
     }

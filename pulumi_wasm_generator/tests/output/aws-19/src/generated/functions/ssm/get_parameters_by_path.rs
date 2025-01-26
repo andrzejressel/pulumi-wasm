@@ -62,61 +62,20 @@ pub mod get_parameters_by_path {
                     value: &with_decryption_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arns".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "recursive".into(),
-                },
-                register_interface::ResultField {
-                    name: "types".into(),
-                },
-                register_interface::ResultField {
-                    name: "values".into(),
-                },
-                register_interface::ResultField {
-                    name: "withDecryption".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetParametersByPathResult {
-            arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arns").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            arns: pulumi_wasm_rust::__private::into_domain(o.extract_field("arns")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             recursive: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recursive").unwrap(),
+                o.extract_field("recursive"),
             ),
-            types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("types").unwrap(),
-            ),
-            values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("values").unwrap(),
-            ),
+            types: pulumi_wasm_rust::__private::into_domain(o.extract_field("types")),
+            values: pulumi_wasm_rust::__private::into_domain(o.extract_field("values")),
             with_decryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("withDecryption").unwrap(),
+                o.extract_field("withDecryption"),
             ),
         }
     }

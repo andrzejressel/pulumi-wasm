@@ -90,46 +90,18 @@ pub mod assessment_report {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assessmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "author".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssessmentReportResult {
             assessment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assessmentId").unwrap(),
+                o.extract_field("assessmentId"),
             ),
-            author: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("author").unwrap(),
-            ),
+            author: pulumi_wasm_rust::__private::into_domain(o.extract_field("author")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

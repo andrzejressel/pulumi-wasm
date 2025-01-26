@@ -142,69 +142,31 @@ pub mod user_defined_function {
                     value: &resource_uris_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "className".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceUris".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserDefinedFunctionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             class_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("className").unwrap(),
+                o.extract_field("className"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerName").unwrap(),
+                o.extract_field("ownerName"),
             ),
             owner_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerType").unwrap(),
+                o.extract_field("ownerType"),
             ),
             resource_uris: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceUris").unwrap(),
+                o.extract_field("resourceUris"),
             ),
         }
     }

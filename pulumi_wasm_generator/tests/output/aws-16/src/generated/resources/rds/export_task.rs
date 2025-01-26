@@ -262,111 +262,54 @@ pub mod export_task {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "exportOnlies".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportTaskIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureCause".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "percentProgress".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskEndTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "warningMessage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExportTaskResult {
             export_onlies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportOnlies").unwrap(),
+                o.extract_field("exportOnlies"),
             ),
             export_task_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportTaskIdentifier").unwrap(),
+                o.extract_field("exportTaskIdentifier"),
             ),
             failure_cause: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureCause").unwrap(),
+                o.extract_field("failureCause"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             percent_progress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("percentProgress").unwrap(),
+                o.extract_field("percentProgress"),
             ),
             s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketName").unwrap(),
+                o.extract_field("s3BucketName"),
             ),
             s3_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Prefix").unwrap(),
+                o.extract_field("s3Prefix"),
             ),
             snapshot_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotTime").unwrap(),
+                o.extract_field("snapshotTime"),
             ),
             source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArn").unwrap(),
+                o.extract_field("sourceArn"),
             ),
             source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceType").unwrap(),
+                o.extract_field("sourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             task_end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskEndTime").unwrap(),
+                o.extract_field("taskEndTime"),
             ),
             task_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskStartTime").unwrap(),
+                o.extract_field("taskStartTime"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             warning_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warningMessage").unwrap(),
+                o.extract_field("warningMessage"),
             ),
         }
     }

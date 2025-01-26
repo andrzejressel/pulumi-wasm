@@ -232,81 +232,33 @@ pub mod job_queue {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeEnvironmentOrders".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeEnvironments".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobStateTimeLimitActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingPolicyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobQueueResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_environment_orders: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeEnvironmentOrders").unwrap(),
+                o.extract_field("computeEnvironmentOrders"),
             ),
             compute_environments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeEnvironments").unwrap(),
+                o.extract_field("computeEnvironments"),
             ),
             job_state_time_limit_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobStateTimeLimitActions").unwrap(),
+                o.extract_field("jobStateTimeLimitActions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             scheduling_policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingPolicyArn").unwrap(),
+                o.extract_field("schedulingPolicyArn"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

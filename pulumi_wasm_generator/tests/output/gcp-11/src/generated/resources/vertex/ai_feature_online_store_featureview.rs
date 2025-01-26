@@ -650,93 +650,41 @@ pub mod ai_feature_online_store_featureview {
                     value: &vector_search_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigQuerySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureOnlineStore".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureRegistrySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vectorSearchConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiFeatureOnlineStoreFeatureviewResult {
             big_query_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigQuerySource").unwrap(),
+                o.extract_field("bigQuerySource"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             feature_online_store: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureOnlineStore").unwrap(),
+                o.extract_field("featureOnlineStore"),
             ),
             feature_registry_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureRegistrySource").unwrap(),
+                o.extract_field("featureRegistrySource"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             sync_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncConfig").unwrap(),
+                o.extract_field("syncConfig"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             vector_search_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vectorSearchConfig").unwrap(),
+                o.extract_field("vectorSearchConfig"),
             ),
         }
     }

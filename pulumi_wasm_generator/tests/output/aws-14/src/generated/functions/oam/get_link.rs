@@ -62,74 +62,29 @@ pub mod get_link {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "label".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sinkArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLinkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("label").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
             label_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelTemplate").unwrap(),
+                o.extract_field("labelTemplate"),
             ),
             link_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkConfigurations").unwrap(),
+                o.extract_field("linkConfigurations"),
             ),
-            link_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkId").unwrap(),
-            ),
+            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
             link_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkIdentifier").unwrap(),
+                o.extract_field("linkIdentifier"),
             ),
             resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypes").unwrap(),
+                o.extract_field("resourceTypes"),
             ),
             sink_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sinkArn").unwrap(),
+                o.extract_field("sinkArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

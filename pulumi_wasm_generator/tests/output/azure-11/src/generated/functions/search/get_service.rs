@@ -70,86 +70,39 @@ pub mod get_service {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customerManagedKeyEncryptionComplianceStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
             customer_managed_key_encryption_compliance_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyEncryptionComplianceStatus").unwrap(),
+                o.extract_field("customerManagedKeyEncryptionComplianceStatus"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionCount").unwrap(),
+                o.extract_field("partitionCount"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             query_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryKeys").unwrap(),
+                o.extract_field("queryKeys"),
             ),
             replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCount").unwrap(),
+                o.extract_field("replicaCount"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

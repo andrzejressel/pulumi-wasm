@@ -255,129 +255,61 @@ pub mod alert_rule_anomaly_duplicate {
                     value: &threshold_observations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "anomalySettingsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "anomalyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "builtInRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefaultSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiSelectObservations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "prioritizedExcludeObservations".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiredDataConnectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "settingsDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSelectObservations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tactics".into(),
-                },
-                register_interface::ResultField {
-                    name: "techniques".into(),
-                },
-                register_interface::ResultField {
-                    name: "thresholdObservations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AlertRuleAnomalyDuplicateResult {
             anomaly_settings_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anomalySettingsVersion").unwrap(),
+                o.extract_field("anomalySettingsVersion"),
             ),
             anomaly_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anomalyVersion").unwrap(),
+                o.extract_field("anomalyVersion"),
             ),
             built_in_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("builtInRuleId").unwrap(),
+                o.extract_field("builtInRuleId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
             is_default_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefaultSettings").unwrap(),
+                o.extract_field("isDefaultSettings"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
             multi_select_observations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiSelectObservations").unwrap(),
+                o.extract_field("multiSelectObservations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             prioritized_exclude_observations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prioritizedExcludeObservations").unwrap(),
+                o.extract_field("prioritizedExcludeObservations"),
             ),
             required_data_connectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiredDataConnectors").unwrap(),
+                o.extract_field("requiredDataConnectors"),
             ),
             settings_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settingsDefinitionId").unwrap(),
+                o.extract_field("settingsDefinitionId"),
             ),
             single_select_observations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSelectObservations").unwrap(),
+                o.extract_field("singleSelectObservations"),
             ),
             tactics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tactics").unwrap(),
+                o.extract_field("tactics"),
             ),
             techniques: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("techniques").unwrap(),
+                o.extract_field("techniques"),
             ),
             threshold_observations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thresholdObservations").unwrap(),
+                o.extract_field("thresholdObservations"),
             ),
         }
     }

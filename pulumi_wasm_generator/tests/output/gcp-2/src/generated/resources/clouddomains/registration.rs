@@ -273,129 +273,57 @@ pub mod registration {
                     value: &yearly_price_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contactNotices".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNotices".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "issues".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "registerFailureReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedPrivacies".into(),
-                },
-                register_interface::ResultField {
-                    name: "yearlyPrice".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistrationResult {
             contact_notices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactNotices").unwrap(),
+                o.extract_field("contactNotices"),
             ),
             contact_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactSettings").unwrap(),
+                o.extract_field("contactSettings"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dns_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSettings").unwrap(),
+                o.extract_field("dnsSettings"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_notices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNotices").unwrap(),
+                o.extract_field("domainNotices"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
-            issues: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issues").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            issues: pulumi_wasm_rust::__private::into_domain(o.extract_field("issues")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementSettings").unwrap(),
+                o.extract_field("managementSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             register_failure_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registerFailureReason").unwrap(),
+                o.extract_field("registerFailureReason"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             supported_privacies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedPrivacies").unwrap(),
+                o.extract_field("supportedPrivacies"),
             ),
             yearly_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("yearlyPrice").unwrap(),
+                o.extract_field("yearlyPrice"),
             ),
         }
     }

@@ -160,63 +160,28 @@ pub mod dev_environment {
                     value: &space_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "ides".into(),
-                },
-                register_interface::ResultField {
-                    name: "inactivityTimeoutMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistentStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DevEnvironmentResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
-            ides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ides").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
+            ides: pulumi_wasm_rust::__private::into_domain(o.extract_field("ides")),
             inactivity_timeout_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inactivityTimeoutMinutes").unwrap(),
+                o.extract_field("inactivityTimeoutMinutes"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             persistent_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistentStorage").unwrap(),
+                o.extract_field("persistentStorage"),
             ),
             project_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectName").unwrap(),
+                o.extract_field("projectName"),
             ),
             repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositories").unwrap(),
+                o.extract_field("repositories"),
             ),
             space_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceName").unwrap(),
+                o.extract_field("spaceName"),
             ),
         }
     }

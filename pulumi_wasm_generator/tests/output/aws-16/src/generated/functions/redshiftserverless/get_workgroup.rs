@@ -50,73 +50,34 @@ pub mod get_workgroup {
                     value: &workgroup_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedVpcRouting".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWorkgroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             enhanced_vpc_routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedVpcRouting").unwrap(),
+                o.extract_field("enhancedVpcRouting"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
             workgroup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupId").unwrap(),
+                o.extract_field("workgroupId"),
             ),
             workgroup_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupName").unwrap(),
+                o.extract_field("workgroupName"),
             ),
         }
     }

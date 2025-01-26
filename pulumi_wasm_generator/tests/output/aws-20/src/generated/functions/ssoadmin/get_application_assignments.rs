@@ -62,32 +62,16 @@ pub mod get_application_assignments {
                     value: &application_assignments_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationAssignments".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApplicationAssignmentsResult {
             application_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationArn").unwrap(),
+                o.extract_field("applicationArn"),
             ),
             application_assignments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationAssignments").unwrap(),
+                o.extract_field("applicationAssignments"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

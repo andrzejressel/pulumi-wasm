@@ -83,27 +83,14 @@ pub mod disk_async_replication {
                     value: &secondary_disk_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "primaryDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDisk".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DiskAsyncReplicationResult {
             primary_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDisk").unwrap(),
+                o.extract_field("primaryDisk"),
             ),
             secondary_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDisk").unwrap(),
+                o.extract_field("secondaryDisk"),
             ),
         }
     }

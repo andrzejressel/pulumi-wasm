@@ -322,153 +322,69 @@ pub mod volume_replication {
                     value: &wait_for_mirror_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteDestinationVolume".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationVolume".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationVolumeParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceStopping".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthy".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mirrorState".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationSchedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVolume".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "transferStats".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForMirror".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeReplicationResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             delete_destination_volume: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteDestinationVolume").unwrap(),
+                o.extract_field("deleteDestinationVolume"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_volume: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationVolume").unwrap(),
+                o.extract_field("destinationVolume"),
             ),
             destination_volume_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationVolumeParameters").unwrap(),
+                o.extract_field("destinationVolumeParameters"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             force_stopping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceStopping").unwrap(),
+                o.extract_field("forceStopping"),
             ),
             healthy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthy").unwrap(),
+                o.extract_field("healthy"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mirror_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mirrorState").unwrap(),
+                o.extract_field("mirrorState"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             replication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationEnabled").unwrap(),
+                o.extract_field("replicationEnabled"),
             ),
             replication_schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSchedule").unwrap(),
+                o.extract_field("replicationSchedule"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             source_volume: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVolume").unwrap(),
+                o.extract_field("sourceVolume"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateDetails").unwrap(),
+                o.extract_field("stateDetails"),
             ),
             transfer_stats: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transferStats").unwrap(),
+                o.extract_field("transferStats"),
             ),
             volume_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeName").unwrap(),
+                o.extract_field("volumeName"),
             ),
             wait_for_mirror: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForMirror").unwrap(),
+                o.extract_field("waitForMirror"),
             ),
         }
     }

@@ -227,81 +227,35 @@ pub mod pipeline {
                     value: &thumbnail_config_permissions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsKmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentConfigPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbnailConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbnailConfigPermissions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsKmsKeyArn").unwrap(),
+                o.extract_field("awsKmsKeyArn"),
             ),
             content_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentConfig").unwrap(),
+                o.extract_field("contentConfig"),
             ),
             content_config_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentConfigPermissions").unwrap(),
+                o.extract_field("contentConfigPermissions"),
             ),
             input_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputBucket").unwrap(),
+                o.extract_field("inputBucket"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             output_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputBucket").unwrap(),
+                o.extract_field("outputBucket"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             thumbnail_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbnailConfig").unwrap(),
+                o.extract_field("thumbnailConfig"),
             ),
             thumbnail_config_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbnailConfigPermissions").unwrap(),
+                o.extract_field("thumbnailConfigPermissions"),
             ),
         }
     }

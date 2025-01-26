@@ -128,45 +128,21 @@ pub mod event_permission {
                     value: &statement_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventBusName".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventPermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             event_bus_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventBusName").unwrap(),
+                o.extract_field("eventBusName"),
             ),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             statement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementId").unwrap(),
+                o.extract_field("statementId"),
             ),
         }
     }

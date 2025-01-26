@@ -78,40 +78,15 @@ pub mod random_bytes {
                     value: &length_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "base64".into(),
-                },
-                register_interface::ResultField {
-                    name: "hex".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "length".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomBytesResult {
-            base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("base64").unwrap(),
-            ),
-            hex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hex").unwrap(),
-            ),
+            base64: pulumi_wasm_rust::__private::into_domain(o.extract_field("base64")),
+            hex: pulumi_wasm_rust::__private::into_domain(o.extract_field("hex")),
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("length").unwrap(),
-            ),
+            length: pulumi_wasm_rust::__private::into_domain(o.extract_field("length")),
         }
     }
 }

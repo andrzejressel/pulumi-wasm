@@ -200,99 +200,44 @@ pub mod report_definition {
                     value: &time_unit_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalArtifacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalSchemaElements".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "compression".into(),
-                },
-                register_interface::ResultField {
-                    name: "format".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshClosedReports".into(),
-                },
-                register_interface::ResultField {
-                    name: "reportName".into(),
-                },
-                register_interface::ResultField {
-                    name: "reportVersioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Region".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeUnit".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReportDefinitionResult {
             additional_artifacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalArtifacts").unwrap(),
+                o.extract_field("additionalArtifacts"),
             ),
             additional_schema_elements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalSchemaElements").unwrap(),
+                o.extract_field("additionalSchemaElements"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compression").unwrap(),
+                o.extract_field("compression"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("format").unwrap(),
-            ),
+            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
             refresh_closed_reports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshClosedReports").unwrap(),
+                o.extract_field("refreshClosedReports"),
             ),
             report_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reportName").unwrap(),
+                o.extract_field("reportName"),
             ),
             report_versioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reportVersioning").unwrap(),
+                o.extract_field("reportVersioning"),
             ),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
             s3_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Prefix").unwrap(),
+                o.extract_field("s3Prefix"),
             ),
             s3_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Region").unwrap(),
+                o.extract_field("s3Region"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             time_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeUnit").unwrap(),
+                o.extract_field("timeUnit"),
             ),
         }
     }

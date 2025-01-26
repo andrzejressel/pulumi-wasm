@@ -60,62 +60,27 @@ pub mod get_network_service {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pccRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrecedence".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceQosPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkServiceResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mobile_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkId").unwrap(),
+                o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pcc_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pccRules").unwrap(),
+                o.extract_field("pccRules"),
             ),
             service_precedence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrecedence").unwrap(),
+                o.extract_field("servicePrecedence"),
             ),
             service_qos_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceQosPolicies").unwrap(),
+                o.extract_field("serviceQosPolicies"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

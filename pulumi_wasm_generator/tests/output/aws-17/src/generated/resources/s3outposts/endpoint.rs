@@ -117,69 +117,33 @@ pub mod endpoint {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOwnedIpv4Pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
             access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessType").unwrap(),
+                o.extract_field("accessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOwnedIpv4Pool").unwrap(),
+                o.extract_field("customerOwnedIpv4Pool"),
             ),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             outpost_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostId").unwrap(),
+                o.extract_field("outpostId"),
             ),
             security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupId").unwrap(),
+                o.extract_field("securityGroupId"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

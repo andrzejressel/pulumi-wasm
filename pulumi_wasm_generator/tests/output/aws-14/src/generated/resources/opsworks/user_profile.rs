@@ -85,39 +85,20 @@ pub mod user_profile {
                     value: &user_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowSelfManagement".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshPublicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "userArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserProfileResult {
             allow_self_management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowSelfManagement").unwrap(),
+                o.extract_field("allowSelfManagement"),
             ),
             ssh_public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshPublicKey").unwrap(),
+                o.extract_field("sshPublicKey"),
             ),
             ssh_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshUsername").unwrap(),
+                o.extract_field("sshUsername"),
             ),
             user_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userArn").unwrap(),
+                o.extract_field("userArn"),
             ),
         }
     }

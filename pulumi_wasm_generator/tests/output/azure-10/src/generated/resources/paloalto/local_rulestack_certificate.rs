@@ -135,51 +135,24 @@ pub mod local_rulestack_certificate {
                     value: &self_signed_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditComment".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulestackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfSigned".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalRulestackCertificateResult {
             audit_comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditComment").unwrap(),
+                o.extract_field("auditComment"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             key_vault_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultCertificateId").unwrap(),
+                o.extract_field("keyVaultCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rulestack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulestackId").unwrap(),
+                o.extract_field("rulestackId"),
             ),
             self_signed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfSigned").unwrap(),
+                o.extract_field("selfSigned"),
             ),
         }
     }

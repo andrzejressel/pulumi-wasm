@@ -228,100 +228,45 @@ pub mod express_route_circuit {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowClassicOperations".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidthInGbps".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidthInMbps".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRoutePortId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProviderName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProviderProvisioningState".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExpressRouteCircuitResult {
             allow_classic_operations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowClassicOperations").unwrap(),
+                o.extract_field("allowClassicOperations"),
             ),
             authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationKey").unwrap(),
+                o.extract_field("authorizationKey"),
             ),
             bandwidth_in_gbps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidthInGbps").unwrap(),
+                o.extract_field("bandwidthInGbps"),
             ),
             bandwidth_in_mbps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidthInMbps").unwrap(),
+                o.extract_field("bandwidthInMbps"),
             ),
             express_route_port_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRoutePortId").unwrap(),
+                o.extract_field("expressRoutePortId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peering_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringLocation").unwrap(),
+                o.extract_field("peeringLocation"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceKey").unwrap(),
+                o.extract_field("serviceKey"),
             ),
             service_provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProviderName").unwrap(),
+                o.extract_field("serviceProviderName"),
             ),
             service_provider_provisioning_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProviderProvisioningState").unwrap(),
+                o.extract_field("serviceProviderProvisioningState"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

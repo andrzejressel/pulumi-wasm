@@ -154,39 +154,20 @@ pub mod pipeline_definition {
                     value: &pipeline_objects_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "parameterObjects".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineObjects".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineDefinitionResult {
             parameter_objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterObjects").unwrap(),
+                o.extract_field("parameterObjects"),
             ),
             parameter_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterValues").unwrap(),
+                o.extract_field("parameterValues"),
             ),
             pipeline_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineId").unwrap(),
+                o.extract_field("pipelineId"),
             ),
             pipeline_objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineObjects").unwrap(),
+                o.extract_field("pipelineObjects"),
             ),
         }
     }

@@ -85,27 +85,14 @@ pub mod vpn_connection_route {
                     value: &vpn_connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnConnectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnConnectionRouteResult {
             destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationCidrBlock").unwrap(),
+                o.extract_field("destinationCidrBlock"),
             ),
             vpn_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnConnectionId").unwrap(),
+                o.extract_field("vpnConnectionId"),
             ),
         }
     }

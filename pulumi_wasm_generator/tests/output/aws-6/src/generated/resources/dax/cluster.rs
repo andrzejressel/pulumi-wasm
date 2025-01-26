@@ -280,135 +280,60 @@ pub mod cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEndpointEncryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationFactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             cluster_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterAddress").unwrap(),
+                o.extract_field("clusterAddress"),
             ),
             cluster_endpoint_encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEndpointEncryptionType").unwrap(),
+                o.extract_field("clusterEndpointEncryptionType"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             configuration_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationEndpoint").unwrap(),
+                o.extract_field("configurationEndpoint"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
-            nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodes").unwrap(),
-            ),
+            nodes: pulumi_wasm_rust::__private::into_domain(o.extract_field("nodes")),
             notification_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTopicArn").unwrap(),
+                o.extract_field("notificationTopicArn"),
             ),
             parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupName").unwrap(),
+                o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             replication_factor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationFactor").unwrap(),
+                o.extract_field("replicationFactor"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             server_side_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryption").unwrap(),
+                o.extract_field("serverSideEncryption"),
             ),
             subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetGroupName").unwrap(),
+                o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

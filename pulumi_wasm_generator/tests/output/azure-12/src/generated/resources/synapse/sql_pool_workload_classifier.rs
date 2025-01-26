@@ -189,63 +189,28 @@ pub mod sql_pool_workload_classifier {
                     value: &workload_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "importance".into(),
-                },
-                register_interface::ResultField {
-                    name: "label".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SqlPoolWorkloadClassifierResult {
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             importance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importance").unwrap(),
+                o.extract_field("importance"),
             ),
-            label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("label").unwrap(),
-            ),
+            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
             member_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberName").unwrap(),
+                o.extract_field("memberName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             workload_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadGroupId").unwrap(),
+                o.extract_field("workloadGroupId"),
             ),
         }
     }

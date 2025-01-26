@@ -355,136 +355,63 @@ pub mod service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationFailureMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyEncryptionComplianceStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyEnforcementEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleBypassOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "semanticSearchSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
             allowed_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedIps").unwrap(),
+                o.extract_field("allowedIps"),
             ),
             authentication_failure_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationFailureMode").unwrap(),
+                o.extract_field("authenticationFailureMode"),
             ),
             customer_managed_key_encryption_compliance_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyEncryptionComplianceStatus").unwrap(),
+                o.extract_field("customerManagedKeyEncryptionComplianceStatus"),
             ),
             customer_managed_key_enforcement_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyEnforcementEnabled").unwrap(),
+                o.extract_field("customerManagedKeyEnforcementEnabled"),
             ),
             hosting_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostingMode").unwrap(),
+                o.extract_field("hostingMode"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationEnabled").unwrap(),
+                o.extract_field("localAuthenticationEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_rule_bypass_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleBypassOption").unwrap(),
+                o.extract_field("networkRuleBypassOption"),
             ),
             partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionCount").unwrap(),
+                o.extract_field("partitionCount"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             query_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryKeys").unwrap(),
+                o.extract_field("queryKeys"),
             ),
             replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCount").unwrap(),
+                o.extract_field("replicaCount"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
             semantic_search_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("semanticSearchSku").unwrap(),
+                o.extract_field("semanticSearchSku"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

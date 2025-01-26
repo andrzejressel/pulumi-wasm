@@ -220,105 +220,45 @@ pub mod network_profile {
                     value: &uplink_loss_percent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "downlinkBandwidthBits".into(),
-                },
-                register_interface::ResultField {
-                    name: "downlinkDelayMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "downlinkJitterMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "downlinkLossPercent".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "uplinkBandwidthBits".into(),
-                },
-                register_interface::ResultField {
-                    name: "uplinkDelayMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "uplinkJitterMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "uplinkLossPercent".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             downlink_bandwidth_bits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downlinkBandwidthBits").unwrap(),
+                o.extract_field("downlinkBandwidthBits"),
             ),
             downlink_delay_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downlinkDelayMs").unwrap(),
+                o.extract_field("downlinkDelayMs"),
             ),
             downlink_jitter_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downlinkJitterMs").unwrap(),
+                o.extract_field("downlinkJitterMs"),
             ),
             downlink_loss_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downlinkLossPercent").unwrap(),
+                o.extract_field("downlinkLossPercent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectArn").unwrap(),
+                o.extract_field("projectArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             uplink_bandwidth_bits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uplinkBandwidthBits").unwrap(),
+                o.extract_field("uplinkBandwidthBits"),
             ),
             uplink_delay_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uplinkDelayMs").unwrap(),
+                o.extract_field("uplinkDelayMs"),
             ),
             uplink_jitter_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uplinkJitterMs").unwrap(),
+                o.extract_field("uplinkJitterMs"),
             ),
             uplink_loss_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uplinkLossPercent").unwrap(),
+                o.extract_field("uplinkLossPercent"),
             ),
         }
     }

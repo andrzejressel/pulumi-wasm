@@ -174,58 +174,24 @@ pub mod tenant_default_supported_idp_config {
                     value: &tenant_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenant".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TenantDefaultSupportedIdpConfigResult {
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            idp_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpId").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            idp_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("idpId")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenant").unwrap(),
-            ),
+            tenant: pulumi_wasm_rust::__private::into_domain(o.extract_field("tenant")),
         }
     }
 }

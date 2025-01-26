@@ -163,69 +163,29 @@ pub mod safety_rule {
                     value: &wait_period_ms_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assertedControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPanelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatingControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitPeriodMs".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SafetyRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             asserted_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assertedControls").unwrap(),
+                o.extract_field("assertedControls"),
             ),
             control_panel_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPanelArn").unwrap(),
+                o.extract_field("controlPanelArn"),
             ),
             gating_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatingControls").unwrap(),
+                o.extract_field("gatingControls"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rule_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleConfig").unwrap(),
+                o.extract_field("ruleConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             target_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetControls").unwrap(),
+                o.extract_field("targetControls"),
             ),
             wait_period_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitPeriodMs").unwrap(),
+                o.extract_field("waitPeriodMs"),
             ),
         }
     }

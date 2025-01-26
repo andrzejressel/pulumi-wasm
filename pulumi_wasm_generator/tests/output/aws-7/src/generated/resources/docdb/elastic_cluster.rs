@@ -233,117 +233,53 @@ pub mod elastic_cluster {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminUserName".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUserPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authType".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredBackupWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ElasticClusterResult {
             admin_user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUserName").unwrap(),
+                o.extract_field("adminUserName"),
             ),
             admin_user_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUserPassword").unwrap(),
+                o.extract_field("adminUserPassword"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authType").unwrap(),
+                o.extract_field("authType"),
             ),
             backup_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionPeriod").unwrap(),
+                o.extract_field("backupRetentionPeriod"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredBackupWindow").unwrap(),
+                o.extract_field("preferredBackupWindow"),
             ),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             shard_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCapacity").unwrap(),
+                o.extract_field("shardCapacity"),
             ),
             shard_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCount").unwrap(),
+                o.extract_field("shardCount"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

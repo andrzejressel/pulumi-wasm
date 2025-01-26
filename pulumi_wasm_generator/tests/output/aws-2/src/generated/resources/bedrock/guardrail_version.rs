@@ -101,46 +101,22 @@ pub mod guardrail_version {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardrailArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GuardrailVersionResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             guardrail_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardrailArn").unwrap(),
+                o.extract_field("guardrailArn"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

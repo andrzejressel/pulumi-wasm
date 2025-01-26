@@ -156,51 +156,22 @@ pub mod shared_private_link_resource {
                     value: &web_pubsub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subresourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedPrivateLinkResourceResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             request_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestMessage").unwrap(),
+                o.extract_field("requestMessage"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subresource_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subresourceName").unwrap(),
+                o.extract_field("subresourceName"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
             web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubId").unwrap(),
+                o.extract_field("webPubsubId"),
             ),
         }
     }

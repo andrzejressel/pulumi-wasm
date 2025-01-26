@@ -39,32 +39,12 @@ pub mod get_lifecycle_policy_document {
                     value: &rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLifecyclePolicyDocumentResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
         }
     }
 }

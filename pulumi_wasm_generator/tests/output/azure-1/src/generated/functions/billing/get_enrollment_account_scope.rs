@@ -49,32 +49,16 @@ pub mod get_enrollment_account_scope {
                     value: &enrollment_account_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enrollmentAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEnrollmentAccountScopeResult {
             billing_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccountName").unwrap(),
+                o.extract_field("billingAccountName"),
             ),
             enrollment_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enrollmentAccountName").unwrap(),
+                o.extract_field("enrollmentAccountName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

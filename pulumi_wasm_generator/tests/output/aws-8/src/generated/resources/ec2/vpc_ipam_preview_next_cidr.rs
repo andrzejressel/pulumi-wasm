@@ -102,39 +102,18 @@ pub mod vpc_ipam_preview_next_cidr {
                     value: &netmask_length_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "disallowedCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "netmaskLength".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamPreviewNextCidrResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             disallowed_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disallowedCidrs").unwrap(),
+                o.extract_field("disallowedCidrs"),
             ),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netmaskLength").unwrap(),
+                o.extract_field("netmaskLength"),
             ),
         }
     }

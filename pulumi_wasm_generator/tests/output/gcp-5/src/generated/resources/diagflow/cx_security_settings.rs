@@ -374,93 +374,45 @@ pub mod cx_security_settings {
                     value: &retention_window_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "audioExportSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "deidentifyTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "insightsExportSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "inspectTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "purgeDataTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "redactionScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "redactionStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionWindowDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxSecuritySettingsResult {
             audio_export_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("audioExportSettings").unwrap(),
+                o.extract_field("audioExportSettings"),
             ),
             deidentify_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deidentifyTemplate").unwrap(),
+                o.extract_field("deidentifyTemplate"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             insights_export_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insightsExportSettings").unwrap(),
+                o.extract_field("insightsExportSettings"),
             ),
             inspect_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inspectTemplate").unwrap(),
+                o.extract_field("inspectTemplate"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             purge_data_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purgeDataTypes").unwrap(),
+                o.extract_field("purgeDataTypes"),
             ),
             redaction_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redactionScope").unwrap(),
+                o.extract_field("redactionScope"),
             ),
             redaction_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redactionStrategy").unwrap(),
+                o.extract_field("redactionStrategy"),
             ),
             retention_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionStrategy").unwrap(),
+                o.extract_field("retentionStrategy"),
             ),
             retention_window_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionWindowDays").unwrap(),
+                o.extract_field("retentionWindowDays"),
             ),
         }
     }

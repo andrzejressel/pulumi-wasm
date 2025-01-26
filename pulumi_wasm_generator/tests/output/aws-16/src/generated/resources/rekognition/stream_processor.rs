@@ -364,93 +364,39 @@ pub mod stream_processor {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataSharingPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "input".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "output".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionsOfInterests".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamProcessorArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StreamProcessorResult {
             data_sharing_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSharingPreference").unwrap(),
+                o.extract_field("dataSharingPreference"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("input").unwrap(),
-            ),
+            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationChannel").unwrap(),
+                o.extract_field("notificationChannel"),
             ),
-            output: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("output").unwrap(),
-            ),
+            output: pulumi_wasm_rust::__private::into_domain(o.extract_field("output")),
             regions_of_interests: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionsOfInterests").unwrap(),
+                o.extract_field("regionsOfInterests"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
             stream_processor_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamProcessorArn").unwrap(),
+                o.extract_field("streamProcessorArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

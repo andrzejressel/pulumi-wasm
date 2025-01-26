@@ -122,39 +122,20 @@ pub mod organization {
                     value: &parent_organization_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "iotcentralApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentOrganizationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             iotcentral_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iotcentralApplicationId").unwrap(),
+                o.extract_field("iotcentralApplicationId"),
             ),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
             parent_organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentOrganizationId").unwrap(),
+                o.extract_field("parentOrganizationId"),
             ),
         }
     }

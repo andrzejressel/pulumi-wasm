@@ -83,115 +83,49 @@ pub mod get_data_source {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupConfigInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configState".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceBackupApplianceApplications".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceGcpResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalStoredBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDataSourceResult {
             backup_config_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupConfigInfos").unwrap(),
+                o.extract_field("backupConfigInfos"),
             ),
             backup_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupCount").unwrap(),
+                o.extract_field("backupCount"),
             ),
             backup_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultId").unwrap(),
+                o.extract_field("backupVaultId"),
             ),
             config_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configState").unwrap(),
+                o.extract_field("configState"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             data_source_backup_appliance_applications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceBackupApplianceApplications").unwrap(),
+                o.extract_field("dataSourceBackupApplianceApplications"),
             ),
             data_source_gcp_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceGcpResources").unwrap(),
+                o.extract_field("dataSourceGcpResources"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             total_stored_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalStoredBytes").unwrap(),
+                o.extract_field("totalStoredBytes"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

@@ -109,27 +109,14 @@ pub mod service_email_domain_association {
                     value: &email_service_domain_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "communicationServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailServiceDomainId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceEmailDomainAssociationResult {
             communication_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("communicationServiceId").unwrap(),
+                o.extract_field("communicationServiceId"),
             ),
             email_service_domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailServiceDomainId").unwrap(),
+                o.extract_field("emailServiceDomainId"),
             ),
         }
     }

@@ -86,45 +86,19 @@ pub mod member {
                     value: &invite_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "invite".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MemberResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            invite: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invite").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            invite: pulumi_wasm_rust::__private::into_domain(o.extract_field("invite")),
             master_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterId").unwrap(),
+                o.extract_field("masterId"),
             ),
             member_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberStatus").unwrap(),
+                o.extract_field("memberStatus"),
             ),
         }
     }

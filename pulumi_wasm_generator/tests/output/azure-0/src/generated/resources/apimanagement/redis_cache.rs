@@ -144,51 +144,24 @@ pub mod redis_cache {
                     value: &redis_cache_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisCacheId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RedisCacheResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
             cache_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheLocation").unwrap(),
+                o.extract_field("cacheLocation"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redis_cache_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisCacheId").unwrap(),
+                o.extract_field("redisCacheId"),
             ),
         }
     }

@@ -63,43 +63,21 @@ pub mod get_instance_type_offerings {
                     value: &storage_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "brokerInstanceOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostInstanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceTypeOfferingsResult {
             broker_instance_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brokerInstanceOptions").unwrap(),
+                o.extract_field("brokerInstanceOptions"),
             ),
             engine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineType").unwrap(),
+                o.extract_field("engineType"),
             ),
             host_instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostInstanceType").unwrap(),
+                o.extract_field("hostInstanceType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
         }
     }

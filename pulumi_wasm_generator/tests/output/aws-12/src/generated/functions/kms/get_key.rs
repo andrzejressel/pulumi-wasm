@@ -90,151 +90,69 @@ pub mod get_key {
                     value: &key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudHsmClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "customKeyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerMasterKeySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantTokens".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyManager".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyState".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyUsage".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "origin".into(),
-                },
-                register_interface::ResultField {
-                    name: "pendingDeletionWindowInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "validTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "xksKeyConfigurations".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             cloud_hsm_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudHsmClusterId").unwrap(),
+                o.extract_field("cloudHsmClusterId"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             custom_key_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customKeyStoreId").unwrap(),
+                o.extract_field("customKeyStoreId"),
             ),
             customer_master_key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerMasterKeySpec").unwrap(),
+                o.extract_field("customerMasterKeySpec"),
             ),
             deletion_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionDate").unwrap(),
+                o.extract_field("deletionDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             expiration_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationModel").unwrap(),
+                o.extract_field("expirationModel"),
             ),
             grant_tokens: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantTokens").unwrap(),
+                o.extract_field("grantTokens"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             key_manager: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyManager").unwrap(),
+                o.extract_field("keyManager"),
             ),
             key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySpec").unwrap(),
+                o.extract_field("keySpec"),
             ),
             key_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyState").unwrap(),
+                o.extract_field("keyState"),
             ),
             key_usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyUsage").unwrap(),
+                o.extract_field("keyUsage"),
             ),
             multi_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegion").unwrap(),
+                o.extract_field("multiRegion"),
             ),
             multi_region_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegionConfigurations").unwrap(),
+                o.extract_field("multiRegionConfigurations"),
             ),
-            origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origin").unwrap(),
-            ),
+            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
             pending_deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pendingDeletionWindowInDays").unwrap(),
+                o.extract_field("pendingDeletionWindowInDays"),
             ),
             valid_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validTo").unwrap(),
+                o.extract_field("validTo"),
             ),
             xks_key_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xksKeyConfigurations").unwrap(),
+                o.extract_field("xksKeyConfigurations"),
             ),
         }
     }

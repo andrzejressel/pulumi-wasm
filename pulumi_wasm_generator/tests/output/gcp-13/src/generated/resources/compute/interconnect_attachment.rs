@@ -486,183 +486,80 @@ pub mod interconnect_attachment {
                     value: &vlan_tag8021q_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "candidateSubnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudRouterIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudRouterIpv6Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerRouterIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerRouterIpv6Address".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeAvailabilityDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "googleReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "interconnect".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipsecInternalAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pairingKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateInterconnectInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackType".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlanTag8021q".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InterconnectAttachmentResult {
             admin_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminEnabled").unwrap(),
+                o.extract_field("adminEnabled"),
             ),
             bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidth").unwrap(),
+                o.extract_field("bandwidth"),
             ),
             candidate_subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("candidateSubnets").unwrap(),
+                o.extract_field("candidateSubnets"),
             ),
             cloud_router_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudRouterIpAddress").unwrap(),
+                o.extract_field("cloudRouterIpAddress"),
             ),
             cloud_router_ipv6_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudRouterIpv6Address").unwrap(),
+                o.extract_field("cloudRouterIpv6Address"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             customer_router_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerRouterIpAddress").unwrap(),
+                o.extract_field("customerRouterIpAddress"),
             ),
             customer_router_ipv6_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerRouterIpv6Address").unwrap(),
+                o.extract_field("customerRouterIpv6Address"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             edge_availability_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeAvailabilityDomain").unwrap(),
+                o.extract_field("edgeAvailabilityDomain"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             google_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("googleReferenceId").unwrap(),
+                o.extract_field("googleReferenceId"),
             ),
             interconnect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interconnect").unwrap(),
+                o.extract_field("interconnect"),
             ),
             ipsec_internal_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipsecInternalAddresses").unwrap(),
+                o.extract_field("ipsecInternalAddresses"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pairing_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pairingKey").unwrap(),
+                o.extract_field("pairingKey"),
             ),
             partner_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerAsn").unwrap(),
+                o.extract_field("partnerAsn"),
             ),
             private_interconnect_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateInterconnectInfos").unwrap(),
+                o.extract_field("privateInterconnectInfos"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             stack_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackType").unwrap(),
+                o.extract_field("stackType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnet_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetLength").unwrap(),
+                o.extract_field("subnetLength"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vlan_tag8021q: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlanTag8021q").unwrap(),
+                o.extract_field("vlanTag8021q"),
             ),
         }
     }

@@ -416,177 +416,83 @@ pub mod standard {
                     value: &virtual_network_subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServicePlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "bundleVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAffinityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStrings".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "possibleOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "useExtensionBundle".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkSubnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardResult {
             app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServicePlanId").unwrap(),
+                o.extract_field("appServicePlanId"),
             ),
             app_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSettings").unwrap(),
+                o.extract_field("appSettings"),
             ),
             bundle_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleVersion").unwrap(),
+                o.extract_field("bundleVersion"),
             ),
             client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAffinityEnabled").unwrap(),
+                o.extract_field("clientAffinityEnabled"),
             ),
             client_certificate_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateMode").unwrap(),
+                o.extract_field("clientCertificateMode"),
             ),
             connection_strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStrings").unwrap(),
+                o.extract_field("connectionStrings"),
             ),
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
             default_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostname").unwrap(),
+                o.extract_field("defaultHostname"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddresses").unwrap(),
+                o.extract_field("outboundIpAddresses"),
             ),
             possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("possibleOutboundIpAddresses").unwrap(),
+                o.extract_field("possibleOutboundIpAddresses"),
             ),
             public_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccess").unwrap(),
+                o.extract_field("publicNetworkAccess"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             site_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteConfig").unwrap(),
+                o.extract_field("siteConfig"),
             ),
             site_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteCredentials").unwrap(),
+                o.extract_field("siteCredentials"),
             ),
             storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKey").unwrap(),
+                o.extract_field("storageAccountAccessKey"),
             ),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
             storage_account_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountShareName").unwrap(),
+                o.extract_field("storageAccountShareName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             use_extension_bundle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useExtensionBundle").unwrap(),
+                o.extract_field("useExtensionBundle"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkSubnetId").unwrap(),
+                o.extract_field("virtualNetworkSubnetId"),
             ),
         }
     }

@@ -84,103 +84,43 @@ pub mod get_query_suggestions_block_list {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "itemCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "querySuggestionsBlockListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceS3Paths".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetQuerySuggestionsBlockListResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
             file_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSizeBytes").unwrap(),
+                o.extract_field("fileSizeBytes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             index_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexId").unwrap(),
+                o.extract_field("indexId"),
             ),
             item_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("itemCount").unwrap(),
+                o.extract_field("itemCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_suggestions_block_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("querySuggestionsBlockListId").unwrap(),
+                o.extract_field("querySuggestionsBlockListId"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             source_s3_paths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceS3Paths").unwrap(),
+                o.extract_field("sourceS3Paths"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

@@ -436,159 +436,68 @@ pub mod authority {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredState".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "gcsBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreActiveCertificatesOnDeletion".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifetime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemCaCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemCaCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipGracePeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subordinateConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorityResult {
             access_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessUrls").unwrap(),
+                o.extract_field("accessUrls"),
             ),
             certificate_authority_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorityId").unwrap(),
+                o.extract_field("certificateAuthorityId"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             desired_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredState").unwrap(),
+                o.extract_field("desiredState"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             gcs_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gcsBucket").unwrap(),
+                o.extract_field("gcsBucket"),
             ),
             ignore_active_certificates_on_deletion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreActiveCertificatesOnDeletion").unwrap(),
+                o.extract_field("ignoreActiveCertificatesOnDeletion"),
             ),
             key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySpec").unwrap(),
+                o.extract_field("keySpec"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             lifetime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifetime").unwrap(),
+                o.extract_field("lifetime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pem_ca_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemCaCertificate").unwrap(),
+                o.extract_field("pemCaCertificate"),
             ),
             pem_ca_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemCaCertificates").unwrap(),
+                o.extract_field("pemCaCertificates"),
             ),
-            pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pool").unwrap(),
-            ),
+            pool: pulumi_wasm_rust::__private::into_domain(o.extract_field("pool")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             skip_grace_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipGracePeriod").unwrap(),
+                o.extract_field("skipGracePeriod"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subordinate_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subordinateConfig").unwrap(),
+                o.extract_field("subordinateConfig"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

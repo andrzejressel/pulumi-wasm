@@ -86,33 +86,17 @@ pub mod multicast_group_member {
                     value: &transit_gateway_multicast_domain_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayMulticastDomainId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MulticastGroupMemberResult {
             group_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupIpAddress").unwrap(),
+                o.extract_field("groupIpAddress"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             transit_gateway_multicast_domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayMulticastDomainId").unwrap(),
+                o.extract_field("transitGatewayMulticastDomainId"),
             ),
         }
     }

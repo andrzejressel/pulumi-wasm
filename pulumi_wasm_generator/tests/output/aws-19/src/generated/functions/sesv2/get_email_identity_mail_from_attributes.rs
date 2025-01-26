@@ -38,37 +38,18 @@ pub mod get_email_identity_mail_from_attributes {
                     value: &email_identity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "behaviorOnMxFailure".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "mailFromDomain".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEmailIdentityMailFromAttributesResult {
             behavior_on_mx_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("behaviorOnMxFailure").unwrap(),
+                o.extract_field("behaviorOnMxFailure"),
             ),
             email_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailIdentity").unwrap(),
+                o.extract_field("emailIdentity"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             mail_from_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mailFromDomain").unwrap(),
+                o.extract_field("mailFromDomain"),
             ),
         }
     }

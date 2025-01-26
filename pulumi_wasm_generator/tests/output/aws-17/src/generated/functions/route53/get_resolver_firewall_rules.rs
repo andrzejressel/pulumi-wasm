@@ -61,43 +61,19 @@ pub mod get_resolver_firewall_rules {
                     value: &priority_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallRuleGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResolverFirewallRulesResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             firewall_rule_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallRuleGroupId").unwrap(),
+                o.extract_field("firewallRuleGroupId"),
             ),
             firewall_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallRules").unwrap(),
+                o.extract_field("firewallRules"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
         }
     }

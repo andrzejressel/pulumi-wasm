@@ -105,46 +105,18 @@ pub mod usage_plan_key {
                     value: &usage_plan_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "usagePlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UsagePlanKeyResult {
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyType").unwrap(),
+                o.extract_field("keyType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             usage_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usagePlanId").unwrap(),
+                o.extract_field("usagePlanId"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

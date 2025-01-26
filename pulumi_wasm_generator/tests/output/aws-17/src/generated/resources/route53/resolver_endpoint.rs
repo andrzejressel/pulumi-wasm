@@ -155,75 +155,32 @@ pub mod resolver_endpoint {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostVpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "resolverEndpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
             host_vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostVpcId").unwrap(),
+                o.extract_field("hostVpcId"),
             ),
             ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddresses").unwrap(),
+                o.extract_field("ipAddresses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             resolver_endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverEndpointType").unwrap(),
+                o.extract_field("resolverEndpointType"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

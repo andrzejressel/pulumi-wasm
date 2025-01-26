@@ -86,34 +86,16 @@ pub mod api_shield_operation_schema_validation_settings {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "mitigationAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiShieldOperationSchemaValidationSettingsResult {
             mitigation_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mitigationAction").unwrap(),
+                o.extract_field("mitigationAction"),
             ),
             operation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationId").unwrap(),
+                o.extract_field("operationId"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

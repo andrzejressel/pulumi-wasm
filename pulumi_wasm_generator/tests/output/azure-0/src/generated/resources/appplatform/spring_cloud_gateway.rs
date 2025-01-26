@@ -353,116 +353,50 @@ pub mod spring_cloud_gateway {
                     value: &sso_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiMetadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationPerformanceMonitoringIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationPerformanceMonitoringTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAuthorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "cors".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "localResponseCachePerInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "localResponseCachePerRoute".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "quota".into(),
-                },
-                register_interface::ResultField {
-                    name: "sensitiveEnvironmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sso".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudGatewayResult {
             api_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiMetadata").unwrap(),
+                o.extract_field("apiMetadata"),
             ),
             application_performance_monitoring_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationPerformanceMonitoringIds").unwrap(),
+                o.extract_field("applicationPerformanceMonitoringIds"),
             ),
             application_performance_monitoring_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationPerformanceMonitoringTypes").unwrap(),
+                o.extract_field("applicationPerformanceMonitoringTypes"),
             ),
             client_authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAuthorization").unwrap(),
+                o.extract_field("clientAuthorization"),
             ),
-            cors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cors").unwrap(),
-            ),
+            cors: pulumi_wasm_rust::__private::into_domain(o.extract_field("cors")),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             local_response_cache_per_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localResponseCachePerInstance").unwrap(),
+                o.extract_field("localResponseCachePerInstance"),
             ),
             local_response_cache_per_route: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localResponseCachePerRoute").unwrap(),
+                o.extract_field("localResponseCachePerRoute"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
-            quota: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quota").unwrap(),
-            ),
+            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
             sensitive_environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sensitiveEnvironmentVariables").unwrap(),
+                o.extract_field("sensitiveEnvironmentVariables"),
             ),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
-            sso: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sso").unwrap(),
-            ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            sso: pulumi_wasm_rust::__private::into_domain(o.extract_field("sso")),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

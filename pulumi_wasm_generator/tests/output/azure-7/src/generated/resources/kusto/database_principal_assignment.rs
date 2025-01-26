@@ -170,75 +170,34 @@ pub mod database_principal_assignment {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalName".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabasePrincipalAssignmentResult {
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             principal_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalName").unwrap(),
+                o.extract_field("principalName"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
             tenant_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantName").unwrap(),
+                o.extract_field("tenantName"),
             ),
         }
     }

@@ -309,130 +309,58 @@ pub mod job {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "compatibilityLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentStoragePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataLocale".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsLateArrivalMaxDelayInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsOutOfOrderMaxDelayInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsOutOfOrderPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobStorageAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputErrorPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transformationQuery".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             compatibility_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibilityLevel").unwrap(),
+                o.extract_field("compatibilityLevel"),
             ),
             content_storage_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentStoragePolicy").unwrap(),
+                o.extract_field("contentStoragePolicy"),
             ),
             data_locale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataLocale").unwrap(),
+                o.extract_field("dataLocale"),
             ),
             events_late_arrival_max_delay_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsLateArrivalMaxDelayInSeconds").unwrap(),
+                o.extract_field("eventsLateArrivalMaxDelayInSeconds"),
             ),
             events_out_of_order_max_delay_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsOutOfOrderMaxDelayInSeconds").unwrap(),
+                o.extract_field("eventsOutOfOrderMaxDelayInSeconds"),
             ),
             events_out_of_order_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsOutOfOrderPolicy").unwrap(),
+                o.extract_field("eventsOutOfOrderPolicy"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             job_storage_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobStorageAccounts").unwrap(),
+                o.extract_field("jobStorageAccounts"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_error_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputErrorPolicy").unwrap(),
+                o.extract_field("outputErrorPolicy"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             stream_analytics_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsClusterId").unwrap(),
+                o.extract_field("streamAnalyticsClusterId"),
             ),
             streaming_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingUnits").unwrap(),
+                o.extract_field("streamingUnits"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transformation_query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transformationQuery").unwrap(),
+                o.extract_field("transformationQuery"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

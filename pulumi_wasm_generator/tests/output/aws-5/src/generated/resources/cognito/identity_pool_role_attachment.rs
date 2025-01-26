@@ -77,34 +77,16 @@ pub mod identity_pool_role_attachment {
                     value: &roles_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "identityPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "roles".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityPoolRoleAttachmentResult {
             identity_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityPoolId").unwrap(),
+                o.extract_field("identityPoolId"),
             ),
             role_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleMappings").unwrap(),
+                o.extract_field("roleMappings"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roles").unwrap(),
-            ),
+            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
         }
     }
 }

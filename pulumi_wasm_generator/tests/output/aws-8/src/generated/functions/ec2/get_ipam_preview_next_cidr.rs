@@ -56,43 +56,19 @@ pub mod get_ipam_preview_next_cidr {
                     value: &netmask_length_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "disallowedCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "netmaskLength".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIpamPreviewNextCidrResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             disallowed_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disallowedCidrs").unwrap(),
+                o.extract_field("disallowedCidrs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netmaskLength").unwrap(),
+                o.extract_field("netmaskLength"),
             ),
         }
     }

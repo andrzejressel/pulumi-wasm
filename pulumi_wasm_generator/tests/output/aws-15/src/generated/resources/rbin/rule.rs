@@ -148,81 +148,35 @@ pub mod rule {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockEndTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockState".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             lock_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockConfiguration").unwrap(),
+                o.extract_field("lockConfiguration"),
             ),
             lock_end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockEndTime").unwrap(),
+                o.extract_field("lockEndTime"),
             ),
             lock_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockState").unwrap(),
+                o.extract_field("lockState"),
             ),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -386,88 +386,41 @@ pub mod endpoint {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customDnsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "customNetworkInterfaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsZoneConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsZoneGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateServiceConnection".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
             custom_dns_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDnsConfigs").unwrap(),
+                o.extract_field("customDnsConfigs"),
             ),
             custom_network_interface_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customNetworkInterfaceName").unwrap(),
+                o.extract_field("customNetworkInterfaceName"),
             ),
             ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurations").unwrap(),
+                o.extract_field("ipConfigurations"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             private_dns_zone_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsZoneConfigs").unwrap(),
+                o.extract_field("privateDnsZoneConfigs"),
             ),
             private_dns_zone_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsZoneGroup").unwrap(),
+                o.extract_field("privateDnsZoneGroup"),
             ),
             private_service_connection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateServiceConnection").unwrap(),
+                o.extract_field("privateServiceConnection"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

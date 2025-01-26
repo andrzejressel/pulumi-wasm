@@ -54,73 +54,30 @@ pub mod get_inference_profile {
                     value: &inference_profile_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceProfileArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceProfileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "models".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInferenceProfileResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inference_profile_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceProfileArn").unwrap(),
+                o.extract_field("inferenceProfileArn"),
             ),
             inference_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceProfileId").unwrap(),
+                o.extract_field("inferenceProfileId"),
             ),
             inference_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceProfileName").unwrap(),
+                o.extract_field("inferenceProfileName"),
             ),
-            models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("models").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            models: pulumi_wasm_rust::__private::into_domain(o.extract_field("models")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

@@ -155,51 +155,24 @@ pub mod integration_account_batch_configuration {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "batchGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseCriteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationAccountBatchConfigurationResult {
             batch_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchGroupName").unwrap(),
+                o.extract_field("batchGroupName"),
             ),
             integration_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationAccountName").unwrap(),
+                o.extract_field("integrationAccountName"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             release_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseCriteria").unwrap(),
+                o.extract_field("releaseCriteria"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

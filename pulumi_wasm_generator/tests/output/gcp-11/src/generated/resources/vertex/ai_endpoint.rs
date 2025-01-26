@@ -396,141 +396,63 @@ pub mod ai_endpoint {
                     value: &traffic_split_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedEndpointDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployedModels".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelDeploymentMonitoringJob".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "predictRequestResponseLoggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateServiceConnectConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficSplit".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiEndpointResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dedicated_endpoint_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedEndpointDns").unwrap(),
+                o.extract_field("dedicatedEndpointDns"),
             ),
             dedicated_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedEndpointEnabled").unwrap(),
+                o.extract_field("dedicatedEndpointEnabled"),
             ),
             deployed_models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployedModels").unwrap(),
+                o.extract_field("deployedModels"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSpec").unwrap(),
+                o.extract_field("encryptionSpec"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             model_deployment_monitoring_job: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelDeploymentMonitoringJob").unwrap(),
+                o.extract_field("modelDeploymentMonitoringJob"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             predict_request_response_logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predictRequestResponseLoggingConfig").unwrap(),
+                o.extract_field("predictRequestResponseLoggingConfig"),
             ),
             private_service_connect_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateServiceConnectConfig").unwrap(),
+                o.extract_field("privateServiceConnectConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             traffic_split: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficSplit").unwrap(),
+                o.extract_field("trafficSplit"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

@@ -57,91 +57,37 @@ pub mod get_proxy {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "auths".into(),
-                },
-                register_interface::ResultField {
-                    name: "debugLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleClientTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSubnetIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProxyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            auths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auths").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            auths: pulumi_wasm_rust::__private::into_domain(o.extract_field("auths")),
             debug_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("debugLogging").unwrap(),
+                o.extract_field("debugLogging"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             engine_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineFamily").unwrap(),
+                o.extract_field("engineFamily"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             idle_client_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleClientTimeout").unwrap(),
+                o.extract_field("idleClientTimeout"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             require_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireTls").unwrap(),
+                o.extract_field("requireTls"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
             vpc_subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSubnetIds").unwrap(),
+                o.extract_field("vpcSubnetIds"),
             ),
         }
     }

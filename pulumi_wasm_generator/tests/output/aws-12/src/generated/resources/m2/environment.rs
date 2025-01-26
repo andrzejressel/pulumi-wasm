@@ -316,135 +316,62 @@ pub mod environment {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyChangesDuringMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceUpdate".into(),
-                },
-                register_interface::ResultField {
-                    name: "highAvailabilityConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             apply_changes_during_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyChangesDuringMaintenanceWindow").unwrap(),
+                o.extract_field("applyChangesDuringMaintenanceWindow"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             engine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineType").unwrap(),
+                o.extract_field("engineType"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             force_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceUpdate").unwrap(),
+                o.extract_field("forceUpdate"),
             ),
             high_availability_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("highAvailabilityConfig").unwrap(),
+                o.extract_field("highAvailabilityConfig"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerArn").unwrap(),
+                o.extract_field("loadBalancerArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             storage_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConfiguration").unwrap(),
+                o.extract_field("storageConfiguration"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

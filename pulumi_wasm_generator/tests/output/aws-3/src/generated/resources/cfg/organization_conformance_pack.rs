@@ -210,63 +210,28 @@ pub mod organization_conformance_pack {
                     value: &template_s3_uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryS3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryS3KeyPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludedAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateS3Uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationConformancePackResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             delivery_s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryS3Bucket").unwrap(),
+                o.extract_field("deliveryS3Bucket"),
             ),
             delivery_s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryS3KeyPrefix").unwrap(),
+                o.extract_field("deliveryS3KeyPrefix"),
             ),
             excluded_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludedAccounts").unwrap(),
+                o.extract_field("excludedAccounts"),
             ),
             input_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputParameters").unwrap(),
+                o.extract_field("inputParameters"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             template_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateBody").unwrap(),
+                o.extract_field("templateBody"),
             ),
             template_s3_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateS3Uri").unwrap(),
+                o.extract_field("templateS3Uri"),
             ),
         }
     }

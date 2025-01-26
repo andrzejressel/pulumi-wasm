@@ -180,27 +180,14 @@ pub mod frontdoor_custom_domain_association {
                     value: &cdn_frontdoor_route_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorCustomDomainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorRouteIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorCustomDomainAssociationResult {
             cdn_frontdoor_custom_domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorCustomDomainId").unwrap(),
+                o.extract_field("cdnFrontdoorCustomDomainId"),
             ),
             cdn_frontdoor_route_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorRouteIds").unwrap(),
+                o.extract_field("cdnFrontdoorRouteIds"),
             ),
         }
     }

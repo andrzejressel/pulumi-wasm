@@ -372,154 +372,68 @@ pub mod health_check {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "childHealthThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "childHealthchecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchAlarmName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchAlarmRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSni".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "insufficientDataHealthStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "invertHealthcheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "measureLatency".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "referenceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "regions".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourcePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingControlArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "searchString".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HealthCheckResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             child_health_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("childHealthThreshold").unwrap(),
+                o.extract_field("childHealthThreshold"),
             ),
             child_healthchecks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("childHealthchecks").unwrap(),
+                o.extract_field("childHealthchecks"),
             ),
             cloudwatch_alarm_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchAlarmName").unwrap(),
+                o.extract_field("cloudwatchAlarmName"),
             ),
             cloudwatch_alarm_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchAlarmRegion").unwrap(),
+                o.extract_field("cloudwatchAlarmRegion"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             enable_sni: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSni").unwrap(),
+                o.extract_field("enableSni"),
             ),
             failure_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureThreshold").unwrap(),
+                o.extract_field("failureThreshold"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             insufficient_data_health_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insufficientDataHealthStatus").unwrap(),
+                o.extract_field("insufficientDataHealthStatus"),
             ),
             invert_healthcheck: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invertHealthcheck").unwrap(),
+                o.extract_field("invertHealthcheck"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             measure_latency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("measureLatency").unwrap(),
+                o.extract_field("measureLatency"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             reference_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referenceName").unwrap(),
+                o.extract_field("referenceName"),
             ),
             regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regions").unwrap(),
+                o.extract_field("regions"),
             ),
             request_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestInterval").unwrap(),
+                o.extract_field("requestInterval"),
             ),
             resource_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourcePath").unwrap(),
+                o.extract_field("resourcePath"),
             ),
             routing_control_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingControlArn").unwrap(),
+                o.extract_field("routingControlArn"),
             ),
             search_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("searchString").unwrap(),
+                o.extract_field("searchString"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

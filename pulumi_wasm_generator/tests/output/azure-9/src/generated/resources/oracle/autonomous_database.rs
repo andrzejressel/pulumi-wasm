@@ -311,141 +311,67 @@ pub mod autonomous_database {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingForStorageEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionPeriodInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "characterSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerContacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbWorkload".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtlsConnectionRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nationalCharacterSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutonomousDatabaseResult {
             admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPassword").unwrap(),
+                o.extract_field("adminPassword"),
             ),
             auto_scaling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingEnabled").unwrap(),
+                o.extract_field("autoScalingEnabled"),
             ),
             auto_scaling_for_storage_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingForStorageEnabled").unwrap(),
+                o.extract_field("autoScalingForStorageEnabled"),
             ),
             backup_retention_period_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionPeriodInDays").unwrap(),
+                o.extract_field("backupRetentionPeriodInDays"),
             ),
             character_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("characterSet").unwrap(),
+                o.extract_field("characterSet"),
             ),
             compute_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeCount").unwrap(),
+                o.extract_field("computeCount"),
             ),
             compute_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeModel").unwrap(),
+                o.extract_field("computeModel"),
             ),
             customer_contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerContacts").unwrap(),
+                o.extract_field("customerContacts"),
             ),
             data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStorageSizeInTbs").unwrap(),
+                o.extract_field("dataStorageSizeInTbs"),
             ),
             db_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbVersion").unwrap(),
+                o.extract_field("dbVersion"),
             ),
             db_workload: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbWorkload").unwrap(),
+                o.extract_field("dbWorkload"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mtls_connection_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtlsConnectionRequired").unwrap(),
+                o.extract_field("mtlsConnectionRequired"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             national_character_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nationalCharacterSet").unwrap(),
+                o.extract_field("nationalCharacterSet"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

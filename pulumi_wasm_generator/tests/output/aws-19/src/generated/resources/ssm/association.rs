@@ -352,129 +352,59 @@ pub mod association {
                     value: &wait_for_success_timeout_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyOnlyAtCronInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "automationTargetParameterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "complianceSeverity".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxConcurrency".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncCompliance".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForSuccessTimeoutSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssociationResult {
             apply_only_at_cron_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyOnlyAtCronInterval").unwrap(),
+                o.extract_field("applyOnlyAtCronInterval"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             association_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationName").unwrap(),
+                o.extract_field("associationName"),
             ),
             automation_target_parameter_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationTargetParameterName").unwrap(),
+                o.extract_field("automationTargetParameterName"),
             ),
             compliance_severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("complianceSeverity").unwrap(),
+                o.extract_field("complianceSeverity"),
             ),
             document_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentVersion").unwrap(),
+                o.extract_field("documentVersion"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             max_concurrency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxConcurrency").unwrap(),
+                o.extract_field("maxConcurrency"),
             ),
             max_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxErrors").unwrap(),
+                o.extract_field("maxErrors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputLocation").unwrap(),
+                o.extract_field("outputLocation"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             schedule_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleExpression").unwrap(),
+                o.extract_field("scheduleExpression"),
             ),
             sync_compliance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncCompliance").unwrap(),
+                o.extract_field("syncCompliance"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
+                o.extract_field("targets"),
             ),
             wait_for_success_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForSuccessTimeoutSeconds").unwrap(),
+                o.extract_field("waitForSuccessTimeoutSeconds"),
             ),
         }
     }

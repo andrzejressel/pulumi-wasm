@@ -212,75 +212,34 @@ pub mod pipeline {
                     value: &variables_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activitiesJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "concurrency".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "moniterMetricsAfterDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "variables".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
             activities_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activitiesJson").unwrap(),
+                o.extract_field("activitiesJson"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             concurrency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("concurrency").unwrap(),
+                o.extract_field("concurrency"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             moniter_metrics_after_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("moniterMetricsAfterDuration").unwrap(),
+                o.extract_field("moniterMetricsAfterDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variables").unwrap(),
+                o.extract_field("variables"),
             ),
         }
     }

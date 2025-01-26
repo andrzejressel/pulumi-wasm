@@ -488,159 +488,72 @@ pub mod crawler {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "classifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "deltaTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamodbTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "hudiTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "icebergTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "jdbcTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "lakeFormationConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "lineageConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mongodbTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recrawlPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Targets".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaChangePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tablePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CrawlerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             catalog_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogTargets").unwrap(),
+                o.extract_field("catalogTargets"),
             ),
             classifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("classifiers").unwrap(),
+                o.extract_field("classifiers"),
             ),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             delta_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deltaTargets").unwrap(),
+                o.extract_field("deltaTargets"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dynamodb_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamodbTargets").unwrap(),
+                o.extract_field("dynamodbTargets"),
             ),
             hudi_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hudiTargets").unwrap(),
+                o.extract_field("hudiTargets"),
             ),
             iceberg_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icebergTargets").unwrap(),
+                o.extract_field("icebergTargets"),
             ),
             jdbc_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jdbcTargets").unwrap(),
+                o.extract_field("jdbcTargets"),
             ),
             lake_formation_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lakeFormationConfiguration").unwrap(),
+                o.extract_field("lakeFormationConfiguration"),
             ),
             lineage_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lineageConfiguration").unwrap(),
+                o.extract_field("lineageConfiguration"),
             ),
             mongodb_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mongodbTargets").unwrap(),
+                o.extract_field("mongodbTargets"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recrawl_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recrawlPolicy").unwrap(),
+                o.extract_field("recrawlPolicy"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             s3_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Targets").unwrap(),
+                o.extract_field("s3Targets"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             schema_change_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaChangePolicy").unwrap(),
+                o.extract_field("schemaChangePolicy"),
             ),
             security_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityConfiguration").unwrap(),
+                o.extract_field("securityConfiguration"),
             ),
             table_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tablePrefix").unwrap(),
+                o.extract_field("tablePrefix"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

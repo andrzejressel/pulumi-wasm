@@ -156,57 +156,25 @@ pub mod analytics_solution {
                     value: &workspace_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "solutionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnalyticsSolutionResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             solution_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("solutionName").unwrap(),
+                o.extract_field("solutionName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceName").unwrap(),
+                o.extract_field("workspaceName"),
             ),
             workspace_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceResourceId").unwrap(),
+                o.extract_field("workspaceResourceId"),
             ),
         }
     }

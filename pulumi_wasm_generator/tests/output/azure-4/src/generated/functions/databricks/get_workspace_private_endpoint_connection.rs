@@ -54,37 +54,18 @@ pub mod get_workspace_private_endpoint_connection {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connections".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWorkspacePrivateEndpointConnectionResult {
             connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connections").unwrap(),
+                o.extract_field("connections"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             private_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointId").unwrap(),
+                o.extract_field("privateEndpointId"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

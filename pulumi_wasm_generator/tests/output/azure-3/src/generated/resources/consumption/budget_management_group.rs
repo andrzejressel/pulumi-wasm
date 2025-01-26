@@ -192,63 +192,24 @@ pub mod budget_management_group {
                     value: &time_period_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amount".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeGrain".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePeriod".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BudgetManagementGroupResult {
-            amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amount").unwrap(),
-            ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             management_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementGroupId").unwrap(),
+                o.extract_field("managementGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             time_grain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeGrain").unwrap(),
+                o.extract_field("timeGrain"),
             ),
             time_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePeriod").unwrap(),
+                o.extract_field("timePeriod"),
             ),
         }
     }

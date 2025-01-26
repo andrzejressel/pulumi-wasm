@@ -94,27 +94,14 @@ pub mod preferences {
                     value: &savings_estimation_mode_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "memberAccountDiscountVisibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "savingsEstimationMode".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PreferencesResult {
             member_account_discount_visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberAccountDiscountVisibility").unwrap(),
+                o.extract_field("memberAccountDiscountVisibility"),
             ),
             savings_estimation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("savingsEstimationMode").unwrap(),
+                o.extract_field("savingsEstimationMode"),
             ),
         }
     }

@@ -372,99 +372,46 @@ pub mod frontdoor_route {
                     value: &supported_protocols_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cache".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorCustomDomainIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorOriginGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorOriginIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorOriginPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorRuleSetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardingProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsRedirectEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkToDefaultDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "patternsToMatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedProtocols".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorRouteResult {
-            cache: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cache").unwrap(),
-            ),
+            cache: pulumi_wasm_rust::__private::into_domain(o.extract_field("cache")),
             cdn_frontdoor_custom_domain_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorCustomDomainIds").unwrap(),
+                o.extract_field("cdnFrontdoorCustomDomainIds"),
             ),
             cdn_frontdoor_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorEndpointId").unwrap(),
+                o.extract_field("cdnFrontdoorEndpointId"),
             ),
             cdn_frontdoor_origin_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorOriginGroupId").unwrap(),
+                o.extract_field("cdnFrontdoorOriginGroupId"),
             ),
             cdn_frontdoor_origin_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorOriginIds").unwrap(),
+                o.extract_field("cdnFrontdoorOriginIds"),
             ),
             cdn_frontdoor_origin_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorOriginPath").unwrap(),
+                o.extract_field("cdnFrontdoorOriginPath"),
             ),
             cdn_frontdoor_rule_set_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorRuleSetIds").unwrap(),
+                o.extract_field("cdnFrontdoorRuleSetIds"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             forwarding_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardingProtocol").unwrap(),
+                o.extract_field("forwardingProtocol"),
             ),
             https_redirect_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsRedirectEnabled").unwrap(),
+                o.extract_field("httpsRedirectEnabled"),
             ),
             link_to_default_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkToDefaultDomain").unwrap(),
+                o.extract_field("linkToDefaultDomain"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             patterns_to_matches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patternsToMatches").unwrap(),
+                o.extract_field("patternsToMatches"),
             ),
             supported_protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedProtocols").unwrap(),
+                o.extract_field("supportedProtocols"),
             ),
         }
     }

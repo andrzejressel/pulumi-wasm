@@ -40,43 +40,17 @@ pub mod get_transfer_project_servie_account {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "member".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTransferProjectServieAccountResult {
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            member: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("member").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             subject_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectId").unwrap(),
+                o.extract_field("subjectId"),
             ),
         }
     }

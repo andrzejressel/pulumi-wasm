@@ -152,99 +152,40 @@ pub mod member {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitationDisableEmailNotification".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitationMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "invite".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "relationshipStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MemberResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             administrator_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorAccountId").unwrap(),
+                o.extract_field("administratorAccountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             invitation_disable_email_notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitationDisableEmailNotification").unwrap(),
+                o.extract_field("invitationDisableEmailNotification"),
             ),
             invitation_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitationMessage").unwrap(),
+                o.extract_field("invitationMessage"),
             ),
-            invite: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invite").unwrap(),
-            ),
+            invite: pulumi_wasm_rust::__private::into_domain(o.extract_field("invite")),
             invited_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitedAt").unwrap(),
+                o.extract_field("invitedAt"),
             ),
             master_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountId").unwrap(),
+                o.extract_field("masterAccountId"),
             ),
             relationship_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relationshipStatus").unwrap(),
+                o.extract_field("relationshipStatus"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

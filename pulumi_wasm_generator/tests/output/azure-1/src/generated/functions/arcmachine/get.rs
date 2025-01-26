@@ -114,194 +114,79 @@ pub mod get {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeDirectoryFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "agents".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientPublicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudMetadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectedProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastStatusChangeTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationDatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "mssqlDiscovered".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osName".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "osSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "osVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentClusterResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkScopeResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmUuid".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResult {
             active_directory_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectoryFqdn").unwrap(),
+                o.extract_field("activeDirectoryFqdn"),
             ),
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
-            agents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agents").unwrap(),
-            ),
+            agents: pulumi_wasm_rust::__private::into_domain(o.extract_field("agents")),
             client_public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientPublicKey").unwrap(),
+                o.extract_field("clientPublicKey"),
             ),
             cloud_metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudMetadatas").unwrap(),
+                o.extract_field("cloudMetadatas"),
             ),
             detected_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectedProperties").unwrap(),
+                o.extract_field("detectedProperties"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             dns_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsFqdn").unwrap(),
+                o.extract_field("dnsFqdn"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             last_status_change_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastStatusChangeTime").unwrap(),
+                o.extract_field("lastStatusChangeTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             location_datas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationDatas").unwrap(),
+                o.extract_field("locationDatas"),
             ),
             machine_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineFqdn").unwrap(),
+                o.extract_field("machineFqdn"),
             ),
             mssql_discovered: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mssqlDiscovered").unwrap(),
+                o.extract_field("mssqlDiscovered"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osName").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("osName")),
             os_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfiles").unwrap(),
+                o.extract_field("osProfiles"),
             ),
-            os_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osSku").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            os_sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("osSku")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             os_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osVersion").unwrap(),
+                o.extract_field("osVersion"),
             ),
             parent_cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentClusterResourceId").unwrap(),
+                o.extract_field("parentClusterResourceId"),
             ),
             private_link_scope_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkScopeResourceId").unwrap(),
+                o.extract_field("privateLinkScopeResourceId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceStatuses").unwrap(),
+                o.extract_field("serviceStatuses"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vm_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmId").unwrap(),
-            ),
-            vm_uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmUuid").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vm_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmId")),
+            vm_uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmUuid")),
         }
     }
 }

@@ -132,75 +132,30 @@ pub mod app_monitor {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appMonitorConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "appMonitorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customEvents".into(),
-                },
-                register_interface::ResultField {
-                    name: "cwLogEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cwLogGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppMonitorResult {
             app_monitor_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appMonitorConfiguration").unwrap(),
+                o.extract_field("appMonitorConfiguration"),
             ),
             app_monitor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appMonitorId").unwrap(),
+                o.extract_field("appMonitorId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             custom_events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customEvents").unwrap(),
+                o.extract_field("customEvents"),
             ),
             cw_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cwLogEnabled").unwrap(),
+                o.extract_field("cwLogEnabled"),
             ),
             cw_log_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cwLogGroup").unwrap(),
+                o.extract_field("cwLogGroup"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

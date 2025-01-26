@@ -69,115 +69,53 @@ pub mod get_signing_job {
                     value: &job_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "completedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobInvoker".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformId".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestedBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "signatureExpiresAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "signedObjects".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSigningJobResult {
             completed_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("completedAt").unwrap(),
+                o.extract_field("completedAt"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             job_invoker: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobInvoker").unwrap(),
+                o.extract_field("jobInvoker"),
             ),
             job_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobOwner").unwrap(),
+                o.extract_field("jobOwner"),
             ),
             platform_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformDisplayName").unwrap(),
+                o.extract_field("platformDisplayName"),
             ),
             platform_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformId").unwrap(),
+                o.extract_field("platformId"),
             ),
             profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileName").unwrap(),
+                o.extract_field("profileName"),
             ),
             profile_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileVersion").unwrap(),
+                o.extract_field("profileVersion"),
             ),
             requested_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestedBy").unwrap(),
+                o.extract_field("requestedBy"),
             ),
             revocation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationRecords").unwrap(),
+                o.extract_field("revocationRecords"),
             ),
             signature_expires_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signatureExpiresAt").unwrap(),
+                o.extract_field("signatureExpiresAt"),
             ),
             signed_objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signedObjects").unwrap(),
+                o.extract_field("signedObjects"),
             ),
             sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
+                o.extract_field("sources"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
         }
     }

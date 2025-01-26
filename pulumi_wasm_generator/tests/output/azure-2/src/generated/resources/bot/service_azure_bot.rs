@@ -344,142 +344,66 @@ pub mod service_azure_bot {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cmkKeyVaultKeyUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsApiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "luisAppIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "luisKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftAppMsiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftAppTenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftAppType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceAzureBotResult {
             cmk_key_vault_key_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cmkKeyVaultKeyUrl").unwrap(),
+                o.extract_field("cmkKeyVaultKeyUrl"),
             ),
             developer_app_insights_api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsApiKey").unwrap(),
+                o.extract_field("developerAppInsightsApiKey"),
             ),
             developer_app_insights_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsApplicationId").unwrap(),
+                o.extract_field("developerAppInsightsApplicationId"),
             ),
             developer_app_insights_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsKey").unwrap(),
+                o.extract_field("developerAppInsightsKey"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             icon_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconUrl").unwrap(),
+                o.extract_field("iconUrl"),
             ),
             local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationEnabled").unwrap(),
+                o.extract_field("localAuthenticationEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             luis_app_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("luisAppIds").unwrap(),
+                o.extract_field("luisAppIds"),
             ),
             luis_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("luisKey").unwrap(),
+                o.extract_field("luisKey"),
             ),
             microsoft_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftAppId").unwrap(),
+                o.extract_field("microsoftAppId"),
             ),
             microsoft_app_msi_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftAppMsiId").unwrap(),
+                o.extract_field("microsoftAppMsiId"),
             ),
             microsoft_app_tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftAppTenantId").unwrap(),
+                o.extract_field("microsoftAppTenantId"),
             ),
             microsoft_app_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftAppType").unwrap(),
+                o.extract_field("microsoftAppType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             streaming_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingEndpointEnabled").unwrap(),
+                o.extract_field("streamingEndpointEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

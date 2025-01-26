@@ -279,117 +279,55 @@ pub mod global_replication_group {
                     value: &primary_replication_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "atRestEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "authTokenEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticFailoverEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheNodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersionActual".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalNodeGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalReplicationGroupDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalReplicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalReplicationGroupIdSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "numNodeGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryReplicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlobalReplicationGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("atRestEncryptionEnabled").unwrap(),
+                o.extract_field("atRestEncryptionEnabled"),
             ),
             auth_token_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authTokenEnabled").unwrap(),
+                o.extract_field("authTokenEnabled"),
             ),
             automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticFailoverEnabled").unwrap(),
+                o.extract_field("automaticFailoverEnabled"),
             ),
             cache_node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheNodeType").unwrap(),
+                o.extract_field("cacheNodeType"),
             ),
             cluster_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEnabled").unwrap(),
+                o.extract_field("clusterEnabled"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             engine_version_actual: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersionActual").unwrap(),
+                o.extract_field("engineVersionActual"),
             ),
             global_node_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNodeGroups").unwrap(),
+                o.extract_field("globalNodeGroups"),
             ),
             global_replication_group_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalReplicationGroupDescription").unwrap(),
+                o.extract_field("globalReplicationGroupDescription"),
             ),
             global_replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalReplicationGroupId").unwrap(),
+                o.extract_field("globalReplicationGroupId"),
             ),
             global_replication_group_id_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalReplicationGroupIdSuffix").unwrap(),
+                o.extract_field("globalReplicationGroupIdSuffix"),
             ),
             num_node_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numNodeGroups").unwrap(),
+                o.extract_field("numNodeGroups"),
             ),
             parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupName").unwrap(),
+                o.extract_field("parameterGroupName"),
             ),
             primary_replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryReplicationGroupId").unwrap(),
+                o.extract_field("primaryReplicationGroupId"),
             ),
             transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionEnabled").unwrap(),
+                o.extract_field("transitEncryptionEnabled"),
             ),
         }
     }

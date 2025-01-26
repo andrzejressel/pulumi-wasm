@@ -269,98 +269,45 @@ pub mod function_app_function {
                     value: &test_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "configUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "files".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "invocationUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "language".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptRootPathUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretsFileUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "testData".into(),
-                },
-                register_interface::ResultField {
-                    name: "testDataUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FunctionAppFunctionResult {
             config_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configJson").unwrap(),
+                o.extract_field("configJson"),
             ),
             config_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configUrl").unwrap(),
+                o.extract_field("configUrl"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            files: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("files").unwrap(),
-            ),
+            files: pulumi_wasm_rust::__private::into_domain(o.extract_field("files")),
             function_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionAppId").unwrap(),
+                o.extract_field("functionAppId"),
             ),
             invocation_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invocationUrl").unwrap(),
+                o.extract_field("invocationUrl"),
             ),
             language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("language").unwrap(),
+                o.extract_field("language"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             script_root_path_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptRootPathUrl").unwrap(),
+                o.extract_field("scriptRootPathUrl"),
             ),
             script_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptUrl").unwrap(),
+                o.extract_field("scriptUrl"),
             ),
             secrets_file_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretsFileUrl").unwrap(),
+                o.extract_field("secretsFileUrl"),
             ),
             test_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testData").unwrap(),
+                o.extract_field("testData"),
             ),
             test_data_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testDataUrl").unwrap(),
+                o.extract_field("testDataUrl"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

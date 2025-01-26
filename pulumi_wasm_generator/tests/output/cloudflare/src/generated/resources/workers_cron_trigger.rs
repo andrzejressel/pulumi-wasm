@@ -92,33 +92,17 @@ pub mod workers_cron_trigger {
                     value: &script_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedules".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkersCronTriggerResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             schedules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedules").unwrap(),
+                o.extract_field("schedules"),
             ),
             script_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptName").unwrap(),
+                o.extract_field("scriptName"),
             ),
         }
     }

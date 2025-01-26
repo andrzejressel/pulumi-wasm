@@ -73,28 +73,13 @@ pub mod list_product_families {
                     value: &skip_token_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "nextLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListProductFamiliesResult {
             next_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextLink").unwrap(),
+                o.extract_field("nextLink"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

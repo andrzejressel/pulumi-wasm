@@ -267,105 +267,49 @@ pub mod subscription {
                     value: &topic_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoDeleteOnIdle".into(),
-                },
-                register_interface::ResultField {
-                    name: "batchedOperationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientScopedSubscription".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientScopedSubscriptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetteringOnFilterEvaluationError".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetteringOnMessageExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultMessageTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardDeadLetteredMessagesTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxDeliveryCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requiresSession".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionResult {
             auto_delete_on_idle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoDeleteOnIdle").unwrap(),
+                o.extract_field("autoDeleteOnIdle"),
             ),
             batched_operations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchedOperationsEnabled").unwrap(),
+                o.extract_field("batchedOperationsEnabled"),
             ),
             client_scoped_subscription: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientScopedSubscription").unwrap(),
+                o.extract_field("clientScopedSubscription"),
             ),
             client_scoped_subscription_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientScopedSubscriptionEnabled").unwrap(),
+                o.extract_field("clientScopedSubscriptionEnabled"),
             ),
             dead_lettering_on_filter_evaluation_error: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetteringOnFilterEvaluationError").unwrap(),
+                o.extract_field("deadLetteringOnFilterEvaluationError"),
             ),
             dead_lettering_on_message_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetteringOnMessageExpiration").unwrap(),
+                o.extract_field("deadLetteringOnMessageExpiration"),
             ),
             default_message_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultMessageTtl").unwrap(),
+                o.extract_field("defaultMessageTtl"),
             ),
             forward_dead_lettered_messages_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardDeadLetteredMessagesTo").unwrap(),
+                o.extract_field("forwardDeadLetteredMessagesTo"),
             ),
             forward_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardTo").unwrap(),
+                o.extract_field("forwardTo"),
             ),
             lock_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockDuration").unwrap(),
+                o.extract_field("lockDuration"),
             ),
             max_delivery_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxDeliveryCount").unwrap(),
+                o.extract_field("maxDeliveryCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             requires_session: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requiresSession").unwrap(),
+                o.extract_field("requiresSession"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             topic_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicId").unwrap(),
+                o.extract_field("topicId"),
             ),
         }
     }

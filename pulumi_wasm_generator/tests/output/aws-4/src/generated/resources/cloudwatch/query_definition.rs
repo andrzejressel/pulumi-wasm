@@ -88,39 +88,18 @@ pub mod query_definition {
                     value: &query_string_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "logGroupNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryString".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         QueryDefinitionResult {
             log_group_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupNames").unwrap(),
+                o.extract_field("logGroupNames"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryDefinitionId").unwrap(),
+                o.extract_field("queryDefinitionId"),
             ),
             query_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryString").unwrap(),
+                o.extract_field("queryString"),
             ),
         }
     }

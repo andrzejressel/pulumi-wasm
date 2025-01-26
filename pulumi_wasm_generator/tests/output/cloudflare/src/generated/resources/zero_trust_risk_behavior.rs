@@ -49,27 +49,14 @@ pub mod zero_trust_risk_behavior {
                     value: &behaviors_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "behaviors".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustRiskBehaviorResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             behaviors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("behaviors").unwrap(),
+                o.extract_field("behaviors"),
             ),
         }
     }

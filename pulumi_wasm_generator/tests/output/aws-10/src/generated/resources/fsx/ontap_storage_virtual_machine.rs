@@ -183,82 +183,34 @@ pub mod ontap_storage_virtual_machine {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeDirectoryConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootVolumeSecurityStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "subtype".into(),
-                },
-                register_interface::ResultField {
-                    name: "svmAdminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uuid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OntapStorageVirtualMachineResult {
             active_directory_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectoryConfiguration").unwrap(),
+                o.extract_field("activeDirectoryConfiguration"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             root_volume_security_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootVolumeSecurityStyle").unwrap(),
+                o.extract_field("rootVolumeSecurityStyle"),
             ),
             subtype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subtype").unwrap(),
+                o.extract_field("subtype"),
             ),
             svm_admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("svmAdminPassword").unwrap(),
+                o.extract_field("svmAdminPassword"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uuid").unwrap(),
-            ),
+            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

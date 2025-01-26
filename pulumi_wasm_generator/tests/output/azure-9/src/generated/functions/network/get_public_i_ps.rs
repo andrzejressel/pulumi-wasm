@@ -73,49 +73,24 @@ pub mod get_public_i_ps {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPublicIPsResult {
             allocation_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationType").unwrap(),
+                o.extract_field("allocationType"),
             ),
             attachment_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentStatus").unwrap(),
+                o.extract_field("attachmentStatus"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             public_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIps").unwrap(),
+                o.extract_field("publicIps"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

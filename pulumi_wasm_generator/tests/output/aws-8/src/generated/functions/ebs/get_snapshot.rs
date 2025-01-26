@@ -118,139 +118,61 @@ pub mod get_snapshot {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataEncryptionKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "owners".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorableByUserIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeSize".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSnapshotResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             data_encryption_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataEncryptionKeyId").unwrap(),
+                o.extract_field("dataEncryptionKeyId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAlias").unwrap(),
+                o.extract_field("ownerAlias"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owners").unwrap(),
-            ),
+            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
             restorable_by_user_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorableByUserIds").unwrap(),
+                o.extract_field("restorableByUserIds"),
             ),
             snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotId").unwrap(),
+                o.extract_field("snapshotId"),
             ),
             snapshot_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotIds").unwrap(),
+                o.extract_field("snapshotIds"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             storage_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageTier").unwrap(),
+                o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeId").unwrap(),
+                o.extract_field("volumeId"),
             ),
             volume_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeSize").unwrap(),
+                o.extract_field("volumeSize"),
             ),
         }
     }

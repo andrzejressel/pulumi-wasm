@@ -279,105 +279,47 @@ pub mod firewall_policy_rule {
                     value: &tls_inspect_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleTupleCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityProfileGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsInspect".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallPolicyRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             enable_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogging").unwrap(),
+                o.extract_field("enableLogging"),
             ),
             firewall_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicy").unwrap(),
+                o.extract_field("firewallPolicy"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             rule_tuple_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleTupleCount").unwrap(),
+                o.extract_field("ruleTupleCount"),
             ),
             security_profile_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityProfileGroup").unwrap(),
+                o.extract_field("securityProfileGroup"),
             ),
             target_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResources").unwrap(),
+                o.extract_field("targetResources"),
             ),
             target_service_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccounts").unwrap(),
+                o.extract_field("targetServiceAccounts"),
             ),
             tls_inspect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsInspect").unwrap(),
+                o.extract_field("tlsInspect"),
             ),
         }
     }

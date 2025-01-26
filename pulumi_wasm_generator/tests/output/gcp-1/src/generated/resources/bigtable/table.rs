@@ -211,63 +211,30 @@ pub mod table {
                     value: &split_keys_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automatedBackupPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "changeStreamRetention".into(),
-                },
-                register_interface::ResultField {
-                    name: "columnFamilies".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "splitKeys".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
             automated_backup_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automatedBackupPolicy").unwrap(),
+                o.extract_field("automatedBackupPolicy"),
             ),
             change_stream_retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("changeStreamRetention").unwrap(),
+                o.extract_field("changeStreamRetention"),
             ),
             column_families: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("columnFamilies").unwrap(),
+                o.extract_field("columnFamilies"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceName").unwrap(),
+                o.extract_field("instanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             split_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("splitKeys").unwrap(),
+                o.extract_field("splitKeys"),
             ),
         }
     }

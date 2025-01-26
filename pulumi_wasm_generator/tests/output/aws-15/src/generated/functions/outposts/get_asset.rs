@@ -50,56 +50,22 @@ pub mod get_asset {
                     value: &asset_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "rackElevation".into(),
-                },
-                register_interface::ResultField {
-                    name: "rackId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAssetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             asset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetId").unwrap(),
+                o.extract_field("assetId"),
             ),
             asset_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetType").unwrap(),
+                o.extract_field("assetType"),
             ),
-            host_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostId").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            host_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hostId")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             rack_elevation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rackElevation").unwrap(),
+                o.extract_field("rackElevation"),
             ),
-            rack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rackId").unwrap(),
-            ),
+            rack_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("rackId")),
         }
     }
 }

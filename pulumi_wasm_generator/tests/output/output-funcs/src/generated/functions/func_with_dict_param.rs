@@ -39,20 +39,10 @@ pub mod func_with_dict_param {
                     value: &b_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "r".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FuncWithDictParamResult {
-            r: pulumi_wasm_rust::__private::into_domain(hashmap.remove("r").unwrap()),
+            r: pulumi_wasm_rust::__private::into_domain(o.extract_field("r")),
         }
     }
 }

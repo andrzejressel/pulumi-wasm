@@ -310,129 +310,63 @@ pub mod authorization_server {
                     value: &token_endpoint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationMethods".into(),
-                },
-                register_interface::ResultField {
-                    name: "bearerTokenSendingMethods".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAuthenticationMethods".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientRegistrationEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwnerPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwnerUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportState".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenBodyParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorizationServerResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             authorization_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationEndpoint").unwrap(),
+                o.extract_field("authorizationEndpoint"),
             ),
             authorization_methods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationMethods").unwrap(),
+                o.extract_field("authorizationMethods"),
             ),
             bearer_token_sending_methods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bearerTokenSendingMethods").unwrap(),
+                o.extract_field("bearerTokenSendingMethods"),
             ),
             client_authentication_methods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAuthenticationMethods").unwrap(),
+                o.extract_field("clientAuthenticationMethods"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_registration_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientRegistrationEndpoint").unwrap(),
+                o.extract_field("clientRegistrationEndpoint"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             default_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultScope").unwrap(),
+                o.extract_field("defaultScope"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             grant_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantTypes").unwrap(),
+                o.extract_field("grantTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             resource_owner_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwnerPassword").unwrap(),
+                o.extract_field("resourceOwnerPassword"),
             ),
             resource_owner_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwnerUsername").unwrap(),
+                o.extract_field("resourceOwnerUsername"),
             ),
             support_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportState").unwrap(),
+                o.extract_field("supportState"),
             ),
             token_body_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenBodyParameters").unwrap(),
+                o.extract_field("tokenBodyParameters"),
             ),
             token_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenEndpoint").unwrap(),
+                o.extract_field("tokenEndpoint"),
             ),
         }
     }

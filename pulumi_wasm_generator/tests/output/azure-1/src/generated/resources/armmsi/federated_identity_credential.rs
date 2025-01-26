@@ -134,52 +134,21 @@ pub mod federated_identity_credential {
                     value: &subject_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "audience".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuer".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subject".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FederatedIdentityCredentialResult {
             audience: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("audience").unwrap(),
+                o.extract_field("audience"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuer").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentId").unwrap(),
+                o.extract_field("parentId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            subject: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subject").unwrap(),
-            ),
+            subject: pulumi_wasm_rust::__private::into_domain(o.extract_field("subject")),
         }
     }
 }

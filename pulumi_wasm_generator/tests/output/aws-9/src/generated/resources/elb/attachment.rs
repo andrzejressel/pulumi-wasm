@@ -66,27 +66,12 @@ pub mod attachment {
                     value: &instance_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "elb".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AttachmentResult {
-            elb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elb").unwrap(),
-            ),
+            elb: pulumi_wasm_rust::__private::into_domain(o.extract_field("elb")),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
         }
     }

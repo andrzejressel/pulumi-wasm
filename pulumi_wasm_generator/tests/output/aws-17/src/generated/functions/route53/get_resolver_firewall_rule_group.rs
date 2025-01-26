@@ -49,85 +49,36 @@ pub mod get_resolver_firewall_rule_group {
                     value: &firewall_rule_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "creatorRequestId".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallRuleGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "modificationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusMessage".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResolverFirewallRuleGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             creator_request_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creatorRequestId").unwrap(),
+                o.extract_field("creatorRequestId"),
             ),
             firewall_rule_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallRuleGroupId").unwrap(),
+                o.extract_field("firewallRuleGroupId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             modification_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modificationTime").unwrap(),
+                o.extract_field("modificationTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             rule_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleCount").unwrap(),
+                o.extract_field("ruleCount"),
             ),
             share_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareStatus").unwrap(),
+                o.extract_field("shareStatus"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusMessage").unwrap(),
+                o.extract_field("statusMessage"),
             ),
         }
     }

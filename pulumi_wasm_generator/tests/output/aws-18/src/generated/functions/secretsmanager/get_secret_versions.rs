@@ -53,49 +53,20 @@ pub mod get_secret_versions {
                     value: &secret_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeDeprecated".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSecretVersionsResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_deprecated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeDeprecated").unwrap(),
+                o.extract_field("includeDeprecated"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
             versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versions").unwrap(),
+                o.extract_field("versions"),
             ),
         }
     }

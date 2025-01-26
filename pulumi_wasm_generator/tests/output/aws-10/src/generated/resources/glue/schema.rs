@@ -146,93 +146,43 @@ pub mod schema {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "compatibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestSchemaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextSchemaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaCheckpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SchemaResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compatibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibility").unwrap(),
+                o.extract_field("compatibility"),
             ),
             data_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFormat").unwrap(),
+                o.extract_field("dataFormat"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             latest_schema_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestSchemaVersion").unwrap(),
+                o.extract_field("latestSchemaVersion"),
             ),
             next_schema_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextSchemaVersion").unwrap(),
+                o.extract_field("nextSchemaVersion"),
             ),
             registry_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryArn").unwrap(),
+                o.extract_field("registryArn"),
             ),
             registry_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryName").unwrap(),
+                o.extract_field("registryName"),
             ),
             schema_checkpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaCheckpoint").unwrap(),
+                o.extract_field("schemaCheckpoint"),
             ),
             schema_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaDefinition").unwrap(),
+                o.extract_field("schemaDefinition"),
             ),
             schema_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaName").unwrap(),
+                o.extract_field("schemaName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

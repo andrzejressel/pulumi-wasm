@@ -386,129 +386,63 @@ pub mod integration {
                     value: &tls_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentHandlingStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentialsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationResponseSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationSubtype".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "passthroughBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "payloadFormatVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutMilliseconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             connection_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionType").unwrap(),
+                o.extract_field("connectionType"),
             ),
             content_handling_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentHandlingStrategy").unwrap(),
+                o.extract_field("contentHandlingStrategy"),
             ),
             credentials_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialsArn").unwrap(),
+                o.extract_field("credentialsArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             integration_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationMethod").unwrap(),
+                o.extract_field("integrationMethod"),
             ),
             integration_response_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationResponseSelectionExpression").unwrap(),
+                o.extract_field("integrationResponseSelectionExpression"),
             ),
             integration_subtype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationSubtype").unwrap(),
+                o.extract_field("integrationSubtype"),
             ),
             integration_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationType").unwrap(),
+                o.extract_field("integrationType"),
             ),
             integration_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationUri").unwrap(),
+                o.extract_field("integrationUri"),
             ),
             passthrough_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passthroughBehavior").unwrap(),
+                o.extract_field("passthroughBehavior"),
             ),
             payload_format_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("payloadFormatVersion").unwrap(),
+                o.extract_field("payloadFormatVersion"),
             ),
             request_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestParameters").unwrap(),
+                o.extract_field("requestParameters"),
             ),
             request_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestTemplates").unwrap(),
+                o.extract_field("requestTemplates"),
             ),
             response_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseParameters").unwrap(),
+                o.extract_field("responseParameters"),
             ),
             template_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateSelectionExpression").unwrap(),
+                o.extract_field("templateSelectionExpression"),
             ),
             timeout_milliseconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutMilliseconds").unwrap(),
+                o.extract_field("timeoutMilliseconds"),
             ),
             tls_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsConfig").unwrap(),
+                o.extract_field("tlsConfig"),
             ),
         }
     }

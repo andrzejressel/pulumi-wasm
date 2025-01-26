@@ -142,45 +142,21 @@ pub mod data_connector_microsoft_cloud_app_security {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alertsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "discoveryLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataConnectorMicrosoftCloudAppSecurityResult {
             alerts_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertsEnabled").unwrap(),
+                o.extract_field("alertsEnabled"),
             ),
             discovery_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discoveryLogsEnabled").unwrap(),
+                o.extract_field("discoveryLogsEnabled"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

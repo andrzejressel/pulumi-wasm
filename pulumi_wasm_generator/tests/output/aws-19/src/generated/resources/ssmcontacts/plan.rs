@@ -145,28 +145,13 @@ pub mod plan {
                     value: &stages_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contactId".into(),
-                },
-                register_interface::ResultField {
-                    name: "stages".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PlanResult {
             contact_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactId").unwrap(),
+                o.extract_field("contactId"),
             ),
-            stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stages").unwrap(),
-            ),
+            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
         }
     }
 }

@@ -262,111 +262,50 @@ pub mod ml_transform {
                     value: &worker_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "glueVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputRecordTables".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRetries".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemas".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MLTransformResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             glue_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glueVersion").unwrap(),
+                o.extract_field("glueVersion"),
             ),
             input_record_tables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputRecordTables").unwrap(),
+                o.extract_field("inputRecordTables"),
             ),
             label_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelCount").unwrap(),
+                o.extract_field("labelCount"),
             ),
             max_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCapacity").unwrap(),
+                o.extract_field("maxCapacity"),
             ),
             max_retries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRetries").unwrap(),
+                o.extract_field("maxRetries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfWorkers").unwrap(),
+                o.extract_field("numberOfWorkers"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             schemas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemas").unwrap(),
+                o.extract_field("schemas"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             worker_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerType").unwrap(),
+                o.extract_field("workerType"),
             ),
         }
     }

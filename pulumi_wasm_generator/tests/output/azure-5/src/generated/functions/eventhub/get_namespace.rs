@@ -76,116 +76,52 @@ pub mod get_namespace {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoInflateEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumThroughputUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNamespaceResult {
             auto_inflate_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoInflateEnabled").unwrap(),
+                o.extract_field("autoInflateEnabled"),
             ),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             dedicated_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedClusterId").unwrap(),
+                o.extract_field("dedicatedClusterId"),
             ),
             default_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryConnectionString").unwrap(),
+                o.extract_field("defaultPrimaryConnectionString"),
             ),
             default_primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryConnectionStringAlias").unwrap(),
+                o.extract_field("defaultPrimaryConnectionStringAlias"),
             ),
             default_primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryKey").unwrap(),
+                o.extract_field("defaultPrimaryKey"),
             ),
             default_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryConnectionString").unwrap(),
+                o.extract_field("defaultSecondaryConnectionString"),
             ),
             default_secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryConnectionStringAlias").unwrap(),
+                o.extract_field("defaultSecondaryConnectionStringAlias"),
             ),
             default_secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryKey").unwrap(),
+                o.extract_field("defaultSecondaryKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kafka_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaEnabled").unwrap(),
+                o.extract_field("kafkaEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maximum_throughput_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumThroughputUnits").unwrap(),
+                o.extract_field("maximumThroughputUnits"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

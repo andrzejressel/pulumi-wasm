@@ -292,93 +292,45 @@ pub mod data_store {
                     value: &solution_types_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contentConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createAdvancedSiteSearch".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSchemaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentProcessingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "industryVertical".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDefaultSchemaCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "solutionTypes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataStoreResult {
             content_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentConfig").unwrap(),
+                o.extract_field("contentConfig"),
             ),
             create_advanced_site_search: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createAdvancedSiteSearch").unwrap(),
+                o.extract_field("createAdvancedSiteSearch"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             data_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStoreId").unwrap(),
+                o.extract_field("dataStoreId"),
             ),
             default_schema_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSchemaId").unwrap(),
+                o.extract_field("defaultSchemaId"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             document_processing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentProcessingConfig").unwrap(),
+                o.extract_field("documentProcessingConfig"),
             ),
             industry_vertical: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("industryVertical").unwrap(),
+                o.extract_field("industryVertical"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             skip_default_schema_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDefaultSchemaCreation").unwrap(),
+                o.extract_field("skipDefaultSchemaCreation"),
             ),
             solution_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("solutionTypes").unwrap(),
+                o.extract_field("solutionTypes"),
             ),
         }
     }

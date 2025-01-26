@@ -134,123 +134,58 @@ pub mod capacity_block_reservation {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityBlockOfferingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDateType".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instancePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CapacityBlockReservationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             capacity_block_offering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityBlockOfferingId").unwrap(),
+                o.extract_field("capacityBlockOfferingId"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDate").unwrap(),
+                o.extract_field("endDate"),
             ),
             end_date_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDateType").unwrap(),
+                o.extract_field("endDateType"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             instance_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePlatform").unwrap(),
+                o.extract_field("instancePlatform"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             placement_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroupArn").unwrap(),
+                o.extract_field("placementGroupArn"),
             ),
             reservation_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationType").unwrap(),
+                o.extract_field("reservationType"),
             ),
             start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDate").unwrap(),
+                o.extract_field("startDate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenancy").unwrap(),
+                o.extract_field("tenancy"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

@@ -197,57 +197,25 @@ pub mod cassandra_table {
                     value: &throughput_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "analyticalStorageTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscaleSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "cassandraKeyspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughput".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CassandraTableResult {
             analytical_storage_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticalStorageTtl").unwrap(),
+                o.extract_field("analyticalStorageTtl"),
             ),
             autoscale_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscaleSettings").unwrap(),
+                o.extract_field("autoscaleSettings"),
             ),
             cassandra_keyspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cassandraKeyspaceId").unwrap(),
+                o.extract_field("cassandraKeyspaceId"),
             ),
             default_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTtl").unwrap(),
+                o.extract_field("defaultTtl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
             throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughput").unwrap(),
+                o.extract_field("throughput"),
             ),
         }
     }

@@ -117,58 +117,24 @@ pub mod ip_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IPGroupResult {
-            cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrs").unwrap(),
-            ),
+            cidrs: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidrs")),
             firewall_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallIds").unwrap(),
+                o.extract_field("firewallIds"),
             ),
             firewall_policy_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyIds").unwrap(),
+                o.extract_field("firewallPolicyIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

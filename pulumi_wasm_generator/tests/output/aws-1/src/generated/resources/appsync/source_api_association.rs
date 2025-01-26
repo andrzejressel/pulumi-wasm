@@ -140,69 +140,33 @@ pub mod source_api_association {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "mergedApiArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "mergedApiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceApiArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceApiAssociationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceApiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceApiAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             merged_api_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mergedApiArn").unwrap(),
+                o.extract_field("mergedApiArn"),
             ),
             merged_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mergedApiId").unwrap(),
+                o.extract_field("mergedApiId"),
             ),
             source_api_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceApiArn").unwrap(),
+                o.extract_field("sourceApiArn"),
             ),
             source_api_association_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceApiAssociationConfigs").unwrap(),
+                o.extract_field("sourceApiAssociationConfigs"),
             ),
             source_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceApiId").unwrap(),
+                o.extract_field("sourceApiId"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

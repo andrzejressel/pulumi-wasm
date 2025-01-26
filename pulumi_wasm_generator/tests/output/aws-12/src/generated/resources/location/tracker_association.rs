@@ -78,27 +78,14 @@ pub mod tracker_association {
                     value: &tracker_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "consumerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackerName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrackerAssociationResult {
             consumer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerArn").unwrap(),
+                o.extract_field("consumerArn"),
             ),
             tracker_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackerName").unwrap(),
+                o.extract_field("trackerName"),
             ),
         }
     }

@@ -168,39 +168,18 @@ pub mod workspace_sql_aad_admin {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "login".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceSqlAadAdminResult {
-            login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("login").unwrap(),
-            ),
+            login: pulumi_wasm_rust::__private::into_domain(o.extract_field("login")),
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

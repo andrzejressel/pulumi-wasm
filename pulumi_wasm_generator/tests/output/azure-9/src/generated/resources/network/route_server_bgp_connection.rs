@@ -137,39 +137,16 @@ pub mod route_server_bgp_connection {
                     value: &route_server_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeServerId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteServerBgpConnectionResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAsn").unwrap(),
+                o.extract_field("peerAsn"),
             ),
-            peer_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIp").unwrap(),
-            ),
+            peer_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("peerIp")),
             route_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeServerId").unwrap(),
+                o.extract_field("routeServerId"),
             ),
         }
     }

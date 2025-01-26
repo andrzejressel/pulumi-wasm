@@ -149,57 +149,25 @@ pub mod virtual_machine_availability_group_listener {
                     value: &sql_virtual_machine_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiSubnetIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicas".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlVirtualMachineGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualMachineAvailabilityGroupListenerResult {
             availability_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityGroupName").unwrap(),
+                o.extract_field("availabilityGroupName"),
             ),
             load_balancer_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerConfiguration").unwrap(),
+                o.extract_field("loadBalancerConfiguration"),
             ),
             multi_subnet_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiSubnetIpConfigurations").unwrap(),
+                o.extract_field("multiSubnetIpConfigurations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             replicas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicas").unwrap(),
+                o.extract_field("replicas"),
             ),
             sql_virtual_machine_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlVirtualMachineGroupId").unwrap(),
+                o.extract_field("sqlVirtualMachineGroupId"),
             ),
         }
     }

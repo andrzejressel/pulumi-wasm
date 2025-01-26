@@ -78,34 +78,16 @@ pub mod main_route_table_association {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "originalRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MainRouteTableAssociationResult {
             original_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originalRouteTableId").unwrap(),
+                o.extract_field("originalRouteTableId"),
             ),
             route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableId").unwrap(),
+                o.extract_field("routeTableId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

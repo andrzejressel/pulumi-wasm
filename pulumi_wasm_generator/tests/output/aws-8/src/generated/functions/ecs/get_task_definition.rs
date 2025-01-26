@@ -52,73 +52,30 @@ pub mod get_task_definition {
                     value: &task_definition_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arnWithoutRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "family".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskRoleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTaskDefinitionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             arn_without_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arnWithoutRevision").unwrap(),
+                o.extract_field("arnWithoutRevision"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
-            family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("family").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            family: pulumi_wasm_rust::__private::into_domain(o.extract_field("family")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             network_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkMode").unwrap(),
+                o.extract_field("networkMode"),
             ),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             task_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskDefinition").unwrap(),
+                o.extract_field("taskDefinition"),
             ),
             task_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskRoleArn").unwrap(),
+                o.extract_field("taskRoleArn"),
             ),
         }
     }

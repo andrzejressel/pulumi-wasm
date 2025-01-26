@@ -114,33 +114,15 @@ pub mod bucket_cors_configuration_v_2 {
                     value: &expected_bucket_owner_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketCorsConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             cors_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsRules").unwrap(),
+                o.extract_field("corsRules"),
             ),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
         }
     }

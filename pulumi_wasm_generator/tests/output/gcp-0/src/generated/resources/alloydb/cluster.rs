@@ -667,212 +667,98 @@ pub mod cluster {
                     value: &subscription_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "automatedBackupPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterType".into(),
-                },
-                register_interface::ResultField {
-                    name: "continuousBackupConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "continuousBackupInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceUpdatePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "migrationSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreBackupSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreContinuousBackupSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "trialMetadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             automated_backup_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automatedBackupPolicy").unwrap(),
+                o.extract_field("automatedBackupPolicy"),
             ),
             backup_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupSources").unwrap(),
+                o.extract_field("backupSources"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             cluster_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterType").unwrap(),
+                o.extract_field("clusterType"),
             ),
             continuous_backup_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("continuousBackupConfig").unwrap(),
+                o.extract_field("continuousBackupConfig"),
             ),
             continuous_backup_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("continuousBackupInfos").unwrap(),
+                o.extract_field("continuousBackupInfos"),
             ),
             database_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseVersion").unwrap(),
+                o.extract_field("databaseVersion"),
             ),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfig").unwrap(),
+                o.extract_field("encryptionConfig"),
             ),
             encryption_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionInfos").unwrap(),
+                o.extract_field("encryptionInfos"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             initial_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialUser").unwrap(),
+                o.extract_field("initialUser"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_update_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceUpdatePolicy").unwrap(),
+                o.extract_field("maintenanceUpdatePolicy"),
             ),
             migration_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("migrationSources").unwrap(),
+                o.extract_field("migrationSources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConfig").unwrap(),
+                o.extract_field("pscConfig"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             restore_backup_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreBackupSource").unwrap(),
+                o.extract_field("restoreBackupSource"),
             ),
             restore_continuous_backup_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreContinuousBackupSource").unwrap(),
+                o.extract_field("restoreContinuousBackupSource"),
             ),
             secondary_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConfig").unwrap(),
+                o.extract_field("secondaryConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subscription_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionType").unwrap(),
+                o.extract_field("subscriptionType"),
             ),
             trial_metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trialMetadatas").unwrap(),
+                o.extract_field("trialMetadatas"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

@@ -90,157 +90,76 @@ pub mod get_user_pool_client {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessTokenValidity".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedOauthFlows".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedOauthFlowsUserPoolClient".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedOauthScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "analyticsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "callbackUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRedirectUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePropagateAdditionalUserContextData".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableTokenRevocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "explicitAuthFlows".into(),
-                },
-                register_interface::ResultField {
-                    name: "generateSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idTokenValidity".into(),
-                },
-                register_interface::ResultField {
-                    name: "logoutUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preventUserExistenceErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "readAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshTokenValidity".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedIdentityProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenValidityUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeAttributes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUserPoolClientResult {
             access_token_validity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessTokenValidity").unwrap(),
+                o.extract_field("accessTokenValidity"),
             ),
             allowed_oauth_flows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedOauthFlows").unwrap(),
+                o.extract_field("allowedOauthFlows"),
             ),
             allowed_oauth_flows_user_pool_client: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedOauthFlowsUserPoolClient").unwrap(),
+                o.extract_field("allowedOauthFlowsUserPoolClient"),
             ),
             allowed_oauth_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedOauthScopes").unwrap(),
+                o.extract_field("allowedOauthScopes"),
             ),
             analytics_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyticsConfigurations").unwrap(),
+                o.extract_field("analyticsConfigurations"),
             ),
             callback_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callbackUrls").unwrap(),
+                o.extract_field("callbackUrls"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             default_redirect_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRedirectUri").unwrap(),
+                o.extract_field("defaultRedirectUri"),
             ),
             enable_propagate_additional_user_context_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePropagateAdditionalUserContextData").unwrap(),
+                o.extract_field("enablePropagateAdditionalUserContextData"),
             ),
             enable_token_revocation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableTokenRevocation").unwrap(),
+                o.extract_field("enableTokenRevocation"),
             ),
             explicit_auth_flows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("explicitAuthFlows").unwrap(),
+                o.extract_field("explicitAuthFlows"),
             ),
             generate_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generateSecret").unwrap(),
+                o.extract_field("generateSecret"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             id_token_validity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idTokenValidity").unwrap(),
+                o.extract_field("idTokenValidity"),
             ),
             logout_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logoutUrls").unwrap(),
+                o.extract_field("logoutUrls"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             prevent_user_existence_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preventUserExistenceErrors").unwrap(),
+                o.extract_field("preventUserExistenceErrors"),
             ),
             read_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readAttributes").unwrap(),
+                o.extract_field("readAttributes"),
             ),
             refresh_token_validity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshTokenValidity").unwrap(),
+                o.extract_field("refreshTokenValidity"),
             ),
             supported_identity_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedIdentityProviders").unwrap(),
+                o.extract_field("supportedIdentityProviders"),
             ),
             token_validity_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenValidityUnits").unwrap(),
+                o.extract_field("tokenValidityUnits"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
             write_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeAttributes").unwrap(),
+                o.extract_field("writeAttributes"),
             ),
         }
     }

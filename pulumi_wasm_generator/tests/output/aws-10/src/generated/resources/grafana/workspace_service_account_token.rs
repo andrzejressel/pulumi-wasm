@@ -107,63 +107,28 @@ pub mod workspace_service_account_token {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondsToLive".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountTokenId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceServiceAccountTokenResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             expires_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresAt").unwrap(),
+                o.extract_field("expiresAt"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             seconds_to_live: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondsToLive").unwrap(),
+                o.extract_field("secondsToLive"),
             ),
             service_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountId").unwrap(),
+                o.extract_field("serviceAccountId"),
             ),
             service_account_token_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountTokenId").unwrap(),
+                o.extract_field("serviceAccountTokenId"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

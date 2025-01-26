@@ -269,135 +269,60 @@ pub mod container_recipe {
                     value: &working_directory_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "components".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerfileTemplateData".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerfileTemplateUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRepository".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "workingDirectory".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContainerRecipeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             components: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("components").unwrap(),
+                o.extract_field("components"),
             ),
             container_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerType").unwrap(),
+                o.extract_field("containerType"),
             ),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dockerfile_template_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerfileTemplateData").unwrap(),
+                o.extract_field("dockerfileTemplateData"),
             ),
             dockerfile_template_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerfileTemplateUri").unwrap(),
+                o.extract_field("dockerfileTemplateUri"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
             instance_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceConfiguration").unwrap(),
+                o.extract_field("instanceConfiguration"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             parent_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentImage").unwrap(),
+                o.extract_field("parentImage"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             platform_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformOverride").unwrap(),
+                o.extract_field("platformOverride"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRepository").unwrap(),
+                o.extract_field("targetRepository"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             working_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workingDirectory").unwrap(),
+                o.extract_field("workingDirectory"),
             ),
         }
     }

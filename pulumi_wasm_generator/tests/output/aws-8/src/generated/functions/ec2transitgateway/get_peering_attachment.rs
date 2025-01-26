@@ -77,61 +77,26 @@ pub mod get_peering_attachment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerTransitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPeeringAttachmentResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             peer_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAccountId").unwrap(),
+                o.extract_field("peerAccountId"),
             ),
             peer_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerRegion").unwrap(),
+                o.extract_field("peerRegion"),
             ),
             peer_transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerTransitGatewayId").unwrap(),
+                o.extract_field("peerTransitGatewayId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
         }
     }

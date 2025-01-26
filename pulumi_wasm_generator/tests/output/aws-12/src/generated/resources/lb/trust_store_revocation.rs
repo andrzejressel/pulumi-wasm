@@ -117,45 +117,23 @@ pub mod trust_store_revocation {
                     value: &trust_store_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "revocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationsS3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationsS3Key".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationsS3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustStoreArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrustStoreRevocationResult {
             revocation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationId").unwrap(),
+                o.extract_field("revocationId"),
             ),
             revocations_s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationsS3Bucket").unwrap(),
+                o.extract_field("revocationsS3Bucket"),
             ),
             revocations_s3_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationsS3Key").unwrap(),
+                o.extract_field("revocationsS3Key"),
             ),
             revocations_s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationsS3ObjectVersion").unwrap(),
+                o.extract_field("revocationsS3ObjectVersion"),
             ),
             trust_store_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustStoreArn").unwrap(),
+                o.extract_field("trustStoreArn"),
             ),
         }
     }

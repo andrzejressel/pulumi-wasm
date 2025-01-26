@@ -224,39 +224,20 @@ pub mod instance_storage_config {
                     value: &storage_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceStorageConfigResult {
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             storage_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConfig").unwrap(),
+                o.extract_field("storageConfig"),
             ),
         }
     }

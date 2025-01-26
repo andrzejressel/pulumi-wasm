@@ -46,28 +46,13 @@ pub mod resource_2 {
                     value: &type2_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "commonType".into(),
-                },
-                register_interface::ResultField {
-                    name: "type2".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         Resource2Result {
             common_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commonType").unwrap(),
+                o.extract_field("commonType"),
             ),
-            type2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type2").unwrap(),
-            ),
+            type2: pulumi_wasm_rust::__private::into_domain(o.extract_field("type2")),
         }
     }
 }

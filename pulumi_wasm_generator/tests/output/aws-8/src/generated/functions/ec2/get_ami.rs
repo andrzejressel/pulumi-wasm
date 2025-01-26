@@ -194,247 +194,111 @@ pub mod get_ami {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "architecture".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockDeviceMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "deprecationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enaSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "executableUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "hypervisor".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageOwnerAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "imdsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeDeprecated".into(),
-                },
-                register_interface::ResultField {
-                    name: "kernelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "owners".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "productCodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "public".into(),
-                },
-                register_interface::ResultField {
-                    name: "ramdiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootDeviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootDeviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootSnapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sriovNetSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tpmSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageOperation".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualizationType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAmiResult {
             architecture: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("architecture").unwrap(),
+                o.extract_field("architecture"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             block_device_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockDeviceMappings").unwrap(),
+                o.extract_field("blockDeviceMappings"),
             ),
             boot_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootMode").unwrap(),
+                o.extract_field("bootMode"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             deprecation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deprecationTime").unwrap(),
+                o.extract_field("deprecationTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             ena_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enaSupport").unwrap(),
+                o.extract_field("enaSupport"),
             ),
             executable_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executableUsers").unwrap(),
+                o.extract_field("executableUsers"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             hypervisor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hypervisor").unwrap(),
+                o.extract_field("hypervisor"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             image_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageLocation").unwrap(),
+                o.extract_field("imageLocation"),
             ),
             image_owner_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageOwnerAlias").unwrap(),
+                o.extract_field("imageOwnerAlias"),
             ),
             image_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageType").unwrap(),
+                o.extract_field("imageType"),
             ),
             imds_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imdsSupport").unwrap(),
+                o.extract_field("imdsSupport"),
             ),
             include_deprecated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeDeprecated").unwrap(),
+                o.extract_field("includeDeprecated"),
             ),
             kernel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kernelId").unwrap(),
+                o.extract_field("kernelId"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameRegex").unwrap(),
+                o.extract_field("nameRegex"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owners").unwrap(),
-            ),
+            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             platform_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformDetails").unwrap(),
+                o.extract_field("platformDetails"),
             ),
             product_codes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productCodes").unwrap(),
+                o.extract_field("productCodes"),
             ),
-            public: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("public").unwrap(),
-            ),
+            public: pulumi_wasm_rust::__private::into_domain(o.extract_field("public")),
             ramdisk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ramdiskId").unwrap(),
+                o.extract_field("ramdiskId"),
             ),
             root_device_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootDeviceName").unwrap(),
+                o.extract_field("rootDeviceName"),
             ),
             root_device_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootDeviceType").unwrap(),
+                o.extract_field("rootDeviceType"),
             ),
             root_snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootSnapshotId").unwrap(),
+                o.extract_field("rootSnapshotId"),
             ),
             sriov_net_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sriovNetSupport").unwrap(),
+                o.extract_field("sriovNetSupport"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateReason").unwrap(),
+                o.extract_field("stateReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tpm_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tpmSupport").unwrap(),
+                o.extract_field("tpmSupport"),
             ),
             usage_operation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageOperation").unwrap(),
+                o.extract_field("usageOperation"),
             ),
             virtualization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualizationType").unwrap(),
+                o.extract_field("virtualizationType"),
             ),
         }
     }

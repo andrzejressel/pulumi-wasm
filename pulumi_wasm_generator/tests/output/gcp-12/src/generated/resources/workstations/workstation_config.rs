@@ -897,189 +897,85 @@ pub mod workstation_config {
                     value: &workstation_config_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "container".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "degraded".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableTcpConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAuditAgent".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralDirectories".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUsableWorkstations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistentDirectories".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "readinessChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "runningTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "workstationClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workstationConfigId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkstationConfigResult {
             allowed_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedPorts").unwrap(),
+                o.extract_field("allowedPorts"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
             container: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("container").unwrap(),
+                o.extract_field("container"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             degraded: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("degraded").unwrap(),
+                o.extract_field("degraded"),
             ),
             disable_tcp_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableTcpConnections").unwrap(),
+                o.extract_field("disableTcpConnections"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_audit_agent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAuditAgent").unwrap(),
+                o.extract_field("enableAuditAgent"),
             ),
             encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKey").unwrap(),
+                o.extract_field("encryptionKey"),
             ),
             ephemeral_directories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralDirectories").unwrap(),
+                o.extract_field("ephemeralDirectories"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             idle_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeout").unwrap(),
+                o.extract_field("idleTimeout"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_usable_workstations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUsableWorkstations").unwrap(),
+                o.extract_field("maxUsableWorkstations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             persistent_directories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistentDirectories").unwrap(),
+                o.extract_field("persistentDirectories"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             readiness_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readinessChecks").unwrap(),
+                o.extract_field("readinessChecks"),
             ),
             replica_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaZones").unwrap(),
+                o.extract_field("replicaZones"),
             ),
             running_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runningTimeout").unwrap(),
+                o.extract_field("runningTimeout"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             workstation_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workstationClusterId").unwrap(),
+                o.extract_field("workstationClusterId"),
             ),
             workstation_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workstationConfigId").unwrap(),
+                o.extract_field("workstationConfigId"),
             ),
         }
     }

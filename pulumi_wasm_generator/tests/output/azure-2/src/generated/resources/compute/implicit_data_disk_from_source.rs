@@ -226,63 +226,28 @@ pub mod implicit_data_disk_from_source {
                     value: &write_accelerator_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "caching".into(),
-                },
-                register_interface::ResultField {
-                    name: "createOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "lun".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeAcceleratorEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImplicitDataDiskFromSourceResult {
             caching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caching").unwrap(),
+                o.extract_field("caching"),
             ),
             create_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createOption").unwrap(),
+                o.extract_field("createOption"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
-            lun: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lun").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            lun: pulumi_wasm_rust::__private::into_domain(o.extract_field("lun")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
             write_accelerator_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeAcceleratorEnabled").unwrap(),
+                o.extract_field("writeAcceleratorEnabled"),
             ),
         }
     }

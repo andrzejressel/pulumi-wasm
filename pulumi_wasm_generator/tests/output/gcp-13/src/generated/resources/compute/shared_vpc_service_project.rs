@@ -103,33 +103,17 @@ pub mod shared_vpc_service_project {
                     value: &service_project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostProject".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProject".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedVPCServiceProjectResult {
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             host_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostProject").unwrap(),
+                o.extract_field("hostProject"),
             ),
             service_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProject").unwrap(),
+                o.extract_field("serviceProject"),
             ),
         }
     }

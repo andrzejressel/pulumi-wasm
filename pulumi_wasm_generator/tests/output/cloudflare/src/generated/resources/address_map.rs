@@ -137,63 +137,30 @@ pub mod address_map {
                     value: &memberships_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "canDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "canModifyIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSni".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "ips".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberships".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AddressMapResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             can_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canDelete").unwrap(),
+                o.extract_field("canDelete"),
             ),
             can_modify_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canModifyIps").unwrap(),
+                o.extract_field("canModifyIps"),
             ),
             default_sni: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSni").unwrap(),
+                o.extract_field("defaultSni"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ips").unwrap(),
-            ),
+            ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("ips")),
             memberships: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberships").unwrap(),
+                o.extract_field("memberships"),
             ),
         }
     }

@@ -139,123 +139,56 @@ pub mod reserved_instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "currencyCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbInstanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "fixedPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "leaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAz".into(),
-                },
-                register_interface::ResultField {
-                    name: "offeringId".into(),
-                },
-                register_interface::ResultField {
-                    name: "offeringType".into(),
-                },
-                register_interface::ResultField {
-                    name: "productDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurringCharges".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "usagePrice".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReservedInstanceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             currency_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currencyCode").unwrap(),
+                o.extract_field("currencyCode"),
             ),
             db_instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbInstanceClass").unwrap(),
+                o.extract_field("dbInstanceClass"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             fixed_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fixedPrice").unwrap(),
+                o.extract_field("fixedPrice"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             lease_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("leaseId").unwrap(),
+                o.extract_field("leaseId"),
             ),
             multi_az: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAz").unwrap(),
+                o.extract_field("multiAz"),
             ),
             offering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offeringId").unwrap(),
+                o.extract_field("offeringId"),
             ),
             offering_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offeringType").unwrap(),
+                o.extract_field("offeringType"),
             ),
             product_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productDescription").unwrap(),
+                o.extract_field("productDescription"),
             ),
             recurring_charges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurringCharges").unwrap(),
+                o.extract_field("recurringCharges"),
             ),
             reservation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationId").unwrap(),
+                o.extract_field("reservationId"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             usage_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usagePrice").unwrap(),
+                o.extract_field("usagePrice"),
             ),
         }
     }

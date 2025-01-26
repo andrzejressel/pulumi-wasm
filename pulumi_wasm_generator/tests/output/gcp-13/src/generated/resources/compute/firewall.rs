@@ -462,129 +462,59 @@ pub mod firewall {
                     value: &target_tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allows".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "denies".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceServiceAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetTags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallResult {
-            allows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allows").unwrap(),
-            ),
+            allows: pulumi_wasm_rust::__private::into_domain(o.extract_field("allows")),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
-            denies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("denies").unwrap(),
-            ),
+            denies: pulumi_wasm_rust::__private::into_domain(o.extract_field("denies")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationRanges").unwrap(),
+                o.extract_field("destinationRanges"),
             ),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             enable_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogging").unwrap(),
+                o.extract_field("enableLogging"),
             ),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             source_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRanges").unwrap(),
+                o.extract_field("sourceRanges"),
             ),
             source_service_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceServiceAccounts").unwrap(),
+                o.extract_field("sourceServiceAccounts"),
             ),
             source_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceTags").unwrap(),
+                o.extract_field("sourceTags"),
             ),
             target_service_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccounts").unwrap(),
+                o.extract_field("targetServiceAccounts"),
             ),
             target_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetTags").unwrap(),
+                o.extract_field("targetTags"),
             ),
         }
     }

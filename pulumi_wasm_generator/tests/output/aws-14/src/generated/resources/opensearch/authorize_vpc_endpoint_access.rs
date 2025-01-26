@@ -78,33 +78,17 @@ pub mod authorize_vpc_endpoint_access {
                     value: &domain_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "account".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedPrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorizeVpcEndpointAccessResult {
             account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("account").unwrap(),
+                o.extract_field("account"),
             ),
             authorized_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedPrincipals").unwrap(),
+                o.extract_field("authorizedPrincipals"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
         }
     }

@@ -140,45 +140,23 @@ pub mod slot_custom_hostname_binding {
                     value: &thumbprint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceSlotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslState".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualIp".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SlotCustomHostnameBindingResult {
             app_service_slot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceSlotId").unwrap(),
+                o.extract_field("appServiceSlotId"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             ssl_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslState").unwrap(),
+                o.extract_field("sslState"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
             virtual_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualIp").unwrap(),
+                o.extract_field("virtualIp"),
             ),
         }
     }

@@ -125,39 +125,20 @@ pub mod environment_custom_domain {
                     value: &dns_suffix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateBlobBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSuffix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentCustomDomainResult {
             certificate_blob_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBlobBase64").unwrap(),
+                o.extract_field("certificateBlobBase64"),
             ),
             certificate_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePassword").unwrap(),
+                o.extract_field("certificatePassword"),
             ),
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
             dns_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSuffix").unwrap(),
+                o.extract_field("dnsSuffix"),
             ),
         }
     }

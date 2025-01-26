@@ -98,39 +98,18 @@ pub mod request_validator {
                     value: &validate_request_parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "validateRequestBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "validateRequestParameters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RequestValidatorResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             validate_request_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validateRequestBody").unwrap(),
+                o.extract_field("validateRequestBody"),
             ),
             validate_request_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validateRequestParameters").unwrap(),
+                o.extract_field("validateRequestParameters"),
             ),
         }
     }

@@ -683,184 +683,83 @@ pub mod scale_set {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automaticOsUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiagnostics".into(),
-                },
-                register_interface::ResultField {
-                    name: "evictionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthProbeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileLinuxConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileSecrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileWindowsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "overprovision".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "proximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollingUpgradePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "singlePlacementGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageProfileDataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageProfileImageReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageProfileOsDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradePolicyMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScaleSetResult {
             automatic_os_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticOsUpgrade").unwrap(),
+                o.extract_field("automaticOsUpgrade"),
             ),
             boot_diagnostics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiagnostics").unwrap(),
+                o.extract_field("bootDiagnostics"),
             ),
             eviction_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evictionPolicy").unwrap(),
+                o.extract_field("evictionPolicy"),
             ),
             extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensions").unwrap(),
+                o.extract_field("extensions"),
             ),
             health_probe_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthProbeId").unwrap(),
+                o.extract_field("healthProbeId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfiles").unwrap(),
+                o.extract_field("networkProfiles"),
             ),
             os_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfile").unwrap(),
+                o.extract_field("osProfile"),
             ),
             os_profile_linux_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileLinuxConfig").unwrap(),
+                o.extract_field("osProfileLinuxConfig"),
             ),
             os_profile_secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileSecrets").unwrap(),
+                o.extract_field("osProfileSecrets"),
             ),
             os_profile_windows_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileWindowsConfig").unwrap(),
+                o.extract_field("osProfileWindowsConfig"),
             ),
             overprovision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overprovision").unwrap(),
+                o.extract_field("overprovision"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proximityPlacementGroupId").unwrap(),
+                o.extract_field("proximityPlacementGroupId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             rolling_upgrade_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollingUpgradePolicy").unwrap(),
+                o.extract_field("rollingUpgradePolicy"),
             ),
             single_placement_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singlePlacementGroup").unwrap(),
+                o.extract_field("singlePlacementGroup"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             storage_profile_data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageProfileDataDisks").unwrap(),
+                o.extract_field("storageProfileDataDisks"),
             ),
             storage_profile_image_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageProfileImageReference").unwrap(),
+                o.extract_field("storageProfileImageReference"),
             ),
             storage_profile_os_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageProfileOsDisk").unwrap(),
+                o.extract_field("storageProfileOsDisk"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             upgrade_policy_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradePolicyMode").unwrap(),
+                o.extract_field("upgradePolicyMode"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

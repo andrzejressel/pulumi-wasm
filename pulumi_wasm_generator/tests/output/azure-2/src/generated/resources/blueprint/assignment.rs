@@ -260,99 +260,46 @@ pub mod assignment {
                     value: &version_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blueprintName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockExcludeActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockExcludePrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSubscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentResult {
             blueprint_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueprintName").unwrap(),
+                o.extract_field("blueprintName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             lock_exclude_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockExcludeActions").unwrap(),
+                o.extract_field("lockExcludeActions"),
             ),
             lock_exclude_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockExcludePrincipals").unwrap(),
+                o.extract_field("lockExcludePrincipals"),
             ),
             lock_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockMode").unwrap(),
+                o.extract_field("lockMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameter_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterValues").unwrap(),
+                o.extract_field("parameterValues"),
             ),
             resource_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroups").unwrap(),
+                o.extract_field("resourceGroups"),
             ),
             target_subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSubscriptionId").unwrap(),
+                o.extract_field("targetSubscriptionId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
         }
     }

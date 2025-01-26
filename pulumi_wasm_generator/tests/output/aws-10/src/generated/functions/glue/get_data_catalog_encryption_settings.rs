@@ -40,32 +40,16 @@ pub mod get_data_catalog_encryption_settings {
                     value: &catalog_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCatalogEncryptionSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDataCatalogEncryptionSettingsResult {
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             data_catalog_encryption_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCatalogEncryptionSettings").unwrap(),
+                o.extract_field("dataCatalogEncryptionSettings"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

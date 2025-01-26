@@ -111,40 +111,17 @@ pub mod log_metric_filter {
                     value: &pattern_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "logGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricTransformation".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pattern".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogMetricFilterResult {
             log_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupName").unwrap(),
+                o.extract_field("logGroupName"),
             ),
             metric_transformation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricTransformation").unwrap(),
+                o.extract_field("metricTransformation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pattern").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            pattern: pulumi_wasm_rust::__private::into_domain(o.extract_field("pattern")),
         }
     }
 }

@@ -287,106 +287,48 @@ pub mod firewall {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsProxyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementIpConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatIntelMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHub".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallResult {
             dns_proxy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsProxyEnabled").unwrap(),
+                o.extract_field("dnsProxyEnabled"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
             firewall_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyId").unwrap(),
+                o.extract_field("firewallPolicyId"),
             ),
             ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurations").unwrap(),
+                o.extract_field("ipConfigurations"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_ip_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementIpConfiguration").unwrap(),
+                o.extract_field("managementIpConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpRanges").unwrap(),
+                o.extract_field("privateIpRanges"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             sku_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuTier").unwrap(),
+                o.extract_field("skuTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threat_intel_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatIntelMode").unwrap(),
+                o.extract_field("threatIntelMode"),
             ),
             virtual_hub: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHub").unwrap(),
+                o.extract_field("virtualHub"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

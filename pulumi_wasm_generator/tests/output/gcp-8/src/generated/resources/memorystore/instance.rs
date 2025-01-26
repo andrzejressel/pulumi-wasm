@@ -528,183 +528,82 @@ pub mod instance {
                     value: &zone_distribution_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredPscAutoConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "discoveryEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistenceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscAutoConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneDistributionConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             authorization_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationMode").unwrap(),
+                o.extract_field("authorizationMode"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtectionEnabled").unwrap(),
+                o.extract_field("deletionProtectionEnabled"),
             ),
             desired_psc_auto_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredPscAutoConnections").unwrap(),
+                o.extract_field("desiredPscAutoConnections"),
             ),
             discovery_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discoveryEndpoints").unwrap(),
+                o.extract_field("discoveryEndpoints"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             engine_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineConfigs").unwrap(),
+                o.extract_field("engineConfigs"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfigs").unwrap(),
+                o.extract_field("nodeConfigs"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             persistence_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistenceConfig").unwrap(),
+                o.extract_field("persistenceConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_auto_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscAutoConnections").unwrap(),
+                o.extract_field("pscAutoConnections"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaCount").unwrap(),
+                o.extract_field("replicaCount"),
             ),
             shard_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCount").unwrap(),
+                o.extract_field("shardCount"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateInfos").unwrap(),
+                o.extract_field("stateInfos"),
             ),
             transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionMode").unwrap(),
+                o.extract_field("transitEncryptionMode"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             zone_distribution_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneDistributionConfig").unwrap(),
+                o.extract_field("zoneDistributionConfig"),
             ),
         }
     }

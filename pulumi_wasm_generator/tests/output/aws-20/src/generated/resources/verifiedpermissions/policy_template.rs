@@ -95,45 +95,23 @@ pub mod policy_template {
                     value: &statement_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyTemplateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "statement".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyTemplateResult {
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             policy_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyStoreId").unwrap(),
+                o.extract_field("policyStoreId"),
             ),
             policy_template_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyTemplateId").unwrap(),
+                o.extract_field("policyTemplateId"),
             ),
             statement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statement").unwrap(),
+                o.extract_field("statement"),
             ),
         }
     }

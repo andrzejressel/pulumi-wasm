@@ -439,117 +439,51 @@ pub mod database {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appEngineIntegrationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "cmekConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "concurrencyMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteProtectionState".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "earliestVersionTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRecoveryEnablement".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionRetentionPeriod".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             app_engine_integration_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appEngineIntegrationMode").unwrap(),
+                o.extract_field("appEngineIntegrationMode"),
             ),
             cmek_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cmekConfig").unwrap(),
+                o.extract_field("cmekConfig"),
             ),
             concurrency_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("concurrencyMode").unwrap(),
+                o.extract_field("concurrencyMode"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             delete_protection_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteProtectionState").unwrap(),
+                o.extract_field("deleteProtectionState"),
             ),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             earliest_version_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("earliestVersionTime").unwrap(),
+                o.extract_field("earliestVersionTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             key_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPrefix").unwrap(),
+                o.extract_field("keyPrefix"),
             ),
             location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationId").unwrap(),
+                o.extract_field("locationId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             point_in_time_recovery_enablement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRecoveryEnablement").unwrap(),
+                o.extract_field("pointInTimeRecoveryEnablement"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             version_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionRetentionPeriod").unwrap(),
+                o.extract_field("versionRetentionPeriod"),
             ),
         }
     }

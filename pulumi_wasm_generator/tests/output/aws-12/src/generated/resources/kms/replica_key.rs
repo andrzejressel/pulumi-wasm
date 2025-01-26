@@ -166,93 +166,39 @@ pub mod replica_key {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bypassPolicyLockoutSafetyCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionWindowInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyUsage".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicaKeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bypass_policy_lockout_safety_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassPolicyLockoutSafetyCheck").unwrap(),
+                o.extract_field("bypassPolicyLockoutSafetyCheck"),
             ),
             deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionWindowInDays").unwrap(),
+                o.extract_field("deletionWindowInDays"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             key_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRotationEnabled").unwrap(),
+                o.extract_field("keyRotationEnabled"),
             ),
             key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySpec").unwrap(),
+                o.extract_field("keySpec"),
             ),
             key_usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyUsage").unwrap(),
+                o.extract_field("keyUsage"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             primary_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKeyArn").unwrap(),
+                o.extract_field("primaryKeyArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

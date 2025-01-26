@@ -113,144 +113,69 @@ pub mod get_orderable_db_instance {
                     value: &vpc_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxIopsPerDbInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxIopsPerGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxStorageSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "minIopsPerDbInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "minIopsPerGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "minStorageSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAzCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredInstanceClasses".into(),
-                },
-                register_interface::ResultField {
-                    name: "readReplicaCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsEnhancedMonitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsIamDatabaseAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsIops".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsPerformanceInsights".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsStorageEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpc".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOrderableDbInstanceResult {
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceClass").unwrap(),
+                o.extract_field("instanceClass"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
             max_iops_per_db_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxIopsPerDbInstance").unwrap(),
+                o.extract_field("maxIopsPerDbInstance"),
             ),
             max_iops_per_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxIopsPerGib").unwrap(),
+                o.extract_field("maxIopsPerGib"),
             ),
             max_storage_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxStorageSize").unwrap(),
+                o.extract_field("maxStorageSize"),
             ),
             min_iops_per_db_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minIopsPerDbInstance").unwrap(),
+                o.extract_field("minIopsPerDbInstance"),
             ),
             min_iops_per_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minIopsPerGib").unwrap(),
+                o.extract_field("minIopsPerGib"),
             ),
             min_storage_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minStorageSize").unwrap(),
+                o.extract_field("minStorageSize"),
             ),
             multi_az_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAzCapable").unwrap(),
+                o.extract_field("multiAzCapable"),
             ),
             preferred_instance_classes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredInstanceClasses").unwrap(),
+                o.extract_field("preferredInstanceClasses"),
             ),
             read_replica_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readReplicaCapable").unwrap(),
+                o.extract_field("readReplicaCapable"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
             supports_enhanced_monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsEnhancedMonitoring").unwrap(),
+                o.extract_field("supportsEnhancedMonitoring"),
             ),
             supports_iam_database_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsIamDatabaseAuthentication").unwrap(),
+                o.extract_field("supportsIamDatabaseAuthentication"),
             ),
             supports_iops: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsIops").unwrap(),
+                o.extract_field("supportsIops"),
             ),
             supports_performance_insights: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsPerformanceInsights").unwrap(),
+                o.extract_field("supportsPerformanceInsights"),
             ),
             supports_storage_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsStorageEncryption").unwrap(),
+                o.extract_field("supportsStorageEncryption"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(hashmap.remove("vpc").unwrap()),
+            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
         }
     }
 }

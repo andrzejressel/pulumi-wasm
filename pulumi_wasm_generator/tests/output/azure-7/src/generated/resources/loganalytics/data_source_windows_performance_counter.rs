@@ -149,57 +149,27 @@ pub mod data_source_windows_performance_counter {
                     value: &workspace_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "counterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "intervalSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataSourceWindowsPerformanceCounterResult {
             counter_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("counterName").unwrap(),
+                o.extract_field("counterName"),
             ),
             instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceName").unwrap(),
+                o.extract_field("instanceName"),
             ),
             interval_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("intervalSeconds").unwrap(),
+                o.extract_field("intervalSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             object_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectName").unwrap(),
+                o.extract_field("objectName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             workspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceName").unwrap(),
+                o.extract_field("workspaceName"),
             ),
         }
     }

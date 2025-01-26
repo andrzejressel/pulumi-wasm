@@ -87,39 +87,18 @@ pub mod policy_store {
                     value: &validation_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyStoreResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             policy_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyStoreId").unwrap(),
+                o.extract_field("policyStoreId"),
             ),
             validation_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationSettings").unwrap(),
+                o.extract_field("validationSettings"),
             ),
         }
     }

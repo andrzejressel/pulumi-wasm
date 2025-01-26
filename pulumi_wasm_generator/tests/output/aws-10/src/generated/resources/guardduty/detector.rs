@@ -143,57 +143,23 @@ pub mod detector {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "datasources".into(),
-                },
-                register_interface::ResultField {
-                    name: "enable".into(),
-                },
-                register_interface::ResultField {
-                    name: "findingPublishingFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DetectorResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             datasources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datasources").unwrap(),
+                o.extract_field("datasources"),
             ),
-            enable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enable").unwrap(),
-            ),
+            enable: pulumi_wasm_rust::__private::into_domain(o.extract_field("enable")),
             finding_publishing_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("findingPublishingFrequency").unwrap(),
+                o.extract_field("findingPublishingFrequency"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

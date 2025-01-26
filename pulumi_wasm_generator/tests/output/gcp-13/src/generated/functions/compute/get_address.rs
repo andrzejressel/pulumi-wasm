@@ -68,98 +68,41 @@ pub mod get_address {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "address".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "purpose".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "users".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAddressResult {
             address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("address").unwrap(),
+                o.extract_field("address"),
             ),
             address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressType").unwrap(),
+                o.extract_field("addressType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             network_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkTier").unwrap(),
+                o.extract_field("networkTier"),
             ),
             prefix_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixLength").unwrap(),
+                o.extract_field("prefixLength"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             purpose: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purpose").unwrap(),
+                o.extract_field("purpose"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subnetwork: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetwork").unwrap(),
+                o.extract_field("subnetwork"),
             ),
-            users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("users").unwrap(),
-            ),
+            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

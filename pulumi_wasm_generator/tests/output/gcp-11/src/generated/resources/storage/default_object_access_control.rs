@@ -160,70 +160,24 @@ pub mod default_object_access_control {
                     value: &role_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "entity".into(),
-                },
-                register_interface::ResultField {
-                    name: "entityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "generation".into(),
-                },
-                register_interface::ResultField {
-                    name: "object".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectTeams".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultObjectAccessControlResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            entity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entity").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
             entity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entityId").unwrap(),
+                o.extract_field("entityId"),
             ),
             generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generation").unwrap(),
+                o.extract_field("generation"),
             ),
-            object: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("object").unwrap(),
-            ),
+            object: pulumi_wasm_rust::__private::into_domain(o.extract_field("object")),
             project_teams: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectTeams").unwrap(),
+                o.extract_field("projectTeams"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

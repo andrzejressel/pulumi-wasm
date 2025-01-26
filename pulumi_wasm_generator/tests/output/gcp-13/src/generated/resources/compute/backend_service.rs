@@ -1148,219 +1148,106 @@ pub mod backend_service {
                     value: &timeout_sec_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "affinityCookieTtlSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "backends".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "circuitBreakers".into(),
-                },
-                register_interface::ResultField {
-                    name: "compressionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionDrainingTimeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "consistentHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customRequestHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "customResponseHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeSecurityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableCdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "generatedId".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "iap".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressSelectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingScheme".into(),
-                },
-                register_interface::ResultField {
-                    name: "localityLbPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "localityLbPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outlierDetection".into(),
-                },
-                register_interface::ResultField {
-                    name: "portName".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "securitySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLbPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "strongSessionAffinityCookie".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutSec".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendServiceResult {
             affinity_cookie_ttl_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("affinityCookieTtlSec").unwrap(),
+                o.extract_field("affinityCookieTtlSec"),
             ),
             backends: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backends").unwrap(),
+                o.extract_field("backends"),
             ),
             cdn_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnPolicy").unwrap(),
+                o.extract_field("cdnPolicy"),
             ),
             circuit_breakers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("circuitBreakers").unwrap(),
+                o.extract_field("circuitBreakers"),
             ),
             compression_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compressionMode").unwrap(),
+                o.extract_field("compressionMode"),
             ),
             connection_draining_timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionDrainingTimeoutSec").unwrap(),
+                o.extract_field("connectionDrainingTimeoutSec"),
             ),
             consistent_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consistentHash").unwrap(),
+                o.extract_field("consistentHash"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             custom_request_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRequestHeaders").unwrap(),
+                o.extract_field("customRequestHeaders"),
             ),
             custom_response_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customResponseHeaders").unwrap(),
+                o.extract_field("customResponseHeaders"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             edge_security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeSecurityPolicy").unwrap(),
+                o.extract_field("edgeSecurityPolicy"),
             ),
             enable_cdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableCdn").unwrap(),
+                o.extract_field("enableCdn"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
             generated_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generatedId").unwrap(),
+                o.extract_field("generatedId"),
             ),
             health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthChecks").unwrap(),
+                o.extract_field("healthChecks"),
             ),
-            iap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iap").unwrap(),
-            ),
+            iap: pulumi_wasm_rust::__private::into_domain(o.extract_field("iap")),
             ip_address_selection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressSelectionPolicy").unwrap(),
+                o.extract_field("ipAddressSelectionPolicy"),
             ),
             load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingScheme").unwrap(),
+                o.extract_field("loadBalancingScheme"),
             ),
             locality_lb_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localityLbPolicies").unwrap(),
+                o.extract_field("localityLbPolicies"),
             ),
             locality_lb_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localityLbPolicy").unwrap(),
+                o.extract_field("localityLbPolicy"),
             ),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outlier_detection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outlierDetection").unwrap(),
+                o.extract_field("outlierDetection"),
             ),
             port_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portName").unwrap(),
+                o.extract_field("portName"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPolicy").unwrap(),
+                o.extract_field("securityPolicy"),
             ),
             security_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securitySettings").unwrap(),
+                o.extract_field("securitySettings"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             service_lb_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLbPolicy").unwrap(),
+                o.extract_field("serviceLbPolicy"),
             ),
             session_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinity").unwrap(),
+                o.extract_field("sessionAffinity"),
             ),
             strong_session_affinity_cookie: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("strongSessionAffinityCookie").unwrap(),
+                o.extract_field("strongSessionAffinityCookie"),
             ),
             timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutSec").unwrap(),
+                o.extract_field("timeoutSec"),
             ),
         }
     }

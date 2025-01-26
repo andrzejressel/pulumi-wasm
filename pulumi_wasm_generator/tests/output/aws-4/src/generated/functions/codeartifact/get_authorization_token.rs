@@ -58,50 +58,23 @@ pub mod get_authorization_token {
                     value: &duration_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "durationSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAuthorizationTokenResult {
             authorization_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationToken").unwrap(),
+                o.extract_field("authorizationToken"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             domain_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainOwner").unwrap(),
+                o.extract_field("domainOwner"),
             ),
             duration_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("durationSeconds").unwrap(),
+                o.extract_field("durationSeconds"),
             ),
             expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiration").unwrap(),
+                o.extract_field("expiration"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

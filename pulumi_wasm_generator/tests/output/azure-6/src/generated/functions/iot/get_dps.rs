@@ -67,68 +67,30 @@ pub mod get_dps {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceProvisioningHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceOperationsHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDpsResult {
             allocation_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationPolicy").unwrap(),
+                o.extract_field("allocationPolicy"),
             ),
             device_provisioning_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceProvisioningHostName").unwrap(),
+                o.extract_field("deviceProvisioningHostName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             id_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idScope").unwrap(),
+                o.extract_field("idScope"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_operations_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceOperationsHostName").unwrap(),
+                o.extract_field("serviceOperationsHostName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

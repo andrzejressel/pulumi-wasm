@@ -60,37 +60,18 @@ pub mod get_mca_account_scope {
                     value: &invoice_section_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingProfileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "invoiceSectionName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMcaAccountScopeResult {
             billing_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccountName").unwrap(),
+                o.extract_field("billingAccountName"),
             ),
             billing_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingProfileName").unwrap(),
+                o.extract_field("billingProfileName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             invoice_section_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invoiceSectionName").unwrap(),
+                o.extract_field("invoiceSectionName"),
             ),
         }
     }

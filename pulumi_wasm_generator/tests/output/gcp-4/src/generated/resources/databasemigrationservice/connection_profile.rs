@@ -612,118 +612,48 @@ pub mod connection_profile {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alloydb".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudsql".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbprovider".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "errors".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mysql".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oracle".into(),
-                },
-                register_interface::ResultField {
-                    name: "postgresql".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionProfileResult {
             alloydb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alloydb").unwrap(),
+                o.extract_field("alloydb"),
             ),
             cloudsql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudsql").unwrap(),
+                o.extract_field("cloudsql"),
             ),
             connection_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionProfileId").unwrap(),
+                o.extract_field("connectionProfileId"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dbprovider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbprovider").unwrap(),
+                o.extract_field("dbprovider"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errors").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            mysql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mysql").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            oracle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oracle").unwrap(),
-            ),
+            mysql: pulumi_wasm_rust::__private::into_domain(o.extract_field("mysql")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            oracle: pulumi_wasm_rust::__private::into_domain(o.extract_field("oracle")),
             postgresql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postgresql").unwrap(),
+                o.extract_field("postgresql"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

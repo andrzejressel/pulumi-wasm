@@ -137,64 +137,29 @@ pub mod static_route {
                     value: &weight_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "coloNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "coloRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "nexthop".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "weight".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StaticRouteResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             colo_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coloNames").unwrap(),
+                o.extract_field("coloNames"),
             ),
             colo_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coloRegions").unwrap(),
+                o.extract_field("coloRegions"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             nexthop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nexthop").unwrap(),
+                o.extract_field("nexthop"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weight").unwrap(),
-            ),
+            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
         }
     }
 }

@@ -187,58 +187,26 @@ pub mod eligible_role_assignment {
                     value: &ticket_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "justification".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "ticket".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EligibleRoleAssignmentResult {
             justification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("justification").unwrap(),
+                o.extract_field("justification"),
             ),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             role_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleDefinitionId").unwrap(),
+                o.extract_field("roleDefinitionId"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
-            ticket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ticket").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            ticket: pulumi_wasm_rust::__private::into_domain(o.extract_field("ticket")),
         }
     }
 }

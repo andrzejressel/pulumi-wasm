@@ -240,94 +240,42 @@ pub mod virtual_network {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressSpaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpCommunity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ddosProtectionPlan".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "flowTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "guid".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualNetworkResult {
             address_spaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressSpaces").unwrap(),
+                o.extract_field("addressSpaces"),
             ),
             bgp_community: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpCommunity").unwrap(),
+                o.extract_field("bgpCommunity"),
             ),
             ddos_protection_plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ddosProtectionPlan").unwrap(),
+                o.extract_field("ddosProtectionPlan"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
             edge_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeZone").unwrap(),
+                o.extract_field("edgeZone"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             flow_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flowTimeoutInMinutes").unwrap(),
+                o.extract_field("flowTimeoutInMinutes"),
             ),
-            guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guid").unwrap(),
-            ),
+            guid: pulumi_wasm_rust::__private::into_domain(o.extract_field("guid")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

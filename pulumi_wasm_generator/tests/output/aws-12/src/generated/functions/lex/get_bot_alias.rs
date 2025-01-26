@@ -56,68 +56,30 @@ pub mod get_bot_alias {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "botVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "checksum".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBotAliasResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             bot_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botVersion").unwrap(),
+                o.extract_field("botVersion"),
             ),
             checksum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checksum").unwrap(),
+                o.extract_field("checksum"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

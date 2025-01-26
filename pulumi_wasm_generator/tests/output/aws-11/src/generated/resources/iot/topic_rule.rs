@@ -420,181 +420,74 @@ pub mod topic_rule {
                     value: &timestreams_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchAlarms".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamodbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamodbv2s".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearch".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "firehoses".into(),
-                },
-                register_interface::ResultField {
-                    name: "https".into(),
-                },
-                register_interface::ResultField {
-                    name: "iotAnalytics".into(),
-                },
-                register_interface::ResultField {
-                    name: "iotEvents".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkas".into(),
-                },
-                register_interface::ResultField {
-                    name: "kineses".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdas".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "republishes".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3".into(),
-                },
-                register_interface::ResultField {
-                    name: "sns".into(),
-                },
-                register_interface::ResultField {
-                    name: "sql".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqs".into(),
-                },
-                register_interface::ResultField {
-                    name: "stepFunctions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timestreams".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloudwatch_alarms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchAlarms").unwrap(),
+                o.extract_field("cloudwatchAlarms"),
             ),
             cloudwatch_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchLogs").unwrap(),
+                o.extract_field("cloudwatchLogs"),
             ),
             cloudwatch_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchMetrics").unwrap(),
+                o.extract_field("cloudwatchMetrics"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dynamodbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamodbs").unwrap(),
+                o.extract_field("dynamodbs"),
             ),
             dynamodbv2s: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamodbv2s").unwrap(),
+                o.extract_field("dynamodbv2s"),
             ),
             elasticsearch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearch").unwrap(),
+                o.extract_field("elasticsearch"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             error_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorAction").unwrap(),
+                o.extract_field("errorAction"),
             ),
             firehoses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firehoses").unwrap(),
+                o.extract_field("firehoses"),
             ),
-            https: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("https").unwrap(),
-            ),
+            https: pulumi_wasm_rust::__private::into_domain(o.extract_field("https")),
             iot_analytics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iotAnalytics").unwrap(),
+                o.extract_field("iotAnalytics"),
             ),
             iot_events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iotEvents").unwrap(),
+                o.extract_field("iotEvents"),
             ),
-            kafkas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkas").unwrap(),
-            ),
+            kafkas: pulumi_wasm_rust::__private::into_domain(o.extract_field("kafkas")),
             kineses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kineses").unwrap(),
+                o.extract_field("kineses"),
             ),
             lambdas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdas").unwrap(),
+                o.extract_field("lambdas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             republishes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("republishes").unwrap(),
+                o.extract_field("republishes"),
             ),
-            s3: pulumi_wasm_rust::__private::into_domain(hashmap.remove("s3").unwrap()),
-            sns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sns").unwrap(),
-            ),
-            sql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sql").unwrap(),
-            ),
+            s3: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3")),
+            sns: pulumi_wasm_rust::__private::into_domain(o.extract_field("sns")),
+            sql: pulumi_wasm_rust::__private::into_domain(o.extract_field("sql")),
             sql_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlVersion").unwrap(),
+                o.extract_field("sqlVersion"),
             ),
-            sqs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqs").unwrap(),
-            ),
+            sqs: pulumi_wasm_rust::__private::into_domain(o.extract_field("sqs")),
             step_functions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stepFunctions").unwrap(),
+                o.extract_field("stepFunctions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timestreams: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timestreams").unwrap(),
+                o.extract_field("timestreams"),
             ),
         }
     }

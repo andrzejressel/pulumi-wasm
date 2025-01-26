@@ -184,81 +184,37 @@ pub mod provider {
                     value: &tpm_policy_base64_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attestationUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "openEnclavePolicyBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "policySigningCertificateData".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sevSnpPolicyBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "sgxEnclavePolicyBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tpmPolicyBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustModel".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProviderResult {
             attestation_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attestationUri").unwrap(),
+                o.extract_field("attestationUri"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             open_enclave_policy_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openEnclavePolicyBase64").unwrap(),
+                o.extract_field("openEnclavePolicyBase64"),
             ),
             policy_signing_certificate_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policySigningCertificateData").unwrap(),
+                o.extract_field("policySigningCertificateData"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sev_snp_policy_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sevSnpPolicyBase64").unwrap(),
+                o.extract_field("sevSnpPolicyBase64"),
             ),
             sgx_enclave_policy_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sgxEnclavePolicyBase64").unwrap(),
+                o.extract_field("sgxEnclavePolicyBase64"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tpm_policy_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tpmPolicyBase64").unwrap(),
+                o.extract_field("tpmPolicyBase64"),
             ),
             trust_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustModel").unwrap(),
+                o.extract_field("trustModel"),
             ),
         }
     }

@@ -112,73 +112,32 @@ pub mod get_object_signed_url {
                     value: &path_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentMd5".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensionHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "signedUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetObjectSignedUrlResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             content_md5: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentMd5").unwrap(),
+                o.extract_field("contentMd5"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentials").unwrap(),
+                o.extract_field("credentials"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             extension_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensionHeaders").unwrap(),
+                o.extract_field("extensionHeaders"),
             ),
             http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpMethod").unwrap(),
+                o.extract_field("httpMethod"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             signed_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signedUrl").unwrap(),
+                o.extract_field("signedUrl"),
             ),
         }
     }

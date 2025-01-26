@@ -101,21 +101,11 @@ pub mod standards_subscription {
                     value: &standards_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "standardsArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardsSubscriptionResult {
             standards_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("standardsArn").unwrap(),
+                o.extract_field("standardsArn"),
             ),
         }
     }

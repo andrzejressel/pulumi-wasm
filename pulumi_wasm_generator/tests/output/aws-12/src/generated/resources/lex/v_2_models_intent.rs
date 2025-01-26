@@ -283,135 +283,64 @@ pub mod v_2_models_intent {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botId".into(),
-                },
-                register_interface::ResultField {
-                    name: "botVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "closingSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "confirmationSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dialogCodeHook".into(),
-                },
-                register_interface::ResultField {
-                    name: "fulfillmentCodeHook".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialResponseSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputContexts".into(),
-                },
-                register_interface::ResultField {
-                    name: "intentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kendraConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "localeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputContexts".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentIntentSignature".into(),
-                },
-                register_interface::ResultField {
-                    name: "sampleUtterances".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotPriorities".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         V2modelsIntentResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botId").unwrap(),
-            ),
+            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
             bot_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botVersion").unwrap(),
+                o.extract_field("botVersion"),
             ),
             closing_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("closingSetting").unwrap(),
+                o.extract_field("closingSetting"),
             ),
             confirmation_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confirmationSetting").unwrap(),
+                o.extract_field("confirmationSetting"),
             ),
             creation_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDateTime").unwrap(),
+                o.extract_field("creationDateTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dialog_code_hook: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dialogCodeHook").unwrap(),
+                o.extract_field("dialogCodeHook"),
             ),
             fulfillment_code_hook: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fulfillmentCodeHook").unwrap(),
+                o.extract_field("fulfillmentCodeHook"),
             ),
             initial_response_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialResponseSetting").unwrap(),
+                o.extract_field("initialResponseSetting"),
             ),
             input_contexts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputContexts").unwrap(),
+                o.extract_field("inputContexts"),
             ),
             intent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("intentId").unwrap(),
+                o.extract_field("intentId"),
             ),
             kendra_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kendraConfiguration").unwrap(),
+                o.extract_field("kendraConfiguration"),
             ),
             last_updated_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDateTime").unwrap(),
+                o.extract_field("lastUpdatedDateTime"),
             ),
             locale_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localeId").unwrap(),
+                o.extract_field("localeId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_contexts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputContexts").unwrap(),
+                o.extract_field("outputContexts"),
             ),
             parent_intent_signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentIntentSignature").unwrap(),
+                o.extract_field("parentIntentSignature"),
             ),
             sample_utterances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sampleUtterances").unwrap(),
+                o.extract_field("sampleUtterances"),
             ),
             slot_priorities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotPriorities").unwrap(),
+                o.extract_field("slotPriorities"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

@@ -256,39 +256,18 @@ pub mod consent_store_iam_policy {
                     value: &policy_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "consentStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConsentStoreIamPolicyResult {
             consent_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consentStoreId").unwrap(),
+                o.extract_field("consentStoreId"),
             ),
             dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataset").unwrap(),
+                o.extract_field("dataset"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
         }
     }

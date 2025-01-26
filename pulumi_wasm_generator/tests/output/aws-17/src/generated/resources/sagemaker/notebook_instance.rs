@@ -280,135 +280,60 @@ pub mod notebook_instance {
                     value: &volume_size_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalCodeRepositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCodeRepository".into(),
-                },
-                register_interface::ResultField {
-                    name: "directInternetAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMetadataServiceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleConfigName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotebookInstanceResult {
             accelerator_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorTypes").unwrap(),
+                o.extract_field("acceleratorTypes"),
             ),
             additional_code_repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalCodeRepositories").unwrap(),
+                o.extract_field("additionalCodeRepositories"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             default_code_repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCodeRepository").unwrap(),
+                o.extract_field("defaultCodeRepository"),
             ),
             direct_internet_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directInternetAccess").unwrap(),
+                o.extract_field("directInternetAccess"),
             ),
             instance_metadata_service_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMetadataServiceConfiguration").unwrap(),
+                o.extract_field("instanceMetadataServiceConfiguration"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             lifecycle_config_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleConfigName").unwrap(),
+                o.extract_field("lifecycleConfigName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             platform_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformIdentifier").unwrap(),
+                o.extract_field("platformIdentifier"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             root_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootAccess").unwrap(),
+                o.extract_field("rootAccess"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
             volume_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeSize").unwrap(),
+                o.extract_field("volumeSize"),
             ),
         }
     }

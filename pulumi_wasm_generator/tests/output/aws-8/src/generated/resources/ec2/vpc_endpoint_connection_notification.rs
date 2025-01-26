@@ -137,51 +137,24 @@ pub mod vpc_endpoint_connection_notification {
                     value: &vpc_endpoint_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionEvents".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionNotificationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcEndpointConnectionNotificationResult {
             connection_events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionEvents").unwrap(),
+                o.extract_field("connectionEvents"),
             ),
             connection_notification_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionNotificationArn").unwrap(),
+                o.extract_field("connectionNotificationArn"),
             ),
             notification_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationType").unwrap(),
+                o.extract_field("notificationType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             vpc_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointId").unwrap(),
+                o.extract_field("vpcEndpointId"),
             ),
             vpc_endpoint_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointServiceId").unwrap(),
+                o.extract_field("vpcEndpointServiceId"),
             ),
         }
     }

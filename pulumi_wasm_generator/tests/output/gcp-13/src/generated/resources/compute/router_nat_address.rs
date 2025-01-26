@@ -141,51 +141,20 @@ pub mod router_nat_address {
                     value: &router_nat_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "drainNatIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "natIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "routerNat".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouterNatAddressResult {
             drain_nat_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("drainNatIps").unwrap(),
+                o.extract_field("drainNatIps"),
             ),
-            nat_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natIps").unwrap(),
-            ),
+            nat_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("natIps")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             router_nat: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routerNat").unwrap(),
+                o.extract_field("routerNat"),
             ),
         }
     }

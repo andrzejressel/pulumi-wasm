@@ -595,75 +595,32 @@ pub mod cx_page {
                     value: &transition_routes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "entryFulfillment".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHandlers".into(),
-                },
-                register_interface::ResultField {
-                    name: "form".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitionRouteGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitionRoutes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxPageResult {
             advanced_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedSettings").unwrap(),
+                o.extract_field("advancedSettings"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             entry_fulfillment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entryFulfillment").unwrap(),
+                o.extract_field("entryFulfillment"),
             ),
             event_handlers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHandlers").unwrap(),
+                o.extract_field("eventHandlers"),
             ),
-            form: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("form").unwrap(),
-            ),
+            form: pulumi_wasm_rust::__private::into_domain(o.extract_field("form")),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             transition_route_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitionRouteGroups").unwrap(),
+                o.extract_field("transitionRouteGroups"),
             ),
             transition_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitionRoutes").unwrap(),
+                o.extract_field("transitionRoutes"),
             ),
         }
     }

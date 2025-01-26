@@ -68,61 +68,26 @@ pub mod get_bundle {
                     value: &owner_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootStorages".into(),
-                },
-                register_interface::ResultField {
-                    name: "userStorages".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBundleResult {
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             compute_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeTypes").unwrap(),
+                o.extract_field("computeTypes"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             root_storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootStorages").unwrap(),
+                o.extract_field("rootStorages"),
             ),
             user_storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userStorages").unwrap(),
+                o.extract_field("userStorages"),
             ),
         }
     }

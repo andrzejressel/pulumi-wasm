@@ -65,80 +65,34 @@ pub mod get_server {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullyQualifiedDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorableDroppedDatabaseIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServerResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             fully_qualified_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullyQualifiedDomainName").unwrap(),
+                o.extract_field("fullyQualifiedDomainName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restorable_dropped_database_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorableDroppedDatabaseIds").unwrap(),
+                o.extract_field("restorableDroppedDatabaseIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionKeyVaultKeyId").unwrap(),
+                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

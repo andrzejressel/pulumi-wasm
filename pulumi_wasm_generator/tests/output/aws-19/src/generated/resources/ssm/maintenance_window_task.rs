@@ -294,99 +294,46 @@ pub mod maintenance_window_task {
                     value: &window_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cutoffBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxConcurrency".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskInvocationParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowId".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowTaskId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MaintenanceWindowTaskResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cutoff_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cutoffBehavior").unwrap(),
+                o.extract_field("cutoffBehavior"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             max_concurrency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxConcurrency").unwrap(),
+                o.extract_field("maxConcurrency"),
             ),
             max_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxErrors").unwrap(),
+                o.extract_field("maxErrors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
             targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
+                o.extract_field("targets"),
             ),
             task_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskArn").unwrap(),
+                o.extract_field("taskArn"),
             ),
             task_invocation_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskInvocationParameters").unwrap(),
+                o.extract_field("taskInvocationParameters"),
             ),
             task_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskType").unwrap(),
+                o.extract_field("taskType"),
             ),
             window_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowId").unwrap(),
+                o.extract_field("windowId"),
             ),
             window_task_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowTaskId").unwrap(),
+                o.extract_field("windowTaskId"),
             ),
         }
     }

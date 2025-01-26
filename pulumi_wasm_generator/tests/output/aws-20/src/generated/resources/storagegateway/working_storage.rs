@@ -72,27 +72,12 @@ pub mod working_storage {
                     value: &gateway_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "diskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkingStorageResult {
-            disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskId").unwrap(),
-            ),
+            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
         }
     }

@@ -93,39 +93,16 @@ pub mod random_pet {
                     value: &separator_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "length".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "separator".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomPetResult {
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("length").unwrap(),
-            ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            length: pulumi_wasm_rust::__private::into_domain(o.extract_field("length")),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             separator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("separator").unwrap(),
+                o.extract_field("separator"),
             ),
         }
     }

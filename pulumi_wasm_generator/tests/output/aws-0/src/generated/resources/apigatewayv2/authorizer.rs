@@ -230,76 +230,35 @@ pub mod authorizer {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerCredentialsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerPayloadFormatVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerResultTtlInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSimpleResponses".into(),
-                },
-                register_interface::ResultField {
-                    name: "identitySources".into(),
-                },
-                register_interface::ResultField {
-                    name: "jwtConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorizerResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             authorizer_credentials_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerCredentialsArn").unwrap(),
+                o.extract_field("authorizerCredentialsArn"),
             ),
             authorizer_payload_format_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerPayloadFormatVersion").unwrap(),
+                o.extract_field("authorizerPayloadFormatVersion"),
             ),
             authorizer_result_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerResultTtlInSeconds").unwrap(),
+                o.extract_field("authorizerResultTtlInSeconds"),
             ),
             authorizer_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerType").unwrap(),
+                o.extract_field("authorizerType"),
             ),
             authorizer_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerUri").unwrap(),
+                o.extract_field("authorizerUri"),
             ),
             enable_simple_responses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSimpleResponses").unwrap(),
+                o.extract_field("enableSimpleResponses"),
             ),
             identity_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identitySources").unwrap(),
+                o.extract_field("identitySources"),
             ),
             jwt_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jwtConfiguration").unwrap(),
+                o.extract_field("jwtConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

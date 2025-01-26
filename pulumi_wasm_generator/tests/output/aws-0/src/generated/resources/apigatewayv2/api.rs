@@ -263,124 +263,51 @@ pub mod api {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiKeySelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentialsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableExecuteApiEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "failOnWarnings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolType".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeSelectionExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiResult {
             api_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiEndpoint").unwrap(),
+                o.extract_field("apiEndpoint"),
             ),
             api_key_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeySelectionExpression").unwrap(),
+                o.extract_field("apiKeySelectionExpression"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             cors_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsConfiguration").unwrap(),
+                o.extract_field("corsConfiguration"),
             ),
             credentials_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialsArn").unwrap(),
+                o.extract_field("credentialsArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_execute_api_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableExecuteApiEndpoint").unwrap(),
+                o.extract_field("disableExecuteApiEndpoint"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
             fail_on_warnings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failOnWarnings").unwrap(),
+                o.extract_field("failOnWarnings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protocol_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolType").unwrap(),
+                o.extract_field("protocolType"),
             ),
             route_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeKey").unwrap(),
+                o.extract_field("routeKey"),
             ),
             route_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeSelectionExpression").unwrap(),
+                o.extract_field("routeSelectionExpression"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

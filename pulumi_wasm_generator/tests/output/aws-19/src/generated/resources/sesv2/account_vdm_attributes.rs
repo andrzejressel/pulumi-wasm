@@ -109,33 +109,17 @@ pub mod account_vdm_attributes {
                     value: &vdm_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dashboardAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardianAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "vdmEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountVdmAttributesResult {
             dashboard_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardAttributes").unwrap(),
+                o.extract_field("dashboardAttributes"),
             ),
             guardian_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardianAttributes").unwrap(),
+                o.extract_field("guardianAttributes"),
             ),
             vdm_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vdmEnabled").unwrap(),
+                o.extract_field("vdmEnabled"),
             ),
         }
     }

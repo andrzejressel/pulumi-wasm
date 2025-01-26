@@ -271,105 +271,51 @@ pub mod nat_rule {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendAddressPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendIpConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableFloatingIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableTcpReset".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPortEnd".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPortStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NatRuleResult {
             backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPoolId").unwrap(),
+                o.extract_field("backendAddressPoolId"),
             ),
             backend_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendIpConfigurationId").unwrap(),
+                o.extract_field("backendIpConfigurationId"),
             ),
             backend_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPort").unwrap(),
+                o.extract_field("backendPort"),
             ),
             enable_floating_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableFloatingIp").unwrap(),
+                o.extract_field("enableFloatingIp"),
             ),
             enable_tcp_reset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableTcpReset").unwrap(),
+                o.extract_field("enableTcpReset"),
             ),
             frontend_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurationId").unwrap(),
+                o.extract_field("frontendIpConfigurationId"),
             ),
             frontend_ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurationName").unwrap(),
+                o.extract_field("frontendIpConfigurationName"),
             ),
             frontend_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPort").unwrap(),
+                o.extract_field("frontendPort"),
             ),
             frontend_port_end: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPortEnd").unwrap(),
+                o.extract_field("frontendPortEnd"),
             ),
             frontend_port_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPortStart").unwrap(),
+                o.extract_field("frontendPortStart"),
             ),
             idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeoutInMinutes").unwrap(),
+                o.extract_field("idleTimeoutInMinutes"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

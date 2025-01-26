@@ -250,87 +250,36 @@ pub mod source_representation_instance {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "caCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "dumpFilePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceRepresentationInstanceResult {
             ca_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertificate").unwrap(),
+                o.extract_field("caCertificate"),
             ),
             client_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificate").unwrap(),
+                o.extract_field("clientCertificate"),
             ),
             client_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientKey").unwrap(),
+                o.extract_field("clientKey"),
             ),
             database_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseVersion").unwrap(),
+                o.extract_field("databaseVersion"),
             ),
             dump_file_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dumpFilePath").unwrap(),
+                o.extract_field("dumpFilePath"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

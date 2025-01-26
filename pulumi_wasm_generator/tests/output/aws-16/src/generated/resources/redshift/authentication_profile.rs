@@ -74,27 +74,14 @@ pub mod authentication_profile {
                     value: &authentication_profile_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationProfileContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationProfileName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthenticationProfileResult {
             authentication_profile_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationProfileContent").unwrap(),
+                o.extract_field("authenticationProfileContent"),
             ),
             authentication_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationProfileName").unwrap(),
+                o.extract_field("authenticationProfileName"),
             ),
         }
     }

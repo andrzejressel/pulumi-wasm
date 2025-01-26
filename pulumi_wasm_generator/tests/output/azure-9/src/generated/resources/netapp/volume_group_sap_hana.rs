@@ -318,58 +318,26 @@ pub mod volume_group_sap_hana {
                     value: &volumes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeGroupSapHanaResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             application_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationIdentifier").unwrap(),
+                o.extract_field("applicationIdentifier"),
             ),
             group_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupDescription").unwrap(),
+                o.extract_field("groupDescription"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumes").unwrap(),
-            ),
+            volumes: pulumi_wasm_rust::__private::into_domain(o.extract_field("volumes")),
         }
     }
 }

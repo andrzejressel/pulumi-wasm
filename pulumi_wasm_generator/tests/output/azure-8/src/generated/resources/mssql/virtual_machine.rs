@@ -295,111 +295,54 @@ pub mod virtual_machine {
                     value: &wsfc_domain_credential_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assessment".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoBackup".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoPatching".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultCredential".into(),
-                },
-                register_interface::ResultField {
-                    name: "rServicesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlConnectivityPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlConnectivityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlConnectivityUpdatePassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlConnectivityUpdateUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlLicenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlVirtualMachineGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "wsfcDomainCredential".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualMachineResult {
             assessment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assessment").unwrap(),
+                o.extract_field("assessment"),
             ),
             auto_backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoBackup").unwrap(),
+                o.extract_field("autoBackup"),
             ),
             auto_patching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoPatching").unwrap(),
+                o.extract_field("autoPatching"),
             ),
             key_vault_credential: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultCredential").unwrap(),
+                o.extract_field("keyVaultCredential"),
             ),
             r_services_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rServicesEnabled").unwrap(),
+                o.extract_field("rServicesEnabled"),
             ),
             sql_connectivity_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlConnectivityPort").unwrap(),
+                o.extract_field("sqlConnectivityPort"),
             ),
             sql_connectivity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlConnectivityType").unwrap(),
+                o.extract_field("sqlConnectivityType"),
             ),
             sql_connectivity_update_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlConnectivityUpdatePassword").unwrap(),
+                o.extract_field("sqlConnectivityUpdatePassword"),
             ),
             sql_connectivity_update_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlConnectivityUpdateUsername").unwrap(),
+                o.extract_field("sqlConnectivityUpdateUsername"),
             ),
             sql_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlInstance").unwrap(),
+                o.extract_field("sqlInstance"),
             ),
             sql_license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlLicenseType").unwrap(),
+                o.extract_field("sqlLicenseType"),
             ),
             sql_virtual_machine_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlVirtualMachineGroupId").unwrap(),
+                o.extract_field("sqlVirtualMachineGroupId"),
             ),
             storage_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConfiguration").unwrap(),
+                o.extract_field("storageConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
             wsfc_domain_credential: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wsfcDomainCredential").unwrap(),
+                o.extract_field("wsfcDomainCredential"),
             ),
         }
     }

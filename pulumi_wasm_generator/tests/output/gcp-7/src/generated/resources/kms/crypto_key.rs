@@ -305,99 +305,46 @@ pub mod crypto_key {
                     value: &version_template_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cryptoKeyBackend".into(),
-                },
-                register_interface::ResultField {
-                    name: "destroyScheduledDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "importOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyAccessJustificationsPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRing".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaries".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "purpose".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipInitialVersionCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionTemplate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CryptoKeyResult {
             crypto_key_backend: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cryptoKeyBackend").unwrap(),
+                o.extract_field("cryptoKeyBackend"),
             ),
             destroy_scheduled_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destroyScheduledDuration").unwrap(),
+                o.extract_field("destroyScheduledDuration"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             import_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importOnly").unwrap(),
+                o.extract_field("importOnly"),
             ),
             key_access_justifications_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyAccessJustificationsPolicy").unwrap(),
+                o.extract_field("keyAccessJustificationsPolicy"),
             ),
             key_ring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRing").unwrap(),
+                o.extract_field("keyRing"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaries").unwrap(),
+                o.extract_field("primaries"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             purpose: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purpose").unwrap(),
+                o.extract_field("purpose"),
             ),
             rotation_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationPeriod").unwrap(),
+                o.extract_field("rotationPeriod"),
             ),
             skip_initial_version_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipInitialVersionCreation").unwrap(),
+                o.extract_field("skipInitialVersionCreation"),
             ),
             version_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionTemplate").unwrap(),
+                o.extract_field("versionTemplate"),
             ),
         }
     }

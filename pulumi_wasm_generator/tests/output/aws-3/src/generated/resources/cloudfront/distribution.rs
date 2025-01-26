@@ -509,207 +509,96 @@ pub mod distribution {
                     value: &web_acl_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliases".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "callerReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "continuousDeploymentPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customErrorResponses".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCacheBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRootObject".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "inProgressValidationBatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "isIpv6Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "orderedCacheBehaviors".into(),
-                },
-                register_interface::ResultField {
-                    name: "originGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "origins".into(),
-                },
-                register_interface::ResultField {
-                    name: "priceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictions".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainOnDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "staging".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedKeyGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedSigners".into(),
-                },
-                register_interface::ResultField {
-                    name: "viewerCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForDeployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "webAclId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DistributionResult {
             aliases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliases").unwrap(),
+                o.extract_field("aliases"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             caller_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerReference").unwrap(),
+                o.extract_field("callerReference"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             continuous_deployment_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("continuousDeploymentPolicyId").unwrap(),
+                o.extract_field("continuousDeploymentPolicyId"),
             ),
             custom_error_responses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customErrorResponses").unwrap(),
+                o.extract_field("customErrorResponses"),
             ),
             default_cache_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCacheBehavior").unwrap(),
+                o.extract_field("defaultCacheBehavior"),
             ),
             default_root_object: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRootObject").unwrap(),
+                o.extract_field("defaultRootObject"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
             http_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpVersion").unwrap(),
+                o.extract_field("httpVersion"),
             ),
             in_progress_validation_batches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inProgressValidationBatches").unwrap(),
+                o.extract_field("inProgressValidationBatches"),
             ),
             is_ipv6_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isIpv6Enabled").unwrap(),
+                o.extract_field("isIpv6Enabled"),
             ),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfig").unwrap(),
+                o.extract_field("loggingConfig"),
             ),
             ordered_cache_behaviors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orderedCacheBehaviors").unwrap(),
+                o.extract_field("orderedCacheBehaviors"),
             ),
             origin_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originGroups").unwrap(),
+                o.extract_field("originGroups"),
             ),
             origins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origins").unwrap(),
+                o.extract_field("origins"),
             ),
             price_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priceClass").unwrap(),
+                o.extract_field("priceClass"),
             ),
             restrictions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictions").unwrap(),
+                o.extract_field("restrictions"),
             ),
             retain_on_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainOnDelete").unwrap(),
+                o.extract_field("retainOnDelete"),
             ),
             staging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staging").unwrap(),
+                o.extract_field("staging"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             trusted_key_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedKeyGroups").unwrap(),
+                o.extract_field("trustedKeyGroups"),
             ),
             trusted_signers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedSigners").unwrap(),
+                o.extract_field("trustedSigners"),
             ),
             viewer_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("viewerCertificate").unwrap(),
+                o.extract_field("viewerCertificate"),
             ),
             wait_for_deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForDeployment").unwrap(),
+                o.extract_field("waitForDeployment"),
             ),
             web_acl_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webAclId").unwrap(),
+                o.extract_field("webAclId"),
             ),
         }
     }

@@ -73,27 +73,14 @@ pub mod subscription {
                     value: &skip_destroy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoRenew".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionResult {
             auto_renew: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRenew").unwrap(),
+                o.extract_field("autoRenew"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
         }
     }

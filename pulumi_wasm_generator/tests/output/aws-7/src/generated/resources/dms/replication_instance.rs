@@ -343,135 +343,66 @@ pub mod replication_instance {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowMajorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAz".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstancePrivateIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstancePublicIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationSubnetGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationInstanceResult {
             allocated_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorage").unwrap(),
+                o.extract_field("allocatedStorage"),
             ),
             allow_major_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowMajorVersionUpgrade").unwrap(),
+                o.extract_field("allowMajorVersionUpgrade"),
             ),
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             multi_az: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAz").unwrap(),
+                o.extract_field("multiAz"),
             ),
             network_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkType").unwrap(),
+                o.extract_field("networkType"),
             ),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             replication_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstanceArn").unwrap(),
+                o.extract_field("replicationInstanceArn"),
             ),
             replication_instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstanceClass").unwrap(),
+                o.extract_field("replicationInstanceClass"),
             ),
             replication_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstanceId").unwrap(),
+                o.extract_field("replicationInstanceId"),
             ),
             replication_instance_private_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstancePrivateIps").unwrap(),
+                o.extract_field("replicationInstancePrivateIps"),
             ),
             replication_instance_public_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstancePublicIps").unwrap(),
+                o.extract_field("replicationInstancePublicIps"),
             ),
             replication_subnet_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSubnetGroupId").unwrap(),
+                o.extract_field("replicationSubnetGroupId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

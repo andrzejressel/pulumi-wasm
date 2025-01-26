@@ -162,33 +162,17 @@ pub mod network_interface_backend_address_pool_association {
                     value: &network_interface_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendAddressPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkInterfaceBackendAddressPoolAssociationResult {
             backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPoolId").unwrap(),
+                o.extract_field("backendAddressPoolId"),
             ),
             ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurationName").unwrap(),
+                o.extract_field("ipConfigurationName"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
         }
     }

@@ -160,39 +160,20 @@ pub mod delegation_signer_record {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnssecKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DelegationSignerRecordResult {
             dnssec_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnssecKeyId").unwrap(),
+                o.extract_field("dnssecKeyId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             signing_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingAttributes").unwrap(),
+                o.extract_field("signingAttributes"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

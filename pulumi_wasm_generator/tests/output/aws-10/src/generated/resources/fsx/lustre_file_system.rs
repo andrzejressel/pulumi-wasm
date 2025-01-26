@@ -423,213 +423,101 @@ pub mod lustre_file_system {
                     value: &weekly_maintenance_start_time_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoImportPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticBackupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToBackups".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyAutomaticBackupStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCompressionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "driveCacheType".into(),
-                },
-                register_interface::ResultField {
-                    name: "efaEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemTypeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalBackupTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "importPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "importedFileChunkSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "perUnitStorageThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootSquashConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFinalBackup".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyMaintenanceStartTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LustreFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_import_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoImportPolicy").unwrap(),
+                o.extract_field("autoImportPolicy"),
             ),
             automatic_backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticBackupRetentionDays").unwrap(),
+                o.extract_field("automaticBackupRetentionDays"),
             ),
             backup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupId").unwrap(),
+                o.extract_field("backupId"),
             ),
             copy_tags_to_backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToBackups").unwrap(),
+                o.extract_field("copyTagsToBackups"),
             ),
             daily_automatic_backup_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyAutomaticBackupStartTime").unwrap(),
+                o.extract_field("dailyAutomaticBackupStartTime"),
             ),
             data_compression_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCompressionType").unwrap(),
+                o.extract_field("dataCompressionType"),
             ),
             deployment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentType").unwrap(),
+                o.extract_field("deploymentType"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             drive_cache_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driveCacheType").unwrap(),
+                o.extract_field("driveCacheType"),
             ),
             efa_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("efaEnabled").unwrap(),
+                o.extract_field("efaEnabled"),
             ),
             export_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportPath").unwrap(),
+                o.extract_field("exportPath"),
             ),
             file_system_type_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemTypeVersion").unwrap(),
+                o.extract_field("fileSystemTypeVersion"),
             ),
             final_backup_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalBackupTags").unwrap(),
+                o.extract_field("finalBackupTags"),
             ),
             import_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importPath").unwrap(),
+                o.extract_field("importPath"),
             ),
             imported_file_chunk_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importedFileChunkSize").unwrap(),
+                o.extract_field("importedFileChunkSize"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             log_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfiguration").unwrap(),
+                o.extract_field("logConfiguration"),
             ),
             metadata_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataConfiguration").unwrap(),
+                o.extract_field("metadataConfiguration"),
             ),
             mount_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountName").unwrap(),
+                o.extract_field("mountName"),
             ),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             per_unit_storage_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perUnitStorageThroughput").unwrap(),
+                o.extract_field("perUnitStorageThroughput"),
             ),
             root_squash_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootSquashConfiguration").unwrap(),
+                o.extract_field("rootSquashConfiguration"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             skip_final_backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFinalBackup").unwrap(),
+                o.extract_field("skipFinalBackup"),
             ),
             storage_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacity").unwrap(),
+                o.extract_field("storageCapacity"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             weekly_maintenance_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyMaintenanceStartTime").unwrap(),
+                o.extract_field("weeklyMaintenanceStartTime"),
             ),
         }
     }

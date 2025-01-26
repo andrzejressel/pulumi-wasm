@@ -243,105 +243,49 @@ pub mod snapshot {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskAccessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "incrementalEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotResult {
             create_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createOption").unwrap(),
+                o.extract_field("createOption"),
             ),
             disk_access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskAccessId").unwrap(),
+                o.extract_field("diskAccessId"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
             encryption_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSettings").unwrap(),
+                o.extract_field("encryptionSettings"),
             ),
             incremental_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("incrementalEnabled").unwrap(),
+                o.extract_field("incrementalEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAccessPolicy").unwrap(),
+                o.extract_field("networkAccessPolicy"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             source_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceUri").unwrap(),
+                o.extract_field("sourceUri"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchEnabled").unwrap(),
+                o.extract_field("trustedLaunchEnabled"),
             ),
         }
     }

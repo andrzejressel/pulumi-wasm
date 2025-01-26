@@ -237,93 +237,43 @@ pub mod factory {
                     value: &vsts_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customerManagedKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyIdentityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "githubConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedVirtualNetworkEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "purviewId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vstsConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FactoryResult {
             customer_managed_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyId").unwrap(),
+                o.extract_field("customerManagedKeyId"),
             ),
             customer_managed_key_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyIdentityId").unwrap(),
+                o.extract_field("customerManagedKeyIdentityId"),
             ),
             github_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("githubConfiguration").unwrap(),
+                o.extract_field("githubConfiguration"),
             ),
             global_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalParameters").unwrap(),
+                o.extract_field("globalParameters"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_virtual_network_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedVirtualNetworkEnabled").unwrap(),
+                o.extract_field("managedVirtualNetworkEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkEnabled").unwrap(),
+                o.extract_field("publicNetworkEnabled"),
             ),
             purview_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purviewId").unwrap(),
+                o.extract_field("purviewId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vsts_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vstsConfiguration").unwrap(),
+                o.extract_field("vstsConfiguration"),
             ),
         }
     }

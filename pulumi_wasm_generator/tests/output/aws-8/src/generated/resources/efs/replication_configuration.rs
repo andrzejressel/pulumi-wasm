@@ -151,51 +151,26 @@ pub mod replication_configuration {
                     value: &source_file_system_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "originalSourceFileSystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFileSystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFileSystemRegion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationConfigurationResult {
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             original_source_file_system_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originalSourceFileSystemArn").unwrap(),
+                o.extract_field("originalSourceFileSystemArn"),
             ),
             source_file_system_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFileSystemArn").unwrap(),
+                o.extract_field("sourceFileSystemArn"),
             ),
             source_file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFileSystemId").unwrap(),
+                o.extract_field("sourceFileSystemId"),
             ),
             source_file_system_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFileSystemRegion").unwrap(),
+                o.extract_field("sourceFileSystemRegion"),
             ),
         }
     }

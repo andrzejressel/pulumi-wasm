@@ -101,27 +101,14 @@ pub mod nat_gateway_public_ip_prefix_association {
                     value: &public_ip_prefix_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "natGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpPrefixId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NatGatewayPublicIpPrefixAssociationResult {
             nat_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natGatewayId").unwrap(),
+                o.extract_field("natGatewayId"),
             ),
             public_ip_prefix_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpPrefixId").unwrap(),
+                o.extract_field("publicIpPrefixId"),
             ),
         }
     }

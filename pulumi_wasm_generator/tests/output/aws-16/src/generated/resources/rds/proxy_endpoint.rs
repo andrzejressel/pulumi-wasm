@@ -117,81 +117,35 @@ pub mod proxy_endpoint {
                     value: &vpc_subnet_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbProxyEndpointName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbProxyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSubnetIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProxyEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             db_proxy_endpoint_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbProxyEndpointName").unwrap(),
+                o.extract_field("dbProxyEndpointName"),
             ),
             db_proxy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbProxyName").unwrap(),
+                o.extract_field("dbProxyName"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             is_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefault").unwrap(),
+                o.extract_field("isDefault"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRole").unwrap(),
+                o.extract_field("targetRole"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
             vpc_subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSubnetIds").unwrap(),
+                o.extract_field("vpcSubnetIds"),
             ),
         }
     }

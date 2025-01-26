@@ -196,87 +196,38 @@ pub mod ca_certificate {
                     value: &verification_certificate_pem_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowAutoRegistration".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "caCertificatePem".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "generationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "validities".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationCertificatePem".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CaCertificateResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
             allow_auto_registration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowAutoRegistration").unwrap(),
+                o.extract_field("allowAutoRegistration"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             ca_certificate_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertificatePem").unwrap(),
+                o.extract_field("caCertificatePem"),
             ),
             certificate_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateMode").unwrap(),
+                o.extract_field("certificateMode"),
             ),
             customer_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerVersion").unwrap(),
+                o.extract_field("customerVersion"),
             ),
             generation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generationId").unwrap(),
+                o.extract_field("generationId"),
             ),
             registration_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationConfig").unwrap(),
+                o.extract_field("registrationConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             validities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validities").unwrap(),
+                o.extract_field("validities"),
             ),
             verification_certificate_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationCertificatePem").unwrap(),
+                o.extract_field("verificationCertificatePem"),
             ),
         }
     }

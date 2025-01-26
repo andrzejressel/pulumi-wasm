@@ -176,82 +176,34 @@ pub mod custom_action_type {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "category".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputArtifactDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputArtifactDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomActionTypeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("category").unwrap(),
+                o.extract_field("category"),
             ),
             configuration_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationProperties").unwrap(),
+                o.extract_field("configurationProperties"),
             ),
             input_artifact_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputArtifactDetails").unwrap(),
+                o.extract_field("inputArtifactDetails"),
             ),
             output_artifact_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputArtifactDetails").unwrap(),
+                o.extract_field("outputArtifactDetails"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

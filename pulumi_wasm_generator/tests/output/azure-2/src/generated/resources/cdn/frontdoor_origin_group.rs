@@ -168,53 +168,24 @@ pub mod frontdoor_origin_group {
                     value: &session_affinity_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthProbe".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancing".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreTrafficTimeToHealedOrNewEndpointInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinityEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorOriginGroupResult {
             cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileId").unwrap(),
+                o.extract_field("cdnFrontdoorProfileId"),
             ),
             health_probe: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthProbe").unwrap(),
+                o.extract_field("healthProbe"),
             ),
             load_balancing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancing").unwrap(),
+                o.extract_field("loadBalancing"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("restoreTrafficTimeToHealedOrNewEndpointInMinutes")
-                    .unwrap(),
+                o.extract_field("restoreTrafficTimeToHealedOrNewEndpointInMinutes"),
             ),
             session_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinityEnabled").unwrap(),
+                o.extract_field("sessionAffinityEnabled"),
             ),
         }
     }

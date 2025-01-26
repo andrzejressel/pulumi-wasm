@@ -105,46 +105,22 @@ pub mod framework_share {
                     value: &framework_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "frameworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrameworkShareResult {
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             destination_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationAccount").unwrap(),
+                o.extract_field("destinationAccount"),
             ),
             destination_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationRegion").unwrap(),
+                o.extract_field("destinationRegion"),
             ),
             framework_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frameworkId").unwrap(),
+                o.extract_field("frameworkId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

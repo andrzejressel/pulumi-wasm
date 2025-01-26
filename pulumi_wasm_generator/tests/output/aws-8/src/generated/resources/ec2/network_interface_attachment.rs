@@ -89,46 +89,22 @@ pub mod network_interface_attachment {
                     value: &network_interface_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceIndex".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkInterfaceAttachmentResult {
             attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentId").unwrap(),
+                o.extract_field("attachmentId"),
             ),
             device_index: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceIndex").unwrap(),
+                o.extract_field("deviceIndex"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

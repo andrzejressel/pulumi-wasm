@@ -177,75 +177,36 @@ pub mod schedule {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscalingGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "minSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurrence".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduledActionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScheduleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroupName").unwrap(),
+                o.extract_field("autoscalingGroupName"),
             ),
             desired_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredCapacity").unwrap(),
+                o.extract_field("desiredCapacity"),
             ),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             max_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSize").unwrap(),
+                o.extract_field("maxSize"),
             ),
             min_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minSize").unwrap(),
+                o.extract_field("minSize"),
             ),
             recurrence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurrence").unwrap(),
+                o.extract_field("recurrence"),
             ),
             scheduled_action_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduledActionName").unwrap(),
+                o.extract_field("scheduledActionName"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

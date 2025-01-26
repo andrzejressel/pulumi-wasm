@@ -123,28 +123,13 @@ pub mod access_levels {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLevels".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessLevelsResult {
             access_levels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLevels").unwrap(),
+                o.extract_field("accessLevels"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
         }
     }
 }

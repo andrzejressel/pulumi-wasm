@@ -186,58 +186,26 @@ pub mod network_service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pccRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrecedence".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceQosPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkServiceResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mobile_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkId").unwrap(),
+                o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pcc_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pccRules").unwrap(),
+                o.extract_field("pccRules"),
             ),
             service_precedence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrecedence").unwrap(),
+                o.extract_field("servicePrecedence"),
             ),
             service_qos_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceQosPolicy").unwrap(),
+                o.extract_field("serviceQosPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

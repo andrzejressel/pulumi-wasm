@@ -131,45 +131,21 @@ pub mod bucket_public_access_block {
                     value: &restrict_public_buckets_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blockPublicAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockPublicPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignorePublicAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictPublicBuckets".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketPublicAccessBlockResult {
             block_public_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicAcls").unwrap(),
+                o.extract_field("blockPublicAcls"),
             ),
             block_public_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicPolicy").unwrap(),
+                o.extract_field("blockPublicPolicy"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             ignore_public_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignorePublicAcls").unwrap(),
+                o.extract_field("ignorePublicAcls"),
             ),
             restrict_public_buckets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictPublicBuckets").unwrap(),
+                o.extract_field("restrictPublicBuckets"),
             ),
         }
     }

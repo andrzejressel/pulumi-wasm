@@ -57,43 +57,19 @@ pub mod get_cipher_text {
                     value: &plaintext_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ciphertextBlob".into(),
-                },
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "plaintext".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCipherTextResult {
             ciphertext_blob: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ciphertextBlob").unwrap(),
+                o.extract_field("ciphertextBlob"),
             ),
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             plaintext: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plaintext").unwrap(),
+                o.extract_field("plaintext"),
             ),
         }
     }

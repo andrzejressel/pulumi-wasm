@@ -47,36 +47,15 @@ pub mod get_sas {
                     value: &expiry_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiry".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "sas".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSasResult {
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
-            expiry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiry").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            sas: pulumi_wasm_rust::__private::into_domain(hashmap.remove("sas").unwrap()),
+            expiry: pulumi_wasm_rust::__private::into_domain(o.extract_field("expiry")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            sas: pulumi_wasm_rust::__private::into_domain(o.extract_field("sas")),
         }
     }
 }

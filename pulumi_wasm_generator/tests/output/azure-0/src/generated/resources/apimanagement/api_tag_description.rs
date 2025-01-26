@@ -132,39 +132,20 @@ pub mod api_tag_description {
                     value: &external_documentation_url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiTagId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalDocumentationDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalDocumentationUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiTagDescriptionResult {
             api_tag_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiTagId").unwrap(),
+                o.extract_field("apiTagId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             external_documentation_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalDocumentationDescription").unwrap(),
+                o.extract_field("externalDocumentationDescription"),
             ),
             external_documentation_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalDocumentationUrl").unwrap(),
+                o.extract_field("externalDocumentationUrl"),
             ),
         }
     }

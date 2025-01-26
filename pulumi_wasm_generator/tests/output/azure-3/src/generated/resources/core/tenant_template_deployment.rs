@@ -138,63 +138,28 @@ pub mod tenant_template_deployment {
                     value: &template_spec_version_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "debugLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "parametersContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateSpecVersionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TenantTemplateDeploymentResult {
             debug_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("debugLevel").unwrap(),
+                o.extract_field("debugLevel"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputContent").unwrap(),
+                o.extract_field("outputContent"),
             ),
             parameters_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parametersContent").unwrap(),
+                o.extract_field("parametersContent"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             template_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateContent").unwrap(),
+                o.extract_field("templateContent"),
             ),
             template_spec_version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateSpecVersionId").unwrap(),
+                o.extract_field("templateSpecVersionId"),
             ),
         }
     }

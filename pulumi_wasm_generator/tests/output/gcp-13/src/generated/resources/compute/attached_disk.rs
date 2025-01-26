@@ -227,58 +227,24 @@ pub mod attached_disk {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "disk".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "interface".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AttachedDiskResult {
             device_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceName").unwrap(),
+                o.extract_field("deviceName"),
             ),
-            disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disk").unwrap(),
-            ),
+            disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("disk")),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
             interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interface").unwrap(),
+                o.extract_field("interface"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

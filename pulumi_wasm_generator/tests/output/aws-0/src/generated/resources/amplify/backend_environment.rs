@@ -104,45 +104,19 @@ pub mod backend_environment {
                     value: &stack_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentArtifacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendEnvironmentResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deployment_artifacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentArtifacts").unwrap(),
+                o.extract_field("deploymentArtifacts"),
             ),
             environment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentName").unwrap(),
+                o.extract_field("environmentName"),
             ),
             stack_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackName").unwrap(),
+                o.extract_field("stackName"),
             ),
         }
     }

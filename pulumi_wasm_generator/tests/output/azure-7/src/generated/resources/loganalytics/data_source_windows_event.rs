@@ -124,45 +124,21 @@ pub mod data_source_windows_event {
                     value: &workspace_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "eventLogName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataSourceWindowsEventResult {
             event_log_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventLogName").unwrap(),
+                o.extract_field("eventLogName"),
             ),
             event_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTypes").unwrap(),
+                o.extract_field("eventTypes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             workspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceName").unwrap(),
+                o.extract_field("workspaceName"),
             ),
         }
     }

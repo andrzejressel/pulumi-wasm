@@ -97,39 +97,18 @@ pub mod source_repository {
                     value: &space_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SourceRepositoryResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectName").unwrap(),
+                o.extract_field("projectName"),
             ),
             space_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceName").unwrap(),
+                o.extract_field("spaceName"),
             ),
         }
     }

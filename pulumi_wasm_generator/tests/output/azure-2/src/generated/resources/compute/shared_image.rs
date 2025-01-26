@@ -426,183 +426,84 @@ pub mod shared_image {
                     value: &trusted_launch_supported_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratedNetworkSupportEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "architecture".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialVmEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialVmSupported".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskControllerTypeNvmeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskTypesNotAlloweds".into(),
-                },
-                register_interface::ResultField {
-                    name: "endOfLifeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "eula".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hibernationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperVGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRecommendedMemoryInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRecommendedVcpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "minRecommendedMemoryInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "minRecommendedVcpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "privacyStatementUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "purchasePlan".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseNoteUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "specialized".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchSupported".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedImageResult {
             accelerated_network_support_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratedNetworkSupportEnabled").unwrap(),
+                o.extract_field("acceleratedNetworkSupportEnabled"),
             ),
             architecture: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("architecture").unwrap(),
+                o.extract_field("architecture"),
             ),
             confidential_vm_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialVmEnabled").unwrap(),
+                o.extract_field("confidentialVmEnabled"),
             ),
             confidential_vm_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialVmSupported").unwrap(),
+                o.extract_field("confidentialVmSupported"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disk_controller_type_nvme_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskControllerTypeNvmeEnabled").unwrap(),
+                o.extract_field("diskControllerTypeNvmeEnabled"),
             ),
             disk_types_not_alloweds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskTypesNotAlloweds").unwrap(),
+                o.extract_field("diskTypesNotAlloweds"),
             ),
             end_of_life_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endOfLifeDate").unwrap(),
+                o.extract_field("endOfLifeDate"),
             ),
-            eula: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eula").unwrap(),
-            ),
+            eula: pulumi_wasm_rust::__private::into_domain(o.extract_field("eula")),
             gallery_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryName").unwrap(),
+                o.extract_field("galleryName"),
             ),
             hibernation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hibernationEnabled").unwrap(),
+                o.extract_field("hibernationEnabled"),
             ),
             hyper_v_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperVGeneration").unwrap(),
+                o.extract_field("hyperVGeneration"),
             ),
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_recommended_memory_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRecommendedMemoryInGb").unwrap(),
+                o.extract_field("maxRecommendedMemoryInGb"),
             ),
             max_recommended_vcpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRecommendedVcpuCount").unwrap(),
+                o.extract_field("maxRecommendedVcpuCount"),
             ),
             min_recommended_memory_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minRecommendedMemoryInGb").unwrap(),
+                o.extract_field("minRecommendedMemoryInGb"),
             ),
             min_recommended_vcpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minRecommendedVcpuCount").unwrap(),
+                o.extract_field("minRecommendedVcpuCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             privacy_statement_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privacyStatementUri").unwrap(),
+                o.extract_field("privacyStatementUri"),
             ),
             purchase_plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purchasePlan").unwrap(),
+                o.extract_field("purchasePlan"),
             ),
             release_note_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseNoteUri").unwrap(),
+                o.extract_field("releaseNoteUri"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             specialized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("specialized").unwrap(),
+                o.extract_field("specialized"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchEnabled").unwrap(),
+                o.extract_field("trustedLaunchEnabled"),
             ),
             trusted_launch_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchSupported").unwrap(),
+                o.extract_field("trustedLaunchSupported"),
             ),
         }
     }

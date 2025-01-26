@@ -231,45 +231,23 @@ pub mod function_event_invoke_config {
                     value: &qualifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumEventAgeInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumRetryAttempts".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FunctionEventInvokeConfigResult {
             destination_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfig").unwrap(),
+                o.extract_field("destinationConfig"),
             ),
             function_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionName").unwrap(),
+                o.extract_field("functionName"),
             ),
             maximum_event_age_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumEventAgeInSeconds").unwrap(),
+                o.extract_field("maximumEventAgeInSeconds"),
             ),
             maximum_retry_attempts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumRetryAttempts").unwrap(),
+                o.extract_field("maximumRetryAttempts"),
             ),
             qualifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifier").unwrap(),
+                o.extract_field("qualifier"),
             ),
         }
     }

@@ -41,38 +41,15 @@ pub mod get_secrets {
                     value: &key_vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-                register_interface::ResultField {
-                    name: "secrets".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSecretsResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
-            secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secrets").unwrap(),
-            ),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
+            secrets: pulumi_wasm_rust::__private::into_domain(o.extract_field("secrets")),
         }
     }
 }

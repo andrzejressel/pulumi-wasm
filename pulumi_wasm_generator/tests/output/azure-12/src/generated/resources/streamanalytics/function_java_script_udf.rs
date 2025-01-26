@@ -142,51 +142,18 @@ pub mod function_java_script_udf {
                     value: &stream_analytics_job_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "inputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "output".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "script".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FunctionJavaScriptUDFResult {
-            inputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputs").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            output: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("output").unwrap(),
-            ),
+            inputs: pulumi_wasm_rust::__private::into_domain(o.extract_field("inputs")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            output: pulumi_wasm_rust::__private::into_domain(o.extract_field("output")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("script").unwrap(),
-            ),
+            script: pulumi_wasm_rust::__private::into_domain(o.extract_field("script")),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
         }
     }

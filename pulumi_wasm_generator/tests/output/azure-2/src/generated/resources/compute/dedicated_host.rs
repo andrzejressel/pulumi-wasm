@@ -163,64 +163,29 @@ pub mod dedicated_host {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoReplaceOnFailure".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedHostGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformFaultDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DedicatedHostResult {
             auto_replace_on_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoReplaceOnFailure").unwrap(),
+                o.extract_field("autoReplaceOnFailure"),
             ),
             dedicated_host_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedHostGroupId").unwrap(),
+                o.extract_field("dedicatedHostGroupId"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_fault_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformFaultDomain").unwrap(),
+                o.extract_field("platformFaultDomain"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

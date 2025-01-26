@@ -61,44 +61,16 @@ pub mod get_configuration_keys {
                     value: &label_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "items".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "label".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationKeysResult {
             configuration_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationStoreId").unwrap(),
+                o.extract_field("configurationStoreId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            items: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("items").unwrap(),
-            ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
-            label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("label").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            items: pulumi_wasm_rust::__private::into_domain(o.extract_field("items")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
         }
     }
 }

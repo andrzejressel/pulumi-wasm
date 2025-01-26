@@ -89,21 +89,11 @@ pub mod registry_task_schedule_run_now {
                     value: &container_registry_task_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerRegistryTaskId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryTaskScheduleRunNowResult {
             container_registry_task_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryTaskId").unwrap(),
+                o.extract_field("containerRegistryTaskId"),
             ),
         }
     }

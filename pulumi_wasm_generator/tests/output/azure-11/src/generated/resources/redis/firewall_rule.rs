@@ -131,45 +131,19 @@ pub mod firewall_rule {
                     value: &start_ip_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisCacheName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "startIp".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallRuleResult {
-            end_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endIp").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            end_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("endIp")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redis_cache_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisCacheName").unwrap(),
+                o.extract_field("redisCacheName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             start_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startIp").unwrap(),
+                o.extract_field("startIp"),
             ),
         }
     }

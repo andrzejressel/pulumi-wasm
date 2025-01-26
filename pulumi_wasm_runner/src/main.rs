@@ -109,7 +109,6 @@ async fn main() -> Result<(), Error> {
                 pulumi_project,
             )
             .await?;
-            pulumi.set_preview(pulumi_preview).await?;
             log::info!("Creating root stack");
             pulumi.create_root_stack().await?;
             log::info!("Created root stack. Invoking main");

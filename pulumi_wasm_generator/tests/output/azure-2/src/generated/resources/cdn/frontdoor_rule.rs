@@ -367,58 +367,26 @@ pub mod frontdoor_rule {
                     value: &order_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "behaviorOnMatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorRuleSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorRuleSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "order".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorRuleResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             behavior_on_match: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("behaviorOnMatch").unwrap(),
+                o.extract_field("behaviorOnMatch"),
             ),
             cdn_frontdoor_rule_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorRuleSetId").unwrap(),
+                o.extract_field("cdnFrontdoorRuleSetId"),
             ),
             cdn_frontdoor_rule_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorRuleSetName").unwrap(),
+                o.extract_field("cdnFrontdoorRuleSetName"),
             ),
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            order: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("order").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
         }
     }
 }

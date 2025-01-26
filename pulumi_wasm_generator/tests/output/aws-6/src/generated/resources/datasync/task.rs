@@ -249,87 +249,38 @@ pub mod task {
                     value: &task_report_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchLogGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationLocationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludes".into(),
-                },
-                register_interface::ResultField {
-                    name: "includes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "options".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceLocationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskReportConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TaskResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cloudwatch_log_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchLogGroupArn").unwrap(),
+                o.extract_field("cloudwatchLogGroupArn"),
             ),
             destination_location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationLocationArn").unwrap(),
+                o.extract_field("destinationLocationArn"),
             ),
             excludes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludes").unwrap(),
+                o.extract_field("excludes"),
             ),
             includes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includes").unwrap(),
+                o.extract_field("includes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("options").unwrap(),
+                o.extract_field("options"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             source_location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceLocationArn").unwrap(),
+                o.extract_field("sourceLocationArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             task_report_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskReportConfig").unwrap(),
+                o.extract_field("taskReportConfig"),
             ),
         }
     }

@@ -68,92 +68,38 @@ pub mod get_stream {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "closedShards".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "openShards".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardLevelMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamModeDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             closed_shards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("closedShards").unwrap(),
+                o.extract_field("closedShards"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             open_shards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openShards").unwrap(),
+                o.extract_field("openShards"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
             shard_level_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardLevelMetrics").unwrap(),
+                o.extract_field("shardLevelMetrics"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             stream_mode_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamModeDetails").unwrap(),
+                o.extract_field("streamModeDetails"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

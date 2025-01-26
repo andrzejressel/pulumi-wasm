@@ -65,74 +65,31 @@ pub mod get_cost_category {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "costCategoryArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveEnd".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "splitChargeRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCostCategoryResult {
             cost_category_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("costCategoryArn").unwrap(),
+                o.extract_field("costCategoryArn"),
             ),
             default_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultValue").unwrap(),
+                o.extract_field("defaultValue"),
             ),
             effective_end: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveEnd").unwrap(),
+                o.extract_field("effectiveEnd"),
             ),
             effective_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveStart").unwrap(),
+                o.extract_field("effectiveStart"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rule_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleVersion").unwrap(),
+                o.extract_field("ruleVersion"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             split_charge_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("splitChargeRules").unwrap(),
+                o.extract_field("splitChargeRules"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

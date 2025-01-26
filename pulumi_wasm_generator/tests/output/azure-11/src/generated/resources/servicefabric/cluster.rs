@@ -426,159 +426,76 @@ pub mod cluster {
                     value: &vmss_zonal_upgrade_mode_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addOnFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureActiveDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateCommonNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateCommonNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateThumbprints".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterCodeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "diagnosticsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "fabricSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "reliabilityLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseProxyCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseProxyCertificateCommonNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceFabricZonalUpgradeMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradeMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmImage".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmssZonalUpgradeMode".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             add_on_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addOnFeatures").unwrap(),
+                o.extract_field("addOnFeatures"),
             ),
             azure_active_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureActiveDirectory").unwrap(),
+                o.extract_field("azureActiveDirectory"),
             ),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             certificate_common_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateCommonNames").unwrap(),
+                o.extract_field("certificateCommonNames"),
             ),
             client_certificate_common_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateCommonNames").unwrap(),
+                o.extract_field("clientCertificateCommonNames"),
             ),
             client_certificate_thumbprints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateThumbprints").unwrap(),
+                o.extract_field("clientCertificateThumbprints"),
             ),
             cluster_code_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterCodeVersion").unwrap(),
+                o.extract_field("clusterCodeVersion"),
             ),
             cluster_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEndpoint").unwrap(),
+                o.extract_field("clusterEndpoint"),
             ),
             diagnostics_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diagnosticsConfig").unwrap(),
+                o.extract_field("diagnosticsConfig"),
             ),
             fabric_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fabricSettings").unwrap(),
+                o.extract_field("fabricSettings"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementEndpoint").unwrap(),
+                o.extract_field("managementEndpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeTypes").unwrap(),
+                o.extract_field("nodeTypes"),
             ),
             reliability_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reliabilityLevel").unwrap(),
+                o.extract_field("reliabilityLevel"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             reverse_proxy_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseProxyCertificate").unwrap(),
+                o.extract_field("reverseProxyCertificate"),
             ),
             reverse_proxy_certificate_common_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseProxyCertificateCommonNames").unwrap(),
+                o.extract_field("reverseProxyCertificateCommonNames"),
             ),
             service_fabric_zonal_upgrade_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceFabricZonalUpgradeMode").unwrap(),
+                o.extract_field("serviceFabricZonalUpgradeMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             upgrade_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradeMode").unwrap(),
+                o.extract_field("upgradeMode"),
             ),
             upgrade_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradePolicy").unwrap(),
+                o.extract_field("upgradePolicy"),
             ),
             vm_image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmImage").unwrap(),
+                o.extract_field("vmImage"),
             ),
             vmss_zonal_upgrade_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmssZonalUpgradeMode").unwrap(),
+                o.extract_field("vmssZonalUpgradeMode"),
             ),
         }
     }

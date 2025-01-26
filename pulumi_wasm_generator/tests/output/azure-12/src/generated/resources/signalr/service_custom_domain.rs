@@ -171,39 +171,18 @@ pub mod service_custom_domain {
                     value: &signalr_service_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "signalrCustomCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "signalrServiceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceCustomDomainResult {
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             signalr_custom_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signalrCustomCertificateId").unwrap(),
+                o.extract_field("signalrCustomCertificateId"),
             ),
             signalr_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signalrServiceId").unwrap(),
+                o.extract_field("signalrServiceId"),
             ),
         }
     }

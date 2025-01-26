@@ -123,45 +123,23 @@ pub mod snapshot_copy {
                     value: &snapshot_copy_grant_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "manualSnapshotRetentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriod".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotCopyGrantName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotCopyResult {
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             destination_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationRegion").unwrap(),
+                o.extract_field("destinationRegion"),
             ),
             manual_snapshot_retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manualSnapshotRetentionPeriod").unwrap(),
+                o.extract_field("manualSnapshotRetentionPeriod"),
             ),
             retention_period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriod").unwrap(),
+                o.extract_field("retentionPeriod"),
             ),
             snapshot_copy_grant_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotCopyGrantName").unwrap(),
+                o.extract_field("snapshotCopyGrantName"),
             ),
         }
     }

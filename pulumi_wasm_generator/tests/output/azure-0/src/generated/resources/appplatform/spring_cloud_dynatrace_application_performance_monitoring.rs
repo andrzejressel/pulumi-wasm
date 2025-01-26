@@ -180,69 +180,29 @@ pub mod spring_cloud_dynatrace_application_performance_monitoring {
                     value: &tenant_token_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionPoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "globallyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenant".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantToken".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudDynatraceApplicationPerformanceMonitoringResult {
             api_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiToken").unwrap(),
+                o.extract_field("apiToken"),
             ),
-            api_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiUrl").unwrap(),
-            ),
+            api_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiUrl")),
             connection_point: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionPoint").unwrap(),
+                o.extract_field("connectionPoint"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             globally_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globallyEnabled").unwrap(),
+                o.extract_field("globallyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudServiceId").unwrap(),
+                o.extract_field("springCloudServiceId"),
             ),
-            tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenant").unwrap(),
-            ),
+            tenant: pulumi_wasm_rust::__private::into_domain(o.extract_field("tenant")),
             tenant_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantToken").unwrap(),
+                o.extract_field("tenantToken"),
             ),
         }
     }

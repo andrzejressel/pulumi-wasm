@@ -61,67 +61,31 @@ pub mod get_secret_version {
                     value: &version_stage_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretBinary".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretString".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionStage".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionStages".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSecretVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             secret_binary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretBinary").unwrap(),
+                o.extract_field("secretBinary"),
             ),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
             secret_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretString").unwrap(),
+                o.extract_field("secretString"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             version_stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionStage").unwrap(),
+                o.extract_field("versionStage"),
             ),
             version_stages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionStages").unwrap(),
+                o.extract_field("versionStages"),
             ),
         }
     }

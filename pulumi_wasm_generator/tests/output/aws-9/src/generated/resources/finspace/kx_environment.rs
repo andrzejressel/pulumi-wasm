@@ -262,93 +262,39 @@ pub mod kx_environment {
                     value: &transit_gateway_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDnsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KxEnvironmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             created_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTimestamp").unwrap(),
+                o.extract_field("createdTimestamp"),
             ),
             custom_dns_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDnsConfigurations").unwrap(),
+                o.extract_field("customDnsConfigurations"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             infrastructure_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureAccountId").unwrap(),
+                o.extract_field("infrastructureAccountId"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             last_modified_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTimestamp").unwrap(),
+                o.extract_field("lastModifiedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayConfiguration").unwrap(),
+                o.extract_field("transitGatewayConfiguration"),
             ),
         }
     }

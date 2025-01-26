@@ -227,64 +227,29 @@ pub mod managed_instance_failover_group {
                     value: &readonly_endpoint_failover_policy_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerManagedInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "readWriteEndpointFailoverPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedInstanceFailoverGroupResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceId").unwrap(),
+                o.extract_field("managedInstanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partner_managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerManagedInstanceId").unwrap(),
+                o.extract_field("partnerManagedInstanceId"),
             ),
             partner_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerRegions").unwrap(),
+                o.extract_field("partnerRegions"),
             ),
             read_write_endpoint_failover_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readWriteEndpointFailoverPolicy").unwrap(),
+                o.extract_field("readWriteEndpointFailoverPolicy"),
             ),
             readonly_endpoint_failover_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readonlyEndpointFailoverPolicyEnabled").unwrap(),
+                o.extract_field("readonlyEndpointFailoverPolicyEnabled"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

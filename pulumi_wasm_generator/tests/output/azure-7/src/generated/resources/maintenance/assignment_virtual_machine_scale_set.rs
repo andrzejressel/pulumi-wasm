@@ -267,33 +267,17 @@ pub mod assignment_virtual_machine_scale_set {
                     value: &virtual_machine_scale_set_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineScaleSetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentVirtualMachineScaleSetResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfigurationId").unwrap(),
+                o.extract_field("maintenanceConfigurationId"),
             ),
             virtual_machine_scale_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineScaleSetId").unwrap(),
+                o.extract_field("virtualMachineScaleSetId"),
             ),
         }
     }

@@ -264,87 +264,34 @@ pub mod flow {
                     value: &trigger_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationFlowConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "flowStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataCatalogConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFlowConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tasks".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlowResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_flow_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationFlowConfigs").unwrap(),
+                o.extract_field("destinationFlowConfigs"),
             ),
             flow_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flowStatus").unwrap(),
+                o.extract_field("flowStatus"),
             ),
-            kms_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsArn").unwrap(),
-            ),
+            kms_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsArn")),
             metadata_catalog_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataCatalogConfig").unwrap(),
+                o.extract_field("metadataCatalogConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             source_flow_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFlowConfig").unwrap(),
+                o.extract_field("sourceFlowConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            tasks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tasks").unwrap(),
-            ),
+            tasks: pulumi_wasm_rust::__private::into_domain(o.extract_field("tasks")),
             trigger_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerConfig").unwrap(),
+                o.extract_field("triggerConfig"),
             ),
         }
     }

@@ -269,76 +269,37 @@ pub mod time_series_database_connection {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "digitalTwinsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubConsumerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubNamespaceEndpointUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoClusterUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoTableName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TimeSeriesDatabaseConnectionResult {
             digital_twins_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digitalTwinsId").unwrap(),
+                o.extract_field("digitalTwinsId"),
             ),
             eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubConsumerGroupName").unwrap(),
+                o.extract_field("eventhubConsumerGroupName"),
             ),
             eventhub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubName").unwrap(),
+                o.extract_field("eventhubName"),
             ),
             eventhub_namespace_endpoint_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubNamespaceEndpointUri").unwrap(),
+                o.extract_field("eventhubNamespaceEndpointUri"),
             ),
             eventhub_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubNamespaceId").unwrap(),
+                o.extract_field("eventhubNamespaceId"),
             ),
             kusto_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoClusterId").unwrap(),
+                o.extract_field("kustoClusterId"),
             ),
             kusto_cluster_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoClusterUri").unwrap(),
+                o.extract_field("kustoClusterUri"),
             ),
             kusto_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoDatabaseName").unwrap(),
+                o.extract_field("kustoDatabaseName"),
             ),
             kusto_table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoTableName").unwrap(),
+                o.extract_field("kustoTableName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

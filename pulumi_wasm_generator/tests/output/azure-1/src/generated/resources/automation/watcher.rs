@@ -208,82 +208,34 @@ pub mod watcher {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionFrequencyInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptRunOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WatcherResult {
             automation_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountId").unwrap(),
+                o.extract_field("automationAccountId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             execution_frequency_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionFrequencyInSeconds").unwrap(),
+                o.extract_field("executionFrequencyInSeconds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             script_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptName").unwrap(),
+                o.extract_field("scriptName"),
             ),
             script_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptParameters").unwrap(),
+                o.extract_field("scriptParameters"),
             ),
             script_run_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptRunOn").unwrap(),
+                o.extract_field("scriptRunOn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

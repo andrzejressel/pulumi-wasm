@@ -183,87 +183,40 @@ pub mod workspace {
                     value: &workspace_properties_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "computerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootVolumeEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userVolumeEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeEncryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceProperties".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceResult {
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             computer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computerName").unwrap(),
+                o.extract_field("computerName"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             root_volume_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootVolumeEncryptionEnabled").unwrap(),
+                o.extract_field("rootVolumeEncryptionEnabled"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
             user_volume_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userVolumeEncryptionEnabled").unwrap(),
+                o.extract_field("userVolumeEncryptionEnabled"),
             ),
             volume_encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeEncryptionKey").unwrap(),
+                o.extract_field("volumeEncryptionKey"),
             ),
             workspace_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceProperties").unwrap(),
+                o.extract_field("workspaceProperties"),
             ),
         }
     }

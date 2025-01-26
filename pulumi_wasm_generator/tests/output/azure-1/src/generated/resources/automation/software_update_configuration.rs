@@ -242,94 +242,40 @@ pub mod software_update_configuration {
                     value: &windows_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "linux".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonAzureComputerNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "postTask".into(),
-                },
-                register_interface::ResultField {
-                    name: "preTask".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "windows".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SoftwareUpdateConfigurationResult {
             automation_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountId").unwrap(),
+                o.extract_field("automationAccountId"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             error_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorCode").unwrap(),
+                o.extract_field("errorCode"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
-            linux: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linux").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            linux: pulumi_wasm_rust::__private::into_domain(o.extract_field("linux")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             non_azure_computer_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonAzureComputerNames").unwrap(),
+                o.extract_field("nonAzureComputerNames"),
             ),
             post_task: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postTask").unwrap(),
+                o.extract_field("postTask"),
             ),
             pre_task: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preTask").unwrap(),
+                o.extract_field("preTask"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
             virtual_machine_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineIds").unwrap(),
+                o.extract_field("virtualMachineIds"),
             ),
-            windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windows").unwrap(),
-            ),
+            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
         }
     }
 }

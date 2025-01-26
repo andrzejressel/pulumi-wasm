@@ -313,93 +313,41 @@ pub mod extension {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoUpgradeMinorVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticUpgradeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureSuppressionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedSettingsFromKeyVault".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionAfterExtensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisher".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeHandlerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExtensionResult {
             auto_upgrade_minor_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoUpgradeMinorVersion").unwrap(),
+                o.extract_field("autoUpgradeMinorVersion"),
             ),
             automatic_upgrade_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticUpgradeEnabled").unwrap(),
+                o.extract_field("automaticUpgradeEnabled"),
             ),
             failure_suppression_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureSuppressionEnabled").unwrap(),
+                o.extract_field("failureSuppressionEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protected_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedSettings").unwrap(),
+                o.extract_field("protectedSettings"),
             ),
             protected_settings_from_key_vault: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedSettingsFromKeyVault").unwrap(),
+                o.extract_field("protectedSettingsFromKeyVault"),
             ),
             provision_after_extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionAfterExtensions").unwrap(),
+                o.extract_field("provisionAfterExtensions"),
             ),
             publisher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisher").unwrap(),
+                o.extract_field("publisher"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             type_handler_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeHandlerVersion").unwrap(),
+                o.extract_field("typeHandlerVersion"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

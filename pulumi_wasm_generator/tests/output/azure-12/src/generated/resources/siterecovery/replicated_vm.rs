@@ -369,159 +369,78 @@ pub mod replicated_vm {
                     value: &unmanaged_disks_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "managedDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiVmGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryReplicationPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRecoveryFabricName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRecoveryProtectionContainerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVmId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetAvailabilitySetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetBootDiagnosticStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCapacityReservationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetEdgeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetProximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRecoveryFabricId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRecoveryProtectionContainerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetVirtualMachineScaleSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetVirtualMachineSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "testNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "unmanagedDisks".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicatedVMResult {
             managed_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDisks").unwrap(),
+                o.extract_field("managedDisks"),
             ),
             multi_vm_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiVmGroupName").unwrap(),
+                o.extract_field("multiVmGroupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             recovery_replication_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryReplicationPolicyId").unwrap(),
+                o.extract_field("recoveryReplicationPolicyId"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRecoveryFabricName").unwrap(),
+                o.extract_field("sourceRecoveryFabricName"),
             ),
             source_recovery_protection_container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRecoveryProtectionContainerName").unwrap(),
+                o.extract_field("sourceRecoveryProtectionContainerName"),
             ),
             source_vm_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVmId").unwrap(),
+                o.extract_field("sourceVmId"),
             ),
             target_availability_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetAvailabilitySetId").unwrap(),
+                o.extract_field("targetAvailabilitySetId"),
             ),
             target_boot_diagnostic_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetBootDiagnosticStorageAccountId").unwrap(),
+                o.extract_field("targetBootDiagnosticStorageAccountId"),
             ),
             target_capacity_reservation_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCapacityReservationGroupId").unwrap(),
+                o.extract_field("targetCapacityReservationGroupId"),
             ),
             target_edge_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetEdgeZone").unwrap(),
+                o.extract_field("targetEdgeZone"),
             ),
             target_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetNetworkId").unwrap(),
+                o.extract_field("targetNetworkId"),
             ),
             target_proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetProximityPlacementGroupId").unwrap(),
+                o.extract_field("targetProximityPlacementGroupId"),
             ),
             target_recovery_fabric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRecoveryFabricId").unwrap(),
+                o.extract_field("targetRecoveryFabricId"),
             ),
             target_recovery_protection_container_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRecoveryProtectionContainerId").unwrap(),
+                o.extract_field("targetRecoveryProtectionContainerId"),
             ),
             target_resource_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceGroupId").unwrap(),
+                o.extract_field("targetResourceGroupId"),
             ),
             target_virtual_machine_scale_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetVirtualMachineScaleSetId").unwrap(),
+                o.extract_field("targetVirtualMachineScaleSetId"),
             ),
             target_virtual_machine_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetVirtualMachineSize").unwrap(),
+                o.extract_field("targetVirtualMachineSize"),
             ),
             target_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetZone").unwrap(),
+                o.extract_field("targetZone"),
             ),
             test_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("testNetworkId").unwrap(),
+                o.extract_field("testNetworkId"),
             ),
             unmanaged_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unmanagedDisks").unwrap(),
+                o.extract_field("unmanagedDisks"),
             ),
         }
     }

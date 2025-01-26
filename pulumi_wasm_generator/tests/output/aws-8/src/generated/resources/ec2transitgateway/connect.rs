@@ -146,57 +146,27 @@ pub mod connect {
                     value: &transport_attachment_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayDefaultRouteTableAssociation".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayDefaultRouteTablePropagation".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transportAttachmentId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectResult {
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_default_route_table_association: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayDefaultRouteTableAssociation").unwrap(),
+                o.extract_field("transitGatewayDefaultRouteTableAssociation"),
             ),
             transit_gateway_default_route_table_propagation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayDefaultRouteTablePropagation").unwrap(),
+                o.extract_field("transitGatewayDefaultRouteTablePropagation"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
             transport_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transportAttachmentId").unwrap(),
+                o.extract_field("transportAttachmentId"),
             ),
         }
     }

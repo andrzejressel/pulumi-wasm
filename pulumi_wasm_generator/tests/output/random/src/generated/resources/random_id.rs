@@ -118,58 +118,20 @@ pub mod random_id {
                     value: &prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "b64Std".into(),
-                },
-                register_interface::ResultField {
-                    name: "b64Url".into(),
-                },
-                register_interface::ResultField {
-                    name: "byteLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "dec".into(),
-                },
-                register_interface::ResultField {
-                    name: "hex".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomIdResult {
-            b64_std: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("b64Std").unwrap(),
-            ),
-            b64_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("b64Url").unwrap(),
-            ),
+            b64_std: pulumi_wasm_rust::__private::into_domain(o.extract_field("b64Std")),
+            b64_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("b64Url")),
             byte_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("byteLength").unwrap(),
+                o.extract_field("byteLength"),
             ),
-            dec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dec").unwrap(),
-            ),
-            hex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hex").unwrap(),
-            ),
+            dec: pulumi_wasm_rust::__private::into_domain(o.extract_field("dec")),
+            hex: pulumi_wasm_rust::__private::into_domain(o.extract_field("hex")),
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
         }
     }
 }

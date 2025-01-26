@@ -176,75 +176,34 @@ pub mod vpc_dhcp_options {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressPreferredLeaseTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "netbiosNameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "netbiosNodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ntpServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcDhcpOptionsResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNameServers").unwrap(),
+                o.extract_field("domainNameServers"),
             ),
             ipv6_address_preferred_lease_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressPreferredLeaseTime").unwrap(),
+                o.extract_field("ipv6AddressPreferredLeaseTime"),
             ),
             netbios_name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netbiosNameServers").unwrap(),
+                o.extract_field("netbiosNameServers"),
             ),
             netbios_node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netbiosNodeType").unwrap(),
+                o.extract_field("netbiosNodeType"),
             ),
             ntp_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ntpServers").unwrap(),
+                o.extract_field("ntpServers"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

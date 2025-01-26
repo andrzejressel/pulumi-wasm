@@ -65,45 +65,21 @@ pub mod flexible_server_active_directory_administratory {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "login".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlexibleServerActiveDirectoryAdministratoryResult {
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
-            login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("login").unwrap(),
-            ),
+            login: pulumi_wasm_rust::__private::into_domain(o.extract_field("login")),
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

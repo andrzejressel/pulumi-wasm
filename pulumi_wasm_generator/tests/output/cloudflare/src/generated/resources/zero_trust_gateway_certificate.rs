@@ -91,81 +91,37 @@ pub mod zero_trust_gateway_certificate {
                     value: &validity_period_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "activate".into(),
-                },
-                register_interface::ResultField {
-                    name: "bindingStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "custom".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayManaged".into(),
-                },
-                register_interface::ResultField {
-                    name: "inUse".into(),
-                },
-                register_interface::ResultField {
-                    name: "qsPackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "uploadedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "validityPeriodDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustGatewayCertificateResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             activate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activate").unwrap(),
+                o.extract_field("activate"),
             ),
             binding_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bindingStatus").unwrap(),
+                o.extract_field("bindingStatus"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            custom: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("custom").unwrap(),
-            ),
+            custom: pulumi_wasm_rust::__private::into_domain(o.extract_field("custom")),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
             gateway_managed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayManaged").unwrap(),
+                o.extract_field("gatewayManaged"),
             ),
-            in_use: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inUse").unwrap(),
-            ),
+            in_use: pulumi_wasm_rust::__private::into_domain(o.extract_field("inUse")),
             qs_pack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qsPackId").unwrap(),
+                o.extract_field("qsPackId"),
             ),
             uploaded_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uploadedOn").unwrap(),
+                o.extract_field("uploadedOn"),
             ),
             validity_period_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validityPeriodDays").unwrap(),
+                o.extract_field("validityPeriodDays"),
             ),
         }
     }

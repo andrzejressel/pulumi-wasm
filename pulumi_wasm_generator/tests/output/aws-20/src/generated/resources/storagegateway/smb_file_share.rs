@@ -391,189 +391,89 @@ pub mod smb_file_share {
                     value: &vpc_endpoint_dns_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessBasedEnumeration".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUserLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditDestinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "caseSensitivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultStorageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileshareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "guessMimeTypeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "invalidUserLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectAcl".into(),
-                },
-                register_interface::ResultField {
-                    name: "oplocksEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "readOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterPays".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbAclEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "validUserLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointDnsName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SmbFileShareResult {
             access_based_enumeration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessBasedEnumeration").unwrap(),
+                o.extract_field("accessBasedEnumeration"),
             ),
             admin_user_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUserLists").unwrap(),
+                o.extract_field("adminUserLists"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             audit_destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditDestinationArn").unwrap(),
+                o.extract_field("auditDestinationArn"),
             ),
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             bucket_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketRegion").unwrap(),
+                o.extract_field("bucketRegion"),
             ),
             cache_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheAttributes").unwrap(),
+                o.extract_field("cacheAttributes"),
             ),
             case_sensitivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caseSensitivity").unwrap(),
+                o.extract_field("caseSensitivity"),
             ),
             default_storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultStorageClass").unwrap(),
+                o.extract_field("defaultStorageClass"),
             ),
             file_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileShareName").unwrap(),
+                o.extract_field("fileShareName"),
             ),
             fileshare_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileshareId").unwrap(),
+                o.extract_field("fileshareId"),
             ),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
             guess_mime_type_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guessMimeTypeEnabled").unwrap(),
+                o.extract_field("guessMimeTypeEnabled"),
             ),
             invalid_user_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invalidUserLists").unwrap(),
+                o.extract_field("invalidUserLists"),
             ),
             kms_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsEncrypted").unwrap(),
+                o.extract_field("kmsEncrypted"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationArn").unwrap(),
+                o.extract_field("locationArn"),
             ),
             notification_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationPolicy").unwrap(),
+                o.extract_field("notificationPolicy"),
             ),
             object_acl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectAcl").unwrap(),
+                o.extract_field("objectAcl"),
             ),
             oplocks_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oplocksEnabled").unwrap(),
+                o.extract_field("oplocksEnabled"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readOnly").unwrap(),
+                o.extract_field("readOnly"),
             ),
             requester_pays: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterPays").unwrap(),
+                o.extract_field("requesterPays"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             smb_acl_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbAclEnabled").unwrap(),
+                o.extract_field("smbAclEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             valid_user_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validUserLists").unwrap(),
+                o.extract_field("validUserLists"),
             ),
             vpc_endpoint_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointDnsName").unwrap(),
+                o.extract_field("vpcEndpointDnsName"),
             ),
         }
     }

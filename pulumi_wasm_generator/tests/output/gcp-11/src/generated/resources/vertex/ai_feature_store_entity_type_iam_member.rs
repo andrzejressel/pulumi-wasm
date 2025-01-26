@@ -143,52 +143,21 @@ pub mod ai_feature_store_entity_type_iam_member {
                     value: &role_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "entitytype".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "featurestore".into(),
-                },
-                register_interface::ResultField {
-                    name: "member".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiFeatureStoreEntityTypeIamMemberResult {
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             entitytype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entitytype").unwrap(),
+                o.extract_field("entitytype"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             featurestore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featurestore").unwrap(),
+                o.extract_field("featurestore"),
             ),
-            member: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("member").unwrap(),
-            ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

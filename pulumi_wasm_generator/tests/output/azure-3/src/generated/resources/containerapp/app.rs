@@ -274,123 +274,56 @@ pub mod app {
                     value: &workload_profile_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dapr".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingress".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestRevisionFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestRevisionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxInactiveRevisions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "registries".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "secrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "template".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadProfileName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppResult {
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
-            dapr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dapr").unwrap(),
-            ),
+            dapr: pulumi_wasm_rust::__private::into_domain(o.extract_field("dapr")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ingress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingress").unwrap(),
+                o.extract_field("ingress"),
             ),
             latest_revision_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestRevisionFqdn").unwrap(),
+                o.extract_field("latestRevisionFqdn"),
             ),
             latest_revision_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestRevisionName").unwrap(),
+                o.extract_field("latestRevisionName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_inactive_revisions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxInactiveRevisions").unwrap(),
+                o.extract_field("maxInactiveRevisions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddresses").unwrap(),
+                o.extract_field("outboundIpAddresses"),
             ),
             registries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registries").unwrap(),
+                o.extract_field("registries"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             revision_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionMode").unwrap(),
+                o.extract_field("revisionMode"),
             ),
             secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secrets").unwrap(),
+                o.extract_field("secrets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("template").unwrap(),
+                o.extract_field("template"),
             ),
             workload_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadProfileName").unwrap(),
+                o.extract_field("workloadProfileName"),
             ),
         }
     }

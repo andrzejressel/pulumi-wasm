@@ -96,110 +96,47 @@ pub mod get_patch_baseline {
                     value: &owner_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approvalRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatchesComplianceLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvedPatchesEnableNonSecurity".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultBaseline".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatingSystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "rejectedPatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "rejectedPatchesAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPatchBaselineResult {
             approval_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRules").unwrap(),
+                o.extract_field("approvalRules"),
             ),
             approved_patches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatches").unwrap(),
+                o.extract_field("approvedPatches"),
             ),
             approved_patches_compliance_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatchesComplianceLevel").unwrap(),
+                o.extract_field("approvedPatchesComplianceLevel"),
             ),
             approved_patches_enable_non_security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvedPatchesEnableNonSecurity").unwrap(),
+                o.extract_field("approvedPatchesEnableNonSecurity"),
             ),
             default_baseline: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultBaseline").unwrap(),
+                o.extract_field("defaultBaseline"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             global_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalFilters").unwrap(),
+                o.extract_field("globalFilters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             operating_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatingSystem").unwrap(),
+                o.extract_field("operatingSystem"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             rejected_patches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rejectedPatches").unwrap(),
+                o.extract_field("rejectedPatches"),
             ),
             rejected_patches_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rejectedPatchesAction").unwrap(),
+                o.extract_field("rejectedPatchesAction"),
             ),
-            sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
-            ),
+            sources: pulumi_wasm_rust::__private::into_domain(o.extract_field("sources")),
         }
     }
 }

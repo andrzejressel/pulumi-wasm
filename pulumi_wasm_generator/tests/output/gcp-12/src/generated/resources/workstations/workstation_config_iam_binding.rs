@@ -177,63 +177,28 @@ pub mod workstation_config_iam_binding {
                     value: &workstation_config_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "workstationClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workstationConfigId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkstationConfigIamBindingResult {
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             workstation_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workstationClusterId").unwrap(),
+                o.extract_field("workstationClusterId"),
             ),
             workstation_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workstationConfigId").unwrap(),
+                o.extract_field("workstationConfigId"),
             ),
         }
     }

@@ -77,121 +77,56 @@ pub mod get_job {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "compatibilityLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataLocale".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsLateArrivalMaxDelayInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsOutOfOrderMaxDelayInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsOutOfOrderPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastOutputTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputErrorPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "startMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "transformationQuery".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetJobResult {
             compatibility_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compatibilityLevel").unwrap(),
+                o.extract_field("compatibilityLevel"),
             ),
             data_locale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataLocale").unwrap(),
+                o.extract_field("dataLocale"),
             ),
             events_late_arrival_max_delay_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsLateArrivalMaxDelayInSeconds").unwrap(),
+                o.extract_field("eventsLateArrivalMaxDelayInSeconds"),
             ),
             events_out_of_order_max_delay_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsOutOfOrderMaxDelayInSeconds").unwrap(),
+                o.extract_field("eventsOutOfOrderMaxDelayInSeconds"),
             ),
             events_out_of_order_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsOutOfOrderPolicy").unwrap(),
+                o.extract_field("eventsOutOfOrderPolicy"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobId").unwrap(),
-            ),
+            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
             last_output_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastOutputTime").unwrap(),
+                o.extract_field("lastOutputTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             output_error_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputErrorPolicy").unwrap(),
+                o.extract_field("outputErrorPolicy"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             start_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startMode").unwrap(),
+                o.extract_field("startMode"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             streaming_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingUnits").unwrap(),
+                o.extract_field("streamingUnits"),
             ),
             transformation_query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transformationQuery").unwrap(),
+                o.extract_field("transformationQuery"),
             ),
         }
     }

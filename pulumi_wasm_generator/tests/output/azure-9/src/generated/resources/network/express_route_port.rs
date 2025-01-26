@@ -203,100 +203,39 @@ pub mod express_route_port {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bandwidthInGbps".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "encapsulation".into(),
-                },
-                register_interface::ResultField {
-                    name: "ethertype".into(),
-                },
-                register_interface::ResultField {
-                    name: "guid".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "link1".into(),
-                },
-                register_interface::ResultField {
-                    name: "link2".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExpressRoutePortResult {
             bandwidth_in_gbps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidthInGbps").unwrap(),
+                o.extract_field("bandwidthInGbps"),
             ),
             billing_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingType").unwrap(),
+                o.extract_field("billingType"),
             ),
             encapsulation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encapsulation").unwrap(),
+                o.extract_field("encapsulation"),
             ),
             ethertype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ethertype").unwrap(),
+                o.extract_field("ethertype"),
             ),
-            guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guid").unwrap(),
-            ),
+            guid: pulumi_wasm_rust::__private::into_domain(o.extract_field("guid")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            link1: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("link1").unwrap(),
-            ),
-            link2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("link2").unwrap(),
-            ),
+            link1: pulumi_wasm_rust::__private::into_domain(o.extract_field("link1")),
+            link2: pulumi_wasm_rust::__private::into_domain(o.extract_field("link2")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peering_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringLocation").unwrap(),
+                o.extract_field("peeringLocation"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

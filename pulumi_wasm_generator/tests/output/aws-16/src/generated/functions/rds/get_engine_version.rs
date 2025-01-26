@@ -195,199 +195,93 @@ pub mod get_engine_version {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultCharacterSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportableLogTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasMajorTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasMinorTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "latest".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMajorTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredUpgradeTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedCharacterSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedFeatureNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedModes".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedTimezones".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsGlobalDatabases".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsLimitlessDatabase".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsLogExportsToCloudwatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsParallelQuery".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsReadReplica".into(),
-                },
-                register_interface::ResultField {
-                    name: "validMajorTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "validMinorTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "validUpgradeTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionActual".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDescription".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEngineVersionResult {
             default_character_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCharacterSet").unwrap(),
+                o.extract_field("defaultCharacterSet"),
             ),
             default_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultOnly").unwrap(),
+                o.extract_field("defaultOnly"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineDescription").unwrap(),
+                o.extract_field("engineDescription"),
             ),
             exportable_log_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportableLogTypes").unwrap(),
+                o.extract_field("exportableLogTypes"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             has_major_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasMajorTarget").unwrap(),
+                o.extract_field("hasMajorTarget"),
             ),
             has_minor_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasMinorTarget").unwrap(),
+                o.extract_field("hasMinorTarget"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeAll").unwrap(),
+                o.extract_field("includeAll"),
             ),
-            latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latest").unwrap(),
-            ),
+            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
             parameter_group_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupFamily").unwrap(),
+                o.extract_field("parameterGroupFamily"),
             ),
             preferred_major_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMajorTargets").unwrap(),
+                o.extract_field("preferredMajorTargets"),
             ),
             preferred_upgrade_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredUpgradeTargets").unwrap(),
+                o.extract_field("preferredUpgradeTargets"),
             ),
             preferred_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredVersions").unwrap(),
+                o.extract_field("preferredVersions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             supported_character_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedCharacterSets").unwrap(),
+                o.extract_field("supportedCharacterSets"),
             ),
             supported_feature_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedFeatureNames").unwrap(),
+                o.extract_field("supportedFeatureNames"),
             ),
             supported_modes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedModes").unwrap(),
+                o.extract_field("supportedModes"),
             ),
             supported_timezones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedTimezones").unwrap(),
+                o.extract_field("supportedTimezones"),
             ),
             supports_global_databases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsGlobalDatabases").unwrap(),
+                o.extract_field("supportsGlobalDatabases"),
             ),
             supports_limitless_database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsLimitlessDatabase").unwrap(),
+                o.extract_field("supportsLimitlessDatabase"),
             ),
             supports_log_exports_to_cloudwatch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsLogExportsToCloudwatch").unwrap(),
+                o.extract_field("supportsLogExportsToCloudwatch"),
             ),
             supports_parallel_query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsParallelQuery").unwrap(),
+                o.extract_field("supportsParallelQuery"),
             ),
             supports_read_replica: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsReadReplica").unwrap(),
+                o.extract_field("supportsReadReplica"),
             ),
             valid_major_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validMajorTargets").unwrap(),
+                o.extract_field("validMajorTargets"),
             ),
             valid_minor_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validMinorTargets").unwrap(),
+                o.extract_field("validMinorTargets"),
             ),
             valid_upgrade_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validUpgradeTargets").unwrap(),
+                o.extract_field("validUpgradeTargets"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             version_actual: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionActual").unwrap(),
+                o.extract_field("versionActual"),
             ),
             version_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDescription").unwrap(),
+                o.extract_field("versionDescription"),
             ),
         }
     }

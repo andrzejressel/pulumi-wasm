@@ -107,47 +107,21 @@ pub mod replication_policy {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationConsistentSnapshotFrequencyInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryPointRetentionInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationPolicyResult {
             application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("applicationConsistentSnapshotFrequencyInMinutes")
-                    .unwrap(),
+                o.extract_field("applicationConsistentSnapshotFrequencyInMinutes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_point_retention_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryPointRetentionInMinutes").unwrap(),
+                o.extract_field("recoveryPointRetentionInMinutes"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

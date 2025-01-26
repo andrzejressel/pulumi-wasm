@@ -508,129 +508,61 @@ pub mod managed_zone {
                     value: &visibility_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudLoggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnssecConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "peeringConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateVisibilityConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseLookup".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceDirectoryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibility".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedZoneResult {
             cloud_logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudLoggingConfig").unwrap(),
+                o.extract_field("cloudLoggingConfig"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             dnssec_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnssecConfig").unwrap(),
+                o.extract_field("dnssecConfig"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
             forwarding_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardingConfig").unwrap(),
+                o.extract_field("forwardingConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             managed_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedZoneId").unwrap(),
+                o.extract_field("managedZoneId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameServers").unwrap(),
+                o.extract_field("nameServers"),
             ),
             peering_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peeringConfig").unwrap(),
+                o.extract_field("peeringConfig"),
             ),
             private_visibility_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateVisibilityConfig").unwrap(),
+                o.extract_field("privateVisibilityConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reverse_lookup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseLookup").unwrap(),
+                o.extract_field("reverseLookup"),
             ),
             service_directory_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceDirectoryConfig").unwrap(),
+                o.extract_field("serviceDirectoryConfig"),
             ),
             visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibility").unwrap(),
+                o.extract_field("visibility"),
             ),
         }
     }

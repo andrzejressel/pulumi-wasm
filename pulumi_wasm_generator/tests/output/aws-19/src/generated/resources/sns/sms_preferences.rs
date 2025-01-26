@@ -128,51 +128,26 @@ pub mod sms_preferences {
                     value: &usage_report_s3_bucket_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultSenderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSmsType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryStatusIamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryStatusSuccessSamplingRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "monthlySpendLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageReportS3Bucket".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SmsPreferencesResult {
             default_sender_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSenderId").unwrap(),
+                o.extract_field("defaultSenderId"),
             ),
             default_sms_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSmsType").unwrap(),
+                o.extract_field("defaultSmsType"),
             ),
             delivery_status_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryStatusIamRoleArn").unwrap(),
+                o.extract_field("deliveryStatusIamRoleArn"),
             ),
             delivery_status_success_sampling_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryStatusSuccessSamplingRate").unwrap(),
+                o.extract_field("deliveryStatusSuccessSamplingRate"),
             ),
             monthly_spend_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monthlySpendLimit").unwrap(),
+                o.extract_field("monthlySpendLimit"),
             ),
             usage_report_s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageReportS3Bucket").unwrap(),
+                o.extract_field("usageReportS3Bucket"),
             ),
         }
     }

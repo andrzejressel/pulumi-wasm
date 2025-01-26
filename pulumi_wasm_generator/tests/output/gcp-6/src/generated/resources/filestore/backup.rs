@@ -221,111 +221,50 @@ pub mod backup {
                     value: &source_instance_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capacityGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "downloadBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFileShare".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceInstanceTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageBytes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupResult {
             capacity_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityGb").unwrap(),
+                o.extract_field("capacityGb"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             download_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("downloadBytes").unwrap(),
+                o.extract_field("downloadBytes"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             source_file_share: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFileShare").unwrap(),
+                o.extract_field("sourceFileShare"),
             ),
             source_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceInstance").unwrap(),
+                o.extract_field("sourceInstance"),
             ),
             source_instance_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceInstanceTier").unwrap(),
+                o.extract_field("sourceInstanceTier"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             storage_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageBytes").unwrap(),
+                o.extract_field("storageBytes"),
             ),
         }
     }

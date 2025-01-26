@@ -117,34 +117,14 @@ pub mod bucket_server_side_encryption_configuration_v_2 {
                     value: &rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketServerSideEncryptionConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
         }
     }
 }

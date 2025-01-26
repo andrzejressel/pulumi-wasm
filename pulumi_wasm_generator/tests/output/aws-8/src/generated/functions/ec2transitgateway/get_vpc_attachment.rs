@@ -81,79 +81,35 @@ pub mod get_vpc_attachment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applianceModeSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Support".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupReferencingSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOwnerId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcAttachmentResult {
             appliance_mode_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applianceModeSupport").unwrap(),
+                o.extract_field("applianceModeSupport"),
             ),
             dns_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSupport").unwrap(),
+                o.extract_field("dnsSupport"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv6_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Support").unwrap(),
+                o.extract_field("ipv6Support"),
             ),
             security_group_referencing_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupReferencingSupport").unwrap(),
+                o.extract_field("securityGroupReferencingSupport"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpc_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOwnerId").unwrap(),
+                o.extract_field("vpcOwnerId"),
             ),
         }
     }

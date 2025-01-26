@@ -116,73 +116,32 @@ pub mod mtls_certificate {
                     value: &private_key_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ca".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuer".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "serialNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "signature".into(),
-                },
-                register_interface::ResultField {
-                    name: "uploadedOn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MtlsCertificateResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            ca: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ca").unwrap()),
+            ca: pulumi_wasm_rust::__private::into_domain(o.extract_field("ca")),
             certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificates").unwrap(),
+                o.extract_field("certificates"),
             ),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuer").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
             serial_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serialNumber").unwrap(),
+                o.extract_field("serialNumber"),
             ),
             signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signature").unwrap(),
+                o.extract_field("signature"),
             ),
             uploaded_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uploadedOn").unwrap(),
+                o.extract_field("uploadedOn"),
             ),
         }
     }

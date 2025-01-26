@@ -180,75 +180,36 @@ pub mod local_rulestack {
                     value: &vulnerability_profile_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "antiSpywareProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "antiVirusProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSubscription".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileBlockingProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlFilteringProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "vulnerabilityProfile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalRulestackResult {
             anti_spyware_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antiSpywareProfile").unwrap(),
+                o.extract_field("antiSpywareProfile"),
             ),
             anti_virus_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antiVirusProfile").unwrap(),
+                o.extract_field("antiVirusProfile"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_subscription: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSubscription").unwrap(),
+                o.extract_field("dnsSubscription"),
             ),
             file_blocking_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileBlockingProfile").unwrap(),
+                o.extract_field("fileBlockingProfile"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             url_filtering_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlFilteringProfile").unwrap(),
+                o.extract_field("urlFilteringProfile"),
             ),
             vulnerability_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vulnerabilityProfile").unwrap(),
+                o.extract_field("vulnerabilityProfile"),
             ),
         }
     }

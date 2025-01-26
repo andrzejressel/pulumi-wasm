@@ -279,87 +279,40 @@ pub mod v_2_models_slot_type {
                     value: &value_selection_setting_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botId".into(),
-                },
-                register_interface::ResultField {
-                    name: "botVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "compositeSlotTypeSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalSourceSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "localeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentSlotTypeSignature".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotTypeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotTypeValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "valueSelectionSetting".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         V2modelsSlotTypeResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botId").unwrap(),
-            ),
+            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
             bot_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botVersion").unwrap(),
+                o.extract_field("botVersion"),
             ),
             composite_slot_type_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compositeSlotTypeSetting").unwrap(),
+                o.extract_field("compositeSlotTypeSetting"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             external_source_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalSourceSetting").unwrap(),
+                o.extract_field("externalSourceSetting"),
             ),
             locale_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localeId").unwrap(),
+                o.extract_field("localeId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_slot_type_signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentSlotTypeSignature").unwrap(),
+                o.extract_field("parentSlotTypeSignature"),
             ),
             slot_type_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotTypeId").unwrap(),
+                o.extract_field("slotTypeId"),
             ),
             slot_type_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotTypeValues").unwrap(),
+                o.extract_field("slotTypeValues"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             value_selection_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("valueSelectionSetting").unwrap(),
+                o.extract_field("valueSelectionSetting"),
             ),
         }
     }

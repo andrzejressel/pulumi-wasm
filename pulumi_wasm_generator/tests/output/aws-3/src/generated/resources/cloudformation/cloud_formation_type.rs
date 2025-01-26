@@ -119,117 +119,53 @@ pub mod cloud_formation_type {
                     value: &type_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultVersionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deprecatedStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentationUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningType".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaHandlerPackage".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibility".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CloudFormationTypeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             default_version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVersionId").unwrap(),
+                o.extract_field("defaultVersionId"),
             ),
             deprecated_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deprecatedStatus").unwrap(),
+                o.extract_field("deprecatedStatus"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             documentation_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentationUrl").unwrap(),
+                o.extract_field("documentationUrl"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
             is_default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefaultVersion").unwrap(),
+                o.extract_field("isDefaultVersion"),
             ),
             logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfig").unwrap(),
+                o.extract_field("loggingConfig"),
             ),
             provisioning_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningType").unwrap(),
+                o.extract_field("provisioningType"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
             schema_handler_package: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaHandlerPackage").unwrap(),
+                o.extract_field("schemaHandlerPackage"),
             ),
             source_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceUrl").unwrap(),
+                o.extract_field("sourceUrl"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             type_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeArn").unwrap(),
+                o.extract_field("typeArn"),
             ),
             type_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeName").unwrap(),
+                o.extract_field("typeName"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibility").unwrap(),
+                o.extract_field("visibility"),
             ),
         }
     }

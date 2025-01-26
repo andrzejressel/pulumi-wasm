@@ -599,225 +599,103 @@ pub mod cluster {
                     value: &transit_encryption_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "azMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersionActual".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipDiscovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDeliveryConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "numCacheNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredAvailabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredOutpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotRetentionLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitEncryptionEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
-            az_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azMode").unwrap(),
-            ),
+            az_mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("azMode")),
             cache_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheNodes").unwrap(),
+                o.extract_field("cacheNodes"),
             ),
             cluster_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterAddress").unwrap(),
+                o.extract_field("clusterAddress"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             configuration_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationEndpoint").unwrap(),
+                o.extract_field("configurationEndpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             engine_version_actual: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersionActual").unwrap(),
+                o.extract_field("engineVersionActual"),
             ),
             final_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalSnapshotIdentifier").unwrap(),
+                o.extract_field("finalSnapshotIdentifier"),
             ),
             ip_discovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipDiscovery").unwrap(),
+                o.extract_field("ipDiscovery"),
             ),
             log_delivery_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDeliveryConfigurations").unwrap(),
+                o.extract_field("logDeliveryConfigurations"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
             network_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkType").unwrap(),
+                o.extract_field("networkType"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             notification_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTopicArn").unwrap(),
+                o.extract_field("notificationTopicArn"),
             ),
             num_cache_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numCacheNodes").unwrap(),
+                o.extract_field("numCacheNodes"),
             ),
             outpost_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostMode").unwrap(),
+                o.extract_field("outpostMode"),
             ),
             parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupName").unwrap(),
+                o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             preferred_availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredAvailabilityZones").unwrap(),
+                o.extract_field("preferredAvailabilityZones"),
             ),
             preferred_outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredOutpostArn").unwrap(),
+                o.extract_field("preferredOutpostArn"),
             ),
             replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationGroupId").unwrap(),
+                o.extract_field("replicationGroupId"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             snapshot_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotArns").unwrap(),
+                o.extract_field("snapshotArns"),
             ),
             snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotName").unwrap(),
+                o.extract_field("snapshotName"),
             ),
             snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotRetentionLimit").unwrap(),
+                o.extract_field("snapshotRetentionLimit"),
             ),
             snapshot_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotWindow").unwrap(),
+                o.extract_field("snapshotWindow"),
             ),
             subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetGroupName").unwrap(),
+                o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitEncryptionEnabled").unwrap(),
+                o.extract_field("transitEncryptionEnabled"),
             ),
         }
     }

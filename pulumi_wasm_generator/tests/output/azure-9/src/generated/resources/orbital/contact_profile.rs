@@ -226,76 +226,33 @@ pub mod contact_profile {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoTracking".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "links".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumElevationDegrees".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumVariableContactDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfigurationSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactProfileResult {
             auto_tracking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoTracking").unwrap(),
+                o.extract_field("autoTracking"),
             ),
             event_hub_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubUri").unwrap(),
+                o.extract_field("eventHubUri"),
             ),
-            links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("links").unwrap(),
-            ),
+            links: pulumi_wasm_rust::__private::into_domain(o.extract_field("links")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             minimum_elevation_degrees: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumElevationDegrees").unwrap(),
+                o.extract_field("minimumElevationDegrees"),
             ),
             minimum_variable_contact_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumVariableContactDuration").unwrap(),
+                o.extract_field("minimumVariableContactDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_configuration_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfigurationSubnetId").unwrap(),
+                o.extract_field("networkConfigurationSubnetId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

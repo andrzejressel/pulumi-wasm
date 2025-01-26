@@ -65,86 +65,35 @@ pub mod get_rest_api {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKeySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "binaryMediaTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumCompressionSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRestApiResult {
             api_key_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeySource").unwrap(),
+                o.extract_field("apiKeySource"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             binary_media_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("binaryMediaTypes").unwrap(),
+                o.extract_field("binaryMediaTypes"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoint_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointConfigurations").unwrap(),
+                o.extract_field("endpointConfigurations"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             minimum_compression_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumCompressionSize").unwrap(),
+                o.extract_field("minimumCompressionSize"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             root_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootResourceId").unwrap(),
+                o.extract_field("rootResourceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

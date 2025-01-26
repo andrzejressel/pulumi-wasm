@@ -186,81 +186,37 @@ pub mod organization_managed_rule {
                     value: &tag_value_scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludedAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumExecutionFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceIdScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypesScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagKeyScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagValueScope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationManagedRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             excluded_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludedAccounts").unwrap(),
+                o.extract_field("excludedAccounts"),
             ),
             input_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputParameters").unwrap(),
+                o.extract_field("inputParameters"),
             ),
             maximum_execution_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumExecutionFrequency").unwrap(),
+                o.extract_field("maximumExecutionFrequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_id_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceIdScope").unwrap(),
+                o.extract_field("resourceIdScope"),
             ),
             resource_types_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypesScopes").unwrap(),
+                o.extract_field("resourceTypesScopes"),
             ),
             rule_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleIdentifier").unwrap(),
+                o.extract_field("ruleIdentifier"),
             ),
             tag_key_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagKeyScope").unwrap(),
+                o.extract_field("tagKeyScope"),
             ),
             tag_value_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagValueScope").unwrap(),
+                o.extract_field("tagValueScope"),
             ),
         }
     }

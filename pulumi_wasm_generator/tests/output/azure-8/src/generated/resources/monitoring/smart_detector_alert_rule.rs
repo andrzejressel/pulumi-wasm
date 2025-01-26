@@ -212,81 +212,37 @@ pub mod smart_detector_alert_rule {
                     value: &throttling_duration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeResourceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "throttlingDuration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SmartDetectorAlertRuleResult {
             action_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionGroup").unwrap(),
+                o.extract_field("actionGroup"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             detector_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectorType").unwrap(),
+                o.extract_field("detectorType"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scope_resource_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeResourceIds").unwrap(),
+                o.extract_field("scopeResourceIds"),
             ),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             throttling_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throttlingDuration").unwrap(),
+                o.extract_field("throttlingDuration"),
             ),
         }
     }

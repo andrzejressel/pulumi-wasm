@@ -311,99 +311,50 @@ pub mod diagnostic {
                     value: &verbosity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alwaysLogErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementLoggerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendResponse".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendRequest".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendResponse".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpCorrelationProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "logClientIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationNameFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingPercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "verbosity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DiagnosticResult {
             always_log_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alwaysLogErrors").unwrap(),
+                o.extract_field("alwaysLogErrors"),
             ),
             api_management_logger_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementLoggerId").unwrap(),
+                o.extract_field("apiManagementLoggerId"),
             ),
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             backend_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendRequest").unwrap(),
+                o.extract_field("backendRequest"),
             ),
             backend_response: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendResponse").unwrap(),
+                o.extract_field("backendResponse"),
             ),
             frontend_request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendRequest").unwrap(),
+                o.extract_field("frontendRequest"),
             ),
             frontend_response: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendResponse").unwrap(),
+                o.extract_field("frontendResponse"),
             ),
             http_correlation_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpCorrelationProtocol").unwrap(),
+                o.extract_field("httpCorrelationProtocol"),
             ),
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
             log_client_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logClientIp").unwrap(),
+                o.extract_field("logClientIp"),
             ),
             operation_name_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationNameFormat").unwrap(),
+                o.extract_field("operationNameFormat"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sampling_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingPercentage").unwrap(),
+                o.extract_field("samplingPercentage"),
             ),
             verbosity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verbosity").unwrap(),
+                o.extract_field("verbosity"),
             ),
         }
     }

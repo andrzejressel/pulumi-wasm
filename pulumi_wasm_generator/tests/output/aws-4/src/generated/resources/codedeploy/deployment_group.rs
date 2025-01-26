@@ -533,147 +533,70 @@ pub mod deployment_group {
                     value: &trigger_configurations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alarmConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "appName".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRollbackConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscalingGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "blueGreenDeploymentConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "computePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentConfigName".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2TagFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2TagSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecsService".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "onPremisesInstanceTagFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "outdatedInstancesStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminationHookEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerConfigurations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentGroupResult {
             alarm_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmConfiguration").unwrap(),
+                o.extract_field("alarmConfiguration"),
             ),
             app_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appName").unwrap(),
+                o.extract_field("appName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_rollback_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRollbackConfiguration").unwrap(),
+                o.extract_field("autoRollbackConfiguration"),
             ),
             autoscaling_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroups").unwrap(),
+                o.extract_field("autoscalingGroups"),
             ),
             blue_green_deployment_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueGreenDeploymentConfig").unwrap(),
+                o.extract_field("blueGreenDeploymentConfig"),
             ),
             compute_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computePlatform").unwrap(),
+                o.extract_field("computePlatform"),
             ),
             deployment_config_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentConfigName").unwrap(),
+                o.extract_field("deploymentConfigName"),
             ),
             deployment_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentGroupId").unwrap(),
+                o.extract_field("deploymentGroupId"),
             ),
             deployment_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentGroupName").unwrap(),
+                o.extract_field("deploymentGroupName"),
             ),
             deployment_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentStyle").unwrap(),
+                o.extract_field("deploymentStyle"),
             ),
             ec2_tag_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2TagFilters").unwrap(),
+                o.extract_field("ec2TagFilters"),
             ),
             ec2_tag_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2TagSets").unwrap(),
+                o.extract_field("ec2TagSets"),
             ),
             ecs_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecsService").unwrap(),
+                o.extract_field("ecsService"),
             ),
             load_balancer_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerInfo").unwrap(),
+                o.extract_field("loadBalancerInfo"),
             ),
             on_premises_instance_tag_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onPremisesInstanceTagFilters").unwrap(),
+                o.extract_field("onPremisesInstanceTagFilters"),
             ),
             outdated_instances_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outdatedInstancesStrategy").unwrap(),
+                o.extract_field("outdatedInstancesStrategy"),
             ),
             service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRoleArn").unwrap(),
+                o.extract_field("serviceRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             termination_hook_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminationHookEnabled").unwrap(),
+                o.extract_field("terminationHookEnabled"),
             ),
             trigger_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerConfigurations").unwrap(),
+                o.extract_field("triggerConfigurations"),
             ),
         }
     }

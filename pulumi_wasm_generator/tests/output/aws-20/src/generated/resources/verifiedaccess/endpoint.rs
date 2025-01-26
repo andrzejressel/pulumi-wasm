@@ -256,117 +256,57 @@ pub mod endpoint {
                     value: &verified_access_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceValidationDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainCertificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointDomainPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "sseSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedAccessGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedAccessInstanceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
             application_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationDomain").unwrap(),
+                o.extract_field("applicationDomain"),
             ),
             attachment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentType").unwrap(),
+                o.extract_field("attachmentType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             device_validation_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceValidationDomain").unwrap(),
+                o.extract_field("deviceValidationDomain"),
             ),
             domain_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainCertificateArn").unwrap(),
+                o.extract_field("domainCertificateArn"),
             ),
             endpoint_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointDomain").unwrap(),
+                o.extract_field("endpointDomain"),
             ),
             endpoint_domain_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointDomainPrefix").unwrap(),
+                o.extract_field("endpointDomainPrefix"),
             ),
             endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointType").unwrap(),
+                o.extract_field("endpointType"),
             ),
             load_balancer_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerOptions").unwrap(),
+                o.extract_field("loadBalancerOptions"),
             ),
             network_interface_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceOptions").unwrap(),
+                o.extract_field("networkInterfaceOptions"),
             ),
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             sse_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sseSpecification").unwrap(),
+                o.extract_field("sseSpecification"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             verified_access_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedAccessGroupId").unwrap(),
+                o.extract_field("verifiedAccessGroupId"),
             ),
             verified_access_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedAccessInstanceId").unwrap(),
+                o.extract_field("verifiedAccessInstanceId"),
             ),
         }
     }

@@ -244,63 +244,30 @@ pub mod cache_nfs_target {
                     value: &write_back_timer_in_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cacheName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceJunctions".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationTimerInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeBackTimerInSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CacheNfsTargetResult {
             cache_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheName").unwrap(),
+                o.extract_field("cacheName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_junctions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceJunctions").unwrap(),
+                o.extract_field("namespaceJunctions"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             target_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetHostName").unwrap(),
+                o.extract_field("targetHostName"),
             ),
             usage_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageModel").unwrap(),
+                o.extract_field("usageModel"),
             ),
             verification_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationTimerInSeconds").unwrap(),
+                o.extract_field("verificationTimerInSeconds"),
             ),
             write_back_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeBackTimerInSeconds").unwrap(),
+                o.extract_field("writeBackTimerInSeconds"),
             ),
         }
     }

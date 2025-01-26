@@ -114,39 +114,20 @@ pub mod vault_notifications {
                     value: &sns_topic_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupVaultArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupVaultEvents".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultNotificationsResult {
             backup_vault_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultArn").unwrap(),
+                o.extract_field("backupVaultArn"),
             ),
             backup_vault_events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultEvents").unwrap(),
+                o.extract_field("backupVaultEvents"),
             ),
             backup_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultName").unwrap(),
+                o.extract_field("backupVaultName"),
             ),
             sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArn").unwrap(),
+                o.extract_field("snsTopicArn"),
             ),
         }
     }

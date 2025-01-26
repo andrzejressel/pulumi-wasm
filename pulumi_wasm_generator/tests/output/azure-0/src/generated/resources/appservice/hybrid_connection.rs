@@ -177,81 +177,39 @@ pub mod hybrid_connection {
                     value: &send_key_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "relayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "relayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendKeyValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceBusNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceBusSuffix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HybridConnectionResult {
             app_service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceName").unwrap(),
+                o.extract_field("appServiceName"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             relay_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relayId").unwrap(),
+                o.extract_field("relayId"),
             ),
             relay_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relayName").unwrap(),
+                o.extract_field("relayName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             send_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendKeyName").unwrap(),
+                o.extract_field("sendKeyName"),
             ),
             send_key_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendKeyValue").unwrap(),
+                o.extract_field("sendKeyValue"),
             ),
             service_bus_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceBusNamespace").unwrap(),
+                o.extract_field("serviceBusNamespace"),
             ),
             service_bus_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceBusSuffix").unwrap(),
+                o.extract_field("serviceBusSuffix"),
             ),
         }
     }

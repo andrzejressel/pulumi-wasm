@@ -202,94 +202,42 @@ pub mod spectrum_application {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "argoSmartRouting".into(),
-                },
-                register_interface::ResultField {
-                    name: "dns".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipFirewall".into(),
-                },
-                register_interface::ResultField {
-                    name: "originDirects".into(),
-                },
-                register_interface::ResultField {
-                    name: "originDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "originPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "originPortRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "tls".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficType".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpectrumApplicationResult {
             argo_smart_routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("argoSmartRouting").unwrap(),
+                o.extract_field("argoSmartRouting"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dns").unwrap(),
-            ),
+            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
             edge_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeIps").unwrap(),
+                o.extract_field("edgeIps"),
             ),
             ip_firewall: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipFirewall").unwrap(),
+                o.extract_field("ipFirewall"),
             ),
             origin_directs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originDirects").unwrap(),
+                o.extract_field("originDirects"),
             ),
             origin_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originDns").unwrap(),
+                o.extract_field("originDns"),
             ),
             origin_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originPort").unwrap(),
+                o.extract_field("originPort"),
             ),
             origin_port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originPortRange").unwrap(),
+                o.extract_field("originPortRange"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             proxy_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyProtocol").unwrap(),
+                o.extract_field("proxyProtocol"),
             ),
-            tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tls").unwrap(),
-            ),
+            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
             traffic_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficType").unwrap(),
+                o.extract_field("trafficType"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

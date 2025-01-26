@@ -200,69 +200,31 @@ pub mod datastore_fileshare {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceDataIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessSignature".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageFileshareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatastoreFileshareResult {
             account_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountKey").unwrap(),
+                o.extract_field("accountKey"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             is_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefault").unwrap(),
+                o.extract_field("isDefault"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             service_data_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceDataIdentity").unwrap(),
+                o.extract_field("serviceDataIdentity"),
             ),
             shared_access_signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessSignature").unwrap(),
+                o.extract_field("sharedAccessSignature"),
             ),
             storage_fileshare_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageFileshareId").unwrap(),
+                o.extract_field("storageFileshareId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

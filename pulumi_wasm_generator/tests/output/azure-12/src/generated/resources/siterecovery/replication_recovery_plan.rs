@@ -175,63 +175,30 @@ pub mod replication_recovery_plan {
                     value: &target_recovery_fabric_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureToAzureSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootRecoveryGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "failoverRecoveryGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shutdownRecoveryGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRecoveryFabricId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRecoveryFabricId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationRecoveryPlanResult {
             azure_to_azure_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureToAzureSettings").unwrap(),
+                o.extract_field("azureToAzureSettings"),
             ),
             boot_recovery_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootRecoveryGroups").unwrap(),
+                o.extract_field("bootRecoveryGroups"),
             ),
             failover_recovery_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failoverRecoveryGroup").unwrap(),
+                o.extract_field("failoverRecoveryGroup"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultId").unwrap(),
+                o.extract_field("recoveryVaultId"),
             ),
             shutdown_recovery_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shutdownRecoveryGroup").unwrap(),
+                o.extract_field("shutdownRecoveryGroup"),
             ),
             source_recovery_fabric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRecoveryFabricId").unwrap(),
+                o.extract_field("sourceRecoveryFabricId"),
             ),
             target_recovery_fabric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRecoveryFabricId").unwrap(),
+                o.extract_field("targetRecoveryFabricId"),
             ),
         }
     }

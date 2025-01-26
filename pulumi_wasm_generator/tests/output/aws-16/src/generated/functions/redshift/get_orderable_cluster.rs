@@ -68,49 +68,24 @@ pub mod get_orderable_cluster {
                     value: &preferred_node_types_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredNodeTypes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOrderableClusterResult {
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             cluster_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterType").unwrap(),
+                o.extract_field("clusterType"),
             ),
             cluster_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterVersion").unwrap(),
+                o.extract_field("clusterVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             preferred_node_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredNodeTypes").unwrap(),
+                o.extract_field("preferredNodeTypes"),
             ),
         }
     }

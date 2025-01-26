@@ -199,51 +199,24 @@ pub mod contact {
                     value: &spacecraft_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contactProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "groundStationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationEndTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "spacecraftId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactResult {
             contact_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactProfileId").unwrap(),
+                o.extract_field("contactProfileId"),
             ),
             ground_station_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groundStationName").unwrap(),
+                o.extract_field("groundStationName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             reservation_end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationEndTime").unwrap(),
+                o.extract_field("reservationEndTime"),
             ),
             reservation_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationStartTime").unwrap(),
+                o.extract_field("reservationStartTime"),
             ),
             spacecraft_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spacecraftId").unwrap(),
+                o.extract_field("spacecraftId"),
             ),
         }
     }

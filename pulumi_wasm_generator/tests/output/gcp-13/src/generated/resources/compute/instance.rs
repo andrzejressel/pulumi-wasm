@@ -707,268 +707,125 @@ pub mod instance {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advancedMachineFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowStoppingForUpdate".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachedDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "canIpForward".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialInstanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuPlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDisplay".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestAccelerators".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRevocationActionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataStartupScript".into(),
-                },
-                register_interface::ResultField {
-                    name: "minCpuPlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkPerformanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "params".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerMetadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourcePolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduling".into(),
-                },
-                register_interface::ResultField {
-                    name: "scratchDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "shieldedInstanceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             advanced_machine_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedMachineFeatures").unwrap(),
+                o.extract_field("advancedMachineFeatures"),
             ),
             allow_stopping_for_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowStoppingForUpdate").unwrap(),
+                o.extract_field("allowStoppingForUpdate"),
             ),
             attached_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachedDisks").unwrap(),
+                o.extract_field("attachedDisks"),
             ),
             boot_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDisk").unwrap(),
+                o.extract_field("bootDisk"),
             ),
             can_ip_forward: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canIpForward").unwrap(),
+                o.extract_field("canIpForward"),
             ),
             confidential_instance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialInstanceConfig").unwrap(),
+                o.extract_field("confidentialInstanceConfig"),
             ),
             cpu_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuPlatform").unwrap(),
+                o.extract_field("cpuPlatform"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             current_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentStatus").unwrap(),
+                o.extract_field("currentStatus"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             desired_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredStatus").unwrap(),
+                o.extract_field("desiredStatus"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_display: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDisplay").unwrap(),
+                o.extract_field("enableDisplay"),
             ),
             guest_accelerators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestAccelerators").unwrap(),
+                o.extract_field("guestAccelerators"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             key_revocation_action_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRevocationActionType").unwrap(),
+                o.extract_field("keyRevocationActionType"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             machine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineType").unwrap(),
+                o.extract_field("machineType"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
             metadata_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataFingerprint").unwrap(),
+                o.extract_field("metadataFingerprint"),
             ),
             metadata_startup_script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataStartupScript").unwrap(),
+                o.extract_field("metadataStartupScript"),
             ),
             min_cpu_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minCpuPlatform").unwrap(),
+                o.extract_field("minCpuPlatform"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             network_performance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkPerformanceConfig").unwrap(),
+                o.extract_field("networkPerformanceConfig"),
             ),
-            params: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("params").unwrap(),
-            ),
+            params: pulumi_wasm_rust::__private::into_domain(o.extract_field("params")),
             partner_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerMetadata").unwrap(),
+                o.extract_field("partnerMetadata"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reservation_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationAffinity").unwrap(),
+                o.extract_field("reservationAffinity"),
             ),
             resource_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourcePolicies").unwrap(),
+                o.extract_field("resourcePolicies"),
             ),
             scheduling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduling").unwrap(),
+                o.extract_field("scheduling"),
             ),
             scratch_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scratchDisks").unwrap(),
+                o.extract_field("scratchDisks"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             shielded_instance_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shieldedInstanceConfig").unwrap(),
+                o.extract_field("shieldedInstanceConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsFingerprint").unwrap(),
+                o.extract_field("tagsFingerprint"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

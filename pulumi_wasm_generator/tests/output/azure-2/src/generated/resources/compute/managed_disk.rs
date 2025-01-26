@@ -598,226 +598,104 @@ pub mod managed_disk {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createOption".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskAccessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskIopsReadOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskIopsReadWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskMbpsReadOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskMbpsReadWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryImageReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperVGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicalSectorSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxShares".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandBurstingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "optimizedFrequentAttachEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "performancePlusEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secureVmDiskEncryptionSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedLaunchEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "uploadSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedDiskResult {
             create_option: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createOption").unwrap(),
+                o.extract_field("createOption"),
             ),
             disk_access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskAccessId").unwrap(),
+                o.extract_field("diskAccessId"),
             ),
             disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionSetId").unwrap(),
+                o.extract_field("diskEncryptionSetId"),
             ),
             disk_iops_read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskIopsReadOnly").unwrap(),
+                o.extract_field("diskIopsReadOnly"),
             ),
             disk_iops_read_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskIopsReadWrite").unwrap(),
+                o.extract_field("diskIopsReadWrite"),
             ),
             disk_mbps_read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskMbpsReadOnly").unwrap(),
+                o.extract_field("diskMbpsReadOnly"),
             ),
             disk_mbps_read_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskMbpsReadWrite").unwrap(),
+                o.extract_field("diskMbpsReadWrite"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
             edge_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeZone").unwrap(),
+                o.extract_field("edgeZone"),
             ),
             encryption_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSettings").unwrap(),
+                o.extract_field("encryptionSettings"),
             ),
             gallery_image_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryImageReferenceId").unwrap(),
+                o.extract_field("galleryImageReferenceId"),
             ),
             hyper_v_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperVGeneration").unwrap(),
+                o.extract_field("hyperVGeneration"),
             ),
             image_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageReferenceId").unwrap(),
+                o.extract_field("imageReferenceId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logical_sector_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicalSectorSize").unwrap(),
+                o.extract_field("logicalSectorSize"),
             ),
             max_shares: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxShares").unwrap(),
+                o.extract_field("maxShares"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAccessPolicy").unwrap(),
+                o.extract_field("networkAccessPolicy"),
             ),
             on_demand_bursting_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandBurstingEnabled").unwrap(),
+                o.extract_field("onDemandBurstingEnabled"),
             ),
             optimized_frequent_attach_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optimizedFrequentAttachEnabled").unwrap(),
+                o.extract_field("optimizedFrequentAttachEnabled"),
             ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             performance_plus_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("performancePlusEnabled").unwrap(),
+                o.extract_field("performancePlusEnabled"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secure_vm_disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secureVmDiskEncryptionSetId").unwrap(),
+                o.extract_field("secureVmDiskEncryptionSetId"),
             ),
             security_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityType").unwrap(),
+                o.extract_field("securityType"),
             ),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             source_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceUri").unwrap(),
+                o.extract_field("sourceUri"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             trusted_launch_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedLaunchEnabled").unwrap(),
+                o.extract_field("trustedLaunchEnabled"),
             ),
             upload_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uploadSizeBytes").unwrap(),
+                o.extract_field("uploadSizeBytes"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

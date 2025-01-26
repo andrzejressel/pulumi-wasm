@@ -48,79 +48,33 @@ pub mod get_resolver_firewall_domain_list {
                     value: &firewall_domain_list_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "creatorRequestId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallDomainListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedOwnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "modificationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusMessage".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResolverFirewallDomainListResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             creator_request_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creatorRequestId").unwrap(),
+                o.extract_field("creatorRequestId"),
             ),
             domain_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainCount").unwrap(),
+                o.extract_field("domainCount"),
             ),
             firewall_domain_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallDomainListId").unwrap(),
+                o.extract_field("firewallDomainListId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             managed_owner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedOwnerName").unwrap(),
+                o.extract_field("managedOwnerName"),
             ),
             modification_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modificationTime").unwrap(),
+                o.extract_field("modificationTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusMessage").unwrap(),
+                o.extract_field("statusMessage"),
             ),
         }
     }

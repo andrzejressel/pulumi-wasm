@@ -103,74 +103,33 @@ pub mod get_policy_document {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "minifiedJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrideJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "overridePolicyDocuments".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePolicyDocuments".into(),
-                },
-                register_interface::ResultField {
-                    name: "statements".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPolicyDocumentResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
             minified_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minifiedJson").unwrap(),
+                o.extract_field("minifiedJson"),
             ),
             override_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrideJson").unwrap(),
+                o.extract_field("overrideJson"),
             ),
             override_policy_documents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overridePolicyDocuments").unwrap(),
+                o.extract_field("overridePolicyDocuments"),
             ),
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
             source_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceJson").unwrap(),
+                o.extract_field("sourceJson"),
             ),
             source_policy_documents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePolicyDocuments").unwrap(),
+                o.extract_field("sourcePolicyDocuments"),
             ),
             statements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statements").unwrap(),
+                o.extract_field("statements"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

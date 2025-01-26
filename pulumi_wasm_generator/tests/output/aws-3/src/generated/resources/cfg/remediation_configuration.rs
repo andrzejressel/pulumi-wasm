@@ -219,81 +219,39 @@ pub mod remediation_configuration {
                     value: &target_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "automatic".into(),
-                },
-                register_interface::ResultField {
-                    name: "configRuleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumAutomaticAttempts".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryAttemptSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RemediationConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             automatic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automatic").unwrap(),
+                o.extract_field("automatic"),
             ),
             config_rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configRuleName").unwrap(),
+                o.extract_field("configRuleName"),
             ),
             execution_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionControls").unwrap(),
+                o.extract_field("executionControls"),
             ),
             maximum_automatic_attempts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumAutomaticAttempts").unwrap(),
+                o.extract_field("maximumAutomaticAttempts"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             retry_attempt_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryAttemptSeconds").unwrap(),
+                o.extract_field("retryAttemptSeconds"),
             ),
             target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetId").unwrap(),
+                o.extract_field("targetId"),
             ),
             target_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetType").unwrap(),
+                o.extract_field("targetType"),
             ),
             target_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetVersion").unwrap(),
+                o.extract_field("targetVersion"),
             ),
         }
     }

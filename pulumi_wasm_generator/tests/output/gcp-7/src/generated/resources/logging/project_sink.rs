@@ -190,81 +190,37 @@ pub mod project_sink {
                     value: &unique_writer_identity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigqueryOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "customWriterIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "exclusions".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueWriterIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "writerIdentity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectSinkResult {
             bigquery_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryOptions").unwrap(),
+                o.extract_field("bigqueryOptions"),
             ),
             custom_writer_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customWriterIdentity").unwrap(),
+                o.extract_field("customWriterIdentity"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             exclusions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exclusions").unwrap(),
+                o.extract_field("exclusions"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             unique_writer_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueWriterIdentity").unwrap(),
+                o.extract_field("uniqueWriterIdentity"),
             ),
             writer_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writerIdentity").unwrap(),
+                o.extract_field("writerIdentity"),
             ),
         }
     }

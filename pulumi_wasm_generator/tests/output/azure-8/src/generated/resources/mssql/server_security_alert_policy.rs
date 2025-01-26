@@ -192,69 +192,33 @@ pub mod server_security_alert_policy {
                     value: &storage_endpoint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "disabledAlerts".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAccountAdmins".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverName".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerSecurityAlertPolicyResult {
             disabled_alerts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabledAlerts").unwrap(),
+                o.extract_field("disabledAlerts"),
             ),
             email_account_admins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAccountAdmins").unwrap(),
+                o.extract_field("emailAccountAdmins"),
             ),
             email_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddresses").unwrap(),
+                o.extract_field("emailAddresses"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDays").unwrap(),
+                o.extract_field("retentionDays"),
             ),
             server_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverName").unwrap(),
+                o.extract_field("serverName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKey").unwrap(),
+                o.extract_field("storageAccountAccessKey"),
             ),
             storage_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEndpoint").unwrap(),
+                o.extract_field("storageEndpoint"),
             ),
         }
     }

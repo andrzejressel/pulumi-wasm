@@ -143,105 +143,47 @@ pub mod network_insights_analysis {
                     value: &wait_for_completion_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alternatePathHints".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "explanations".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterInArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardPathComponents".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInsightsPathId".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathFound".into(),
-                },
-                register_interface::ResultField {
-                    name: "returnPathComponents".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForCompletion".into(),
-                },
-                register_interface::ResultField {
-                    name: "warningMessage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkInsightsAnalysisResult {
             alternate_path_hints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternatePathHints").unwrap(),
+                o.extract_field("alternatePathHints"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             explanations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("explanations").unwrap(),
+                o.extract_field("explanations"),
             ),
             filter_in_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterInArns").unwrap(),
+                o.extract_field("filterInArns"),
             ),
             forward_path_components: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardPathComponents").unwrap(),
+                o.extract_field("forwardPathComponents"),
             ),
             network_insights_path_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInsightsPathId").unwrap(),
+                o.extract_field("networkInsightsPathId"),
             ),
             path_found: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathFound").unwrap(),
+                o.extract_field("pathFound"),
             ),
             return_path_components: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("returnPathComponents").unwrap(),
+                o.extract_field("returnPathComponents"),
             ),
             start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDate").unwrap(),
+                o.extract_field("startDate"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusMessage").unwrap(),
+                o.extract_field("statusMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             wait_for_completion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForCompletion").unwrap(),
+                o.extract_field("waitForCompletion"),
             ),
             warning_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("warningMessage").unwrap(),
+                o.extract_field("warningMessage"),
             ),
         }
     }

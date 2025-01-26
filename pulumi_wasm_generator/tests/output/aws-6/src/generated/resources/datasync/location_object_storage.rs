@@ -174,92 +174,42 @@ pub mod location_object_storage {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocationObjectStorageResult {
             access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessKey").unwrap(),
+                o.extract_field("accessKey"),
             ),
             agent_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentArns").unwrap(),
+                o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             secret_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretKey").unwrap(),
+                o.extract_field("secretKey"),
             ),
             server_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCertificate").unwrap(),
+                o.extract_field("serverCertificate"),
             ),
             server_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverHostname").unwrap(),
+                o.extract_field("serverHostname"),
             ),
             server_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverPort").unwrap(),
+                o.extract_field("serverPort"),
             ),
             server_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverProtocol").unwrap(),
+                o.extract_field("serverProtocol"),
             ),
             subdirectory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdirectory").unwrap(),
+                o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

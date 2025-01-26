@@ -162,81 +162,37 @@ pub mod mlflow_tracking_server {
                     value: &weekly_maintenance_window_start_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "artifactStoreUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticModelRegistration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mlflowVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackingServerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackingServerSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "trackingServerUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyMaintenanceWindowStart".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MlflowTrackingServerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             artifact_store_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactStoreUri").unwrap(),
+                o.extract_field("artifactStoreUri"),
             ),
             automatic_model_registration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticModelRegistration").unwrap(),
+                o.extract_field("automaticModelRegistration"),
             ),
             mlflow_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mlflowVersion").unwrap(),
+                o.extract_field("mlflowVersion"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tracking_server_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackingServerName").unwrap(),
+                o.extract_field("trackingServerName"),
             ),
             tracking_server_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackingServerSize").unwrap(),
+                o.extract_field("trackingServerSize"),
             ),
             tracking_server_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trackingServerUrl").unwrap(),
+                o.extract_field("trackingServerUrl"),
             ),
             weekly_maintenance_window_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyMaintenanceWindowStart").unwrap(),
+                o.extract_field("weeklyMaintenanceWindowStart"),
             ),
         }
     }

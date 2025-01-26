@@ -245,128 +245,55 @@ pub mod key {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "curve".into(),
-                },
-                register_interface::ResultField {
-                    name: "e".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "n".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBeforeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeyOpenssh".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeyPem".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "x".into(),
-                },
-                register_interface::ResultField {
-                    name: "y".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyResult {
-            curve: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("curve").unwrap(),
-            ),
-            e: pulumi_wasm_rust::__private::into_domain(hashmap.remove("e").unwrap()),
+            curve: pulumi_wasm_rust::__private::into_domain(o.extract_field("curve")),
+            e: pulumi_wasm_rust::__private::into_domain(o.extract_field("e")),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             key_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyOpts").unwrap(),
+                o.extract_field("keyOpts"),
             ),
             key_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySize").unwrap(),
+                o.extract_field("keySize"),
             ),
             key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyType").unwrap(),
+                o.extract_field("keyType"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            n: pulumi_wasm_rust::__private::into_domain(hashmap.remove("n").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            n: pulumi_wasm_rust::__private::into_domain(o.extract_field("n")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBeforeDate").unwrap(),
+                o.extract_field("notBeforeDate"),
             ),
             public_key_openssh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeyOpenssh").unwrap(),
+                o.extract_field("publicKeyOpenssh"),
             ),
             public_key_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeyPem").unwrap(),
+                o.extract_field("publicKeyPem"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             resource_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceVersionlessId").unwrap(),
+                o.extract_field("resourceVersionlessId"),
             ),
             rotation_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationPolicy").unwrap(),
+                o.extract_field("rotationPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionlessId").unwrap(),
+                o.extract_field("versionlessId"),
             ),
-            x: pulumi_wasm_rust::__private::into_domain(hashmap.remove("x").unwrap()),
-            y: pulumi_wasm_rust::__private::into_domain(hashmap.remove("y").unwrap()),
+            x: pulumi_wasm_rust::__private::into_domain(o.extract_field("x")),
+            y: pulumi_wasm_rust::__private::into_domain(o.extract_field("y")),
         }
     }
 }

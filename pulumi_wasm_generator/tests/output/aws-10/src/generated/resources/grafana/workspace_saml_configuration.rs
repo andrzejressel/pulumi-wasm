@@ -234,99 +234,48 @@ pub mod workspace_saml_configuration {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminRoleValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedOrganizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "editorRoleValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupsAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpMetadataUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpMetadataXml".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginValidityDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleAssertion".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceSamlConfigurationResult {
             admin_role_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminRoleValues").unwrap(),
+                o.extract_field("adminRoleValues"),
             ),
             allowed_organizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedOrganizations").unwrap(),
+                o.extract_field("allowedOrganizations"),
             ),
             editor_role_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("editorRoleValues").unwrap(),
+                o.extract_field("editorRoleValues"),
             ),
             email_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAssertion").unwrap(),
+                o.extract_field("emailAssertion"),
             ),
             groups_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupsAssertion").unwrap(),
+                o.extract_field("groupsAssertion"),
             ),
             idp_metadata_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpMetadataUrl").unwrap(),
+                o.extract_field("idpMetadataUrl"),
             ),
             idp_metadata_xml: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpMetadataXml").unwrap(),
+                o.extract_field("idpMetadataXml"),
             ),
             login_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginAssertion").unwrap(),
+                o.extract_field("loginAssertion"),
             ),
             login_validity_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginValidityDuration").unwrap(),
+                o.extract_field("loginValidityDuration"),
             ),
             name_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameAssertion").unwrap(),
+                o.extract_field("nameAssertion"),
             ),
             org_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgAssertion").unwrap(),
+                o.extract_field("orgAssertion"),
             ),
             role_assertion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleAssertion").unwrap(),
+                o.extract_field("roleAssertion"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

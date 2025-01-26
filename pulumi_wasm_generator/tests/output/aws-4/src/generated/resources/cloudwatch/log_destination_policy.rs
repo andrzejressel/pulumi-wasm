@@ -100,33 +100,17 @@ pub mod log_destination_policy {
                     value: &force_update_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceUpdate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogDestinationPolicyResult {
             access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicy").unwrap(),
+                o.extract_field("accessPolicy"),
             ),
             destination_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationName").unwrap(),
+                o.extract_field("destinationName"),
             ),
             force_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceUpdate").unwrap(),
+                o.extract_field("forceUpdate"),
             ),
         }
     }

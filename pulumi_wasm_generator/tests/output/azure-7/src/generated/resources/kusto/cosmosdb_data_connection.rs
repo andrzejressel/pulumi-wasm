@@ -255,63 +255,30 @@ pub mod cosmosdb_data_connection {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cosmosdbContainerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedIdentityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mappingRuleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retrievalStartDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CosmosdbDataConnectionResult {
             cosmosdb_container_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbContainerId").unwrap(),
+                o.extract_field("cosmosdbContainerId"),
             ),
             kusto_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoDatabaseId").unwrap(),
+                o.extract_field("kustoDatabaseId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedIdentityId").unwrap(),
+                o.extract_field("managedIdentityId"),
             ),
             mapping_rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mappingRuleName").unwrap(),
+                o.extract_field("mappingRuleName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retrieval_start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retrievalStartDate").unwrap(),
+                o.extract_field("retrievalStartDate"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

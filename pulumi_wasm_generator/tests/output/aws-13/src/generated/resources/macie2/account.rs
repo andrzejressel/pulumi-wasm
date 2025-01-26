@@ -81,45 +81,21 @@ pub mod account {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "findingPublishingFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             finding_publishing_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("findingPublishingFrequency").unwrap(),
+                o.extract_field("findingPublishingFrequency"),
             ),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

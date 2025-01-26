@@ -267,75 +267,32 @@ pub mod developer {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstName".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastName".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizatioName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeveloperResult {
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             first_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstName").unwrap(),
+                o.extract_field("firstName"),
             ),
             last_modified_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedAt").unwrap(),
+                o.extract_field("lastModifiedAt"),
             ),
             last_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastName").unwrap(),
+                o.extract_field("lastName"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             organizatio_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizatioName").unwrap(),
+                o.extract_field("organizatioName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

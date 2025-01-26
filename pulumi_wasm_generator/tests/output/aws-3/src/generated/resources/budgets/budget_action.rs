@@ -247,99 +247,44 @@ pub mod budget_action {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvalModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "budgetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "definition".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscribers".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BudgetActionResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             action_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionId").unwrap(),
+                o.extract_field("actionId"),
             ),
             action_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionThreshold").unwrap(),
+                o.extract_field("actionThreshold"),
             ),
             action_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionType").unwrap(),
+                o.extract_field("actionType"),
             ),
             approval_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalModel").unwrap(),
+                o.extract_field("approvalModel"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             budget_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("budgetName").unwrap(),
+                o.extract_field("budgetName"),
             ),
             definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("definition").unwrap(),
+                o.extract_field("definition"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
             notification_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationType").unwrap(),
+                o.extract_field("notificationType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subscribers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscribers").unwrap(),
+                o.extract_field("subscribers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

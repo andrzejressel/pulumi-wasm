@@ -153,45 +153,21 @@ pub mod vpc_ipam_pool_cidr {
                     value: &netmask_length_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrAuthorizationContext".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolCidrId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "netmaskLength".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamPoolCidrResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             cidr_authorization_context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrAuthorizationContext").unwrap(),
+                o.extract_field("cidrAuthorizationContext"),
             ),
             ipam_pool_cidr_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolCidrId").unwrap(),
+                o.extract_field("ipamPoolCidrId"),
             ),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("netmaskLength").unwrap(),
+                o.extract_field("netmaskLength"),
             ),
         }
     }

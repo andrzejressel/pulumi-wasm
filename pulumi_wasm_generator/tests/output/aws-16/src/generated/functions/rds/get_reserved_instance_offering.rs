@@ -82,67 +82,33 @@ pub mod get_reserved_instance_offering {
                     value: &product_description_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "currencyCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbInstanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "fixedPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAz".into(),
-                },
-                register_interface::ResultField {
-                    name: "offeringId".into(),
-                },
-                register_interface::ResultField {
-                    name: "offeringType".into(),
-                },
-                register_interface::ResultField {
-                    name: "productDescription".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetReservedInstanceOfferingResult {
             currency_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currencyCode").unwrap(),
+                o.extract_field("currencyCode"),
             ),
             db_instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbInstanceClass").unwrap(),
+                o.extract_field("dbInstanceClass"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             fixed_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fixedPrice").unwrap(),
+                o.extract_field("fixedPrice"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             multi_az: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAz").unwrap(),
+                o.extract_field("multiAz"),
             ),
             offering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offeringId").unwrap(),
+                o.extract_field("offeringId"),
             ),
             offering_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offeringType").unwrap(),
+                o.extract_field("offeringType"),
             ),
             product_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productDescription").unwrap(),
+                o.extract_field("productDescription"),
             ),
         }
     }

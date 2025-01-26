@@ -58,44 +58,20 @@ pub mod get_db_servers {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudExadataInfrastructure".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDbServersResult {
             cloud_exadata_infrastructure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudExadataInfrastructure").unwrap(),
+                o.extract_field("cloudExadataInfrastructure"),
             ),
             db_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbServers").unwrap(),
+                o.extract_field("dbServers"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

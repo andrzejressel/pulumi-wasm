@@ -145,105 +145,47 @@ pub mod reserved_cache_node {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheNodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheNodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "fixedPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "offeringType".into(),
-                },
-                register_interface::ResultField {
-                    name: "productDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurringCharges".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedCacheNodesOfferingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "usagePrice".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReservedCacheNodeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cache_node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheNodeCount").unwrap(),
+                o.extract_field("cacheNodeCount"),
             ),
             cache_node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheNodeType").unwrap(),
+                o.extract_field("cacheNodeType"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             fixed_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fixedPrice").unwrap(),
+                o.extract_field("fixedPrice"),
             ),
             offering_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offeringType").unwrap(),
+                o.extract_field("offeringType"),
             ),
             product_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productDescription").unwrap(),
+                o.extract_field("productDescription"),
             ),
             recurring_charges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurringCharges").unwrap(),
+                o.extract_field("recurringCharges"),
             ),
             reserved_cache_nodes_offering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedCacheNodesOfferingId").unwrap(),
+                o.extract_field("reservedCacheNodesOfferingId"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             usage_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usagePrice").unwrap(),
+                o.extract_field("usagePrice"),
             ),
         }
     }

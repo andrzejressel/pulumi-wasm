@@ -196,76 +196,37 @@ pub mod file_upload {
                     value: &sas_ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxDeliveryCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasTtl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FileUploadResult {
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             default_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTtl").unwrap(),
+                o.extract_field("defaultTtl"),
             ),
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
             lock_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockDuration").unwrap(),
+                o.extract_field("lockDuration"),
             ),
             max_delivery_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxDeliveryCount").unwrap(),
+                o.extract_field("maxDeliveryCount"),
             ),
             notifications_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationsEnabled").unwrap(),
+                o.extract_field("notificationsEnabled"),
             ),
-            sas_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasTtl").unwrap(),
-            ),
+            sas_ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("sasTtl")),
         }
     }
 }

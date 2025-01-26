@@ -124,80 +124,34 @@ pub mod get_account_sas {
                     value: &start_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiry".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sas".into(),
-                },
-                register_interface::ResultField {
-                    name: "services".into(),
-                },
-                register_interface::ResultField {
-                    name: "signedVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "start".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountSasResult {
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
-            expiry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiry").unwrap(),
-            ),
+            expiry: pulumi_wasm_rust::__private::into_domain(o.extract_field("expiry")),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddresses").unwrap(),
+                o.extract_field("ipAddresses"),
             ),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
             resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypes").unwrap(),
+                o.extract_field("resourceTypes"),
             ),
-            sas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sas").unwrap(),
-            ),
+            sas: pulumi_wasm_rust::__private::into_domain(o.extract_field("sas")),
             services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("services").unwrap(),
+                o.extract_field("services"),
             ),
             signed_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signedVersion").unwrap(),
+                o.extract_field("signedVersion"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("start").unwrap(),
-            ),
+            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
         }
     }
 }

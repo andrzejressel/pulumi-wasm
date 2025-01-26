@@ -169,63 +169,30 @@ pub mod instance_fleet {
                     value: &target_spot_capacity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTypeConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchSpecifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedOnDemandCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedSpotCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetOnDemandCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSpotCapacity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceFleetResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             instance_type_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTypeConfigs").unwrap(),
+                o.extract_field("instanceTypeConfigs"),
             ),
             launch_specifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchSpecifications").unwrap(),
+                o.extract_field("launchSpecifications"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             provisioned_on_demand_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedOnDemandCapacity").unwrap(),
+                o.extract_field("provisionedOnDemandCapacity"),
             ),
             provisioned_spot_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedSpotCapacity").unwrap(),
+                o.extract_field("provisionedSpotCapacity"),
             ),
             target_on_demand_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetOnDemandCapacity").unwrap(),
+                o.extract_field("targetOnDemandCapacity"),
             ),
             target_spot_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSpotCapacity").unwrap(),
+                o.extract_field("targetSpotCapacity"),
             ),
         }
     }

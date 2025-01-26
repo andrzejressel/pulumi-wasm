@@ -376,57 +376,23 @@ pub mod media_insights_pipeline_configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "elements".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "realTimeAlertConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MediaInsightsPipelineConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             elements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elements").unwrap(),
+                o.extract_field("elements"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             real_time_alert_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("realTimeAlertConfiguration").unwrap(),
+                o.extract_field("realTimeAlertConfiguration"),
             ),
             resource_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceAccessRoleArn").unwrap(),
+                o.extract_field("resourceAccessRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

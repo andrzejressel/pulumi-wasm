@@ -107,58 +107,26 @@ pub mod zone {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "maxNumberOfRecordSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfRecordSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "soaRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneResult {
             max_number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxNumberOfRecordSets").unwrap(),
+                o.extract_field("maxNumberOfRecordSets"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameServers").unwrap(),
+                o.extract_field("nameServers"),
             ),
             number_of_record_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfRecordSets").unwrap(),
+                o.extract_field("numberOfRecordSets"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             soa_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("soaRecord").unwrap(),
+                o.extract_field("soaRecord"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

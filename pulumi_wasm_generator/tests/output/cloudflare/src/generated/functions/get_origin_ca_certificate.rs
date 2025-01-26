@@ -43,49 +43,24 @@ pub mod get_origin_ca_certificate {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnames".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestType".into(),
-                },
-                register_interface::ResultField {
-                    name: "revokedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOriginCaCertificateResult {
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             expires_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresOn").unwrap(),
+                o.extract_field("expiresOn"),
             ),
             hostnames: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnames").unwrap(),
+                o.extract_field("hostnames"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             request_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestType").unwrap(),
+                o.extract_field("requestType"),
             ),
             revoked_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revokedAt").unwrap(),
+                o.extract_field("revokedAt"),
             ),
         }
     }

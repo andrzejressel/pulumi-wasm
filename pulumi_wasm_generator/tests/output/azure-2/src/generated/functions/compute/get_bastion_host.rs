@@ -74,110 +74,47 @@ pub mod get_bastion_host {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "copyPasteEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileCopyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConnectEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scaleUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionRecordingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareableLinkEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBastionHostResult {
             copy_paste_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyPasteEnabled").unwrap(),
+                o.extract_field("copyPasteEnabled"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             file_copy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileCopyEnabled").unwrap(),
+                o.extract_field("fileCopyEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurations").unwrap(),
+                o.extract_field("ipConfigurations"),
             ),
             ip_connect_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConnectEnabled").unwrap(),
+                o.extract_field("ipConnectEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scale_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scaleUnits").unwrap(),
+                o.extract_field("scaleUnits"),
             ),
             session_recording_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionRecordingEnabled").unwrap(),
+                o.extract_field("sessionRecordingEnabled"),
             ),
             shareable_link_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareableLinkEnabled").unwrap(),
+                o.extract_field("shareableLinkEnabled"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tunneling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelingEnabled").unwrap(),
+                o.extract_field("tunnelingEnabled"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

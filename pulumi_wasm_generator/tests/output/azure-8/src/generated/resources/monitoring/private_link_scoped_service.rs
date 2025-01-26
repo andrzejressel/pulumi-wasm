@@ -123,39 +123,18 @@ pub mod private_link_scoped_service {
                     value: &scope_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "linkedResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrivateLinkScopedServiceResult {
             linked_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedResourceId").unwrap(),
+                o.extract_field("linkedResourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scope_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeName").unwrap(),
+                o.extract_field("scopeName"),
             ),
         }
     }

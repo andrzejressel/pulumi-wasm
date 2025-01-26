@@ -140,63 +140,24 @@ pub mod certificate {
                     value: &csr_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "caCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "caPem".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificatePem".into(),
-                },
-                register_interface::ResultField {
-                    name: "csr".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             ca_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertificateId").unwrap(),
+                o.extract_field("caCertificateId"),
             ),
-            ca_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caPem").unwrap(),
-            ),
+            ca_pem: pulumi_wasm_rust::__private::into_domain(o.extract_field("caPem")),
             certificate_pem: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificatePem").unwrap(),
+                o.extract_field("certificatePem"),
             ),
-            csr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csr").unwrap(),
-            ),
+            csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("csr")),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
         }
     }

@@ -90,73 +90,30 @@ pub mod get_traffic_manager_profile {
                     value: &traffic_view_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficRoutingMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficViewEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTrafficManagerProfileResult {
             dns_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsConfigs").unwrap(),
+                o.extract_field("dnsConfigs"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             monitor_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorConfigs").unwrap(),
+                o.extract_field("monitorConfigs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             profile_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileStatus").unwrap(),
+                o.extract_field("profileStatus"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             traffic_routing_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficRoutingMethod").unwrap(),
+                o.extract_field("trafficRoutingMethod"),
             ),
             traffic_view_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficViewEnabled").unwrap(),
+                o.extract_field("trafficViewEnabled"),
             ),
         }
     }

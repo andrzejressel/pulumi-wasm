@@ -362,166 +362,80 @@ pub mod postgresql_cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLoginPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "citusVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "coordinatorPublicIpAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "coordinatorServerEdition".into(),
-                },
-                register_interface::ResultField {
-                    name: "coordinatorStorageQuotaInMb".into(),
-                },
-                register_interface::ResultField {
-                    name: "coordinatorVcoreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "earliestRestoreTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "haEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePublicIpAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeServerEdition".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeStorageQuotaInMb".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeVcores".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeInUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredPrimaryZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "servers".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardsOnCoordinatorEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PostgresqlClusterResult {
             administrator_login_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLoginPassword").unwrap(),
+                o.extract_field("administratorLoginPassword"),
             ),
             citus_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("citusVersion").unwrap(),
+                o.extract_field("citusVersion"),
             ),
             coordinator_public_ip_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coordinatorPublicIpAccessEnabled").unwrap(),
+                o.extract_field("coordinatorPublicIpAccessEnabled"),
             ),
             coordinator_server_edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coordinatorServerEdition").unwrap(),
+                o.extract_field("coordinatorServerEdition"),
             ),
             coordinator_storage_quota_in_mb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coordinatorStorageQuotaInMb").unwrap(),
+                o.extract_field("coordinatorStorageQuotaInMb"),
             ),
             coordinator_vcore_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coordinatorVcoreCount").unwrap(),
+                o.extract_field("coordinatorVcoreCount"),
             ),
             earliest_restore_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("earliestRestoreTime").unwrap(),
+                o.extract_field("earliestRestoreTime"),
             ),
             ha_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("haEnabled").unwrap(),
+                o.extract_field("haEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             node_public_ip_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePublicIpAccessEnabled").unwrap(),
+                o.extract_field("nodePublicIpAccessEnabled"),
             ),
             node_server_edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeServerEdition").unwrap(),
+                o.extract_field("nodeServerEdition"),
             ),
             node_storage_quota_in_mb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeStorageQuotaInMb").unwrap(),
+                o.extract_field("nodeStorageQuotaInMb"),
             ),
             node_vcores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeVcores").unwrap(),
+                o.extract_field("nodeVcores"),
             ),
             point_in_time_in_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeInUtc").unwrap(),
+                o.extract_field("pointInTimeInUtc"),
             ),
             preferred_primary_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredPrimaryZone").unwrap(),
+                o.extract_field("preferredPrimaryZone"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servers").unwrap(),
+                o.extract_field("servers"),
             ),
             shards_on_coordinator_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardsOnCoordinatorEnabled").unwrap(),
+                o.extract_field("shardsOnCoordinatorEnabled"),
             ),
             source_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceLocation").unwrap(),
+                o.extract_field("sourceLocation"),
             ),
             source_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceResourceId").unwrap(),
+                o.extract_field("sourceResourceId"),
             ),
             sql_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlVersion").unwrap(),
+                o.extract_field("sqlVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

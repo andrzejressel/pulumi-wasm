@@ -82,103 +82,43 @@ pub mod get_entitlement {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalNotificationTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvalWorkflows".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "eligibleUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "entitlementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRequestDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "privilegedAccesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterJustificationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEntitlementResult {
             additional_notification_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalNotificationTargets").unwrap(),
+                o.extract_field("additionalNotificationTargets"),
             ),
             approval_workflows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalWorkflows").unwrap(),
+                o.extract_field("approvalWorkflows"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             eligible_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eligibleUsers").unwrap(),
+                o.extract_field("eligibleUsers"),
             ),
             entitlement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entitlementId").unwrap(),
+                o.extract_field("entitlementId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_request_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRequestDuration").unwrap(),
+                o.extract_field("maxRequestDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             privileged_accesses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privilegedAccesses").unwrap(),
+                o.extract_field("privilegedAccesses"),
             ),
             requester_justification_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterJustificationConfigs").unwrap(),
+                o.extract_field("requesterJustificationConfigs"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

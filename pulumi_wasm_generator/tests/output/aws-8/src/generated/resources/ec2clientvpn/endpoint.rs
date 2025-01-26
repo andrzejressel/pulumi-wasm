@@ -286,135 +286,62 @@ pub mod endpoint {
                     value: &vpn_port_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientConnectOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientLoginBannerOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionLogOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfServicePortal".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfServicePortalUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCertificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionTimeoutHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "splitTunnel".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transportProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnPort".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationOptions").unwrap(),
+                o.extract_field("authenticationOptions"),
             ),
             client_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCidrBlock").unwrap(),
+                o.extract_field("clientCidrBlock"),
             ),
             client_connect_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientConnectOptions").unwrap(),
+                o.extract_field("clientConnectOptions"),
             ),
             client_login_banner_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientLoginBannerOptions").unwrap(),
+                o.extract_field("clientLoginBannerOptions"),
             ),
             connection_log_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionLogOptions").unwrap(),
+                o.extract_field("connectionLogOptions"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             self_service_portal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfServicePortal").unwrap(),
+                o.extract_field("selfServicePortal"),
             ),
             self_service_portal_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfServicePortalUrl").unwrap(),
+                o.extract_field("selfServicePortalUrl"),
             ),
             server_certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCertificateArn").unwrap(),
+                o.extract_field("serverCertificateArn"),
             ),
             session_timeout_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionTimeoutHours").unwrap(),
+                o.extract_field("sessionTimeoutHours"),
             ),
             split_tunnel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("splitTunnel").unwrap(),
+                o.extract_field("splitTunnel"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transport_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transportProtocol").unwrap(),
+                o.extract_field("transportProtocol"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             vpn_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnPort").unwrap(),
+                o.extract_field("vpnPort"),
             ),
         }
     }

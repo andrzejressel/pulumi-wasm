@@ -49,49 +49,22 @@ pub mod get_dataset_kusto_cluster {
                     value: &share_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustoClusterLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDatasetKustoClusterResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kusto_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoClusterId").unwrap(),
+                o.extract_field("kustoClusterId"),
             ),
             kusto_cluster_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustoClusterLocation").unwrap(),
+                o.extract_field("kustoClusterLocation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             share_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareId").unwrap(),
+                o.extract_field("shareId"),
             ),
         }
     }

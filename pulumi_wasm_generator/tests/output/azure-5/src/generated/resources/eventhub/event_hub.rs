@@ -170,70 +170,32 @@ pub mod event_hub {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "captureDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageRetention".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventHubResult {
             capture_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("captureDescription").unwrap(),
+                o.extract_field("captureDescription"),
             ),
             message_retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageRetention").unwrap(),
+                o.extract_field("messageRetention"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionCount").unwrap(),
+                o.extract_field("partitionCount"),
             ),
             partition_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionIds").unwrap(),
+                o.extract_field("partitionIds"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

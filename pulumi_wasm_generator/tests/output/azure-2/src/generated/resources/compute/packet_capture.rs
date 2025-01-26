@@ -274,63 +274,30 @@ pub mod packet_capture {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumBytesPerPacket".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumBytesPerSession".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumCaptureDurationInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkWatcherId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PacketCaptureResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             maximum_bytes_per_packet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumBytesPerPacket").unwrap(),
+                o.extract_field("maximumBytesPerPacket"),
             ),
             maximum_bytes_per_session: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumBytesPerSession").unwrap(),
+                o.extract_field("maximumBytesPerSession"),
             ),
             maximum_capture_duration_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumCaptureDurationInSeconds").unwrap(),
+                o.extract_field("maximumCaptureDurationInSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_watcher_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkWatcherId").unwrap(),
+                o.extract_field("networkWatcherId"),
             ),
             storage_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageLocation").unwrap(),
+                o.extract_field("storageLocation"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

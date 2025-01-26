@@ -134,69 +134,31 @@ pub mod layer_version_permission {
                     value: &version_number_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "layerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionNumber".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LayerVersionPermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             layer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("layerName").unwrap(),
+                o.extract_field("layerName"),
             ),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionId").unwrap(),
+                o.extract_field("revisionId"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             statement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementId").unwrap(),
+                o.extract_field("statementId"),
             ),
             version_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionNumber").unwrap(),
+                o.extract_field("versionNumber"),
             ),
         }
     }

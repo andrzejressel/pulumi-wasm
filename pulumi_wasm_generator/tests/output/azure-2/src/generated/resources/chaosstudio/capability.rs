@@ -106,33 +106,17 @@ pub mod capability {
                     value: &chaos_studio_target_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capabilityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "capabilityUrn".into(),
-                },
-                register_interface::ResultField {
-                    name: "chaosStudioTargetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CapabilityResult {
             capability_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilityType").unwrap(),
+                o.extract_field("capabilityType"),
             ),
             capability_urn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilityUrn").unwrap(),
+                o.extract_field("capabilityUrn"),
             ),
             chaos_studio_target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chaosStudioTargetId").unwrap(),
+                o.extract_field("chaosStudioTargetId"),
             ),
         }
     }

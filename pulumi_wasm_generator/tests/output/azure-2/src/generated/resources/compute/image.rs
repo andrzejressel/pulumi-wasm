@@ -172,69 +172,29 @@ pub mod image {
                     value: &zone_resilient_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperVGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVirtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneResilient".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImageResult {
             data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDisks").unwrap(),
+                o.extract_field("dataDisks"),
             ),
             hyper_v_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperVGeneration").unwrap(),
+                o.extract_field("hyperVGeneration"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDisk").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("osDisk")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVirtualMachineId").unwrap(),
+                o.extract_field("sourceVirtualMachineId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             zone_resilient: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneResilient").unwrap(),
+                o.extract_field("zoneResilient"),
             ),
         }
     }

@@ -76,109 +76,46 @@ pub mod get_cluster {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "componentVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeSshEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "gateways".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaRestProxyEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsMinVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClusterResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             cluster_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterVersion").unwrap(),
+                o.extract_field("clusterVersion"),
             ),
             component_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("componentVersions").unwrap(),
+                o.extract_field("componentVersions"),
             ),
             edge_ssh_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeSshEndpoint").unwrap(),
+                o.extract_field("edgeSshEndpoint"),
             ),
             gateways: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gateways").unwrap(),
+                o.extract_field("gateways"),
             ),
             https_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsEndpoint").unwrap(),
+                o.extract_field("httpsEndpoint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kafka_rest_proxy_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaRestProxyEndpoint").unwrap(),
+                o.extract_field("kafkaRestProxyEndpoint"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             ssh_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshEndpoint").unwrap(),
+                o.extract_field("sshEndpoint"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             tls_min_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsMinVersion").unwrap(),
+                o.extract_field("tlsMinVersion"),
             ),
         }
     }

@@ -136,75 +136,34 @@ pub mod grant {
                     value: &retiring_principal_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "constraints".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantCreationTokens".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "grantToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "granteePrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operations".into(),
-                },
-                register_interface::ResultField {
-                    name: "retireOnDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "retiringPrincipal".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GrantResult {
             constraints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("constraints").unwrap(),
+                o.extract_field("constraints"),
             ),
             grant_creation_tokens: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantCreationTokens").unwrap(),
+                o.extract_field("grantCreationTokens"),
             ),
             grant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantId").unwrap(),
+                o.extract_field("grantId"),
             ),
             grant_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grantToken").unwrap(),
+                o.extract_field("grantToken"),
             ),
             grantee_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("granteePrincipal").unwrap(),
+                o.extract_field("granteePrincipal"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operations").unwrap(),
+                o.extract_field("operations"),
             ),
             retire_on_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retireOnDelete").unwrap(),
+                o.extract_field("retireOnDelete"),
             ),
             retiring_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retiringPrincipal").unwrap(),
+                o.extract_field("retiringPrincipal"),
             ),
         }
     }

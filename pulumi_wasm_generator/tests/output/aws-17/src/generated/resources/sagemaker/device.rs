@@ -82,39 +82,16 @@ pub mod device {
                     value: &device_fleet_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "device".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceFleetName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeviceResult {
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("device").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            device: pulumi_wasm_rust::__private::into_domain(o.extract_field("device")),
             device_fleet_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceFleetName").unwrap(),
+                o.extract_field("deviceFleetName"),
             ),
         }
     }

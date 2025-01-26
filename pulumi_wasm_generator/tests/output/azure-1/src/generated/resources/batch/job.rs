@@ -157,51 +157,24 @@ pub mod job {
                     value: &task_retry_maximum_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "batchPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "commonEnvironmentProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskRetryMaximum".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             batch_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchPoolId").unwrap(),
+                o.extract_field("batchPoolId"),
             ),
             common_environment_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commonEnvironmentProperties").unwrap(),
+                o.extract_field("commonEnvironmentProperties"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             task_retry_maximum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskRetryMaximum").unwrap(),
+                o.extract_field("taskRetryMaximum"),
             ),
         }
     }

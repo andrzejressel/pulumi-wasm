@@ -101,33 +101,17 @@ pub mod kinesis_streaming_destination {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approximateCreationDateTimePrecision".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KinesisStreamingDestinationResult {
             approximate_creation_date_time_precision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approximateCreationDateTimePrecision").unwrap(),
+                o.extract_field("approximateCreationDateTimePrecision"),
             ),
             stream_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamArn").unwrap(),
+                o.extract_field("streamArn"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

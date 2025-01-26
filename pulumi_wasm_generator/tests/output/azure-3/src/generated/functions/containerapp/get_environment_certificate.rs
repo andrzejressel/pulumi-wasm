@@ -58,67 +58,27 @@ pub mod get_environment_certificate {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "issueDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuer".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEnvironmentCertificateResult {
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             issue_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issueDate").unwrap(),
+                o.extract_field("issueDate"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuer").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subject_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectName").unwrap(),
+                o.extract_field("subjectName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

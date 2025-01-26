@@ -165,63 +165,28 @@ pub mod ingestion_destination {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appBundleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "processingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IngestionDestinationResult {
             app_bundle_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appBundleArn").unwrap(),
+                o.extract_field("appBundleArn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             destination_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfiguration").unwrap(),
+                o.extract_field("destinationConfiguration"),
             ),
             ingestion_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestionArn").unwrap(),
+                o.extract_field("ingestionArn"),
             ),
             processing_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("processingConfiguration").unwrap(),
+                o.extract_field("processingConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

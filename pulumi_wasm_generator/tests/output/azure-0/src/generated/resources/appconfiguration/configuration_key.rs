@@ -273,75 +273,24 @@ pub mod configuration_key {
                     value: &vault_key_reference_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "label".into(),
-                },
-                register_interface::ResultField {
-                    name: "locked".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultKeyReference".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationKeyResult {
             configuration_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationStoreId").unwrap(),
+                o.extract_field("configurationStoreId"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
-            label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("label").unwrap(),
-            ),
-            locked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locked").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
+            locked: pulumi_wasm_rust::__private::into_domain(o.extract_field("locked")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
             vault_key_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultKeyReference").unwrap(),
+                o.extract_field("vaultKeyReference"),
             ),
         }
     }

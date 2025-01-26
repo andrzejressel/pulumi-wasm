@@ -98,39 +98,20 @@ pub mod identity_notification_topic {
                     value: &topic_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeOriginalHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityNotificationTopicResult {
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             include_original_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeOriginalHeaders").unwrap(),
+                o.extract_field("includeOriginalHeaders"),
             ),
             notification_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationType").unwrap(),
+                o.extract_field("notificationType"),
             ),
             topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicArn").unwrap(),
+                o.extract_field("topicArn"),
             ),
         }
     }

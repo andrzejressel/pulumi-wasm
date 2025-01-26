@@ -197,55 +197,23 @@ pub mod list_item {
                     value: &redirect_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "asn".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "ip".into(),
-                },
-                register_interface::ResultField {
-                    name: "listId".into(),
-                },
-                register_interface::ResultField {
-                    name: "redirect".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListItemResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("asn").unwrap(),
-            ),
+            asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("asn")),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
-            list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listId").unwrap(),
-            ),
+            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
+            list_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("listId")),
             redirect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redirect").unwrap(),
+                o.extract_field("redirect"),
             ),
         }
     }

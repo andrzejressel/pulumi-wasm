@@ -100,115 +100,51 @@ pub mod get_vpc_endpoint_service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptanceRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseEndpointDnsNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "managesVpcEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedIpAddressTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointPolicySupported".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcEndpointServiceResult {
             acceptance_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptanceRequired").unwrap(),
+                o.extract_field("acceptanceRequired"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             base_endpoint_dns_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseEndpointDnsNames").unwrap(),
+                o.extract_field("baseEndpointDnsNames"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             manages_vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managesVpcEndpoints").unwrap(),
+                o.extract_field("managesVpcEndpoints"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             private_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsName").unwrap(),
+                o.extract_field("privateDnsName"),
             ),
             private_dns_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsNames").unwrap(),
+                o.extract_field("privateDnsNames"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             service_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceType").unwrap(),
+                o.extract_field("serviceType"),
             ),
             supported_ip_address_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedIpAddressTypes").unwrap(),
+                o.extract_field("supportedIpAddressTypes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vpc_endpoint_policy_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointPolicySupported").unwrap(),
+                o.extract_field("vpcEndpointPolicySupported"),
             ),
         }
     }

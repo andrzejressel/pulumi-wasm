@@ -164,45 +164,21 @@ pub mod endpoint_servicebus {
                     value: &servicebus_secondary_connection_string_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deadLetterStorageSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "digitalTwinsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicebusPrimaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicebusSecondaryConnectionString".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointServicebusResult {
             dead_letter_storage_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterStorageSecret").unwrap(),
+                o.extract_field("deadLetterStorageSecret"),
             ),
             digital_twins_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digitalTwinsId").unwrap(),
+                o.extract_field("digitalTwinsId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             servicebus_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicebusPrimaryConnectionString").unwrap(),
+                o.extract_field("servicebusPrimaryConnectionString"),
             ),
             servicebus_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicebusSecondaryConnectionString").unwrap(),
+                o.extract_field("servicebusSecondaryConnectionString"),
             ),
         }
     }

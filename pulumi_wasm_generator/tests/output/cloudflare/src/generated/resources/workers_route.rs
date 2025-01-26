@@ -84,34 +84,16 @@ pub mod workers_route {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "pattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptName".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkersRouteResult {
             pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pattern").unwrap(),
+                o.extract_field("pattern"),
             ),
             script_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptName").unwrap(),
+                o.extract_field("scriptName"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

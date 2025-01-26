@@ -334,75 +334,38 @@ pub mod server_extended_auditing_policy {
                     value: &storage_endpoint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditActionsAndGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logMonitoringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "predicateExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKeyIsSecondary".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountSubscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerExtendedAuditingPolicyResult {
             audit_actions_and_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditActionsAndGroups").unwrap(),
+                o.extract_field("auditActionsAndGroups"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             log_monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logMonitoringEnabled").unwrap(),
+                o.extract_field("logMonitoringEnabled"),
             ),
             predicate_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predicateExpression").unwrap(),
+                o.extract_field("predicateExpression"),
             ),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
             storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKey").unwrap(),
+                o.extract_field("storageAccountAccessKey"),
             ),
             storage_account_access_key_is_secondary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKeyIsSecondary").unwrap(),
+                o.extract_field("storageAccountAccessKeyIsSecondary"),
             ),
             storage_account_subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountSubscriptionId").unwrap(),
+                o.extract_field("storageAccountSubscriptionId"),
             ),
             storage_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEndpoint").unwrap(),
+                o.extract_field("storageEndpoint"),
             ),
         }
     }

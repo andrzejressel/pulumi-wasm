@@ -39,37 +39,16 @@ pub mod get_project_service_account {
                     value: &project_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProjectServiceAccountResult {
             account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountEmail").unwrap(),
+                o.extract_field("accountEmail"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectId").unwrap(),
+                o.extract_field("projectId"),
             ),
         }
     }

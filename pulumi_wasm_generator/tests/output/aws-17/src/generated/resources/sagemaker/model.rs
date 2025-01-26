@@ -192,75 +192,32 @@ pub mod model {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "containers".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableNetworkIsolation".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceExecutionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryContainer".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ModelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             containers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containers").unwrap(),
+                o.extract_field("containers"),
             ),
             enable_network_isolation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableNetworkIsolation").unwrap(),
+                o.extract_field("enableNetworkIsolation"),
             ),
             execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleArn").unwrap(),
+                o.extract_field("executionRoleArn"),
             ),
             inference_execution_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceExecutionConfig").unwrap(),
+                o.extract_field("inferenceExecutionConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_container: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryContainer").unwrap(),
+                o.extract_field("primaryContainer"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

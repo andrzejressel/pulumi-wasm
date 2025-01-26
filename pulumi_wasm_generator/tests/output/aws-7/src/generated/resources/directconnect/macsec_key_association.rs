@@ -120,52 +120,21 @@ pub mod macsec_key_association {
                     value: &secret_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cak".into(),
-                },
-                register_interface::ResultField {
-                    name: "ckn".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MacsecKeyAssociationResult {
-            cak: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cak").unwrap(),
-            ),
-            ckn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ckn").unwrap(),
-            ),
+            cak: pulumi_wasm_rust::__private::into_domain(o.extract_field("cak")),
+            ckn: pulumi_wasm_rust::__private::into_domain(o.extract_field("ckn")),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             secret_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretArn").unwrap(),
+                o.extract_field("secretArn"),
             ),
             start_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startOn").unwrap(),
+                o.extract_field("startOn"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

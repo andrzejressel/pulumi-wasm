@@ -415,118 +415,52 @@ pub mod flow_log {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliverCrossAccountRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "eniId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDestinationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "logFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "logGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxAggregationInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficType".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlowLogResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deliver_cross_account_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliverCrossAccountRole").unwrap(),
+                o.extract_field("deliverCrossAccountRole"),
             ),
             destination_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationOptions").unwrap(),
+                o.extract_field("destinationOptions"),
             ),
-            eni_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eniId").unwrap(),
-            ),
+            eni_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("eniId")),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
             log_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDestination").unwrap(),
+                o.extract_field("logDestination"),
             ),
             log_destination_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDestinationType").unwrap(),
+                o.extract_field("logDestinationType"),
             ),
             log_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logFormat").unwrap(),
+                o.extract_field("logFormat"),
             ),
             log_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupName").unwrap(),
+                o.extract_field("logGroupName"),
             ),
             max_aggregation_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxAggregationInterval").unwrap(),
+                o.extract_field("maxAggregationInterval"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             traffic_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficType").unwrap(),
+                o.extract_field("trafficType"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

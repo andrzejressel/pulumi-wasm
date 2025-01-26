@@ -101,40 +101,17 @@ pub mod account_registration {
                     value: &kms_key_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "delegatedAdminAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "deregisterOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountRegistrationResult {
             delegated_admin_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedAdminAccount").unwrap(),
+                o.extract_field("delegatedAdminAccount"),
             ),
             deregister_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deregisterOnDestroy").unwrap(),
+                o.extract_field("deregisterOnDestroy"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

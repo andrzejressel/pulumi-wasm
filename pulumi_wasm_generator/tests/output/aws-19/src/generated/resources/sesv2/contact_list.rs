@@ -136,64 +136,27 @@ pub mod contact_list {
                     value: &topics_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactListName".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "topics".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContactListResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             contact_list_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactListName").unwrap(),
+                o.extract_field("contactListName"),
             ),
             created_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTimestamp").unwrap(),
+                o.extract_field("createdTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             last_updated_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTimestamp").unwrap(),
+                o.extract_field("lastUpdatedTimestamp"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            topics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topics").unwrap(),
-            ),
+            topics: pulumi_wasm_rust::__private::into_domain(o.extract_field("topics")),
         }
     }
 }

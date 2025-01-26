@@ -95,27 +95,14 @@ pub mod region_settings {
                     value: &resource_type_opt_in_preference_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "resourceTypeManagementPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypeOptInPreference".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionSettingsResult {
             resource_type_management_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypeManagementPreference").unwrap(),
+                o.extract_field("resourceTypeManagementPreference"),
             ),
             resource_type_opt_in_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypeOptInPreference").unwrap(),
+                o.extract_field("resourceTypeOptInPreference"),
             ),
         }
     }

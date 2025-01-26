@@ -733,333 +733,163 @@ pub mod s_3_endpoint {
                     value: &use_task_start_time_for_full_load_timestamp_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addColumnName".into(),
-                },
-                register_interface::ResultField {
-                    name: "addTrailingPaddingCharacter".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketFolder".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cannedAclForObjects".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcInsertsAndUpdates".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcInsertsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcMaxBatchInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcMinFileSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "compressionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "csvDelimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "csvNoSupValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "csvNullValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "csvRowDelimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataPageSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "datePartitionDelimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "datePartitionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "datePartitionSequence".into(),
-                },
-                register_interface::ResultField {
-                    name: "datePartitionTimezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "detachTargetOnLobLookupFailureParquet".into(),
-                },
-                register_interface::ResultField {
-                    name: "dictPageSizeLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStatistics".into(),
-                },
-                register_interface::ResultField {
-                    name: "encodingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalTableDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "glueCatalogGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreHeaderRows".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeOpForFullLoad".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxFileSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "parquetTimestampInMillisecond".into(),
-                },
-                register_interface::ResultField {
-                    name: "parquetVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "preserveTransactions".into(),
-                },
-                register_interface::ResultField {
-                    name: "rfc4180".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowGroupLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryptionKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timestampColumnName".into(),
-                },
-                register_interface::ResultField {
-                    name: "useCsvNoSupValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "useTaskStartTimeForFullLoadTimestamp".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         S3EndpointResult {
             add_column_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addColumnName").unwrap(),
+                o.extract_field("addColumnName"),
             ),
             add_trailing_padding_character: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addTrailingPaddingCharacter").unwrap(),
+                o.extract_field("addTrailingPaddingCharacter"),
             ),
             bucket_folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketFolder").unwrap(),
+                o.extract_field("bucketFolder"),
             ),
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             canned_acl_for_objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cannedAclForObjects").unwrap(),
+                o.extract_field("cannedAclForObjects"),
             ),
             cdc_inserts_and_updates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcInsertsAndUpdates").unwrap(),
+                o.extract_field("cdcInsertsAndUpdates"),
             ),
             cdc_inserts_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcInsertsOnly").unwrap(),
+                o.extract_field("cdcInsertsOnly"),
             ),
             cdc_max_batch_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcMaxBatchInterval").unwrap(),
+                o.extract_field("cdcMaxBatchInterval"),
             ),
             cdc_min_file_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcMinFileSize").unwrap(),
+                o.extract_field("cdcMinFileSize"),
             ),
             cdc_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcPath").unwrap(),
+                o.extract_field("cdcPath"),
             ),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             compression_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compressionType").unwrap(),
+                o.extract_field("compressionType"),
             ),
             csv_delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csvDelimiter").unwrap(),
+                o.extract_field("csvDelimiter"),
             ),
             csv_no_sup_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csvNoSupValue").unwrap(),
+                o.extract_field("csvNoSupValue"),
             ),
             csv_null_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csvNullValue").unwrap(),
+                o.extract_field("csvNullValue"),
             ),
             csv_row_delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csvRowDelimiter").unwrap(),
+                o.extract_field("csvRowDelimiter"),
             ),
             data_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFormat").unwrap(),
+                o.extract_field("dataFormat"),
             ),
             data_page_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataPageSize").unwrap(),
+                o.extract_field("dataPageSize"),
             ),
             date_partition_delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datePartitionDelimiter").unwrap(),
+                o.extract_field("datePartitionDelimiter"),
             ),
             date_partition_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datePartitionEnabled").unwrap(),
+                o.extract_field("datePartitionEnabled"),
             ),
             date_partition_sequence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datePartitionSequence").unwrap(),
+                o.extract_field("datePartitionSequence"),
             ),
             date_partition_timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datePartitionTimezone").unwrap(),
+                o.extract_field("datePartitionTimezone"),
             ),
             detach_target_on_lob_lookup_failure_parquet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detachTargetOnLobLookupFailureParquet").unwrap(),
+                o.extract_field("detachTargetOnLobLookupFailureParquet"),
             ),
             dict_page_size_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dictPageSizeLimit").unwrap(),
+                o.extract_field("dictPageSizeLimit"),
             ),
             enable_statistics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStatistics").unwrap(),
+                o.extract_field("enableStatistics"),
             ),
             encoding_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encodingType").unwrap(),
+                o.extract_field("encodingType"),
             ),
             encryption_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionMode").unwrap(),
+                o.extract_field("encryptionMode"),
             ),
             endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointArn").unwrap(),
+                o.extract_field("endpointArn"),
             ),
             endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointId").unwrap(),
+                o.extract_field("endpointId"),
             ),
             endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointType").unwrap(),
+                o.extract_field("endpointType"),
             ),
             engine_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineDisplayName").unwrap(),
+                o.extract_field("engineDisplayName"),
             ),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
             external_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalId").unwrap(),
+                o.extract_field("externalId"),
             ),
             external_table_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalTableDefinition").unwrap(),
+                o.extract_field("externalTableDefinition"),
             ),
             glue_catalog_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glueCatalogGeneration").unwrap(),
+                o.extract_field("glueCatalogGeneration"),
             ),
             ignore_header_rows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreHeaderRows").unwrap(),
+                o.extract_field("ignoreHeaderRows"),
             ),
             include_op_for_full_load: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeOpForFullLoad").unwrap(),
+                o.extract_field("includeOpForFullLoad"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             max_file_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxFileSize").unwrap(),
+                o.extract_field("maxFileSize"),
             ),
             parquet_timestamp_in_millisecond: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parquetTimestampInMillisecond").unwrap(),
+                o.extract_field("parquetTimestampInMillisecond"),
             ),
             parquet_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parquetVersion").unwrap(),
+                o.extract_field("parquetVersion"),
             ),
             preserve_transactions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preserveTransactions").unwrap(),
+                o.extract_field("preserveTransactions"),
             ),
             rfc4180: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rfc4180").unwrap(),
+                o.extract_field("rfc4180"),
             ),
             row_group_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowGroupLength").unwrap(),
+                o.extract_field("rowGroupLength"),
             ),
             server_side_encryption_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryptionKmsKeyId").unwrap(),
+                o.extract_field("serverSideEncryptionKmsKeyId"),
             ),
             service_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccessRoleArn").unwrap(),
+                o.extract_field("serviceAccessRoleArn"),
             ),
             ssl_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslMode").unwrap(),
+                o.extract_field("sslMode"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timestamp_column_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timestampColumnName").unwrap(),
+                o.extract_field("timestampColumnName"),
             ),
             use_csv_no_sup_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useCsvNoSupValue").unwrap(),
+                o.extract_field("useCsvNoSupValue"),
             ),
             use_task_start_time_for_full_load_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useTaskStartTimeForFullLoadTimestamp").unwrap(),
+                o.extract_field("useTaskStartTimeForFullLoadTimestamp"),
             ),
         }
     }

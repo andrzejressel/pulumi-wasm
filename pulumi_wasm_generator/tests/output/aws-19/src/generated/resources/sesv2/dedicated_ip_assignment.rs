@@ -77,26 +77,13 @@ pub mod dedicated_ip_assignment {
                     value: &ip_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationPoolName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ip".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DedicatedIpAssignmentResult {
             destination_pool_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPoolName").unwrap(),
+                o.extract_field("destinationPoolName"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
+            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
         }
     }
 }

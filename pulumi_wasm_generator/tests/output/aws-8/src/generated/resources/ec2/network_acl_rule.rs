@@ -202,82 +202,38 @@ pub mod network_acl_rule {
                     value: &to_port_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "egress".into(),
-                },
-                register_interface::ResultField {
-                    name: "fromPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "icmpCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "icmpType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAclId".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "toPort".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkAclRuleResult {
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
-            egress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egress").unwrap(),
-            ),
+            egress: pulumi_wasm_rust::__private::into_domain(o.extract_field("egress")),
             from_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fromPort").unwrap(),
+                o.extract_field("fromPort"),
             ),
             icmp_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icmpCode").unwrap(),
+                o.extract_field("icmpCode"),
             ),
             icmp_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icmpType").unwrap(),
+                o.extract_field("icmpType"),
             ),
             ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlock").unwrap(),
+                o.extract_field("ipv6CidrBlock"),
             ),
             network_acl_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAclId").unwrap(),
+                o.extract_field("networkAclId"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             rule_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleAction").unwrap(),
+                o.extract_field("ruleAction"),
             ),
             rule_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleNumber").unwrap(),
+                o.extract_field("ruleNumber"),
             ),
-            to_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("toPort").unwrap(),
-            ),
+            to_port: pulumi_wasm_rust::__private::into_domain(o.extract_field("toPort")),
         }
     }
 }

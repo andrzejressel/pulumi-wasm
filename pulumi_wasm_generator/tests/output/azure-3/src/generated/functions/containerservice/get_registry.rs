@@ -61,80 +61,34 @@ pub mod get_registry {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegistryResult {
             admin_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminEnabled").unwrap(),
+                o.extract_field("adminEnabled"),
             ),
             admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPassword").unwrap(),
+                o.extract_field("adminPassword"),
             ),
             admin_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminUsername").unwrap(),
+                o.extract_field("adminUsername"),
             ),
             data_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataEndpointEnabled").unwrap(),
+                o.extract_field("dataEndpointEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             login_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginServer").unwrap(),
+                o.extract_field("loginServer"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

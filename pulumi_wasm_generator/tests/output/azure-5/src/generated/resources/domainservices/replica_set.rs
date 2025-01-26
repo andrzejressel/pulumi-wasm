@@ -323,51 +323,26 @@ pub mod replica_set {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainControllerIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalAccessIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicaSetResult {
             domain_controller_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainControllerIpAddresses").unwrap(),
+                o.extract_field("domainControllerIpAddresses"),
             ),
             domain_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainServiceId").unwrap(),
+                o.extract_field("domainServiceId"),
             ),
             external_access_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalAccessIpAddress").unwrap(),
+                o.extract_field("externalAccessIpAddress"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             service_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceStatus").unwrap(),
+                o.extract_field("serviceStatus"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

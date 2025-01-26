@@ -104,52 +104,23 @@ pub mod zero_trust_access_group {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludes".into(),
-                },
-                register_interface::ResultField {
-                    name: "includes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "requires".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustAccessGroupResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             excludes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludes").unwrap(),
+                o.extract_field("excludes"),
             ),
             includes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includes").unwrap(),
+                o.extract_field("includes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             requires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requires").unwrap(),
+                o.extract_field("requires"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

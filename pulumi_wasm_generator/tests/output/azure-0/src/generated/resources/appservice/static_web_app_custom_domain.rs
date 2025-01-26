@@ -163,39 +163,20 @@ pub mod static_web_app_custom_domain {
                     value: &validation_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticWebAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StaticWebAppCustomDomainResult {
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             static_web_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticWebAppId").unwrap(),
+                o.extract_field("staticWebAppId"),
             ),
             validation_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationToken").unwrap(),
+                o.extract_field("validationToken"),
             ),
             validation_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationType").unwrap(),
+                o.extract_field("validationType"),
             ),
         }
     }

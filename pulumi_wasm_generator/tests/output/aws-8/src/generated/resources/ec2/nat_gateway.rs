@@ -217,87 +217,42 @@ pub mod nat_gateway {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectivityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAllocationIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPrivateIpAddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPrivateIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NatGatewayResult {
             allocation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationId").unwrap(),
+                o.extract_field("allocationId"),
             ),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             connectivity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectivityType").unwrap(),
+                o.extract_field("connectivityType"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIp").unwrap(),
+                o.extract_field("publicIp"),
             ),
             secondary_allocation_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAllocationIds").unwrap(),
+                o.extract_field("secondaryAllocationIds"),
             ),
             secondary_private_ip_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPrivateIpAddressCount").unwrap(),
+                o.extract_field("secondaryPrivateIpAddressCount"),
             ),
             secondary_private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPrivateIpAddresses").unwrap(),
+                o.extract_field("secondaryPrivateIpAddresses"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

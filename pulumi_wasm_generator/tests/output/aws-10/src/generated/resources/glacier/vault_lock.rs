@@ -128,39 +128,18 @@ pub mod vault_lock {
                     value: &vault_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "completeLock".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreDeletionError".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultLockResult {
             complete_lock: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("completeLock").unwrap(),
+                o.extract_field("completeLock"),
             ),
             ignore_deletion_error: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreDeletionError").unwrap(),
+                o.extract_field("ignoreDeletionError"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultName").unwrap(),
+                o.extract_field("vaultName"),
             ),
         }
     }

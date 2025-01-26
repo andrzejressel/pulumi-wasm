@@ -375,153 +375,65 @@ pub mod target {
                     value: &run_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "anthosCluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedEntities".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "gke".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireApproval".into(),
-                },
-                register_interface::ResultField {
-                    name: "run".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             anthos_cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anthosCluster").unwrap(),
+                o.extract_field("anthosCluster"),
             ),
             associated_entities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedEntities").unwrap(),
+                o.extract_field("associatedEntities"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             custom_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customTarget").unwrap(),
+                o.extract_field("customTarget"),
             ),
             deploy_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployParameters").unwrap(),
+                o.extract_field("deployParameters"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             execution_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionConfigs").unwrap(),
+                o.extract_field("executionConfigs"),
             ),
-            gke: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gke").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            gke: pulumi_wasm_rust::__private::into_domain(o.extract_field("gke")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             multi_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiTarget").unwrap(),
+                o.extract_field("multiTarget"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             require_approval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireApproval").unwrap(),
+                o.extract_field("requireApproval"),
             ),
-            run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("run").unwrap(),
-            ),
+            run: pulumi_wasm_rust::__private::into_domain(o.extract_field("run")),
             target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetId").unwrap(),
+                o.extract_field("targetId"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

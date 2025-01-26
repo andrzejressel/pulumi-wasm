@@ -67,79 +67,31 @@ pub mod get_signing_profile {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformId".into(),
-                },
-                register_interface::ResultField {
-                    name: "revocationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "signatureValidityPeriods".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSigningProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformDisplayName").unwrap(),
+                o.extract_field("platformDisplayName"),
             ),
             platform_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformId").unwrap(),
+                o.extract_field("platformId"),
             ),
             revocation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revocationRecords").unwrap(),
+                o.extract_field("revocationRecords"),
             ),
             signature_validity_periods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signatureValidityPeriods").unwrap(),
+                o.extract_field("signatureValidityPeriods"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionArn").unwrap(),
+                o.extract_field("versionArn"),
             ),
         }
     }

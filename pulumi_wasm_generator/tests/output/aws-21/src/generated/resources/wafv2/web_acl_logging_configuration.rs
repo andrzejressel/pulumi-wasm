@@ -166,39 +166,20 @@ pub mod web_acl_logging_configuration {
                     value: &resource_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "logDestinationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "redactedFields".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAclLoggingConfigurationResult {
             log_destination_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDestinationConfigs").unwrap(),
+                o.extract_field("logDestinationConfigs"),
             ),
             logging_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingFilter").unwrap(),
+                o.extract_field("loggingFilter"),
             ),
             redacted_fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redactedFields").unwrap(),
+                o.extract_field("redactedFields"),
             ),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
         }
     }

@@ -116,127 +116,51 @@ pub mod get_user {
                     value: &user_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "alternateIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "emails".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "locale".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-                register_interface::ResultField {
-                    name: "nickname".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "timezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUserResult {
             addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addresses").unwrap(),
+                o.extract_field("addresses"),
             ),
             alternate_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternateIdentifier").unwrap(),
+                o.extract_field("alternateIdentifier"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            emails: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emails").unwrap(),
-            ),
+            emails: pulumi_wasm_rust::__private::into_domain(o.extract_field("emails")),
             external_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalIds").unwrap(),
+                o.extract_field("externalIds"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityStoreId").unwrap(),
+                o.extract_field("identityStoreId"),
             ),
-            locale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locale").unwrap(),
-            ),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
+            locale: pulumi_wasm_rust::__private::into_domain(o.extract_field("locale")),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
             nickname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nickname").unwrap(),
+                o.extract_field("nickname"),
             ),
             phone_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumbers").unwrap(),
+                o.extract_field("phoneNumbers"),
             ),
             preferred_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredLanguage").unwrap(),
+                o.extract_field("preferredLanguage"),
             ),
             profile_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileUrl").unwrap(),
+                o.extract_field("profileUrl"),
             ),
             timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timezone").unwrap(),
+                o.extract_field("timezone"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
             user_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userType").unwrap(),
+                o.extract_field("userType"),
             ),
         }
     }

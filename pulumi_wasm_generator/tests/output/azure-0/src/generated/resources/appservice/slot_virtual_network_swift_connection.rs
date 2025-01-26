@@ -133,33 +133,17 @@ pub mod slot_virtual_network_swift_connection {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SlotVirtualNetworkSwiftConnectionResult {
             app_service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceId").unwrap(),
+                o.extract_field("appServiceId"),
             ),
             slot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotName").unwrap(),
+                o.extract_field("slotName"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

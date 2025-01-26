@@ -180,57 +180,27 @@ pub mod workforce {
                     value: &workforce_vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitoConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "oidcConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceIpConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "workforceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workforceVpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkforceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cognito_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitoConfig").unwrap(),
+                o.extract_field("cognitoConfig"),
             ),
             oidc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oidcConfig").unwrap(),
+                o.extract_field("oidcConfig"),
             ),
             source_ip_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceIpConfig").unwrap(),
+                o.extract_field("sourceIpConfig"),
             ),
             subdomain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdomain").unwrap(),
+                o.extract_field("subdomain"),
             ),
             workforce_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workforceName").unwrap(),
+                o.extract_field("workforceName"),
             ),
             workforce_vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workforceVpcConfig").unwrap(),
+                o.extract_field("workforceVpcConfig"),
             ),
         }
     }

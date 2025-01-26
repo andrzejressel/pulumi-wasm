@@ -57,43 +57,21 @@ pub mod get_netblock_ip_ranges {
                     value: &range_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlocksIpv4s".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlocksIpv6s".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "rangeType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetblockIpRangesResult {
             cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocks").unwrap(),
+                o.extract_field("cidrBlocks"),
             ),
             cidr_blocks_ipv4s: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocksIpv4s").unwrap(),
+                o.extract_field("cidrBlocksIpv4s"),
             ),
             cidr_blocks_ipv6s: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocksIpv6s").unwrap(),
+                o.extract_field("cidrBlocksIpv6s"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             range_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rangeType").unwrap(),
+                o.extract_field("rangeType"),
             ),
         }
     }

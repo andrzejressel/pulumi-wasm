@@ -395,172 +395,77 @@ pub mod io_t_hub {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudToDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "enrichments".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubEventsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubEventsNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubEventsPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubOperationsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubOperationsPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubPartitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventHubRetentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "fallbackRoute".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileUpload".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IoTHubResult {
             cloud_to_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudToDevice").unwrap(),
+                o.extract_field("cloudToDevice"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             enrichments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enrichments").unwrap(),
+                o.extract_field("enrichments"),
             ),
             event_hub_events_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubEventsEndpoint").unwrap(),
+                o.extract_field("eventHubEventsEndpoint"),
             ),
             event_hub_events_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubEventsNamespace").unwrap(),
+                o.extract_field("eventHubEventsNamespace"),
             ),
             event_hub_events_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubEventsPath").unwrap(),
+                o.extract_field("eventHubEventsPath"),
             ),
             event_hub_operations_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubOperationsEndpoint").unwrap(),
+                o.extract_field("eventHubOperationsEndpoint"),
             ),
             event_hub_operations_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubOperationsPath").unwrap(),
+                o.extract_field("eventHubOperationsPath"),
             ),
             event_hub_partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubPartitionCount").unwrap(),
+                o.extract_field("eventHubPartitionCount"),
             ),
             event_hub_retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventHubRetentionInDays").unwrap(),
+                o.extract_field("eventHubRetentionInDays"),
             ),
             fallback_route: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fallbackRoute").unwrap(),
+                o.extract_field("fallbackRoute"),
             ),
             file_upload: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileUpload").unwrap(),
+                o.extract_field("fileUpload"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationEnabled").unwrap(),
+                o.extract_field("localAuthenticationEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             min_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minTlsVersion").unwrap(),
+                o.extract_field("minTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_rule_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleSets").unwrap(),
+                o.extract_field("networkRuleSets"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
             shared_access_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessPolicies").unwrap(),
+                o.extract_field("sharedAccessPolicies"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

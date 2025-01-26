@@ -257,57 +257,25 @@ pub mod selection {
                     value: &selection_tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "planId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectionTags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SelectionResult {
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notResources").unwrap(),
+                o.extract_field("notResources"),
             ),
-            plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("planId").unwrap(),
-            ),
+            plan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("planId")),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             selection_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectionTags").unwrap(),
+                o.extract_field("selectionTags"),
             ),
         }
     }

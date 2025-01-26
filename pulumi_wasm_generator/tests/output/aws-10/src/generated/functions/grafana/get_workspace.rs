@@ -80,139 +80,61 @@ pub mod get_workspace {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountAccessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "grafanaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationDestinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationRoleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "samlConfigurationStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWorkspaceResult {
             account_access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountAccessType").unwrap(),
+                o.extract_field("accountAccessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationProviders").unwrap(),
+                o.extract_field("authenticationProviders"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             data_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSources").unwrap(),
+                o.extract_field("dataSources"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             grafana_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grafanaVersion").unwrap(),
+                o.extract_field("grafanaVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationDestinations").unwrap(),
+                o.extract_field("notificationDestinations"),
             ),
             organization_role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationRoleName").unwrap(),
+                o.extract_field("organizationRoleName"),
             ),
             organizational_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnits").unwrap(),
+                o.extract_field("organizationalUnits"),
             ),
             permission_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionType").unwrap(),
+                o.extract_field("permissionType"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             saml_configuration_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samlConfigurationStatus").unwrap(),
+                o.extract_field("samlConfigurationStatus"),
             ),
             stack_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetName").unwrap(),
+                o.extract_field("stackSetName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

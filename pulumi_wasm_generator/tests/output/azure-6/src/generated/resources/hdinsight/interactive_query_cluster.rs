@@ -463,153 +463,69 @@ pub mod interactive_query_cluster {
                     value: &tls_min_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "componentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeIsolation".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionInTransitEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "extension".into(),
-                },
-                register_interface::ResultField {
-                    name: "gateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "metastores".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitor".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roles".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountGen2".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsMinVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InteractiveQueryClusterResult {
             cluster_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterVersion").unwrap(),
+                o.extract_field("clusterVersion"),
             ),
             component_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("componentVersion").unwrap(),
+                o.extract_field("componentVersion"),
             ),
             compute_isolation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeIsolation").unwrap(),
+                o.extract_field("computeIsolation"),
             ),
             disk_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptions").unwrap(),
+                o.extract_field("diskEncryptions"),
             ),
             encryption_in_transit_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionInTransitEnabled").unwrap(),
+                o.extract_field("encryptionInTransitEnabled"),
             ),
             extension: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extension").unwrap(),
+                o.extract_field("extension"),
             ),
             gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gateway").unwrap(),
+                o.extract_field("gateway"),
             ),
             https_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsEndpoint").unwrap(),
+                o.extract_field("httpsEndpoint"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             metastores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metastores").unwrap(),
+                o.extract_field("metastores"),
             ),
             monitor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitor").unwrap(),
+                o.extract_field("monitor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             private_link_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkConfiguration").unwrap(),
+                o.extract_field("privateLinkConfiguration"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roles").unwrap(),
-            ),
+            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
             security_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityProfile").unwrap(),
+                o.extract_field("securityProfile"),
             ),
             ssh_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshEndpoint").unwrap(),
+                o.extract_field("sshEndpoint"),
             ),
             storage_account_gen2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountGen2").unwrap(),
+                o.extract_field("storageAccountGen2"),
             ),
             storage_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccounts").unwrap(),
+                o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             tls_min_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsMinVersion").unwrap(),
+                o.extract_field("tlsMinVersion"),
             ),
         }
     }

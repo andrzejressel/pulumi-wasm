@@ -100,106 +100,46 @@ pub mod cluster_snapshot {
                     value: &db_cluster_snapshot_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocatedStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbClusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbClusterSnapshotArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbClusterSnapshotIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDbClusterSnapshotArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterSnapshotResult {
             allocated_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorage").unwrap(),
+                o.extract_field("allocatedStorage"),
             ),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZones").unwrap(),
+                o.extract_field("availabilityZones"),
             ),
             db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterIdentifier").unwrap(),
+                o.extract_field("dbClusterIdentifier"),
             ),
             db_cluster_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterSnapshotArn").unwrap(),
+                o.extract_field("dbClusterSnapshotArn"),
             ),
             db_cluster_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbClusterSnapshotIdentifier").unwrap(),
+                o.extract_field("dbClusterSnapshotIdentifier"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             snapshot_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotType").unwrap(),
+                o.extract_field("snapshotType"),
             ),
             source_db_cluster_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDbClusterSnapshotArn").unwrap(),
+                o.extract_field("sourceDbClusterSnapshotArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEncrypted").unwrap(),
+                o.extract_field("storageEncrypted"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

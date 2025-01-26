@@ -89,33 +89,17 @@ pub mod archive_rule {
                     value: &rule_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "analyzerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ArchiveRuleResult {
             analyzer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("analyzerName").unwrap(),
+                o.extract_field("analyzerName"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleName").unwrap(),
+                o.extract_field("ruleName"),
             ),
         }
     }

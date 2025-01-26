@@ -80,58 +80,24 @@ pub mod landing_zone {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "driftStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestAvailableVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifestJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LandingZoneResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             drift_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driftStatuses").unwrap(),
+                o.extract_field("driftStatuses"),
             ),
             latest_available_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestAvailableVersion").unwrap(),
+                o.extract_field("latestAvailableVersion"),
             ),
             manifest_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifestJson").unwrap(),
+                o.extract_field("manifestJson"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

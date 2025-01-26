@@ -55,44 +55,18 @@ pub mod get_bucket_objects {
                     value: &prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketObjects".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "matchGlob".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBucketObjectsResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             bucket_objects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketObjects").unwrap(),
+                o.extract_field("bucketObjects"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             match_glob: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("matchGlob").unwrap(),
+                o.extract_field("matchGlob"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
         }
     }
 }

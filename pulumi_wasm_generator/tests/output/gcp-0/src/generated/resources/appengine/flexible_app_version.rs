@@ -603,201 +603,99 @@ pub mod flexible_app_version {
                     value: &vpc_access_connector_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "betaSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteServiceOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointsApiService".into(),
-                },
-                register_interface::ResultField {
-                    name: "entrypoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "envVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "flexibleRuntimeSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "handlers".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "livenessCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "manualScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "nobuildFilesRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "noopOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "readinessCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeApiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeMainExecutablePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "servingStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcAccessConnector".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlexibleAppVersionResult {
             api_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiConfig").unwrap(),
+                o.extract_field("apiConfig"),
             ),
             automatic_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticScaling").unwrap(),
+                o.extract_field("automaticScaling"),
             ),
             beta_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("betaSettings").unwrap(),
+                o.extract_field("betaSettings"),
             ),
             default_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultExpiration").unwrap(),
+                o.extract_field("defaultExpiration"),
             ),
             delete_service_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteServiceOnDestroy").unwrap(),
+                o.extract_field("deleteServiceOnDestroy"),
             ),
             deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployment").unwrap(),
+                o.extract_field("deployment"),
             ),
             endpoints_api_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointsApiService").unwrap(),
+                o.extract_field("endpointsApiService"),
             ),
             entrypoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entrypoint").unwrap(),
+                o.extract_field("entrypoint"),
             ),
             env_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envVariables").unwrap(),
+                o.extract_field("envVariables"),
             ),
             flexible_runtime_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flexibleRuntimeSettings").unwrap(),
+                o.extract_field("flexibleRuntimeSettings"),
             ),
             handlers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("handlers").unwrap(),
+                o.extract_field("handlers"),
             ),
             inbound_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundServices").unwrap(),
+                o.extract_field("inboundServices"),
             ),
             instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceClass").unwrap(),
+                o.extract_field("instanceClass"),
             ),
             liveness_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("livenessCheck").unwrap(),
+                o.extract_field("livenessCheck"),
             ),
             manual_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manualScaling").unwrap(),
+                o.extract_field("manualScaling"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             nobuild_files_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nobuildFilesRegex").unwrap(),
+                o.extract_field("nobuildFilesRegex"),
             ),
             noop_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noopOnDestroy").unwrap(),
+                o.extract_field("noopOnDestroy"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             readiness_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readinessCheck").unwrap(),
+                o.extract_field("readinessCheck"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             runtime_api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeApiVersion").unwrap(),
+                o.extract_field("runtimeApiVersion"),
             ),
             runtime_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeChannel").unwrap(),
+                o.extract_field("runtimeChannel"),
             ),
             runtime_main_executable_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeMainExecutablePath").unwrap(),
+                o.extract_field("runtimeMainExecutablePath"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             serving_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servingStatus").unwrap(),
+                o.extract_field("servingStatus"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             vpc_access_connector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcAccessConnector").unwrap(),
+                o.extract_field("vpcAccessConnector"),
             ),
         }
     }

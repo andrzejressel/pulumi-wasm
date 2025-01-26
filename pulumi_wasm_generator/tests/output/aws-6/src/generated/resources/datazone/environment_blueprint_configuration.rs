@@ -159,51 +159,26 @@ pub mod environment_blueprint_configuration {
                     value: &regional_parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentBlueprintId".into(),
-                },
-                register_interface::ResultField {
-                    name: "manageAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionalParameters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentBlueprintConfigurationResult {
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
             enabled_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledRegions").unwrap(),
+                o.extract_field("enabledRegions"),
             ),
             environment_blueprint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentBlueprintId").unwrap(),
+                o.extract_field("environmentBlueprintId"),
             ),
             manage_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manageAccessRoleArn").unwrap(),
+                o.extract_field("manageAccessRoleArn"),
             ),
             provisioning_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningRoleArn").unwrap(),
+                o.extract_field("provisioningRoleArn"),
             ),
             regional_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionalParameters").unwrap(),
+                o.extract_field("regionalParameters"),
             ),
         }
     }

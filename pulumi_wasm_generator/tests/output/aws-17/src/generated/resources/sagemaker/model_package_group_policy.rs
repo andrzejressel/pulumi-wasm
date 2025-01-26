@@ -60,27 +60,14 @@ pub mod model_package_group_policy {
                     value: &resource_policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "modelPackageGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourcePolicy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ModelPackageGroupPolicyResult {
             model_package_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelPackageGroupName").unwrap(),
+                o.extract_field("modelPackageGroupName"),
             ),
             resource_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourcePolicy").unwrap(),
+                o.extract_field("resourcePolicy"),
             ),
         }
     }

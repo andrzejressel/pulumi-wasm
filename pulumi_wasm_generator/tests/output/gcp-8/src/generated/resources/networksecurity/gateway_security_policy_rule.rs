@@ -274,99 +274,48 @@ pub mod gateway_security_policy_rule {
                     value: &tls_inspection_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationMatcher".into(),
-                },
-                register_interface::ResultField {
-                    name: "basicProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewaySecurityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionMatcher".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsInspectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GatewaySecurityPolicyRuleResult {
             application_matcher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationMatcher").unwrap(),
+                o.extract_field("applicationMatcher"),
             ),
             basic_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicProfile").unwrap(),
+                o.extract_field("basicProfile"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             gateway_security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewaySecurityPolicy").unwrap(),
+                o.extract_field("gatewaySecurityPolicy"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             session_matcher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionMatcher").unwrap(),
+                o.extract_field("sessionMatcher"),
             ),
             tls_inspection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsInspectionEnabled").unwrap(),
+                o.extract_field("tlsInspectionEnabled"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

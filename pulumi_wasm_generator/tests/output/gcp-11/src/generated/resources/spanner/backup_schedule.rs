@@ -253,64 +253,29 @@ pub mod backup_schedule {
                     value: &spec_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullBackupSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "incrementalBackupSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "spec".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupScheduleResult {
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
             full_backup_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullBackupSpec").unwrap(),
+                o.extract_field("fullBackupSpec"),
             ),
             incremental_backup_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("incrementalBackupSpec").unwrap(),
+                o.extract_field("incrementalBackupSpec"),
             ),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             retention_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDuration").unwrap(),
+                o.extract_field("retentionDuration"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spec").unwrap(),
-            ),
+            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
         }
     }
 }

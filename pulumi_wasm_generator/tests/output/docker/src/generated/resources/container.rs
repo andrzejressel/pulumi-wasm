@@ -792,409 +792,164 @@ pub mod container {
                     value: &working_dir_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attach".into(),
-                },
-                register_interface::ResultField {
-                    name: "bridge".into(),
-                },
-                register_interface::ResultField {
-                    name: "capabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "cgroupnsMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "command".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerReadRefreshTimeoutMilliseconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuShares".into(),
-                },
-                register_interface::ResultField {
-                    name: "destroyGraceSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "devices".into(),
-                },
-                register_interface::ResultField {
-                    name: "dns".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSearches".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainname".into(),
-                },
-                register_interface::ResultField {
-                    name: "entrypoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "envs".into(),
-                },
-                register_interface::ResultField {
-                    name: "exitCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "gpus".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupAdds".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthcheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "hosts".into(),
-                },
-                register_interface::ResultField {
-                    name: "image".into(),
-                },
-                register_interface::ResultField {
-                    name: "init".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipcMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDriver".into(),
-                },
-                register_interface::ResultField {
-                    name: "logOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "logs".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRetryCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "memory".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySwap".into(),
-                },
-                register_interface::ResultField {
-                    name: "mounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "mustRun".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkDatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "networksAdvanced".into(),
-                },
-                register_interface::ResultField {
-                    name: "pidMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "ports".into(),
-                },
-                register_interface::ResultField {
-                    name: "privileged".into(),
-                },
-                register_interface::ResultField {
-                    name: "publishAllPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "readOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "removeVolumes".into(),
-                },
-                register_interface::ResultField {
-                    name: "restart".into(),
-                },
-                register_interface::ResultField {
-                    name: "rm".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "shmSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "start".into(),
-                },
-                register_interface::ResultField {
-                    name: "stdinOpen".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopSignal".into(),
-                },
-                register_interface::ResultField {
-                    name: "stopTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "sysctls".into(),
-                },
-                register_interface::ResultField {
-                    name: "tmpfs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tty".into(),
-                },
-                register_interface::ResultField {
-                    name: "ulimits".into(),
-                },
-                register_interface::ResultField {
-                    name: "uploads".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-                register_interface::ResultField {
-                    name: "usernsMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumes".into(),
-                },
-                register_interface::ResultField {
-                    name: "wait".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitTimeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "workingDir".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContainerResult {
-            attach: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attach").unwrap(),
-            ),
-            bridge: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bridge").unwrap(),
-            ),
+            attach: pulumi_wasm_rust::__private::into_domain(o.extract_field("attach")),
+            bridge: pulumi_wasm_rust::__private::into_domain(o.extract_field("bridge")),
             capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilities").unwrap(),
+                o.extract_field("capabilities"),
             ),
             cgroupns_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cgroupnsMode").unwrap(),
+                o.extract_field("cgroupnsMode"),
             ),
             command: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("command").unwrap(),
+                o.extract_field("command"),
             ),
             container_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerLogs").unwrap(),
+                o.extract_field("containerLogs"),
             ),
             container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerReadRefreshTimeoutMilliseconds").unwrap(),
+                o.extract_field("containerReadRefreshTimeoutMilliseconds"),
             ),
-            cpu_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuSet").unwrap(),
-            ),
+            cpu_set: pulumi_wasm_rust::__private::into_domain(o.extract_field("cpuSet")),
             cpu_shares: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuShares").unwrap(),
+                o.extract_field("cpuShares"),
             ),
             destroy_grace_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destroyGraceSeconds").unwrap(),
+                o.extract_field("destroyGraceSeconds"),
             ),
             devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devices").unwrap(),
+                o.extract_field("devices"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dns").unwrap(),
-            ),
+            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
             dns_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsOpts").unwrap(),
+                o.extract_field("dnsOpts"),
             ),
             dns_searches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSearches").unwrap(),
+                o.extract_field("dnsSearches"),
             ),
             domainname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainname").unwrap(),
+                o.extract_field("domainname"),
             ),
             entrypoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entrypoints").unwrap(),
+                o.extract_field("entrypoints"),
             ),
-            envs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envs").unwrap(),
-            ),
+            envs: pulumi_wasm_rust::__private::into_domain(o.extract_field("envs")),
             exit_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exitCode").unwrap(),
+                o.extract_field("exitCode"),
             ),
-            gpus: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gpus").unwrap(),
-            ),
+            gpus: pulumi_wasm_rust::__private::into_domain(o.extract_field("gpus")),
             group_adds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupAdds").unwrap(),
+                o.extract_field("groupAdds"),
             ),
             healthcheck: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthcheck").unwrap(),
+                o.extract_field("healthcheck"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hosts").unwrap(),
-            ),
-            image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("image").unwrap(),
-            ),
-            init: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("init").unwrap(),
-            ),
+            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
+            image: pulumi_wasm_rust::__private::into_domain(o.extract_field("image")),
+            init: pulumi_wasm_rust::__private::into_domain(o.extract_field("init")),
             ipc_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipcMode").unwrap(),
+                o.extract_field("ipcMode"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             log_driver: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDriver").unwrap(),
+                o.extract_field("logDriver"),
             ),
             log_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logOpts").unwrap(),
+                o.extract_field("logOpts"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logs").unwrap(),
-            ),
+            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
             max_retry_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRetryCount").unwrap(),
+                o.extract_field("maxRetryCount"),
             ),
-            memory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memory").unwrap(),
-            ),
+            memory: pulumi_wasm_rust::__private::into_domain(o.extract_field("memory")),
             memory_swap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySwap").unwrap(),
+                o.extract_field("memorySwap"),
             ),
-            mounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mounts").unwrap(),
-            ),
+            mounts: pulumi_wasm_rust::__private::into_domain(o.extract_field("mounts")),
             must_run: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mustRun").unwrap(),
+                o.extract_field("mustRun"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_datas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkDatas").unwrap(),
+                o.extract_field("networkDatas"),
             ),
             network_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkMode").unwrap(),
+                o.extract_field("networkMode"),
             ),
             networks_advanced: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networksAdvanced").unwrap(),
+                o.extract_field("networksAdvanced"),
             ),
             pid_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pidMode").unwrap(),
+                o.extract_field("pidMode"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ports").unwrap(),
-            ),
+            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
             privileged: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privileged").unwrap(),
+                o.extract_field("privileged"),
             ),
             publish_all_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publishAllPorts").unwrap(),
+                o.extract_field("publishAllPorts"),
             ),
             read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readOnly").unwrap(),
+                o.extract_field("readOnly"),
             ),
             remove_volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("removeVolumes").unwrap(),
+                o.extract_field("removeVolumes"),
             ),
             restart: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restart").unwrap(),
+                o.extract_field("restart"),
             ),
-            rm: pulumi_wasm_rust::__private::into_domain(hashmap.remove("rm").unwrap()),
+            rm: pulumi_wasm_rust::__private::into_domain(o.extract_field("rm")),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             security_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityOpts").unwrap(),
+                o.extract_field("securityOpts"),
             ),
             shm_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shmSize").unwrap(),
+                o.extract_field("shmSize"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("start").unwrap(),
-            ),
+            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
             stdin_open: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stdinOpen").unwrap(),
+                o.extract_field("stdinOpen"),
             ),
             stop_signal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopSignal").unwrap(),
+                o.extract_field("stopSignal"),
             ),
             stop_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stopTimeout").unwrap(),
+                o.extract_field("stopTimeout"),
             ),
             storage_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageOpts").unwrap(),
+                o.extract_field("storageOpts"),
             ),
             sysctls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sysctls").unwrap(),
+                o.extract_field("sysctls"),
             ),
-            tmpfs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tmpfs").unwrap(),
-            ),
-            tty: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tty").unwrap(),
-            ),
+            tmpfs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tmpfs")),
+            tty: pulumi_wasm_rust::__private::into_domain(o.extract_field("tty")),
             ulimits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ulimits").unwrap(),
+                o.extract_field("ulimits"),
             ),
             uploads: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uploads").unwrap(),
+                o.extract_field("uploads"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
             userns_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usernsMode").unwrap(),
+                o.extract_field("usernsMode"),
             ),
             volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumes").unwrap(),
+                o.extract_field("volumes"),
             ),
-            wait: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wait").unwrap(),
-            ),
+            wait: pulumi_wasm_rust::__private::into_domain(o.extract_field("wait")),
             wait_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitTimeout").unwrap(),
+                o.extract_field("waitTimeout"),
             ),
             working_dir: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workingDir").unwrap(),
+                o.extract_field("workingDir"),
             ),
         }
     }

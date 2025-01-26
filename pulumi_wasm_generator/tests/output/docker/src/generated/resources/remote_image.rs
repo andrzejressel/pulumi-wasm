@@ -173,69 +173,31 @@ pub mod remote_image {
                     value: &triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "build".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceRemove".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepLocally".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "pullTriggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "repoDigest".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RemoteImageResult {
-            build: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("build").unwrap(),
-            ),
+            build: pulumi_wasm_rust::__private::into_domain(o.extract_field("build")),
             force_remove: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceRemove").unwrap(),
+                o.extract_field("forceRemove"),
             ),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             keep_locally: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepLocally").unwrap(),
+                o.extract_field("keepLocally"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             pull_triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pullTriggers").unwrap(),
+                o.extract_field("pullTriggers"),
             ),
             repo_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repoDigest").unwrap(),
+                o.extract_field("repoDigest"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

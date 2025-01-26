@@ -141,51 +141,24 @@ pub mod signing_profile_permission {
                     value: &statement_id_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "statementIdPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SigningProfilePermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
             profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileName").unwrap(),
+                o.extract_field("profileName"),
             ),
             profile_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileVersion").unwrap(),
+                o.extract_field("profileVersion"),
             ),
             statement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementId").unwrap(),
+                o.extract_field("statementId"),
             ),
             statement_id_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statementIdPrefix").unwrap(),
+                o.extract_field("statementIdPrefix"),
             ),
         }
     }

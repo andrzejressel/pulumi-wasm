@@ -103,69 +103,29 @@ pub mod vpc_ipam_scope {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamScopeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamScopeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             ipam_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamArn").unwrap(),
+                o.extract_field("ipamArn"),
             ),
-            ipam_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamId").unwrap(),
-            ),
+            ipam_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipamId")),
             ipam_scope_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamScopeType").unwrap(),
+                o.extract_field("ipamScopeType"),
             ),
             is_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefault").unwrap(),
+                o.extract_field("isDefault"),
             ),
             pool_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolCount").unwrap(),
+                o.extract_field("poolCount"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -139,64 +139,29 @@ pub mod crypto_key_version {
                     value: &state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "algorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "attestations".into(),
-                },
-                register_interface::ResultField {
-                    name: "cryptoKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalProtectionLevelOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "generateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CryptoKeyVersionResult {
             algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("algorithm").unwrap(),
+                o.extract_field("algorithm"),
             ),
             attestations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attestations").unwrap(),
+                o.extract_field("attestations"),
             ),
             crypto_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cryptoKey").unwrap(),
+                o.extract_field("cryptoKey"),
             ),
             external_protection_level_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalProtectionLevelOptions").unwrap(),
+                o.extract_field("externalProtectionLevelOptions"),
             ),
             generate_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generateTime").unwrap(),
+                o.extract_field("generateTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protection_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionLevel").unwrap(),
+                o.extract_field("protectionLevel"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

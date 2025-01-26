@@ -62,55 +62,23 @@ pub mod get_origin_request_policy {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "cookiesConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "headersConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryStringsConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOriginRequestPolicyResult {
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             cookies_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cookiesConfigs").unwrap(),
+                o.extract_field("cookiesConfigs"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             headers_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headersConfigs").unwrap(),
+                o.extract_field("headersConfigs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_strings_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryStringsConfigs").unwrap(),
+                o.extract_field("queryStringsConfigs"),
             ),
         }
     }

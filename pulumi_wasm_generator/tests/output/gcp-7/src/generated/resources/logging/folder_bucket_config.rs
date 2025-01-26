@@ -161,69 +161,31 @@ pub mod folder_bucket_config {
                     value: &retention_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cmekSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleState".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FolderBucketConfigResult {
             bucket_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketId").unwrap(),
+                o.extract_field("bucketId"),
             ),
             cmek_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cmekSettings").unwrap(),
+                o.extract_field("cmekSettings"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             index_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexConfigs").unwrap(),
+                o.extract_field("indexConfigs"),
             ),
             lifecycle_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleState").unwrap(),
+                o.extract_field("lifecycleState"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDays").unwrap(),
+                o.extract_field("retentionDays"),
             ),
         }
     }

@@ -137,76 +137,31 @@ pub mod namespace_authorization_rule {
                     value: &send_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "listen".into(),
-                },
-                register_interface::ResultField {
-                    name: "manage".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "send".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceAuthorizationRuleResult {
-            listen: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listen").unwrap(),
-            ),
-            manage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manage").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            listen: pulumi_wasm_rust::__private::into_domain(o.extract_field("listen")),
+            manage: pulumi_wasm_rust::__private::into_domain(o.extract_field("manage")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
-            send: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("send").unwrap(),
-            ),
+            send: pulumi_wasm_rust::__private::into_domain(o.extract_field("send")),
         }
     }
 }

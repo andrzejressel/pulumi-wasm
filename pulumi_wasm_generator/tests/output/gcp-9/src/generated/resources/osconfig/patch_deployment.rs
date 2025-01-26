@@ -442,93 +442,45 @@ pub mod patch_deployment {
                     value: &rollout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastExecuteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oneTimeSchedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "patchConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "patchDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "recurringSchedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollout".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PatchDeploymentResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             instance_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceFilter").unwrap(),
+                o.extract_field("instanceFilter"),
             ),
             last_execute_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastExecuteTime").unwrap(),
+                o.extract_field("lastExecuteTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             one_time_schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oneTimeSchedule").unwrap(),
+                o.extract_field("oneTimeSchedule"),
             ),
             patch_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patchConfig").unwrap(),
+                o.extract_field("patchConfig"),
             ),
             patch_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patchDeploymentId").unwrap(),
+                o.extract_field("patchDeploymentId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             recurring_schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recurringSchedule").unwrap(),
+                o.extract_field("recurringSchedule"),
             ),
             rollout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollout").unwrap(),
+                o.extract_field("rollout"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

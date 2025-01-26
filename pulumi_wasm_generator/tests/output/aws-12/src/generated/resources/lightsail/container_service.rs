@@ -252,116 +252,46 @@ pub mod container_service {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "power".into(),
-                },
-                register_interface::ResultField {
-                    name: "powerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateRegistryAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicDomainNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "scale".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContainerServiceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             is_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDisabled").unwrap(),
+                o.extract_field("isDisabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            power: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("power").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            power: pulumi_wasm_rust::__private::into_domain(o.extract_field("power")),
             power_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("powerId").unwrap(),
+                o.extract_field("powerId"),
             ),
             principal_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalArn").unwrap(),
+                o.extract_field("principalArn"),
             ),
             private_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDomainName").unwrap(),
+                o.extract_field("privateDomainName"),
             ),
             private_registry_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateRegistryAccess").unwrap(),
+                o.extract_field("privateRegistryAccess"),
             ),
             public_domain_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicDomainNames").unwrap(),
+                o.extract_field("publicDomainNames"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
-            scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scale").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            scale: pulumi_wasm_rust::__private::into_domain(o.extract_field("scale")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

@@ -189,45 +189,23 @@ pub mod response_policy {
                     value: &response_policy_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "gkeClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "networks".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "responsePolicyName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResponsePolicyResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             gke_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gkeClusters").unwrap(),
+                o.extract_field("gkeClusters"),
             ),
             networks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networks").unwrap(),
+                o.extract_field("networks"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             response_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responsePolicyName").unwrap(),
+                o.extract_field("responsePolicyName"),
             ),
         }
     }

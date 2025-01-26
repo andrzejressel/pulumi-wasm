@@ -169,10 +169,7 @@ fn assert_component_only_exports_main_and_settings(result: &[u8]) -> Result<()> 
 
     assert_eq!(
         exports_names,
-        vec![
-            "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string(),
-            "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV".to_string()
-        ]
+        vec!["component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string()]
     );
 
     let imports_names: Vec<_> = graph.types()[graph[main_package_id].ty()]

@@ -47,10 +47,6 @@ interface log {
     log: func(content: content);
 }
 
-interface pulumi-settings {
-    set-in-preview: func(in-preview: bool);
-}
-
 interface pulumi-main {
     main: func(in-preview: bool);
 }

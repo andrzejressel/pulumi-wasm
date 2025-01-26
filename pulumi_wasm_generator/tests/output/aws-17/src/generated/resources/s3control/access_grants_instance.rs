@@ -111,57 +111,27 @@ pub mod access_grants_instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessGrantsInstanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessGrantsInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityCenterApplicationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityCenterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessGrantsInstanceResult {
             access_grants_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsInstanceArn").unwrap(),
+                o.extract_field("accessGrantsInstanceArn"),
             ),
             access_grants_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGrantsInstanceId").unwrap(),
+                o.extract_field("accessGrantsInstanceId"),
             ),
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             identity_center_application_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityCenterApplicationArn").unwrap(),
+                o.extract_field("identityCenterApplicationArn"),
             ),
             identity_center_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityCenterArn").unwrap(),
+                o.extract_field("identityCenterArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

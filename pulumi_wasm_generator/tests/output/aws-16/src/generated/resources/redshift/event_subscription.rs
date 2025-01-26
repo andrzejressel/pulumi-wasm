@@ -162,87 +162,36 @@ pub mod event_subscription {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerAwsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventCategories".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventSubscriptionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             customer_aws_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerAwsId").unwrap(),
+                o.extract_field("customerAwsId"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             event_categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventCategories").unwrap(),
+                o.extract_field("eventCategories"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
             sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArn").unwrap(),
+                o.extract_field("snsTopicArn"),
             ),
             source_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceIds").unwrap(),
+                o.extract_field("sourceIds"),
             ),
             source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceType").unwrap(),
+                o.extract_field("sourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

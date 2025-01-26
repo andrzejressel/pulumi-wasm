@@ -297,117 +297,51 @@ pub mod stack_set {
                     value: &template_url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administrationRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoDeployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "callAs".into(),
-                },
-                register_interface::ResultField {
-                    name: "capabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRoleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedExecution".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationPreferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackSetResult {
             administration_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administrationRoleArn").unwrap(),
+                o.extract_field("administrationRoleArn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoDeployment").unwrap(),
+                o.extract_field("autoDeployment"),
             ),
-            call_as: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callAs").unwrap(),
-            ),
+            call_as: pulumi_wasm_rust::__private::into_domain(o.extract_field("callAs")),
             capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilities").unwrap(),
+                o.extract_field("capabilities"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             execution_role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRoleName").unwrap(),
+                o.extract_field("executionRoleName"),
             ),
             managed_execution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedExecution").unwrap(),
+                o.extract_field("managedExecution"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operation_preferences: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationPreferences").unwrap(),
+                o.extract_field("operationPreferences"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             permission_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionModel").unwrap(),
+                o.extract_field("permissionModel"),
             ),
             stack_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackSetId").unwrap(),
+                o.extract_field("stackSetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             template_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateBody").unwrap(),
+                o.extract_field("templateBody"),
             ),
             template_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateUrl").unwrap(),
+                o.extract_field("templateUrl"),
             ),
         }
     }

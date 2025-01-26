@@ -123,229 +123,106 @@ pub mod get_function {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availableMemoryMb".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildEnvironmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildServiceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildWorkerPool".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerRegistry".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerRepository".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "entryPoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTriggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsTriggerSecurityLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsTriggerUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "minInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretEnvironmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretVolumes".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArchiveBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArchiveObject".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRepositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerHttp".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConnector".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConnectorEgressSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionResult {
             available_memory_mb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableMemoryMb").unwrap(),
+                o.extract_field("availableMemoryMb"),
             ),
             build_environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildEnvironmentVariables").unwrap(),
+                o.extract_field("buildEnvironmentVariables"),
             ),
             build_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildServiceAccount").unwrap(),
+                o.extract_field("buildServiceAccount"),
             ),
             build_worker_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildWorkerPool").unwrap(),
+                o.extract_field("buildWorkerPool"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             docker_registry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerRegistry").unwrap(),
+                o.extract_field("dockerRegistry"),
             ),
             docker_repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerRepository").unwrap(),
+                o.extract_field("dockerRepository"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             entry_point: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entryPoint").unwrap(),
+                o.extract_field("entryPoint"),
             ),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
             event_triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTriggers").unwrap(),
+                o.extract_field("eventTriggers"),
             ),
             https_trigger_security_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsTriggerSecurityLevel").unwrap(),
+                o.extract_field("httpsTriggerSecurityLevel"),
             ),
             https_trigger_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsTriggerUrl").unwrap(),
+                o.extract_field("httpsTriggerUrl"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ingress_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressSettings").unwrap(),
+                o.extract_field("ingressSettings"),
             ),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             max_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxInstances").unwrap(),
+                o.extract_field("maxInstances"),
             ),
             min_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minInstances").unwrap(),
+                o.extract_field("minInstances"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             secret_environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretEnvironmentVariables").unwrap(),
+                o.extract_field("secretEnvironmentVariables"),
             ),
             secret_volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretVolumes").unwrap(),
+                o.extract_field("secretVolumes"),
             ),
             service_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountEmail").unwrap(),
+                o.extract_field("serviceAccountEmail"),
             ),
             source_archive_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArchiveBucket").unwrap(),
+                o.extract_field("sourceArchiveBucket"),
             ),
             source_archive_object: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArchiveObject").unwrap(),
+                o.extract_field("sourceArchiveObject"),
             ),
             source_repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRepositories").unwrap(),
+                o.extract_field("sourceRepositories"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             trigger_http: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerHttp").unwrap(),
+                o.extract_field("triggerHttp"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             vpc_connector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConnector").unwrap(),
+                o.extract_field("vpcConnector"),
             ),
             vpc_connector_egress_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConnectorEgressSettings").unwrap(),
+                o.extract_field("vpcConnectorEgressSettings"),
             ),
         }
     }

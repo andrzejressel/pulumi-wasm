@@ -219,70 +219,30 @@ pub mod project_feed {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assetNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingProject".into(),
-                },
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "feedId".into(),
-                },
-                register_interface::ResultField {
-                    name: "feedOutputConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectFeedResult {
             asset_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetNames").unwrap(),
+                o.extract_field("assetNames"),
             ),
             asset_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetTypes").unwrap(),
+                o.extract_field("assetTypes"),
             ),
             billing_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingProject").unwrap(),
+                o.extract_field("billingProject"),
             ),
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            feed_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("feedId").unwrap(),
-            ),
+            feed_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("feedId")),
             feed_output_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("feedOutputConfig").unwrap(),
+                o.extract_field("feedOutputConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

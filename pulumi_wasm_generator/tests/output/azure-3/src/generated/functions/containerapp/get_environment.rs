@@ -67,98 +67,45 @@ pub mod get_environment {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerBridgeCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalLoadBalancerEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformReservedCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformReservedDnsIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEnvironmentResult {
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
             default_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultDomain").unwrap(),
+                o.extract_field("defaultDomain"),
             ),
             docker_bridge_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerBridgeCidr").unwrap(),
+                o.extract_field("dockerBridgeCidr"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             infrastructure_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureSubnetId").unwrap(),
+                o.extract_field("infrastructureSubnetId"),
             ),
             internal_load_balancer_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalLoadBalancerEnabled").unwrap(),
+                o.extract_field("internalLoadBalancerEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             log_analytics_workspace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceName").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_reserved_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformReservedCidr").unwrap(),
+                o.extract_field("platformReservedCidr"),
             ),
             platform_reserved_dns_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformReservedDnsIpAddress").unwrap(),
+                o.extract_field("platformReservedDnsIpAddress"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             static_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticIpAddress").unwrap(),
+                o.extract_field("staticIpAddress"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

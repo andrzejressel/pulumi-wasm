@@ -675,123 +675,54 @@ pub mod index {
                     value: &user_token_configurations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentMetadataConfigurationUpdates".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexStatistics".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "userContextPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "userGroupResolutionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "userTokenConfigurations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IndexResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityUnits").unwrap(),
+                o.extract_field("capacityUnits"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             document_metadata_configuration_updates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentMetadataConfigurationUpdates").unwrap(),
+                o.extract_field("documentMetadataConfigurationUpdates"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
             index_statistics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexStatistics").unwrap(),
+                o.extract_field("indexStatistics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             server_side_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryptionConfiguration").unwrap(),
+                o.extract_field("serverSideEncryptionConfiguration"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
             user_context_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userContextPolicy").unwrap(),
+                o.extract_field("userContextPolicy"),
             ),
             user_group_resolution_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userGroupResolutionConfiguration").unwrap(),
+                o.extract_field("userGroupResolutionConfiguration"),
             ),
             user_token_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userTokenConfigurations").unwrap(),
+                o.extract_field("userTokenConfigurations"),
             ),
         }
     }

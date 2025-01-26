@@ -483,111 +483,48 @@ pub mod key {
                     value: &xks_key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bypassPolicyLockoutSafetyCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "customKeyStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerMasterKeySpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionWindowInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableKeyRotation".into(),
-                },
-                register_interface::ResultField {
-                    name: "isEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyUsage".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationPeriodInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "xksKeyId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bypass_policy_lockout_safety_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassPolicyLockoutSafetyCheck").unwrap(),
+                o.extract_field("bypassPolicyLockoutSafetyCheck"),
             ),
             custom_key_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customKeyStoreId").unwrap(),
+                o.extract_field("customKeyStoreId"),
             ),
             customer_master_key_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerMasterKeySpec").unwrap(),
+                o.extract_field("customerMasterKeySpec"),
             ),
             deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionWindowInDays").unwrap(),
+                o.extract_field("deletionWindowInDays"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enable_key_rotation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableKeyRotation").unwrap(),
+                o.extract_field("enableKeyRotation"),
             ),
             is_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isEnabled").unwrap(),
+                o.extract_field("isEnabled"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
             key_usage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyUsage").unwrap(),
+                o.extract_field("keyUsage"),
             ),
             multi_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegion").unwrap(),
+                o.extract_field("multiRegion"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             rotation_period_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationPeriodInDays").unwrap(),
+                o.extract_field("rotationPeriodInDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             xks_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xksKeyId").unwrap(),
+                o.extract_field("xksKeyId"),
             ),
         }
     }

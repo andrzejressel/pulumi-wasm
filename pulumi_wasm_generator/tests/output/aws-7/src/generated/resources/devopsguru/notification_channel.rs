@@ -113,26 +113,13 @@ pub mod notification_channel {
                     value: &sns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "sns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationChannelResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            sns: pulumi_wasm_rust::__private::into_domain(hashmap.remove("sns").unwrap()),
+            sns: pulumi_wasm_rust::__private::into_domain(o.extract_field("sns")),
         }
     }
 }

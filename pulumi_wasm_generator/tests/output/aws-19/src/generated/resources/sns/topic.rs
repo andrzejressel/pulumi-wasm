@@ -482,201 +482,91 @@ pub mod topic {
                     value: &tracing_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationFailureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationSuccessFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationSuccessFeedbackSampleRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "archivePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "beginningArchiveTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentBasedDeduplication".into(),
-                },
-                register_interface::ResultField {
-                    name: "deliveryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fifoTopic".into(),
-                },
-                register_interface::ResultField {
-                    name: "firehoseFailureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "firehoseSuccessFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "firehoseSuccessFeedbackSampleRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpFailureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpSuccessFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpSuccessFeedbackSampleRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsMasterKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaFailureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaSuccessFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaSuccessFeedbackSampleRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "signatureVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsFailureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsSuccessFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsSuccessFeedbackSampleRate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tracingConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicResult {
             application_failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationFailureFeedbackRoleArn").unwrap(),
+                o.extract_field("applicationFailureFeedbackRoleArn"),
             ),
             application_success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSuccessFeedbackRoleArn").unwrap(),
+                o.extract_field("applicationSuccessFeedbackRoleArn"),
             ),
             application_success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSuccessFeedbackSampleRate").unwrap(),
+                o.extract_field("applicationSuccessFeedbackSampleRate"),
             ),
             archive_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("archivePolicy").unwrap(),
+                o.extract_field("archivePolicy"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             beginning_archive_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("beginningArchiveTime").unwrap(),
+                o.extract_field("beginningArchiveTime"),
             ),
             content_based_deduplication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentBasedDeduplication").unwrap(),
+                o.extract_field("contentBasedDeduplication"),
             ),
             delivery_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deliveryPolicy").unwrap(),
+                o.extract_field("deliveryPolicy"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             fifo_topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fifoTopic").unwrap(),
+                o.extract_field("fifoTopic"),
             ),
             firehose_failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firehoseFailureFeedbackRoleArn").unwrap(),
+                o.extract_field("firehoseFailureFeedbackRoleArn"),
             ),
             firehose_success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firehoseSuccessFeedbackRoleArn").unwrap(),
+                o.extract_field("firehoseSuccessFeedbackRoleArn"),
             ),
             firehose_success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firehoseSuccessFeedbackSampleRate").unwrap(),
+                o.extract_field("firehoseSuccessFeedbackSampleRate"),
             ),
             http_failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpFailureFeedbackRoleArn").unwrap(),
+                o.extract_field("httpFailureFeedbackRoleArn"),
             ),
             http_success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpSuccessFeedbackRoleArn").unwrap(),
+                o.extract_field("httpSuccessFeedbackRoleArn"),
             ),
             http_success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpSuccessFeedbackSampleRate").unwrap(),
+                o.extract_field("httpSuccessFeedbackSampleRate"),
             ),
             kms_master_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsMasterKeyId").unwrap(),
+                o.extract_field("kmsMasterKeyId"),
             ),
             lambda_failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaFailureFeedbackRoleArn").unwrap(),
+                o.extract_field("lambdaFailureFeedbackRoleArn"),
             ),
             lambda_success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaSuccessFeedbackRoleArn").unwrap(),
+                o.extract_field("lambdaSuccessFeedbackRoleArn"),
             ),
             lambda_success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaSuccessFeedbackSampleRate").unwrap(),
+                o.extract_field("lambdaSuccessFeedbackSampleRate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             signature_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signatureVersion").unwrap(),
+                o.extract_field("signatureVersion"),
             ),
             sqs_failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsFailureFeedbackRoleArn").unwrap(),
+                o.extract_field("sqsFailureFeedbackRoleArn"),
             ),
             sqs_success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsSuccessFeedbackRoleArn").unwrap(),
+                o.extract_field("sqsSuccessFeedbackRoleArn"),
             ),
             sqs_success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsSuccessFeedbackSampleRate").unwrap(),
+                o.extract_field("sqsSuccessFeedbackSampleRate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tracing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tracingConfig").unwrap(),
+                o.extract_field("tracingConfig"),
             ),
         }
     }

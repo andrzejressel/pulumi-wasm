@@ -77,74 +77,33 @@ pub mod get_local_gateway_virtual_interface {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "localBgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayVirtualInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerBgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlan".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLocalGatewayVirtualInterfaceResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             local_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAddress").unwrap(),
+                o.extract_field("localAddress"),
             ),
             local_bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localBgpAsn").unwrap(),
+                o.extract_field("localBgpAsn"),
             ),
             local_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayId").unwrap(),
+                o.extract_field("localGatewayId"),
             ),
             local_gateway_virtual_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayVirtualInterfaceIds").unwrap(),
+                o.extract_field("localGatewayVirtualInterfaceIds"),
             ),
             peer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAddress").unwrap(),
+                o.extract_field("peerAddress"),
             ),
             peer_bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerBgpAsn").unwrap(),
+                o.extract_field("peerBgpAsn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vlan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlan").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vlan: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlan")),
         }
     }
 }

@@ -254,57 +254,23 @@ pub mod hosting_release {
                     value: &version_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "channelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "message".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostingReleaseResult {
             channel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("channelId").unwrap(),
+                o.extract_field("channelId"),
             ),
             message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("message").unwrap(),
+                o.extract_field("message"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             release_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseId").unwrap(),
+                o.extract_field("releaseId"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             version_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionName").unwrap(),
+                o.extract_field("versionName"),
             ),
         }
     }

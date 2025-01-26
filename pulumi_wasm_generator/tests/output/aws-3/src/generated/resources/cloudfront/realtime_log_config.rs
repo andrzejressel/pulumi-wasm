@@ -141,45 +141,17 @@ pub mod realtime_log_config {
                     value: &sampling_rate_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "fields".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "samplingRate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RealtimeLogConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fields").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sampling_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("samplingRate").unwrap(),
+                o.extract_field("samplingRate"),
             ),
         }
     }

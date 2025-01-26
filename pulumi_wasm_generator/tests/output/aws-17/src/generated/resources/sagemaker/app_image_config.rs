@@ -154,57 +154,25 @@ pub mod app_image_config {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appImageConfigName".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "codeEditorAppImageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "jupyterLabImageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "kernelGatewayImageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppImageConfigResult {
             app_image_config_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appImageConfigName").unwrap(),
+                o.extract_field("appImageConfigName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             code_editor_app_image_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeEditorAppImageConfig").unwrap(),
+                o.extract_field("codeEditorAppImageConfig"),
             ),
             jupyter_lab_image_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jupyterLabImageConfig").unwrap(),
+                o.extract_field("jupyterLabImageConfig"),
             ),
             kernel_gateway_image_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kernelGatewayImageConfig").unwrap(),
+                o.extract_field("kernelGatewayImageConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

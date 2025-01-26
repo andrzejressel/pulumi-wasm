@@ -288,117 +288,53 @@ pub mod managed_cluster {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupServiceEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientConnectionPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "customFabricSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServiceEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpGatewayPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradeWave".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedClusterResult {
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             backup_service_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupServiceEnabled").unwrap(),
+                o.extract_field("backupServiceEnabled"),
             ),
             client_connection_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientConnectionPort").unwrap(),
+                o.extract_field("clientConnectionPort"),
             ),
             custom_fabric_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customFabricSettings").unwrap(),
+                o.extract_field("customFabricSettings"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             dns_service_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServiceEnabled").unwrap(),
+                o.extract_field("dnsServiceEnabled"),
             ),
             http_gateway_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpGatewayPort").unwrap(),
+                o.extract_field("httpGatewayPort"),
             ),
             lb_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbRules").unwrap(),
+                o.extract_field("lbRules"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeTypes").unwrap(),
+                o.extract_field("nodeTypes"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             upgrade_wave: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradeWave").unwrap(),
+                o.extract_field("upgradeWave"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

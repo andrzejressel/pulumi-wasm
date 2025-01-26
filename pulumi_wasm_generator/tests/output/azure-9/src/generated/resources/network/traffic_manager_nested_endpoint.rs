@@ -265,94 +265,44 @@ pub mod traffic_manager_nested_endpoint {
                     value: &weight_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumChildEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumRequiredChildEndpointsIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumRequiredChildEndpointsIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weight".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrafficManagerNestedEndpointResult {
             custom_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHeaders").unwrap(),
+                o.extract_field("customHeaders"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             endpoint_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointLocation").unwrap(),
+                o.extract_field("endpointLocation"),
             ),
             geo_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoMappings").unwrap(),
+                o.extract_field("geoMappings"),
             ),
             minimum_child_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumChildEndpoints").unwrap(),
+                o.extract_field("minimumChildEndpoints"),
             ),
             minimum_required_child_endpoints_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumRequiredChildEndpointsIpv4").unwrap(),
+                o.extract_field("minimumRequiredChildEndpointsIpv4"),
             ),
             minimum_required_child_endpoints_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumRequiredChildEndpointsIpv6").unwrap(),
+                o.extract_field("minimumRequiredChildEndpointsIpv6"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileId").unwrap(),
+                o.extract_field("profileId"),
             ),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weight").unwrap(),
-            ),
+            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
         }
     }
 }

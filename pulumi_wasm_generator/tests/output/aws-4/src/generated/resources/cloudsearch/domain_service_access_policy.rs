@@ -93,27 +93,14 @@ pub mod domain_service_access_policy {
                     value: &domain_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainServiceAccessPolicyResult {
             access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicy").unwrap(),
+                o.extract_field("accessPolicy"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
         }
     }

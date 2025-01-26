@@ -65,74 +65,33 @@ pub mod get_confidential_ledger {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureadBasedServicePrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateBasedSecurityPrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityServiceEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "ledgerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "ledgerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfidentialLedgerResult {
             azuread_based_service_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureadBasedServicePrincipals").unwrap(),
+                o.extract_field("azureadBasedServicePrincipals"),
             ),
             certificate_based_security_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateBasedSecurityPrincipals").unwrap(),
+                o.extract_field("certificateBasedSecurityPrincipals"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_service_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityServiceEndpoint").unwrap(),
+                o.extract_field("identityServiceEndpoint"),
             ),
             ledger_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ledgerEndpoint").unwrap(),
+                o.extract_field("ledgerEndpoint"),
             ),
             ledger_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ledgerType").unwrap(),
+                o.extract_field("ledgerType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

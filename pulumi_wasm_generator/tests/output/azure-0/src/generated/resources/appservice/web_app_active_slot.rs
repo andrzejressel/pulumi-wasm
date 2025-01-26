@@ -155,34 +155,16 @@ pub mod web_app_active_slot {
                     value: &slot_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "lastSuccessfulSwap".into(),
-                },
-                register_interface::ResultField {
-                    name: "overwriteNetworkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAppActiveSlotResult {
             last_successful_swap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastSuccessfulSwap").unwrap(),
+                o.extract_field("lastSuccessfulSwap"),
             ),
             overwrite_network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overwriteNetworkConfig").unwrap(),
+                o.extract_field("overwriteNetworkConfig"),
             ),
-            slot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotId").unwrap(),
-            ),
+            slot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("slotId")),
         }
     }
 }

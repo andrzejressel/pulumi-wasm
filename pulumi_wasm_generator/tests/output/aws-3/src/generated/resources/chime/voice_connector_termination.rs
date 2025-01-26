@@ -133,51 +133,26 @@ pub mod voice_connector_termination {
                     value: &voice_connector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "callingRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrAllowLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpsLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPhoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "voiceConnectorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VoiceConnectorTerminationResult {
             calling_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callingRegions").unwrap(),
+                o.extract_field("callingRegions"),
             ),
             cidr_allow_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrAllowLists").unwrap(),
+                o.extract_field("cidrAllowLists"),
             ),
             cps_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpsLimit").unwrap(),
+                o.extract_field("cpsLimit"),
             ),
             default_phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPhoneNumber").unwrap(),
+                o.extract_field("defaultPhoneNumber"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             voice_connector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceConnectorId").unwrap(),
+                o.extract_field("voiceConnectorId"),
             ),
         }
     }

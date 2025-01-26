@@ -187,81 +187,35 @@ pub mod route_server {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "branchToBranchTrafficEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddressId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingState".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterIps".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteServerResult {
             branch_to_branch_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branchToBranchTrafficEnabled").unwrap(),
+                o.extract_field("branchToBranchTrafficEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_ip_address_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddressId").unwrap(),
+                o.extract_field("publicIpAddressId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             routing_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingState").unwrap(),
+                o.extract_field("routingState"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_router_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterAsn").unwrap(),
+                o.extract_field("virtualRouterAsn"),
             ),
             virtual_router_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterIps").unwrap(),
+                o.extract_field("virtualRouterIps"),
             ),
         }
     }

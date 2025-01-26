@@ -137,51 +137,26 @@ pub mod channel_teams {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "callingWebHook".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentEnvironment".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableCalling".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelTeamsResult {
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             calling_web_hook: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callingWebHook").unwrap(),
+                o.extract_field("callingWebHook"),
             ),
             deployment_environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentEnvironment").unwrap(),
+                o.extract_field("deploymentEnvironment"),
             ),
             enable_calling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableCalling").unwrap(),
+                o.extract_field("enableCalling"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

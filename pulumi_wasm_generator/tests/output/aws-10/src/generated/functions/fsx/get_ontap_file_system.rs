@@ -90,151 +90,69 @@ pub mod get_ontap_file_system {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticBackupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyAutomaticBackupStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskIopsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointIpAddressRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "haPairs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughputCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughputCapacityPerHaPair".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyMaintenanceStartTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOntapFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             automatic_backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticBackupRetentionDays").unwrap(),
+                o.extract_field("automaticBackupRetentionDays"),
             ),
             daily_automatic_backup_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyAutomaticBackupStartTime").unwrap(),
+                o.extract_field("dailyAutomaticBackupStartTime"),
             ),
             deployment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentType").unwrap(),
+                o.extract_field("deploymentType"),
             ),
             disk_iops_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskIopsConfigurations").unwrap(),
+                o.extract_field("diskIopsConfigurations"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             endpoint_ip_address_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointIpAddressRange").unwrap(),
+                o.extract_field("endpointIpAddressRange"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             ha_pairs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("haPairs").unwrap(),
+                o.extract_field("haPairs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             preferred_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredSubnetId").unwrap(),
+                o.extract_field("preferredSubnetId"),
             ),
             route_table_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableIds").unwrap(),
+                o.extract_field("routeTableIds"),
             ),
             storage_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacity").unwrap(),
+                o.extract_field("storageCapacity"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             throughput_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughputCapacity").unwrap(),
+                o.extract_field("throughputCapacity"),
             ),
             throughput_capacity_per_ha_pair: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughputCapacityPerHaPair").unwrap(),
+                o.extract_field("throughputCapacityPerHaPair"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             weekly_maintenance_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyMaintenanceStartTime").unwrap(),
+                o.extract_field("weeklyMaintenanceStartTime"),
             ),
         }
     }

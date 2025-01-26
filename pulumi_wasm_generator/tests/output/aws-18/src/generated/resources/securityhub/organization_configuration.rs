@@ -145,33 +145,17 @@ pub mod organization_configuration {
                     value: &organization_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoEnable".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoEnableStandards".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationConfigurationResult {
             auto_enable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoEnable").unwrap(),
+                o.extract_field("autoEnable"),
             ),
             auto_enable_standards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoEnableStandards").unwrap(),
+                o.extract_field("autoEnableStandards"),
             ),
             organization_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationConfiguration").unwrap(),
+                o.extract_field("organizationConfiguration"),
             ),
         }
     }

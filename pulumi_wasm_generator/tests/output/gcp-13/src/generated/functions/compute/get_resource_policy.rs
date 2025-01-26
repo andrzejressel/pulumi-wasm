@@ -75,73 +75,32 @@ pub mod get_resource_policy {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskConsistencyGroupPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupPlacementPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceSchedulePolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotSchedulePolicies".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourcePolicyResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disk_consistency_group_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskConsistencyGroupPolicies").unwrap(),
+                o.extract_field("diskConsistencyGroupPolicies"),
             ),
             group_placement_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupPlacementPolicies").unwrap(),
+                o.extract_field("groupPlacementPolicies"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_schedule_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceSchedulePolicies").unwrap(),
+                o.extract_field("instanceSchedulePolicies"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             snapshot_schedule_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotSchedulePolicies").unwrap(),
+                o.extract_field("snapshotSchedulePolicies"),
             ),
         }
     }
