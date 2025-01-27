@@ -59,14 +59,12 @@ impl PulumiService for PulumiServiceImpl {
 
     fn register_outputs(&self, outputs: HashMap<FieldName, Value>) {
         if !self.is_in_preview {
-            let root = self.connector.get_root_resource();
-
             let object = Self::create_protobuf_struct(
                 outputs.into_iter().map(|(k, v)| (k, Some(v))).collect(),
             );
 
             let request = grpc::RegisterResourceOutputsRequest {
-                urn: root,
+                urn: "INVALID".to_string(), // Will be fixed in grpc_connection
                 outputs: Some(object),
             };
 

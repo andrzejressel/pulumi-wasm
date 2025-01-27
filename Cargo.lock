@@ -2420,6 +2420,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_grpc_connection"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "futures",
+ "prost",
+ "pulumi_wasm_proto",
+ "tokio",
+ "tokio-stream",
+ "tonic",
+]
+
+[[package]]
 name = "pulumi_wasm_proto"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2512,17 +2525,16 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "clap",
- "futures",
  "log",
  "log4rs",
  "prost",
+ "pulumi_wasm_grpc_connection",
  "pulumi_wasm_proto",
  "pulumi_wasm_runner_component_creator",
  "pulumi_wasm_wit",
  "serde",
  "serde_json",
  "tokio",
- "tonic",
  "wasmparser 0.224.0",
  "wasmtime",
  "wasmtime-wasi",

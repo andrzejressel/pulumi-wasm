@@ -1,9 +1,7 @@
 package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
 
 interface external-world {
-    is-in-preview: func() -> bool;
-    get-root-resource: func() -> string;
-    register-resource-outputs: func(request: list<u8>) -> list<u8>;
+    register-resource-outputs: func(request: list<u8>);
 
     record resource-invoke-request {
         output-id: string,
