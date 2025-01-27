@@ -269,78 +269,24 @@ pub mod component {
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn is_in_preview() -> bool {
+            pub fn register_resource_outputs(request: &[u8]) {
                 unsafe {
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(
-                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
-                    )]
-                    extern "C" {
-                        #[link_name = "is-in-preview"]
-                        fn wit_import() -> i32;
-                    }
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import() -> i32 {
-                        unreachable!()
-                    }
-                    let ret = wit_import();
-                    _rt::bool_lift(ret as u8)
-                }
-            }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn get_root_resource() -> _rt::String {
-                unsafe {
-                    #[repr(align(4))]
-                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                    let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(
-                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
-                    )]
-                    extern "C" {
-                        #[link_name = "get-root-resource"]
-                        fn wit_import(_: *mut u8);
-                    }
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import(_: *mut u8) {
-                        unreachable!()
-                    }
-                    wit_import(ptr0);
-                    let l1 = *ptr0.add(0).cast::<*mut u8>();
-                    let l2 = *ptr0.add(4).cast::<usize>();
-                    let len3 = l2;
-                    let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                    _rt::string_lift(bytes3)
-                }
-            }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn register_resource_outputs(request: &[u8]) -> _rt::Vec<u8> {
-                unsafe {
-                    #[repr(align(4))]
-                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
                     let vec0 = request;
                     let ptr0 = vec0.as_ptr().cast::<u8>();
                     let len0 = vec0.len();
-                    let ptr1 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(
                         wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
                     )]
                     extern "C" {
                         #[link_name = "register-resource-outputs"]
-                        fn wit_import(_: *mut u8, _: usize, _: *mut u8);
+                        fn wit_import(_: *mut u8, _: usize);
                     }
                     #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import(_: *mut u8, _: usize, _: *mut u8) {
+                    fn wit_import(_: *mut u8, _: usize) {
                         unreachable!()
                     }
-                    wit_import(ptr0.cast_mut(), len0, ptr1);
-                    let l2 = *ptr1.add(0).cast::<*mut u8>();
-                    let l3 = *ptr1.add(4).cast::<usize>();
-                    let len4 = l3;
-                    _rt::Vec::from_raw_parts(l2.cast(), len4, len4)
+                    wit_import(ptr0.cast_mut(), len0);
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
@@ -1571,17 +1517,6 @@ mod _rt {
         }
     }
     pub use alloc_crate::alloc;
-    pub unsafe fn bool_lift(val: u8) -> bool {
-        if cfg!(debug_assertions) {
-            match val {
-                0 => false,
-                1 => true,
-                _ => panic!("invalid bool discriminant"),
-            }
-        } else {
-            val != 0
-        }
-    }
     pub unsafe fn string_lift(bytes: Vec<u8>) -> String {
         if cfg!(debug_assertions) {
             String::from_utf8(bytes).unwrap()
@@ -1675,6 +1610,17 @@ mod _rt {
     pub fn run_ctors_once() {
         wit_bindgen_rt::run_ctors_once();
     }
+    pub unsafe fn bool_lift(val: u8) -> bool {
+        if cfg!(debug_assertions) {
+            match val {
+                0 => false,
+                1 => true,
+                _ => panic!("invalid bool discriminant"),
+            }
+        } else {
+            val != 0
+        }
+    }
     extern crate alloc as alloc_crate;
 }
 /// Generates `#[no_mangle]` functions to export the specified type as the
@@ -1720,40 +1666,39 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.36.0:component:pulumi-wasm@0.0.0-DEV:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1908] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xf2\x0d\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1858] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc0\x0d\x01A\x02\x01\
 A\x0f\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
 t\x03\0\x06\x01@\x01\x07content\x07\x01\0\x04\0\x03log\x01\x08\x03\03component:p\
-ulumi-wasm-external/log@0.0.0-STABLE-DEV\x05\0\x01B\x14\x01p}\x01r\x02\x09output\
+ulumi-wasm-external/log@0.0.0-STABLE-DEV\x05\0\x01B\x10\x01p}\x01r\x02\x09output\
 -ids\x04body\0\x04\0\x17resource-invoke-request\x03\0\x01\x01r\x02\x09output-ids\
 \x04body\0\x04\0\x19register-resource-request\x03\0\x03\x01r\x02\x09output-ids\x04\
-body\0\x04\0\x13registered-resource\x03\0\x05\x01@\0\0\x7f\x04\0\x0dis-in-previe\
-w\x01\x07\x01@\0\0s\x04\0\x11get-root-resource\x01\x08\x01@\x01\x07request\0\0\0\
-\x04\0\x19register-resource-outputs\x01\x09\x01@\x01\x07request\x02\x01\0\x04\0\x0f\
-resource-invoke\x01\x0a\x01@\x01\x07request\x04\x01\0\x04\0\x11register-resource\
-\x01\x0b\x01p\x06\x01@\0\0\x0c\x04\0\x1cwait-for-resource-operations\x01\x0d\x03\
-\0>component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV\x05\x01\x01B\x04\
-\x04\0\x06engine\x03\x01\x01i\0\x01@\x01\x0ain-preview\x7f\0\x01\x04\0\x13[const\
-ructor]engine\x01\x02\x04\0-component:pulumi-wasm/pulumi-engine@0.0.0-DEV\x05\x02\
-\x02\x03\0\x02\x06engine\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06engine\x03\0\0\x04\
-\0\x06output\x03\x01\x04\0\x0fregister-output\x03\x01\x01h\x01\x01i\x02\x01@\x03\
-\x06engine\x04\x05values\x06secret\x7f\0\x05\x04\0\x13[constructor]output\x01\x06\
-\x01h\x02\x01@\x02\x04self\x07\x0dfunction-names\0\x05\x04\0\x12[method]output.m\
-ap\x01\x08\x01h\x03\x01@\x02\x04self\x09\x0afield-names\0\x05\x04\0%[method]regi\
-ster-output.extract-field\x01\x0a\x01p\x07\x01@\x01\x07outputs\x0b\0\x05\x04\0\x07\
-combine\x01\x0c\x04\00component:pulumi-wasm/output-interface@0.0.0-DEV\x05\x04\x02\
-\x03\0\x03\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\x01\x03\
-\x04\0\x06engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\x03\x02\
-\x01\x06\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05value\x06\
-\x04\0\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07versions\
-\x06object\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05tokens\x07\
-versions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\x01\x01i\x05\
-\x01@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\x01@\x02\x06\
-engine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\02component:pulumi-w\
-asm/register-interface@0.0.0-DEV\x05\x07\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06e\
-ngine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\x01r\x03\x02\
+body\0\x04\0\x13registered-resource\x03\0\x05\x01@\x01\x07request\0\x01\0\x04\0\x19\
+register-resource-outputs\x01\x07\x01@\x01\x07request\x02\x01\0\x04\0\x0fresourc\
+e-invoke\x01\x08\x01@\x01\x07request\x04\x01\0\x04\0\x11register-resource\x01\x09\
+\x01p\x06\x01@\0\0\x0a\x04\0\x1cwait-for-resource-operations\x01\x0b\x03\0>compo\
+nent:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV\x05\x01\x01B\x04\x04\0\
+\x06engine\x03\x01\x01i\0\x01@\x01\x0ain-preview\x7f\0\x01\x04\0\x13[constructor\
+]engine\x01\x02\x04\0-component:pulumi-wasm/pulumi-engine@0.0.0-DEV\x05\x02\x02\x03\
+\0\x02\x06engine\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06engine\x03\0\0\x04\0\x06o\
+utput\x03\x01\x04\0\x0fregister-output\x03\x01\x01h\x01\x01i\x02\x01@\x03\x06eng\
+ine\x04\x05values\x06secret\x7f\0\x05\x04\0\x13[constructor]output\x01\x06\x01h\x02\
+\x01@\x02\x04self\x07\x0dfunction-names\0\x05\x04\0\x12[method]output.map\x01\x08\
+\x01h\x03\x01@\x02\x04self\x09\x0afield-names\0\x05\x04\0%[method]register-outpu\
+t.extract-field\x01\x0a\x01p\x07\x01@\x01\x07outputs\x0b\0\x05\x04\0\x07combine\x01\
+\x0c\x04\00component:pulumi-wasm/output-interface@0.0.0-DEV\x05\x04\x02\x03\0\x03\
+\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\x01\x03\x04\0\x06\
+engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\x03\x02\x01\x06\
+\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05value\x06\x04\0\
+\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07versions\x06ob\
+ject\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05tokens\x07vers\
+ions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\x01\x01i\x05\x01\
+@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\x01@\x02\x06e\
+ngine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\02component:pulumi-wa\
+sm/register-interface@0.0.0-DEV\x05\x07\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06en\
+gine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\x01r\x03\x02\
 id\x04\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\0\x05\x01\
 h\x03\x01r\x02\x02id\x07\x05values\x04\0\x1afunction-invocation-result\x03\0\x08\
 \x01@\x02\x04names\x05value\x07\x01\0\x04\0\x0aadd-export\x01\x0a\x01h\x01\x01p\x09\

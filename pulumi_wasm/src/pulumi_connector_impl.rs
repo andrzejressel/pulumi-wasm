@@ -7,9 +7,6 @@ use pulumi_wasm_core::PulumiConnector;
 pub(crate) struct PulumiConnectorImpl;
 
 impl PulumiConnector for PulumiConnectorImpl {
-    fn get_root_resource(&self) -> String {
-        external_world::get_root_resource()
-    }
     fn resource_invoke(&self, output_id: String, req: Vec<u8>) {
         external_world::resource_invoke(&ResourceInvokeRequest {
             output_id,
