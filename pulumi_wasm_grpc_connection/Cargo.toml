@@ -11,3 +11,4 @@ pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
 tokio.workspace = true
 futures.workspace = true
 anyhow.workspace = true
+tokio-stream.workspace = true

@@ -191,21 +191,30 @@ mod tests {
     use pulumi_wasm_proto::grpc::engine_server::EngineServer;
     use pulumi_wasm_proto::grpc::resource_monitor_server::ResourceMonitorServer;
     use pulumi_wasm_proto::grpc::RegisterResourceRequest;
+
     use std::time::Instant;
+    use tokio::net::TcpListener;
+    use tonic::codegen::tokio_stream;
     use tonic::transport::Server;
 
     #[tokio::test]
     async fn test() -> Result<(), anyhow::Error> {
-        let monitor_addr = "127.0.0.1:50000".parse()?;
-        let engine_addr = "127.0.0.1:50001".parse()?;
+        let monitor_listener = TcpListener::bind("127.0.0.1:0").await?;
+        let engine_listener = TcpListener::bind("127.0.0.1:0").await?;
+        let monitor_addr = monitor_listener.local_addr()?;
+        let engine_addr = engine_listener.local_addr()?;
 
         let monitor_server = Server::builder()
             .add_service(ResourceMonitorServer::new(MyResourceMonitorServer {}))
-            .serve(monitor_addr);
+            .serve_with_incoming(tokio_stream::wrappers::TcpListenerStream::new(
+                monitor_listener,
+            ));
 
         let engine_server = Server::builder()
             .add_service(EngineServer::new(MyResourceEngineServer {}))
-            .serve(engine_addr);
+            .serve_with_incoming(tokio_stream::wrappers::TcpListenerStream::new(
+                engine_listener,
+            ));
 
         tokio::spawn(monitor_server);
         tokio::spawn(engine_server);

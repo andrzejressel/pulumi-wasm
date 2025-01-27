@@ -2428,6 +2428,7 @@ dependencies = [
  "prost",
  "pulumi_wasm_proto",
  "tokio",
+ "tokio-stream",
  "tonic",
 ]
 
