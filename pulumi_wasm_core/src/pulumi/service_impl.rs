@@ -64,7 +64,7 @@ impl PulumiService for PulumiServiceImpl {
             );
 
             let request = grpc::RegisterResourceOutputsRequest {
-                urn: "INVALID".to_string(), // Will be fined in grpc_connection
+                urn: "INVALID".to_string(), // Will be fixed in grpc_connection
                 outputs: Some(object),
             };
 
