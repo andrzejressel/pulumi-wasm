@@ -13,29 +13,21 @@ pub struct CustomOutputId {
     engine: Rc<RefCell<Engine>>,
 }
 
-pub struct CustomRegisterOutputId{
+pub struct CustomRegisterOutputId {
     output_id: OutputId,
     engine: Rc<RefCell<Engine>>,
 }
 
 pub struct PulumiEngine {
     engine: Rc<RefCell<Engine>>,
-    outputs: Vec<*mut Output>,
+    outputs: Vec<*mut CustomOutputId>,
     in_preview: bool,
-}
-
-pub struct Output {
-    native: OutputId
-}
-
-pub struct RegisterOutput {
-    native: OutputId
 }
 
 #[repr(C)]
 pub struct ObjectField {
     name: *const c_char,
-    value: *const Output,
+    value: *const CustomOutputId,
 }
 
 #[repr(C)]
@@ -46,7 +38,7 @@ pub struct ResultField {
 #[repr(C)]
 pub struct RegisterResourceResultField {
     name: *const c_char,
-    output: *const Output,
+    output: *const CustomOutputId,
 }
 
 #[repr(C)]
@@ -87,7 +79,7 @@ pub extern "C" fn free_engine(t: *mut PulumiEngine) {
 }
 
 #[no_mangle]
-pub extern "C" fn create_output(pulumi_engine: *mut PulumiEngine, value: *const c_char, secret: bool) -> *mut Output {
+pub extern "C" fn create_output(pulumi_engine: *mut PulumiEngine, value: *const c_char, secret: bool) -> *mut CustomOutputId {
     let value = unsafe {
         CStr::from_ptr(value)
     }.to_str().unwrap().to_string();
@@ -96,25 +88,23 @@ pub extern "C" fn create_output(pulumi_engine: *mut PulumiEngine, value: *const 
     };
     let value = serde_json::from_str(&value).unwrap();
     let output_id = pulumi_engine.engine.deref().borrow_mut().create_done_node(value, secret);
-    let output = Output { native: output_id };
+    let output = CustomOutputId { output_id, engine: Rc::clone(&pulumi_engine.engine) };
     let raw = Box::into_raw(Box::new(output));
     pulumi_engine.outputs.push(raw);
     raw
 }
 
 #[no_mangle]
-pub extern "C" fn add_export(pulumi_engine: *mut PulumiEngine, name: *const c_char, value: *const Output) {
+pub extern "C" fn add_export(value: *const CustomOutputId, name: *const c_char) {
     let name = unsafe {
         CStr::from_ptr(name)
     }.to_str().unwrap().to_string();
     let value = unsafe {
         &*value
     };
-    let pulumi_engine = unsafe {
-        &mut *pulumi_engine
-    };
-    let output_id = value.native.clone();
-    pulumi_engine.engine.deref().borrow_mut().add_output(name.into(), output_id);
+    let pulumi_engine = &value.engine;
+    let output_id = value.output_id.clone();
+    pulumi_engine.deref().borrow_mut().add_output(name.into(), output_id);
 }
 
 #[no_mangle]
@@ -123,10 +113,9 @@ pub extern "C" fn finish(pulumi_engine: *mut PulumiEngine) {
         &mut *pulumi_engine
     };
     let result = pulumi_engine.engine.deref().borrow_mut().run(HashMap::new());
-    if (result.is_some()) {
+    if result.is_some() {
         panic!("Result: {:?}", result);
     }
-    // panic!("Result: {:?}", result);
 }
 
 fn get_engine() -> Engine {
@@ -155,7 +144,7 @@ fn get_engine() -> Engine {
 }
 
 #[no_mangle]
-pub extern "C" fn pulumi_get_output(custom_register_output_id: *mut CustomRegisterOutputId, field_name: *const c_char) -> *mut Output {
+pub extern "C" fn pulumi_get_output(custom_register_output_id: *mut CustomRegisterOutputId, field_name: *const c_char) -> *mut CustomOutputId {
     let pulumi_engine = unsafe {
         &(*custom_register_output_id).engine.clone()
     };
@@ -170,7 +159,7 @@ pub extern "C" fn pulumi_get_output(custom_register_output_id: *mut CustomRegist
 
     let output = pulumi_engine.borrow_mut().create_extract_field(field_name.into(), output_id.clone());
 
-    let output = Output { native: output };
+    let output = CustomOutputId { output_id: output, engine: Rc::clone(&pulumi_engine) };
     Box::into_raw(Box::new(output))
 }
 
@@ -198,7 +187,7 @@ pub extern "C" fn pulumi_register_resource(pulumi_engine: *mut PulumiEngine, req
         let request = &*request;
         std::slice::from_raw_parts(request.object, request.object_len).iter().for_each(|field| {
             let name = CStr::from_ptr(field.name).to_str().unwrap().to_owned();
-            let output = (*field.value).native.clone();
+            let output = (*field.value).output_id.clone();
 
             inputs.insert(name.into(), output);
         });

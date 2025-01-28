@@ -1,52 +1,54 @@
-#ifndef PULUMI_WASM_H
-#define PULUMI_WASM_H
+#ifndef __PULUMI_H__
+#define __PULUMI_H__
 
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef struct CustomRegisterOutputId CustomRegisterOutputId;
+typedef struct pulumi_output_t pulumi_output_t;
 
-typedef struct Output Output;
+typedef struct pulumi_register_output_t pulumi_register_output_t;
 
-typedef struct PulumiEngine PulumiEngine;
+typedef struct pulumi_engine_t pulumi_engine_t;
 
-typedef struct ObjectField {
+typedef struct pulumi_object_field_t {
   const char *name;
-  const struct Output *value;
-} ObjectField;
+  const struct pulumi_output_t *value;
+} pulumi_object_field_t;
 
-typedef struct RegisterResourceRequest {
+typedef struct pulumi_register_resource_request_t {
   const char *type_;
   const char *name;
   const char *version;
-  const struct ObjectField *object;
+  const struct pulumi_object_field_t *object;
   uintptr_t object_len;
-} RegisterResourceRequest;
+} pulumi_register_resource_request_t;
 
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
 
-struct PulumiEngine *create_engine(void);
+struct pulumi_engine_t *create_engine(void);
 
-void free_engine(struct PulumiEngine *t);
+void free_engine(struct pulumi_engine_t *t);
 
-struct Output *create_output(struct PulumiEngine *pulumi_engine, const char *value, bool secret);
+struct pulumi_output_t *create_output(struct pulumi_engine_t *pulumi_engine,
+                                      const char *value,
+                                      bool secret);
 
-void add_export(struct PulumiEngine *pulumi_engine, const char *name, const struct Output *value);
+void add_export(const struct pulumi_output_t *value, const char *name);
 
-void finish(struct PulumiEngine *pulumi_engine);
+void finish(struct pulumi_engine_t *pulumi_engine);
 
-struct Output *pulumi_get_output(struct CustomRegisterOutputId *custom_register_output_id,
-                                 const char *field_name);
+struct pulumi_output_t *pulumi_get_output(struct pulumi_register_output_t *custom_register_output_id,
+                                          const char *field_name);
 
-struct CustomRegisterOutputId *pulumi_register_resource(struct PulumiEngine *pulumi_engine,
-                                                        const struct RegisterResourceRequest *request);
+struct pulumi_register_output_t *pulumi_register_resource(struct pulumi_engine_t *pulumi_engine,
+                                                          const struct pulumi_register_resource_request_t *request);
 
 #ifdef __cplusplus
 }  // extern "C"
 #endif  // __cplusplus
 
-#endif  /* PULUMI_WASM_H */
+#endif  /* __PULUMI_H__ */

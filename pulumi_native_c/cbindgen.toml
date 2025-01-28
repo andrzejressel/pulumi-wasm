@@ -1,3 +1,11 @@
 language = "C"
-include_guard = "PULUMI_WASM_H"
+include_guard = "__PULUMI_H__"
+documentation = true
 cpp_compat = true
+
+[export.rename]
+CustomOutputId = "pulumi_output_t"
+CustomRegisterOutputId = "pulumi_register_output_t"
+PulumiEngine = "pulumi_engine_t"
+ObjectField = "pulumi_object_field_t"
+RegisterResourceRequest = "pulumi_register_resource_request_t"
