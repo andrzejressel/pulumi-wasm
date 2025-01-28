@@ -1,6 +1,6 @@
 use crate::output_id::OutputId;
 use crate::pulumi_state::PulumiState;
-use pulumi_wasm_proto::grpc::RegisterResourceRequest;
+use pulumi_wasm_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest};
 use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
 use tokio::runtime::{Builder, Runtime};
 
@@ -49,6 +49,12 @@ impl PulumiStateSync {
         let _guard = self.runtime.handle().enter();
         self.pulumi_state
             .send_resource_invoke_request(output_id, request);
+    }
+
+    pub fn register_resource_outputs(&mut self, request: RegisterResourceOutputsRequest) {
+        let _guard = self.runtime.handle().enter();
+        self.runtime
+            .block_on(self.pulumi_state.register_resource_outputs(request)).unwrap();
     }
 
     pub fn get_created_resources(&mut self) -> Vec<(OutputId, Vec<u8>)> {

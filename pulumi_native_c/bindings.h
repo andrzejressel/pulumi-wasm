@@ -39,8 +39,11 @@ void add_export(struct PulumiEngine *pulumi_engine, const char *name, const stru
 
 void finish(struct PulumiEngine *pulumi_engine);
 
-struct CustomRegisterOutputId *register(struct PulumiEngine *pulumi_engine,
-                                        const struct RegisterResourceRequest *request);
+struct Output *pulumi_get_output(struct CustomRegisterOutputId *custom_register_output_id,
+                                 const char *field_name);
+
+struct CustomRegisterOutputId *pulumi_register_resource(struct PulumiEngine *pulumi_engine,
+                                                        const struct RegisterResourceRequest *request);
 
 #ifdef __cplusplus
 }  // extern "C"

@@ -2305,6 +2305,8 @@ version = "0.0.0-DEV"
 dependencies = [
  "cbindgen",
  "pulumi_wasm_core",
+ "pulumi_wasm_grpc_connection",
+ "pulumi_wasm_proto",
  "serde_json",
 ]
 
@@ -2315,6 +2317,7 @@ dependencies = [
  "log",
  "pulumi_wasm_common",
  "pulumi_wasm_core",
+ "pulumi_wasm_proto",
  "serde",
  "serde_json",
  "wit-bindgen-rt",

@@ -3,20 +3,25 @@ use crate::bindings::component::pulumi_wasm_external::external_world::{
     RegisterResourceRequest, ResourceInvokeRequest,
 };
 use pulumi_wasm_core::PulumiConnector;
+use pulumi_wasm_proto::grpc::{
+    RegisterResourceOutputsRequest as GrpcRegisterResourceOutputsRequest,
+    RegisterResourceRequest as GrpcRegisterResourceRequest,
+    ResourceInvokeRequest as GrpcResourceInvokeRequest,
+};
 
 pub(crate) struct PulumiConnectorImpl;
 
 impl PulumiConnector for PulumiConnectorImpl {
-    fn resource_invoke(&self, output_id: String, req: Vec<u8>) {
+    fn resource_invoke(&self, output_id: String, req: GrpcResourceInvokeRequest) {
         external_world::resource_invoke(&ResourceInvokeRequest {
             output_id,
-            body: req,
+            body: req.encode_to_vec(),
         });
     }
-    fn register_resource(&self, output_id: String, req: Vec<u8>) {
+    fn register_resource(&self, output_id: String, req: GrpcRegisterResourceRequest) {
         external_world::register_resource(&RegisterResourceRequest {
             output_id,
-            body: req,
+            body: req.encode_to_vec(),
         });
     }
 
@@ -28,7 +33,7 @@ impl PulumiConnector for PulumiConnectorImpl {
             .collect()
     }
 
-    fn register_outputs(&self, req: Vec<u8>) {
-        external_world::register_resource_outputs(&req);
+    fn register_outputs(&self, req: GrpcRegisterResourceOutputsRequest) {
+        external_world::register_resource_outputs(&req.encode_to_vec());
     }
 }

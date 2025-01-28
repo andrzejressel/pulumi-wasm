@@ -15,6 +15,7 @@ serde_json.workspace = true
 pulumi_wasm_common.workspace = true
 log.workspace = true
 pulumi_wasm_core.workspace = true
+pulumi_wasm_proto.workspace = true
 
 [package.metadata.component]
 package = "component:pulumi-wasm"
