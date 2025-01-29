@@ -19,7 +19,7 @@ if(WIN32)
   )
 endif()
 
-if(LINUX)
+if(UNIX)
   set_target_properties(library PROPERTIES
     IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/../../target/debug/libpulumi_native_c.so"
     IMPORTED_IMPLIB "${CMAKE_SOURCE_DIR}/../../target/debug/libpulumi_native_c.a"
