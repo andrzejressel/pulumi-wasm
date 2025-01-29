@@ -5,6 +5,7 @@ panic = "deny"
 resolver = "2"
 members = [
     "examples/common",
+    "examples/cpp",
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",

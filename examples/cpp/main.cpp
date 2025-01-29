@@ -6,7 +6,7 @@ int main()
 {
 	auto engine = create_engine();
 
-	auto output = create_output(engine, "2", false);
+	auto output = create_output(engine, "16", false);
 
 	std::vector<pulumi_object_field_t> inputs = {
 		{"length", output}
@@ -24,7 +24,7 @@ int main()
 
 	auto output_result = pulumi_get_output(output_2, "result");
 
-	add_export(output_result, "test");
+	add_export(output_result, "result");
 
 	finish(engine);
 	free_engine(engine);

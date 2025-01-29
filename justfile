@@ -120,8 +120,10 @@ test-examples:
         -p pulumi_wasm_example_secret \
         --cobertura --output-path covertura.xml --features example_test
 
-test-cpp $PULUMI_CONFIG_PASSPHRASE=" ":
-    cd examples/cpp && pulumi stack import && pulumi stack select test && pulumi up -y
+test-cpp:
+    cargo llvm-cov nextest \
+        -p pulumi_wasm_example_cpp \
+        --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:
     cargo nextest run --all-features -p pulumi_wasm_generator
