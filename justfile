@@ -25,6 +25,8 @@ examples-ci-flow: build-language-plugin build-wasm-components build-wasm-compone
 generator-ci-flow COMPILATION_NAME:
     just test-provider-compilation {{COMPILATION_NAME}}
 
+cpp-ci-flow: build-static-library test-cpp
+
 # Test docs examples and creates docs
 test-docs-ci-flow: test-docs
 
@@ -68,6 +70,9 @@ build-wasm-components-release:
     cargo component build -p pulumi_wasm_example_multiple_providers --release
     cargo component build -p pulumi_wasm_example_plugins --release
     cargo component build -p pulumi_wasm_example_secret --release
+
+build-static-library:
+    cargo build -p pulumi_native_c
 
 check:
     cargo fmt -- --check
@@ -114,6 +119,9 @@ test-examples:
         -p pulumi_wasm_example_plugins \
         -p pulumi_wasm_example_secret \
         --cobertura --output-path covertura.xml --features example_test
+
+test-cpp $PULUMI_CONFIG_PASSPHRASE=" ":
+    cd examples/cpp && pulumi up -y
 
 generator-tests:
     cargo nextest run --all-features -p pulumi_wasm_generator

@@ -1,9 +1,16 @@
 set windows-shell := ["pwsh.exe", "-c"]
 
+[windows]
 run:
     New-Item -ItemType Directory -Path build -Force
     cd build && cmake .. && cmake --build .
     .\build\Debug\PulumiNativeCPP.exe
+
+[unix]
+run:
+    mkdir -p build
+    cd build && cmake .. && cmake --build .
+    ./build/PulumiNativeCPP
 
 [windows]
 local-test:
