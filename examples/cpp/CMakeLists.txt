@@ -7,15 +7,24 @@ project ("PulumiNativeCPP")
 include_directories(${CMAKE_SOURCE_DIR}/../../pulumi_native_c)
 
 add_executable (PulumiNativeCPP "main.cpp")
+set_property(TARGET PulumiNativeCPP PROPERTY CXX_STANDARD 20)
+
+add_library(library SHARED IMPORTED)
 
 if(WIN32)
   target_link_libraries(PulumiNativeCPP userenv wsock32 ws2_32 ntdll bcrypt)
-  target_link_libraries(PulumiNativeCPP "${CMAKE_SOURCE_DIR}/../../target/debug/pulumi_native_c.lib")
+  set_target_properties(library PROPERTIES
+    IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/../../target/debug/pulumi_native_c.dll"
+    IMPORTED_IMPLIB "${CMAKE_SOURCE_DIR}/../../target/debug/pulumi_native_c.lib"
+  )
 endif()
 
 if(LINUX)
-  target_link_libraries(PulumiNativeCPP "${CMAKE_SOURCE_DIR}/../../target/debug/libpulumi_native_c.a")
+  set_target_properties(library PROPERTIES
+    IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/../../target/debug/libpulumi_native_c.so"
+    IMPORTED_IMPLIB "${CMAKE_SOURCE_DIR}/../../target/debug/libpulumi_native_c.a"
+  )
 endif()
 
-set_property(TARGET PulumiNativeCPP PROPERTY CXX_STANDARD 20)
+target_link_libraries(PulumiNativeCPP library)
 
