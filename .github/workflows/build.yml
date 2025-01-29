@@ -309,7 +309,12 @@ jobs:
         run: git add . && git diff --quiet && git diff --cached --quiet
 
   build-cpp:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022, macos-14]
 
     steps:
       - run: git config --system core.longpaths true
