@@ -8,6 +8,7 @@ use pulumi_wasm_proto::grpc::{
     RegisterResourceRequest as GrpcRegisterResourceRequest,
     ResourceInvokeRequest as GrpcResourceInvokeRequest,
 };
+use prost::Message;
 
 pub(crate) struct PulumiConnectorImpl;
 

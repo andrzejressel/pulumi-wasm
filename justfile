@@ -25,7 +25,7 @@ examples-ci-flow: build-language-plugin build-wasm-components build-wasm-compone
 generator-ci-flow COMPILATION_NAME:
     just test-provider-compilation {{COMPILATION_NAME}}
 
-cpp-ci-flow: build-static-library test-cpp
+cpp-ci-flow: build-language-plugin build-static-library test-cpp
 
 # Test docs examples and creates docs
 test-docs-ci-flow: test-docs

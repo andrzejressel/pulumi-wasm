@@ -2315,6 +2315,7 @@ name = "pulumi_wasm"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
+ "prost",
  "pulumi_wasm_common",
  "pulumi_wasm_core",
  "pulumi_wasm_proto",
