@@ -119,8 +119,7 @@ impl PulumiService for PulumiServiceImpl {
                     source_position: None,
                 };
 
-                self.connector
-                    .register_resource(output_id.to_string(), req);
+                self.connector.register_resource(output_id.to_string(), req);
             }
             ResourceRequestOperation::Invoke(invoke) => {
                 {
@@ -142,8 +141,7 @@ impl PulumiService for PulumiServiceImpl {
                     source_position: None,
                 };
 
-                self.connector
-                    .resource_invoke(output_id.to_string(), req);
+                self.connector.resource_invoke(output_id.to_string(), req);
             }
         }
     }

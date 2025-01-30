@@ -1,4 +1,6 @@
-use pulumi_wasm_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest};
+use pulumi_wasm_proto::grpc::{
+    RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest,
+};
 
 pub trait PulumiConnector {
     fn resource_invoke(&self, output_id: String, req: ResourceInvokeRequest);

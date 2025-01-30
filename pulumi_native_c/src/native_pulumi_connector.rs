@@ -1,7 +1,9 @@
-use std::sync::RwLock;
 use pulumi_wasm_core::PulumiConnector;
 use pulumi_wasm_grpc_connection::sync_pulumi_state::PulumiStateSync;
-use pulumi_wasm_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest};
+use pulumi_wasm_proto::grpc::{
+    RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest,
+};
+use std::sync::RwLock;
 
 pub(crate) struct NativePulumiConnector(RwLock<PulumiStateSync>);
 
@@ -12,20 +14,13 @@ impl NativePulumiConnector {
         pulumi_project: String,
         pulumi_stack: String,
     ) -> Self {
-        let pulumi_state = PulumiStateSync::new(
-            monitor_url,
-            engine_url,
-            pulumi_project,
-            pulumi_stack,
-        );
-        NativePulumiConnector {
-            0: RwLock::new(pulumi_state),
-        }
+        let pulumi_state =
+            PulumiStateSync::new(monitor_url, engine_url, pulumi_project, pulumi_stack);
+        NativePulumiConnector(RwLock::new(pulumi_state))
     }
 }
 
 impl PulumiConnector for NativePulumiConnector {
-
     fn resource_invoke(&self, output_id: String, req: ResourceInvokeRequest) {
         let mut state = self.0.write().unwrap();
         state.send_resource_invoke_request(output_id.into(), req);
@@ -37,10 +32,11 @@ impl PulumiConnector for NativePulumiConnector {
 
     fn get_created_resources(&self) -> Vec<(String, Vec<u8>)> {
         let mut state = self.0.write().unwrap();
-        state.get_created_resources()
-            .iter().map(|(output_id, body)| {
-                (output_id.0.clone(), body.clone())
-            }).collect()
+        state
+            .get_created_resources()
+            .iter()
+            .map(|(output_id, body)| (output_id.0.clone(), body.clone()))
+            .collect()
     }
 
     fn register_outputs(&self, req: RegisterResourceOutputsRequest) {
