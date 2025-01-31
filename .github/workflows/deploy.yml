@@ -301,7 +301,7 @@ jobs:
             os_type: windows
     steps:
       - name: Cleanup unused stuff
-        if: runner.os == 'Linux'
+        if: runner.os_type == 'Linux'
         run: |
           df -h /
           sudo rm -rf \
@@ -320,7 +320,7 @@ jobs:
           /usr/share/swift
           df -h /
       - run: git config --system core.longpaths true
-        if: runner.os_type == 'windows'
+        if: matrix.os_type == 'windows'
       - name: Write release version (non-Windows)
         if: matrix.os_type != 'windows'
         run: |
