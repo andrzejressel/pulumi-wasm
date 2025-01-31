@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <pulumi_native.h>
 #include <vector>
-#include <string> 
+#include <string>
+#include <cstring>
 
 static const char* mapper(const void*, const void* context, const char* content) {
 
@@ -14,7 +15,7 @@ static const char* mapper(const void*, const void* context, const char* content)
 		auto result = std::to_string(i2);
 
 		char* cstr = new char[result.size() + 1];
-		std::strcpy(cstr, result.c_str());
+		strcpy(cstr, result.c_str());
 		return cstr;
 	}
 
