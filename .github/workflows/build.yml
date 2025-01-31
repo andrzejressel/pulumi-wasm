@@ -425,7 +425,7 @@ jobs:
         length: 7
     - name: Generate new version
       run: |
-        echo "new_version=TEST-VERSION-$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}" >> $GITHUB_ENV
+        echo "new_version=$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}-DO-NOT-USE" >> $GITHUB_ENV
     - name: Replace version
       run: just update-version "${{ env.new_version }}"
 
