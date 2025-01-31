@@ -31,3 +31,19 @@ covertura.xml
 /codecov.exe
 /codecov.exe.SHA256SUM
 /codecov.exe.SHA256SUM.sig
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+
+.cmake
+.cache/
+build/
+.vs
+out
+.vscode

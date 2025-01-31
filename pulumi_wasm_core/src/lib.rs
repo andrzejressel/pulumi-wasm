@@ -6,6 +6,7 @@ mod pulumi;
 
 // pub use crate::nodes::ResourceOperation;
 pub use crate::engine::Engine;
+pub use crate::model::FieldName;
 pub use crate::model::OutputId;
 pub use crate::pulumi::connector::PulumiConnector;
 pub use crate::pulumi::service::PerformResourceRequest;

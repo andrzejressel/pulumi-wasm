@@ -68,7 +68,7 @@ impl PulumiService for PulumiServiceImpl {
                 outputs: Some(object),
             };
 
-            self.connector.register_outputs(request.encode_to_vec());
+            self.connector.register_outputs(request);
         }
     }
 
@@ -119,8 +119,7 @@ impl PulumiService for PulumiServiceImpl {
                     source_position: None,
                 };
 
-                self.connector
-                    .register_resource(output_id.to_string(), req.encode_to_vec());
+                self.connector.register_resource(output_id.to_string(), req);
             }
             ResourceRequestOperation::Invoke(invoke) => {
                 {
@@ -142,8 +141,7 @@ impl PulumiService for PulumiServiceImpl {
                     source_position: None,
                 };
 
-                self.connector
-                    .resource_invoke(output_id.to_string(), req.encode_to_vec());
+                self.connector.resource_invoke(output_id.to_string(), req);
             }
         }
     }

@@ -1,0 +1,27 @@
+set windows-shell := ["pwsh.exe", "-c"]
+
+[windows]
+run:
+    New-Item -ItemType Directory -Path build -Force
+    cd build && cmake .. && cmake --build .
+    .\build\Debug\PulumiNativeCPP.exe
+
+[unix]
+run:
+    mkdir -p build
+    cd build && cmake .. && cmake --build .
+    ./build/PulumiNativeCPP
+
+[windows]
+local-test:
+    #!pwsh
+    Set-StrictMode -Version Latest
+    $ErrorActionPreference = "Stop"
+    $PSNativeCommandUseErrorActionPreference = $true
+
+    cargo build -p pulumi_wasm_runner --release
+    cargo component build -p pulumi_wasm --release
+    cargo component build -p pulumi_wasm_example_simple --release
+    $env:PULUMI_CONFIG_PASSPHRASE=" "
+    pulumi destroy -y
+    pulumi up -y

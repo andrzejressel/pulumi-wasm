@@ -5,6 +5,7 @@ panic = "deny"
 resolver = "2"
 members = [
     "examples/common",
+    "examples/cpp",
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",
@@ -19,6 +20,7 @@ members = [
     "providers/gcp-mini",
     "providers/typesystem",
     "providers/random",
+    "pulumi_native_c",
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
@@ -95,3 +97,4 @@ tempfile = "3.14.0"
 pathdiff = "0.2.3"
 wat = "1.223.0"
 wasmparser = "0.224.0"
+cbindgen = "0.28.0"
