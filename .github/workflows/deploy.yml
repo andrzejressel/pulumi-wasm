@@ -281,3 +281,184 @@ jobs:
             ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
             ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
             ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release
+
+  deploy_c_library:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - target: linux-x86_64
+            os: ubuntu-24.04
+            os_type: linux
+          - target: macos-x86_64
+            os: macos-13
+            os_type: macos
+          - target: macos-arm64
+            os: macos-14
+            os_type: macos
+          - target: windows-x86_64
+            os: windows-2022
+            os_type: windows
+    steps:
+      - name: Cleanup unused stuff
+        if: runner.os == 'Linux'
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - run: git config --system core.longpaths true
+        if: runner.os_type == 'windows'
+      - name: Write release version (non-Windows)
+        if: matrix.os_type != 'windows'
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "Version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Write release version (Windows)
+        if: matrix.os_type == 'windows'
+        run: |
+          $VERSION = $env:GITHUB_REF_NAME -replace "^v"
+          echo "Version: $VERSION"
+          echo "VERSION=$VERSION" >> $env:GITHUB_ENV
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+
+      - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
+        with:
+          shared-key: build-examples
+          save-if: false
+      - name: Build runner (Debug)
+        run: cargo build -p pulumi_native_c
+      - name: Build runner (Release)
+        run: cargo build -p pulumi_native_c --release
+
+      - run: |
+          cp ./target/debug/pulumi_native_c.dll ./target/debug/pulumi_native_c-${{ matrix.target }}.dll
+          cp ./target/debug/pulumi_native_c.lib ./target/debug/pulumi_native_c-${{ matrix.target }}.lib
+          cp ./target/debug/pulumi_native_c.pdb ./target/debug/pulumi_native_c-${{ matrix.target }}.pdb
+          
+          cp ./target/release/pulumi_native_c.dll ./target/release/pulumi_native_c-${{ matrix.target }}.dll
+          cp ./target/release/pulumi_native_c.lib ./target/release/pulumi_native_c-${{ matrix.target }}.lib
+          cp ./target/release/pulumi_native_c.pdb ./target/release/pulumi_native_c-${{ matrix.target }}.pdb
+        if: matrix.os_type == 'windows'
+
+      - name: Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          repository: andrzejressel/pulumi-wasm-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
+          body: ""
+          files: |
+            ./target/debug/pulumi_native_c-${{ matrix.target }}.dll
+            ./target/debug/pulumi_native_c-${{ matrix.target }}.lib
+            ./target/debug/pulumi_native_c-${{ matrix.target }}.pdb
+            ./target/release/pulumi_native_c-${{ matrix.target }}.dll
+            ./target/release/pulumi_native_c-${{ matrix.target }}.lib
+            ./target/release/pulumi_native_c-${{ matrix.target }}.pdb
+        if: matrix.os_type == 'windows'
+
+      - run: |
+          cp ./target/debug/libpulumi_native_c.a ./target/debug/libpulumi_native_c-${{ matrix.target }}.a
+          cp ./target/debug/libpulumi_native_c.so ./target/debug/libpulumi_native_c-${{ matrix.target }}.so
+          
+          cp ./target/release/libpulumi_native_c.a ./target/release/libpulumi_native_c-${{ matrix.target }}.a
+          cp ./target/release/libpulumi_native_c.so ./target/release/libpulumi_native_c-${{ matrix.target }}.so
+        if: matrix.os_type == 'linux'
+
+      - name: Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          repository: andrzejressel/pulumi-wasm-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
+          body: ""
+          files: |
+            ./target/debug/libpulumi_native_c-${{ matrix.target }}.a
+            ./target/debug/libpulumi_native_c-${{ matrix.target }}.so
+            ./target/release/libpulumi_native_c-${{ matrix.target }}.a
+            ./target/release/libpulumi_native_c-${{ matrix.target }}.so
+        if: matrix.os_type == 'linux'
+
+      - run: |
+          cp ./target/debug/libpulumi_native_c.a ./target/debug/libpulumi_native_c-${{ matrix.target }}.a
+          cp ./target/debug/libpulumi_native_c.dylib ./target/debug/libpulumi_native_c-${{ matrix.target }}.dylib
+          
+          cp ./target/release/libpulumi_native_c.a ./target/release/libpulumi_native_c-${{ matrix.target }}.a
+          cp ./target/release/libpulumi_native_c.dylib ./target/release/libpulumi_native_c-${{ matrix.target }}.dylib
+        if: matrix.os_type == 'macos'
+
+      - name: Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          repository: andrzejressel/pulumi-wasm-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
+          body: ""
+          files: |
+            ./target/debug/libpulumi_native_c-${{ matrix.target }}.a
+            ./target/debug/libpulumi_native_c-${{ matrix.target }}.dylib
+            ./target/release/libpulumi_native_c-${{ matrix.target }}.a
+            ./target/release/libpulumi_native_c-${{ matrix.target }}.dylib
+        if: matrix.os_type == 'macos'
+
+
+  deploy_h_header:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Write release version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo Version: $VERSION
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          repository: andrzejressel/pulumi-wasm-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
+          body: ""
+          files: |
+            ./pulumi_native_c/pulumi_native.h
