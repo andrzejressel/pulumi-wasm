@@ -1,11 +1,14 @@
 mod native_pulumi_connector;
 
-use pulumi_wasm_core::{Engine, FieldName, OutputId, PulumiServiceImpl};
+use pulumi_wasm_core::{Engine, FieldName, ForeignFunctionToInvoke, FunctionName, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::HashMap;
-use std::ffi::{c_char, CStr};
+use std::ffi::{c_char, c_void, CStr, CString};
 use std::ops::Deref;
 use std::rc::Rc;
+use anyhow::Context;
+use serde_json::Value;
+use uuid::Uuid;
 
 pub struct CustomOutputId {
     output_id: OutputId,
@@ -20,7 +23,9 @@ pub struct CustomRegisterOutputId {
 pub struct PulumiEngine {
     engine: Rc<RefCell<Engine>>,
     outputs: Vec<*mut CustomOutputId>,
+    functions: HashMap<FunctionName, Box<dyn Fn(Value) -> (Value)>>,
     in_preview: bool,
+    context: *const c_void,
 }
 
 #[repr(C)]
@@ -55,8 +60,11 @@ pub struct RegisterResourceResult {
     fields_len: usize,
 }
 
+/// Arguments: Engine context, Function context, Serialized JSON value
+type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char) -> *const c_char;
+
 #[no_mangle]
-pub extern "C" fn create_engine() -> *mut PulumiEngine {
+pub extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
     let engine = Rc::new(RefCell::new(get_engine()));
     let in_preview = match std::env::var("PULUMI_DRY_RUN") {
         Ok(preview) if preview == "true" => true,
@@ -66,7 +74,9 @@ pub extern "C" fn create_engine() -> *mut PulumiEngine {
     let t = PulumiEngine {
         engine,
         outputs: Vec::new(),
+        functions: HashMap::new(),
         in_preview,
+        context
     };
     Box::into_raw(Box::new(t))
 }
@@ -125,35 +135,79 @@ pub extern "C" fn add_export(value: *const CustomOutputId, name: *const c_char) 
 #[no_mangle]
 pub extern "C" fn finish(pulumi_engine: *mut PulumiEngine) {
     let pulumi_engine = unsafe { &mut *pulumi_engine };
-    let result = pulumi_engine
-        .engine
-        .deref()
-        .borrow_mut()
-        .run(HashMap::new());
-    if result.is_some() {
-        panic!("Result: {:?}", result);
-    }
+    finish_loop(pulumi_engine, HashMap::new());
 }
 
-fn get_engine() -> Engine {
-    let pulumi_engine_url = std::env::var("PULUMI_ENGINE").unwrap();
-    let pulumi_monitor_url = std::env::var("PULUMI_MONITOR").unwrap();
-    let pulumi_stack = std::env::var("PULUMI_STACK").unwrap();
-    let pulumi_project = std::env::var("PULUMI_PROJECT").unwrap();
-    let in_preview = match std::env::var("PULUMI_DRY_RUN") {
-        Ok(preview) if preview == "true" => true,
-        Ok(preview) if preview == "false" => false,
-        _ => false,
+fn finish_loop(pulumi_engine: &mut PulumiEngine, native_function_result: HashMap<OutputId, Value>) {
+    let mut mut_borrow = pulumi_engine
+        .engine
+        .deref()
+        .borrow_mut();
+    let result = mut_borrow.run(native_function_result);
+    drop(mut_borrow);
+
+    match result {
+        None => {
+            return
+        }
+        Some(functions_to_invoke) => {
+
+            let mut results = HashMap::new();
+
+            for ForeignFunctionToInvoke { output_id, function_name, value } in functions_to_invoke.iter() {
+                let function = pulumi_engine.functions.get(function_name).unwrap();
+
+                let result = function(value.clone());
+
+                results.insert(*output_id, result);
+            }
+
+            finish_loop(pulumi_engine, results);
+
+        }
+    }
+
+}
+
+#[no_mangle]
+pub extern "C" fn pulumi_map(pulumi_engine: *mut PulumiEngine, output: *const CustomOutputId, function_context: *const c_void, function: MappingFunction) -> *mut CustomOutputId {
+
+    let output = unsafe { &*output };
+    let engine = unsafe { &mut *pulumi_engine };
+    let engine_context = engine.context;
+
+    // let pulumi_engine = &output.engine;
+    let output_id = output.output_id;
+    // let engine = Rc::clone(pulumi_engine);
+    let function_uuid = Uuid::new_v4();
+    let function_name: FunctionName = function_uuid.to_string().into();
+
+    let output = engine.engine.borrow_mut().create_native_function_node(function_name.clone(), output_id);
+    let output = CustomOutputId {
+        output_id: output,
+        engine: Rc::clone(&engine.engine),
     };
 
-    let native_pulumi_connector = native_pulumi_connector::NativePulumiConnector::new(
-        pulumi_monitor_url,
-        pulumi_engine_url,
-        pulumi_project,
-        pulumi_stack,
-    );
+    engine.functions.insert(function_name, Box::new(move |value| {
 
-    Engine::new(PulumiServiceImpl::new(native_pulumi_connector, in_preview))
+        let value_string= serde_json::to_string(&value).unwrap();
+        let c_string = CString::new(value_string).unwrap();
+
+        let result = function(engine_context, function_context, c_string.as_ptr());
+
+        let result = unsafe { CStr::from_ptr(result) }
+            .to_str()
+            .unwrap()
+            .to_string();
+        let v: Value = serde_json::from_str(&result)
+            .with_context(|| format!("Failed to parse JSON: {}", result))
+            .unwrap();
+        v
+    }));
+
+    let raw = Box::into_raw(Box::new(output));
+    engine.outputs.push(raw);
+    raw
 }
 
 #[no_mangle]
@@ -228,4 +282,25 @@ pub extern "C" fn pulumi_register_resource(
         engine: Rc::clone(&pulumi_engine.engine),
     };
     Box::into_raw(Box::new(register_output_id))
+}
+
+fn get_engine() -> Engine {
+    let pulumi_engine_url = std::env::var("PULUMI_ENGINE").unwrap();
+    let pulumi_monitor_url = std::env::var("PULUMI_MONITOR").unwrap();
+    let pulumi_stack = std::env::var("PULUMI_STACK").unwrap();
+    let pulumi_project = std::env::var("PULUMI_PROJECT").unwrap();
+    let in_preview = match std::env::var("PULUMI_DRY_RUN") {
+        Ok(preview) if preview == "true" => true,
+        Ok(preview) if preview == "false" => false,
+        _ => false,
+    };
+
+    let native_pulumi_connector = native_pulumi_connector::NativePulumiConnector::new(
+        pulumi_monitor_url,
+        pulumi_engine_url,
+        pulumi_project,
+        pulumi_stack,
+    );
+
+    Engine::new(PulumiServiceImpl::new(native_pulumi_connector, in_preview))
 }

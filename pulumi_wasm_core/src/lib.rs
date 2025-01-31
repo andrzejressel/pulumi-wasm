@@ -11,3 +11,5 @@ pub use crate::model::OutputId;
 pub use crate::pulumi::connector::PulumiConnector;
 pub use crate::pulumi::service::PerformResourceRequest;
 pub use crate::pulumi::service_impl::PulumiServiceImpl;
+pub use crate::model::FunctionName;
+pub use crate::engine::ForeignFunctionToInvoke;

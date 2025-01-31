@@ -14,6 +14,11 @@ typedef struct pulumi_register_output_t pulumi_register_output_t;
 
 typedef struct pulumi_engine_t pulumi_engine_t;
 
+/**
+ * Arguments: Engine context, Function context, Serialized JSON value
+ */
+typedef const char *(*pulumi_mapping_function_t)(const void*, const void*, const char*);
+
 typedef struct pulumi_object_field_t {
   const char *name;
   const struct pulumi_output_t *value;
@@ -31,7 +36,7 @@ typedef struct pulumi_register_resource_request_t {
 extern "C" {
 #endif // __cplusplus
 
-struct pulumi_engine_t *create_engine(void);
+struct pulumi_engine_t *create_engine(const void *context);
 
 void free_engine(struct pulumi_engine_t *t);
 
@@ -42,6 +47,11 @@ struct pulumi_output_t *create_output(struct pulumi_engine_t *pulumi_engine,
 void add_export(const struct pulumi_output_t *value, const char *name);
 
 void finish(struct pulumi_engine_t *pulumi_engine);
+
+struct pulumi_output_t *pulumi_map(struct pulumi_engine_t *pulumi_engine,
+                                   const struct pulumi_output_t *output,
+                                   const void *function_context,
+                                   pulumi_mapping_function_t function);
 
 struct pulumi_output_t *pulumi_get_output(struct pulumi_register_output_t *custom_register_output_id,
                                           const char *field_name);

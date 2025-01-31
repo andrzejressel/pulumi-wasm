@@ -17,6 +17,8 @@ fn test_integration() -> Result<(), anyhow::Error> {
 
     let result = stack.get_string("/result")?;
     assert_eq!(result.len(), 16);
+    let double_length = stack.get_i64("/double_length")?;
+    assert_eq!(double_length, 32);
 
     Ok(())
 }
