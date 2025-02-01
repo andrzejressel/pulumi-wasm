@@ -12,6 +12,10 @@ nav:
   - index.md
   - crates.md
   - rustdoc: "/pulumi-wasm/rust-docs/pulumi_wasm_rust/index.html"
+  - Implementations:
+      - Implementations/Overview.md
+      - Implementations/C.md
+      - Implementations/WASM.md
   - Internal:
       - Internal/Output.md
       - Internal/Serialization formats.md

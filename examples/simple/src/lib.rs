@@ -16,7 +16,7 @@ fn pulumi_main(context: &PulumiContext) -> Result<()> {
         RandomStringArgs::builder().length(length).build_struct(),
     );
 
-    // Tests preview behaviour for unknown fields
+    // Tests preview behavior for unknown fields
     let t = random_string.result.map(|s| format!("Result: {s}"));
 
     // Tests number mapping
