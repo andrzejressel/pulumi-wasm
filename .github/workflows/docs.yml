@@ -11,6 +11,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  MKDOCS_OVERRIDE: docs_additions/overrides/release
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -34,7 +37,7 @@ jobs:
       - run: mkdocs build
         env:
           GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
-      - run: just rust-docs
+      - run: just rust-docs-release
       - run: cp -R target/doc site/rust-docs
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5

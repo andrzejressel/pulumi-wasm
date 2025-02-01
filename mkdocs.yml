@@ -7,6 +7,7 @@ theme:
   search: true
   features:
     - navigation.sections
+  custom_dir: !ENV [MKDOCS_OVERRIDE, "docs_additions/overrides/dev"]
 
 nav:
   - index.md
@@ -17,23 +18,10 @@ nav:
       - Internal/Serialization formats.md
       - Internal/WIT.md
       - Internal/Supporting new language.md
-
-
-extra:
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_TOKEN
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
+  - Website Analytics: "https://cloud.umami.is/share/F63B8DY9QaWYWKuf/andrzejressel.github.io"
 
 copyright: >
-  Copyright &copy; 2024 - 2025 Pulumi Wasm project –
-  <a href="#__consent">Change cookie settings</a>
+  Copyright &copy; 2024 - 2025 Pulumi Wasm project
 
 markdown_extensions:
   - pymdownx.superfences:
