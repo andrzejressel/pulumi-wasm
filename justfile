@@ -158,6 +158,9 @@ rust-docs:
         -p pulumi_wasm_providers_gcp_mini \
         -p pulumi_wasm_providers_random
 
+rust-docs-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html":
+    just rust-docs
+
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust/src/lib.rs" \
     "Cargo.toml"
