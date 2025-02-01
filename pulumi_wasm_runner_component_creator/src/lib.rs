@@ -23,7 +23,7 @@ pub async fn create(
 
     // Register the package dependencies into the graph
     let main = Package::from_bytes("main", None, program, graph.types_mut()).unwrap();
-    let main_package_id = graph.register_package(main.clone()).unwrap();
+    let main_package_id = graph.register_package(main).unwrap();
     let main_instance = graph.instantiate(main_package_id);
 
     let import_names = graph.types()[graph[main_package_id].ty()]

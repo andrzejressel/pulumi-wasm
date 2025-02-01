@@ -443,7 +443,7 @@ jobs:
         if: matrix.os_type == 'macos'
 
 
-  deploy_h_header:
+  deploy_static_files:
     runs-on: ubuntu-24.04
     steps:
       - name: Write release version
@@ -464,3 +464,5 @@ jobs:
           body: ""
           files: |
             ./pulumi_native_c/pulumi_native.h
+            ./pulumi_wasm_wit/wit/world.wit
+            ./pulumi_wasm_wit/wit/deps/pulumi-wasm-external.wit
