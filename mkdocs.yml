@@ -18,7 +18,6 @@ nav:
       - Internal/Serialization formats.md
       - Internal/WIT.md
       - Internal/Supporting new language.md
-  - Website Analytics: "https://cloud.umami.is/share/F63B8DY9QaWYWKuf/andrzejressel.github.io"
 
 copyright: >
   Copyright &copy; 2024 - 2025 Pulumi Wasm project
