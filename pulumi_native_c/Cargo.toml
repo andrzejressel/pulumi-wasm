@@ -13,6 +13,7 @@ serde_json.workspace = true
 pulumi_wasm_grpc_connection.workspace = true
 pulumi_wasm_proto.workspace = true
 uuid.workspace = true
+libc.workspace = true
 
 [build-dependencies]
 cbindgen.workspace = true

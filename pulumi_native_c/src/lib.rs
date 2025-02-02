@@ -63,7 +63,9 @@ pub struct RegisterResourceResult {
 }
 
 /// Arguments: Engine context, Function context, Serialized JSON value
-type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char) -> *const c_char;
+/// Returned string must represent a JSON value;
+/// Library will free the returned string
+type MappingFunction = extern "C" fn(*const c_void, *const c_void, *const c_char) -> *mut c_char;
 
 #[no_mangle]
 pub extern "C" fn create_engine(context: *const c_void) -> *mut PulumiEngine {
@@ -200,15 +202,16 @@ pub extern "C" fn pulumi_map(
             let value_string = serde_json::to_string(&value).unwrap();
             let c_string = CString::new(value_string).unwrap();
 
-            let result = function(engine_context, function_context, c_string.as_ptr());
+            let str = function(engine_context, function_context, c_string.as_ptr());
 
-            let result = unsafe { CStr::from_ptr(result) }
-                .to_str()
-                .unwrap()
-                .to_string();
-            let v: Value = serde_json::from_str(&result)
+            let result = unsafe { CStr::from_ptr(str) }.to_str().unwrap();
+            let v: Value = serde_json::from_str(result)
                 .with_context(|| format!("Failed to parse JSON: {}", result))
                 .unwrap();
+
+            unsafe {
+                libc::free(str as *mut c_void);
+            }
             v
         }),
     );

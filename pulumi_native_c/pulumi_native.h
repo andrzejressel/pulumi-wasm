@@ -16,8 +16,10 @@ typedef struct pulumi_engine_t pulumi_engine_t;
 
 /**
  * Arguments: Engine context, Function context, Serialized JSON value
+ * Returned string must represent a JSON value;
+ * Library will free the returned string
  */
-typedef const char *(*pulumi_mapping_function_t)(const void*, const void*, const char*);
+typedef char *(*pulumi_mapping_function_t)(const void*, const void*, const char*);
 
 typedef struct pulumi_object_field_t {
   const char *name;
