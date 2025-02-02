@@ -204,14 +204,14 @@ pub extern "C" fn pulumi_map(
 
             let str = function(engine_context, function_context, c_string.as_ptr());
 
-            let result = unsafe { CStr::from_ptr(str) }
-                .to_str()
-                .unwrap();
+            let result = unsafe { CStr::from_ptr(str) }.to_str().unwrap();
             let v: Value = serde_json::from_str(result)
                 .with_context(|| format!("Failed to parse JSON: {}", result))
                 .unwrap();
 
-            unsafe { libc::free(str as *mut c_void); }
+            unsafe {
+                libc::free(str as *mut c_void);
+            }
             v
         }),
     );
