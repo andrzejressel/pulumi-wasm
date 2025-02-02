@@ -16,9 +16,12 @@ fn test_integration() -> Result<(), anyhow::Error> {
     let stack = export_stack()?;
 
     let result = stack.get_string("/result")?;
-    assert_eq!(result.len(), 16);
     let double_length = stack.get_i64("/double_length")?;
+    let static_string = stack.get_string("/static_string")?;
+
+    assert_eq!(result.len(), 16);
     assert_eq!(double_length, 32);
+    assert_eq!(static_string, "my_string");
 
     Ok(())
 }

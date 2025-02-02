@@ -4,7 +4,7 @@
 #include <string>
 #include <cstring>
 
-static const char* mapper(const void*, const void* context, const char* content) {
+static char* mapper(const void*, const void* context, const char* content) {
 
 	const char* function_name = static_cast<const char*>(context);
 
@@ -17,6 +17,9 @@ static const char* mapper(const void*, const void* context, const char* content)
 		char* cstr = new char[result.size() + 1];
 		strcpy(cstr, result.c_str());
 		return cstr;
+	}
+	else if (strcmp(function_name, "static") == 0) {
+		return strdup("\"my_string\"");
 	}
 
 	printf("Cannot find valid function\n");
@@ -46,9 +49,11 @@ int main()
 	auto output_result = pulumi_get_output(output_2, "result");
 
 	auto double_length = pulumi_map(engine, output, "double", &mapper);
+	auto static_string = pulumi_map(engine, output, "static", &mapper);
 
 	add_export(output_result, "result");
 	add_export(double_length, "double_length");
+	add_export(static_string, "static_string");
 
 	finish(engine);
 	free_engine(engine);
