@@ -2313,7 +2313,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_native_c"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "cbindgen",
@@ -2327,7 +2327,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "log",
  "prost",
@@ -2341,7 +2341,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_build"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_generator",
@@ -2351,7 +2351,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_common"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "log",
  "pulumi_wasm_wit",
@@ -2359,7 +2359,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_core"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "log",
  "mockall",
@@ -2372,7 +2372,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_cpp"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2380,7 +2380,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_dependencies"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2390,7 +2390,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_docker"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2400,7 +2400,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_multiple_providers"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2411,7 +2411,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_plugins"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2422,7 +2422,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_secret"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2432,7 +2432,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_simple"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "pulumi_wasm_examples_common",
@@ -2442,7 +2442,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_typesystem"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
@@ -2451,7 +2451,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_examples_common"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2460,7 +2460,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2482,7 +2482,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_grpc_connection"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "futures",
@@ -2495,7 +2495,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_proto"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "prost",
  "prost-types",
@@ -2505,7 +2505,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_aws_mini"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2516,7 +2516,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_azure_mini"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2527,7 +2527,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_cloudflare"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2538,7 +2538,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_docker"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2549,7 +2549,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_gcp_mini"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2560,7 +2560,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_random"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2571,7 +2571,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_typesystem"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2582,7 +2582,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "clap",
@@ -2604,7 +2604,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner_component_creator"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2621,7 +2621,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "bon",
@@ -2638,7 +2638,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "wasmtime",
  "wit-bindgen",
@@ -2750,7 +2750,7 @@ dependencies = [
 
 [[package]]
 name = "regenerator"
-version = "0.0.0-DEV"
+version = "25.2.4-a3b6795"
 dependencies = [
  "anyhow",
  "itertools 0.14.0",
