@@ -359,18 +359,18 @@ jobs:
           shared-key: build-examples
           save-if: false
       - name: Build runner (Debug)
-        run: cargo build -p pulumi_gestalt_adapter_c
+        run: cargo build -p pulumi_gestalt_adapter_c_core
       - name: Build runner (Release)
-        run: cargo build -p pulumi_gestalt_adapter_c --release
+        run: cargo build -p pulumi_gestalt_adapter_c_core --release
 
       - run: |
-          cp ./target/debug/pulumi_gestalt_adapter_c.dll ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.dll
-          cp ./target/debug/pulumi_gestalt_adapter_c.lib ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.lib
-          cp ./target/debug/pulumi_gestalt_adapter_c.pdb ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.pdb
+          cp ./target/debug/pulumi_gestalt_adapter_c_core.dll ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.dll
+          cp ./target/debug/pulumi_gestalt_adapter_c_core.lib ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.lib
+          cp ./target/debug/pulumi_gestalt_adapter_c_core.pdb ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.pdb
           
-          cp ./target/release/pulumi_gestalt_adapter_c.dll ./target/release/pulumi_gestalt-${{ matrix.target }}-release.dll
-          cp ./target/release/pulumi_gestalt_adapter_c.lib ./target/release/pulumi_gestalt-${{ matrix.target }}-release.lib
-          cp ./target/release/pulumi_gestalt_adapter_c.pdb ./target/release/pulumi_gestalt-${{ matrix.target }}-release.pdb
+          cp ./target/release/pulumi_gestalt_adapter_c_core.dll ./target/release/pulumi_gestalt-${{ matrix.target }}-release.dll
+          cp ./target/release/pulumi_gestalt_adapter_c_core.lib ./target/release/pulumi_gestalt-${{ matrix.target }}-release.lib
+          cp ./target/release/pulumi_gestalt_adapter_c_core.pdb ./target/release/pulumi_gestalt-${{ matrix.target }}-release.pdb
         if: matrix.os_type == 'windows'
 
       - name: Release
@@ -393,11 +393,11 @@ jobs:
         if: matrix.os_type == 'windows'
 
       - run: |
-          cp ./target/debug/libpulumi_gestalt_adapter_c.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
-          cp ./target/debug/libpulumi_gestalt_adapter_c.so ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.so
+          cp ./target/debug/libpulumi_gestalt_adapter_c_core.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+          cp ./target/debug/libpulumi_gestalt_adapter_c_core.so ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.so
           
-          cp ./target/release/libpulumi_gestalt_adapter_c.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
-          cp ./target/release/libpulumi_gestalt_adapter_c.so ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.so
+          cp ./target/release/libpulumi_gestalt_adapter_c_core.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+          cp ./target/release/libpulumi_gestalt_adapter_c_core.so ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.so
         if: matrix.os_type == 'linux'
 
       - name: Release
@@ -418,11 +418,11 @@ jobs:
         if: matrix.os_type == 'linux'
 
       - run: |
-          cp ./target/debug/libpulumi_gestalt_adapter_c.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
-          cp ./target/debug/libpulumi_gestalt_adapter_c.dylib ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.dylib
+          cp ./target/debug/libpulumi_gestalt_adapter_c_core.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+          cp ./target/debug/libpulumi_gestalt_adapter_c_core.dylib ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.dylib
           
-          cp ./target/release/libpulumi_gestalt_adapter_c.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
-          cp ./target/release/libpulumi_gestalt_adapter_c.dylib ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.dylib
+          cp ./target/release/libpulumi_gestalt_adapter_c_core.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+          cp ./target/release/libpulumi_gestalt_adapter_c_core.dylib ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.dylib
         if: matrix.os_type == 'macos'
 
       - name: Release
