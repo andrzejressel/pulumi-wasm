@@ -2312,7 +2312,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_native_c"
+name = "pulumi_gestalt_adapter_c_core"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
@@ -2323,6 +2323,23 @@ dependencies = [
  "pulumi_wasm_proto",
  "serde_json",
  "uuid",
+]
+
+[[package]]
+name = "pulumi_gestalt_adapter_c_example_cpp"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_core_test_common",
+]
+
+[[package]]
+name = "pulumi_gestalt_core_test_common"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "serde_json",
 ]
 
 [[package]]
@@ -2371,19 +2388,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_example_cpp"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "pulumi_wasm_examples_common",
-]
-
-[[package]]
 name = "pulumi_wasm_example_dependencies"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
 ]
@@ -2393,7 +2402,7 @@ name = "pulumi_wasm_example_docker"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_docker",
  "pulumi_wasm_rust",
 ]
@@ -2403,7 +2412,7 @@ name = "pulumi_wasm_example_multiple_providers"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_docker",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
@@ -2415,7 +2424,7 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "assert_cmd",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
 ]
@@ -2425,7 +2434,7 @@ name = "pulumi_wasm_example_secret"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
 ]
@@ -2435,7 +2444,7 @@ name = "pulumi_wasm_example_simple"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "pulumi_wasm_examples_common",
+ "pulumi_gestalt_core_test_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
 ]
@@ -2446,15 +2455,6 @@ version = "0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
- "serde_json",
-]
-
-[[package]]
-name = "pulumi_wasm_examples_common"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "assert_cmd",
  "serde_json",
 ]
 

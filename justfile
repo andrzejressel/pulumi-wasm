@@ -12,6 +12,8 @@ CARGO_HACK_VERSION := "0.6.33"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
+local-flow: build-language-plugin regenerator regenerate-generator-tests install-requirements build-static-library build-wasm-components build-wasm-components-release test test-examples test-cpp
+
 # Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project
 housekeeping-ci-flow: regenerator regenerate-generator-tests fmt
 
@@ -72,7 +74,7 @@ build-wasm-components-release:
     cargo component build -p pulumi_wasm_example_secret --release
 
 build-static-library:
-    cargo build -p pulumi_native_c
+    cargo build -p pulumi_gestalt_adapter_c_core
 
 check:
     cargo fmt -- --check
@@ -122,7 +124,7 @@ test-examples:
 
 test-cpp:
     cargo llvm-cov nextest \
-        -p pulumi_wasm_example_cpp \
+        -p pulumi_gestalt_adapter_c_example_cpp \
         --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:

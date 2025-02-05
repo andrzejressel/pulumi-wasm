@@ -158,8 +158,8 @@ fn update_github_actions_build(tests: &[&str], filtered_tests: &[FilteredTest]) 
 }
 
 fn update_test_rs(tests: &[&str], filtered_tests: &[FilteredTest]) {
-    let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
-        .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
+    let content = fs::read_to_string("crates/languages/rust/pulumi_wasm_generator/tests/test.rs")
+        .expect("Failed to read crates/languages/rust/pulumi_wasm_generator/tests/test.rs");
 
     let mut replacement = String::new();
     for test_directory in tests {

@@ -359,18 +359,18 @@ jobs:
           shared-key: build-examples
           save-if: false
       - name: Build runner (Debug)
-        run: cargo build -p pulumi_native_c
+        run: cargo build -p pulumi_gestalt_adapter_c
       - name: Build runner (Release)
-        run: cargo build -p pulumi_native_c --release
+        run: cargo build -p pulumi_gestalt_adapter_c --release
 
       - run: |
-          cp ./target/debug/pulumi_native_c.dll ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.dll
-          cp ./target/debug/pulumi_native_c.lib ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.lib
-          cp ./target/debug/pulumi_native_c.pdb ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.pdb
+          cp ./target/debug/pulumi_gestalt_adapter_c.dll ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.dll
+          cp ./target/debug/pulumi_gestalt_adapter_c.lib ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.lib
+          cp ./target/debug/pulumi_gestalt_adapter_c.pdb ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.pdb
           
-          cp ./target/release/pulumi_native_c.dll ./target/release/pulumi_native_c-${{ matrix.target }}-release.dll
-          cp ./target/release/pulumi_native_c.lib ./target/release/pulumi_native_c-${{ matrix.target }}-release.lib
-          cp ./target/release/pulumi_native_c.pdb ./target/release/pulumi_native_c-${{ matrix.target }}-release.pdb
+          cp ./target/release/pulumi_gestalt_adapter_c.dll ./target/release/pulumi_gestalt-${{ matrix.target }}-release.dll
+          cp ./target/release/pulumi_gestalt_adapter_c.lib ./target/release/pulumi_gestalt-${{ matrix.target }}-release.lib
+          cp ./target/release/pulumi_gestalt_adapter_c.pdb ./target/release/pulumi_gestalt-${{ matrix.target }}-release.pdb
         if: matrix.os_type == 'windows'
 
       - name: Release
@@ -384,20 +384,20 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.dll
-            ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.lib
-            ./target/debug/pulumi_native_c-${{ matrix.target }}-debug.pdb
-            ./target/release/pulumi_native_c-${{ matrix.target }}-release.dll
-            ./target/release/pulumi_native_c-${{ matrix.target }}-release.lib
-            ./target/release/pulumi_native_c-${{ matrix.target }}-release.pdb
+            ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.dll
+            ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.lib
+            ./target/debug/pulumi_gestalt-${{ matrix.target }}-debug.pdb
+            ./target/release/pulumi_gestalt-${{ matrix.target }}-release.dll
+            ./target/release/pulumi_gestalt-${{ matrix.target }}-release.lib
+            ./target/release/pulumi_gestalt-${{ matrix.target }}-release.pdb
         if: matrix.os_type == 'windows'
 
       - run: |
-          cp ./target/debug/libpulumi_native_c.a ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
-          cp ./target/debug/libpulumi_native_c.so ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.so
+          cp ./target/debug/libpulumi_gestalt_adapter_c.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+          cp ./target/debug/libpulumi_gestalt_adapter_c.so ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.so
           
-          cp ./target/release/libpulumi_native_c.a ./target/release/libpulumi_native_c-${{ matrix.target }}-release.a
-          cp ./target/release/libpulumi_native_c.so ./target/release/libpulumi_native_c-${{ matrix.target }}-release.so
+          cp ./target/release/libpulumi_gestalt_adapter_c.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+          cp ./target/release/libpulumi_gestalt_adapter_c.so ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.so
         if: matrix.os_type == 'linux'
 
       - name: Release
@@ -411,18 +411,18 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
-            ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.so
-            ./target/release/libpulumi_native_c-${{ matrix.target }}-release.a
-            ./target/release/libpulumi_native_c-${{ matrix.target }}-release.so
+            ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+            ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.so
+            ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+            ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.so
         if: matrix.os_type == 'linux'
 
       - run: |
-          cp ./target/debug/libpulumi_native_c.a ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
-          cp ./target/debug/libpulumi_native_c.dylib ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.dylib
+          cp ./target/debug/libpulumi_gestalt_adapter_c.a ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+          cp ./target/debug/libpulumi_gestalt_adapter_c.dylib ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.dylib
           
-          cp ./target/release/libpulumi_native_c.a ./target/release/libpulumi_native_c-${{ matrix.target }}-release.a
-          cp ./target/release/libpulumi_native_c.dylib ./target/release/libpulumi_native_c-${{ matrix.target }}-release.dylib
+          cp ./target/release/libpulumi_gestalt_adapter_c.a ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+          cp ./target/release/libpulumi_gestalt_adapter_c.dylib ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.dylib
         if: matrix.os_type == 'macos'
 
       - name: Release
@@ -436,10 +436,10 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.a
-            ./target/debug/libpulumi_native_c-${{ matrix.target }}-debug.dylib
-            ./target/release/libpulumi_native_c-${{ matrix.target }}-release.a
-            ./target/release/libpulumi_native_c-${{ matrix.target }}-release.dylib
+            ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.a
+            ./target/debug/libpulumi_gestalt-${{ matrix.target }}-debug.dylib
+            ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.a
+            ./target/release/libpulumi_gestalt-${{ matrix.target }}-release.dylib
         if: matrix.os_type == 'macos'
 
 
@@ -463,6 +463,6 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./pulumi_native_c/pulumi_native.h
+            ./crates/adapters/c/core/pulumi_native.h
             ./pulumi_wasm_wit/wit/world.wit
             ./pulumi_wasm_wit/wit/deps/pulumi-wasm-external.wit
