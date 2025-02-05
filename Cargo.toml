@@ -20,18 +20,18 @@ members = [
     "providers/gcp-mini",
     "providers/typesystem",
     "providers/random",
-    "pulumi_native_c",
-    "pulumi_wasm",
+    "crates/c_ffi",
+    "crates/wasm",
     "pulumi_wasm_common",
-    "pulumi_wasm_core",
-    "pulumi_wasm_build",
-    "pulumi_wasm_generator",
-    "pulumi_wasm_grpc_connection",
-    "pulumi_wasm_proto",
-    "pulumi_wasm_runner",
-    "pulumi_wasm_runner_component_creator",
-    "pulumi_wasm_rust",
-    "pulumi_wasm_wit",
+    "crates/core",
+    "crates/rust_build",
+    "crates/rust_generator",
+    "crates/grpc",
+    "crates/proto",
+    "crates/wasm_runner",
+    "crates/wasm_runner_component_creator",
+    "crates/rust",
+    "crates/wit",
     "regenerator",
 ]
 
@@ -41,19 +41,19 @@ edition = "2021"
 repository = "https://github.com/andrzejressel/pulumi-wasm-releases"
 
 [workspace.dependencies]
-pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
-pulumi_wasm_build = { version = "=0.0.0-DEV", path = "pulumi_wasm_build", registry = "cloudsmith" }
-pulumi_wasm_generator = { version = "=0.0.0-DEV", path = "pulumi_wasm_generator", registry = "cloudsmith" }
-pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust", registry = "cloudsmith" }
+pulumi_wasm_core = { version = "=0.0.0-DEV", path = "crates/core", registry = "cloudsmith" }
+pulumi_wasm_build = { version = "=0.0.0-DEV", path = "crates/rust_build", registry = "cloudsmith" }
+pulumi_wasm_generator = { version = "=0.0.0-DEV", path = "crates/rust_generator", registry = "cloudsmith" }
+pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry = "cloudsmith" }
 pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
-pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
-pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
-pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_wasm_runner_component_creator", registry = "cloudsmith" }
+pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
+pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
+pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_runner_component_creator", registry = "cloudsmith" }
 pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
 pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
 pulumi_wasm_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
-pulumi_wasm_grpc_connection = { version = "=0.0.0-DEV", path = "pulumi_wasm_grpc_connection", registry = "cloudsmith" }
+pulumi_wasm_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
