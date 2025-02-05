@@ -204,7 +204,7 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
         name: &str,
         args: NextGenerationFirewallVirtualNetworkLocalRulestackArgs,
     ) -> NextGenerationFirewallVirtualNetworkLocalRulestackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destination_nats_binding = args
             .destination_nats

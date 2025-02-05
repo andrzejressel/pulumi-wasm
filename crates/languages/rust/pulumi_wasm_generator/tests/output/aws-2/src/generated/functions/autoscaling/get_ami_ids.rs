@@ -32,7 +32,7 @@ pub mod get_ami_ids {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAmiIdsArgs,
     ) -> GetAmiIdsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let names_binding = args.names.get_output(context).get_inner();

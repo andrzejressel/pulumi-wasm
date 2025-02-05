@@ -219,7 +219,7 @@ pub mod event_grid_data_connection {
         name: &str,
         args: EventGridDataConnectionArgs,
     ) -> EventGridDataConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let blob_storage_event_type_binding = args
             .blob_storage_event_type

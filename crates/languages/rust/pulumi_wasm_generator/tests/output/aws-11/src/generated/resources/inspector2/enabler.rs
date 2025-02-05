@@ -73,7 +73,7 @@ pub mod enabler {
         name: &str,
         args: EnablerArgs,
     ) -> EnablerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_ids_binding = args.account_ids.get_output(context).get_inner();
         let resource_types_binding = args.resource_types.get_output(context).get_inner();

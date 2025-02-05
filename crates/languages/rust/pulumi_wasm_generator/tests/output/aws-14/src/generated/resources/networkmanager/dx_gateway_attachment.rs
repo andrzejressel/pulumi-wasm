@@ -101,7 +101,7 @@ pub mod dx_gateway_attachment {
         name: &str,
         args: DxGatewayAttachmentArgs,
     ) -> DxGatewayAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let core_network_id_binding = args
             .core_network_id

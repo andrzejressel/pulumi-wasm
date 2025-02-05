@@ -68,7 +68,7 @@ pub mod service_region {
         name: &str,
         args: ServiceRegionArgs,
     ) -> ServiceRegionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let desired_number_of_domain_controllers_binding = args
             .desired_number_of_domain_controllers

@@ -121,7 +121,7 @@ pub mod environment_storage {
         name: &str,
         args: EnvironmentStorageArgs,
     ) -> EnvironmentStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_key_binding = args.access_key.get_output(context).get_inner();
         let access_mode_binding = args.access_mode.get_output(context).get_inner();

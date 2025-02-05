@@ -94,7 +94,7 @@ pub mod powershell_72_module {
         name: &str,
         args: Powershell72ModuleArgs,
     ) -> Powershell72ModuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automation_account_id_binding = args
             .automation_account_id

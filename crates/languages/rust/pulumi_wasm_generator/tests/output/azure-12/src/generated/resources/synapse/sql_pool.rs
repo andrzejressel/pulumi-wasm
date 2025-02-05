@@ -137,7 +137,7 @@ pub mod sql_pool {
         name: &str,
         args: SqlPoolArgs,
     ) -> SqlPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let collation_binding = args.collation.get_output(context).get_inner();
         let create_mode_binding = args.create_mode.get_output(context).get_inner();

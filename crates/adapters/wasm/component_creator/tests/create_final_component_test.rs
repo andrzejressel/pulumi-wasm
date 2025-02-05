@@ -1,6 +1,6 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use pulumi_wasm_runner_component_creator::source::PulumiWasmSource;
+use pulumi_gestalt_adapter_wasm_runner::source::PulumiWasmSource;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
@@ -42,7 +42,7 @@ async fn should_combine_wasm_components() -> Result<()> {
         .unwrap();
 
     let result =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+        pulumi_gestalt_adapter_wasm_runner::create(&TestProgramSource {}, encoded.clone(), true)
             .await
             .unwrap();
 
@@ -87,7 +87,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
         .unwrap();
 
     let error =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+        pulumi_gestalt_adapter_wasm_runner::create(&TestProgramSource {}, encoded.clone(), true)
             .await
             .expect_err("Expected creator to return error");
 
@@ -143,7 +143,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
         .unwrap();
 
     let error =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
+        pulumi_gestalt_adapter_wasm_runner::create(&TestProgramSource {}, encoded.clone(), true)
             .await
             .expect_err("Expected creator to return error");
 

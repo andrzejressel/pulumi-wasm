@@ -124,7 +124,7 @@ pub mod web_app_hybrid_connection {
         name: &str,
         args: WebAppHybridConnectionArgs,
     ) -> WebAppHybridConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hostname_binding = args.hostname.get_output(context).get_inner();
         let port_binding = args.port.get_output(context).get_inner();

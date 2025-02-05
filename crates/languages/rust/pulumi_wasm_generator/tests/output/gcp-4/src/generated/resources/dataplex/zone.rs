@@ -161,7 +161,7 @@ pub mod zone {
         name: &str,
         args: ZoneArgs,
     ) -> ZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let discovery_spec_binding = args.discovery_spec.get_output(context).get_inner();

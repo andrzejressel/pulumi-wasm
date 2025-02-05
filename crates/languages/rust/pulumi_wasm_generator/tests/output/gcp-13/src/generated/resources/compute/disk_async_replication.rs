@@ -65,7 +65,7 @@ pub mod disk_async_replication {
         name: &str,
         args: DiskAsyncReplicationArgs,
     ) -> DiskAsyncReplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let primary_disk_binding = args.primary_disk.get_output(context).get_inner();
         let secondary_disk_binding = args.secondary_disk.get_output(context).get_inner();

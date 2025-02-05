@@ -142,7 +142,7 @@ pub mod endpoint_storage_container {
         name: &str,
         args: EndpointStorageContainerArgs,
     ) -> EndpointStorageContainerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authentication_type_binding = args
             .authentication_type

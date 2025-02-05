@@ -386,7 +386,7 @@ pub mod s_3_endpoint {
         name: &str,
         args: S3EndpointArgs,
     ) -> S3EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let add_column_name_binding = args
             .add_column_name

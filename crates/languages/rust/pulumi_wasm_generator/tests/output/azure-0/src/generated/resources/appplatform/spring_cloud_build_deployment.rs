@@ -120,7 +120,7 @@ pub mod spring_cloud_build_deployment {
         name: &str,
         args: SpringCloudBuildDeploymentArgs,
     ) -> SpringCloudBuildDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let addon_json_binding = args.addon_json.get_output(context).get_inner();
         let application_performance_monitoring_ids_binding = args

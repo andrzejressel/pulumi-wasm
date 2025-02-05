@@ -78,7 +78,7 @@ pub mod get_network_insights_analysis {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkInsightsAnalysisArgs,
     ) -> GetNetworkInsightsAnalysisResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let network_insights_analysis_id_binding = args

@@ -84,7 +84,7 @@ pub mod local_rulestack_fqdn_list {
         name: &str,
         args: LocalRulestackFqdnListArgs,
     ) -> LocalRulestackFqdnListResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();

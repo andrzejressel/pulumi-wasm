@@ -60,7 +60,7 @@ pub mod get_firewall {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetFirewallArgs,
     ) -> GetFirewallResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dns_proxy_enabled_binding = args
             .dns_proxy_enabled

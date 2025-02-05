@@ -202,7 +202,7 @@ pub mod trust_config {
         name: &str,
         args: TrustConfigArgs,
     ) -> TrustConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allowlisted_certificates_binding = args
             .allowlisted_certificates

@@ -122,7 +122,7 @@ pub mod backup_policy_kubernetes_cluster {
         name: &str,
         args: BackupPolicyKubernetesClusterArgs,
     ) -> BackupPolicyKubernetesClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals

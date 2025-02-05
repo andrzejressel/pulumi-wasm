@@ -237,7 +237,7 @@ pub mod active_directory {
         name: &str,
         args: ActiveDirectoryArgs,
     ) -> ActiveDirectoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let administrators_binding = args.administrators.get_output(context).get_inner();
         let aes_encryption_binding = args.aes_encryption.get_output(context).get_inner();

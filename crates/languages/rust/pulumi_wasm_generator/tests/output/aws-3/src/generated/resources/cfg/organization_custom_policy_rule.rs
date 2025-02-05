@@ -123,7 +123,7 @@ pub mod organization_custom_policy_rule {
         name: &str,
         args: OrganizationCustomPolicyRuleArgs,
     ) -> OrganizationCustomPolicyRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let debug_log_delivery_accounts_binding = args
             .debug_log_delivery_accounts

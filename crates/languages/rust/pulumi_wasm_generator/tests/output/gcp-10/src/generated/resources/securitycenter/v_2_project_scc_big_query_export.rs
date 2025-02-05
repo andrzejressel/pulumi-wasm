@@ -180,7 +180,7 @@ pub mod v_2_project_scc_big_query_export {
         name: &str,
         args: V2ProjectSccBigQueryExportArgs,
     ) -> V2ProjectSccBigQueryExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let big_query_export_id_binding = args
             .big_query_export_id

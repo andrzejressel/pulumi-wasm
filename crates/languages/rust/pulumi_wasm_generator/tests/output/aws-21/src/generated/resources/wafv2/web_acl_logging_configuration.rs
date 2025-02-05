@@ -131,7 +131,7 @@ pub mod web_acl_logging_configuration {
         name: &str,
         args: WebAclLoggingConfigurationArgs,
     ) -> WebAclLoggingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_destination_configs_binding = args
             .log_destination_configs

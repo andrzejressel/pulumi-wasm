@@ -83,7 +83,7 @@ pub mod keyless_certificate {
         name: &str,
         args: KeylessCertificateArgs,
     ) -> KeylessCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bundle_method_binding = args.bundle_method.get_output(context).get_inner();
         let certificate_binding = args.certificate.get_output(context).get_inner();

@@ -116,7 +116,7 @@ pub mod spring_cloud_application_insights_application_performance_monitoring {
         name: &str,
         args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let connection_string_binding = args
             .connection_string

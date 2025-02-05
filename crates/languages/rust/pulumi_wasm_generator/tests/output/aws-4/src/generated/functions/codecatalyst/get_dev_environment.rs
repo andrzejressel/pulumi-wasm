@@ -81,7 +81,7 @@ pub mod get_dev_environment {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDevEnvironmentArgs,
     ) -> GetDevEnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let creator_id_binding = args.creator_id.get_output(context).get_inner();

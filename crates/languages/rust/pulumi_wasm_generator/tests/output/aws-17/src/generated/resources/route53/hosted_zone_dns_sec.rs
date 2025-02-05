@@ -100,7 +100,7 @@ pub mod hosted_zone_dns_sec {
         name: &str,
         args: HostedZoneDnsSecArgs,
     ) -> HostedZoneDnsSecResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
         let signing_status_binding = args.signing_status.get_output(context).get_inner();

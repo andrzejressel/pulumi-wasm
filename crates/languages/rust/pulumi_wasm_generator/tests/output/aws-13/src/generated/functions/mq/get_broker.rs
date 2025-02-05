@@ -62,7 +62,7 @@ pub mod get_broker {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetBrokerArgs,
     ) -> GetBrokerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let broker_id_binding = args.broker_id.get_output(context).get_inner();
         let broker_name_binding = args.broker_name.get_output(context).get_inner();

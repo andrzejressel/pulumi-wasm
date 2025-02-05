@@ -100,7 +100,7 @@ pub mod key_ring_import_job {
         name: &str,
         args: KeyRingImportJobArgs,
     ) -> KeyRingImportJobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let import_job_id_binding = args.import_job_id.get_output(context).get_inner();
         let import_method_binding = args.import_method.get_output(context).get_inner();

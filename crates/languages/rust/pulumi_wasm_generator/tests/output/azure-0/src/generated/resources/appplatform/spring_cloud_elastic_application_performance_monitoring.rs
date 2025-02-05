@@ -95,7 +95,7 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
         name: &str,
         args: SpringCloudElasticApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudElasticApplicationPerformanceMonitoringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_packages_binding = args
             .application_packages

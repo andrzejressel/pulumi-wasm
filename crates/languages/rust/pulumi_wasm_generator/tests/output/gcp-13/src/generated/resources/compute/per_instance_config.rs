@@ -215,7 +215,7 @@ pub mod per_instance_config {
         name: &str,
         args: PerInstanceConfigArgs,
     ) -> PerInstanceConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_group_manager_binding = args
             .instance_group_manager

@@ -129,7 +129,7 @@ pub mod conformance_pack {
         name: &str,
         args: ConformancePackArgs,
     ) -> ConformancePackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let delivery_s3_bucket_binding = args
             .delivery_s3_bucket

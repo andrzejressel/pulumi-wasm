@@ -73,7 +73,7 @@ pub mod get_account_blob_container_sas {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAccountBlobContainerSasArgs,
     ) -> GetAccountBlobContainerSasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cache_control_binding = args.cache_control.get_output(context).get_inner();
         let connection_string_binding = args

@@ -151,7 +151,7 @@ pub mod channels_registration {
         name: &str,
         args: ChannelsRegistrationArgs,
     ) -> ChannelsRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cmk_key_vault_url_binding = args
             .cmk_key_vault_url

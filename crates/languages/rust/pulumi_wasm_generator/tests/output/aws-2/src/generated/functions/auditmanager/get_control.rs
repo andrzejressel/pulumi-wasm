@@ -45,7 +45,7 @@ pub mod get_control {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetControlArgs,
     ) -> GetControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let control_mapping_sources_binding = args
             .control_mapping_sources

@@ -24,7 +24,7 @@ pub mod function_2 {
         context: &pulumi_wasm_rust::PulumiContext,
         args: Function2Args,
     ) -> Function2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let common_type_binding = args.common_type.get_output(context).get_inner();
         let type2_binding = args.type2.get_output(context).get_inner();

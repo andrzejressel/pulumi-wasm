@@ -159,7 +159,7 @@ pub mod file_system_association {
         name: &str,
         args: FileSystemAssociationArgs,
     ) -> FileSystemAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let audit_destination_arn_binding = args
             .audit_destination_arn

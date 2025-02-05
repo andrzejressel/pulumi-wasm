@@ -133,7 +133,7 @@ pub mod region_network_firewall_policy_association {
         name: &str,
         args: RegionNetworkFirewallPolicyAssociationArgs,
     ) -> RegionNetworkFirewallPolicyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let attachment_target_binding = args
             .attachment_target

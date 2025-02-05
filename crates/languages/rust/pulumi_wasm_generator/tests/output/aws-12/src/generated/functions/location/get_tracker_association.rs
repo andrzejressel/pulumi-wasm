@@ -25,7 +25,7 @@ pub mod get_tracker_association {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTrackerAssociationArgs,
     ) -> GetTrackerAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let consumer_arn_binding = args.consumer_arn.get_output(context).get_inner();
         let tracker_name_binding = args.tracker_name.get_output(context).get_inner();

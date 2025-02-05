@@ -90,7 +90,7 @@ pub mod monitored_project {
         name: &str,
         args: MonitoredProjectArgs,
     ) -> MonitoredProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let metrics_scope_binding = args.metrics_scope.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

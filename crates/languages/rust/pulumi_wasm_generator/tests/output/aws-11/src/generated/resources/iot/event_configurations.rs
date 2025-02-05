@@ -57,7 +57,7 @@ pub mod event_configurations {
         name: &str,
         args: EventConfigurationsArgs,
     ) -> EventConfigurationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let event_configurations_binding = args
             .event_configurations

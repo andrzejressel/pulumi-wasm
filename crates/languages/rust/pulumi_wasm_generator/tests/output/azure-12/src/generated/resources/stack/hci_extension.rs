@@ -108,7 +108,7 @@ pub mod hci_extension {
         name: &str,
         args: HciExtensionArgs,
     ) -> HciExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let arc_setting_id_binding = args.arc_setting_id.get_output(context).get_inner();
         let auto_upgrade_minor_version_enabled_binding = args

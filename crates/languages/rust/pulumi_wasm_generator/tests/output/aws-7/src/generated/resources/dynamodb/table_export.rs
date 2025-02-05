@@ -141,7 +141,7 @@ pub mod table_export {
         name: &str,
         args: TableExportArgs,
     ) -> TableExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let export_format_binding = args.export_format.get_output(context).get_inner();
         let export_time_binding = args.export_time.get_output(context).get_inner();

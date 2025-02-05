@@ -114,7 +114,7 @@ pub mod mongo_role_definition {
         name: &str,
         args: MongoRoleDefinitionArgs,
     ) -> MongoRoleDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cosmos_mongo_database_id_binding = args
             .cosmos_mongo_database_id

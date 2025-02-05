@@ -73,7 +73,7 @@ pub mod bucket {
         name: &str,
         args: BucketArgs,
     ) -> BucketResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let outpost_id_binding = args.outpost_id.get_output(context).get_inner();

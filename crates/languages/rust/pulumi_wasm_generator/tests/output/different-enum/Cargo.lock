@@ -517,7 +517,7 @@ name = "pulumi_wasm_common"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
- "pulumi_wasm_wit",
+ "pulumi_gestalt_adapter_wasm_wit",
 ]
 
 [[package]]
@@ -529,7 +529,7 @@ dependencies = [
  "log",
  "once_cell",
  "pulumi_wasm_common",
- "pulumi_wasm_wit",
+ "pulumi_gestalt_adapter_wasm_wit",
  "serde",
  "serde_json",
  "uuid",
@@ -537,7 +537,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_wit"
+name = "pulumi_gestalt_adapter_wasm_wit"
 version = "0.0.0-DEV"
 dependencies = [
  "wit-bindgen 0.38.0",

@@ -86,7 +86,7 @@ pub mod data_connector_office_power_bi {
         name: &str,
         args: DataConnectorOfficePowerBiArgs,
     ) -> DataConnectorOfficePowerBiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id

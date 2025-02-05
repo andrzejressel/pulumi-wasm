@@ -101,7 +101,7 @@ pub mod connect_peer {
         name: &str,
         args: ConnectPeerArgs,
     ) -> ConnectPeerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bgp_options_binding = args.bgp_options.get_output(context).get_inner();
         let connect_attachment_id_binding = args

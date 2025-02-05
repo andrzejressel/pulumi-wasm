@@ -70,7 +70,7 @@ pub mod recovery_group {
         name: &str,
         args: RecoveryGroupArgs,
     ) -> RecoveryGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cells_binding = args.cells.get_output(context).get_inner();
         let recovery_group_name_binding = args

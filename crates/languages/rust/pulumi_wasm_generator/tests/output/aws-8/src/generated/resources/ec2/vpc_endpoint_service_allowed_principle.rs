@@ -52,7 +52,7 @@ pub mod vpc_endpoint_service_allowed_principle {
         name: &str,
         args: VpcEndpointServiceAllowedPrincipleArgs,
     ) -> VpcEndpointServiceAllowedPrincipleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
         let vpc_endpoint_service_id_binding = args

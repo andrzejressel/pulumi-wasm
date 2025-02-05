@@ -63,7 +63,7 @@ pub mod hsm_client_certificate {
         name: &str,
         args: HsmClientCertificateArgs,
     ) -> HsmClientCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hsm_client_certificate_identifier_binding = args
             .hsm_client_certificate_identifier

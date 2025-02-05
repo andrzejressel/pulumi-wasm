@@ -37,7 +37,7 @@ pub mod get_public_i_ps {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPublicIPsArgs,
     ) -> GetPublicIPsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allocation_type_binding = args
             .allocation_type

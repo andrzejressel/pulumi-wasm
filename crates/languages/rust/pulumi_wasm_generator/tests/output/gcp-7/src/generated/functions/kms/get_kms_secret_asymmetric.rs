@@ -34,7 +34,7 @@ pub mod get_kms_secret_asymmetric {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetKmsSecretAsymmetricArgs,
     ) -> GetKmsSecretAsymmetricResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ciphertext_binding = args.ciphertext.get_output(context).get_inner();
         let crc32_binding = args.crc32.get_output(context).get_inner();

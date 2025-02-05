@@ -53,7 +53,7 @@ pub mod get_vpc_dhcp_options {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVpcDhcpOptionsArgs,
     ) -> GetVpcDhcpOptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dhcp_options_id_binding = args
             .dhcp_options_id

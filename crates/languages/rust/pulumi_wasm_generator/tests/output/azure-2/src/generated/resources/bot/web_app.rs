@@ -126,7 +126,7 @@ pub mod web_app {
         name: &str,
         args: WebAppArgs,
     ) -> WebAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let developer_app_insights_api_key_binding = args
             .developer_app_insights_api_key

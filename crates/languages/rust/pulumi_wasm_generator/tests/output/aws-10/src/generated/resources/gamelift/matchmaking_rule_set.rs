@@ -48,7 +48,7 @@ pub mod matchmaking_rule_set {
         name: &str,
         args: MatchmakingRuleSetArgs,
     ) -> MatchmakingRuleSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let rule_set_body_binding = args.rule_set_body.get_output(context).get_inner();

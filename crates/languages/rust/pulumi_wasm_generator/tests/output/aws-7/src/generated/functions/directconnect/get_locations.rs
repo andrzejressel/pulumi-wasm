@@ -11,7 +11,7 @@ pub mod get_locations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(context: &pulumi_wasm_rust::PulumiContext) -> GetLocationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:directconnect/getLocations:getLocations".into(),

@@ -224,7 +224,7 @@ pub mod threat_intelligence_indicator {
         name: &str,
         args: ThreatIntelligenceIndicatorArgs,
     ) -> ThreatIntelligenceIndicatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let confidence_binding = args.confidence.get_output(context).get_inner();
         let created_by_binding = args.created_by.get_output(context).get_inner();

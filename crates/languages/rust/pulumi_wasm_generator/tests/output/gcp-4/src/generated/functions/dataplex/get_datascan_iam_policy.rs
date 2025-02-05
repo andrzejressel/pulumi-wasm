@@ -37,7 +37,7 @@ pub mod get_datascan_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDatascanIamPolicyArgs,
     ) -> GetDatascanIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_scan_id_binding = args.data_scan_id.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();

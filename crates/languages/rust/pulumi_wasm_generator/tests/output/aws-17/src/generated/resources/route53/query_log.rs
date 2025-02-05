@@ -93,7 +93,7 @@ pub mod query_log {
         name: &str,
         args: QueryLogArgs,
     ) -> QueryLogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cloudwatch_log_group_arn_binding = args
             .cloudwatch_log_group_arn

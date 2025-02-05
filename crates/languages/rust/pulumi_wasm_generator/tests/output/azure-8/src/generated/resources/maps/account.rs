@@ -118,7 +118,7 @@ pub mod account {
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cors_binding = args.cors.get_output(context).get_inner();
         let data_stores_binding = args.data_stores.get_output(context).get_inner();

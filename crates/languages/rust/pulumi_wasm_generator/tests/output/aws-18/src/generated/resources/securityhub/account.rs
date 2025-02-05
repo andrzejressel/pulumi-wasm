@@ -55,7 +55,7 @@ pub mod account {
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_enable_controls_binding = args
             .auto_enable_controls

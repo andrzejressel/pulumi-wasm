@@ -62,7 +62,7 @@ pub mod static_ip_attachment {
         name: &str,
         args: StaticIpAttachmentArgs,
     ) -> StaticIpAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_name_binding = args.instance_name.get_output(context).get_inner();
         let static_ip_name_binding = args.static_ip_name.get_output(context).get_inner();

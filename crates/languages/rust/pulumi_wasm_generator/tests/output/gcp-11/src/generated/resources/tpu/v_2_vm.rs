@@ -349,7 +349,7 @@ pub mod v_2_vm {
         name: &str,
         args: V2VmArgs,
     ) -> V2VmResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accelerator_config_binding = args
             .accelerator_config

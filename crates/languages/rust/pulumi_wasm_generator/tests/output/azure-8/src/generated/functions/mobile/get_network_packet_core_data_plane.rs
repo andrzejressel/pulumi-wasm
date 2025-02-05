@@ -41,7 +41,7 @@ pub mod get_network_packet_core_data_plane {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkPacketCoreDataPlaneArgs,
     ) -> GetNetworkPacketCoreDataPlaneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mobile_network_packet_core_control_plane_id_binding = args
             .mobile_network_packet_core_control_plane_id

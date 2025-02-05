@@ -226,7 +226,7 @@ pub mod custom_target_type {
         name: &str,
         args: CustomTargetTypeArgs,
     ) -> CustomTargetTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let custom_actions_binding = args.custom_actions.get_output(context).get_inner();

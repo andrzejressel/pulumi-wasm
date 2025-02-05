@@ -77,7 +77,7 @@ pub mod vpc_ipam_resource_discovery_association {
         name: &str,
         args: VpcIpamResourceDiscoveryAssociationArgs,
     ) -> VpcIpamResourceDiscoveryAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ipam_id_binding = args.ipam_id.get_output(context).get_inner();
         let ipam_resource_discovery_id_binding = args

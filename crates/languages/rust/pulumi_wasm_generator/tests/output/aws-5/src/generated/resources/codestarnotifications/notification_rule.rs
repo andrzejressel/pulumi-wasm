@@ -123,7 +123,7 @@ pub mod notification_rule {
         name: &str,
         args: NotificationRuleArgs,
     ) -> NotificationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let detail_type_binding = args.detail_type.get_output(context).get_inner();
         let event_type_ids_binding = args.event_type_ids.get_output(context).get_inner();

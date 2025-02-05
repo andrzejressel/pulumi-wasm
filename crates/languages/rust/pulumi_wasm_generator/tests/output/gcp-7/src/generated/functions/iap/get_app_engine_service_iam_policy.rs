@@ -35,7 +35,7 @@ pub mod get_app_engine_service_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAppEngineServiceIamPolicyArgs,
     ) -> GetAppEngineServiceIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();

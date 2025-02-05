@@ -105,7 +105,7 @@ pub mod slot_type {
         name: &str,
         args: SlotTypeArgs,
     ) -> SlotTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let create_version_binding = args.create_version.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();

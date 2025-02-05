@@ -218,7 +218,7 @@ pub mod metric_alert {
         name: &str,
         args: MetricAlertArgs,
     ) -> MetricAlertResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let application_insights_web_test_location_availability_criteria_binding = args

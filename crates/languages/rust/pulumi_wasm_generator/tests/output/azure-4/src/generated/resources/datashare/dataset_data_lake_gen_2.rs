@@ -127,7 +127,7 @@ pub mod dataset_data_lake_gen_2 {
         name: &str,
         args: DatasetDataLakeGen2Args,
     ) -> DatasetDataLakeGen2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let file_path_binding = args.file_path.get_output(context).get_inner();
         let file_system_name_binding = args

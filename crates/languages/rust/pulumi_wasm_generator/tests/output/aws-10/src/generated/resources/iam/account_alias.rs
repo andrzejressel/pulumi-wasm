@@ -46,7 +46,7 @@ pub mod account_alias {
         name: &str,
         args: AccountAliasArgs,
     ) -> AccountAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_alias_binding = args.account_alias.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

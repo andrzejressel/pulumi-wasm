@@ -233,7 +233,7 @@ pub mod ai_feature_online_store {
         name: &str,
         args: AiFeatureOnlineStoreArgs,
     ) -> AiFeatureOnlineStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bigtable_binding = args.bigtable.get_output(context).get_inner();
         let dedicated_serving_endpoint_binding = args

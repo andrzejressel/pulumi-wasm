@@ -45,7 +45,7 @@ pub mod get_service_quota {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetServiceQuotaArgs,
     ) -> GetServiceQuotaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let quota_code_binding = args.quota_code.get_output(context).get_inner();
         let quota_name_binding = args.quota_name.get_output(context).get_inner();

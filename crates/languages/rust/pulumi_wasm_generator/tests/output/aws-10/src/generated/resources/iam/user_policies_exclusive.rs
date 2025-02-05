@@ -35,7 +35,7 @@ pub mod user_policies_exclusive {
         name: &str,
         args: UserPoliciesExclusiveArgs,
     ) -> UserPoliciesExclusiveResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_names_binding = args.policy_names.get_output(context).get_inner();
         let user_name_binding = args.user_name.get_output(context).get_inner();

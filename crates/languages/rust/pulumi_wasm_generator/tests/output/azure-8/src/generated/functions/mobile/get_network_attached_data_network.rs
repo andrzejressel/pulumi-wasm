@@ -51,7 +51,7 @@ pub mod get_network_attached_data_network {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkAttachedDataNetworkArgs,
     ) -> GetNetworkAttachedDataNetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mobile_network_data_network_name_binding = args
             .mobile_network_data_network_name

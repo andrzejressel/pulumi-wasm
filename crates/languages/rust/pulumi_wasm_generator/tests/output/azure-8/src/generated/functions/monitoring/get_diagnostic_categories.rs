@@ -27,7 +27,7 @@ pub mod get_diagnostic_categories {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDiagnosticCategoriesArgs,
     ) -> GetDiagnosticCategoriesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let resource_id_binding = args.resource_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

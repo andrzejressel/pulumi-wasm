@@ -428,7 +428,7 @@ pub mod region_disk {
         name: &str,
         args: RegionDiskArgs,
     ) -> RegionDiskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let async_primary_disk_binding = args
             .async_primary_disk

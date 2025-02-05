@@ -137,7 +137,7 @@ pub mod sql_pool_workload_classifier {
         name: &str,
         args: SqlPoolWorkloadClassifierArgs,
     ) -> SqlPoolWorkloadClassifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let context_binding = args.context.get_output(context).get_inner();
         let end_time_binding = args.end_time.get_output(context).get_inner();

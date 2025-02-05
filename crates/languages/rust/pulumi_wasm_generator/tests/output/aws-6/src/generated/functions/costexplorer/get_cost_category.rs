@@ -45,7 +45,7 @@ pub mod get_cost_category {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetCostCategoryArgs,
     ) -> GetCostCategoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cost_category_arn_binding = args
             .cost_category_arn

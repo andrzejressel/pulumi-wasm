@@ -92,7 +92,7 @@ pub mod federated_identity_credential {
         name: &str,
         args: FederatedIdentityCredentialArgs,
     ) -> FederatedIdentityCredentialResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let audience_binding = args.audience.get_output(context).get_inner();
         let issuer_binding = args.issuer.get_output(context).get_inner();

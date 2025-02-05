@@ -96,7 +96,7 @@ pub mod service_integration {
         name: &str,
         args: ServiceIntegrationArgs,
     ) -> ServiceIntegrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let kms_server_side_encryption_binding = args
             .kms_server_side_encryption

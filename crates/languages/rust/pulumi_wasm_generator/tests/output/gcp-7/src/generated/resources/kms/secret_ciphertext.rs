@@ -109,7 +109,7 @@ pub mod secret_ciphertext {
         name: &str,
         args: SecretCiphertextArgs,
     ) -> SecretCiphertextResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let additional_authenticated_data_binding = args
             .additional_authenticated_data

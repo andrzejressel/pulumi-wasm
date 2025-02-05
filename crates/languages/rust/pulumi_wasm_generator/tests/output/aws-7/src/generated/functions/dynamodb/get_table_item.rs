@@ -42,7 +42,7 @@ pub mod get_table_item {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTableItemArgs,
     ) -> GetTableItemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let expression_attribute_names_binding = args
             .expression_attribute_names

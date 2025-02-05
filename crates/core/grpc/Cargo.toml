@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_grpc_connection"
+name = "pulumi_gestalt_core_grpc"
 version.workspace = true
 edition.workspace = true
 repository.workspace = true
@@ -7,7 +7,7 @@ repository.workspace = true
 [dependencies]
 prost.workspace = true
 tonic = { workspace = true, default-features = true }
-pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
+pulumi_gestalt_core_proto = { workspace = true, features = ["connectivity"] }
 tokio.workspace = true
 futures.workspace = true
 anyhow.workspace = true

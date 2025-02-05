@@ -79,7 +79,7 @@ pub mod voice_connector {
         name: &str,
         args: VoiceConnectorArgs,
     ) -> VoiceConnectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aws_region_binding = args.aws_region.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

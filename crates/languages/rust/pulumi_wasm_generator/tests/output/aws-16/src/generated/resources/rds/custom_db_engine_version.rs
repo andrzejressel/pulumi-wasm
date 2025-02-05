@@ -215,7 +215,7 @@ pub mod custom_db_engine_version {
         name: &str,
         args: CustomDbEngineVersionArgs,
     ) -> CustomDbEngineVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let database_installation_files_s3_bucket_name_binding = args
             .database_installation_files_s3_bucket_name

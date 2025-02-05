@@ -96,7 +96,7 @@ pub mod data_connector_microsoft_threat_intelligence {
         name: &str,
         args: DataConnectorMicrosoftThreatIntelligenceArgs,
     ) -> DataConnectorMicrosoftThreatIntelligenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id

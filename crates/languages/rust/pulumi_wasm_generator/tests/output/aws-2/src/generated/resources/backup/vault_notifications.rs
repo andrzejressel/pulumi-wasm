@@ -85,7 +85,7 @@ pub mod vault_notifications {
         name: &str,
         args: VaultNotificationsArgs,
     ) -> VaultNotificationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backup_vault_events_binding = args
             .backup_vault_events

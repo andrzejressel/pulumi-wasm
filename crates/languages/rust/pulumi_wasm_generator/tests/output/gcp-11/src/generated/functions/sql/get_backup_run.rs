@@ -43,7 +43,7 @@ pub mod get_backup_run {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetBackupRunArgs,
     ) -> GetBackupRunResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backup_id_binding = args.backup_id.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();

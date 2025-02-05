@@ -125,7 +125,7 @@ pub mod workbook {
         name: &str,
         args: WorkbookArgs,
     ) -> WorkbookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let category_binding = args.category.get_output(context).get_inner();
         let data_json_binding = args.data_json.get_output(context).get_inner();

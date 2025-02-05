@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_build"
+name = "pulumi_gestalt_rust_build"
 version.workspace = true
 edition.workspace = true
 

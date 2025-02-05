@@ -85,7 +85,7 @@ pub mod channel {
         name: &str,
         args: ChannelArgs,
     ) -> ChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authorized_binding = args.authorized.get_output(context).get_inner();
         let latency_mode_binding = args.latency_mode.get_output(context).get_inner();

@@ -74,7 +74,7 @@ pub mod zero_trust_device_managed_networks {
         name: &str,
         args: ZeroTrustDeviceManagedNetworksArgs,
     ) -> ZeroTrustDeviceManagedNetworksResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let config_binding = args.config.get_output(context).get_inner();

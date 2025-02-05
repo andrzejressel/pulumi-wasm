@@ -27,7 +27,7 @@ pub mod get_user_hierarchy_structure {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetUserHierarchyStructureArgs,
     ) -> GetUserHierarchyStructureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

@@ -134,7 +134,7 @@ pub mod web_app_active_slot {
         name: &str,
         args: WebAppActiveSlotArgs,
     ) -> WebAppActiveSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let overwrite_network_config_binding = args
             .overwrite_network_config

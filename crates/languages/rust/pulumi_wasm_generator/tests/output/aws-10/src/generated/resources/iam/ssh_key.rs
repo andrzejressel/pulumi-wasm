@@ -73,7 +73,7 @@ pub mod ssh_key {
         name: &str,
         args: SshKeyArgs,
     ) -> SshKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let encoding_binding = args.encoding.get_output(context).get_inner();
         let public_key_binding = args.public_key.get_output(context).get_inner();

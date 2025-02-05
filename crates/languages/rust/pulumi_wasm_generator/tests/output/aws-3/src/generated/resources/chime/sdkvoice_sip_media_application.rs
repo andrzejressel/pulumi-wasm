@@ -87,7 +87,7 @@ pub mod sdkvoice_sip_media_application {
         name: &str,
         args: SdkvoiceSipMediaApplicationArgs,
     ) -> SdkvoiceSipMediaApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aws_region_binding = args.aws_region.get_output(context).get_inner();
         let endpoints_binding = args.endpoints.get_output(context).get_inner();

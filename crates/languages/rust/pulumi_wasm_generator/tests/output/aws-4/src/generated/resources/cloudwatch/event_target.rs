@@ -721,7 +721,7 @@ pub mod event_target {
         name: &str,
         args: EventTargetArgs,
     ) -> EventTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let appsync_target_binding = args.appsync_target.get_output(context).get_inner();
         let arn_binding = args.arn.get_output(context).get_inner();

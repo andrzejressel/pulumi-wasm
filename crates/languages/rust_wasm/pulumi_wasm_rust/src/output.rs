@@ -1,8 +1,8 @@
 use crate::context::PulumiContext;
 use anyhow::Error;
 use once_cell::sync::Lazy;
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
+use pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
+use pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;

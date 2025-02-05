@@ -159,7 +159,7 @@ pub mod waiting_room {
         name: &str,
         args: WaitingRoomArgs,
     ) -> WaitingRoomResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let additional_routes_binding = args
             .additional_routes

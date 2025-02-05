@@ -116,7 +116,7 @@ pub mod ledger {
         name: &str,
         args: LedgerArgs,
     ) -> LedgerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let azuread_based_service_principals_binding = args
             .azuread_based_service_principals

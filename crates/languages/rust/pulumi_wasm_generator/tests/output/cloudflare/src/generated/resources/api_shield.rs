@@ -53,7 +53,7 @@ pub mod api_shield {
         name: &str,
         args: ApiShieldArgs,
     ) -> ApiShieldResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auth_id_characteristics_binding = args
             .auth_id_characteristics

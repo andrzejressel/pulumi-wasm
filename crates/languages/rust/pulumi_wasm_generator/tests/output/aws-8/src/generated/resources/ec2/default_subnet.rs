@@ -129,7 +129,7 @@ pub mod default_subnet {
         name: &str,
         args: DefaultSubnetArgs,
     ) -> DefaultSubnetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assign_ipv6_address_on_creation_binding = args
             .assign_ipv6_address_on_creation

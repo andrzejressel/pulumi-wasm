@@ -48,7 +48,7 @@ pub mod get_ip_ranges {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetIpRangesArgs,
     ) -> GetIpRangesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let id_binding = args.id.get_output(context).get_inner();
         let regions_binding = args.regions.get_output(context).get_inner();

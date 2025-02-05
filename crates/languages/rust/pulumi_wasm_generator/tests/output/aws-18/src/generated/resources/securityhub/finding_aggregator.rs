@@ -94,7 +94,7 @@ pub mod finding_aggregator {
         name: &str,
         args: FindingAggregatorArgs,
     ) -> FindingAggregatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let linking_mode_binding = args.linking_mode.get_output(context).get_inner();
         let specified_regions_binding = args

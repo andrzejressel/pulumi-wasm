@@ -141,7 +141,7 @@ pub mod collaboration {
         name: &str,
         args: CollaborationArgs,
     ) -> CollaborationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let creator_display_name_binding = args
             .creator_display_name

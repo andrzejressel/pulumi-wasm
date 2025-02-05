@@ -118,7 +118,7 @@ pub mod report_group {
         name: &str,
         args: ReportGroupArgs,
     ) -> ReportGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let delete_reports_binding = args.delete_reports.get_output(context).get_inner();
         let export_config_binding = args.export_config.get_output(context).get_inner();

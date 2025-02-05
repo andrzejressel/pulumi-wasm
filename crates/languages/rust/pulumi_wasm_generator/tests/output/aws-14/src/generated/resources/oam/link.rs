@@ -146,7 +146,7 @@ pub mod link {
         name: &str,
         args: LinkArgs,
     ) -> LinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let label_template_binding = args.label_template.get_output(context).get_inner();
         let link_configuration_binding = args

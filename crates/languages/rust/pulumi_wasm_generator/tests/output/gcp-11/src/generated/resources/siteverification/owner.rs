@@ -129,7 +129,7 @@ pub mod owner {
         name: &str,
         args: OwnerArgs,
     ) -> OwnerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let email_binding = args.email.get_output(context).get_inner();
         let web_resource_id_binding = args

@@ -114,7 +114,7 @@ pub mod lication_load_balancer_subnet_association {
         name: &str,
         args: LicationLoadBalancerSubnetAssociationArgs,
     ) -> LicationLoadBalancerSubnetAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_load_balancer_id_binding = args
             .application_load_balancer_id

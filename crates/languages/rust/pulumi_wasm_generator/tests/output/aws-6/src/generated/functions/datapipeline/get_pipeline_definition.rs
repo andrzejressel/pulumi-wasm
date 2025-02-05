@@ -50,7 +50,7 @@ pub mod get_pipeline_definition {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPipelineDefinitionArgs,
     ) -> GetPipelineDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let parameter_values_binding = args
             .parameter_values

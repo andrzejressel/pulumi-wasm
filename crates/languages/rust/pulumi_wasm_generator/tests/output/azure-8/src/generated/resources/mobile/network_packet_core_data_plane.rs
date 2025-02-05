@@ -137,7 +137,7 @@ pub mod network_packet_core_data_plane {
         name: &str,
         args: NetworkPacketCoreDataPlaneArgs,
     ) -> NetworkPacketCoreDataPlaneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let mobile_network_packet_core_control_plane_id_binding = args

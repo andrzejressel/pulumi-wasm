@@ -127,7 +127,7 @@ pub mod custom_https_configuration {
         name: &str,
         args: CustomHttpsConfigurationArgs,
     ) -> CustomHttpsConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_https_configuration_binding = args
             .custom_https_configuration

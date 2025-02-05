@@ -17,7 +17,7 @@ pub mod module_test {
         name: &str,
         args: moduleTestArgs,
     ) {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mod1_binding = args.mod1.get_output(context).get_inner();
         let val_binding = args.val.get_output(context).get_inner();

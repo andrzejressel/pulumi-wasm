@@ -37,7 +37,7 @@ pub mod get_task_definition {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTaskDefinitionArgs,
     ) -> GetTaskDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let task_definition_binding = args
             .task_definition

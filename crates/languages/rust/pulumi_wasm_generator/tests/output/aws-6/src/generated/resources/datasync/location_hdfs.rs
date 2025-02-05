@@ -174,7 +174,7 @@ pub mod location_hdfs {
         name: &str,
         args: LocationHdfsArgs,
     ) -> LocationHdfsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
         let authentication_type_binding = args

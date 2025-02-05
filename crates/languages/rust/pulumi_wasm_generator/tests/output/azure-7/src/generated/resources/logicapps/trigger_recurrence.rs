@@ -103,7 +103,7 @@ pub mod trigger_recurrence {
         name: &str,
         args: TriggerRecurrenceArgs,
     ) -> TriggerRecurrenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let frequency_binding = args.frequency.get_output(context).get_inner();
         let interval_binding = args.interval.get_output(context).get_inner();

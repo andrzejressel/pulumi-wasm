@@ -186,7 +186,7 @@ pub mod time_series_database_connection {
         name: &str,
         args: TimeSeriesDatabaseConnectionArgs,
     ) -> TimeSeriesDatabaseConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let digital_twins_id_binding = args
             .digital_twins_id

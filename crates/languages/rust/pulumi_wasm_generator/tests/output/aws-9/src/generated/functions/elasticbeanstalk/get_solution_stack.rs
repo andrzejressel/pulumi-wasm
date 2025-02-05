@@ -34,7 +34,7 @@ pub mod get_solution_stack {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetSolutionStackArgs,
     ) -> GetSolutionStackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let most_recent_binding = args.most_recent.get_output(context).get_inner();
         let name_regex_binding = args.name_regex.get_output(context).get_inner();

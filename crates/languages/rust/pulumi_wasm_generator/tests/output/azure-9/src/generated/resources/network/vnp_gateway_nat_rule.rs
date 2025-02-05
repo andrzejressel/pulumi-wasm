@@ -132,7 +132,7 @@ pub mod vnp_gateway_nat_rule {
         name: &str,
         args: VnpGatewayNatRuleArgs,
     ) -> VnpGatewayNatRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let external_mappings_binding = args
             .external_mappings

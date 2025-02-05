@@ -107,7 +107,7 @@ pub mod configuration_policy_association {
         name: &str,
         args: ConfigurationPolicyAssociationArgs,
     ) -> ConfigurationPolicyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_id_binding = args.policy_id.get_output(context).get_inner();
         let target_id_binding = args.target_id.get_output(context).get_inner();

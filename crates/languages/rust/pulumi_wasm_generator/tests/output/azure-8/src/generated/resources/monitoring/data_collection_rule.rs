@@ -120,7 +120,7 @@ pub mod data_collection_rule {
         name: &str,
         args: DataCollectionRuleArgs,
     ) -> DataCollectionRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_collection_endpoint_id_binding = args
             .data_collection_endpoint_id

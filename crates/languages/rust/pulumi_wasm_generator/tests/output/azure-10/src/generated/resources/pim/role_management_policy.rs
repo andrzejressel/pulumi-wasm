@@ -168,7 +168,7 @@ pub mod role_management_policy {
         name: &str,
         args: RoleManagementPolicyArgs,
     ) -> RoleManagementPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let activation_rules_binding = args
             .activation_rules

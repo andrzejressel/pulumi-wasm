@@ -23,7 +23,7 @@ pub mod get_tracker_associations {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTrackerAssociationsArgs,
     ) -> GetTrackerAssociationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let tracker_name_binding = args.tracker_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

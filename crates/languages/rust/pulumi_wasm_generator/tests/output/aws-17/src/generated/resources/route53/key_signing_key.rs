@@ -139,7 +139,7 @@ pub mod key_signing_key {
         name: &str,
         args: KeySigningKeyArgs,
     ) -> KeySigningKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
         let key_management_service_arn_binding = args

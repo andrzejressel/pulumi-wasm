@@ -206,7 +206,7 @@ pub mod configuration_set_event_destination {
         name: &str,
         args: ConfigurationSetEventDestinationArgs,
     ) -> ConfigurationSetEventDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let configuration_set_name_binding = args
             .configuration_set_name

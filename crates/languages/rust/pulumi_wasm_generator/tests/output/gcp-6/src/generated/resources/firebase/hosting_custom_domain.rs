@@ -313,7 +313,7 @@ pub mod hosting_custom_domain {
         name: &str,
         args: HostingCustomDomainArgs,
     ) -> HostingCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cert_preference_binding = args
             .cert_preference

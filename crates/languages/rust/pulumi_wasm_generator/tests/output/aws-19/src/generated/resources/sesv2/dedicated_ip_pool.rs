@@ -86,7 +86,7 @@ pub mod dedicated_ip_pool {
         name: &str,
         args: DedicatedIpPoolArgs,
     ) -> DedicatedIpPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let pool_name_binding = args.pool_name.get_output(context).get_inner();
         let scaling_mode_binding = args.scaling_mode.get_output(context).get_inner();

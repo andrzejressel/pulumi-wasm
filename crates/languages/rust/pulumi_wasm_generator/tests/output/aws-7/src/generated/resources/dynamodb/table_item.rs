@@ -80,7 +80,7 @@ pub mod table_item {
         name: &str,
         args: TableItemArgs,
     ) -> TableItemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hash_key_binding = args.hash_key.get_output(context).get_inner();
         let item_binding = args.item.get_output(context).get_inner();

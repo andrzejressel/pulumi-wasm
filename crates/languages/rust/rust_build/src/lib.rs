@@ -1,4 +1,4 @@
-//! `pulumi_wasm_build` generates glue code for given Pulumi provider
+//! `pulumi_gestalt_rust_build` generates glue code for given Pulumi provider
 //! ## Example
 //! Select Pulumi provider you want to use. For demonstration purposes I'll choose [Random](https://www.pulumi.com/registry/packages/random/)
 //!
@@ -8,21 +8,21 @@
 //! $ cargo new --lib random && cd random
 //! ```
 //!
-//! First, add `pulumi_wasm_build`, `bon`, `serde`, `anyhow` and `wit-bindgen` to `Cargo.toml`:
+//! First, add `pulumi_gestalt_rust_build`, `bon`, `serde`, `anyhow` and `wit-bindgen` to `Cargo.toml`:
 //!
 //! ```bash
-//! $ cargo add --build pulumi_wasm_build
+//! $ cargo add --build pulumi_gestalt_rust_build
 //! $ cargo add bon
 //! $ cargo add serde --features derive
 //! $ cargo add anyhow
 //! $ cargo add wit-bindgen
 //! ```
 //!
-//! To generate glue code, use `pulumi_wasm_build` in `build.rs`
+//! To generate glue code, use `pulumi_gestalt_rust_build` in `build.rs`
 //! ```rust,no_run
 //! use std::error::Error;
 //! fn main() -> Result<(), Box<dyn Error>> {
-//!     pulumi_wasm_build::generate("random", "4.15.0")?;
+//!     pulumi_gestalt_rust_build::generate("random", "4.15.0")?;
 //!     Ok(())
 //! }
 //! ```

@@ -31,7 +31,7 @@ pub mod get_active_folder {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetActiveFolderArgs,
     ) -> GetActiveFolderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_method_binding = args.api_method.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();

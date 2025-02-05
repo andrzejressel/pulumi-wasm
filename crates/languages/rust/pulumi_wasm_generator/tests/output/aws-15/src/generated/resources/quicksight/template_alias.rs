@@ -65,7 +65,7 @@ pub mod template_alias {
         name: &str,
         args: TemplateAliasArgs,
     ) -> TemplateAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_name_binding = args.alias_name.get_output(context).get_inner();
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();

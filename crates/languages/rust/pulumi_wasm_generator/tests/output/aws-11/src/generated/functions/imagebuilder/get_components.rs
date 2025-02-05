@@ -33,7 +33,7 @@ pub mod get_components {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetComponentsArgs,
     ) -> GetComponentsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let owner_binding = args.owner.get_output(context).get_inner();

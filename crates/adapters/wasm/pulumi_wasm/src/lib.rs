@@ -1,4 +1,4 @@
-use pulumi_wasm_core::{Engine, OutputId, PulumiServiceImpl};
+use pulumi_gestalt_core_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;

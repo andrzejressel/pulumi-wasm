@@ -122,7 +122,7 @@ pub mod integration_runtime_azure {
         name: &str,
         args: IntegrationRuntimeAzureArgs,
     ) -> IntegrationRuntimeAzureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let compute_type_binding = args.compute_type.get_output(context).get_inner();
         let core_count_binding = args.core_count.get_output(context).get_inner();

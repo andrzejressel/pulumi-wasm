@@ -105,7 +105,7 @@ pub mod workspace_network_outbound_rule_fqdn {
         name: &str,
         args: WorkspaceNetworkOutboundRuleFqdnArgs,
     ) -> WorkspaceNetworkOutboundRuleFqdnResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destination_fqdn_binding = args
             .destination_fqdn

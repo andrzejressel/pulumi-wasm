@@ -51,7 +51,7 @@ pub mod patch_group {
         name: &str,
         args: PatchGroupArgs,
     ) -> PatchGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let baseline_id_binding = args.baseline_id.get_output(context).get_inner();
         let patch_group_binding = args.patch_group.get_output(context).get_inner();

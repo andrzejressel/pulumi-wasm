@@ -362,7 +362,7 @@ pub mod task_definition {
         name: &str,
         args: TaskDefinitionArgs,
     ) -> TaskDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_definitions_binding = args
             .container_definitions

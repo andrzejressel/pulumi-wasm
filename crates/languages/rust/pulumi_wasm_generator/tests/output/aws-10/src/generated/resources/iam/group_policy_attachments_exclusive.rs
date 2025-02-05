@@ -35,7 +35,7 @@ pub mod group_policy_attachments_exclusive {
         name: &str,
         args: GroupPolicyAttachmentsExclusiveArgs,
     ) -> GroupPolicyAttachmentsExclusiveResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let group_name_binding = args.group_name.get_output(context).get_inner();
         let policy_arns_binding = args.policy_arns.get_output(context).get_inner();

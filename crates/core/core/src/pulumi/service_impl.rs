@@ -5,7 +5,7 @@ use log::error;
 use prost::Message;
 use prost_types::value::Kind;
 use prost_types::{ListValue, Struct};
-use pulumi_wasm_proto::grpc;
+use pulumi_gestalt_core_proto::grpc;
 use serde_json::{Number, Value};
 
 use crate::model::{FieldName, OutputId};

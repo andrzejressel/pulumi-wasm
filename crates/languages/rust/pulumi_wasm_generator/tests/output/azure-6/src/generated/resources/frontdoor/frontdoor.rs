@@ -216,7 +216,7 @@ pub mod frontdoor {
         name: &str,
         args: FrontdoorArgs,
     ) -> FrontdoorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backend_pool_health_probes_binding = args
             .backend_pool_health_probes

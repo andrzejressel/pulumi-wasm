@@ -117,7 +117,7 @@ pub mod vpc_block_public_access_exclusion {
         name: &str,
         args: VpcBlockPublicAccessExclusionArgs,
     ) -> VpcBlockPublicAccessExclusionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let internet_gateway_exclusion_mode_binding = args
             .internet_gateway_exclusion_mode

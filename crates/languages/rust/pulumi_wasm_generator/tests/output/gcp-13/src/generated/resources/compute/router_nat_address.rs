@@ -103,7 +103,7 @@ pub mod router_nat_address {
         name: &str,
         args: RouterNatAddressArgs,
     ) -> RouterNatAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let drain_nat_ips_binding = args.drain_nat_ips.get_output(context).get_inner();
         let nat_ips_binding = args.nat_ips.get_output(context).get_inner();

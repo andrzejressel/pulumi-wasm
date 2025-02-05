@@ -36,7 +36,7 @@ pub mod get_crypto_keys {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetCryptoKeysArgs,
     ) -> GetCryptoKeysResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filter_binding = args.filter.get_output(context).get_inner();
         let key_ring_binding = args.key_ring.get_output(context).get_inner();

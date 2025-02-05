@@ -168,7 +168,7 @@ pub mod implicit_data_disk_from_source {
         name: &str,
         args: ImplicitDataDiskFromSourceArgs,
     ) -> ImplicitDataDiskFromSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let caching_binding = args.caching.get_output(context).get_inner();
         let create_option_binding = args.create_option.get_output(context).get_inner();

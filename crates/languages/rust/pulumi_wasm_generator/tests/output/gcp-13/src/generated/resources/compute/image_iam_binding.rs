@@ -418,7 +418,7 @@ pub mod image_iam_binding {
         name: &str,
         args: ImageIamBindingArgs,
     ) -> ImageIamBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let image_binding = args.image.get_output(context).get_inner();

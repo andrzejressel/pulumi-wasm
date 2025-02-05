@@ -47,7 +47,7 @@ pub mod get_export {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetExportArgs,
     ) -> GetExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accepts_binding = args.accepts.get_output(context).get_inner();
         let export_type_binding = args.export_type.get_output(context).get_inner();

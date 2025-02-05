@@ -56,7 +56,7 @@ pub mod get_faq {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetFaqArgs,
     ) -> GetFaqResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let faq_id_binding = args.faq_id.get_output(context).get_inner();
         let index_id_binding = args.index_id.get_output(context).get_inner();

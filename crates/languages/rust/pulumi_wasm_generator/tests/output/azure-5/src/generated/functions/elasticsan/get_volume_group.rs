@@ -41,7 +41,7 @@ pub mod get_volume_group {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVolumeGroupArgs,
     ) -> GetVolumeGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let elastic_san_id_binding = args.elastic_san_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

@@ -345,7 +345,7 @@ pub mod windows_function_app {
         name: &str,
         args: WindowsFunctionAppArgs,
     ) -> WindowsFunctionAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_settings_binding = args.app_settings.get_output(context).get_inner();
         let auth_settings_binding = args.auth_settings.get_output(context).get_inner();

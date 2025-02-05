@@ -2,7 +2,7 @@ use crate::output::HASHMAP;
 use crate::PulumiContext;
 use anyhow::{Context, Error, Result};
 use log::{error, info};
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::{
+use pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::{
     finish, FunctionInvocationRequest, FunctionInvocationResult,
 };
 

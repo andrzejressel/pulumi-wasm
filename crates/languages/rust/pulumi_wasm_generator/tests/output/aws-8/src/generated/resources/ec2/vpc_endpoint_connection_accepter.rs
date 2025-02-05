@@ -73,7 +73,7 @@ pub mod vpc_endpoint_connection_accepter {
         name: &str,
         args: VpcEndpointConnectionAccepterArgs,
     ) -> VpcEndpointConnectionAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let vpc_endpoint_id_binding = args
             .vpc_endpoint_id

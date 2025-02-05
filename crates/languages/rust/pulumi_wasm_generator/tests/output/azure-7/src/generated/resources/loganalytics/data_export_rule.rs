@@ -106,7 +106,7 @@ pub mod data_export_rule {
         name: &str,
         args: DataExportRuleArgs,
     ) -> DataExportRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destination_resource_id_binding = args
             .destination_resource_id

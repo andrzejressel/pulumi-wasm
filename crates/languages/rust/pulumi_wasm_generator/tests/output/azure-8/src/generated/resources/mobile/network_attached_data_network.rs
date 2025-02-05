@@ -209,7 +209,7 @@ pub mod network_attached_data_network {
         name: &str,
         args: NetworkAttachedDataNetworkArgs,
     ) -> NetworkAttachedDataNetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dns_addresses_binding = args.dns_addresses.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();

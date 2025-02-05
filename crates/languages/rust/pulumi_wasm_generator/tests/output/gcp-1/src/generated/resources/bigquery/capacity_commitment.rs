@@ -142,7 +142,7 @@ pub mod capacity_commitment {
         name: &str,
         args: CapacityCommitmentArgs,
     ) -> CapacityCommitmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let capacity_commitment_id_binding = args
             .capacity_commitment_id

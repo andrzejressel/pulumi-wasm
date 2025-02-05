@@ -95,7 +95,7 @@ pub mod random_id {
         name: &str,
         args: RandomIdArgs,
     ) -> RandomIdResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let byte_length_binding = args.byte_length.get_output(context).get_inner();
         let keepers_binding = args.keepers.get_output(context).get_inner();

@@ -61,7 +61,7 @@ pub mod security_group_vpc_association {
         name: &str,
         args: SecurityGroupVpcAssociationArgs,
     ) -> SecurityGroupVpcAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let security_group_id_binding = args
             .security_group_id

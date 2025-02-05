@@ -66,7 +66,7 @@ pub mod inbound_connection_accepter {
         name: &str,
         args: InboundConnectionAccepterArgs,
     ) -> InboundConnectionAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let connection_id_binding = args.connection_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

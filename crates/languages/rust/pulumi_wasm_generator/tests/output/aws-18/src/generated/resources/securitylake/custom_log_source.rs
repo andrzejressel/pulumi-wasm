@@ -98,7 +98,7 @@ pub mod custom_log_source {
         name: &str,
         args: CustomLogSourceArgs,
     ) -> CustomLogSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let configuration_binding = args.configuration.get_output(context).get_inner();
         let event_classes_binding = args.event_classes.get_output(context).get_inner();

@@ -560,7 +560,7 @@ pub mod region_network_endpoint_group {
         name: &str,
         args: RegionNetworkEndpointGroupArgs,
     ) -> RegionNetworkEndpointGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_engine_binding = args.app_engine.get_output(context).get_inner();
         let cloud_function_binding = args.cloud_function.get_output(context).get_inner();

@@ -2324,9 +2324,9 @@ dependencies = [
  "anyhow",
  "cbindgen",
  "libc",
- "pulumi_wasm_core",
- "pulumi_wasm_grpc_connection",
- "pulumi_wasm_proto",
+ "pulumi_gestalt_core_core",
+ "pulumi_gestalt_core_grpc",
+ "pulumi_gestalt_core_proto",
  "serde_json",
  "uuid",
 ]
@@ -2340,6 +2340,89 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_gestalt_adapter_wasm_component_creator"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "directories",
+ "itertools 0.14.0",
+ "log",
+ "regex",
+ "reqwest",
+ "tokio",
+ "wac-graph",
+ "wit-component",
+ "wit-parser 0.224.0",
+]
+
+[[package]]
+name = "pulumi_gestalt_adapter_wasm_runner"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "clap",
+ "log",
+ "log4rs",
+ "prost",
+ "pulumi_gestalt_adapter_wasm_component_creator",
+ "pulumi_gestalt_adapter_wasm_wit",
+ "pulumi_gestalt_core_grpc",
+ "pulumi_gestalt_core_proto",
+ "serde",
+ "serde_json",
+ "tokio",
+ "wasmparser 0.224.0",
+ "wasmtime",
+ "wasmtime-wasi",
+ "wat",
+]
+
+[[package]]
+name = "pulumi_gestalt_adapter_wasm_wit"
+version = "0.0.0-DEV"
+dependencies = [
+ "wasmtime",
+ "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_gestalt_core_core"
+version = "0.0.0-DEV"
+dependencies = [
+ "log",
+ "mockall",
+ "prost",
+ "prost-types",
+ "pulumi_gestalt_core_proto",
+ "serde_json",
+ "uuid",
+]
+
+[[package]]
+name = "pulumi_gestalt_core_grpc"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "futures",
+ "prost",
+ "pulumi_gestalt_core_proto",
+ "tokio",
+ "tokio-stream",
+ "tonic",
+]
+
+[[package]]
+name = "pulumi_gestalt_core_proto"
+version = "0.0.0-DEV"
+dependencies = [
+ "prost",
+ "prost-types",
+ "tonic",
+ "tonic-build",
+]
+
+[[package]]
 name = "pulumi_gestalt_core_test_common"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2349,21 +2432,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm"
-version = "0.0.0-DEV"
-dependencies = [
- "log",
- "prost",
- "pulumi_wasm_common",
- "pulumi_wasm_core",
- "pulumi_wasm_proto",
- "serde",
- "serde_json",
- "wit-bindgen-rt 0.38.0",
-]
-
-[[package]]
-name = "pulumi_wasm_build"
+name = "pulumi_gestalt_rust_build"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
@@ -2373,24 +2442,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm"
+version = "0.0.0-DEV"
+dependencies = [
+ "log",
+ "prost",
+ "pulumi_gestalt_core_core",
+ "pulumi_gestalt_core_proto",
+ "pulumi_wasm_common",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.38.0",
+]
+
+[[package]]
 name = "pulumi_wasm_common"
 version = "0.0.0-DEV"
 dependencies = [
  "log",
- "pulumi_wasm_wit",
-]
-
-[[package]]
-name = "pulumi_wasm_core"
-version = "0.0.0-DEV"
-dependencies = [
- "log",
- "mockall",
- "prost",
- "prost-types",
- "pulumi_wasm_proto",
- "serde_json",
- "uuid",
+ "pulumi_gestalt_adapter_wasm_wit",
 ]
 
 [[package]]
@@ -2487,34 +2557,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_grpc_connection"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "futures",
- "prost",
- "pulumi_wasm_proto",
- "tokio",
- "tokio-stream",
- "tonic",
-]
-
-[[package]]
-name = "pulumi_wasm_proto"
-version = "0.0.0-DEV"
-dependencies = [
- "prost",
- "prost-types",
- "tonic",
- "tonic-build",
-]
-
-[[package]]
 name = "pulumi_wasm_providers_aws_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2525,7 +2572,7 @@ name = "pulumi_wasm_providers_azure_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2536,7 +2583,7 @@ name = "pulumi_wasm_providers_cloudflare"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2547,7 +2594,7 @@ name = "pulumi_wasm_providers_docker"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2558,7 +2605,7 @@ name = "pulumi_wasm_providers_gcp_mini"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2569,7 +2616,7 @@ name = "pulumi_wasm_providers_random"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
@@ -2580,49 +2627,10 @@ name = "pulumi_wasm_providers_typesystem"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_build",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_rust",
  "serde",
  "wit-bindgen",
-]
-
-[[package]]
-name = "pulumi_wasm_runner"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "clap",
- "log",
- "log4rs",
- "prost",
- "pulumi_wasm_grpc_connection",
- "pulumi_wasm_proto",
- "pulumi_wasm_runner_component_creator",
- "pulumi_wasm_wit",
- "serde",
- "serde_json",
- "tokio",
- "wasmparser 0.224.0",
- "wasmtime",
- "wasmtime-wasi",
- "wat",
-]
-
-[[package]]
-name = "pulumi_wasm_runner_component_creator"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "async-trait",
- "directories",
- "itertools 0.14.0",
- "log",
- "regex",
- "reqwest",
- "tokio",
- "wac-graph",
- "wit-component",
- "wit-parser 0.224.0",
 ]
 
 [[package]]
@@ -2633,20 +2641,12 @@ dependencies = [
  "bon",
  "log",
  "once_cell",
- "pulumi_wasm_build",
+ "pulumi_gestalt_adapter_wasm_wit",
+ "pulumi_gestalt_rust_build",
  "pulumi_wasm_common",
- "pulumi_wasm_wit",
  "serde",
  "serde_json",
  "uuid",
- "wit-bindgen",
-]
-
-[[package]]
-name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
-dependencies = [
- "wasmtime",
  "wit-bindgen",
 ]
 

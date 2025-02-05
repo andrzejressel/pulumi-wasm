@@ -143,7 +143,7 @@ pub mod stream_input_event_hub_v_2 {
         name: &str,
         args: StreamInputEventHubV2Args,
     ) -> StreamInputEventHubV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authentication_mode_binding = args
             .authentication_mode

@@ -158,7 +158,7 @@ pub mod virtual_hub_route_table_route {
         name: &str,
         args: VirtualHubRouteTableRouteArgs,
     ) -> VirtualHubRouteTableRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destinations_binding = args.destinations.get_output(context).get_inner();
         let destinations_type_binding = args

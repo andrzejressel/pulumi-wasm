@@ -45,7 +45,7 @@ pub mod role_association {
         name: &str,
         args: RoleAssociationArgs,
     ) -> RoleAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let db_instance_identifier_binding = args
             .db_instance_identifier

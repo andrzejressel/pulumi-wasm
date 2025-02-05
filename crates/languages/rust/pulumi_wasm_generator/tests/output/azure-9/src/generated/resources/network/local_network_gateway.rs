@@ -105,7 +105,7 @@ pub mod local_network_gateway {
         name: &str,
         args: LocalNetworkGatewayArgs,
     ) -> LocalNetworkGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let address_spaces_binding = args.address_spaces.get_output(context).get_inner();
         let bgp_settings_binding = args.bgp_settings.get_output(context).get_inner();

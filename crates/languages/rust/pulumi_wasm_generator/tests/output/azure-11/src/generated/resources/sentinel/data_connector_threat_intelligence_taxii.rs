@@ -124,7 +124,7 @@ pub mod data_connector_threat_intelligence_taxii {
         name: &str,
         args: DataConnectorThreatIntelligenceTaxiiArgs,
     ) -> DataConnectorThreatIntelligenceTaxiiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_root_url_binding = args.api_root_url.get_output(context).get_inner();
         let collection_id_binding = args.collection_id.get_output(context).get_inner();

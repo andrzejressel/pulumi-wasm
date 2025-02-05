@@ -32,7 +32,7 @@ pub mod sql_resource_sql_container {
         context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
     ) -> SqlResourceSqlContainerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let request = register_interface::RegisterResourceRequest {
             type_: "azure-native:documentdb:SqlResourceSqlContainer".into(),

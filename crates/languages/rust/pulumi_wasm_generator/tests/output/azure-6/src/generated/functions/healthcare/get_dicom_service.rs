@@ -41,7 +41,7 @@ pub mod get_dicom_service {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDicomServiceArgs,
     ) -> GetDicomServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let workspace_id_binding = args.workspace_id.get_output(context).get_inner();

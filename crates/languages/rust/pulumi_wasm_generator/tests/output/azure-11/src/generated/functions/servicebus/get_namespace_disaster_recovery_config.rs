@@ -37,7 +37,7 @@ pub mod get_namespace_disaster_recovery_config {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetNamespaceDisasterRecoveryConfigArgs,
     ) -> GetNamespaceDisasterRecoveryConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id

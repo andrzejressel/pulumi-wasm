@@ -136,7 +136,7 @@ pub mod caches_iscsi_volume {
         name: &str,
         args: CachesIscsiVolumeArgs,
     ) -> CachesIscsiVolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
         let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();

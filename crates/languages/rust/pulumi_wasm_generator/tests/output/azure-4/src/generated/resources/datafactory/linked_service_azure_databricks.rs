@@ -231,7 +231,7 @@ pub mod linked_service_azure_databricks {
         name: &str,
         args: LinkedServiceAzureDatabricksArgs,
     ) -> LinkedServiceAzureDatabricksResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_token_binding = args.access_token.get_output(context).get_inner();
         let adb_domain_binding = args.adb_domain.get_output(context).get_inner();

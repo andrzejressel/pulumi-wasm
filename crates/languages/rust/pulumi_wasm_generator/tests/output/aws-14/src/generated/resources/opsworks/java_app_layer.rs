@@ -195,7 +195,7 @@ pub mod java_app_layer {
         name: &str,
         args: JavaAppLayerArgs,
     ) -> JavaAppLayerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_server_binding = args.app_server.get_output(context).get_inner();
         let app_server_version_binding = args

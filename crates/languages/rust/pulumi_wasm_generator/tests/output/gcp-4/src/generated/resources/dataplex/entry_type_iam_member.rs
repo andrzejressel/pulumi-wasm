@@ -280,7 +280,7 @@ pub mod entry_type_iam_member {
         name: &str,
         args: EntryTypeIamMemberArgs,
     ) -> EntryTypeIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let entry_type_id_binding = args.entry_type_id.get_output(context).get_inner();

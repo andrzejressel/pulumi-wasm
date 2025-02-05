@@ -116,7 +116,7 @@ pub mod authenticated_origin_pulls {
         name: &str,
         args: AuthenticatedOriginPullsArgs,
     ) -> AuthenticatedOriginPullsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authenticated_origin_pulls_certificate_binding = args
             .authenticated_origin_pulls_certificate

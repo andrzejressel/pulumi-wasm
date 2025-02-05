@@ -172,7 +172,7 @@ pub mod elastic_pool {
         name: &str,
         args: ElasticPoolArgs,
     ) -> ElasticPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let enclave_type_binding = args.enclave_type.get_output(context).get_inner();
         let license_type_binding = args.license_type.get_output(context).get_inner();

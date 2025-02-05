@@ -183,7 +183,7 @@ pub mod workforce_pool {
         name: &str,
         args: WorkforcePoolArgs,
     ) -> WorkforcePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_restrictions_binding = args
             .access_restrictions

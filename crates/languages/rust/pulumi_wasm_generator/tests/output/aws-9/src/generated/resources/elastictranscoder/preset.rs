@@ -155,7 +155,7 @@ pub mod preset {
         name: &str,
         args: PresetArgs,
     ) -> PresetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let audio_binding = args.audio.get_output(context).get_inner();
         let audio_codec_options_binding = args

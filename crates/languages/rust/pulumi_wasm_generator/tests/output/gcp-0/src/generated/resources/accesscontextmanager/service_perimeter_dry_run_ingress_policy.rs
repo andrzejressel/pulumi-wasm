@@ -87,7 +87,7 @@ pub mod service_perimeter_dry_run_ingress_policy {
         name: &str,
         args: ServicePerimeterDryRunIngressPolicyArgs,
     ) -> ServicePerimeterDryRunIngressPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ingress_from_binding = args.ingress_from.get_output(context).get_inner();
         let ingress_to_binding = args.ingress_to.get_output(context).get_inner();

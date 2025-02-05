@@ -34,7 +34,7 @@ pub mod get_testable_permissions {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTestablePermissionsArgs,
     ) -> GetTestablePermissionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_support_level_binding = args
             .custom_support_level

@@ -97,7 +97,7 @@ pub mod zero_trust_infrastructure_access_target {
         name: &str,
         args: ZeroTrustInfrastructureAccessTargetArgs,
     ) -> ZeroTrustInfrastructureAccessTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let hostname_binding = args.hostname.get_output(context).get_inner();

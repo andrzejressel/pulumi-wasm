@@ -103,7 +103,7 @@ pub mod integration_runtime_self_hosted {
         name: &str,
         args: IntegrationRuntimeSelfHostedArgs,
     ) -> IntegrationRuntimeSelfHostedResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_factory_id_binding = args
             .data_factory_id

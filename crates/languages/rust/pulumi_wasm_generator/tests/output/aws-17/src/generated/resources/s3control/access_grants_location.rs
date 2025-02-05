@@ -81,7 +81,7 @@ pub mod access_grants_location {
         name: &str,
         args: AccessGrantsLocationArgs,
     ) -> AccessGrantsLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();

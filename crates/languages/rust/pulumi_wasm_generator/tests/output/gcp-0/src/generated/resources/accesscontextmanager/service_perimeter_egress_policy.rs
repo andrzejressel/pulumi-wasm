@@ -84,7 +84,7 @@ pub mod service_perimeter_egress_policy {
         name: &str,
         args: ServicePerimeterEgressPolicyArgs,
     ) -> ServicePerimeterEgressPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let egress_from_binding = args.egress_from.get_output(context).get_inner();
         let egress_to_binding = args.egress_to.get_output(context).get_inner();

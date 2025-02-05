@@ -177,7 +177,7 @@ pub mod configuration_policy {
         name: &str,
         args: ConfigurationPolicyArgs,
     ) -> ConfigurationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let configuration_policy_binding = args
             .configuration_policy

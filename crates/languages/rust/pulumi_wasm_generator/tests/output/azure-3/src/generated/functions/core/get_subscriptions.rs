@@ -29,7 +29,7 @@ pub mod get_subscriptions {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetSubscriptionsArgs,
     ) -> GetSubscriptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let display_name_contains_binding = args
             .display_name_contains

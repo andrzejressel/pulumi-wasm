@@ -270,7 +270,7 @@ pub mod api_config_iam_member {
         name: &str,
         args: ApiConfigIamMemberArgs,
     ) -> ApiConfigIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_binding = args.api.get_output(context).get_inner();
         let api_config_binding = args.api_config.get_output(context).get_inner();

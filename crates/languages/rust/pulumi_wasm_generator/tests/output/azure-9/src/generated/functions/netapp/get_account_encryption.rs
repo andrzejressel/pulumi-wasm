@@ -24,7 +24,7 @@ pub mod get_account_encryption {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAccountEncryptionArgs,
     ) -> GetAccountEncryptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let netapp_account_id_binding = args
             .netapp_account_id

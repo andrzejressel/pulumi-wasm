@@ -110,7 +110,7 @@ pub mod tenant {
         name: &str,
         args: TenantArgs,
     ) -> TenantResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_password_signup_binding = args
             .allow_password_signup

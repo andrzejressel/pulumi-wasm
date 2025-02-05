@@ -134,7 +134,7 @@ pub mod identity_provider_aadb_2_c {
         name: &str,
         args: IdentityProviderAadb2cArgs,
     ) -> IdentityProviderAadb2cResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allowed_tenant_binding = args.allowed_tenant.get_output(context).get_inner();
         let api_management_name_binding = args

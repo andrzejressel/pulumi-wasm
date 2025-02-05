@@ -104,7 +104,7 @@ pub mod integration_account_batch_configuration {
         name: &str,
         args: IntegrationAccountBatchConfigurationArgs,
     ) -> IntegrationAccountBatchConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let batch_group_name_binding = args
             .batch_group_name

@@ -132,7 +132,7 @@ pub mod hci_marketplace_gallery_image {
         name: &str,
         args: HciMarketplaceGalleryImageArgs,
     ) -> HciMarketplaceGalleryImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_location_id_binding = args
             .custom_location_id

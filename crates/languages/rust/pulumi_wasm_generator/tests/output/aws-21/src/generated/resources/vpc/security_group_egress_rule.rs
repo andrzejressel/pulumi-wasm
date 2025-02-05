@@ -115,7 +115,7 @@ pub mod security_group_egress_rule {
         name: &str,
         args: SecurityGroupEgressRuleArgs,
     ) -> SecurityGroupEgressRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cidr_ipv4_binding = args.cidr_ipv4.get_output(context).get_inner();
         let cidr_ipv6_binding = args.cidr_ipv6.get_output(context).get_inner();

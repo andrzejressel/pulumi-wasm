@@ -140,7 +140,7 @@ pub mod output_function {
         name: &str,
         args: OutputFunctionArgs,
     ) -> OutputFunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_key_binding = args.api_key.get_output(context).get_inner();
         let batch_max_count_binding = args

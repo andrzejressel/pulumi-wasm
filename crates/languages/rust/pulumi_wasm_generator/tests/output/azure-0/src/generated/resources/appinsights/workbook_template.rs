@@ -143,7 +143,7 @@ pub mod workbook_template {
         name: &str,
         args: WorkbookTemplateArgs,
     ) -> WorkbookTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let author_binding = args.author.get_output(context).get_inner();
         let galleries_binding = args.galleries.get_output(context).get_inner();

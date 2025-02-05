@@ -146,7 +146,7 @@ pub mod eligible_role_assignment {
         name: &str,
         args: EligibleRoleAssignmentArgs,
     ) -> EligibleRoleAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let justification_binding = args.justification.get_output(context).get_inner();
         let principal_id_binding = args.principal_id.get_output(context).get_inner();

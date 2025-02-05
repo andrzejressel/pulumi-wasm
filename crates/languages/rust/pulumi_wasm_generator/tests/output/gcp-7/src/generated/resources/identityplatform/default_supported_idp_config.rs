@@ -125,7 +125,7 @@ pub mod default_supported_idp_config {
         name: &str,
         args: DefaultSupportedIdpConfigArgs,
     ) -> DefaultSupportedIdpConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let client_id_binding = args.client_id.get_output(context).get_inner();
         let client_secret_binding = args.client_secret.get_output(context).get_inner();

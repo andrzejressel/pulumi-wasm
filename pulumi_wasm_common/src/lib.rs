@@ -2,7 +2,7 @@ use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering::Relaxed;
 
 use crate::logger::Logger;
-use pulumi_wasm_wit::bindings_logger;
+use pulumi_gestalt_adapter_wasm_wit::bindings_logger;
 
 pub use bindings_logger::*;
 

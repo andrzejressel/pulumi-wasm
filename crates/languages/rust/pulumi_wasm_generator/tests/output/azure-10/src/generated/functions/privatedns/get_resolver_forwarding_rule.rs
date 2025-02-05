@@ -39,7 +39,7 @@ pub mod get_resolver_forwarding_rule {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverForwardingRuleArgs,
     ) -> GetResolverForwardingRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id

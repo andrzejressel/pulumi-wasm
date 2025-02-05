@@ -52,7 +52,7 @@ pub mod thing_principal_attachment {
         name: &str,
         args: ThingPrincipalAttachmentArgs,
     ) -> ThingPrincipalAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let principal_binding = args.principal.get_output(context).get_inner();
         let thing_binding = args.thing.get_output(context).get_inner();

@@ -65,7 +65,7 @@ pub mod delegation_set {
         name: &str,
         args: DelegationSetArgs,
     ) -> DelegationSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let reference_name_binding = args.reference_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

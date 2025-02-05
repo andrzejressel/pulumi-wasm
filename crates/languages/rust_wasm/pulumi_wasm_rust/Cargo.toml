@@ -15,10 +15,10 @@ serde.workspace = true
 serde_json.workspace = true
 log.workspace = true
 pulumi_wasm_common.workspace = true
-pulumi_wasm_wit = { workspace = true, features = ["client"] }
+pulumi_gestalt_adapter_wasm_wit = { workspace = true, features = ["client"] }
 once_cell.workspace = true
 wit-bindgen.workspace = true
 bon.workspace = true
 
 [dev-dependencies]
-pulumi_wasm_build.workspace = true
+pulumi_gestalt_rust_build.workspace = true

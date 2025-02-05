@@ -181,7 +181,7 @@ pub mod host_pool {
         name: &str,
         args: HostPoolArgs,
     ) -> HostPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_rdp_properties_binding = args
             .custom_rdp_properties

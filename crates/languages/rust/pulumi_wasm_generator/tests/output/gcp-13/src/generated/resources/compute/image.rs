@@ -336,7 +336,7 @@ pub mod image {
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();

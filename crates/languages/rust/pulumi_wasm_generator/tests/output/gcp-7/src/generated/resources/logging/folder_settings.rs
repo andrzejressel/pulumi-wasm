@@ -113,7 +113,7 @@ pub mod folder_settings {
         name: &str,
         args: FolderSettingsArgs,
     ) -> FolderSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disable_default_sink_binding = args
             .disable_default_sink

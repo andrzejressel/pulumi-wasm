@@ -87,7 +87,7 @@ pub mod environment_custom_domain {
         name: &str,
         args: EnvironmentCustomDomainArgs,
     ) -> EnvironmentCustomDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let certificate_blob_base64_binding = args
             .certificate_blob_base64

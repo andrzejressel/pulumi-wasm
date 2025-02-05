@@ -244,7 +244,7 @@ pub mod managed_user_pool_client {
         name: &str,
         args: ManagedUserPoolClientArgs,
     ) -> ManagedUserPoolClientResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_token_validity_binding = args
             .access_token_validity

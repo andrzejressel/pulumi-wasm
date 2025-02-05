@@ -96,7 +96,7 @@ pub mod get_object {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetObjectArgs,
     ) -> GetObjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let checksum_mode_binding = args.checksum_mode.get_output(context).get_inner();

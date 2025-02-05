@@ -136,7 +136,7 @@ pub mod express_route_circuit {
         name: &str,
         args: ExpressRouteCircuitArgs,
     ) -> ExpressRouteCircuitResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_classic_operations_binding = args
             .allow_classic_operations

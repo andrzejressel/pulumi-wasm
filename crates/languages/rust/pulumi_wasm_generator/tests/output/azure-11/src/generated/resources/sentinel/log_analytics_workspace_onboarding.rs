@@ -77,7 +77,7 @@ pub mod log_analytics_workspace_onboarding {
         name: &str,
         args: LogAnalyticsWorkspaceOnboardingArgs,
     ) -> LogAnalyticsWorkspaceOnboardingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let customer_managed_key_enabled_binding = args
             .customer_managed_key_enabled

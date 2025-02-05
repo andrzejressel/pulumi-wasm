@@ -94,7 +94,7 @@ pub mod subnet_network_security_group_association {
         name: &str,
         args: SubnetNetworkSecurityGroupAssociationArgs,
     ) -> SubnetNetworkSecurityGroupAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let network_security_group_id_binding = args
             .network_security_group_id

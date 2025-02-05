@@ -438,7 +438,7 @@ pub mod application_gateway {
         name: &str,
         args: ApplicationGatewayArgs,
     ) -> ApplicationGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authentication_certificates_binding = args
             .authentication_certificates

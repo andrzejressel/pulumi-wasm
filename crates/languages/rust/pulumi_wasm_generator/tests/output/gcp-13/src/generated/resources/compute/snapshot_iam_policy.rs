@@ -229,7 +229,7 @@ pub mod snapshot_iam_policy {
         name: &str,
         args: SnapshotIamPolicyArgs,
     ) -> SnapshotIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let policy_data_binding = args.policy_data.get_output(context).get_inner();

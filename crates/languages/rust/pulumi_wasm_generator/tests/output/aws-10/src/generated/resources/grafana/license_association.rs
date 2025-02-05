@@ -79,7 +79,7 @@ pub mod license_association {
         name: &str,
         args: LicenseAssociationArgs,
     ) -> LicenseAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let grafana_token_binding = args.grafana_token.get_output(context).get_inner();
         let license_type_binding = args.license_type.get_output(context).get_inner();

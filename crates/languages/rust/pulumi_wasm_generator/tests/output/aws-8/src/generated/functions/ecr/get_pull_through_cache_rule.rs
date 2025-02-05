@@ -27,7 +27,7 @@ pub mod get_pull_through_cache_rule {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPullThroughCacheRuleArgs,
     ) -> GetPullThroughCacheRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ecr_repository_prefix_binding = args
             .ecr_repository_prefix

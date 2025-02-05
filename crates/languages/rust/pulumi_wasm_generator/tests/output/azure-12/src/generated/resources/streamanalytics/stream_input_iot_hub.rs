@@ -119,7 +119,7 @@ pub mod stream_input_iot_hub {
         name: &str,
         args: StreamInputIotHubArgs,
     ) -> StreamInputIotHubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let endpoint_binding = args.endpoint.get_output(context).get_inner();
         let eventhub_consumer_group_name_binding = args

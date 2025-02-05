@@ -349,7 +349,7 @@ pub mod managed_disk {
         name: &str,
         args: ManagedDiskArgs,
     ) -> ManagedDiskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let create_option_binding = args.create_option.get_output(context).get_inner();
         let disk_access_id_binding = args.disk_access_id.get_output(context).get_inner();

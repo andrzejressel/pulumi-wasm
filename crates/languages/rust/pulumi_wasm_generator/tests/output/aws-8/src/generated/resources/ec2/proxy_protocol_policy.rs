@@ -64,7 +64,7 @@ pub mod proxy_protocol_policy {
         name: &str,
         args: ProxyProtocolPolicyArgs,
     ) -> ProxyProtocolPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_ports_binding = args.instance_ports.get_output(context).get_inner();
         let load_balancer_binding = args.load_balancer.get_output(context).get_inner();

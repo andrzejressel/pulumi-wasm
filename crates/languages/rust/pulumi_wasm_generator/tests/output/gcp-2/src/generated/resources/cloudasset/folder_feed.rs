@@ -176,7 +176,7 @@ pub mod folder_feed {
         name: &str,
         args: FolderFeedArgs,
     ) -> FolderFeedResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let asset_names_binding = args.asset_names.get_output(context).get_inner();
         let asset_types_binding = args.asset_types.get_output(context).get_inner();

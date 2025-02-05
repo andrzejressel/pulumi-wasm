@@ -165,7 +165,7 @@ pub mod network_manager_admin_rule {
         name: &str,
         args: NetworkManagerAdminRuleArgs,
     ) -> NetworkManagerAdminRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let admin_rule_collection_id_binding = args

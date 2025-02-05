@@ -98,7 +98,7 @@ pub mod custom_data_identifier {
         name: &str,
         args: CustomDataIdentifierArgs,
     ) -> CustomDataIdentifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let ignore_words_binding = args.ignore_words.get_output(context).get_inner();

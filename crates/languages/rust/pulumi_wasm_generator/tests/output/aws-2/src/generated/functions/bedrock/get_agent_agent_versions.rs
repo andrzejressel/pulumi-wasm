@@ -38,7 +38,7 @@ pub mod get_agent_agent_versions {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAgentAgentVersionsArgs,
     ) -> GetAgentAgentVersionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let agent_id_binding = args.agent_id.get_output(context).get_inner();
         let agent_version_summaries_binding = args

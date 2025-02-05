@@ -85,7 +85,7 @@ pub mod sdkvoice_sip_rule {
         name: &str,
         args: SdkvoiceSipRuleArgs,
     ) -> SdkvoiceSipRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

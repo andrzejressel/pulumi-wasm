@@ -157,7 +157,7 @@ pub mod receipt_rule {
         name: &str,
         args: ReceiptRuleArgs,
     ) -> ReceiptRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let add_header_actions_binding = args
             .add_header_actions

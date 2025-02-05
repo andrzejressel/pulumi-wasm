@@ -124,7 +124,7 @@ pub mod elastic_san {
         name: &str,
         args: ElasticSanArgs,
     ) -> ElasticSanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let base_size_in_tib_binding = args
             .base_size_in_tib

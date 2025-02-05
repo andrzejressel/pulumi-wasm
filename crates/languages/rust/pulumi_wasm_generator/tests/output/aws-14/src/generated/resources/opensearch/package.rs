@@ -87,7 +87,7 @@ pub mod package {
         name: &str,
         args: PackageArgs,
     ) -> PackageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let package_description_binding = args
             .package_description

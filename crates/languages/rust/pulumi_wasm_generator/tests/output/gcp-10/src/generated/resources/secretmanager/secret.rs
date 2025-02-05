@@ -274,7 +274,7 @@ pub mod secret {
         name: &str,
         args: SecretArgs,
     ) -> SecretResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let expire_time_binding = args.expire_time.get_output(context).get_inner();

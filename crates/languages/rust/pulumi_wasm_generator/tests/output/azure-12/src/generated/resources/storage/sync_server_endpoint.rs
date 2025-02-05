@@ -151,7 +151,7 @@ pub mod sync_server_endpoint {
         name: &str,
         args: SyncServerEndpointArgs,
     ) -> SyncServerEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cloud_tiering_enabled_binding = args
             .cloud_tiering_enabled

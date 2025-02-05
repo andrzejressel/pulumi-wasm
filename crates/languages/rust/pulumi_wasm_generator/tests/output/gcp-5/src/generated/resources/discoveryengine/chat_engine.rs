@@ -233,7 +233,7 @@ pub mod chat_engine {
         name: &str,
         args: ChatEngineArgs,
     ) -> ChatEngineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let chat_engine_config_binding = args
             .chat_engine_config

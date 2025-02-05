@@ -91,7 +91,7 @@ pub mod dedicated_host_group {
         name: &str,
         args: DedicatedHostGroupArgs,
     ) -> DedicatedHostGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automatic_placement_enabled_binding = args
             .automatic_placement_enabled

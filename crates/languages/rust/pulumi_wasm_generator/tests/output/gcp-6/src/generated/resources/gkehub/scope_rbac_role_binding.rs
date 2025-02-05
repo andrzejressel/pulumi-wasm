@@ -151,7 +151,7 @@ pub mod scope_rbac_role_binding {
         name: &str,
         args: ScopeRbacRoleBindingArgs,
     ) -> ScopeRbacRoleBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();

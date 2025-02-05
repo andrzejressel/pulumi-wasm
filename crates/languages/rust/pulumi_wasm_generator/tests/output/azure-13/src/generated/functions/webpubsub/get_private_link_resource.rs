@@ -27,7 +27,7 @@ pub mod get_private_link_resource {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPrivateLinkResourceArgs,
     ) -> GetPrivateLinkResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let web_pubsub_id_binding = args.web_pubsub_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

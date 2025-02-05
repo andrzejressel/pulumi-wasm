@@ -61,7 +61,7 @@ pub mod classification_export_configuration {
         name: &str,
         args: ClassificationExportConfigurationArgs,
     ) -> ClassificationExportConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let s3_destination_binding = args.s3_destination.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

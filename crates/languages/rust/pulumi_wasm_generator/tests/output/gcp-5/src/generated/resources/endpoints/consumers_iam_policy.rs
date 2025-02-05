@@ -83,7 +83,7 @@ pub mod consumers_iam_policy {
         name: &str,
         args: ConsumersIamPolicyArgs,
     ) -> ConsumersIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let consumer_project_binding = args
             .consumer_project

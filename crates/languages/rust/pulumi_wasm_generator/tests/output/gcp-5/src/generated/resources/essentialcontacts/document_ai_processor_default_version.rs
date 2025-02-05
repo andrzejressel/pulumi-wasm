@@ -78,7 +78,7 @@ pub mod document_ai_processor_default_version {
         name: &str,
         args: DocumentAiProcessorDefaultVersionArgs,
     ) -> DocumentAiProcessorDefaultVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let processor_binding = args.processor.get_output(context).get_inner();
         let version_binding = args.version.get_output(context).get_inner();

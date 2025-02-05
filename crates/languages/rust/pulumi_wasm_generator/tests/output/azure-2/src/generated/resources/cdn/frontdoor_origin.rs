@@ -320,7 +320,7 @@ pub mod frontdoor_origin {
         name: &str,
         args: FrontdoorOriginArgs,
     ) -> FrontdoorOriginResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_origin_group_id_binding = args
             .cdn_frontdoor_origin_group_id

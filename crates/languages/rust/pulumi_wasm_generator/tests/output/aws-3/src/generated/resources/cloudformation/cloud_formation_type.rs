@@ -80,7 +80,7 @@ pub mod cloud_formation_type {
         name: &str,
         args: CloudFormationTypeArgs,
     ) -> CloudFormationTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let execution_role_arn_binding = args
             .execution_role_arn

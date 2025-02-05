@@ -60,7 +60,7 @@ pub mod get_infrastructure_access_targets {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetInfrastructureAccessTargetsArgs,
     ) -> GetInfrastructureAccessTargetsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let created_after_binding = args.created_after.get_output(context).get_inner();

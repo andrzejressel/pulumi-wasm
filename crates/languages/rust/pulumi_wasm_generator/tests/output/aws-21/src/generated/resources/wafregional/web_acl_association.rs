@@ -111,7 +111,7 @@ pub mod web_acl_association {
         name: &str,
         args: WebAclAssociationArgs,
     ) -> WebAclAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
         let web_acl_id_binding = args.web_acl_id.get_output(context).get_inner();

@@ -162,7 +162,7 @@ pub mod apple_app {
         name: &str,
         args: AppleAppArgs,
     ) -> AppleAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
         let app_store_id_binding = args.app_store_id.get_output(context).get_inner();

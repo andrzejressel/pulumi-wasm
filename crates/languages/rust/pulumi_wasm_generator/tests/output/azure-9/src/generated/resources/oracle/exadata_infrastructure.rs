@@ -121,7 +121,7 @@ pub mod exadata_infrastructure {
         name: &str,
         args: ExadataInfrastructureArgs,
     ) -> ExadataInfrastructureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let compute_count_binding = args.compute_count.get_output(context).get_inner();
         let customer_contacts_binding = args

@@ -64,7 +64,7 @@ pub mod request_validator {
         name: &str,
         args: RequestValidatorArgs,
     ) -> RequestValidatorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let rest_api_binding = args.rest_api.get_output(context).get_inner();

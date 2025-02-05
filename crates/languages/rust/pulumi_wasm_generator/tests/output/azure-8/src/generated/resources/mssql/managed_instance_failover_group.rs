@@ -176,7 +176,7 @@ pub mod managed_instance_failover_group {
         name: &str,
         args: ManagedInstanceFailoverGroupArgs,
     ) -> ManagedInstanceFailoverGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let managed_instance_id_binding = args

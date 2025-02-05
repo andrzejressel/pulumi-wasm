@@ -42,7 +42,7 @@ pub mod get_application {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetApplicationArgs,
     ) -> GetApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_arn_binding = args
             .application_arn

@@ -48,7 +48,7 @@ pub mod get_circuit_peering {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetCircuitPeeringArgs,
     ) -> GetCircuitPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let express_route_circuit_name_binding = args
             .express_route_circuit_name

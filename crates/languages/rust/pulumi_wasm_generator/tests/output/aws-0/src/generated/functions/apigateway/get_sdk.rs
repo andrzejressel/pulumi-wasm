@@ -43,7 +43,7 @@ pub mod get_sdk {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetSdkArgs,
     ) -> GetSdkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let parameters_binding = args.parameters.get_output(context).get_inner();
         let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();

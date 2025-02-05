@@ -193,7 +193,7 @@ pub mod auth_config {
         name: &str,
         args: AuthConfigArgs,
     ) -> AuthConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let client_certificate_binding = args
             .client_certificate

@@ -41,7 +41,7 @@ pub mod get_resolver_rules {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverRulesArgs,
     ) -> GetResolverRulesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_regex_binding = args.name_regex.get_output(context).get_inner();
         let owner_id_binding = args.owner_id.get_output(context).get_inner();

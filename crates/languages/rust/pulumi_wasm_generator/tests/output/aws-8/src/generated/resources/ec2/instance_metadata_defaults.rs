@@ -54,7 +54,7 @@ pub mod instance_metadata_defaults {
         name: &str,
         args: InstanceMetadataDefaultsArgs,
     ) -> InstanceMetadataDefaultsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let http_endpoint_binding = args.http_endpoint.get_output(context).get_inner();
         let http_put_response_hop_limit_binding = args

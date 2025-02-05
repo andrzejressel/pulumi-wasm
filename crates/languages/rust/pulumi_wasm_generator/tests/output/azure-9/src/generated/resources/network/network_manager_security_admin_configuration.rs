@@ -94,7 +94,7 @@ pub mod network_manager_security_admin_configuration {
         name: &str,
         args: NetworkManagerSecurityAdminConfigurationArgs,
     ) -> NetworkManagerSecurityAdminConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let apply_on_network_intent_policy_based_services_binding = args
             .apply_on_network_intent_policy_based_services

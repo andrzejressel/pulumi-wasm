@@ -40,7 +40,7 @@ pub mod get_service_network {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetServiceNetworkArgs,
     ) -> GetServiceNetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let service_network_identifier_binding = args
             .service_network_identifier

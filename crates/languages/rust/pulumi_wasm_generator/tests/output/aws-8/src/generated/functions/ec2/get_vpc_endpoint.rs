@@ -82,7 +82,7 @@ pub mod get_vpc_endpoint {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVpcEndpointArgs,
     ) -> GetVpcEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let id_binding = args.id.get_output(context).get_inner();

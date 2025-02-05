@@ -215,7 +215,7 @@ pub mod tag_key_iam_policy {
         name: &str,
         args: TagKeyIamPolicyArgs,
     ) -> TagKeyIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_data_binding = args.policy_data.get_output(context).get_inner();
         let tag_key_binding = args.tag_key.get_output(context).get_inner();

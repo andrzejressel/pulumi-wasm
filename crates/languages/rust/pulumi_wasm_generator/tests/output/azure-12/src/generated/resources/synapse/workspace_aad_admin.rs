@@ -137,7 +137,7 @@ pub mod workspace_aad_admin {
         name: &str,
         args: WorkspaceAadAdminArgs,
     ) -> WorkspaceAadAdminResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let login_binding = args.login.get_output(context).get_inner();
         let object_id_binding = args.object_id.get_output(context).get_inner();

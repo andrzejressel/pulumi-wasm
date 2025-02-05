@@ -107,7 +107,7 @@ pub mod shared_access_policy {
         name: &str,
         args: SharedAccessPolicyArgs,
     ) -> SharedAccessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let device_connect_binding = args.device_connect.get_output(context).get_inner();
         let iothub_name_binding = args.iothub_name.get_output(context).get_inner();

@@ -84,7 +84,7 @@ pub mod service_email_domain_association {
         name: &str,
         args: ServiceEmailDomainAssociationArgs,
     ) -> ServiceEmailDomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let communication_service_id_binding = args
             .communication_service_id

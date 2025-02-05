@@ -50,7 +50,7 @@ pub mod url_normalization_settings {
         name: &str,
         args: UrlNormalizationSettingsArgs,
     ) -> UrlNormalizationSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let scope_binding = args.scope.get_output(context).get_inner();
         let type__binding = args.type_.get_output(context).get_inner();

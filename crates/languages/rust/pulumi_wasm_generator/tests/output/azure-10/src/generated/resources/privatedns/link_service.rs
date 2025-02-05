@@ -176,7 +176,7 @@ pub mod link_service {
         name: &str,
         args: LinkServiceArgs,
     ) -> LinkServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_approval_subscription_ids_binding = args
             .auto_approval_subscription_ids

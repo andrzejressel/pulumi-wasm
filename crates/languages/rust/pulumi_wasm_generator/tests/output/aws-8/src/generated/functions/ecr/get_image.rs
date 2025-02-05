@@ -45,7 +45,7 @@ pub mod get_image {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetImageArgs,
     ) -> GetImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let image_digest_binding = args.image_digest.get_output(context).get_inner();
         let image_tag_binding = args.image_tag.get_output(context).get_inner();

@@ -74,7 +74,7 @@ pub mod shared_vpc_service_project {
         name: &str,
         args: SharedVPCServiceProjectArgs,
     ) -> SharedVPCServiceProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let deletion_policy_binding = args
             .deletion_policy

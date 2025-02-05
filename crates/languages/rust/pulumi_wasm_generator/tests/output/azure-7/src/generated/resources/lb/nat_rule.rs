@@ -171,7 +171,7 @@ pub mod nat_rule {
         name: &str,
         args: NatRuleArgs,
     ) -> NatRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backend_address_pool_id_binding = args
             .backend_address_pool_id

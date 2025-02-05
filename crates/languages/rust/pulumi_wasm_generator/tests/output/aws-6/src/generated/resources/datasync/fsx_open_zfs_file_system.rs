@@ -98,7 +98,7 @@ pub mod fsx_open_zfs_file_system {
         name: &str,
         args: FsxOpenZfsFileSystemArgs,
     ) -> FsxOpenZfsFileSystemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let fsx_filesystem_arn_binding = args
             .fsx_filesystem_arn

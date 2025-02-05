@@ -19,10 +19,10 @@ mod bindings {
     pulumi_wasm_rust::__private::wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         inline: r"
-            {{ pulumi_wasm_wit|safe }}
+            {{ pulumi_gestalt_adapter_wasm_wit|safe }}
         ",
         with: {
-            "component:pulumi-wasm/output-interface@{{pulumi_wasm_version}}": pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+            "component:pulumi-wasm/output-interface@{{pulumi_wasm_version}}": pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
     });
 }

@@ -76,7 +76,7 @@ pub mod voice_connector_organization {
         name: &str,
         args: VoiceConnectorOrganizationArgs,
     ) -> VoiceConnectorOrganizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let routes_binding = args.routes.get_output(context).get_inner();

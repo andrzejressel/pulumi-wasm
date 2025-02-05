@@ -120,7 +120,7 @@ pub mod user_pool_ui_customization {
         name: &str,
         args: UserPoolUICustomizationArgs,
     ) -> UserPoolUICustomizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let client_id_binding = args.client_id.get_output(context).get_inner();
         let css_binding = args.css.get_output(context).get_inner();

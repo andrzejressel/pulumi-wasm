@@ -39,7 +39,7 @@ pub mod get_bot_alias {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetBotAliasArgs,
     ) -> GetBotAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

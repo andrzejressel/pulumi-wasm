@@ -101,7 +101,7 @@ pub mod service_perimeter_dry_run_resource {
         name: &str,
         args: ServicePerimeterDryRunResourceArgs,
     ) -> ServicePerimeterDryRunResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let perimeter_name_binding = args.perimeter_name.get_output(context).get_inner();
         let resource_binding = args.resource.get_output(context).get_inner();

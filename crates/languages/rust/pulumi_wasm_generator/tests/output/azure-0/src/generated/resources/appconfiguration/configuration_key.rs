@@ -209,7 +209,7 @@ pub mod configuration_key {
         name: &str,
         args: ConfigurationKeyArgs,
     ) -> ConfigurationKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let configuration_store_id_binding = args
             .configuration_store_id

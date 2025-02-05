@@ -143,7 +143,7 @@ pub mod managed_certificate {
         name: &str,
         args: ManagedCertificateArgs,
     ) -> ManagedCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_hostname_binding_id_binding = args
             .custom_hostname_binding_id

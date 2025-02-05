@@ -140,7 +140,7 @@ pub mod project_environment_type {
         name: &str,
         args: ProjectEnvironmentTypeArgs,
     ) -> ProjectEnvironmentTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let creator_role_assignment_roles_binding = args
             .creator_role_assignment_roles

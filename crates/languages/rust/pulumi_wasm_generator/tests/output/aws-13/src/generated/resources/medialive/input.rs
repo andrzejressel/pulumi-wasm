@@ -141,7 +141,7 @@ pub mod input {
         name: &str,
         args: InputArgs,
     ) -> InputResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let destinations_binding = args.destinations.get_output(context).get_inner();
         let input_devices_binding = args.input_devices.get_output(context).get_inner();

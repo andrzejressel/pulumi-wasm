@@ -38,7 +38,7 @@ pub mod get_plan {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPlanArgs,
     ) -> GetPlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let plan_id_binding = args.plan_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();

@@ -45,7 +45,7 @@ pub mod get_container_definition {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetContainerDefinitionArgs,
     ) -> GetContainerDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_name_binding = args.container_name.get_output(context).get_inner();
         let task_definition_binding = args

@@ -102,7 +102,7 @@ pub mod extension_association {
         name: &str,
         args: ExtensionAssociationArgs,
     ) -> ExtensionAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let extension_arn_binding = args.extension_arn.get_output(context).get_inner();
         let parameters_binding = args.parameters.get_output(context).get_inner();

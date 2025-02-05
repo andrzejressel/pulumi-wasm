@@ -183,7 +183,7 @@ pub mod task_set {
         name: &str,
         args: TaskSetArgs,
     ) -> TaskSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let capacity_provider_strategies_binding = args
             .capacity_provider_strategies

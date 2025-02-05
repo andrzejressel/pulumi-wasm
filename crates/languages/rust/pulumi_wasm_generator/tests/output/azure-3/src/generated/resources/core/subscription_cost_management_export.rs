@@ -121,7 +121,7 @@ pub mod subscription_cost_management_export {
         name: &str,
         args: SubscriptionCostManagementExportArgs,
     ) -> SubscriptionCostManagementExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let active_binding = args.active.get_output(context).get_inner();
         let export_data_options_binding = args

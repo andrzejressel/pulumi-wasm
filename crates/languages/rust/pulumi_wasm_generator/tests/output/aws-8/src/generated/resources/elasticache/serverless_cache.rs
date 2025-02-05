@@ -143,7 +143,7 @@ pub mod serverless_cache {
         name: &str,
         args: ServerlessCacheArgs,
     ) -> ServerlessCacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cache_usage_limits_binding = args
             .cache_usage_limits

@@ -125,7 +125,7 @@ pub mod waiting_room_event {
         name: &str,
         args: WaitingRoomEventArgs,
     ) -> WaitingRoomEventResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_page_html_binding = args
             .custom_page_html

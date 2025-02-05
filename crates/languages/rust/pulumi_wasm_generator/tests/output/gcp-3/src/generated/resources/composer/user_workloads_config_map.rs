@@ -119,7 +119,7 @@ pub mod user_workloads_config_map {
         name: &str,
         args: UserWorkloadsConfigMapArgs,
     ) -> UserWorkloadsConfigMapResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_binding = args.data.get_output(context).get_inner();
         let environment_binding = args.environment.get_output(context).get_inner();

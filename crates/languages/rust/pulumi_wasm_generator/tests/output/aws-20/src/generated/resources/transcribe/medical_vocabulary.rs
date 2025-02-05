@@ -93,7 +93,7 @@ pub mod medical_vocabulary {
         name: &str,
         args: MedicalVocabularyArgs,
     ) -> MedicalVocabularyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let language_code_binding = args.language_code.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();

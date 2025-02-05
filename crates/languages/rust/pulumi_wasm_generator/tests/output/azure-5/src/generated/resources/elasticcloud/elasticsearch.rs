@@ -121,7 +121,7 @@ pub mod elasticsearch {
         name: &str,
         args: ElasticsearchArgs,
     ) -> ElasticsearchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let elastic_cloud_email_address_binding = args
             .elastic_cloud_email_address

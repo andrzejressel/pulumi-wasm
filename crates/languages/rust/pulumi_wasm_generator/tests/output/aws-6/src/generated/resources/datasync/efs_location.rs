@@ -99,7 +99,7 @@ pub mod efs_location {
         name: &str,
         args: EfsLocationArgs,
     ) -> EfsLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_point_arn_binding = args
             .access_point_arn

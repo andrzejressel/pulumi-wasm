@@ -76,7 +76,7 @@ pub mod local_gateway_route_table_vpc_association {
         name: &str,
         args: LocalGatewayRouteTableVpcAssociationArgs,
     ) -> LocalGatewayRouteTableVpcAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let local_gateway_route_table_id_binding = args
             .local_gateway_route_table_id

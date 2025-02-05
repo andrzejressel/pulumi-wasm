@@ -109,7 +109,7 @@ pub mod v_2_models_slot {
         name: &str,
         args: V2modelsSlotArgs,
     ) -> V2modelsSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bot_id_binding = args.bot_id.get_output(context).get_inner();
         let bot_version_binding = args.bot_version.get_output(context).get_inner();

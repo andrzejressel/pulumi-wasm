@@ -10,4 +10,4 @@ bon.workspace = true
 serde.workspace = true
 
 [build-dependencies]
-pulumi_wasm_build.workspace = true
+pulumi_gestalt_rust_build.workspace = true

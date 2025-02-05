@@ -153,7 +153,7 @@ pub mod vault {
         name: &str,
         args: VaultArgs,
     ) -> VaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let classic_vmware_replication_enabled_binding = args
             .classic_vmware_replication_enabled

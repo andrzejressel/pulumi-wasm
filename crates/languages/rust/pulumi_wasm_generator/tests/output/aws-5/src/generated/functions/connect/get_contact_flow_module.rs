@@ -46,7 +46,7 @@ pub mod get_contact_flow_module {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetContactFlowModuleArgs,
     ) -> GetContactFlowModuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let contact_flow_module_id_binding = args
             .contact_flow_module_id

@@ -27,7 +27,7 @@ pub mod get_workspaces {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetWorkspacesArgs,
     ) -> GetWorkspacesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_prefix_binding = args.alias_prefix.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

@@ -51,7 +51,7 @@ pub mod assignment_dynamic_scope {
         name: &str,
         args: AssignmentDynamicScopeArgs,
     ) -> AssignmentDynamicScopeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filter_binding = args.filter.get_output(context).get_inner();
         let maintenance_configuration_id_binding = args

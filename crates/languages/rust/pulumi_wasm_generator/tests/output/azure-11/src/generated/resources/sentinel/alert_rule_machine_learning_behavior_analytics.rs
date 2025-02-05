@@ -86,7 +86,7 @@ pub mod alert_rule_machine_learning_behavior_analytics {
         name: &str,
         args: AlertRuleMachineLearningBehaviorAnalyticsArgs,
     ) -> AlertRuleMachineLearningBehaviorAnalyticsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alert_rule_template_guid_binding = args
             .alert_rule_template_guid

@@ -37,7 +37,7 @@ pub mod get_encrypted_value {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetEncryptedValueArgs,
     ) -> GetEncryptedValueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let algorithm_binding = args.algorithm.get_output(context).get_inner();
         let encrypted_data_binding = args.encrypted_data.get_output(context).get_inner();

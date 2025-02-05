@@ -158,7 +158,7 @@ pub mod autoscaling_policy {
         name: &str,
         args: AutoscalingPolicyArgs,
     ) -> AutoscalingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let basic_algorithm_binding = args
             .basic_algorithm

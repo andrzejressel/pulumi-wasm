@@ -105,7 +105,7 @@ pub mod data_connector_office_365 {
         name: &str,
         args: DataConnectorOffice365Args,
     ) -> DataConnectorOffice365Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let exchange_enabled_binding = args
             .exchange_enabled

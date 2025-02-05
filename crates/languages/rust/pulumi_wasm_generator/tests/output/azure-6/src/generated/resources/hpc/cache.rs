@@ -203,7 +203,7 @@ pub mod cache {
         name: &str,
         args: CacheArgs,
     ) -> CacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automatically_rotate_key_to_latest_enabled_binding = args
             .automatically_rotate_key_to_latest_enabled

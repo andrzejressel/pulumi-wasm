@@ -60,7 +60,7 @@ pub mod internet_gateway_attachment {
         name: &str,
         args: InternetGatewayAttachmentArgs,
     ) -> InternetGatewayAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let internet_gateway_id_binding = args
             .internet_gateway_id

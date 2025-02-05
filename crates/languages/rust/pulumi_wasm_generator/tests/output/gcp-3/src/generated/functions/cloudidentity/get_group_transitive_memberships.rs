@@ -25,7 +25,7 @@ pub mod get_group_transitive_memberships {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetGroupTransitiveMembershipsArgs,
     ) -> GetGroupTransitiveMembershipsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

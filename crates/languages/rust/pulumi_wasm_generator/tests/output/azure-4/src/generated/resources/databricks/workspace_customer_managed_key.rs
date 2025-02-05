@@ -34,7 +34,7 @@ pub mod workspace_customer_managed_key {
         name: &str,
         args: WorkspaceCustomerManagedKeyArgs,
     ) -> WorkspaceCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let key_vault_key_id_binding = args
             .key_vault_key_id

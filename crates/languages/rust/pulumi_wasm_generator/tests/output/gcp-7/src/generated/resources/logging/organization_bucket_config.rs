@@ -109,7 +109,7 @@ pub mod organization_bucket_config {
         name: &str,
         args: OrganizationBucketConfigArgs,
     ) -> OrganizationBucketConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
         let cmek_settings_binding = args.cmek_settings.get_output(context).get_inner();

@@ -3,8 +3,8 @@ use crate::bindings::component::pulumi_wasm_external::external_world::{
     RegisterResourceRequest, ResourceInvokeRequest,
 };
 use prost::Message;
-use pulumi_wasm_core::PulumiConnector;
-use pulumi_wasm_proto::grpc::{
+use pulumi_gestalt_core_core::PulumiConnector;
+use pulumi_gestalt_core_proto::grpc::{
     RegisterResourceOutputsRequest as GrpcRegisterResourceOutputsRequest,
     RegisterResourceRequest as GrpcRegisterResourceRequest,
     ResourceInvokeRequest as GrpcResourceInvokeRequest,

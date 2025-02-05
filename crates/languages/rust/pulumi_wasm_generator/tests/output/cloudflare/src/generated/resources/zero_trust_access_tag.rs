@@ -38,7 +38,7 @@ pub mod zero_trust_access_tag {
         name: &str,
         args: ZeroTrustAccessTagArgs,
     ) -> ZeroTrustAccessTagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let app_count_binding = args.app_count.get_output(context).get_inner();

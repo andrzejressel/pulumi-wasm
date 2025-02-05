@@ -54,7 +54,7 @@ pub mod email_routing_settings {
         name: &str,
         args: EmailRoutingSettingsArgs,
     ) -> EmailRoutingSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let skip_wizard_binding = args.skip_wizard.get_output(context).get_inner();

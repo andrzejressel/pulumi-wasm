@@ -90,7 +90,7 @@ pub mod channel_teams {
         name: &str,
         args: ChannelTeamsArgs,
     ) -> ChannelTeamsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let calling_web_hook_binding = args

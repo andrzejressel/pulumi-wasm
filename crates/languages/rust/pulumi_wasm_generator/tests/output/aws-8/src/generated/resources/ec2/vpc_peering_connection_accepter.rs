@@ -130,7 +130,7 @@ pub mod vpc_peering_connection_accepter {
         name: &str,
         args: VpcPeeringConnectionAccepterArgs,
     ) -> VpcPeeringConnectionAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accepter_binding = args.accepter.get_output(context).get_inner();
         let auto_accept_binding = args.auto_accept.get_output(context).get_inner();

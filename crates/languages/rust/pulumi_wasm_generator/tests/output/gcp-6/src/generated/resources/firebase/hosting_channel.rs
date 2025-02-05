@@ -147,7 +147,7 @@ pub mod hosting_channel {
         name: &str,
         args: HostingChannelArgs,
     ) -> HostingChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let channel_id_binding = args.channel_id.get_output(context).get_inner();
         let expire_time_binding = args.expire_time.get_output(context).get_inner();

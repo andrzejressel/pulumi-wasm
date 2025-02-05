@@ -33,7 +33,7 @@ pub mod get_dedicated_host {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDedicatedHostArgs,
     ) -> GetDedicatedHostResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dedicated_host_group_name_binding = args
             .dedicated_host_group_name

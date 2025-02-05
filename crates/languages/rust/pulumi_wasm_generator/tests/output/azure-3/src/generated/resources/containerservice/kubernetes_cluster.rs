@@ -714,7 +714,7 @@ pub mod kubernetes_cluster {
         name: &str,
         args: KubernetesClusterArgs,
     ) -> KubernetesClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aci_connector_linux_binding = args
             .aci_connector_linux

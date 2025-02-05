@@ -13,7 +13,7 @@ pub mod get_serial_console_access {
     pub fn invoke(
         context: &pulumi_wasm_rust::PulumiContext,
     ) -> GetSerialConsoleAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess".into(),

@@ -140,7 +140,7 @@ pub mod experiment_template {
         name: &str,
         args: ExperimentTemplateArgs,
     ) -> ExperimentTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();

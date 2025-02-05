@@ -82,7 +82,7 @@ pub mod lb {
         name: &str,
         args: LbArgs,
     ) -> LbResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let health_check_path_binding = args
             .health_check_path

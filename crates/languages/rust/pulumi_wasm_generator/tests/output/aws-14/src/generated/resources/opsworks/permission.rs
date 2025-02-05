@@ -62,7 +62,7 @@ pub mod permission {
         name: &str,
         args: PermissionArgs,
     ) -> PermissionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_ssh_binding = args.allow_ssh.get_output(context).get_inner();
         let allow_sudo_binding = args.allow_sudo.get_output(context).get_inner();

@@ -123,7 +123,7 @@ pub mod scheduled_action {
         name: &str,
         args: ScheduledActionArgs,
     ) -> ScheduledActionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let day_of_month_binding = args.day_of_month.get_output(context).get_inner();
         let days_of_weeks_binding = args.days_of_weeks.get_output(context).get_inner();

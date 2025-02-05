@@ -39,7 +39,7 @@ pub mod catalog {
         name: &str,
         args: CatalogArgs,
     ) -> CatalogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let catalog_adogit_binding = args.catalog_adogit.get_output(context).get_inner();
         let catalog_github_binding = args.catalog_github.get_output(context).get_inner();

@@ -103,7 +103,7 @@ pub mod integration_account_assembly {
         name: &str,
         args: IntegrationAccountAssemblyArgs,
     ) -> IntegrationAccountAssemblyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assembly_name_binding = args.assembly_name.get_output(context).get_inner();
         let assembly_version_binding = args

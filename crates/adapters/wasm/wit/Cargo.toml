@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_wit"
+name = "pulumi_gestalt_adapter_wasm_wit"
 version.workspace = true
 edition.workspace = true
 

@@ -207,7 +207,7 @@ pub mod data_lake_settings {
         name: &str,
         args: DataLakeSettingsArgs,
     ) -> DataLakeSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let admins_binding = args.admins.get_output(context).get_inner();
         let allow_external_data_filtering_binding = args

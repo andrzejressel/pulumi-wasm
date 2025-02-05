@@ -287,7 +287,7 @@ pub mod role {
         name: &str,
         args: RoleArgs,
     ) -> RoleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assume_role_policy_binding = args
             .assume_role_policy

@@ -145,7 +145,7 @@ pub mod cassandra_table {
         name: &str,
         args: CassandraTableArgs,
     ) -> CassandraTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let analytical_storage_ttl_binding = args
             .analytical_storage_ttl

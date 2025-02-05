@@ -46,7 +46,7 @@ pub mod get_link {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetLinkArgs,
     ) -> GetLinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let global_network_id_binding = args
             .global_network_id

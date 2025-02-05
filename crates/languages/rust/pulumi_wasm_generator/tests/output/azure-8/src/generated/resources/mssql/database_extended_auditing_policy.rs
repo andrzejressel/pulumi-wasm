@@ -130,7 +130,7 @@ pub mod database_extended_auditing_policy {
         name: &str,
         args: DatabaseExtendedAuditingPolicyArgs,
     ) -> DatabaseExtendedAuditingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let database_id_binding = args.database_id.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();

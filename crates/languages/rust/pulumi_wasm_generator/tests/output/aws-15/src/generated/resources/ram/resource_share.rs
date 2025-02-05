@@ -68,7 +68,7 @@ pub mod resource_share {
         name: &str,
         args: ResourceShareArgs,
     ) -> ResourceShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_external_principals_binding = args
             .allow_external_principals

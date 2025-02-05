@@ -133,7 +133,7 @@ pub mod vpn_site {
         name: &str,
         args: VpnSiteArgs,
     ) -> VpnSiteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let address_cidrs_binding = args.address_cidrs.get_output(context).get_inner();
         let device_model_binding = args.device_model.get_output(context).get_inner();

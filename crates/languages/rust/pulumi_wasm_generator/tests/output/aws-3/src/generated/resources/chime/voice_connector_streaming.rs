@@ -149,7 +149,7 @@ pub mod voice_connector_streaming {
         name: &str,
         args: VoiceConnectorStreamingArgs,
     ) -> VoiceConnectorStreamingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_retention_binding = args.data_retention.get_output(context).get_inner();
         let disabled_binding = args.disabled.get_output(context).get_inner();

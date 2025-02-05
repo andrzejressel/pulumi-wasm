@@ -88,7 +88,7 @@ pub mod data_connector_azure_advanced_thread_protection {
         name: &str,
         args: DataConnectorAzureAdvancedThreadProtectionArgs,
     ) -> DataConnectorAzureAdvancedThreadProtectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id

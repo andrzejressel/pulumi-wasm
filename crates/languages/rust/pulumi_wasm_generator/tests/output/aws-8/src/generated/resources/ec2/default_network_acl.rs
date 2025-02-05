@@ -187,7 +187,7 @@ pub mod default_network_acl {
         name: &str,
         args: DefaultNetworkAclArgs,
     ) -> DefaultNetworkAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let default_network_acl_id_binding = args
             .default_network_acl_id

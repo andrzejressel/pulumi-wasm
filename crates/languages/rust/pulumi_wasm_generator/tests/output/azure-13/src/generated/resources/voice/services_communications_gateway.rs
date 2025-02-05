@@ -169,7 +169,7 @@ pub mod services_communications_gateway {
         name: &str,
         args: ServicesCommunicationsGatewayArgs,
     ) -> ServicesCommunicationsGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let api_bridge_binding = args.api_bridge.get_output(context).get_inner();
         let auto_generated_domain_name_label_scope_binding = args

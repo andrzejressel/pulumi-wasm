@@ -92,7 +92,7 @@ pub mod macsec_key_association {
         name: &str,
         args: MacsecKeyAssociationArgs,
     ) -> MacsecKeyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cak_binding = args.cak.get_output(context).get_inner();
         let ckn_binding = args.ckn.get_output(context).get_inner();

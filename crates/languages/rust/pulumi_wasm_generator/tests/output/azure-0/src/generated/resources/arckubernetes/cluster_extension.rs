@@ -125,7 +125,7 @@ pub mod cluster_extension {
         name: &str,
         args: ClusterExtensionArgs,
     ) -> ClusterExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let configuration_protected_settings_binding = args

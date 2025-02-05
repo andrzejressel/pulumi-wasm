@@ -61,7 +61,7 @@ pub mod rubber_tree {
         name: &str,
         args: RubberTreeArgs,
     ) -> RubberTreeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_binding = args.container.get_output(context).get_inner();
         let diameter_binding = args.diameter.get_output(context).get_inner();

@@ -86,7 +86,7 @@ pub mod watchlist_item {
         name: &str,
         args: WatchlistItemArgs,
     ) -> WatchlistItemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let properties_binding = args.properties.get_output(context).get_inner();

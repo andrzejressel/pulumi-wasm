@@ -205,7 +205,7 @@ pub mod network_peering_routes_config {
         name: &str,
         args: NetworkPeeringRoutesConfigArgs,
     ) -> NetworkPeeringRoutesConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let export_custom_routes_binding = args
             .export_custom_routes

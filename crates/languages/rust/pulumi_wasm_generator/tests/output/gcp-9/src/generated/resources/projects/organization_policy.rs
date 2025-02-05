@@ -207,7 +207,7 @@ pub mod organization_policy {
         name: &str,
         args: OrganizationPolicyArgs,
     ) -> OrganizationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let boolean_policy_binding = args.boolean_policy.get_output(context).get_inner();
         let constraint_binding = args.constraint.get_output(context).get_inner();

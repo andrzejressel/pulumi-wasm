@@ -221,7 +221,7 @@ pub mod hosting_release {
         name: &str,
         args: HostingReleaseArgs,
     ) -> HostingReleaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let channel_id_binding = args.channel_id.get_output(context).get_inner();
         let message_binding = args.message.get_output(context).get_inner();

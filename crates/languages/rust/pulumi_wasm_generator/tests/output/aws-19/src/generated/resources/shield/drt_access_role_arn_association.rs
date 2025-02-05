@@ -70,7 +70,7 @@ pub mod drt_access_role_arn_association {
         name: &str,
         args: DrtAccessRoleArnAssociationArgs,
     ) -> DrtAccessRoleArnAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let timeouts_binding = args.timeouts.get_output(context).get_inner();

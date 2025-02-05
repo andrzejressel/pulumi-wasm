@@ -68,7 +68,7 @@ pub mod default_object_acl {
         name: &str,
         args: DefaultObjectACLArgs,
     ) -> DefaultObjectACLResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let role_entities_binding = args.role_entities.get_output(context).get_inner();

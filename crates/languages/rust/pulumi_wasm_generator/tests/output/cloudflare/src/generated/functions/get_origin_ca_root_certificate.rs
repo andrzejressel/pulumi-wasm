@@ -24,7 +24,7 @@ pub mod get_origin_ca_root_certificate {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetOriginCaRootCertificateArgs,
     ) -> GetOriginCaRootCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let algorithm_binding = args.algorithm.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

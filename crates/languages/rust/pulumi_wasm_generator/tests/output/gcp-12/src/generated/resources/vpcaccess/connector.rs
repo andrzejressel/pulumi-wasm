@@ -194,7 +194,7 @@ pub mod connector {
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
         let machine_type_binding = args.machine_type.get_output(context).get_inner();

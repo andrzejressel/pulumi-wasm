@@ -133,7 +133,7 @@ pub mod certificate_order {
         name: &str,
         args: CertificateOrderArgs,
     ) -> CertificateOrderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
         let csr_binding = args.csr.get_output(context).get_inner();

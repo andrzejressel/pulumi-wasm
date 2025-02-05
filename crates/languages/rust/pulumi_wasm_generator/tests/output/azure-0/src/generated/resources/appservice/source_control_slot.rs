@@ -135,7 +135,7 @@ pub mod source_control_slot {
         name: &str,
         args: SourceControlSlotArgs,
     ) -> SourceControlSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let branch_binding = args.branch.get_output(context).get_inner();
         let github_action_configuration_binding = args

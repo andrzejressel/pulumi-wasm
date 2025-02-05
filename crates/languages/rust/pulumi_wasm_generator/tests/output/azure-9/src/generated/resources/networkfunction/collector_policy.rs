@@ -139,7 +139,7 @@ pub mod collector_policy {
         name: &str,
         args: CollectorPolicyArgs,
     ) -> CollectorPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ipfx_emission_binding = args.ipfx_emission.get_output(context).get_inner();
         let ipfx_ingestion_binding = args.ipfx_ingestion.get_output(context).get_inner();

@@ -46,7 +46,7 @@ pub mod get_quicksight_user {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetQuicksightUserArgs,
     ) -> GetQuicksightUserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let namespace_binding = args.namespace.get_output(context).get_inner();

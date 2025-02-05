@@ -78,7 +78,7 @@ pub mod load_balancer_cookie_stickiness_policy {
         name: &str,
         args: LoadBalancerCookieStickinessPolicyArgs,
     ) -> LoadBalancerCookieStickinessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cookie_expiration_period_binding = args
             .cookie_expiration_period

@@ -220,7 +220,7 @@ pub mod channel {
         name: &str,
         args: ChannelArgs,
     ) -> ChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cdi_input_specification_binding = args
             .cdi_input_specification

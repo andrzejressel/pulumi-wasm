@@ -180,7 +180,7 @@ pub mod virtual_machine_scale_set_extension {
         name: &str,
         args: VirtualMachineScaleSetExtensionArgs,
     ) -> VirtualMachineScaleSetExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_upgrade_minor_version_binding = args
             .auto_upgrade_minor_version

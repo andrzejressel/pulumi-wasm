@@ -158,7 +158,7 @@ pub mod environment_ec_2 {
         name: &str,
         args: EnvironmentEC2Args,
     ) -> EnvironmentEC2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automatic_stop_time_minutes_binding = args
             .automatic_stop_time_minutes

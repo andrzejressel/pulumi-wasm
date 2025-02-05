@@ -79,7 +79,7 @@ pub mod nat_gateway_public_ip_association {
         name: &str,
         args: NatGatewayPublicIpAssociationArgs,
     ) -> NatGatewayPublicIpAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let nat_gateway_id_binding = args.nat_gateway_id.get_output(context).get_inner();
         let public_ip_address_id_binding = args

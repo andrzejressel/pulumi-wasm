@@ -56,7 +56,7 @@ pub mod api_shield_operation {
         name: &str,
         args: ApiShieldOperationArgs,
     ) -> ApiShieldOperationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let endpoint_binding = args.endpoint.get_output(context).get_inner();
         let host_binding = args.host.get_output(context).get_inner();

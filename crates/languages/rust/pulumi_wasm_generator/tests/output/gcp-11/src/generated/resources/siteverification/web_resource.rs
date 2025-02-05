@@ -113,7 +113,7 @@ pub mod web_resource {
         name: &str,
         args: WebResourceArgs,
     ) -> WebResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let site_binding = args.site.get_output(context).get_inner();
         let verification_method_binding = args

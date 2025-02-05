@@ -116,7 +116,7 @@ pub mod action_http {
         name: &str,
         args: ActionHttpArgs,
     ) -> ActionHttpResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let body_binding = args.body.get_output(context).get_inner();
         let headers_binding = args.headers.get_output(context).get_inner();

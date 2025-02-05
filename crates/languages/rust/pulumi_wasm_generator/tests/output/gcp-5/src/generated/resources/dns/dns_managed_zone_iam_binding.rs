@@ -263,7 +263,7 @@ pub mod dns_managed_zone_iam_binding {
         name: &str,
         args: DnsManagedZoneIamBindingArgs,
     ) -> DnsManagedZoneIamBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let managed_zone_binding = args.managed_zone.get_output(context).get_inner();

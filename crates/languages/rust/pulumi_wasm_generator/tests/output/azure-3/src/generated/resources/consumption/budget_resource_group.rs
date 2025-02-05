@@ -145,7 +145,7 @@ pub mod budget_resource_group {
         name: &str,
         args: BudgetResourceGroupArgs,
     ) -> BudgetResourceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let amount_binding = args.amount.get_output(context).get_inner();
         let etag_binding = args.etag.get_output(context).get_inner();

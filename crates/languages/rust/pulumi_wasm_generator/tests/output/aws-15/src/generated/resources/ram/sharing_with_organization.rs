@@ -29,7 +29,7 @@ pub mod sharing_with_organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(context: &pulumi_wasm_rust::PulumiContext, name: &str) {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/sharingWithOrganization:SharingWithOrganization".into(),

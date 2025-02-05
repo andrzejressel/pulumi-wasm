@@ -62,7 +62,7 @@ pub mod metrics_destination {
         name: &str,
         args: MetricsDestinationArgs,
     ) -> MetricsDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_monitor_name_binding = args
             .app_monitor_name

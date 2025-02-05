@@ -105,7 +105,7 @@ pub mod route_server_bgp_connection {
         name: &str,
         args: RouteServerBgpConnectionArgs,
     ) -> RouteServerBgpConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let peer_asn_binding = args.peer_asn.get_output(context).get_inner();

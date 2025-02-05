@@ -130,7 +130,7 @@ pub mod remote_image {
         name: &str,
         args: RemoteImageArgs,
     ) -> RemoteImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let build_binding = args.build.get_output(context).get_inner();
         let force_remove_binding = args.force_remove.get_output(context).get_inner();

@@ -56,7 +56,7 @@ pub mod rds_db_instance {
         name: &str,
         args: RdsDbInstanceArgs,
     ) -> RdsDbInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let db_password_binding = args.db_password.get_output(context).get_inner();
         let db_user_binding = args.db_user.get_output(context).get_inner();

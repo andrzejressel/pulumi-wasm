@@ -336,7 +336,7 @@ pub mod media_insights_pipeline_configuration {
         name: &str,
         args: MediaInsightsPipelineConfigurationArgs,
     ) -> MediaInsightsPipelineConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let elements_binding = args.elements.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

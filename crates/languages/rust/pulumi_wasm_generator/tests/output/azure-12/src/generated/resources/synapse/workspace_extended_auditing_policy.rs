@@ -117,7 +117,7 @@ pub mod workspace_extended_auditing_policy {
         name: &str,
         args: WorkspaceExtendedAuditingPolicyArgs,
     ) -> WorkspaceExtendedAuditingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_monitoring_enabled_binding = args
             .log_monitoring_enabled

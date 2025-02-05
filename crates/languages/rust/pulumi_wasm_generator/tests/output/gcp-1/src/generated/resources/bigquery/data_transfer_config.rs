@@ -358,7 +358,7 @@ pub mod data_transfer_config {
         name: &str,
         args: DataTransferConfigArgs,
     ) -> DataTransferConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_refresh_window_days_binding = args
             .data_refresh_window_days

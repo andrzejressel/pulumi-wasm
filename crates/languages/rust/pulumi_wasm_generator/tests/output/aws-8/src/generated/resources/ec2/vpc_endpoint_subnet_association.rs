@@ -60,7 +60,7 @@ pub mod vpc_endpoint_subnet_association {
         name: &str,
         args: VpcEndpointSubnetAssociationArgs,
     ) -> VpcEndpointSubnetAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let vpc_endpoint_id_binding = args

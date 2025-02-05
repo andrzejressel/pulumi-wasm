@@ -84,7 +84,7 @@ pub mod postgresql_firewall_rule {
         name: &str,
         args: PostgresqlFirewallRuleArgs,
     ) -> PostgresqlFirewallRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();

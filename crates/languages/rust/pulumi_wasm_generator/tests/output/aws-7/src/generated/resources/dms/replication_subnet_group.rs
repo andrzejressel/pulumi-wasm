@@ -119,7 +119,7 @@ pub mod replication_subnet_group {
         name: &str,
         args: ReplicationSubnetGroupArgs,
     ) -> ReplicationSubnetGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let replication_subnet_group_description_binding = args
             .replication_subnet_group_description

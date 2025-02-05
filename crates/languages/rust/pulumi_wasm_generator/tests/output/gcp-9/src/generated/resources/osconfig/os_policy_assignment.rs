@@ -210,7 +210,7 @@ pub mod os_policy_assignment {
         name: &str,
         args: OsPolicyAssignmentArgs,
     ) -> OsPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_filter_binding = args

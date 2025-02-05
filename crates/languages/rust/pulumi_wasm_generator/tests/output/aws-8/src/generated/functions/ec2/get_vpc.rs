@@ -79,7 +79,7 @@ pub mod get_vpc {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVpcArgs,
     ) -> GetVpcResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
         let default_binding = args.default.get_output(context).get_inner();

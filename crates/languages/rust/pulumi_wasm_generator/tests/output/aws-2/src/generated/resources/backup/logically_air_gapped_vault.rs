@@ -82,7 +82,7 @@ pub mod logically_air_gapped_vault {
         name: &str,
         args: LogicallyAirGappedVaultArgs,
     ) -> LogicallyAirGappedVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let max_retention_days_binding = args
             .max_retention_days

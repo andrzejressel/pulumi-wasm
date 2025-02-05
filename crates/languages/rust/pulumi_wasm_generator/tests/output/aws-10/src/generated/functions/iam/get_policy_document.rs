@@ -55,7 +55,7 @@ pub mod get_policy_document {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPolicyDocumentArgs,
     ) -> GetPolicyDocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let override_json_binding = args.override_json.get_output(context).get_inner();
         let override_policy_documents_binding = args

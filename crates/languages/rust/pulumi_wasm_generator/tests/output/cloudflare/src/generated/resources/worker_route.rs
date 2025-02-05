@@ -61,7 +61,7 @@ pub mod worker_route {
         name: &str,
         args: WorkerRouteArgs,
     ) -> WorkerRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let pattern_binding = args.pattern.get_output(context).get_inner();
         let script_name_binding = args.script_name.get_output(context).get_inner();

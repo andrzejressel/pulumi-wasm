@@ -77,7 +77,7 @@ pub mod resource_set {
         name: &str,
         args: ResourceSetArgs,
     ) -> ResourceSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let resource_sets_binding = args.resource_sets.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();

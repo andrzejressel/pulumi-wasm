@@ -31,7 +31,7 @@ pub mod get_project_service_account {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetProjectServiceAccountArgs,
     ) -> GetProjectServiceAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let project_binding = args.project.get_output(context).get_inner();
         let user_project_binding = args.user_project.get_output(context).get_inner();

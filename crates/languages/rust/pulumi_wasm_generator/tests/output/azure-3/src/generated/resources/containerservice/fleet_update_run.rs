@@ -116,7 +116,7 @@ pub mod fleet_update_run {
         name: &str,
         args: FleetUpdateRunArgs,
     ) -> FleetUpdateRunResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let fleet_update_strategy_id_binding = args
             .fleet_update_strategy_id

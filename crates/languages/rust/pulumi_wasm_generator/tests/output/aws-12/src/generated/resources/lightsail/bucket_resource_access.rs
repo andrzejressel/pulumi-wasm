@@ -35,7 +35,7 @@ pub mod bucket_resource_access {
         name: &str,
         args: BucketResourceAccessArgs,
     ) -> BucketResourceAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
         let resource_name_binding = args.resource_name.get_output(context).get_inner();

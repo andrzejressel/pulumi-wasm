@@ -80,7 +80,7 @@ pub mod hosted_public_virtual_interface_accepter {
         name: &str,
         args: HostedPublicVirtualInterfaceAccepterArgs,
     ) -> HostedPublicVirtualInterfaceAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let tags_binding = args.tags.get_output(context).get_inner();
         let virtual_interface_id_binding = args

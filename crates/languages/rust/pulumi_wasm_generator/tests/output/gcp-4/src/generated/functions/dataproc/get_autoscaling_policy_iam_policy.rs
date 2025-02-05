@@ -42,7 +42,7 @@ pub mod get_autoscaling_policy_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetAutoscalingPolicyIamPolicyArgs,
     ) -> GetAutoscalingPolicyIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let policy_id_binding = args.policy_id.get_output(context).get_inner();

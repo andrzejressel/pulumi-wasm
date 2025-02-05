@@ -130,7 +130,7 @@ pub mod firewall_endpoint_association {
         name: &str,
         args: FirewallEndpointAssociationArgs,
     ) -> FirewallEndpointAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let firewall_endpoint_binding = args

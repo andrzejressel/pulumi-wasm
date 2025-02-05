@@ -130,7 +130,7 @@ pub mod service_custom_certificate {
         name: &str,
         args: ServiceCustomCertificateArgs,
     ) -> ServiceCustomCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_certificate_id_binding = args
             .custom_certificate_id

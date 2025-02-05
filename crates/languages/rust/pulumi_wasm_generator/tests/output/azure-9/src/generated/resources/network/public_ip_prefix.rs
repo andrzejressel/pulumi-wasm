@@ -110,7 +110,7 @@ pub mod public_ip_prefix {
         name: &str,
         args: PublicIpPrefixArgs,
     ) -> PublicIpPrefixResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ip_version_binding = args.ip_version.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();

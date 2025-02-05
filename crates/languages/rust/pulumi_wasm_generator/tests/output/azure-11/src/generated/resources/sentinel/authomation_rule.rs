@@ -142,7 +142,7 @@ pub mod authomation_rule {
         name: &str,
         args: AuthomationRuleArgs,
     ) -> AuthomationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let action_incidents_binding = args
             .action_incidents

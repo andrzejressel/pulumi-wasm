@@ -104,7 +104,7 @@ pub mod zone_cache_variants {
         name: &str,
         args: ZoneCacheVariantsArgs,
     ) -> ZoneCacheVariantsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let avifs_binding = args.avifs.get_output(context).get_inner();
         let bmps_binding = args.bmps.get_output(context).get_inner();

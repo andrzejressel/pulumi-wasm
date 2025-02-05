@@ -259,7 +259,7 @@ pub mod listing_iam_policy {
         name: &str,
         args: ListingIamPolicyArgs,
     ) -> ListingIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_exchange_id_binding = args
             .data_exchange_id

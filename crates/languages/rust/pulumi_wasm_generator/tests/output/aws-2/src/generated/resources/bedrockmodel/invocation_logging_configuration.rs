@@ -103,7 +103,7 @@ pub mod invocation_logging_configuration {
         name: &str,
         args: InvocationLoggingConfigurationArgs,
     ) -> InvocationLoggingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let logging_config_binding = args.logging_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

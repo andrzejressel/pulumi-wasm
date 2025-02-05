@@ -32,7 +32,7 @@ pub mod get_consent_store_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetConsentStoreIamPolicyArgs,
     ) -> GetConsentStoreIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let consent_store_id_binding = args
             .consent_store_id

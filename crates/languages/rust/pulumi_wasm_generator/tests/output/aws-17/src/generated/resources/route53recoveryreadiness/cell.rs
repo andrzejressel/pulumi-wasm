@@ -70,7 +70,7 @@ pub mod cell {
         name: &str,
         args: CellArgs,
     ) -> CellResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cell_name_binding = args.cell_name.get_output(context).get_inner();
         let cells_binding = args.cells.get_output(context).get_inner();

@@ -190,7 +190,7 @@ pub mod spark_pool {
         name: &str,
         args: SparkPoolArgs,
     ) -> SparkPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_pause_binding = args.auto_pause.get_output(context).get_inner();
         let auto_scale_binding = args.auto_scale.get_output(context).get_inner();

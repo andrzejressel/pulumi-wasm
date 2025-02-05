@@ -38,7 +38,7 @@ pub mod get_workgroup {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetWorkgroupArgs,
     ) -> GetWorkgroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

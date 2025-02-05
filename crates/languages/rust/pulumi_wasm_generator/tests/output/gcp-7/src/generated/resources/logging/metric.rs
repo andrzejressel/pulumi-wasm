@@ -289,7 +289,7 @@ pub mod metric {
         name: &str,
         args: MetricArgs,
     ) -> MetricResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
         let bucket_options_binding = args.bucket_options.get_output(context).get_inner();

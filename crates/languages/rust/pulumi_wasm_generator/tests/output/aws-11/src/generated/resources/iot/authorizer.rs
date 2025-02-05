@@ -102,7 +102,7 @@ pub mod authorizer {
         name: &str,
         args: AuthorizerArgs,
     ) -> AuthorizerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authorizer_function_arn_binding = args
             .authorizer_function_arn

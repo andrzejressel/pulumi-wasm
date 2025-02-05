@@ -60,7 +60,7 @@ pub mod workspace_api_key {
         name: &str,
         args: WorkspaceApiKeyArgs,
     ) -> WorkspaceApiKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let key_name_binding = args.key_name.get_output(context).get_inner();
         let key_role_binding = args.key_role.get_output(context).get_inner();

@@ -126,7 +126,7 @@ pub mod managed_instance_active_directory_administrator {
         name: &str,
         args: ManagedInstanceActiveDirectoryAdministratorArgs,
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let azuread_authentication_only_binding = args
             .azuread_authentication_only

@@ -64,7 +64,7 @@ pub mod hostname_tls_setting_ciphers {
         name: &str,
         args: HostnameTlsSettingCiphersArgs,
     ) -> HostnameTlsSettingCiphersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hostname_binding = args.hostname.get_output(context).get_inner();
         let ports_binding = args.ports.get_output(context).get_inner();

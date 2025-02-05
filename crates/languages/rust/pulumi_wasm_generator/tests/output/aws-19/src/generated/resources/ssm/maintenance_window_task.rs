@@ -214,7 +214,7 @@ pub mod maintenance_window_task {
         name: &str,
         args: MaintenanceWindowTaskArgs,
     ) -> MaintenanceWindowTaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cutoff_behavior_binding = args
             .cutoff_behavior

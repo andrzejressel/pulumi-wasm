@@ -148,7 +148,7 @@ pub mod hub {
         name: &str,
         args: HubArgs,
     ) -> HubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let export_psc_binding = args.export_psc.get_output(context).get_inner();

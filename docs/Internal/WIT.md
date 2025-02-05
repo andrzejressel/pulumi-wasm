@@ -1,11 +1,11 @@
 # WIT
 
 ``` title="world.wit"
---8<-- "pulumi_wasm_wit/wit/world.wit"
+--8<-- "pulumi_gestalt_adapter_wasm_wit/wit/world.wit"
 ```
 
 ``` title="pulumi-wasm-external.wit"
---8<-- "pulumi_wasm_wit/wit/deps/pulumi-wasm-external.wit"
+--8<-- "pulumi_gestalt_adapter_wasm_wit/wit/deps/pulumi-wasm-external.wit"
 ```
 
 ## Interfaces

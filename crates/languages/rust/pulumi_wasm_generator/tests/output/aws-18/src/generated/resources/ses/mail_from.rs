@@ -108,7 +108,7 @@ pub mod mail_from {
         name: &str,
         args: MailFromArgs,
     ) -> MailFromResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let behavior_on_mx_failure_binding = args
             .behavior_on_mx_failure

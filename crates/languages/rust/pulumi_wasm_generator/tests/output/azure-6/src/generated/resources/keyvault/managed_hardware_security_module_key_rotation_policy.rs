@@ -74,7 +74,7 @@ pub mod managed_hardware_security_module_key_rotation_policy {
         name: &str,
         args: ManagedHardwareSecurityModuleKeyRotationPolicyArgs,
     ) -> ManagedHardwareSecurityModuleKeyRotationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let expire_after_binding = args.expire_after.get_output(context).get_inner();
         let managed_hsm_key_id_binding = args

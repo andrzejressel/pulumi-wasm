@@ -28,7 +28,7 @@ pub mod get_regions {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetRegionsArgs,
     ) -> GetRegionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let project_binding = args.project.get_output(context).get_inner();
         let status_binding = args.status.get_output(context).get_inner();

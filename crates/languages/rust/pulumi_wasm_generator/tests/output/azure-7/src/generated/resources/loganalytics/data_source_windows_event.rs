@@ -87,7 +87,7 @@ pub mod data_source_windows_event {
         name: &str,
         args: DataSourceWindowsEventArgs,
     ) -> DataSourceWindowsEventResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let event_log_name_binding = args.event_log_name.get_output(context).get_inner();
         let event_types_binding = args.event_types.get_output(context).get_inner();

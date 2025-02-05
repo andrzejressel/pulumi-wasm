@@ -2,12 +2,12 @@ use crate::output_id::OutputId;
 use anyhow::{Context, Error, Result};
 use futures::FutureExt;
 use prost::Message;
-use pulumi_wasm_proto::grpc::engine_client::EngineClient;
-use pulumi_wasm_proto::grpc::resource_monitor_client::ResourceMonitorClient;
-use pulumi_wasm_proto::grpc::{
+use pulumi_gestalt_core_proto::grpc::engine_client::EngineClient;
+use pulumi_gestalt_core_proto::grpc::resource_monitor_client::ResourceMonitorClient;
+use pulumi_gestalt_core_proto::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, ResourceInvokeRequest,
 };
-use pulumi_wasm_proto::grpc::{
+use pulumi_gestalt_core_proto::grpc::{
     RegisterResourceRequest, RegisterResourceResponse, SetRootResourceRequest,
 };
 use std::future::poll_fn;
@@ -188,9 +188,9 @@ mod tests {
     use crate::output_id::OutputId;
     use crate::pulumi_state::PulumiState;
     use crate::test_server::{MyResourceEngineServer, MyResourceMonitorServer};
-    use pulumi_wasm_proto::grpc::engine_server::EngineServer;
-    use pulumi_wasm_proto::grpc::resource_monitor_server::ResourceMonitorServer;
-    use pulumi_wasm_proto::grpc::RegisterResourceRequest;
+    use pulumi_gestalt_core_proto::grpc::engine_server::EngineServer;
+    use pulumi_gestalt_core_proto::grpc::resource_monitor_server::ResourceMonitorServer;
+    use pulumi_gestalt_core_proto::grpc::RegisterResourceRequest;
 
     use std::time::Instant;
     use tokio::net::TcpListener;

@@ -84,7 +84,7 @@ pub mod encryption_scope {
         name: &str,
         args: EncryptionScopeArgs,
     ) -> EncryptionScopeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let infrastructure_encryption_required_binding = args
             .infrastructure_encryption_required

@@ -95,7 +95,7 @@ pub mod app {
         name: &str,
         args: AppArgs,
     ) -> AppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_name_binding = args.app_name.get_output(context).get_inner();
         let app_type_binding = args.app_type.get_output(context).get_inner();

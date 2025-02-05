@@ -273,7 +273,7 @@ pub mod io_t_hub {
         name: &str,
         args: IoTHubArgs,
     ) -> IoTHubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cloud_to_device_binding = args
             .cloud_to_device

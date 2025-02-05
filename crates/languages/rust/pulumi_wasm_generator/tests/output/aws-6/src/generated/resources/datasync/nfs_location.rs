@@ -93,7 +93,7 @@ pub mod nfs_location {
         name: &str,
         args: NfsLocationArgs,
     ) -> NfsLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mount_options_binding = args.mount_options.get_output(context).get_inner();
         let on_prem_config_binding = args.on_prem_config.get_output(context).get_inner();

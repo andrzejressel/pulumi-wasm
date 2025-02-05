@@ -32,7 +32,7 @@ pub mod get_invocation {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetInvocationArgs,
     ) -> GetInvocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let function_name_binding = args.function_name.get_output(context).get_inner();
         let input_binding = args.input.get_output(context).get_inner();

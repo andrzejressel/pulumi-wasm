@@ -88,7 +88,7 @@ pub mod video_stream {
         name: &str,
         args: VideoStreamArgs,
     ) -> VideoStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_retention_in_hours_binding = args
             .data_retention_in_hours

@@ -313,7 +313,7 @@ pub mod vmware_replicated_vm {
         name: &str,
         args: VmwareReplicatedVmArgs,
     ) -> VmwareReplicatedVmResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let appliance_name_binding = args.appliance_name.get_output(context).get_inner();
         let default_log_storage_account_id_binding = args

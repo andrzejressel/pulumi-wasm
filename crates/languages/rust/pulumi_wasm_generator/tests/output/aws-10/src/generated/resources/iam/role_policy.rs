@@ -87,7 +87,7 @@ pub mod role_policy {
         name: &str,
         args: RolePolicyArgs,
     ) -> RolePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let name_prefix_binding = args.name_prefix.get_output(context).get_inner();

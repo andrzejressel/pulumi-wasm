@@ -97,7 +97,7 @@ pub mod backend_bucket_signed_url_key {
         name: &str,
         args: BackendBucketSignedUrlKeyArgs,
     ) -> BackendBucketSignedUrlKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backend_bucket_binding = args.backend_bucket.get_output(context).get_inner();
         let key_value_binding = args.key_value.get_output(context).get_inner();

@@ -98,7 +98,7 @@ pub mod spring_cloud_build_pack_binding {
         name: &str,
         args: SpringCloudBuildPackBindingArgs,
     ) -> SpringCloudBuildPackBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let binding_type_binding = args.binding_type.get_output(context).get_inner();
         let launch_binding = args.launch.get_output(context).get_inner();

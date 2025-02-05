@@ -80,7 +80,7 @@ pub mod access_point {
         name: &str,
         args: AccessPointArgs,
     ) -> AccessPointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
         let posix_user_binding = args.posix_user.get_output(context).get_inner();

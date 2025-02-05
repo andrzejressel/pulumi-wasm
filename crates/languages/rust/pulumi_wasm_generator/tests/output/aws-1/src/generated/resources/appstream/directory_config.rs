@@ -73,7 +73,7 @@ pub mod directory_config {
         name: &str,
         args: DirectoryConfigArgs,
     ) -> DirectoryConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let directory_name_binding = args.directory_name.get_output(context).get_inner();
         let organizational_unit_distinguished_names_binding = args

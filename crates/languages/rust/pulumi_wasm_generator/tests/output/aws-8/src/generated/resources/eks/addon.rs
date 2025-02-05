@@ -265,7 +265,7 @@ pub mod addon {
         name: &str,
         args: AddonArgs,
     ) -> AddonResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let addon_name_binding = args.addon_name.get_output(context).get_inner();
         let addon_version_binding = args.addon_version.get_output(context).get_inner();

@@ -405,7 +405,7 @@ pub mod tunnel_dest_group_iam_policy {
         name: &str,
         args: TunnelDestGroupIamPolicyArgs,
     ) -> TunnelDestGroupIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dest_group_binding = args.dest_group.get_output(context).get_inner();
         let policy_data_binding = args.policy_data.get_output(context).get_inner();

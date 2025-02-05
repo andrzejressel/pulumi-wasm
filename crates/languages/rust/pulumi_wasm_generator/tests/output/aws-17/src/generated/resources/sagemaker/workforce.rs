@@ -141,7 +141,7 @@ pub mod workforce {
         name: &str,
         args: WorkforceArgs,
     ) -> WorkforceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cognito_config_binding = args.cognito_config.get_output(context).get_inner();
         let oidc_config_binding = args.oidc_config.get_output(context).get_inner();

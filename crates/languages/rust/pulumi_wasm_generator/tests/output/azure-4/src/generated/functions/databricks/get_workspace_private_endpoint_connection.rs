@@ -33,7 +33,7 @@ pub mod get_workspace_private_endpoint_connection {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetWorkspacePrivateEndpointConnectionArgs,
     ) -> GetWorkspacePrivateEndpointConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let private_endpoint_id_binding = args
             .private_endpoint_id

@@ -107,7 +107,7 @@ pub mod spring_cloud_configuration_service {
         name: &str,
         args: SpringCloudConfigurationServiceArgs,
     ) -> SpringCloudConfigurationServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let generation_binding = args.generation.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

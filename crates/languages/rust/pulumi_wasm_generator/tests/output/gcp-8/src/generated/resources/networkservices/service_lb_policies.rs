@@ -175,7 +175,7 @@ pub mod service_lb_policies {
         name: &str,
         args: ServiceLbPoliciesArgs,
     ) -> ServiceLbPoliciesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_capacity_drain_binding = args
             .auto_capacity_drain

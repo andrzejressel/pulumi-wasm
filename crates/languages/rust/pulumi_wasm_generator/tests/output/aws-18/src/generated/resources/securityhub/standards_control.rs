@@ -79,7 +79,7 @@ pub mod standards_control {
         name: &str,
         args: StandardsControlArgs,
     ) -> StandardsControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let control_status_binding = args.control_status.get_output(context).get_inner();
         let disabled_reason_binding = args

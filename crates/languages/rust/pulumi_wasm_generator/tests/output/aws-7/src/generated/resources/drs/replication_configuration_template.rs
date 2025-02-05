@@ -141,7 +141,7 @@ pub mod replication_configuration_template {
         name: &str,
         args: ReplicationConfigurationTemplateArgs,
     ) -> ReplicationConfigurationTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let associate_default_security_group_binding = args
             .associate_default_security_group

@@ -123,7 +123,7 @@ pub mod medtech_service {
         name: &str,
         args: MedtechServiceArgs,
     ) -> MedtechServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let device_mapping_json_binding = args
             .device_mapping_json

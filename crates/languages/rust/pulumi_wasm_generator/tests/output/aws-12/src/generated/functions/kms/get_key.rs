@@ -73,7 +73,7 @@ pub mod get_key {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetKeyArgs,
     ) -> GetKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let grant_tokens_binding = args.grant_tokens.get_output(context).get_inner();
         let key_id_binding = args.key_id.get_output(context).get_inner();

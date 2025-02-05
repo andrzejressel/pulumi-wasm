@@ -152,7 +152,7 @@ pub mod method_settings {
         name: &str,
         args: MethodSettingsArgs,
     ) -> MethodSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let method_path_binding = args.method_path.get_output(context).get_inner();
         let rest_api_binding = args.rest_api.get_output(context).get_inner();

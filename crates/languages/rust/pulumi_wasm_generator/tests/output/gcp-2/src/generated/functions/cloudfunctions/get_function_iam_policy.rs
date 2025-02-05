@@ -37,7 +37,7 @@ pub mod get_function_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetFunctionIamPolicyArgs,
     ) -> GetFunctionIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cloud_function_binding = args.cloud_function.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();

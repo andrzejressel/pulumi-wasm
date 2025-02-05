@@ -125,7 +125,7 @@ pub mod extension {
         name: &str,
         args: ExtensionArgs,
     ) -> ExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let arc_machine_id_binding = args.arc_machine_id.get_output(context).get_inner();
         let automatic_upgrade_enabled_binding = args

@@ -51,7 +51,7 @@ pub mod get_random_password {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetRandomPasswordArgs,
     ) -> GetRandomPasswordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let exclude_characters_binding = args
             .exclude_characters

@@ -57,7 +57,7 @@ pub mod landing_zone {
         name: &str,
         args: LandingZoneArgs,
     ) -> LandingZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let manifest_json_binding = args.manifest_json.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();

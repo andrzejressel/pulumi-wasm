@@ -75,7 +75,7 @@ pub mod get_vpc_iam_pool {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVpcIamPoolArgs,
     ) -> GetVpcIamPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allocation_resource_tags_binding = args
             .allocation_resource_tags

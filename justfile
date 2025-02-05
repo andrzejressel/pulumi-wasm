@@ -54,7 +54,7 @@ install-requirements:
 
 # Compiling everything together causes linking issues
 build-wasm-components:
-    cargo build -p pulumi_wasm_runner
+    cargo build -p pulumi_gestalt_adapter_wasm_runner
     cargo component build -p pulumi_wasm
     cargo component build -p pulumi_wasm_example_simple
     cargo component build -p pulumi_wasm_example_docker
@@ -64,7 +64,7 @@ build-wasm-components:
     cargo component build -p pulumi_wasm_example_secret
 
 build-wasm-components-release:
-    cargo build -p pulumi_wasm_runner --release
+    cargo build -p pulumi_gestalt_adapter_wasm_runner --release
     cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_simple --release
     cargo component build -p pulumi_wasm_example_docker --release
@@ -97,16 +97,16 @@ regenerate-generator-tests $DO_NOT_COMPILE="true":
     cargo nextest run -p pulumi_wasm_generator --all-features --test '*' --profile all_cores
 
 publish:
-    cargo hack publish -p pulumi_wasm_wit --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_proto --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_adapter_wasm_wit --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_core_proto --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_common --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_grpc_connection --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_core_grpc --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_rust --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_generator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_build --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_core --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_rust_build --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_core_core --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_adapter_wasm_component_creator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_adapter_wasm_runner --all-features --no-dev-deps --allow-dirty
 
 test-provider-compilation COMPILATION_NAME:
     cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
@@ -152,7 +152,7 @@ test-docs:
 rust-docs:
     cargo doc --no-deps \
         -p pulumi_wasm_rust \
-        -p pulumi_wasm_build \
+        -p pulumi_gestalt_rust_build \
         -p pulumi_wasm_providers_aws_mini \
         -p pulumi_wasm_providers_azure_mini \
         -p pulumi_wasm_providers_cloudflare \
@@ -164,5 +164,5 @@ rust-docs-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html":
     just rust-docs
 
 update-version NEW_VERSION:
-    sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust/src/lib.rs" \
+    sd "0.0.0-DEV" "{{NEW_VERSION}}" "crates/adapters/wasm/wit/wit/world.wit" "crates/languages/rust_wasm/pulumi_wasm_rust/src/lib.rs" \
     "Cargo.toml"

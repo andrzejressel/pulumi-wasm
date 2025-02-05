@@ -115,7 +115,7 @@ pub mod log_account_policy {
         name: &str,
         args: LogAccountPolicyArgs,
     ) -> LogAccountPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_document_binding = args
             .policy_document

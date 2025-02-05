@@ -93,7 +93,7 @@ pub mod subnet_route_table_association {
         name: &str,
         args: SubnetRouteTableAssociationArgs,
     ) -> SubnetRouteTableAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
         let subnet_id_binding = args.subnet_id.get_output(context).get_inner();

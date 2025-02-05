@@ -66,7 +66,7 @@ pub mod registry_policy {
         name: &str,
         args: RegistryPolicyArgs,
     ) -> RegistryPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_binding = args.policy.get_output(context).get_inner();
         let registry_name_binding = args.registry_name.get_output(context).get_inner();

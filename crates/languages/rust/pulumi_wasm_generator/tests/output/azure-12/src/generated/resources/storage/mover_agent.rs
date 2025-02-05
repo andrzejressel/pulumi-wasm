@@ -87,7 +87,7 @@ pub mod mover_agent {
         name: &str,
         args: MoverAgentArgs,
     ) -> MoverAgentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let arc_virtual_machine_id_binding = args
             .arc_virtual_machine_id

@@ -32,7 +32,7 @@ pub mod get_custom_key_store {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetCustomKeyStoreArgs,
     ) -> GetCustomKeyStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_key_store_id_binding = args
             .custom_key_store_id

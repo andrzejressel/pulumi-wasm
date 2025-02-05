@@ -91,7 +91,7 @@ pub mod cache_access_policy_assignment {
         name: &str,
         args: CacheAccessPolicyAssignmentArgs,
     ) -> CacheAccessPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_policy_name_binding = args
             .access_policy_name

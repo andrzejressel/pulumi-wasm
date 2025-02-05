@@ -26,7 +26,7 @@ pub mod get_lifecycle_policy_document {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetLifecyclePolicyDocumentArgs,
     ) -> GetLifecyclePolicyDocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let rules_binding = args.rules.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

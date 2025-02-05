@@ -141,7 +141,7 @@ pub mod region_disk_resource_policy_attachment {
         name: &str,
         args: RegionDiskResourcePolicyAttachmentArgs,
     ) -> RegionDiskResourcePolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disk_binding = args.disk.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();

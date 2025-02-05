@@ -110,7 +110,7 @@ pub mod agent_data_source {
         name: &str,
         args: AgentDataSourceArgs,
     ) -> AgentDataSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_deletion_policy_binding = args
             .data_deletion_policy

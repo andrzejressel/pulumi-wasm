@@ -28,7 +28,7 @@ pub mod get_hl_7_v_2_store_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetHl7V2StoreIamPolicyArgs,
     ) -> GetHl7V2StoreIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hl7_v2_store_id_binding = args
             .hl7_v2_store_id

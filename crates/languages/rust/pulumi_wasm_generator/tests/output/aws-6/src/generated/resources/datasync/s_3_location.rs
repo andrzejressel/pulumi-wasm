@@ -92,7 +92,7 @@ pub mod s_3_location {
         name: &str,
         args: S3LocationArgs,
     ) -> S3LocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
         let s3_bucket_arn_binding = args.s3_bucket_arn.get_output(context).get_inner();

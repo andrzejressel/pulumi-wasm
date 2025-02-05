@@ -62,7 +62,7 @@ pub mod source_code_token {
         name: &str,
         args: SourceCodeTokenArgs,
     ) -> SourceCodeTokenResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let token_binding = args.token.get_output(context).get_inner();
         let token_secret_binding = args.token_secret.get_output(context).get_inner();

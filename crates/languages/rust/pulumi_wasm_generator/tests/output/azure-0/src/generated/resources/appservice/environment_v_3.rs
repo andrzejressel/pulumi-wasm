@@ -185,7 +185,7 @@ pub mod environment_v_3 {
         name: &str,
         args: EnvironmentV3Args,
     ) -> EnvironmentV3Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_new_private_endpoint_connections_binding = args
             .allow_new_private_endpoint_connections

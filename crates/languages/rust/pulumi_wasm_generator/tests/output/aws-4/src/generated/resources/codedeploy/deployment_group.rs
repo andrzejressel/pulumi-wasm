@@ -393,7 +393,7 @@ pub mod deployment_group {
         name: &str,
         args: DeploymentGroupArgs,
     ) -> DeploymentGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alarm_configuration_binding = args
             .alarm_configuration

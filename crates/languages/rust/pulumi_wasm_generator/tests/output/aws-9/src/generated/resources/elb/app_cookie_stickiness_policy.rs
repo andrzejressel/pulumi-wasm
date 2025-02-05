@@ -84,7 +84,7 @@ pub mod app_cookie_stickiness_policy {
         name: &str,
         args: AppCookieStickinessPolicyArgs,
     ) -> AppCookieStickinessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cookie_name_binding = args.cookie_name.get_output(context).get_inner();
         let lb_port_binding = args.lb_port.get_output(context).get_inner();

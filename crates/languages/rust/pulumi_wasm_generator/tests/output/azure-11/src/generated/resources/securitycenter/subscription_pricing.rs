@@ -93,7 +93,7 @@ pub mod subscription_pricing {
         name: &str,
         args: SubscriptionPricingArgs,
     ) -> SubscriptionPricingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let extensions_binding = args.extensions.get_output(context).get_inner();
         let resource_type_binding = args.resource_type.get_output(context).get_inner();

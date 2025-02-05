@@ -67,7 +67,7 @@ pub mod project_default_network_tier {
         name: &str,
         args: ProjectDefaultNetworkTierArgs,
     ) -> ProjectDefaultNetworkTierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let network_tier_binding = args.network_tier.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();

@@ -96,7 +96,7 @@ pub mod keystores_aliases_key_cert_file {
         name: &str,
         args: KeystoresAliasesKeyCertFileArgs,
     ) -> KeystoresAliasesKeyCertFileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let cert_binding = args.cert.get_output(context).get_inner();

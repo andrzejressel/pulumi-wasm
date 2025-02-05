@@ -53,7 +53,7 @@ pub mod get_certificate_authority {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetCertificateAuthorityArgs,
     ) -> GetCertificateAuthorityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();

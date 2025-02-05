@@ -103,7 +103,7 @@ pub mod default_route_table {
         name: &str,
         args: DefaultRouteTableArgs,
     ) -> DefaultRouteTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let default_route_table_id_binding = args
             .default_route_table_id

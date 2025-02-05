@@ -550,7 +550,7 @@ pub mod connection_profile {
         name: &str,
         args: ConnectionProfileArgs,
     ) -> ConnectionProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alloydb_binding = args.alloydb.get_output(context).get_inner();
         let cloudsql_binding = args.cloudsql.get_output(context).get_inner();

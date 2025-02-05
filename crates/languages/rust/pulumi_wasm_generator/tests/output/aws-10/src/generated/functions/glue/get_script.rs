@@ -41,7 +41,7 @@ pub mod get_script {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetScriptArgs,
     ) -> GetScriptResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dag_edges_binding = args.dag_edges.get_output(context).get_inner();
         let dag_nodes_binding = args.dag_nodes.get_output(context).get_inner();

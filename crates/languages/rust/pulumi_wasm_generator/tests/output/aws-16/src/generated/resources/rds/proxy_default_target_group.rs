@@ -84,7 +84,7 @@ pub mod proxy_default_target_group {
         name: &str,
         args: ProxyDefaultTargetGroupArgs,
     ) -> ProxyDefaultTargetGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let connection_pool_config_binding = args
             .connection_pool_config

@@ -315,7 +315,7 @@ pub mod database_iam_policy {
         name: &str,
         args: DatabaseIAMPolicyArgs,
     ) -> DatabaseIAMPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let database_binding = args.database.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();

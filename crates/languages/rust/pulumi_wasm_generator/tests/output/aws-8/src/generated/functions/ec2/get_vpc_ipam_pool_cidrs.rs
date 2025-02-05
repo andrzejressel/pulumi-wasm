@@ -33,7 +33,7 @@ pub mod get_vpc_ipam_pool_cidrs {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetVpcIpamPoolCidrsArgs,
     ) -> GetVpcIpamPoolCidrsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();

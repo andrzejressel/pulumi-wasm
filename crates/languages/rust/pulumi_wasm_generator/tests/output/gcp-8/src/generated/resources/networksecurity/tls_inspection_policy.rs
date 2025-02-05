@@ -312,7 +312,7 @@ pub mod tls_inspection_policy {
         name: &str,
         args: TlsInspectionPolicyArgs,
     ) -> TlsInspectionPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ca_pool_binding = args.ca_pool.get_output(context).get_inner();
         let custom_tls_features_binding = args

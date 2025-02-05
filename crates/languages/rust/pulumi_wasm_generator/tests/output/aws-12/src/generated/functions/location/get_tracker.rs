@@ -40,7 +40,7 @@ pub mod get_tracker {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTrackerArgs,
     ) -> GetTrackerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let tags_binding = args.tags.get_output(context).get_inner();
         let tracker_name_binding = args.tracker_name.get_output(context).get_inner();

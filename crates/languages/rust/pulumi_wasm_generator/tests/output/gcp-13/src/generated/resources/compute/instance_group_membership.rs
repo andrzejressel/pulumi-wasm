@@ -126,7 +126,7 @@ pub mod instance_group_membership {
         name: &str,
         args: InstanceGroupMembershipArgs,
     ) -> InstanceGroupMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let instance_group_binding = args.instance_group.get_output(context).get_inner();

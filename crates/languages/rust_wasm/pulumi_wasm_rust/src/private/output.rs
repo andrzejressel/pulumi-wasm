@@ -1,5 +1,5 @@
 use crate::Output;
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
+use pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
 use serde::Serialize;
 use std::ops::Deref;
 

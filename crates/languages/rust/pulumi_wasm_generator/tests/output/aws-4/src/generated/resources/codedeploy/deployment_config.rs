@@ -138,7 +138,7 @@ pub mod deployment_config {
         name: &str,
         args: DeploymentConfigArgs,
     ) -> DeploymentConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let compute_platform_binding = args
             .compute_platform

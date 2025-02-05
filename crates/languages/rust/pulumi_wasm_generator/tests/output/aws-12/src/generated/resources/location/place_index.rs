@@ -89,7 +89,7 @@ pub mod place_index {
         name: &str,
         args: PlaceIndexArgs,
     ) -> PlaceIndexResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_source_binding = args.data_source.get_output(context).get_inner();
         let data_source_configuration_binding = args

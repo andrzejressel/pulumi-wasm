@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_proto"
+name = "pulumi_gestalt_core_proto"
 version.workspace = true
 edition.workspace = true
 

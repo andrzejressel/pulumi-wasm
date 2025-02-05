@@ -52,7 +52,7 @@ pub mod get_route {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetRouteArgs,
     ) -> GetRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
         let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();

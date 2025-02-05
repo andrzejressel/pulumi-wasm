@@ -186,7 +186,7 @@ pub mod stack_instances {
         name: &str,
         args: StackInstancesArgs,
     ) -> StackInstancesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accounts_binding = args.accounts.get_output(context).get_inner();
         let call_as_binding = args.call_as.get_output(context).get_inner();

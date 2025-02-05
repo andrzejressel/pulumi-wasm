@@ -427,7 +427,7 @@ pub mod event_source_mapping {
         name: &str,
         args: EventSourceMappingArgs,
     ) -> EventSourceMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let amazon_managed_kafka_event_source_config_binding = args
             .amazon_managed_kafka_event_source_config

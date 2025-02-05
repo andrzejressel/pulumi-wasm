@@ -159,7 +159,7 @@ pub mod cx_webhook {
         name: &str,
         args: CxWebhookArgs,
     ) -> CxWebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();

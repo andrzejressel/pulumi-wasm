@@ -137,7 +137,7 @@ pub mod flux_configuration {
         name: &str,
         args: FluxConfigurationArgs,
     ) -> FluxConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let blob_storage_binding = args.blob_storage.get_output(context).get_inner();
         let bucket_binding = args.bucket.get_output(context).get_inner();

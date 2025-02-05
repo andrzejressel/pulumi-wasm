@@ -99,7 +99,7 @@ pub mod app {
         name: &str,
         args: AppArgs,
     ) -> AppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let campaign_hook_binding = args.campaign_hook.get_output(context).get_inner();
         let limits_binding = args.limits.get_output(context).get_inner();

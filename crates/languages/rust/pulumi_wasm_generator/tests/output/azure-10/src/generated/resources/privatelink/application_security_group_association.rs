@@ -141,7 +141,7 @@ pub mod application_security_group_association {
         name: &str,
         args: ApplicationSecurityGroupAssociationArgs,
     ) -> ApplicationSecurityGroupAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_security_group_id_binding = args
             .application_security_group_id

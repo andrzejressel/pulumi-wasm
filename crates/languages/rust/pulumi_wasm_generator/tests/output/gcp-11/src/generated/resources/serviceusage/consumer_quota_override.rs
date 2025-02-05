@@ -210,7 +210,7 @@ pub mod consumer_quota_override {
         name: &str,
         args: ConsumerQuotaOverrideArgs,
     ) -> ConsumerQuotaOverrideResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dimensions_binding = args.dimensions.get_output(context).get_inner();
         let force_binding = args.force.get_output(context).get_inner();

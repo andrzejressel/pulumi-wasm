@@ -64,7 +64,7 @@ pub mod byte_match_set {
         name: &str,
         args: ByteMatchSetArgs,
     ) -> ByteMatchSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let byte_match_tuples_binding = args
             .byte_match_tuples

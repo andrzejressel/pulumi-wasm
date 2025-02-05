@@ -174,7 +174,7 @@ pub mod express_route_connection {
         name: &str,
         args: ExpressRouteConnectionArgs,
     ) -> ExpressRouteConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let authorization_key_binding = args
             .authorization_key

@@ -133,7 +133,7 @@ pub mod default_security_group {
         name: &str,
         args: DefaultSecurityGroupArgs,
     ) -> DefaultSecurityGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let egress_binding = args.egress.get_output(context).get_inner();
         let ingress_binding = args.ingress.get_output(context).get_inner();

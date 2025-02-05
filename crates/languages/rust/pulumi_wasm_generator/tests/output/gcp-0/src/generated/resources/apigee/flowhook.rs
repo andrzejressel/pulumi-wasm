@@ -73,7 +73,7 @@ pub mod flowhook {
         name: &str,
         args: FlowhookArgs,
     ) -> FlowhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let continue_on_error_binding = args
             .continue_on_error

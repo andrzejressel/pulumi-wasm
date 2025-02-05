@@ -75,7 +75,7 @@ pub mod notification {
         name: &str,
         args: NotificationArgs,
     ) -> NotificationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let group_names_binding = args.group_names.get_output(context).get_inner();
         let notifications_binding = args.notifications.get_output(context).get_inner();

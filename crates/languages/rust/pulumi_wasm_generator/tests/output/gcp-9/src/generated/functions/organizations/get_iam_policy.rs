@@ -45,7 +45,7 @@ pub mod get_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetIamPolicyArgs,
     ) -> GetIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let audit_configs_binding = args.audit_configs.get_output(context).get_inner();
         let bindings_binding = args.bindings.get_output(context).get_inner();

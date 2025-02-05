@@ -266,7 +266,7 @@ pub mod alert_policy {
         name: &str,
         args: AlertPolicyArgs,
     ) -> AlertPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alert_strategy_binding = args.alert_strategy.get_output(context).get_inner();
         let combiner_binding = args.combiner.get_output(context).get_inner();

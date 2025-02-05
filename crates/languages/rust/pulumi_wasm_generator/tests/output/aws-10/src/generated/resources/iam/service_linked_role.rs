@@ -79,7 +79,7 @@ pub mod service_linked_role {
         name: &str,
         args: ServiceLinkedRoleArgs,
     ) -> ServiceLinkedRoleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aws_service_name_binding = args
             .aws_service_name

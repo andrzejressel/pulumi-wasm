@@ -27,7 +27,7 @@ pub fn add_export<T>(name: &str, output: &Output<T>) {
 /// ```rust,no_run
 /// use std::error::Error;
 /// fn main() -> Result<(), Box<dyn Error>> {
-///     pulumi_wasm_build::generate("random", "4.15.0")?;
+///     pulumi_gestalt_rust_build::generate("random", "4.15.0")?;
 ///     Ok(())
 /// }
 /// ```

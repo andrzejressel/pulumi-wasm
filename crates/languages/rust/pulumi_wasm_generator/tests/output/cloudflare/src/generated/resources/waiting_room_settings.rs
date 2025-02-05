@@ -51,7 +51,7 @@ pub mod waiting_room_settings {
         name: &str,
         args: WaitingRoomSettingsArgs,
     ) -> WaitingRoomSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let search_engine_crawler_bypass_binding = args
             .search_engine_crawler_bypass

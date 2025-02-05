@@ -28,7 +28,7 @@ pub mod get_standards_control_associations {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetStandardsControlAssociationsArgs,
     ) -> GetStandardsControlAssociationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let security_control_id_binding = args
             .security_control_id

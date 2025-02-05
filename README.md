@@ -23,7 +23,7 @@ pulumi plugin install language wasm "VERSION" --server github://api.github.com/a
 #### Wasm Runner
 
 ```
-cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_wasm_runner@VERSION
+cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_gestalt_adapter_wasm_runner@VERSION
 ```
 
 ### Acknowledgements

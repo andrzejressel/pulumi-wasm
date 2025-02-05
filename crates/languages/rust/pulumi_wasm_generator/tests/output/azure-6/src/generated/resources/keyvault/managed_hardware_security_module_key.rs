@@ -141,7 +141,7 @@ pub mod managed_hardware_security_module_key {
         name: &str,
         args: ManagedHardwareSecurityModuleKeyArgs,
     ) -> ManagedHardwareSecurityModuleKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let curve_binding = args.curve.get_output(context).get_inner();
         let expiration_date_binding = args

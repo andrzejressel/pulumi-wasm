@@ -50,7 +50,7 @@ pub mod organization_admin_account_registration {
         name: &str,
         args: OrganizationAdminAccountRegistrationArgs,
     ) -> OrganizationAdminAccountRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let admin_account_id_binding = args
             .admin_account_id

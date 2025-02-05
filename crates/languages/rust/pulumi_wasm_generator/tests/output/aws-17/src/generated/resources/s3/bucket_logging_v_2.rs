@@ -115,7 +115,7 @@ pub mod bucket_logging_v_2 {
         name: &str,
         args: BucketLoggingV2Args,
     ) -> BucketLoggingV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args

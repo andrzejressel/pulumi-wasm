@@ -59,7 +59,7 @@ pub mod authorize_vpc_endpoint_access {
         name: &str,
         args: AuthorizeVpcEndpointAccessArgs,
     ) -> AuthorizeVpcEndpointAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let account_binding = args.account.get_output(context).get_inner();
         let domain_name_binding = args.domain_name.get_output(context).get_inner();

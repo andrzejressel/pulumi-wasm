@@ -297,7 +297,7 @@ pub mod interconnect {
         name: &str,
         args: InterconnectArgs,
     ) -> InterconnectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let admin_enabled_binding = args.admin_enabled.get_output(context).get_inner();
         let customer_name_binding = args.customer_name.get_output(context).get_inner();

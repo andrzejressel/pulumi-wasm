@@ -36,7 +36,7 @@ pub mod get_tag_value {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTagValueArgs,
     ) -> GetTagValueResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let parent_binding = args.parent.get_output(context).get_inner();
         let short_name_binding = args.short_name.get_output(context).get_inner();

@@ -49,7 +49,7 @@ pub mod get_role_management_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetRoleManagementPolicyArgs,
     ) -> GetRoleManagementPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let role_definition_id_binding = args
             .role_definition_id

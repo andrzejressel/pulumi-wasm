@@ -43,7 +43,7 @@ pub mod get_network_sim {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkSimArgs,
     ) -> GetNetworkSimResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mobile_network_sim_group_id_binding = args
             .mobile_network_sim_group_id

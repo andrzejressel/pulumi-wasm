@@ -70,7 +70,7 @@ pub mod domain_identity {
         name: &str,
         args: DomainIdentityArgs,
     ) -> DomainIdentityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let domain_binding = args.domain.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {

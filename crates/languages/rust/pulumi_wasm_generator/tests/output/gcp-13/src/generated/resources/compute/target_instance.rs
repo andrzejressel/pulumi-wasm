@@ -287,7 +287,7 @@ pub mod target_instance {
         name: &str,
         args: TargetInstanceArgs,
     ) -> TargetInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();

@@ -115,7 +115,7 @@ pub mod cache_policy {
         name: &str,
         args: CachePolicyArgs,
     ) -> CachePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let default_ttl_binding = args.default_ttl.get_output(context).get_inner();

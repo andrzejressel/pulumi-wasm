@@ -68,7 +68,7 @@ pub mod traffic_policy {
         name: &str,
         args: TrafficPolicyArgs,
     ) -> TrafficPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let document_binding = args.document.get_output(context).get_inner();

@@ -82,7 +82,7 @@ pub mod indexing_configuration {
         name: &str,
         args: IndexingConfigurationArgs,
     ) -> IndexingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let thing_group_indexing_configuration_binding = args
             .thing_group_indexing_configuration

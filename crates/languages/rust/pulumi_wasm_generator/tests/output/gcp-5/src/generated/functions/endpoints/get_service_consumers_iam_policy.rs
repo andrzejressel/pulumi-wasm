@@ -28,7 +28,7 @@ pub mod get_service_consumers_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetServiceConsumersIamPolicyArgs,
     ) -> GetServiceConsumersIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let consumer_project_binding = args
             .consumer_project

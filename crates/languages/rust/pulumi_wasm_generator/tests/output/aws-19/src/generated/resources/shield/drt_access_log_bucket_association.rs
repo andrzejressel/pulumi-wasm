@@ -70,7 +70,7 @@ pub mod drt_access_log_bucket_association {
         name: &str,
         args: DrtAccessLogBucketAssociationArgs,
     ) -> DrtAccessLogBucketAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let log_bucket_binding = args.log_bucket.get_output(context).get_inner();
         let role_arn_association_id_binding = args

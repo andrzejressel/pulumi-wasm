@@ -130,7 +130,7 @@ pub mod access_level {
         name: &str,
         args: AccessLevelArgs,
     ) -> AccessLevelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let basic_binding = args.basic.get_output(context).get_inner();
         let custom_binding = args.custom.get_output(context).get_inner();

@@ -29,7 +29,7 @@ pub mod get_containers {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetContainersArgs,
     ) -> GetContainersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
         let storage_account_id_binding = args

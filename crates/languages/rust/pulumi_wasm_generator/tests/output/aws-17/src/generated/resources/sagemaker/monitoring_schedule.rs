@@ -80,7 +80,7 @@ pub mod monitoring_schedule {
         name: &str,
         args: MonitoringScheduleArgs,
     ) -> MonitoringScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let monitoring_schedule_config_binding = args
             .monitoring_schedule_config

@@ -110,7 +110,7 @@ pub mod static_web_app_function_app_registration {
         name: &str,
         args: StaticWebAppFunctionAppRegistrationArgs,
     ) -> StaticWebAppFunctionAppRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let function_app_id_binding = args
             .function_app_id

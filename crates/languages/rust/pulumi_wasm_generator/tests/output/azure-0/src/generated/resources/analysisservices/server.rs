@@ -115,7 +115,7 @@ pub mod server {
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let admin_users_binding = args.admin_users.get_output(context).get_inner();
         let backup_blob_container_uri_binding = args

@@ -180,7 +180,7 @@ pub mod eventhub_data_connection {
         name: &str,
         args: EventhubDataConnectionArgs,
     ) -> EventhubDataConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let compression_binding = args.compression.get_output(context).get_inner();

@@ -131,7 +131,7 @@ pub mod default_object_access_control {
         name: &str,
         args: DefaultObjectAccessControlArgs,
     ) -> DefaultObjectAccessControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let entity_binding = args.entity.get_output(context).get_inner();

@@ -117,7 +117,7 @@ pub mod hci_cluster {
         name: &str,
         args: HciClusterArgs,
     ) -> HciClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automanage_configuration_id_binding = args
             .automanage_configuration_id

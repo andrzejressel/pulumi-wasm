@@ -48,7 +48,7 @@ pub mod attachment {
         name: &str,
         args: AttachmentArgs,
     ) -> AttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let elb_binding = args.elb.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();

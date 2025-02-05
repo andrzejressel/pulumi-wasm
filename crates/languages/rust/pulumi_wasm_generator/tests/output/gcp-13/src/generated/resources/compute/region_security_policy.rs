@@ -225,7 +225,7 @@ pub mod region_security_policy {
         name: &str,
         args: RegionSecurityPolicyArgs,
     ) -> RegionSecurityPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ddos_protection_config_binding = args
             .ddos_protection_config

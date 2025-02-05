@@ -140,7 +140,7 @@ pub mod nat_pool {
         name: &str,
         args: NatPoolArgs,
     ) -> NatPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backend_port_binding = args.backend_port.get_output(context).get_inner();
         let floating_ip_enabled_binding = args

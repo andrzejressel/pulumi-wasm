@@ -134,7 +134,7 @@ pub mod dataset_blob_storage {
         name: &str,
         args: DatasetBlobStorageArgs,
     ) -> DatasetBlobStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_name_binding = args.container_name.get_output(context).get_inner();
         let data_share_id_binding = args.data_share_id.get_output(context).get_inner();

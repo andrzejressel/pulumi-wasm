@@ -280,7 +280,7 @@ pub mod target {
         name: &str,
         args: TargetArgs,
     ) -> TargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let anthos_cluster_binding = args.anthos_cluster.get_output(context).get_inner();

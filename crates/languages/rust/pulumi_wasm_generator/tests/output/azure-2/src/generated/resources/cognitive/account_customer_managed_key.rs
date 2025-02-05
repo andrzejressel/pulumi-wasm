@@ -167,7 +167,7 @@ pub mod account_customer_managed_key {
         name: &str,
         args: AccountCustomerManagedKeyArgs,
     ) -> AccountCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cognitive_account_id_binding = args
             .cognitive_account_id

@@ -142,7 +142,7 @@ pub mod cluster_snapshot_copy {
         name: &str,
         args: ClusterSnapshotCopyArgs,
     ) -> ClusterSnapshotCopyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let copy_tags_binding = args.copy_tags.get_output(context).get_inner();
         let destination_region_binding = args

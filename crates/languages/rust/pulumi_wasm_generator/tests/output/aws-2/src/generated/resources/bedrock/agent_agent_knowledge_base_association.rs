@@ -86,7 +86,7 @@ pub mod agent_agent_knowledge_base_association {
         name: &str,
         args: AgentAgentKnowledgeBaseAssociationArgs,
     ) -> AgentAgentKnowledgeBaseAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let agent_id_binding = args.agent_id.get_output(context).get_inner();
         let agent_version_binding = args.agent_version.get_output(context).get_inner();

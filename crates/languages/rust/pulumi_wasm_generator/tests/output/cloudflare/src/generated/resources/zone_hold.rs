@@ -62,7 +62,7 @@ pub mod zone_hold {
         name: &str,
         args: ZoneHoldArgs,
     ) -> ZoneHoldResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let hold_binding = args.hold.get_output(context).get_inner();
         let hold_after_binding = args.hold_after.get_output(context).get_inner();

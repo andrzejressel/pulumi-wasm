@@ -250,7 +250,7 @@ pub mod patch_baseline {
         name: &str,
         args: PatchBaselineArgs,
     ) -> PatchBaselineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let approval_rules_binding = args.approval_rules.get_output(context).get_inner();
         let approved_patches_binding = args

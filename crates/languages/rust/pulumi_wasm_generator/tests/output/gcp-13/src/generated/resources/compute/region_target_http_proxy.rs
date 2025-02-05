@@ -284,7 +284,7 @@ pub mod region_target_http_proxy {
         name: &str,
         args: RegionTargetHttpProxyArgs,
     ) -> RegionTargetHttpProxyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let http_keep_alive_timeout_sec_binding = args

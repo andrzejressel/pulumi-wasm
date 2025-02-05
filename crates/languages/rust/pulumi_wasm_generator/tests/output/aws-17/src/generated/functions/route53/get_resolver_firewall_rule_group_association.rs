@@ -35,7 +35,7 @@ pub mod get_resolver_firewall_rule_group_association {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverFirewallRuleGroupAssociationArgs,
     ) -> GetResolverFirewallRuleGroupAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let firewall_rule_group_association_id_binding = args
             .firewall_rule_group_association_id

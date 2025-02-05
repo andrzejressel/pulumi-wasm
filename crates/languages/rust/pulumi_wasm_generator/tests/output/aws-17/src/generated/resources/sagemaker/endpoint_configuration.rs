@@ -126,7 +126,7 @@ pub mod endpoint_configuration {
         name: &str,
         args: EndpointConfigurationArgs,
     ) -> EndpointConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let async_inference_config_binding = args
             .async_inference_config

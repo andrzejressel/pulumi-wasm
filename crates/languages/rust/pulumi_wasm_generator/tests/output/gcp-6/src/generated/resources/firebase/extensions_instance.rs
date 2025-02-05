@@ -135,7 +135,7 @@ pub mod extensions_instance {
         name: &str,
         args: ExtensionsInstanceArgs,
     ) -> ExtensionsInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let config_binding = args.config.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();

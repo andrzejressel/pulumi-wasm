@@ -37,7 +37,7 @@ pub mod get_zone_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetZoneIamPolicyArgs,
     ) -> GetZoneIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dataplex_zone_binding = args.dataplex_zone.get_output(context).get_inner();
         let lake_binding = args.lake.get_output(context).get_inner();

@@ -63,7 +63,7 @@ pub mod get_traffic_policy_document {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetTrafficPolicyDocumentArgs,
     ) -> GetTrafficPolicyDocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let endpoints_binding = args.endpoints.get_output(context).get_inner();
         let record_type_binding = args.record_type.get_output(context).get_inner();

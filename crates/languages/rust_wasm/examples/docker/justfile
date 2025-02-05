@@ -1,5 +1,5 @@
 set windows-shell := ["pwsh.exe", "-c"]
-binary := "../../../../../target/release/pulumi_wasm_runner"
+binary := "../../../../../target/release/pulumi_gestalt_adapter_wasm_runner"
 wasm := "../../../../../target/wasm32-wasip1/release/pulumi_wasm_example_docker.wasm"
 pulumi_wasm := "../../../../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
 
@@ -16,7 +16,7 @@ local-test:
     $ErrorActionPreference = "Stop"
     $PSNativeCommandUseErrorActionPreference = $true
 
-    cargo build -p pulumi_wasm_runner --release
+    cargo build -p pulumi_gestalt_adapter_wasm_runner --release
     cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_docker --release
     $env:PULUMI_CONFIG_PASSPHRASE=" "

@@ -26,7 +26,7 @@ pub mod get_data_shares {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetDataSharesArgs,
     ) -> GetDataSharesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let data_shares_binding = args.data_shares.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

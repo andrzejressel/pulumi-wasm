@@ -61,7 +61,7 @@ pub mod tag_option {
         name: &str,
         args: TagOptionArgs,
     ) -> TagOptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let active_binding = args.active.get_output(context).get_inner();
         let key_binding = args.key.get_output(context).get_inner();

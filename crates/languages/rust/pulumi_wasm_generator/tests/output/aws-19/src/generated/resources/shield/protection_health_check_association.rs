@@ -89,7 +89,7 @@ pub mod protection_health_check_association {
         name: &str,
         args: ProtectionHealthCheckAssociationArgs,
     ) -> ProtectionHealthCheckAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let health_check_arn_binding = args
             .health_check_arn

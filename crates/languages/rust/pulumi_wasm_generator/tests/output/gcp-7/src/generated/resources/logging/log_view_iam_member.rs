@@ -453,7 +453,7 @@ pub mod log_view_iam_member {
         name: &str,
         args: LogViewIamMemberArgs,
     ) -> LogViewIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let condition_binding = args.condition.get_output(context).get_inner();

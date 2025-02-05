@@ -25,7 +25,7 @@ pub mod get_plan {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetPlanArgs,
     ) -> GetPlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let contact_id_binding = args.contact_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

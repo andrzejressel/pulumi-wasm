@@ -534,7 +534,7 @@ interface register-interface {
     invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> register-output;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         } }
     );
 }

@@ -220,7 +220,7 @@ pub mod global_address {
         name: &str,
         args: GlobalAddressArgs,
     ) -> GlobalAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let address_binding = args.address.get_output(context).get_inner();
         let address_type_binding = args.address_type.get_output(context).get_inner();

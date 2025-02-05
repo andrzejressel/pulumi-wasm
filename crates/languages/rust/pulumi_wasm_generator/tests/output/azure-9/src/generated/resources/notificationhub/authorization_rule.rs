@@ -121,7 +121,7 @@ pub mod authorization_rule {
         name: &str,
         args: AuthorizationRuleArgs,
     ) -> AuthorizationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let listen_binding = args.listen.get_output(context).get_inner();
         let manage_binding = args.manage.get_output(context).get_inner();

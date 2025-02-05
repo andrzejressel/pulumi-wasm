@@ -311,7 +311,7 @@ pub mod flow_log {
         name: &str,
         args: FlowLogArgs,
     ) -> FlowLogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let deliver_cross_account_role_binding = args
             .deliver_cross_account_role

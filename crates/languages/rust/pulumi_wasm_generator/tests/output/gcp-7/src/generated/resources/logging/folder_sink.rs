@@ -152,7 +152,7 @@ pub mod folder_sink {
         name: &str,
         args: FolderSinkArgs,
     ) -> FolderSinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bigquery_options_binding = args
             .bigquery_options

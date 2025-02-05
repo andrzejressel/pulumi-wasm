@@ -86,7 +86,7 @@ pub mod ai_feature_store_iam_policy {
         name: &str,
         args: AiFeatureStoreIamPolicyArgs,
     ) -> AiFeatureStoreIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let featurestore_binding = args.featurestore.get_output(context).get_inner();
         let policy_data_binding = args.policy_data.get_output(context).get_inner();

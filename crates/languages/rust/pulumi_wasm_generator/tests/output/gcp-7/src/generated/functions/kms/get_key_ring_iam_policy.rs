@@ -28,7 +28,7 @@ pub mod get_key_ring_iam_policy {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetKeyRingIamPolicyArgs,
     ) -> GetKeyRingIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let key_ring_id_binding = args.key_ring_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

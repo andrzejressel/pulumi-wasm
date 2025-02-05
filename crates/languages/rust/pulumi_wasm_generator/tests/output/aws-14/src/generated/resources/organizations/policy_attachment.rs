@@ -95,7 +95,7 @@ pub mod policy_attachment {
         name: &str,
         args: PolicyAttachmentArgs,
     ) -> PolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let policy_id_binding = args.policy_id.get_output(context).get_inner();
         let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();

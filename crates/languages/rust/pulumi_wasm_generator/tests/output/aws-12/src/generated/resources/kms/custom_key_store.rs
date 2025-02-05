@@ -65,7 +65,7 @@ pub mod custom_key_store {
         name: &str,
         args: CustomKeyStoreArgs,
     ) -> CustomKeyStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cloud_hsm_cluster_id_binding = args
             .cloud_hsm_cluster_id

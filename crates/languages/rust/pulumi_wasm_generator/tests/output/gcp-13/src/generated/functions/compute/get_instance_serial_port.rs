@@ -39,7 +39,7 @@ pub mod get_instance_serial_port {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetInstanceSerialPortArgs,
     ) -> GetInstanceSerialPortResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let port_binding = args.port.get_output(context).get_inner();

@@ -64,7 +64,7 @@ pub mod get_file_system {
         context: &pulumi_wasm_rust::PulumiContext,
         args: GetFileSystemArgs,
     ) -> GetFileSystemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_wasm_rust::__private::pulumi_gestalt_adapter_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let creation_token_binding = args.creation_token.get_output(context).get_inner();
         let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
