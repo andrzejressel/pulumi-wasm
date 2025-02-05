@@ -202,13 +202,16 @@ fn {method_name}() -> Result<()> {{
     let end_marker = "// DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
-    fs::write("pulumi_wasm_generator/tests/test.rs", new_content)
-        .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
+    fs::write(
+        "crates/languages/rust/pulumi_wasm_generator/tests/test.rs",
+        new_content,
+    )
+    .expect("Failed to write to crates/languages/rust/pulumi_wasm_generator/tests/test.rs");
 }
 
 fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &[FilteredTest]) {
-    let content =
-        fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
+    let content = fs::read_to_string("crates/languages/rust/pulumi_wasm_generator/Cargo.toml")
+        .expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
     for test in tests {
         replacement.push_str(&format!("generator_{} = []\n", test))
@@ -225,8 +228,11 @@ fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &[FilteredTest]) 
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-    fs::write("pulumi_wasm_generator/Cargo.toml", new_content)
-        .expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
+    fs::write(
+        "crates/languages/rust/pulumi_wasm_generator/Cargo.toml",
+        new_content,
+    )
+    .expect("Failed to write to crates/languages/rust/pulumi_wasm_generator/Cargo.toml");
 }
 
 fn replace_between_markers(
