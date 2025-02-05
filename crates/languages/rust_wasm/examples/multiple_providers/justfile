@@ -1,7 +1,7 @@
 set windows-shell := ["pwsh.exe", "-c"]
-binary := "../../target/release/pulumi_wasm_runner"
-wasm := "../../target/wasm32-wasip1/release/pulumi_wasm_example_multiple_providers.wasm"
-pulumi_wasm := "../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
+binary := "../../../../../target/release/pulumi_wasm_runner"
+wasm := "../../../../../target/wasm32-wasip1/release/pulumi_wasm_example_multiple_providers.wasm"
+pulumi_wasm := "../../../../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
 
 run:
     {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" "{{wasm}}"
