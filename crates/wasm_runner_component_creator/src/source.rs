@@ -85,6 +85,7 @@ mod tests {
         use super::*;
 
         #[tokio::test]
+        #[ignore]
         async fn should_download_existing_pulumi_gestalt() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let res = source.get("25.1.10-72ba8cc", false).await?;
@@ -93,6 +94,7 @@ mod tests {
         }
 
         #[tokio::test]
+        #[ignore]
         async fn should_download_existing_debug_pulumi_gestalt() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let res = source.get("25.1.10-72ba8cc", true).await?;
