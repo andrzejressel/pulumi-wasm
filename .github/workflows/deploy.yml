@@ -463,6 +463,6 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
-            ./pulumi_native_c/pulumi_native.h
+            ./crates/c_ffi/pulumi_native.h
             ./crates/wit/wit/world.wit
             ./crates/wit/wit/deps/pulumi-wasm-external.wit
