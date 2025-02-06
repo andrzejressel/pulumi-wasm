@@ -4,7 +4,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project ("PulumiNativeCPP")
 
-include_directories(${CMAKE_SOURCE_DIR}/../../pulumi_native_c)
+include_directories(${CMAKE_SOURCE_DIR}/../../crates/c_ffi)
 
 add_executable (PulumiNativeCPP "main.cpp")
 set_property(TARGET PulumiNativeCPP PROPERTY CXX_STANDARD 20)
